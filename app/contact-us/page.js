@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { Phone, Mail, MessageCircle } from "lucide-react";
-import WhatsAppButton from "../components/WhatsAppButton";
+import { Phone, Mail } from "lucide-react";
 
 export const metadata = {
 title: "Contact Us - ExpertResume | AI Resume Builder for US Jobs",
@@ -88,17 +87,6 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* WhatsApp */}
-              <div className="flex items-center gap-4 p-4 bg-[#F8FAFC] rounded-lg border border-[#E5E7EB]">
-                <div className="w-12 h-12 bg-[#0D9488]/10 rounded-full flex items-center justify-center">
-                  <MessageCircle className="w-6 h-6 text-[#0D9488]" />
-                </div>
-                <div className="flex-1">
-                  <p className="font-medium text-gray-800">WhatsApp Chat</p>
-                  <p className="text-sm text-gray-600 mb-2">Get instant help via WhatsApp</p>
-                  <WhatsAppButton />
-                </div>
-              </div>
             </div>
           </div>
 
