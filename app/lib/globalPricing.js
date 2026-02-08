@@ -94,7 +94,7 @@ const calculateEnterprisePrices = () => {
 const GLOBAL_PRICES = calculateGlobalPrices();
 // Override USD prices to use original prices from PLAN_CONFIG for discount display
 // These are the original prices before 10% discount is applied
-GLOBAL_PRICES.USD.oneDay = PLAN_CONFIG.oneDay.price.USD;      // $5.99 (original price, 10% discount will be applied)
+GLOBAL_PRICES.USD.oneDay = PLAN_CONFIG.oneDay.price.USD;      // $9.99 (original price, 10% discount will be applied)
 GLOBAL_PRICES.USD.basic = PLAN_CONFIG.basic.price.USD;        // $13.99 (original price, 10% discount will be applied)
 GLOBAL_PRICES.USD.monthly = PLAN_CONFIG.monthly.price.USD;    // $24.99 (original price, 10% discount will be applied)
 GLOBAL_PRICES.USD.quarterly = PLAN_CONFIG.quarterly.price.USD;  // $44.99 (original price, 10% discount will be applied)

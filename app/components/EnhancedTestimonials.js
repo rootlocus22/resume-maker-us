@@ -37,7 +37,7 @@ export default function EnhancedTestimonials() {
       name: "Amit Kumar",
       role: "Data Scientist",
       company: "Accenture",
-      comment: "The resume parser saved me hours of work. I just uploaded my old resume and it automatically filled everything. Then I used the ATS checker and improved my score from 45% to 89%. Worth every rupee!",
+      comment: "The resume parser saved me hours of work. I just uploaded my old resume and it automatically filled everything. Then I used the ATS checker and improved my score from 45% to 89%. Worth every dollar!",
       rating: 5,
       result: "ATS score 45% → 89%"
     },

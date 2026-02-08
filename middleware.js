@@ -80,8 +80,8 @@ export function middleware(request) {
     const trustedDomains = [
       'localhost',
       '127.0.0.1',
-      'stage.resumegyani.com',
-      'resumegyani.in'
+      'expertresume.us',
+      'www.expertresume.us'
     ];
 
     // Check if request is from the application (not direct access)

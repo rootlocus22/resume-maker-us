@@ -624,7 +624,7 @@ export default function FeaturesPage() {
                       <br />• Custom color themes
                       <br />• Basic PDF export
                       <br />
-                      No hidden fees, no time limits. You can create professional resumes forever without paying a single rupee.
+                      No hidden fees, no time limits. You can create professional resumes forever without paying a cent.
                     </p>
                   </div>
                 </div>

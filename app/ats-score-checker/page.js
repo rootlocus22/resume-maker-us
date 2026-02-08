@@ -1,8 +1,8 @@
 import ATSCheckerWrapper from "./ATSCheckerWrapper";
 import Link from "next/link";
 import ScrollToTopButton from "./ScrollToTopButton";
-import EnglishGyaniATSWidget from "../components/crosssell/EnglishGyaniATSWidget";
-import { Bot, Target, FileText } from "lucide-react";
+
+import { Bot } from "lucide-react";
 
 export const metadata = {
   title: "Free ATS Score Checker (2026) – 1-Minute Resume Scan for US Jobs",
@@ -167,49 +167,9 @@ export default function ATSScoreCheckerPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Hero – same theme as home (navy + teal) */}
-      <section className="relative bg-gradient-to-br from-[#050F20] via-[#0B1F3B] to-[#071429] text-white py-6 sm:py-8 overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden opacity-20">
-          <div className="absolute top-8 left-8 w-20 h-20 sm:w-24 sm:h-24 bg-[#00C4B3]/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-8 right-8 w-24 h-24 sm:w-32 sm:h-32 bg-[#00C4B3]/15 rounded-full blur-3xl" />
-        </div>
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded-full mb-3 text-xs font-medium">
-                <Target size={14} className="text-[#00C4B3]" />
-                <span>Free ATS Scan</span>
-              </div>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
-                See how <span className="text-[#00C4B3]">US ATS systems</span> read your resume.
-              </h1>
-              <p className="mt-2 text-sm sm:text-base text-gray-200 max-w-xl">
-                Beat applicant tracking systems and get more interviews — get your free score in 60 seconds. Built for the US job market.
-              </p>
-              <p className="mt-3 text-xs sm:text-sm text-gray-400">
-                Need to build a resume?{" "}
-                <Link href="/resume-builder" className="text-[#00C4B3] hover:text-[#00C4B3]/90 underline underline-offset-2">
-                  Start from scratch
-                </Link>
-                {" "}or{" "}
-                <Link href="/upload-resume" className="text-[#00C4B3] hover:text-[#00C4B3]/90 underline underline-offset-2">
-                  upload to optimize
-                </Link>
-                .
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Main content */}
       <div className="flex-1 bg-[#F8FAFC] flex flex-col items-center p-4 md:p-8 relative">
         <ATSCheckerWrapper />
-
-        {/* EnglishGyani Cross-sell */}
-        <div className="max-w-5xl mx-auto mb-16 w-full">
-          <EnglishGyaniATSWidget />
-        </div>
 
       <section className="w-full max-w-5xl mt-8 space-y-16">
 

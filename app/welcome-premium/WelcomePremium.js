@@ -181,7 +181,7 @@ export default function WelcomePremium({ plan, billingCycle, source, amount, cur
       { icon: <Zap size={18} />, text: "Unlimited Resume Downloads" }
     ])),
     ...(plan === "interview_gyani" ? [
-      { icon: <Zap size={18} />, text: "24/7 Priority Support" },
+      { icon: <Zap size={18} />, text: "24/7 Email & Chat Support" },
       { icon: <Target size={18} />, text: "Job-Specific Prep Logic" }
     ] : (billingCycle === "yearly" ? [
       { icon: <Rocket size={18} />, text: "Unlimited AI Enhancement" },

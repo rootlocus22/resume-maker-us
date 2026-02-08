@@ -242,7 +242,6 @@ function DashboardContent() {
               { href: isPremium ? "/salary-analyzer" : "/pricing", icon: TrendingUp, label: "Salary Analyzer", color: "green", premium: true },
               { href: isPremium ? "/expertresume-chat" : "/pricing", icon: Sparkles, label: "ExpertResume GPT", color: "blue", premium: true, new: isPremium },
               { href: "/cover-letter-builder", icon: FileText, label: "Cover Letter", color: "indigo" },
-              { href: "https://www.englishgyani.com", icon: Mic, label: "EnglishGyani", color: "green", new: true, external: true },
               { href: "/feature-requests", icon: Lightbulb, label: "Feature Requests", color: "yellow", new: true },
               { href: "/share-feedback", icon: MessageSquare, label: "Share Feedback", color: "blue" },
             ].map((item, index) => {

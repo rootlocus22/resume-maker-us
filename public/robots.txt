@@ -1,4 +1,4 @@
-# robots.txt for ResumeGyani - Optimized for SEO
+# robots.txt for ExpertResume (US) - Optimized for SEO
 
 # Allow all good bots
 User-agent: *
@@ -125,11 +125,8 @@ User-agent: BLEXBot
 Disallow: /
 
 # Sitemap location
-Sitemap: https://resumegyani.in/sitemap.xml
-Sitemap: https://resumegyani.in/sitemap-us.xml
-Sitemap: https://resumegyani.in/sitemap-uk.xml
-Sitemap: https://resumegyani.in/sitemap-interview-global.xml
+Sitemap: https://expertresume.us/sitemap.xml
 
 # Additional info
-# Host: https://resumegyani.in
-# Contact: support@resumegyani.com
+# Host: https://expertresume.us
+# Contact: support@vendaxsystemlabs.com

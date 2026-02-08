@@ -328,7 +328,7 @@ const ExitIntentDiscountPopup = ({
                   "Unlimited PDF Downloads", 
                   "AI Resume Optimization",
                   "Cover Letter Generator",
-                  "24/7 Priority Support"
+                  "24/7 Email & Chat Support"
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center gap-3 bg-gray-50 rounded-lg px-3 py-2">
                     <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>

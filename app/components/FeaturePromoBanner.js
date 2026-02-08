@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { FileText, MessageSquare, Briefcase, TrendingUp, GraduationCap, ChevronRight, ChevronLeft } from 'lucide-react';
+import { FileText, MessageSquare, Briefcase, TrendingUp, ChevronRight, ChevronLeft } from 'lucide-react';
 
 const features = [
     {
@@ -54,17 +54,6 @@ const features = [
         href: '/career-coach',
         gradient: 'from-indigo-500 to-blue-600',
         bgGradient: 'from-indigo-50 to-blue-50'
-    },
-    {
-        id: 'english-gyani',
-        title: 'EnglishGyani',
-        description: 'Master spoken English for job interviews and workplace',
-        benefit: 'Speak confidently in interviews and meetings - impress employers',
-        icon: GraduationCap,
-        href: 'https://www.englishgyani.com/?source=expertresume&medium=promo_banner&campaign=feature_rotation',
-        gradient: 'from-teal-500 to-cyan-600',
-        bgGradient: 'from-teal-50 to-cyan-50',
-        external: true
     },
     {
         id: 'ats-checker',

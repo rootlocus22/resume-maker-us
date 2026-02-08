@@ -563,8 +563,8 @@ export default function Pricing() {
         { icon: <DollarSign size={18} className="text-purple-600" />, text: "Salary Analyzer", isPremium: true, isHighlighted: true },
         { icon: <Rocket size={18} className="text-teal-600" />, text: "AI Career Coach - 6 Month Roadmap", isPremium: true, isHighlighted: true },
         { icon: <Zap size={18} />, text: "Unlimited Downloads", isHighlighted: true },
-        { icon: <Phone size={18} className="text-green-600" />, text: "24/7 Call Support", isPremium: true, isHighlighted: true },
-        { icon: <Users size={18} className="text-emerald-600" />, text: "Personal Handholding", isPremium: true, isHighlighted: true },
+        { icon: <Phone size={18} className="text-green-600" />, text: "24/7 Email & Chat Support", isPremium: true, isHighlighted: true },
+        { icon: <Users size={18} className="text-emerald-600" />, text: "Personalized Career Guidance", isPremium: true, isHighlighted: true },
         { icon: <Upload size={18} className="text-purple-600" />, text: "AI Upload Resume (1-Min)", isPremium: true, isHighlighted: true },
         { icon: <Crown size={18} className="text-yellow-600" />, text: "Priority Support", isPremium: true, isHighlighted: true },
         { icon: <Rocket size={18} className="text-orange-600" />, text: "Advanced Analytics", isPremium: true, isHighlighted: true },
@@ -592,8 +592,8 @@ export default function Pricing() {
         { icon: <DollarSign size={18} className="text-purple-600" />, text: "Salary Analyzer", isPremium: true, isHighlighted: true },
         { icon: <Rocket size={18} className="text-teal-600" />, text: "AI Career Coach - 3 Month Roadmap", isPremium: true, isHighlighted: true },
         { icon: <Zap size={18} />, text: "Unlimited Downloads for 3 Months", isHighlighted: true },
-        { icon: <Phone size={18} className="text-green-600" />, text: "24/7 Call Support", isPremium: true, isHighlighted: true },
-        { icon: <Users size={18} className="text-emerald-600" />, text: "Personal Handholding", isPremium: true, isHighlighted: true },
+        { icon: <Phone size={18} className="text-green-600" />, text: "24/7 Email & Chat Support", isPremium: true, isHighlighted: true },
+        { icon: <Users size={18} className="text-emerald-600" />, text: "Personalized Career Guidance", isPremium: true, isHighlighted: true },
         { icon: <Upload size={18} className="text-purple-600" />, text: "AI Upload Resume (1-Min)", isPremium: true, isHighlighted: true },
         { icon: <Crown size={18} className="text-yellow-600" />, text: "Priority Support", isPremium: true, isHighlighted: true },
         { icon: <Rocket size={18} className="text-orange-600" />, text: "Advanced Analytics", isPremium: true, isHighlighted: true },
@@ -621,8 +621,8 @@ export default function Pricing() {
         { icon: <DollarSign size={18} className="text-purple-600" />, text: "Salary Analyzer", isPremium: true, isHighlighted: true },
         { icon: <Rocket size={18} className="text-teal-600" />, text: "AI Career Coach - 6 Month Roadmap", isPremium: true, isHighlighted: true },
         { icon: <Zap size={18} />, text: "Unlimited Downloads for 6 Months", isHighlighted: true },
-        { icon: <Phone size={18} className="text-green-600" />, text: "24/7 Call Support", isPremium: true, isHighlighted: true },
-        { icon: <Users size={18} className="text-emerald-600" />, text: "Personal Handholding", isPremium: true, isHighlighted: true },
+        { icon: <Phone size={18} className="text-green-600" />, text: "24/7 Email & Chat Support", isPremium: true, isHighlighted: true },
+        { icon: <Users size={18} className="text-emerald-600" />, text: "Personalized Career Guidance", isPremium: true, isHighlighted: true },
         { icon: <Upload size={18} className="text-purple-600" />, text: "AI Upload Resume (1-Min)", isPremium: true, isHighlighted: true },
         { icon: <Crown size={18} className="text-yellow-600" />, text: "Priority Support", isPremium: true, isHighlighted: true },
         { icon: <Rocket size={18} className="text-orange-600" />, text: "Advanced Analytics", isPremium: true, isHighlighted: true },
@@ -862,11 +862,15 @@ export default function Pricing() {
                             </li>
                             <li className="flex items-start gap-3 text-sm text-gray-600">
                               <CheckCircle size={18} className="text-gray-400 mt-0.5 shrink-0" />
-                              <span>Basic Templates Only</span>
+                              <span>50+ Premium Templates</span>
                             </li>
                             <li className="flex items-start gap-3 text-sm text-gray-600">
                               <CheckCircle size={18} className="text-gray-400 mt-0.5 shrink-0" />
-                              <span>No AI Features</span>
+                              <span>AI Suggestions & ATS Checker</span>
+                            </li>
+                            <li className="flex items-start gap-3 text-sm text-gray-600">
+                              <CheckCircle size={18} className="text-gray-400 mt-0.5 shrink-0" />
+                              <span>AI Bullet Points & Cover Letter Builder</span>
                             </li>
                           </ul>
                         </div>
@@ -1183,7 +1187,7 @@ export default function Pricing() {
                 </div>
                 <div className="bg-white/95 backdrop-blur-lg rounded-2xl p-6 shadow-lg border-2 border-emerald-500 relative">
                   <div className="absolute top-0 right-0 bg-emerald-600 text-white text-xs font-bold px-2 py-1 rounded-bl-lg rounded-tr-lg">
-                    WITH RESUMEGYANI
+                    WITH EXPERTRESUME
                   </div>
                   <h3 className="font-semibold text-gray-800 mb-4">With ExpertResume</h3>
                   <div className="space-y-4">

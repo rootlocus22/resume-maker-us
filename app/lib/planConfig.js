@@ -59,11 +59,11 @@ export const PLAN_CONFIG = {
     name: "Quick Start",
     price: {
       INR: 19900,  // ₹199
-      USD: 1400    // $5.99
+      USD: 999     // $9.99
     },
     anchorPrice: {
       INR: 39900, // ₹399
-      USD: 1400
+      USD: 1299   // $12.99
     },
     duration: 3,  // 3 days access
     downloads: 2, // 3 downloads
@@ -91,11 +91,11 @@ export const PLAN_CONFIG = {
     name: "Starter (Sachet Pack)",
     price: {
       INR: 19900,  // ₹199
-      USD: 1400    // $13.99
+      USD: 1399    // $13.99
     },
     anchorPrice: {
       INR: 39900, // ₹399
-      USD: 1400
+      USD: 1699   // $16.99
     },
     duration: 7,  // 7 days access
     downloads: 5, // 5 downloads
@@ -138,8 +138,8 @@ export const PLAN_CONFIG = {
       "JD Builder - Tailor to Any Job",
       "ExpertResume GPT",
       "Salary Analyzer",
-      "24/7 Call Support",
-      "Personal Handholding",
+      "24/7 Email & Chat Support",
+      "Personalized Career Guidance",
       "AI Upload Resume (1-Min)",
       "Priority Support",
       "Advanced Analytics",
@@ -172,8 +172,8 @@ export const PLAN_CONFIG = {
       "ExpertResume GPT",
       "Salary Analyzer",
       "AI Career Coach - 3 Month Roadmap",
-      "24/7 Call Support",
-      "Personal Handholding",
+      "24/7 Email & Chat Support",
+      "Personalized Career Guidance",
       "AI Upload Resume (1-Min)",
       "Priority Support",
       "Advanced Analytics"
@@ -207,8 +207,8 @@ export const PLAN_CONFIG = {
       "ExpertResume GPT",
       "Salary Analyzer",
       "AI Career Coach - 6 Month Roadmap",
-      "24/7 Call Support",
-      "Personal Handholding",
+      "24/7 Email & Chat Support",
+      "Personalized Career Guidance",
       "AI Upload Resume (1-Min)",
       "Priority Support",
       "Advanced Analytics"

@@ -160,7 +160,7 @@ export default function BookResumeServicePage() {
       role: "Finance Director",
       company: "Fortune 500",
       rating: 5,
-      text: "The personal branding strategy helped me stand out at director level. Worth every rupee for senior professionals.",
+      text: "The personal branding strategy helped me stand out at director level. Worth every dollar for senior professionals.",
       salary: "₹22L → ₹38L",
       image: "👩‍💼",
       executive: true
@@ -191,7 +191,7 @@ export default function BookResumeServicePage() {
       role: "Sales Manager",
       company: "HDFC Bank",
       rating: 5,
-      text: "Worth every rupee! Professional service and quick turnaround.",
+      text: "Worth every dollar! Professional service and quick turnaround.",
       salary: "₹8L",
       image: "👨‍💼"
     },

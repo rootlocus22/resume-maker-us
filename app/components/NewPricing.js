@@ -58,8 +58,8 @@ export default function NewPricing() {
         "Salary Analyzer",
         "AI Career Coach - 6 Month Roadmap",
         "Unlimited Downloads",
-        "24/7 Call Support",
-        "Personal Handholding",
+        "24/7 Email & Chat Support",
+        "Personalized Career Guidance",
         "AI Upload Resume (1-Min)",
         "Priority Support",
         "Advanced Analytics"
@@ -83,8 +83,8 @@ export default function NewPricing() {
         "Salary Analyzer",
         "AI Career Coach - 6 Month Roadmap",
         "Unlimited Downloads",
-        "24/7 Call Support",
-        "Personal Handholding",
+        "24/7 Email & Chat Support",
+        "Personalized Career Guidance",
         "AI Upload Resume (1-Min)",
         "Priority Support",
         "Advanced Analytics"
@@ -108,8 +108,8 @@ export default function NewPricing() {
         "Salary Analyzer",
         "AI Career Coach - 6 Month Roadmap",
         "Unlimited Downloads",
-        "24/7 Call Support",
-        "Personal Handholding",
+        "24/7 Email & Chat Support",
+        "Personalized Career Guidance",
         "AI Upload Resume (1-Min)",
         "Priority Support",
         "Advanced Analytics"
