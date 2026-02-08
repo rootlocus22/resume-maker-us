@@ -356,11 +356,11 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3 sm:gap-6">
                 <div className="flex items-center gap-2 sm:gap-6 text-xs sm:text-sm text-gray-300">
-                  <span>AI-Powered Resume Builder</span>
+                  <span>Resume + Jobs + Interviews</span>
                   <span className="hidden sm:inline">•</span>
-                  <span>ATS-Friendly Templates</span>
+                  <span>One Platform</span>
                   <span className="hidden sm:inline">•</span>
-                  <span>Trusted Worldwide</span>
+                  <span>From Resume to Job Offer</span>
                 </div>
                 <button
                   onClick={() => setIsExpanded(!isExpanded)}
@@ -673,11 +673,11 @@ export default function Footer() {
               </a>
             </div>
             <div className="flex items-center gap-6 text-sm text-gray-300">
-              <span>AI-Powered Resume Builder</span>
+              <span>Resume + Jobs + Interviews</span>
               <span className="hidden md:inline">•</span>
-              <span>ATS-Friendly Templates</span>
+              <span>One Platform</span>
               <span className="hidden md:inline">•</span>
-              <span>Trusted Worldwide</span>
+              <span>From Resume to Job Offer</span>
             </div>
           </div>
         </div>

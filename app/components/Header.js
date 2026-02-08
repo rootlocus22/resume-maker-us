@@ -187,6 +187,14 @@ export default function Header() {
           badgeColor: "bg-gradient-to-r from-purple-500 to-indigo-500"
         },
         {
+          href: "/resume-examples",
+          label: "Resume Examples",
+          icon: BookOpen,
+          description: "Browse 30+ job-specific examples",
+          badgeText: "New",
+          badgeColor: "bg-gradient-to-r from-blue-500 to-indigo-500"
+        },
+        {
           href: "/cover-letter-builder",
           label: "Cover Letter Builder",
           icon: FileEdit,
@@ -578,7 +586,7 @@ export default function Header() {
             >
               <img
                 src="/ExpertResume.png"
-                alt="ExpertResume - AI Resume Builder"
+                alt="ExpertResume - Resume to Job Offer Career Platform"
                 width={180}
                 height={48}
                 fetchPriority="high"
@@ -975,7 +983,7 @@ export default function Header() {
             >
               <img
                 src="/ExpertResume.png"
-                alt="ExpertResume - AI Resume Builder"
+                alt="ExpertResume - Resume to Job Offer Career Platform"
                 width={160}
                 height={44}
                 fetchPriority="high"

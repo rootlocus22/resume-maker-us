@@ -151,19 +151,19 @@ export default function CareerJourney() {
         {/* Section Header */}
         <div className={`text-center mb-16 lg:mb-20 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 px-4 py-2 rounded-full text-sm font-semibold text-indigo-600 mb-4">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-50 to-accent-50 border border-primary-200 px-4 py-2 rounded-full text-sm font-semibold text-primary-700 mb-4">
             <Rocket className="w-4 h-4" />
-            END-TO-END CAREER TOOL
+            THE ONLY ALL-IN-ONE CAREER PLATFORM
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4">
-            Launch Your Career into{" "}
-            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 bg-clip-text text-transparent">
-              Rocket Mode
+            From Resume to{" "}
+            <span className="bg-gradient-to-r from-primary-600 via-accent-600 to-primary-600 bg-clip-text text-transparent">
+              Job Offer
             </span>
+            {" "}— All in One
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            ExpertResume isn't just a resume builder—it's your complete career transformation platform.
-            From planning to landing your dream job, we guide you every step of the way.
+            Other tools build resumes. ExpertResume gets you hired. Build your resume, find matching jobs, practice interviews with AI, and land offers — all without switching platforms.
           </p>
         </div>
 
@@ -274,22 +274,21 @@ export default function CareerJourney() {
 
             {/* Content */}
             <div className="relative text-center text-gray-900">
-              <div className="inline-flex items-center gap-2 bg-blue-200/50 backdrop-blur-sm border border-blue-300/50 px-4 py-2 rounded-full text-sm font-bold mb-6 text-blue-800">
+              <div className="inline-flex items-center gap-2 bg-primary-100/60 backdrop-blur-sm border border-primary-200/50 px-4 py-2 rounded-full text-sm font-bold mb-6 text-primary-800">
                 <Trophy className="w-4 h-4" />
-                COMPLETE CAREER TRANSFORMATION
+                RESUME + JOB SEARCH + INTERVIEW PREP
               </div>
 
               <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-gray-900">
-                Get Everything You Need for Just{" "}
-                <span className="bg-gradient-to-r from-yellow-500 to-amber-500 bg-clip-text text-transparent">
+                Everything to Get Hired for Just{" "}
+                <span className="bg-gradient-to-r from-accent-500 to-accent-700 bg-clip-text text-transparent">
                   {formatPrice(sixMonthPrice, currency)}
                 </span>
               </h3>
 
               <p className="text-lg sm:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Our <strong>Pro 6-Month Plan</strong> gives you unlimited access to all features -
-                resume building, career coaching, JD-based customization, interview training, and more.
-                Everything you need to transform your career in 6 months.
+                Most people pay $100+/mo for separate resume, ATS, interview, and job search tools.
+                Our <strong>Pro Plan</strong> gives you all of them in one platform — for a fraction of the cost.
               </p>
 
               {/* Features Grid */}

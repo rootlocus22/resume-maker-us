@@ -17,7 +17,6 @@ export default function HomePageLazyContent() {
             <NewFeatures />
             <ProfessionalTemplateSlider />
             <ResumeIssues />
-            <ResumeIssues />
             <CareerJourney />
             <NewPricing />
             <EnhancedTestimonials />

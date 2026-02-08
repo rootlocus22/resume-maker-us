@@ -8,12 +8,17 @@ import HomePageLazyContent from "./components/HomePageLazyContent";
 // ... metadata remains the same ...
 
 export const metadata = {
-  title: "ExpertResume | AI Resume Builder for US Jobs – ATS-Optimized in Minutes",
-  description: "AI-powered resume optimization for the US job market. Get past ATS, match job descriptions, and get more interviews. Trusted by professionals applying to top US companies.",
+  title: "ExpertResume | Resume Builder + Job Search + AI Interview Prep — All in One",
+  description: "The only career platform that takes you from resume to job offer. Build ATS-perfect resumes, search 20+ job boards, practice with AI mock interviews, and land your dream job. Free to start.",
   keywords: [
     "resume builder",
+    "AI resume builder",
     "ATS resume checker",
     "resume optimizer",
+    "job search tool",
+    "AI interview practice",
+    "mock interview",
+    "career toolkit",
     "US job market",
     "resume for software engineer",
     "resume for data analyst",
@@ -22,7 +27,9 @@ export const metadata = {
     "resume score",
     "professional resume",
     "resume templates",
-    "AI resume builder",
+    "job tracker",
+    "job application tracker",
+    "career platform",
   ],
   authors: [{ name: "ExpertResume" }],
   creator: "ExpertResume",
@@ -48,8 +55,8 @@ export const metadata = {
     }
   },
   openGraph: {
-    title: "ExpertResume | AI Resume Builder for US Jobs",
-    description: "Get past ATS. Optimize for each job description. Get more interviews. Trusted by professionals applying in the US.",
+    title: "ExpertResume | Resume to Job Offer — All in One Career Platform",
+    description: "Build ATS-perfect resumes, search jobs across 20+ boards, practice AI mock interviews, and get hired. The complete career toolkit for US professionals.",
     url: "https://expertresume.us",
     siteName: "ExpertResume",
     locale: "en_US",
@@ -69,8 +76,8 @@ export const metadata = {
     card: "summary_large_image",
     site: "@expertresume",
     creator: "@expertresume",
-    title: "ExpertResume | AI Resume Builder for US Jobs",
-    description: "Get past ATS. Optimize for each job. Get more interviews. Trusted by US professionals.",
+    title: "ExpertResume | Resume to Job Offer — All in One",
+    description: "Build ATS-perfect resumes, search jobs, practice AI interviews, and get hired. The complete career toolkit.",
     images: ["https://expertresume.us/ExpertResume.png"],
   },
   category: "Technology",
@@ -141,7 +148,7 @@ const faqSchema = {
       "name": "How is ExpertResume different from Zety, Canva, or Resume.io?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "ExpertResume focuses on US job applications with ATS-optimized templates, AI tailoring to job descriptions, free ATS checker, and USD pricing. Premium plans include unlimited downloads and advanced templates."
+        "text": "ExpertResume is the only all-in-one career platform that covers your entire job search. While Zety and Resume.io only build resumes, ExpertResume also includes AI interview practice, job search across 20+ boards, application tracking, career coaching, and salary insights — all in one subscription. No other tool does this."
       }
     },
     {
@@ -175,6 +182,22 @@ const faqSchema = {
         "@type": "Answer",
         "text": "Most users create a professional resume in just 5-10 minutes! Choose a template, fill in your details, customize with our drag-and-drop editor, and download. For faster results, upload an existing resume and our AI will enhance it in seconds."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes ExpertResume different from other resume builders?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ExpertResume is the only all-in-one career platform that covers your entire job search journey. While competitors like Zety or Resume.io only build resumes, ExpertResume also includes a free ATS score checker, job search across 20+ US boards, AI mock interview practice, application tracking, career coaching, and salary insights — all in one platform at a lower price."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I practice for interviews on ExpertResume?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! ExpertResume includes AI Interview Pro — a built-in AI mock interviewer that simulates real interviews for your specific role. You get instant feedback, confidence scoring, and unlimited practice. No other major resume builder offers this feature."
+      }
     }
   ]
 };
@@ -183,8 +206,8 @@ const faqSchema = {
 const ratingSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "ExpertResume - AI Resume Builder for US Jobs",
-  "description": "ATS-friendly resume builder with AI suggestions and free ATS checker for US job seekers",
+  "name": "ExpertResume - Resume to Job Offer Career Platform",
+  "description": "All-in-one career platform: ATS resume builder, job search across 20+ boards, AI interview practice, application tracker, and career coaching for US job seekers",
   "brand": {
     "@type": "Brand",
     "name": "ExpertResume"
@@ -213,7 +236,7 @@ const softwareApplicationSchema = {
   "name": "ExpertResume",
   "operatingSystem": "Web",
   "applicationCategory": "BusinessApplication",
-  "description": "ExpertResume is an AI-powered resume builder for US job seekers. Create ATS-friendly resumes, tailor content to job descriptions, and get more interviews. Free tier and USD premium plans.",
+  "description": "ExpertResume is the only all-in-one career platform that takes you from resume to job offer. Build ATS-perfect resumes (7 different ways), search jobs across 20+ boards, practice with AI mock interviews, track applications, and get career coaching — all in one place. Free tier and USD premium plans.",
   "url": "https://expertresume.us",
   "offers": {
     "@type": "Offer",
@@ -239,20 +262,29 @@ const softwareApplicationSchema = {
     "url": "https://vendaxsystemlabs.com"
   },
   "datePublished": "2023-01-01",
-  "dateModified": "2025-01-01",
+  "dateModified": "2026-02-08",
   "inLanguage": "en-US",
   "isAccessibleForFree": true,
   "featureList": [
-    "Free resume builder",
-    "ATS-friendly templates",
-    "AI-powered suggestions",
+    "Free resume builder with 7 creation modes",
+    "ATS-friendly templates optimized for US hiring",
+    "AI-powered content suggestions and optimization",
     "Free ATS score checker",
-    "PDF download",
-    "Mobile-responsive design",
-    "US job board optimization"
+    "JD-based resume tailoring",
+    "Upload and enhance existing resumes",
+    "Text-to-resume AI conversion",
+    "One-page resume builder",
+    "Job search across 20+ US job boards",
+    "Job application tracker",
+    "AI mock interview practice",
+    "Interview confidence scoring",
+    "Career coaching tools",
+    "Salary insights and job outlook data",
+    "PDF download with no watermarks",
+    "Mobile-responsive design"
   ],
   "screenshot": "https://expertresume.us/ExpertResume.png",
-  "softwareVersion": "2025.1",
+  "softwareVersion": "2026.1",
   "downloadUrl": "https://expertresume.us/resume-builder",
   "installUrl": "https://expertresume.us/resume-builder",
   "browserRequirements": "Requires JavaScript. Requires HTML5.",
@@ -260,7 +292,7 @@ const softwareApplicationSchema = {
   "memoryRequirements": "512 MB RAM",
   "storageRequirements": "10 MB",
   "permissions": "No special permissions required",
-  "releaseNotes": "Latest version includes AI-powered resume optimization, enhanced ATS checker, and new professional templates for 2026 job market."
+  "releaseNotes": "2026 update: Complete career platform with 7 resume building methods, AI interview practice, job search across 20+ boards, application tracking, career coaching, and salary insights."
 };
 
 // Breadcrumb Schema

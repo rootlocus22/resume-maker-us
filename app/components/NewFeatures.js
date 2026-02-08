@@ -170,18 +170,18 @@ export default function NewFeatures() {
         {/* Section Header */}
         <div className={`text-center mb-16 lg:mb-20 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 px-4 py-2 rounded-full text-sm font-semibold text-blue-600 mb-4">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-50 to-accent-50 border border-primary-200 px-4 py-2 rounded-full text-sm font-semibold text-primary-700 mb-4">
             <Sparkles className="w-4 h-4" />
-            POWERFUL FEATURES
+            ONE PLATFORM, EVERY TOOL
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4">
-            Powerful Features for{" "}
-            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              Career Success
+            Everything You Need to{" "}
+            <span className="bg-gradient-to-r from-primary-600 via-accent-600 to-primary-600 bg-clip-text text-transparent">
+              Get Hired
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Every tool you need to build your resume, plan your career, apply smarter, and ace interviews
+            Build resumes 7 different ways, check ATS scores for free, search 20+ job boards, and practice with an AI interviewer — all without switching tools
           </p>
         </div>
 
@@ -414,11 +414,11 @@ export default function NewFeatures() {
 
             {/* Content */}
             <div className="relative">
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 mb-4 leading-tight">
-                Ready to transform your job search?
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-600 via-accent-600 to-primary-600 mb-4 leading-tight">
+                Stop switching between tools. Start getting hired.
               </h3>
               <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Join <span className="font-bold text-gray-900">100,000+</span> professionals who've landed their dream jobs
+                Join <span className="font-bold text-gray-900">100,000+</span> professionals who use one platform for their entire job search
               </p>
 
               {/* CTA Button */}

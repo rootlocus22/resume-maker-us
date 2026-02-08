@@ -44,20 +44,20 @@ export default function FinalCTA() {
         <div className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
           {/* Trust Badge */}
-          <div className="inline-flex items-center bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 px-6 py-3 rounded-full text-sm font-bold mb-8">
+          <div className="inline-flex items-center bg-[#00C4B3]/20 backdrop-blur-sm border border-[#00C4B3]/30 px-6 py-3 rounded-full text-sm font-bold mb-8">
             <Rocket className="mr-2" size={18} />
-            <span>🚀 Start Your Career Transformation Today</span>
+            <span>Stop Paying for 5 Tools. Get One That Does It All.</span>
           </div>
 
           {/* Main Headline */}
           <h2 className="text-4xl lg:text-6xl font-bold mb-8 leading-tight">
-            Ready to Transform Your <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Career in 6 Months</span>?
+            Resume + Jobs + Interviews = <span className="bg-gradient-to-r from-[#00C4B3] to-emerald-400 bg-clip-text text-transparent">One Platform</span>
           </h2>
 
           {/* Subtitle */}
           <p className="text-xl lg:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-            Get your complete career toolkit - resume builder, career coach roadmap, JD-based applications, and interview training -
-            all for just {formatPrice(sixMonthPrice)} for 6 months. Join 100,000+ professionals who launched their careers into rocket mode.
+            Build your resume (7 ways), search 20+ job boards, practice with an AI interviewer, and track every application —
+            all for just {formatPrice(sixMonthPrice)} for 6 months. No other platform gives you this much for this price.
           </p>
 
           {/* CTA Buttons */}
@@ -139,7 +139,7 @@ export default function FinalCTA() {
                 className="text-gray-300 leading-relaxed"
                 aria-labelledby="feature-free"
               >
-                No credit card required. Create your first professional resume completely free.
+                No credit card needed. Build your resume, check ATS score, and search jobs — all free.
               </p>
             </div>
 
@@ -157,13 +157,13 @@ export default function FinalCTA() {
                 className="text-2xl font-bold mb-4"
                 id="feature-fast"
               >
-                Lightning Fast
+                Replaces 5 Tools
               </h3>
               <p
                 className="text-gray-300 leading-relaxed"
                 aria-labelledby="feature-fast"
               >
-                Create a professional resume in under 5 minutes with our AI-powered builder.
+                Resume builder, ATS checker, job search, interview practice, and career coaching — all in one platform.
               </p>
             </div>
 
@@ -187,7 +187,7 @@ export default function FinalCTA() {
                 className="text-gray-300 leading-relaxed"
                 aria-labelledby="feature-results"
               >
-                94% of users report better interview rates within 30 days of using our platform.
+                Users who use all 5 steps — build, optimize, apply, practice, and negotiate — land jobs 3x faster.
               </p>
             </div>
           </div>
