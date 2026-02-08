@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { auth, db } from "../lib/firebase";
 import { onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc, updateDoc, collection, getDocs } from "firebase/firestore";
+import { doc, getDoc, setDoc, collection, getDocs } from "firebase/firestore";
 import { 
   Shield, Download, Trash2, Eye, Settings, Bell, 
   Lock, User, Mail, Phone, Calendar, FileText, 
@@ -88,7 +88,7 @@ export default function PrivacyDashboard() {
     if (!user) return;
     
     try {
-      await updateDoc(doc(db, "users", user.uid, "settings", "privacy"), newSettings);
+      await setDoc(doc(db, "users", user.uid, "settings", "privacy"), newSettings, { merge: true });
       setPrivacySettings(newSettings);
       toast.success("Privacy settings updated successfully!");
     } catch (error) {

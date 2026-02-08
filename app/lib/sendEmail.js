@@ -9,10 +9,25 @@ const sesClient = new SESClient({
   },
 });
 
-export async function sendEmail({ templateId, userId, email, to, data = {}, configurationSetName }) {
-  console.log('data is', data)
+export async function sendEmail({ templateId, userId, email, to, data = {}, configurationSetName, subject: rawSubject, html: rawHtml, text: rawText }) {
   const emailAddress = to || email; // Support both 'to' and 'email' parameters
-  const { subject, html, text } = getEmailContent(templateId, { ...data, email: emailAddress });
+  
+  // Support both template-based and raw email content
+  let subject, html, text;
+  if (templateId) {
+    const content = getEmailContent(templateId, { ...data, email: emailAddress });
+    subject = content.subject;
+    html = content.html;
+    text = content.text;
+  } else if (rawSubject && rawHtml) {
+    // Raw email mode - pass subject/html/text directly
+    subject = rawSubject;
+    html = rawHtml;
+    text = rawText || rawHtml.replace(/<[^>]*>/g, '');
+  } else {
+    console.error('[AWS SES] sendEmail requires either templateId or subject+html');
+    return { success: false, error: 'Missing templateId or raw email content' };
+  }
 
   try {
     const params = {

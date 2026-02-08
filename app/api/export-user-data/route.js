@@ -2,9 +2,29 @@ import { NextResponse } from "next/server";
 import { db } from "../../lib/firebase";
 import { doc, getDoc, collection, getDocs } from "firebase/firestore";
 
+export async function GET(request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const userId = searchParams.get("userId");
+    return await handleExport(userId);
+  } catch (error) {
+    console.error("Error exporting user data:", error);
+    return NextResponse.json({ error: "Failed to export user data" }, { status: 500 });
+  }
+}
+
 export async function POST(request) {
   try {
     const { userId } = await request.json();
+    return await handleExport(userId);
+  } catch (error) {
+    console.error("Error exporting user data:", error);
+    return NextResponse.json({ error: "Failed to export user data" }, { status: 500 });
+  }
+}
+
+async function handleExport(userId) {
+  try {
 
     if (!userId) {
       return NextResponse.json(
@@ -189,4 +209,4 @@ export async function POST(request) {
       { status: 500 }
     );
   }
-} 
+}
