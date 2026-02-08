@@ -1,7 +1,7 @@
 // lib/gtag.js
 
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
-export const GOOGLE_ADS_ID = "AW-844459331";
+export const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID_US || process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "AW-17940642780";
 
 // Brand prefix for all events — makes ExpertResume events
 // instantly identifiable in GA4 alongside any other data streams
@@ -41,5 +41,18 @@ export const rawEvent = ({ action, category, label, value }) => {
       value: value,
     });
   }
+};
+
+// Google Ads conversion - use conversion action ID from env
+// Set NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_PURCHASE / _WELCOME in .env after creating conversion actions in Google Ads
+export const trackGoogleAdsConversion = ({ conversionLabel, value, currency = "USD", transactionId, allowEnhancedConversions = true }) => {
+  if (typeof window === "undefined" || !window.gtag || !conversionLabel) return;
+  window.gtag("event", "conversion", {
+    send_to: `${GOOGLE_ADS_ID}/${conversionLabel}`,
+    value,
+    currency,
+    transaction_id: transactionId,
+    allow_enhanced_conversions: allowEnhancedConversions,
+  });
 };
 

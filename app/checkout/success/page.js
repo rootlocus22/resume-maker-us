@@ -2,7 +2,8 @@
 import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { CheckCircle, Loader2, AlertCircle } from "lucide-react";
-import { event } from "../../lib/gtag";
+import { event, trackGoogleAdsConversion } from "../../lib/gtag";
+import { GOOGLE_ADS_CONVERSION_PURCHASE } from "../../lib/appConfig";
 
 export default function CheckoutSuccessPage() {
   return (
@@ -45,15 +46,13 @@ function CheckoutSuccessContent() {
             value: data.amount,
           });
 
-          // Google Ads conversion
-          if (typeof window !== "undefined" && window.gtag) {
-            window.gtag("event", "conversion", {
-              send_to: "AW-17492039594/SfzdCOHrq-kbEKqv7ZRB",
-              value: rawAmount >= 15 ? 900 : rawAmount >= 5 ? 500 : 50,
-              currency: data.currency || "USD",
-              transaction_id: sessionId,
-            });
-          }
+          // Google Ads conversion (uses AW-17940642780; set NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_PURCHASE in .env)
+          trackGoogleAdsConversion({
+            conversionLabel: GOOGLE_ADS_CONVERSION_PURCHASE,
+            value: rawAmount >= 15 ? 900 : rawAmount >= 5 ? 500 : 50,
+            currency: data.currency || "USD",
+            transactionId: sessionId,
+          });
         } else {
           // If not yet fulfilled, retry a few times (webhook may be processing)
           throw new Error(data.error || "Payment verification failed");

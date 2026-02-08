@@ -9,7 +9,10 @@ const BRAND_TAGLINE = "AI Job Application System – Get past ATS. Get more inte
 // Analytics & ads – set in .env for US property
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID_US || process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID_US || process.env.NEXT_PUBLIC_CLARITY_ID || "";
-const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID_US || process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "";
+const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID_US || process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "AW-17940642780";
+// Conversion action IDs from Google Ads (create in Ads > Goals > Conversions, then add to .env)
+const GOOGLE_ADS_CONVERSION_PURCHASE = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_PURCHASE || "";
+const GOOGLE_ADS_CONVERSION_WELCOME = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_WELCOME || "";
 
 // Payments – US app uses Stripe only
 const USE_STRIPE = true;
@@ -28,6 +31,8 @@ export {
   GA_MEASUREMENT_ID,
   CLARITY_ID,
   GOOGLE_ADS_ID,
+  GOOGLE_ADS_CONVERSION_PURCHASE,
+  GOOGLE_ADS_CONVERSION_WELCOME,
   USE_STRIPE,
   STRIPE_PUBLISHABLE_KEY,
   COMPANY_NAME,

@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { auth } from "../lib/firebase";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { event } from "../lib/gtag";
+import { event, trackGoogleAdsConversion } from "../lib/gtag";
+import { GOOGLE_ADS_CONVERSION_WELCOME } from "../lib/appConfig";
 import Confetti from "react-confetti";
 import { CheckCircle, Rocket, Zap, BadgeCheck, Sparkles, ArrowRight, Target, FileText, Brain, TrendingUp, DollarSign, Upload, Star, ArrowUp, Star as StarIcon, Crown, Users } from "lucide-react";
 
@@ -106,13 +107,13 @@ export default function WelcomePremium({ plan, billingCycle, source, amount, cur
         'page_title': 'Premium Purchase Complete'
       });
 
-      // Event snippet for PurchaseComplete conversion page (in-page EC)
-      window.gtag('event', 'conversion', {
-        'send_to': 'AW-844459331/DQZcCNnIxqsbEMPa1ZID',
-        'value': conversionValue,
-        'currency': currencyCode,
-        'transaction_id': transactionID,
-        'allow_enhanced_conversions': true
+      // Event snippet for PurchaseComplete conversion (uses AW-17940642780; set NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_WELCOME in .env)
+      trackGoogleAdsConversion({
+        conversionLabel: GOOGLE_ADS_CONVERSION_WELCOME,
+        value: conversionValue,
+        currency: currencyCode,
+        transactionId: transactionID,
+        allowEnhancedConversions: true
       });
 
       // Also send standard ecommerce purchase event for GA4

@@ -206,18 +206,13 @@ export default function RootLayout({ children }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       </head>
       <body className={`${poppins.variable} ${manrope.variable} antialiased bg-[#F5F7FA] text-[#0B1F3B]`}>
-        {hasGA && (
+        {(hasGA || hasAds) && (
           <>
-            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${hasGA ? GA_MEASUREMENT_ID : GOOGLE_ADS_ID}`} strategy="afterInteractive" />
             <Script id="google-analytics" strategy="afterInteractive">
-              {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${GA_MEASUREMENT_ID}', { page_path: window.location.pathname });`}
+              {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());${hasGA ? ` gtag('config', '${GA_MEASUREMENT_ID}', { page_path: window.location.pathname });` : ""}${hasAds ? ` gtag('config', '${GOOGLE_ADS_ID}');` : ""}`}
             </Script>
           </>
-        )}
-        {hasAds && (
-          <Script id="google-ads" strategy="afterInteractive">
-            {`if (typeof gtag === 'function') { gtag('config', '${GOOGLE_ADS_ID}'); }`}
-          </Script>
         )}
         {hasClarity && (
           <Script id="microsoft-clarity" strategy="lazyOnload">
