@@ -191,7 +191,7 @@ export default function HelpModal({ isOpen, onClose }) {
 										<div>
 											<h2 className="text-xl font-bold">Help & Support</h2>
 											<p className="text-sm opacity-90">Learn how to make the most of Resume Builder</p>
-											<p className="text-sm mt-1 font-semibold text-yellow-200 select-all">Contact: <a href="mailto:support@vendaxsystemlabs.com" className="underline hover:text-white">support@vendaxsystemlabs.com</a></p>
+											<p className="text-sm mt-1 font-semibold text-yellow-200 select-all">Contact: <a href="mailto:support@expertresume.us" className="underline hover:text-white">support@expertresume.us</a></p>
 										</div>
 									</div>
 									<button
@@ -314,11 +314,11 @@ export default function HelpModal({ isOpen, onClose }) {
 													Get help with any questions or issues you're facing.
 												</p>
 												<a
-													href="mailto:support@vendaxsystemlabs.com"
+													href="mailto:support@expertresume.us"
 													className="inline-flex items-center gap-2 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-4 py-2 rounded-lg font-medium hover:from-[#071429] hover:to-[#008C81] transition-all duration-200 shadow-lg hover:shadow-xl"
 												>
 													<Mail size={16} />
-													support@vendaxsystemlabs.com
+													support@expertresume.us
 												</a>
 											</div>
 
@@ -383,7 +383,7 @@ export default function HelpModal({ isOpen, onClose }) {
 									<p>Need more help? We're here to assist you!</p>
 									<div className="flex items-center gap-4">
 										<a
-											href="mailto:support@vendaxsystemlabs.com"
+											href="mailto:support@expertresume.us"
 											className="text-[#0B1F3B] hover:text-[#071429] font-medium"
 										>
 											Contact Support

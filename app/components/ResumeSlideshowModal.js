@@ -41,21 +41,21 @@ const SUCCESS_STATS = [
 
 const TESTIMONIALS = [
   {
-    name: "Priya Sharma",
+    name: "Sarah Mitchell",
     role: "Software Engineer",
     avatar: "👩‍💻",
     text: "The premium templates helped me create a professional resume that stood out. Great design options!",
     rating: 5
   },
   {
-    name: "Arjun Patel",
+    name: "James Wilson",
     role: "Marketing Manager",
     avatar: "👨‍💼",
     text: "Clean, modern designs that are easy to customize. The ATS optimization features are really helpful.",
     rating: 5
   },
   {
-    name: "Sneha Gupta",
+    name: "Emily Chen",
     role: "Product Designer",
     avatar: "👩‍🚀",
     text: "Love the variety of templates available. Much better than generic resume builders out there.",

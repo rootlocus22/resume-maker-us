@@ -112,7 +112,7 @@ export default function FAQPage() {
     {
       question: "What payment methods do you accept?",
       answer:
-        "We accept all major credit/debit cards, UPI, and net banking for US users.",
+        "We accept all major credit/debit cards including Visa, Mastercard, Amex, as well as Apple Pay and Google Pay via Stripe.",
     },
     {
       question: "Is ExpertResume really free?",
@@ -122,22 +122,22 @@ export default function FAQPage() {
     {
       question: "What is the best resume builder for US job seekers?",
       answer:
-        "ExpertResume is specifically designed for US job seekers with templates optimized for Naukri, LinkedIn India, and Indeed India. Our AI understands US resume formats and job market requirements.",
+        "ExpertResume is specifically designed for US job seekers with ATS-optimized templates for LinkedIn, Indeed, and Greenhouse. Our AI understands US resume formats and job market requirements.",
     },
     {
-      question: "How can I create a resume for freshers in India?",
+      question: "How can I create a resume as a recent graduate?",
       answer:
-        "ExpertResume offers fresher-specific templates and AI suggestions. Simply select a fresher template, add your education, internships, projects, and skills. Our AI will suggest relevant content based on your field.",
+        "ExpertResume offers entry-level templates and AI suggestions. Simply select a starter template, add your education, internships, projects, and skills. Our AI will suggest relevant content based on your field.",
     },
     {
-      question: "Can I create a resume with photo for US jobs?",
+      question: "Can I create a resume with a photo?",
       answer:
-        "Yes! ExpertResume supports resume templates with photos, which are commonly preferred in India. Choose from modern templates with photo sections and upload your professional headshot.",
+        "Yes! ExpertResume supports resume templates with photos. Choose from modern templates with photo sections and upload your professional headshot. Note: most US employers prefer resumes without photos to avoid bias.",
     },
     {
       question: "How does ExpertResume compare to Zety, Canva, or Resume.io?",
       answer:
-        "Unlike international tools, ExpertResume is specifically built for the US job market with ₹ pricing, Naukri integration, free ATS checker, and AI suggestions. Our premium plans start at just ₹49 vs $29+ for others.",
+        "ExpertResume is built specifically for the US job market with affordable pricing, ATS optimization for Greenhouse/Lever/Workday, free ATS checker, and AI suggestions. Our premium plans start at just $9.99 vs $29+ for competitors.",
     },
     {
       question: "What is ATS score and how can I check it for free?",

@@ -161,12 +161,12 @@ const sampleData = {
 // Job-specific sample data for preview generation
 const jobSpecificSampleData = {
   personal: {
-    name: "Rajesh Kumar",
-    email: "rajesh.kumar@email.com",
-    phone: "+91 98765 43210",
-    location: "Bangalore, Karnataka, India",
-    linkedin: "linkedin.com/in/rajeshkumar",
-    github: "github.com/rajeshkumar",
+    name: "Alex Johnson",
+    email: "alex.johnson@email.com",
+    phone: "(415) 555-0192",
+    location: "San Francisco, CA",
+    linkedin: "linkedin.com/in/alexjohnson",
+    github: "github.com/alexjohnson",
     photo: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGNpcmNsZSBjeD0iNjAiIGN5PSI2MCIgcj0iNjAiIGZpbGw9IiNmM2Y0ZjYiLz4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMCwgMjUpIj4KICAgIDxlbGxpcHNlIGN4PSIzMCIgY3k9IjI1IiByeD0iMTgiIHJ5PSIyMiIgZmlsbD0iIzRiNTU2MyIvPgogICAgPHJlY3QgeD0iMjYiIHk9IjQ1IiB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjNGI1NTYzIi8+CiAgICA8cGF0aCBkPSJNMTUgNTMgTDE4IDU4IEwyMCA2NSBMNDAgNjUgTDQyIDU4IEw0NSA1MyBMNTAgNzAgTDEwIDcwIFoiIGZpbGw9IiMxZjI5MzciLz4KICAgIDxwYXRoIGQ9Ik0yMCA1MyBMMjQgNTggTDMwIDU1IEwzNiA1OCBMNDAgNTMgTDQyIDU4IEwzOCA2MiBMMzAgNjAgTDIyIDYyIEwxOCA1OCBaIiBmaWxsPSIjMzc0MTUxIi8+CiAgICA8cmVjdCB4PSIyOCIgeT0iNTUiIHdpZHRoPSI0IiBoZWlnaHQ9IjEwIiBmaWxsPSIjZmZmZmZmIi8+CiAgICA8cG9seWdvbiBwb2ludHM9IjI5LDU4IDMxLDU4IDMyLDY4IDI4LDY4IiBmaWxsPSIjM2I4MmY2Ii8+CiAgPC9nPgogIDxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjU4IiBmaWxsPSJub25lIiBzdHJva2U9IiNlNWU3ZWIiIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4="
   },
   summary: "Passionate software developer with 3+ years of experience in full-stack development, seeking opportunities to contribute to innovative technology solutions and grow expertise in modern development frameworks.",
@@ -192,8 +192,8 @@ const jobSpecificSampleData = {
   ],
   education: [
     {
-      degree: "B.Tech in Computer Science",
-      institution: "IIT Bangalore",
+      degree: "B.S. in Computer Science",
+      institution: "UC Berkeley",
       startDate: "2017",
       endDate: "2021",
       grade: "CGPA: 8.5/10"

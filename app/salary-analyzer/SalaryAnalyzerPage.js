@@ -1288,7 +1288,7 @@ export default function SalaryAnalyzerPage() {
                                     <div className="space-y-3">
                                       <div className="flex justify-between items-center p-3 bg-[#0B1F3B]/5 rounded-lg">
                                         <div>
-                                          <div className="font-medium text-gray-900">TCS</div>
+                                          <div className="font-medium text-gray-900">Accenture</div>
                                           <div className="text-sm text-gray-600">Stable career</div>
                                         </div>
                                         <div className="text-right">

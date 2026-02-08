@@ -143,7 +143,7 @@
                     <CreditCard className="text-[#0B1F3B]" size={24} />
                     <div>
                         <p className="font-bold text-gray-900 text-sm">Secure Payment Gateway</p>
-                        <p className="text-xs text-gray-500">Encrypted & Safe. UPI, Cards, NetBanking.</p>
+                        <p className="text-xs text-gray-500">Encrypted & Safe. Cards, Apple Pay, Google Pay.</p>
                     </div>
                 </div>
                 <Lock size={16} className="text-green-500" />

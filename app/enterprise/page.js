@@ -393,7 +393,7 @@ export default function EnterprisePage() {
                     <h3 className="font-semibold text-lg">Call or WhatsApp</h3>
                     <p className="text-gray-400 mb-2">Instant response for urgent queries</p>
                     <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 font-medium">
-                      +91 84312 56903
+                      Contact via WhatsApp
                     </a>
                   </div>
                 </div>
@@ -405,8 +405,8 @@ export default function EnterprisePage() {
                   <div>
                     <h3 className="font-semibold text-lg">Email Us</h3>
                     <p className="text-gray-400 mb-2">For detailed proposals and quotes</p>
-                    <a href="mailto:support@vendaxsystemlabs.com" className="text-blue-400 hover:text-blue-300 font-medium">
-                      support@vendaxsystemlabs.com
+                    <a href="mailto:support@expertresume.us" className="text-blue-400 hover:text-blue-300 font-medium">
+                      support@expertresume.us
                     </a>
                   </div>
                 </div>
@@ -446,7 +446,7 @@ export default function EnterprisePage() {
                         type="tel"
                         required
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                        placeholder="+91..."
+                        placeholder="(555) 123-4567"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       />

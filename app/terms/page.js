@@ -294,7 +294,7 @@ export default function TermsPage() {
                 </h3>
                 <p className="text-sm sm:text-base">
                   We’re not liable for transaction declines due to cardholder limits set by our acquiring bank. For payment issues, contact{" "}
-                  <a href="mailto:support@vendaxsystemlabs.com" className="text-[#0B1F3B] hover:underline">support@vendaxsystemlabs.com</a>.
+                  <a href="mailto:support@expertresume.us" className="text-[#0B1F3B] hover:underline">support@expertresume.us</a>.
                 </p>
               </div>
 
@@ -314,7 +314,7 @@ export default function TermsPage() {
                 </h3>
                 <p className="text-sm sm:text-base">
                   We’re here to help! Contact us at{" "}
-                  <a href="mailto:support@vendaxsystemlabs.com" className="text-[#0B1F3B] hover:underline">support@vendaxsystemlabs.com</a> with any questions. Expect a response within 24-48 hours.
+                  <a href="mailto:support@expertresume.us" className="text-[#0B1F3B] hover:underline">support@expertresume.us</a> with any questions. Expect a response within 24-48 hours.
                 </p>
               </div>
             </div>
@@ -360,7 +360,7 @@ export default function TermsPage() {
             <div className="mt-6 text-center text-xs text-gray-500">
               <p>
                 Vendax Systems LLC reserves the right to modify these Terms & Conditions at any time. Updates are effective upon posting. For inquiries, reach us at{" "}
-                <a href="mailto:support@vendaxsystemlabs.com" className="text-[#0B1F3B] hover:underline">support@vendaxsystemlabs.com</a>.
+                <a href="mailto:support@expertresume.us" className="text-[#0B1F3B] hover:underline">support@expertresume.us</a>.
               </p>
             </div>
           </div>

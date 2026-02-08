@@ -689,18 +689,18 @@ export default function PrivacyDashboard() {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <a
-                      href="mailto:privacy@expertresume.com"
+                      href="mailto:privacy@expertresume.us"
                       className="flex items-center text-blue-700 hover:text-blue-900"
                     >
                       <Mail className="h-4 w-4 mr-2" />
-                      privacy@expertresume.com
+                      privacy@expertresume.us
                     </a>
                     <a
-                      href="tel:+918431256903"
+                      href="mailto:support@expertresume.us"
                       className="flex items-center text-blue-700 hover:text-blue-900"
                     >
                       <Phone className="h-4 w-4 mr-2" />
-                      +91 84312 56903
+                      support@expertresume.us
                     </a>
                   </div>
                 </div>

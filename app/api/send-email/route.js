@@ -84,9 +84,9 @@ export async function POST(request) {
 
     // Prepare Nodemailer Message Options (for MIME building only)
     const mailOptions = {
-      from: '"ExpertResume" <support@vendaxsystemlabs.com>',
+      from: '"ExpertResume" <support@expertresume.us>',
       to: recipientEmail,
-      bcc: "support@vendaxsystemlabs.com",
+      bcc: "support@expertresume.us",
       subject: subject,
       text: text,
       html: html,

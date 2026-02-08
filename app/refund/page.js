@@ -148,7 +148,7 @@ export default function RefundPage() {
                 </h3>
                 <p className="text-sm sm:text-base">
                   Our team is here to assist you. If you have any questions about our services or this policy, please reach out to us at{" "}
-                  <a href="mailto:support@vendaxsystemlabs.com" className="text-[#0B1F3B] hover:underline">support@vendaxsystemlabs.com</a>. We typically respond within 24-48 hours.
+                  <a href="mailto:support@expertresume.us" className="text-[#0B1F3B] hover:underline">support@expertresume.us</a>. We typically respond within 24-48 hours.
                 </p>
               </div>
             </div>
@@ -193,7 +193,7 @@ export default function RefundPage() {
             {/* Legal Disclaimer */}
             <div className="mt-6 text-center text-xs text-gray-500">
               <p>
-                Vendax Systems LLC reserves the right to update this policy at any time. Changes will be effective upon posting. For inquiries: <a href="mailto:support@vendaxsystemlabs.com" className="text-[#0B1F3B] hover:underline">support@vendaxsystemlabs.com</a> | 28 Geary St STE 650 Suite #500, San Francisco, CA 94108, United States.
+                Vendax Systems LLC reserves the right to update this policy at any time. Changes will be effective upon posting. For inquiries: <a href="mailto:support@expertresume.us" className="text-[#0B1F3B] hover:underline">support@expertresume.us</a> | 28 Geary St STE 650 Suite #500, San Francisco, CA 94108, United States.
               </p>
             </div>
           </div>

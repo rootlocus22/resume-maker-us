@@ -16,7 +16,7 @@ export default function RestrictedPage() {
           </p>
           <p className="text-gray-500 text-sm text-center mt-2">
             If you believe this is an error (e.g., network change or shared IP), please contact support at{" "}
-            <a href="mailto:support@vendaxsystemlabs.com" className="text-blue-600 hover:underline">
+            <a href="mailto:support@expertresume.us" className="text-blue-600 hover:underline">
               support@ExpertResume.com
             </a>{" "}
          

@@ -579,7 +579,7 @@ export default function InterviewGyani() {
               Upgrade to Pro for Interview Gyani
             </h2>
             <p className="text-gray-600 mb-6 text-lg">
-              The Interview Simulation  feature is only available for <strong>Pro Monthly (₹499)</strong> and <strong>Pro 6-Month (₹899)</strong> plans.
+              The Interview Simulation  feature is only available for <strong>Pro Monthly ($9.99)</strong> and <strong>Pro 6-Month ($19.99)</strong> plans.
             </p>
             <div className="bg-blue-50 rounded-lg p-6 mb-6">
               <h3 className="font-semibold text-gray-900 mb-3">Unlock with Pro Plans:</h3>

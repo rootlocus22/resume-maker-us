@@ -58,7 +58,7 @@ export async function POST(request) {
     try {
       const adminEmail = generateAdminDeletionNotification(userEmail, userId, deletionRef.id);
       await sendEmail({
-        to: "support@vendaxsystemlabs.com",
+        to: "support@expertresume.us",
         subject: `Account Deletion Request - ${deletionRef.id}`,
         html: adminEmail
       });
@@ -172,7 +172,7 @@ function generateDeletionConfirmationEmail(email, requestId) {
           <h3>To cancel this request:</h3>
           <p>If you change your mind, please contact us immediately at:</p>
           <ul>
-            <li>Email: <a href="mailto:support@vendaxsystemlabs.com">support@vendaxsystemlabs.com</a></li>
+            <li>Email: <a href="mailto:support@expertresume.us">support@expertresume.us</a></li>
             <li>Vendax Systems LLC, 28 Geary St STE 650 Suite #500, San Francisco, CA 94108, USA</li>
             <li>Reference your Request ID: ${requestId}</li>
           </ul>

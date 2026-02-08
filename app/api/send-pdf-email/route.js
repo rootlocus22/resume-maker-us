@@ -47,9 +47,9 @@ export async function POST(request) {
 
     // Prepare email
     const mailOptions = {
-      from: '"ExpertResume" <support@vendaxsystemlabs.com>',
+      from: '"ExpertResume" <support@expertresume.us>',
       to: email,
-      bcc: "support@vendaxsystemlabs.com",
+      bcc: "support@expertresume.us",
       subject: `Your Resume: ${resumeName || filename || 'Resume'}`,
       text: `Hi,\n\nYour resume PDF is attached. We hope this helps you land your dream job!\n\nBest regards,\nExpertResume Team`,
       html: `

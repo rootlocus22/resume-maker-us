@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, CheckCircle } from "lucide-react";
 
 // US names and cities for realistic social proof
-const NAMES = ["Amit", "Priya", "Rahul", "Sneha", "Vikram", "Neha", "Arjun", "Pooja", "Karan", "Ananya", "Rohan", "Divya", "Aditya", "Shruti", "Manish"];
-const CITIES = ["Delhi", "Mumbai", "Bangalore", "Chennai", "Hyderabad", "Pune", "Kolkata", "Jaipur", "Ahmedabad", "Chandigarh", "Lucknow", "Indore", "Noida", "Gurgaon"];
+const NAMES = ["James", "Sarah", "Michael", "Emily", "David", "Jessica", "Chris", "Amanda", "Brian", "Rachel", "Kevin", "Laura", "Daniel", "Nicole", "Ryan"];
+const CITIES = ["New York", "San Francisco", "Chicago", "Austin", "Seattle", "Denver", "Boston", "Los Angeles", "Atlanta", "Portland", "Miami", "Dallas", "Nashville", "Charlotte"];
 const PLANS = ["Pro Quarterly", "Pro 6-Month", "Starter Plan"];
 
 /**

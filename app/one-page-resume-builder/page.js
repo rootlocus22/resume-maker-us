@@ -221,9 +221,9 @@ export default function OnePageResumePage() {
             <div className="bg-gray-50 p-8 rounded-xl mb-8 border-2 border-gray-300 font-mono text-sm">
               <div className="space-y-4">
                 <div>
-                  <div className="font-bold text-lg">PRIYA SHARMA</div>
+                  <div className="font-bold text-lg">SARAH MITCHELL</div>
                   <div className="text-gray-600">Digital Marketing Specialist | SEO | Content Strategy | Google Ads</div>
-                  <div className="text-gray-600">📞 +91-9876543210 | ✉️ priya.sharma@email.com | 🔗 linkedin.com/in/priyasharma</div>
+                  <div className="text-gray-600">📞 (415) 555-0192 | ✉️ sarah.mitchell@email.com | 🔗 linkedin.com/in/sarahmitchell</div>
                 </div>
 
                 <div>
@@ -262,7 +262,7 @@ export default function OnePageResumePage() {
                 <div>
                   <div className="font-bold text-purple-600">EDUCATION</div>
                   <div className="text-gray-700 text-xs">
-                    B.Com (Marketing) | Delhi University | CGPA: 8.5/10 | 2017-2020
+                    B.S. Marketing | UCLA | GPA: 3.7/4.0 | 2017-2020
                   </div>
                 </div>
 

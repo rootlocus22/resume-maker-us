@@ -347,7 +347,7 @@ function SignupContent() {
             <p className="text-white/90 mb-4 italic">
               "Got 3 interview calls in the first week! ExpertResume's templates are absolutely amazing."
             </p>
-            <p className="text-sm text-white/70">- Rahul Verma, Marketing Manager</p>
+            <p className="text-sm text-white/70">- James Wilson, Marketing Manager</p>
           </div>
 
           {/* CTA */}
@@ -667,7 +667,7 @@ function SignupContent() {
                 <p className="text-gray-700 mb-3 italic font-medium">
                   "Got 3 interview calls in the first week! ExpertResume's templates are amazing."
                 </p>
-                <p className="text-sm text-gray-600">- Rahul V., Marketing Manager</p>
+                <p className="text-sm text-gray-600">- James W., Marketing Manager</p>
               </div>
             </div>
           </div>

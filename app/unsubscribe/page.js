@@ -184,7 +184,7 @@ function UnsubscribeContent() {
               We couldn’t process your unsubscribe request. Please try again or contact support.
             </p>
             <a
-              href="mailto:support@vendaxsystemlabs.com"
+              href="mailto:support@expertresume.us"
               className="mt-4 inline-block px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-blue-700 transition-all"
               aria-label="Contact support via email"
             >

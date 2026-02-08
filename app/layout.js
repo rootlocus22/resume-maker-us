@@ -125,7 +125,7 @@ const orgSchema = {
   },
   contactPoint: {
     "@type": "ContactPoint",
-    email: "support@vendaxsystemlabs.com",
+    email: "support@expertresume.us",
     contactType: "customer service",
     areaServed: "US",
   },

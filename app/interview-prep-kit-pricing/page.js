@@ -42,8 +42,8 @@ const PRICING_OPTIONS = [
     credits: 5,
     description: "Best for active job seekers",
     popular: true,
-    savings: "Save ₹196",
-    pricePerInterview: "₹160 per interview",
+    savings: "Save $3",
+    pricePerInterview: "$3.20 per interview",
     features: [
       "5 interview prep kits",
       "20 questions each",
@@ -60,8 +60,8 @@ const PRICING_OPTIONS = [
     credits: 10,
     description: "Maximum value for career changers",
     popular: false,
-    savings: "Save ₹691",
-    pricePerInterview: "₹130 per interview",
+    savings: "Save $8",
+    pricePerInterview: "$2.60 per interview",
     features: [
       "10 interview prep kits",
       "20 questions each",
@@ -209,7 +209,7 @@ export default function InterviewPrepKitPricing() {
                 <div className="mb-4">
                   <div className="flex items-baseline gap-1">
                     <span className="text-4xl font-bold text-gray-900">
-                      ₹{option.price}
+                      ${option.price}
                     </span>
                     <span className="text-gray-500 text-sm">
                       / {option.credits} credit{option.credits !== 1 ? 's' : ''}

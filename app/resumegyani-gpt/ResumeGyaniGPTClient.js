@@ -572,7 +572,7 @@ export default function ExpertResumeGPTClient() {
                 <p className="text-gray-700 mb-4">
                   "As a computer science student, I use it for everything - debugging code, understanding algorithms, math problems, even career advice. It's like having a 24/7 tutor!"
                 </p>
-                <p className="text-sm font-semibold text-indigo-600">- Priya, CS Student at IIT Delhi</p>
+                <p className="text-sm font-semibold text-indigo-600">- Emily, CS Student at Stanford</p>
               </div>
             </div>
           </div>
@@ -589,7 +589,7 @@ export default function ExpertResumeGPTClient() {
                 <p className="text-gray-700 mb-4">
                   "Transitioning from engineering to product management was tough. ExpertResume GPT helped me prepare for case studies, revamp my resume, and nail behavioral interviews. Now at a FAANG company!"
                 </p>
-                <p className="text-sm font-semibold text-purple-600">- Amit, Product Manager at Meta</p>
+                <p className="text-sm font-semibold text-purple-600">- David, Product Manager at Meta</p>
               </div>
             </div>
           </div>
@@ -606,7 +606,7 @@ export default function ExpertResumeGPTClient() {
                 <p className="text-gray-700 mb-4">
                   "Got detailed feedback on my portfolio, tips for presenting case studies, and strategies for freelance pricing. Landed 3 high-paying clients within a month!"
                 </p>
-                <p className="text-sm font-semibold text-indigo-600">- Sneha, UX Designer & Freelancer</p>
+                <p className="text-sm font-semibold text-indigo-600">- Laura, UX Designer & Freelancer</p>
               </div>
             </div>
           </div>
@@ -626,16 +626,16 @@ export default function ExpertResumeGPTClient() {
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
             <div className="flex items-center justify-center gap-8 flex-wrap">
               <div className="text-center">
-                <div className="text-4xl font-bold mb-2">₹499</div>
+                <div className="text-4xl font-bold mb-2">$9.99</div>
                 <div className="text-blue-100">30 days access</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold mb-2">₹699</div>
+                <div className="text-4xl font-bold mb-2">$13.99</div>
                 <div className="text-blue-100">90 days access</div>
               </div>
               <div className="text-center">
                 <div className="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm font-bold mb-2">BEST VALUE</div>
-                <div className="text-4xl font-bold mb-2">₹899</div>
+                <div className="text-4xl font-bold mb-2">$19.99</div>
                 <div className="text-blue-100">6 months access</div>
               </div>
             </div>

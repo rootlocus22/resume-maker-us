@@ -282,11 +282,11 @@ export default function Footer() {
             <div className="pt-6 sm:pt-8 border-t border-white/20">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
                 <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-3 sm:gap-4">
-                  <a href="mailto:support@vendaxsystemlabs.com" className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors">
+                  <a href="mailto:support@expertresume.us" className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors">
                     <Mail size={14} className="sm:w-4 sm:h-4" />
-                    <span>support@vendaxsystemlabs.com</span>
+                    <span>support@expertresume.us</span>
                   </a>
-                  <a href="mailto:support@vendaxsystemlabs.com" className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors">
+                  <a href="mailto:support@expertresume.us" className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors">
                     <Phone size={14} className="sm:w-4 sm:h-4" />
                     <span>Email support</span>
                   </a>
@@ -591,13 +591,13 @@ export default function Footer() {
         <div className="pt-6 sm:pt-8 border-t border-white/20">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
             <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-3 sm:gap-4">
-              <a href="mailto:support@vendaxsystemlabs.com" className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors">
+              <a href="mailto:support@expertresume.us" className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors">
                 <Mail size={14} className="sm:w-4 sm:h-4" />
-                <span>support@vendaxsystemlabs.com</span>
+                <span>support@expertresume.us</span>
               </a>
-              <a href="tel:+918431256903" className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors">
+              <a href="mailto:support@expertresume.us" className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors">
                 <Phone size={14} className="sm:w-4 sm:h-4" />
-                <span>{isInternational ? 'Global Support available via WhatsApp' : '+91 84312 56903'}</span>
+                <span>Support available via Email & WhatsApp</span>
               </a>
               <a
                 href={`https://wa.me/918431256903?text=${encodeURIComponent(isInternational ? "Hi ExpertResume Team! 👋\n\nI'm visiting your website and would like assistance with my CV and career search." : "Hi ExpertResume Team! 👋\n\nI'm visiting your website and would like assistance with:\n• Resume Building & Optimization\n• ATS Score Improvement\n• Career Guidance & Job Search\n• Premium Features & Plans\n• Technical Support\n\nPlease help me get started. Thank you!")}`}

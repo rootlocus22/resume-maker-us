@@ -79,7 +79,7 @@ export async function POST(request) {
       const adminEmailBody = generateAdminNotificationEmail(requestType, email, firstName, lastName, requestRef.id, description);
 
       await sendEmail({
-        to: "privacy@expertresume.com",
+        to: "privacy@expertresume.us",
         subject: `New CCPA ${requestType} Request - ${requestRef.id}`,
         html: adminEmailBody
       });
@@ -157,8 +157,8 @@ function generateConfirmationEmail(requestType, firstName, lastName, requestId) 
           
           <p>If you have any questions about your request, please contact us:</p>
           <ul>
-            <li>Email: <a href="mailto:privacy@expertresume.com">privacy@expertresume.com</a></li>
-            <li>Phone: +91 84312 56903</li>
+            <li>Email: <a href="mailto:privacy@expertresume.us">privacy@expertresume.us</a></li>
+            <li>Email: <a href="mailto:support@expertresume.us">support@expertresume.us</a></li>
           </ul>
         </div>
         

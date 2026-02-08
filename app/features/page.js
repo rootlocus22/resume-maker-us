@@ -505,11 +505,11 @@ export default function FeaturesPage() {
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-[#0B1F3B] rounded-full flex items-center justify-center">
-                    <span className="font-bold">RK</span>
+                    <span className="font-bold">RC</span>
                   </div>
                   <div>
-                    <div className="font-semibold">Rahul Kumar</div>
-                    <div className="text-sm text-gray-400">Software Engineer, Bangalore</div>
+                    <div className="font-semibold">Ryan Cooper</div>
+                    <div className="text-sm text-gray-400">Software Engineer, San Francisco</div>
                   </div>
                 </div>
               </div>
@@ -525,11 +525,11 @@ export default function FeaturesPage() {
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-[#0B1F3B] rounded-full flex items-center justify-center">
-                    <span className="font-bold">PS</span>
+                    <span className="font-bold">SM</span>
                   </div>
                   <div>
-                    <div className="font-semibold">Priya Sharma</div>
-                    <div className="text-sm text-gray-400">Product Manager, Mumbai</div>
+                    <div className="font-semibold">Sarah Mitchell</div>
+                    <div className="text-sm text-gray-400">Product Manager, New York</div>
                   </div>
                 </div>
               </div>
@@ -545,11 +545,11 @@ export default function FeaturesPage() {
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-[#0B1F3B] rounded-full flex items-center justify-center">
-                    <span className="font-bold">AM</span>
+                    <span className="font-bold">AT</span>
                   </div>
                   <div>
-                    <div className="font-semibold">Arun Mehta</div>
-                    <div className="text-sm text-gray-400">Data Scientist, Hyderabad</div>
+                    <div className="font-semibold">Alex Turner</div>
+                    <div className="text-sm text-gray-400">Data Scientist, Austin</div>
                   </div>
                 </div>
               </div>
@@ -700,9 +700,9 @@ export default function FeaturesPage() {
                     <h3 className="text-xl font-bold text-gray-900 mb-3">Do you have success stories from real users?</h3>
                     <p className="text-gray-700 leading-relaxed mb-4">
                       <strong>Absolutely!</strong> Here are some recent wins:
-                      <br />• <strong>Rahul K. (Software Engineer):</strong> "Got 3 interviews in 2 weeks, ATS score improved from 65 to 94"
-                      <br />• <strong>Priya S. (Product Manager):</strong> "Landed my dream job at Google using the interview trainer"
-                      <br />• <strong>Arun M. (Data Scientist):</strong> "Negotiated 35% salary increase using salary analyzer insights"
+                      <br />• <strong>Ryan C. (Software Engineer):</strong> "Got 3 interviews in 2 weeks, ATS score improved from 65 to 94"
+                      <br />• <strong>Sarah M. (Product Manager):</strong> "Landed my dream job at Google using the interview trainer"
+                      <br />• <strong>Alex T. (Data Scientist):</strong> "Negotiated 35% salary increase using salary analyzer insights"
                     </p>
                     <div className="bg-[#0B1F3B]/5 p-4 rounded-lg">
                       <div className="text-[#0F172A] font-semibold text-sm">
@@ -726,7 +726,7 @@ export default function FeaturesPage() {
                   Try ExpertResume Free
                 </Link>
                 <a
-                  href="mailto:support@vendaxsystemlabs.com"
+                  href="mailto:support@expertresume.us"
                   className="inline-flex items-center gap-2 bg-gray-100 text-gray-800 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition-all duration-300"
                 >
                   <FaQuestionCircle />

@@ -75,7 +75,7 @@ export default function InterviewCheatsheetPricing() {
                         <div className="text-center mb-6">
                             <h3 className="text-lg font-semibold text-gray-900 mb-2">Starter</h3>
                             <div className="flex items-baseline justify-center gap-1">
-                                <span className="text-4xl font-bold text-gray-900">₹200</span>
+                                <span className="text-4xl font-bold text-gray-900">$4.99</span>
                                 <span className="text-gray-500">/month</span>
                             </div>
                             <p className="text-sm text-gray-500 mt-2">Perfect for single interview prep</p>
@@ -114,10 +114,10 @@ export default function InterviewCheatsheetPricing() {
                         <div className="text-center mb-6">
                             <h3 className="text-lg font-semibold text-white mb-2">Pro</h3>
                             <div className="flex items-baseline justify-center gap-1">
-                                <span className="text-4xl font-bold text-white">₹600</span>
+                                <span className="text-4xl font-bold text-white">$9.99</span>
                                 <span className="text-blue-100">/3 months</span>
                             </div>
-                            <p className="text-sm text-blue-100 mt-2">Save ₹0 • Best for job seekers</p>
+                            <p className="text-sm text-blue-100 mt-2">Best value for job seekers</p>
                         </div>
                         <ul className="space-y-3 mb-8">
                             <li className="flex items-center gap-2 text-sm text-white">
@@ -150,10 +150,10 @@ export default function InterviewCheatsheetPricing() {
                         <div className="text-center mb-6">
                             <h3 className="text-lg font-semibold text-gray-900 mb-2">Premium</h3>
                             <div className="flex items-baseline justify-center gap-1">
-                                <span className="text-4xl font-bold text-gray-900">₹1000</span>
+                                <span className="text-4xl font-bold text-gray-900">$14.99</span>
                                 <span className="text-gray-500">/6 months</span>
                             </div>
-                            <p className="text-sm text-gray-500 mt-2">Save ₹200 • Maximum value</p>
+                            <p className="text-sm text-gray-500 mt-2">Save $5 • Maximum value</p>
                         </div>
                         <ul className="space-y-3 mb-8">
                             <li className="flex items-center gap-2 text-sm">

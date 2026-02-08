@@ -17,7 +17,7 @@ const STRIPE_PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ||
 
 // Company (US product launched via Vendax Systems LLC)
 const COMPANY_NAME = "Vendax Systems LLC";
-const SUPPORT_EMAIL = "support@vendaxsystemlabs.com";
+const SUPPORT_EMAIL = "support@expertresume.us";
 const COMPANY_ADDRESS = "28 Geary St STE 650 Suite #500, San Francisco, California 94108, United States";
 const COMPANY_URL = "https://vendaxsystemlabs.com";
 

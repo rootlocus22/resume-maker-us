@@ -244,14 +244,14 @@ export default function CCPAOptOutPage() {
                 <Mail className="h-5 w-5 text-blue-600 mr-3" />
                 <div>
                   <p className="text-sm font-medium text-gray-900">Email Support</p>
-                  <p className="text-sm text-gray-600">privacy@expertresume.com</p>
+                  <p className="text-sm text-gray-600">privacy@expertresume.us</p>
                 </div>
               </div>
               <div className="flex items-center">
                 <Phone className="h-5 w-5 text-blue-600 mr-3" />
                 <div>
-                  <p className="text-sm font-medium text-gray-900">Phone Support</p>
-                  <p className="text-sm text-gray-600">+91 84312 56903</p>
+                  <p className="text-sm font-medium text-gray-900">Email Support</p>
+                  <p className="text-sm text-gray-600">support@expertresume.us</p>
                 </div>
               </div>
             </div>

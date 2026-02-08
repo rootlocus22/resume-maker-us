@@ -437,7 +437,7 @@ function ReferAndEarnContent() {
                     type="tel"
                     value={friendPhone}
                     onChange={(e) => setFriendPhone(e.target.value)}
-                    placeholder="+91 98765 43210"
+                    placeholder="(555) 123-4567"
                     className="w-full px-3 sm:px-4 py-2 sm:py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
                   />
                 </div>

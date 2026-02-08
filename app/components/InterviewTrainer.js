@@ -230,7 +230,7 @@ export default function InterviewTrainer() {
 
   // Dynamic greetings
   const greetings = {
-    interview: (name) => `Hey there! I’m your interviewer today, ${name || "Rahul"}. Let’s kick things off easy—tell me a bit about yourself and what you’ve been up to as a ${userDetails.role || "professional"}!`,
+    interview: (name) => `Hey there! I’m your interviewer today, ${name || "Alex"}. Let’s kick things off easy—tell me a bit about yourself and what you’ve been up to as a ${userDetails.role || "professional"}!`,
     problem: (role) => `Hey! Ready to tackle some challenges as a ${role || "professional"}? Tell me a problem you’d like our AI to help you solve—could be anything from work to something you’re curious about!`,
   };
 

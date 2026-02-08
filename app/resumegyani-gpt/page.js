@@ -1,4 +1,4 @@
-import ExpertResumeGPTClient from './ExpertResumeGPTClient';
+import ExpertResumeGPTClient from './ResumeGyaniGPTClient';
 
 export const metadata = {
   title: "ExpertResume GPT - Your AI Career & Learning Partner | Interview Prep, Study Help & Professional Growth",

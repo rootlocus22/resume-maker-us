@@ -28,10 +28,10 @@ const AgentManagement = () => {
     if (savedAgents) {
       setAgents(JSON.parse(savedAgents));
     } else {
-      // Initialize with Avinash
+      // Initialize with default agent
       const initialAgents = [{
-        id: 'agent_avinash_001',
-        name: 'Avinash',
+        id: 'agent_default_001',
+        name: 'Admin',
         createdAt: new Date().toISOString(),
         isActive: true,
         totalLeads: 0,
@@ -110,7 +110,7 @@ const AgentManagement = () => {
 
   // Format date
   const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('en-IN', {
+    return new Date(dateString).toLocaleDateString('en-US', {
       day: '2-digit',
       month: 'short',
       year: 'numeric'
@@ -143,7 +143,7 @@ const AgentManagement = () => {
             <div className="flex gap-3">
               <input
                 type="text"
-                placeholder="Agent name (e.g., Priya, Rahul, Amit)"
+                placeholder="Agent name (e.g., Sarah, James, Emily)"
                 value={newAgentName}
                 onChange={(e) => setNewAgentName(e.target.value)}
                 className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"

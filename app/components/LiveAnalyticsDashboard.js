@@ -105,16 +105,8 @@ const LiveAnalyticsDashboard = () => {
           // Agent not found, create default info from ID
           let agentName = 'Agent';
           
-          if (agentIdFromUrl.includes('avinash')) {
-            agentName = 'Avinash';
-          } else if (agentIdFromUrl.includes('rahul')) {
-            agentName = 'Rahul';
-          } else if (agentIdFromUrl.includes('priya')) {
-            agentName = 'Priya';
-          } else if (agentIdFromUrl.includes('amit')) {
-            agentName = 'Amit';
-          } else if (agentIdFromUrl.includes('sneha')) {
-            agentName = 'Sneha';
+          if (agentIdFromUrl.includes('default') || agentIdFromUrl.includes('admin')) {
+            agentName = 'Admin';
           } else {
             // Fallback: clean up the agent ID
             agentName = agentIdFromUrl.replace('agent_', '').replace(/_\d+$/, '').replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());

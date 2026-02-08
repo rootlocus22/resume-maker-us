@@ -39,19 +39,19 @@ const successStories = [
   {
     name: "Sarah Chen",
     role: "Software Engineer at Google",
-    story: "Got 3 interview calls in 2 weeks using ExpertResume's AI suggestions. Now earning ₹32 LPA!",
+    story: "Got 3 interview calls in 2 weeks using ExpertResume's AI suggestions. Landed a senior role!",
     increase: "300% more interviews",
     verified: true
   },
   {
-    name: "Rahul Sharma",
+    name: "James Wilson",
     role: "Product Manager at Amazon",
     story: "The ATS score feature helped me optimize my resume. Landed my dream job in just 1 month!",
     increase: "45% salary jump",
     verified: true
   },
   {
-    name: "Priya Patel",
+    name: "Emily Rodriguez",
     role: "Data Scientist at Microsoft",
     story: "Job-specific templates made all the difference. Got offers from 5 companies!",
     increase: "5 job offers",
@@ -887,7 +887,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                   <h4 className="font-semibold text-gray-800 mb-2">Email Support</h4>
                   <p className="text-sm text-gray-600 mb-3">24-hour response guaranteed</p>
                   <a
-                    href="mailto:support@vendaxsystemlabs.com"
+                    href="mailto:support@expertresume.us"
                     className="text-[#0B1F3B] hover:text-[#071429] font-medium text-sm"
                   >
                     Send Email →

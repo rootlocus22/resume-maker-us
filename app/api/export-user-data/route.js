@@ -162,9 +162,9 @@ export async function POST(request) {
         rightToNonDiscrimination: "We will not discriminate against you for exercising your privacy rights"
       },
       contactInformation: {
-        email: "privacy@expertresume.com",
-        phone: "+91 84312 56903",
-        address: "Bangalore, Choodasandra 560035"
+        email: "privacy@expertresume.us",
+        phone: "(555) 123-4567",
+        address: "San Francisco, CA 94105"
       }
     };
 

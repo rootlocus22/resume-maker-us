@@ -84,13 +84,13 @@ export default function ApplyOSUpgrade() {
 
                         <div className="p-8 text-center">
                             <div className="flex items-center justify-center gap-1 mb-2">
-                                <span className="text-sm text-gray-400 line-through">₹2,999</span>
+                                <span className="text-sm text-gray-400 line-through">$29.99</span>
                                 <span className="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">SAVE 66%</span>
                             </div>
                             <div className="text-5xl font-extrabold text-gray-900 mb-2">
-                                ₹999<span className="text-lg font-normal text-gray-500">/year</span>
+                                $9.99<span className="text-lg font-normal text-gray-500">/year</span>
                             </div>
-                            <p className="text-gray-500 text-sm mb-8">Less than ₹3 per day</p>
+                            <p className="text-gray-500 text-sm mb-8">Less than $1 per month</p>
 
                             <button
                                 onClick={handleUpgrade}
@@ -109,7 +109,7 @@ export default function ApplyOSUpgrade() {
                             <p className="text-sm text-gray-600">
                                 "This tool literally managed my job search for me. Got 5 interviews in week 1."
                             </p>
-                            <p className="text-xs font-bold text-gray-900 mt-1">- Priya S., Product Designer</p>
+                            <p className="text-xs font-bold text-gray-900 mt-1">- Laura M., Product Designer</p>
                         </div>
                     </motion.div>
                 </div>

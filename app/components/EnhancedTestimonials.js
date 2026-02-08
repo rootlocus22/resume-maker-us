@@ -10,31 +10,31 @@ export default function EnhancedTestimonials() {
   // Testimonials data - using curated testimonials directly
   const testimonials = [
     {
-      name: "Priya Sharma",
+      name: "Sarah Mitchell",
       role: "Software Engineer",
-      company: "Infosys",
+      company: "Oracle",
       comment: "I was struggling to get interview calls for months. After using ExpertResume, I got 6 interview calls in just 3 weeks! The ATS score checker helped me fix all the issues in my resume. Highly recommend to everyone!",
       rating: 5,
       result: "6 interviews in 3 weeks"
     },
     {
-      name: "Rahul Patel",
+      name: "Michael Chen",
       role: "Product Manager",
-      company: "Flipkart",
-      comment: "This is exactly what I needed. The job description resume builder feature is amazing - it helped me tailor my resume for each application. Got my dream job at Flipkart thanks to ExpertResume!",
+      company: "Salesforce",
+      comment: "This is exactly what I needed. The job description resume builder feature is amazing - it helped me tailor my resume for each application. Got my dream job thanks to ExpertResume!",
       rating: 5,
       result: "Landed dream job"
     },
     {
-      name: "Sneha Reddy",
+      name: "Emily Rodriguez",
       role: "Business Analyst",
-      company: "TCS",
-      comment: "Being a fresher, I had no idea how to make my resume stand out. ExpertResume made it so easy with ready templates and AI suggestions. Got placed in my campus interviews with much better package than expected.",
+      company: "Deloitte",
+      comment: "As a recent graduate, I had no idea how to make my resume stand out. ExpertResume made it so easy with ready templates and AI suggestions. Landed a great offer right out of school.",
       rating: 5,
-      result: "Campus placement success"
+      result: "Landed first role"
     },
     {
-      name: "Amit Kumar",
+      name: "David Park",
       role: "Data Scientist",
       company: "Accenture",
       comment: "The resume parser saved me hours of work. I just uploaded my old resume and it automatically filled everything. Then I used the ATS checker and improved my score from 45% to 89%. Worth every dollar!",
@@ -42,31 +42,31 @@ export default function EnhancedTestimonials() {
       result: "ATS score 45% → 89%"
     },
     {
-      name: "Anjali Verma",
+      name: "Jennifer Wilson",
       role: "HR Manager",
-      company: "Wipro",
+      company: "Cisco",
       comment: "I've been in HR for 8 years and I can tell you - ExpertResume resumes definitely stand out. When I was switching jobs, I used it myself and got calls from 4 top companies. The templates are professional and ATS-friendly.",
       rating: 5,
       result: "4 top company calls"
     },
     {
-      name: "Vikram Singh",
+      name: "Ryan Thompson",
       role: "Marketing Executive",
-      company: "Asian Paints",
+      company: "Nike",
       comment: "My previous resume was getting rejected everywhere. After rebuilding it on ExpertResume with their suggestions, I started getting responses. The interview trainer feature also helped me prepare well. Got the job in 2 months!",
       rating: 5,
       result: "Job in 2 months"
     },
     {
-      name: "Divya Iyer",
+      name: "Amanda Lee",
       role: "Financial Analyst",
-      company: "HDFC Bank",
+      company: "JPMorgan",
       comment: "I was skeptical at first but this really works. The AI analyzed my resume and suggested better ways to write my achievements. My interview rate increased significantly after the changes. Thank you ExpertResume!",
       rating: 5,
       result: "Better interview rate"
     },
     {
-      name: "Arjun Nair",
+      name: "Chris Anderson",
       role: "Full Stack Developer",
       company: "Amazon",
       comment: "As someone who applied to multiple companies, the job-specific resume builder was a game changer. I could quickly customize my resume for each application. Got offers from 3 companies including Amazon!",
@@ -74,31 +74,31 @@ export default function EnhancedTestimonials() {
       result: "3 job offers"
     },
     {
-      name: "Pooja Gupta",
+      name: "Laura Martinez",
       role: "UI/UX Designer",
-      company: "Swiggy",
+      company: "Spotify",
       comment: "The templates are beautiful and modern. As a designer, I'm quite particular about design and I was impressed. The resume looked professional and helped me get noticed. Highly satisfied with the service.",
       rating: 5,
       result: "Professional design"
     },
     {
-      name: "Karthik Menon",
+      name: "Brian Nguyen",
       role: "Operations Manager",
-      company: "Zomato",
+      company: "FedEx",
       comment: "I had a career gap of 2 years and was worried about how to present my resume. ExpertResume's suggestions helped me highlight my skills better. Got back to work within a month of serious job search!",
       rating: 5,
       result: "Career comeback"
     },
     {
-      name: "Meera Joshi",
+      name: "Rachel Kim",
       role: "Business Development Executive",
-      company: "Paytm",
+      company: "HubSpot",
       comment: "The resume builder is so intuitive and user-friendly. I completed my professional resume in less than 30 minutes. The AI suggestions were spot-on and helped me present my achievements better. Got multiple interview calls!",
       rating: 5,
       result: "Multiple interviews"
     },
     {
-      name: "Rajesh Khanna",
+      name: "Kevin Brown",
       role: "Sales Manager",
       company: "Coca-Cola",
       comment: "I've recommended ExpertResume to all my colleagues. The job-specific resume feature is brilliant - it helped me customize my resume for different sales roles. Landed my current position at Coca-Cola!",
@@ -106,7 +106,7 @@ export default function EnhancedTestimonials() {
       result: "Role-specific success"
     },
     {
-      name: "Sanjana Reddy",
+      name: "Nicole Davis",
       role: "HR Executive",
       company: "Dell",
       comment: "As an HR professional, I know what makes a resume stand out. ExpertResume helped me create a resume that not only looks professional but also passes ATS scans perfectly. Highly recommend for anyone job hunting!",

@@ -69,10 +69,10 @@ export default function ContactPage() {
                 <div>
                   <p className="font-medium text-[#020617]">Email Support</p>
                   <a
-                    href="mailto:support@vendaxsystemlabs.com"
+                    href="mailto:support@expertresume.us"
                     className="text-[#2563EB] hover:text-[#1d4ed8] font-medium"
                   >
-                    support@vendaxsystemlabs.com
+                    support@expertresume.us
                   </a>
                 </div>
               </div>

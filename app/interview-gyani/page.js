@@ -153,9 +153,9 @@ export default function InterviewGyaniLanding() {
                             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale">
                                 <span className="text-xl font-bold">Google</span>
                                 <span className="text-xl font-bold">Amazon</span>
-                                <span className="text-xl font-bold">TCS</span>
+                                <span className="text-xl font-bold">Apple</span>
                                 <span className="text-xl font-bold">Microsoft</span>
-                                <span className="text-xl font-bold">HDFC Bank</span>
+                                <span className="text-xl font-bold">JPMorgan</span>
                                 <span className="text-xl font-bold">Meta</span>
                             </div>
                         </div>

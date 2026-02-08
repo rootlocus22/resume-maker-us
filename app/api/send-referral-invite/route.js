@@ -207,8 +207,8 @@ Team ExpertResume
                 Data: `${referrerName} wants to share ExpertResume with you`,
               },
             },
-            Source: '"ExpertResume" <support@vendaxsystemlabs.com>',
-            ReplyToAddresses: ["support@vendaxsystemlabs.com"],
+            Source: '"ExpertResume" <support@expertresume.us>',
+            ReplyToAddresses: ["support@expertresume.us"],
             Tags: [
               { Name: "template", Value: "referral_invite" },
               { Name: "referrer_id", Value: userId },

@@ -2073,7 +2073,7 @@ export default function ClientCheckout({
                       <CreditCard className="text-[#0B1F3B]" size={24} />
                       <div>
                         <p className="font-bold text-gray-900 text-sm">Secure Payment Gateway</p>
-                        <p className="text-xs text-gray-500">Encrypted & Safe. UPI, Cards, NetBanking.</p>
+                        <p className="text-xs text-gray-500">Encrypted & Safe. Cards, Apple Pay, Google Pay.</p>
                       </div>
                     </div>
                     <Lock size={16} className="text-green-500" />
@@ -2249,7 +2249,7 @@ export default function ClientCheckout({
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Payment Failed?</h3>
                 <p className="text-gray-600 text-sm">
-                  Don't worry, no money was deducted. Retry with a different method or use UPI for 100% success.
+                  Don't worry, no money was deducted. Retry with a different payment method.
                 </p>
               </div>
 

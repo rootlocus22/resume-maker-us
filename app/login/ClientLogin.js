@@ -290,7 +290,7 @@ function LoginContent() {
             <p className="text-white/90 mb-4 italic">
               "ExpertResume helped me land my dream job at Google! The AI suggestions were spot-on."
             </p>
-            <p className="text-sm text-white/70">- Priya Sharma, Software Engineer</p>
+            <p className="text-sm text-white/70">- Sarah Mitchell, Software Engineer</p>
           </div>
 
           {/* Stats */}
@@ -562,7 +562,7 @@ function LoginContent() {
                 <p className="text-gray-700 mb-3 italic font-medium">
                   "ExpertResume helped me land my dream job! The AI suggestions were amazing."
                 </p>
-                <p className="text-sm text-gray-600">- Priya S., Software Engineer</p>
+                <p className="text-sm text-gray-600">- Sarah M., Software Engineer</p>
               </div>
 
               <p

@@ -14,7 +14,7 @@ const CurrencySwitcher = ({
 
   const currencies = [
     { code: "USD", symbol: "$", name: "US Dollar" },
-    { code: "INR", symbol: "₹", name: "US Rupee" },
+    { code: "INR", symbol: "₹", name: "Indian Rupee" },
   ];
 
   const handleCurrencyChange = (newCurrency) => {

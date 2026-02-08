@@ -66,7 +66,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
                             value={editedResumeData.phone || ''}
                             disabled
                             className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm bg-gray-100 text-gray-600 cursor-not-allowed"
-                            placeholder="+91 XXXXX XXXXX"
+                            placeholder="(555) 123-4567"
                         />
                     </div>
                     <div>

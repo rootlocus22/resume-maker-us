@@ -35,8 +35,8 @@ export async function sendEmail({ templateId, userId, email, to, data = {}, conf
           Data: subject,
         },
       },
-      Source: '"ExpertResume" <support@vendaxsystemlabs.com>',
-      ReplyToAddresses: ["support@vendaxsystemlabs.com"],
+      Source: '"ExpertResume" <support@expertresume.us>',
+      ReplyToAddresses: ["support@expertresume.us"],
     };
 
     // Add configuration set if provided

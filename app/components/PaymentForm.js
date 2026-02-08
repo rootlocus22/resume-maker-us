@@ -142,7 +142,7 @@ const PaymentForm = ({ isOpen, onClose, userId, billingCycle: propBillingCycle }
 
     // Validate phone only if provided
     if (phone && !/^\+?[1-9]\d{1,14}$/.test(phone)) {
-      toast.error("Invalid phone format. Use e.g., +915551234567 or leave blank.");
+      toast.error("Invalid phone format. Use e.g., +15551234567 or leave blank.");
       await logPaymentAttempt("failed", null, null, null, new Error("Invalid phone format"), null);
       return;
     }
@@ -318,7 +318,7 @@ const PaymentForm = ({ isOpen, onClose, userId, billingCycle: propBillingCycle }
             />
             <input
               type="tel"
-              placeholder="Phone (optional, e.g., +91 555-123-4567)"
+              placeholder="Phone (optional, e.g., +1 555-123-4567)"
               value={paymentDetails.phone}
               onChange={(e) => setPaymentDetails((prev) => ({ ...prev, phone: e.target.value }))}
               className="w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0B1F3B] focus:outline-none placeholder-gray-400 text-sm"

@@ -3,8 +3,8 @@ import InterviewSEOContent from '../../components/interview-gyani/InterviewSEOCo
 
 export const metadata = {
     title: "Mock Interview for Freshers (Campus Placements 2026) – ExpertResume",
-    description: "Nervous about your first job interview? Practice common fresher questions for TCS, Infosys, Wipro, and Startups. Build confidence with free AI mock interviews.",
-    keywords: ["fresher interview questions", "campus placement mock interview", "interview practice for students", "tcs interview questions", "hr interview questions for freshers"],
+    description: "Nervous about your first job interview? Practice common entry-level questions for top companies and startups. Build confidence with free AI mock interviews.",
+    keywords: ["entry level interview questions", "new grad mock interview", "interview practice for students", "first job interview questions", "hr interview questions for new grads"],
     openGraph: {
         title: "Fresher/Campus Placement Mock Interview",
         description: "Ace your campus placements. Practice HR and Technical basics with an AI interviewer designed for students.",
@@ -26,12 +26,12 @@ export default function FresherInterviewPage() {
                 a: "The AI helps you structure answers around your projects and internships. Even without a job, you have valuable experiences—we help you frame them."
             },
             {
-                q: "Is this helpful for TCS/Infosys/Wipro?",
-                a: "Yes! We have a database of common HR and Technical questions asked by major mass recruiters. It's the perfect practice ground."
+                q: "Is this helpful for Fortune 500 companies?",
+                a: "Yes! We have a database of common HR and Technical questions asked by major employers like Google, Amazon, Deloitte, and more. It's the perfect practice ground."
             },
             {
-                q: "Can I practice in mixed English/Hinglish?",
-                a: "Currently, our AI feedback is best in English, which is the standard for most interviews. It's a great way to improve your professional English fluency."
+                q: "Can I practice different interview formats?",
+                a: "Yes! Our AI supports behavioral, technical, and situational interview formats. It adapts to your target role and industry."
             }
         ]
     };

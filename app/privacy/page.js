@@ -250,8 +250,8 @@ export default function PrivacyPolicyPage() {
               </p>
               <ul className="list-disc list-inside">
                 <li>Submit a request through our <a href="/privacy-dashboard" className="text-[#0B1F3B] hover:text-[#071429] underline">Privacy Dashboard</a></li>
-                <li>Email us at: <a href="mailto:privacy@expertresume.com" className="text-[#0B1F3B] hover:text-[#071429] underline">privacy@expertresume.com</a></li>
-                <li>Call us at: +91 84312 56903</li>
+                <li>Email us at: <a href="mailto:privacy@expertresume.us" className="text-[#0B1F3B] hover:text-[#071429] underline">privacy@expertresume.us</a></li>
+                <li>Contact us via email for fastest response</li>
               </ul>
 
               <h3 className="text-md font-semibold text-gray-800 mt-4">

@@ -687,7 +687,7 @@ export default function WelcomePremium({ plan, billingCycle, source, amount, cur
                 transition={{ delay: 1.8, duration: 0.6 }}
                 className="text-xs text-gray-500"
               >
-                {plan === "interview_gyani" ? "Rahul K., SDE-2 • Interview Simulation  Pro" : "Amit S., Mumbai • Premium Member"}
+                {plan === "interview_gyani" ? "Ryan C., SDE-2 • Interview Simulation  Pro" : "David P., San Francisco • Premium Member"}
               </motion.p>
             </div>
           </div>

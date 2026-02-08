@@ -5,7 +5,7 @@ import { PLAN_CONFIG, DISCOUNT_CONFIG, ADDON_CONFIG } from './planConfig';
 // Supported currencies (Stripe supports 135+ currencies)
 const SUPPORTED_CURRENCIES = {
   USD: { symbol: '$', name: 'US Dollar', country: 'United States' },
-  INR: { symbol: '₹', name: 'US Rupee', country: 'India' },
+  INR: { symbol: '₹', name: 'Indian Rupee', country: 'India' },
 };
 
 // PPP-based pricing multipliers (relative to INR)
