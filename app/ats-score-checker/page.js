@@ -452,7 +452,7 @@ export default function ATSScoreCheckerPage() {
           </div>
           <div className="mt-8 pt-8 border-t border-white/20">
             <p className="text-white/70 text-sm mb-3">Resume ready? Prepare for the interview.</p>
-            <Link href="/interview-gyani/mock-interview-ai" className="inline-flex items-center gap-2 text-white font-semibold hover:underline">
+            <Link href="/ai-interview/mock-interview-ai" className="inline-flex items-center gap-2 text-white font-semibold hover:underline">
               <Bot className="w-4 h-4" /> Practice Free Mock Interview &rarr;
             </Link>
           </div>

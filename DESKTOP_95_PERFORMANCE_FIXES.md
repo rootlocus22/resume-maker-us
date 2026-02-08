@@ -77,8 +77,8 @@ Created a new component that serves modern image formats:
 **Problem**: Logo showing as 15.4KB displayed at 151x96px (should be ~5KB)
 
 **Current Optimized Logos**:
-- Desktop: `/resumegyani-logo-optimized.webp` (15.4KB)
-- Mobile: `/resumegyani-logo-mobile.webp` (12.4KB)
+- Desktop: `/expertresume-logo-optimized.webp` (15.4KB)
+- Mobile: `/expertresume-logo-mobile.webp` (12.4KB)
 
 **PageSpeed Report**: Flagged additional 14.3KB savings possible
 
@@ -222,8 +222,8 @@ experimental: {
 ✅ app/components/Header.js (optimized logo)
 ✅ app/components/Footer.js (optimized logo)
 ✅ next.config.mjs (compression, cache headers, webpack CSS split)
-✅ public/resumegyani-logo-optimized.webp (5KB)
-✅ public/resumegyani-logo-mobile.webp (12KB)
+✅ public/expertresume-logo-optimized.webp (5KB)
+✅ public/expertresume-logo-mobile.webp (12KB)
 ```
 
 ---
@@ -239,7 +239,7 @@ experimental: {
 
 2. **Run PageSpeed Insights**:
    - Test Desktop (not mobile)
-   - URL: https://resumegyani.in/
+   - URL: https://expertresume.in/
    - Should see:
      - ✅ Element render delay: 0ms (was 2.75s)
      - ✅ Image savings: ~50KB (was 285KB)

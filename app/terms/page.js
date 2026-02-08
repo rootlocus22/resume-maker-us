@@ -196,7 +196,7 @@ export default function TermsPage() {
                 </h3>
                 <div className="space-y-3">
                   <p className="text-sm sm:text-base text-gray-700">
-                    To ensure fair access to our high-performance AI computation resources, usage of the **Interview Gyani** is subject to tier-based limits:
+                    To ensure fair access to our high-performance AI computation resources, usage of the **AI Interview** is subject to tier-based limits:
                   </p>
                   <div className="grid sm:grid-cols-3 gap-4">
                     <div className="bg-white p-4 rounded-xl border border-slate-200">
@@ -211,7 +211,7 @@ export default function TermsPage() {
                     </div>
                     <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm border-2 border-slate-200 relative overflow-hidden">
                       <div className="absolute top-0 right-0 px-2 py-0.5 bg-[#0B1F3B] text-[7px] text-white font-black uppercase">MAX</div>
-                      <h4 className="text-[10px] font-black text-[#0B1F3B] uppercase tracking-widest mb-1 leading-none">GYANI PRO</h4>
+                      <h4 className="text-[10px] font-black text-[#0B1F3B] uppercase tracking-widest mb-1 leading-none">AI INTERVIEW PRO</h4>
                       <p className="text-xs font-bold text-slate-800">20 Sessions / Month</p>
                       <p className="text-[9px] text-slate-400 font-medium italic">15 Questions per session</p>
                     </div>

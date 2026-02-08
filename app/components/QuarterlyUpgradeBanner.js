@@ -67,7 +67,7 @@ const QuarterlyUpgradeBanner = ({ className = "", currency = "INR" }) => {
                             <div className="bg-indigo-500/20 p-1 rounded-full">
                                 <Sparkles size={16} className="text-indigo-400" />
                             </div>
-                            Interview Gyani
+                            AI Interview
                         </div>
                         <div className="flex items-center gap-2 text-sm font-medium text-white/90">
                             <div className="bg-amber-500/20 p-1 rounded-full">

@@ -133,7 +133,7 @@ git push origin main
 
 ### **Step 1: Google PageSpeed Insights (Critical)**
 1. Go to: https://pagespeed.web.dev/
-2. Enter: https://resumegyani.in
+2. Enter: https://expertresume.in
 3. **Check Mobile:**
    - ✅ Performance Score: 90+
    - ✅ LCP: <2.5s
@@ -146,7 +146,7 @@ git push origin main
 
 ### **Step 2: Google Rich Results Test**
 1. Go to: https://search.google.com/test/rich-results
-2. Enter: https://resumegyani.in
+2. Enter: https://expertresume.in
 3. **Verify Schemas:**
    - ✅ FAQ Schema
    - ✅ Organization Schema
@@ -154,7 +154,7 @@ git push origin main
    - ✅ BreadcrumbList Schema (NEW)
 
 ### **Step 3: Visual Verification**
-1. Open: https://resumegyani.in
+1. Open: https://expertresume.in
 2. **Check DevTools → Network Tab:**
    - ✅ Images loading as WebP
    - ✅ Lazy loading working (images below fold load on scroll)

@@ -31,7 +31,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import { CheckCircle } from "lucide-react";
 
-export default function InterviewGyani() {
+export default function AIInterviewPro() {
   const { isPremium, user, plan } = useAuth();
   const router = useRouter();
   const [messages, setMessages] = useState([]);
@@ -576,7 +576,7 @@ export default function InterviewGyani() {
               <Crown className="w-10 h-10 text-white" />
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Upgrade to Pro for Interview Gyani
+              Upgrade to Pro for AI Interview
             </h2>
             <p className="text-gray-600 mb-6 text-lg">
               The Interview Simulation  feature is only available for <strong>Pro Monthly ($9.99)</strong> and <strong>Pro 6-Month ($19.99)</strong> plans.
@@ -627,7 +627,7 @@ export default function InterviewGyani() {
       {/* Mobile Header */}
       <div className="lg:hidden bg-white border-b border-gray-200 p-4 flex-shrink-0">
         <div className="flex items-center justify-between">
-          <h1 className="text-lg font-semibold text-gray-900">Interview Gyani</h1>
+          <h1 className="text-lg font-semibold text-gray-900">AI Interview</h1>
           <button
             onClick={() => setSidebarOpen(true)}
             className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg"

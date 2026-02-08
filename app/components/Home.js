@@ -674,7 +674,7 @@ export default function Home() {
                       benefit: "Save hours"
                     },
                     {
-                      title: "ExpertResume – Interview Gyani",
+                      title: "ExpertResume – AI Interview",
                       description: "Mock interviews with feedback from an AI Senior Interviewer. Get readiness reports and ace your next big opportunity.",
                       icon: <Mic className="text-teal-500" size={28} />,
                       premium: true,

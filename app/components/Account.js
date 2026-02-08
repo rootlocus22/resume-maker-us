@@ -172,7 +172,7 @@ export default function Profile() {
 
   const getPlanName = (type = 'resume') => {
     if (type === 'interview') {
-      if (interviewPlan === "interview_gyani" || interviewPlan === "pro") return "Interview Gyani Pro";
+      if (interviewPlan === "interview_gyani" || interviewPlan === "pro") return "AI Interview Pro";
       return "Free Interview Practice";
     }
 

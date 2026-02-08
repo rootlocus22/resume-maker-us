@@ -37,7 +37,7 @@ export default function Header() {
     };
   }, [isMenuOpen]);
 
-  // Check if user has access to advanced features (JD Builder, Salary Analyzer, Interview Gyani)
+  // Check if user has access to advanced features (JD Builder, Salary Analyzer, AI Interview)
   const hasAdvancedAccess = plan === "premium" || plan === "monthly" || plan === "quarterly" || plan === "sixMonth";
 
   // Generate tiered premium badge based on user plan
@@ -243,7 +243,7 @@ export default function Header() {
       icon: TrendingUp,
       items: [
         {
-          href: "/interview-gyani",
+          href: "/ai-interview",
           label: "Interview Simulation",
           icon: Mic,
           description: "Practice with AI mock interviews",
@@ -251,7 +251,7 @@ export default function Header() {
           badgeColor: "bg-primary-500",
           onClick: (e) => {
             e.preventDefault();
-            router.push("/interview-gyani");
+            router.push("/ai-interview");
           }
         },
         {

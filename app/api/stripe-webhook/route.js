@@ -213,7 +213,7 @@ async function fulfillCheckoutSession(session) {
                 monthly: "Pro Monthly Plan",
                 quarterly: "Pro Quarterly Plan",
                 sixMonth: "Pro 6-Month Plan",
-                interview_gyani: "Interview Gyani Pro",
+                interview_gyani: "AI Interview Pro",
               }[billingCycle] || "Premium",
           billingCycle: isProfileSlotPurchase ? "Lifetime" : billingCycle,
           hasJobSearch: includeJobTracker,

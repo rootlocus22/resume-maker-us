@@ -360,10 +360,10 @@ export function SkillsTab({ careerPlan, isPremium, isFree }) {
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <MessageSquare className="w-6 h-6 sm:w-7 sm:h-7" />
-                <h3 className="text-xl sm:text-2xl font-bold">Practice with Interview Gyani</h3>
+                <h3 className="text-xl sm:text-2xl font-bold">Practice with AI Interview</h3>
               </div>
               <p className="text-purple-100 text-sm sm:text-base mb-4">
-                Master all the topics mentioned above with ExpertResume AI Interview Gyani. Get real-time feedback and expert guidance!
+                Master all the topics mentioned above with ExpertResume AI AI Interview. Get real-time feedback and expert guidance!
               </p>
             </div>
             <Zap className="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0 ml-4" />
@@ -388,7 +388,7 @@ export function SkillsTab({ careerPlan, isPremium, isFree }) {
           </div>
 
           <button
-            onClick={() => router.push('/interview-gyani')}
+            onClick={() => router.push('/ai-interview')}
             className="bg-white text-purple-700 px-6 py-3 rounded-xl hover:bg-purple-50 transition-all duration-300 font-bold text-sm sm:text-base inline-flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105"
           >
             <Rocket className="w-5 h-5" />
@@ -973,7 +973,7 @@ export function InterviewsTab({ careerPlan, isPremium, isFree }) {
                 <h3 className="text-xl sm:text-2xl font-bold">Ready for Your Interview?</h3>
               </div>
               <p className="text-indigo-100 text-sm sm:text-base mb-4">
-                Practice with ExpertResume Interview Gyani! Get personalized mock interviews covering all topics from your career plan with real-time AI feedback.
+                Practice with ExpertResume AI Interview! Get personalized mock interviews covering all topics from your career plan with real-time AI feedback.
               </p>
             </div>
             <Trophy className="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0 ml-4" />
@@ -1002,7 +1002,7 @@ export function InterviewsTab({ careerPlan, isPremium, isFree }) {
             className="bg-white text-indigo-700 px-6 py-3 rounded-xl hover:bg-indigo-50 transition-all duration-300 font-bold text-sm sm:text-base inline-flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105"
           >
             <Rocket className="w-5 h-5" />
-            Launch Interview Gyani
+            Launch AI Interview
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

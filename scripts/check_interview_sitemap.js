@@ -45,7 +45,7 @@ async function main() {
             let url = match[1];
             // Rewrite domain to local if needed
             if (BASE_URL.includes('localhost')) {
-                url = url.replace('https://resumegyani.in', BASE_URL);
+                url = url.replace('https://expertresume.us', BASE_URL);
             }
             urls.push(url);
         }

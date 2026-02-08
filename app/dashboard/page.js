@@ -230,7 +230,7 @@ function DashboardContent() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
             {[
               { href: "/resume-builder", icon: FileText, label: "Resume Builder", color: "blue" },
-              { href: "/interview-gyani", icon: Brain, label: "Interview Simulation", color: "purple", new: true },
+              { href: "/ai-interview", icon: Brain, label: "Interview Simulation", color: "purple", new: true },
               { href: "/upload-resume", icon: Plus, label: "Upload Resume", color: "blue" },
               { href: "/ats-score-checker", icon: Target, label: "ATS Checker", color: "blue" },
               { href: "/job-description-resume-builder", icon: Briefcase, label: "JD Builder", color: "blue", premium: true },
@@ -518,7 +518,7 @@ function DashboardContent() {
                 </div>
               </div>
 
-              <Link href="/interview-gyani" className="mt-4">
+              <Link href="/ai-interview" className="mt-4">
                 <button className="w-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-semibold hover:from-[#071429] hover:to-[#008C81] transition-all duration-200 flex items-center justify-center gap-2 text-xs sm:text-sm shadow-sm group-hover:shadow-md">
                   Practice Now
                   <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />

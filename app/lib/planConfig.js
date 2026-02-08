@@ -203,7 +203,7 @@ export const PLAN_CONFIG = {
       "JD Builder - Tailor to Any Job",
       "AI Job Search (Unlimited)",
       "Interview Prep Kit",
-      "Interview Gyani Pro Access",
+      "AI Interview Pro Access",
       "ExpertResume GPT",
       "Salary Analyzer",
       "AI Career Coach - 6 Month Roadmap",
@@ -326,7 +326,7 @@ export const getAllPlans = () => {
     .sort((a, b) => a.hierarchy - b.hierarchy);
 };
 
-// Check if plan has advanced features (JD Builder, Interview Gyani, Salary Analyzer)
+// Check if plan has advanced features (JD Builder, AI Interview, Salary Analyzer)
 export const hasAdvancedFeatures = (planType) => {
   return planType === 'monthly' || planType === 'quarterly' || planType === 'sixMonth';
 };
@@ -465,5 +465,5 @@ export const getUpgradeMessage = (planType) => {
     return 'You have access to all features!';
   }
 
-  return `Upgrade to Pro Monthly or Pro 6-Month for advanced features like JD Builder, Interview Gyani, and Salary Analyzer.`;
+  return `Upgrade to Pro Monthly or Pro 6-Month for advanced features like JD Builder, AI Interview, and Salary Analyzer.`;
 };

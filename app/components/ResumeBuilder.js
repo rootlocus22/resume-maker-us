@@ -1041,7 +1041,7 @@ export default function ResumeBuilder() {
       '/cover-letter-builder',    // Cover letter builder
       '/one-pager-resume',        // One-pager resume
       '/salary-analyzer',         // Salary analyzer
-      '/interview-gyani',       // Interview copilot
+      '/ai-interview',       // Interview copilot
       '/job-search',              // Job search pages
       '/company-jobs'             // Company jobs pages
     ];

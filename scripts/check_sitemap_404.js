@@ -42,7 +42,7 @@ async function main() {
         while ((match = regex.exec(xml)) !== null) {
             let url = match[1];
             // Rewrite to localhost
-            url = url.replace('https://resumegyani.in', BASE_URL);
+            url = url.replace('https://expertresume.us', BASE_URL);
             urls.push(url);
         }
 

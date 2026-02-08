@@ -48,7 +48,7 @@ export async function sendSMSVerification(phoneNumber, code) {
       };
     }
 
-    const message = `Your Resume Gyani verification code is: ${code}. This code will expire in 10 minutes. Don't share this code with anyone.`;
+    const message = `Your ExpertResume verification code is: ${code}. This code will expire in 10 minutes. Don't share this code with anyone.`;
 
     const params = {
       Message: message,

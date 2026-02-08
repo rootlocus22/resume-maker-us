@@ -336,7 +336,7 @@ export default function CoverLetterPreview({ data, template, customColors, resum
               letterSpacing: "4px",
             }}
           >
-            RESUMEGYANI
+            EXPERTRESUME
           </div>
         )}
       </div>

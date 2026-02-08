@@ -84,7 +84,7 @@ const featureBenefits = [
   },
   {
     icon: <MessageCircle className="w-6 h-6 text-orange-500" />,
-    title: "Interview Gyani",
+    title: "AI Interview",
     benefit: "Ace every interview with confidence",
     impact: "85% interview success rate",
     description: "Practice with ExpertResume AI, get personalized feedback, land the job"
@@ -538,7 +538,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
-                        <span>Interview Gyani</span>
+                        <span>AI Interview</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
@@ -587,7 +587,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
-                        <span>Interview Gyani</span>
+                        <span>AI Interview</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />

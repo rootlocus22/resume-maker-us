@@ -182,7 +182,7 @@
 
 Hi Harshada,
 
-Thank you for reaching out to ResumeGyani! I'm excited to help Elevate streamline your resume processing workflow.
+Thank you for reaching out to ExpertResume! I'm excited to help Elevate streamline your resume processing workflow.
 
 I've reviewed your requirements, and I'm confident we can address all of them:
 
@@ -219,7 +219,7 @@ Looking forward to helping Elevate optimize your resume processing!
 Best regards,  
 [Your Name]  
 [Your Title]  
-ResumeGyani  
+ExpertResume  
 [Phone] | [Email]
 
 ---

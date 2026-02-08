@@ -29,7 +29,7 @@ export default function PdfPreviewModal({ pdfPreviewUrl, onClose, isLoading }) {
       )}
       <div className="mt-4 flex justify-between items-center border-t pt-4">
         <div>
-          <Link href="/interview-gyani/mock-interview-ai" target="_blank" className="flex items-center gap-2 text-sm text-purple-600 font-semibold hover:text-purple-800 bg-purple-50 px-3 py-2 rounded-lg transition-colors">
+          <Link href="/ai-interview/mock-interview-ai" target="_blank" className="flex items-center gap-2 text-sm text-purple-600 font-semibold hover:text-purple-800 bg-purple-50 px-3 py-2 rounded-lg transition-colors">
             <Bot size={16} />
             Practice for this Interview (Free)
           </Link>

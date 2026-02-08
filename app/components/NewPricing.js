@@ -54,7 +54,7 @@ export default function NewPricing() {
       description: "Complete career toolkit for serious professionals",
       features: [
         "JD Builder - Tailor to Any Job",
-        "Interview Gyani",
+        "AI Interview",
         "Salary Analyzer",
         "AI Career Coach - 6 Month Roadmap",
         "Unlimited Downloads",
@@ -79,7 +79,7 @@ export default function NewPricing() {
       description: "Best value for committed professionals",
       features: [
         "JD Builder - Tailor to Any Job",
-        "Interview Gyani",
+        "AI Interview",
         "Salary Analyzer",
         "AI Career Coach - 6 Month Roadmap",
         "Unlimited Downloads",
@@ -104,7 +104,7 @@ export default function NewPricing() {
       description: "Great value for professionals who want extended access",
       features: [
         "JD Builder - Tailor to Any Job",
-        "Interview Gyani",
+        "AI Interview",
         "Salary Analyzer",
         "AI Career Coach - 6 Month Roadmap",
         "Unlimited Downloads",

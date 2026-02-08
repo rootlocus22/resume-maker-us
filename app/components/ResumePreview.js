@@ -4633,19 +4633,19 @@ const ResumePreview = memo(function ResumePreview({
         {!isPremium && (
           <div className="absolute inset-0 pointer-events-none z-[100] overflow-hidden flex flex-col items-center justify-around opacity-[0.05] select-none">
             <div className="transform -rotate-12 text-6xl sm:text-8xl font-black tracking-widest whitespace-nowrap">
-              RESUMEGYANI
+              EXPERTRESUME
             </div>
             <div className="transform -rotate-12 text-6xl sm:text-8xl font-black tracking-widest whitespace-nowrap">
-              RESUMEGYANI
+              EXPERTRESUME
             </div>
             <div className="transform -rotate-12 text-6xl sm:text-8xl font-black tracking-widest whitespace-nowrap text-emerald-600">
               UPGRADE TO REMOVE
             </div>
             <div className="transform -rotate-12 text-6xl sm:text-8xl font-black tracking-widest whitespace-nowrap">
-              RESUMEGYANI
+              EXPERTRESUME
             </div>
             <div className="transform -rotate-12 text-6xl sm:text-8xl font-black tracking-widest whitespace-nowrap">
-              RESUMEGYANI
+              EXPERTRESUME
             </div>
           </div>
         )}

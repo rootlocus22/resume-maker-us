@@ -1,4 +1,4 @@
-import { getExpandedRoles } from '../app/lib/interview-gyani/roleExpander.js';
+import { getExpandedRoles } from '../app/lib/ai-interview/roleExpander.js';
 import { initializeApp, cert, getApps } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
 import dotenv from 'dotenv';

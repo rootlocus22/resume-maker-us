@@ -1,7 +1,7 @@
 # CCPA Cookie Banner Implementation Guide
 
 ## Overview
-Implemented a **lightweight, CCPA-compliant cookie banner** for `resumegyani.com` (US domain) with **zero performance impact**.
+Implemented a **lightweight, CCPA-compliant cookie banner** for `expertresume.com` (US domain) with **zero performance impact**.
 
 ---
 
@@ -21,7 +21,7 @@ Implemented a **lightweight, CCPA-compliant cookie banner** for `resumegyani.com
 - **Inline Styles**: No additional CSS file downloads
 
 ### ✅ Smart Targeting
-- **Domain Detection**: Only shows for `resumegyani.com` (US)
+- **Domain Detection**: Only shows for `expertresume.com` (US)
 - **One-Time Display**: Remembers user choice in `localStorage`
 - **Non-Intrusive**: Slides up from bottom, can be dismissed
 
@@ -49,7 +49,7 @@ Implemented a **lightweight, CCPA-compliant cookie banner** for `resumegyani.com
 
 ### 1. Domain Detection
 ```javascript
-const isUSVersion = window.location.hostname.includes('resumegyani.com');
+const isUSVersion = window.location.hostname.includes('expertresume.com');
 ```
 - Only shows for `.com` domain (US users)
 - `.in` domain users don't see the banner
@@ -166,7 +166,7 @@ window.gtag('consent', 'update', {
 ### Test on Local Development
 1. Change browser URL to simulate `.com` domain:
    - Open DevTools > Console
-   - Run: `Object.defineProperty(window.location, 'hostname', { value: 'resumegyani.com', writable: true })`
+   - Run: `Object.defineProperty(window.location, 'hostname', { value: 'expertresume.com', writable: true })`
    - Refresh page
 
 2. Or test directly on staging/production `.com` domain
@@ -279,7 +279,7 @@ window.gtag('consent', 'update', {
 ## Support
 
 For questions or issues:
-- Email: privacy@resumegyani.com
+- Email: privacy@expertresume.com
 - Phone: +91 84312 56903
 - Technical Issues: Create GitHub issue
 

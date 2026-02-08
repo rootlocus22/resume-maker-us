@@ -288,7 +288,7 @@ export default function ClientCheckout({
       planType: 'monthly',
       hierarchy: 3, // Third tier
       downloads: 'unlimited',
-      hasAdvancedFeatures: true, // JD Builder, Interview Gyani, Salary Analyzer, AI Career Coach
+      hasAdvancedFeatures: true, // JD Builder, AI Interview, Salary Analyzer, AI Career Coach
       canAddJobTracker: true,
       jobTrackerPrice: getJobTrackerPrice('monthly') / 100, // Display price
       canAddInterviewKit: true,
@@ -302,7 +302,7 @@ export default function ClientCheckout({
       planType: 'quarterly',
       hierarchy: 3.5, // Between monthly and sixMonth
       downloads: 'unlimited',
-      hasAdvancedFeatures: true, // JD Builder, Interview Gyani, Salary Analyzer, AI Career Coach
+      hasAdvancedFeatures: true, // JD Builder, AI Interview, Salary Analyzer, AI Career Coach
       canAddJobTracker: true,
       jobTrackerPrice: getJobTrackerPrice('quarterly') / 100, // Display price
       canAddInterviewKit: true,
@@ -316,14 +316,14 @@ export default function ClientCheckout({
       planType: 'sixMonth',
       hierarchy: 4, // Highest tier
       downloads: 'unlimited',
-      hasAdvancedFeatures: true, // JD Builder, Interview Gyani, Salary Analyzer, AI Career Coach
+      hasAdvancedFeatures: true, // JD Builder, AI Interview, Salary Analyzer, AI Career Coach
       canAddJobTracker: true,
       jobTrackerPrice: getJobTrackerPrice('sixMonth') / 100, // Display price
       canAddInterviewKit: true,
       interviewKitPrice: getInterviewKitPrice('sixMonth') / 100
     },
     interview_gyani: {
-      name: "Interview Gyani Pro",
+      name: "AI Interview Pro",
       originalPrice: pricing.interview_gyani / 100,
       duration: 30,
       planType: 'interview_gyani',

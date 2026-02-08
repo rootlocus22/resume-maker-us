@@ -95,7 +95,7 @@ export async function POST(request) {
                 <!-- Header -->
                 <tr>
                   <td style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); padding: 30px; text-align: center;">
-                    <img src="https://expertresume.us/expertresumeLogo/resume gyani final logo-07.png" alt="ExpertResume Logo" width="160" style="display: block; margin: 0 auto;">
+                    <img src="https://expertresume.us/expertresumeLogo/ExpertResume.png" alt="ExpertResume Logo" width="160" style="display: block; margin: 0 auto;">
                     <h1 style="color: #ffffff; font-size: 24px; margin-top: 15px; font-weight: bold;">You're Invited! 🎉</h1>
                   </td>
                 </tr>

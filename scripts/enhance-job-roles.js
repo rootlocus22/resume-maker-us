@@ -212,7 +212,7 @@ function generateFAQs(roleName, location) {
         },
         {
             q: `What are ATS-friendly formats for ${roleName} resumes?`,
-            a: `Use a simple, single-column layout with standard fonts (Arial, Calibri, Roboto). Avoid tables, text boxes, graphics, and headers/footers. Use clear section headings like "Experience," "Education," "Skills." Save as .docx or text-based PDF. ResumeGyani templates are all ATS-optimized.`
+            a: `Use a simple, single-column layout with standard fonts (Arial, Calibri, Roboto). Avoid tables, text boxes, graphics, and headers/footers. Use clear section headings like "Experience," "Education," "Skills." Save as .docx or text-based PDF. ExpertResume templates are all ATS-optimized.`
         },
         {
             q: `How can I make my ${roleName} resume stand out?`,

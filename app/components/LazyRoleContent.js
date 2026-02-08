@@ -567,8 +567,8 @@ export default function LazyRoleContent({ role, relatedRoles = [] }) {
                         </div>
 
                         <div className="mt-8 text-center">
-                            <Link href="/interview-gyani" className="inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-full font-bold hover:bg-indigo-700 transition-all">
-                                Practice with Interview Gyani
+                            <Link href="/ai-interview" className="inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-full font-bold hover:bg-indigo-700 transition-all">
+                                Practice with AI Interview
                                 <ArrowRight className="w-5 h-5" />
                             </Link>
                         </div>

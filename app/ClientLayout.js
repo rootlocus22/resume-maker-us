@@ -22,7 +22,7 @@ export default function ClientLayout({ children }) {
   // Pages where we don't want to show the header/footer
   const authPages = ['/login', '/signup'];
   const publicProfilePages = ['/public-profile'];
-  const fullScreenPages = ['/expertresume-chat', '/interview-gyani/session'];
+  const fullScreenPages = ['/expertresume-chat', '/ai-interview/session'];
 
   const isExtensionPage = pathname.startsWith('/extension');
   const isPublicProfilePage = publicProfilePages.some(page => pathname.startsWith(page));

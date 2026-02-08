@@ -15,7 +15,7 @@ export default async function sitemap() {
     { path: "one-pager-resume", priority: 0.9, changefreq: "weekly" },
     { path: "one-page-resume-builder", priority: 0.9, changefreq: "weekly" },
     { path: "salary-analyzer", priority: 0.8, changefreq: "weekly" },
-    { path: "interview-gyani", priority: 1.0, changefreq: "daily" },
+    { path: "ai-interview", priority: 1.0, changefreq: "daily" },
     { path: "pricing", priority: 0.8, changefreq: "monthly" },
     { path: "features", priority: 0.7, changefreq: "monthly" },
     { path: "resume-templates", priority: 0.7, changefreq: "monthly" },

@@ -13,7 +13,7 @@ import {
 
 /**
  * Check if a plan has access to advanced features
- * Advanced features: JD Builder, Interview Gyani, Salary Analyzer
+ * Advanced features: JD Builder, AI Interview, Salary Analyzer
  * Only available for: monthly and sixMonth plans
  */
 export const hasAdvancedFeatures = (plan) => {

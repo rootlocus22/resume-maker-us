@@ -32,7 +32,7 @@ export default function WelcomePremium({ plan, billingCycle, source, amount, cur
     event({
       action: "welcome_page_view",
       category: "Engagement",
-      label: plan === "interview_gyani" ? "InterviewGyaniPremium" : (billingCycle === "yearly" ? "YearlyPremium" : billingCycle === "sixMonth" ? "SixMonthPremium" : billingCycle === "quarterly" ? "QuarterlyPremium" : billingCycle === "trial" ? "TrialPremium" : billingCycle === "oneDay" ? "OneDayPremium" : billingCycle === "basic" ? "BasicPremium" : "MonthlyPremium"),
+      label: plan === "interview_gyani" ? "AIInterviewPremium" : (billingCycle === "yearly" ? "YearlyPremium" : billingCycle === "sixMonth" ? "SixMonthPremium" : billingCycle === "quarterly" ? "QuarterlyPremium" : billingCycle === "trial" ? "TrialPremium" : billingCycle === "oneDay" ? "OneDayPremium" : billingCycle === "basic" ? "BasicPremium" : "MonthlyPremium"),
       value: plan === "interview_gyani" ? 499 : (billingCycle === "yearly" ? 3000 : billingCycle === "sixMonth" ? 1800 : billingCycle === "quarterly" ? 699 : billingCycle === "trial" ? 99 : billingCycle === "oneDay" ? 99 : billingCycle === "basic" ? 99 : amount ? parseFloat(amount) : 300),
     });
 
@@ -167,7 +167,7 @@ export default function WelcomePremium({ plan, billingCycle, source, amount, cur
     ] : (billingCycle === "monthly" || billingCycle === "sixMonth" || billingCycle === "yearly" || billingCycle === "quarterly" ? [
       { icon: <Target size={18} />, text: "JD-Based Resume Builder" },
       { icon: <DollarSign size={18} />, text: "Salary Analyzer Tool" },
-      { icon: <CheckCircle size={18} />, text: "Interview Gyani" },
+      { icon: <CheckCircle size={18} />, text: "AI Interview" },
     ] : [])),
     ...(hasApplyPro ? [
       { icon: <Zap size={18} />, text: "Apply Pro Engine (Active)" },
@@ -468,7 +468,7 @@ export default function WelcomePremium({ plan, billingCycle, source, amount, cur
                                 <Zap size={18} className="sm:w-5 sm:h-5" />}
               </motion.div>
               <h2 className="text-lg sm:text-xl font-bold text-gray-800">
-                {plan === "interview_gyani" ? "Interview Gyani Pro Plan" :
+                {plan === "interview_gyani" ? "AI Interview Pro Plan" :
                   plan === "oneDay" ? "Quick Start Plan" :
                     plan === "basic" ? "Starter Plan" :
                       billingCycle === "yearly" ? "Yearly Elite Plan" :
@@ -564,7 +564,7 @@ export default function WelcomePremium({ plan, billingCycle, source, amount, cur
                       </div>
                       <div className="text-center p-3 bg-white rounded-lg border border-orange-200">
                         <Sparkles className="text-purple-600 mx-auto mb-2" size={20} />
-                        <p className="text-xs font-semibold text-gray-800">Interview Gyani</p>
+                        <p className="text-xs font-semibold text-gray-800">AI Interview</p>
                         <p className="text-xs text-gray-600">Ace interviews</p>
                       </div>
                       <div className="text-center p-3 bg-white rounded-lg border border-orange-200">
@@ -635,7 +635,7 @@ export default function WelcomePremium({ plan, billingCycle, source, amount, cur
             whileTap={{ scale: 0.98 }}
             onClick={() => {
               if (plan === "interview_gyani") {
-                router.push("/interview-gyani");
+                router.push("/ai-interview");
                 return;
               }
               const targetUrl = source === "job-description-resume-builder" ? "/job-description-resume-builder" : "/resume-builder";

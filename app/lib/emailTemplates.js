@@ -441,7 +441,7 @@ const emailTemplates = {
         'monthly': 'Pro Monthly Plan',
         'quarterly': 'Pro Quarterly Plan',
         'sixMonth': 'Pro 6-Month Plan',
-        'interview_gyani': 'Interview Gyani Pro'
+        'interview_gyani': 'AI Interview Pro'
       };
       const planName = cycleMap[billingCycle] || 'Premium Plan';
 
@@ -540,7 +540,7 @@ const emailTemplates = {
                 ${data.hasInterviewKit ? `
                 <div style="margin-bottom: 15px;">
                   <span style="background: ${BRAND.greenSuccess}; color: white; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700;">ACTIVE</span>
-                  <h4 style="color: #065f46; font-size: 14px; margin: 4px 0 2px; font-weight: 700;">Interview Gyani Pro</h4>
+                  <h4 style="color: #065f46; font-size: 14px; margin: 4px 0 2px; font-weight: 700;">AI Interview Pro</h4>
                   <p style="color: #047857; font-size: 12px; margin: 0;">Elite Mock interviews, Resume-Aware AI coaching, and Detailed Readiness reports.</p>
                 </div>` : ''}
                 ${data.hasApplyPro ? `
@@ -580,7 +580,7 @@ const emailTemplates = {
     },
     text: (data) => {
       if (data.billingCycle === 'interview_gyani') {
-        return `Welcome to Interview Simulation Pro! You now have access to senior AI mock interviews, detailed readiness reports, and personalized feedback to crack your next job. Access your portal at expertresume.us/interview-gyani`;
+        return `Welcome to Interview Simulation Pro! You now have access to senior AI mock interviews, detailed readiness reports, and personalized feedback to crack your next job. Access your portal at expertresume.us/ai-interview`;
       }
       return `Welcome to ExpertResume Elite! You now have premium access. Start building at https://expertresume.us/resume-builder`;
     }

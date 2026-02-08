@@ -1,5 +1,5 @@
 {
-    "name": "ResumeGyani AI",
+    "name": "ExpertResume AI",
     "version": "1.0.2",
     "manifest_version": 3,
     "description": "AI Career Assistant with side panel resume tools. Build resumes from LinkedIn, generate cover letters, and track jobs.",
@@ -10,13 +10,13 @@
     ],
     "host_permissions": [
         "https://*.linkedin.com/*",
-        "https://resumegyani.com/*"
+        "https://expertresume.us/*"
     ],
     "background": {
         "service_worker": "background.js"
     },
     "action": {
-        "default_title": "Open ResumeGyani"
+        "default_title": "Open ExpertResume"
     },
     "icons": {
         "16": "icon-16.png",

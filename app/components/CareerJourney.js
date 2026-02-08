@@ -105,9 +105,9 @@ export default function CareerJourney() {
     {
       step: 5,
       title: "Master Your Interview",
-      description: "Practice with ExpertResume – Interview Gyani. Get role-specific questions from an AI Senior Interviewer and real-time evaluation of your answers.",
+      description: "Practice with ExpertResume – AI Interview. Get role-specific questions from an AI Senior Interviewer and real-time evaluation of your answers.",
       icon: <MessageSquare className="w-8 h-8" />,
-      link: "/interview-gyani",
+      link: "/ai-interview",
       color: "from-orange-500 to-red-600",
       bgColor: "from-orange-50 to-red-50",
       iconBg: "bg-orange-100",
@@ -298,7 +298,7 @@ export default function CareerJourney() {
                   "Unlimited Resume Downloads",
                   "AI Career Coach Roadmap",
                   "JD-Based Resume Builder",
-                  "ExpertResume – Interview Gyani"
+                  "ExpertResume – AI Interview"
                 ].map((feature, idx) => (
                   <div key={idx} className="bg-blue-200/30 backdrop-blur-sm rounded-xl p-4 border border-blue-300/40">
                     <CheckCircle className="w-5 h-5 text-blue-600 mb-2 mx-auto" />

@@ -3,8 +3,8 @@
 # Define directories
 SOURCE_DIR="chrome-extension"
 BUILD_DIR="chrome-extension-prod"
-ZIP_NAME="resumegyani-extension-v1.0.2.zip"
-PROD_URL="https://resumegyani.in"
+ZIP_NAME="expertresume-extension-v1.0.2.zip"
+PROD_URL="https://expertresume.us"
 
 echo "🚀 Starting Production Build..."
 

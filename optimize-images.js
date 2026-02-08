@@ -1,5 +1,5 @@
 /**
- * Image Optimization Script for ResumeGyani
+ * Image Optimization Script for ExpertResume
  * Converts JPEG/PNG images to WebP format for better page speed
  * Run with: node optimize-images.js
  */
