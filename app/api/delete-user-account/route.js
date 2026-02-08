@@ -1,7 +1,24 @@
 import { NextResponse } from "next/server";
-import { db } from "../../lib/firebase";
-import { doc, getDoc, collection, getDocs, writeBatch, deleteDoc, setDoc } from "firebase/firestore";
+import * as admin from 'firebase-admin';
 import { sendEmail } from "../../lib/sendEmail";
+
+// Initialize Firebase Admin
+if (!admin.apps.length) {
+  try {
+    admin.initializeApp({
+      credential: admin.credential.cert({
+        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+        privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+      }),
+    });
+    admin.firestore().settings({ ignoreUndefinedProperties: true });
+  } catch (error) {
+    console.error('Firebase admin initialization error:', error);
+  }
+}
+
+const db = admin.firestore();
 
 export async function POST(request) {
   try {
@@ -14,22 +31,33 @@ export async function POST(request) {
       );
     }
 
-    // Get user information before deletion
-    const userDoc = await getDoc(doc(db, "users", userId));
-    if (!userDoc.exists()) {
+    // Get user email from Firebase Auth first (most reliable source)
+    let userEmail = null;
+    try {
+      const authUser = await admin.auth().getUser(userId);
+      userEmail = authUser.email;
+    } catch (authError) {
+      console.log("Could not fetch user from Firebase Auth:", authError.message);
+    }
+
+    // Fallback: check Firestore user doc for email
+    const userDoc = await db.collection("users").doc(userId).get();
+    if (!userDoc.exists && !userEmail) {
       return NextResponse.json(
         { error: "User not found" },
         { status: 404 }
       );
     }
 
-    const userData = userDoc.data();
-    const userEmail = userData.email;
+    const userData = userDoc.exists ? userDoc.data() : {};
+    if (!userEmail) {
+      userEmail = userData.email || userData.userEmail || null;
+    }
 
     // Create a deletion request record for audit purposes
     const deletionRequest = {
       userId: userId,
-      email: userEmail,
+      email: userEmail || "unknown",
       requestedAt: new Date().toISOString(),
       status: "pending",
       type: "account_deletion",
@@ -39,8 +67,8 @@ export async function POST(request) {
     };
 
     // Store the deletion request
-    const deletionRef = doc(collection(db, "deletionRequests"));
-    await setDoc(deletionRef, deletionRequest);
+    const deletionRef = db.collection("deletionRequests").doc();
+    await deletionRef.set(deletionRequest);
 
     // Send confirmation email to user
     try {
@@ -71,21 +99,18 @@ export async function POST(request) {
       await deleteUserData(userId);
       
       // Update the deletion request status to completed
-      await setDoc(deletionRef, { 
-        ...deletionRequest, 
+      await deletionRef.set({ 
         status: "completed",
         completedAt: new Date().toISOString()
-      });
+      }, { merge: true });
 
       console.log(`[CCPA] Account deletion completed for user ${userId}`);
     } catch (deleteError) {
       console.error("[CCPA] Error during data deletion:", deleteError);
-      // Update status to failed but still return success for the request
-      await setDoc(deletionRef, {
-        ...deletionRequest,
+      await deletionRef.set({
         status: "deletion_error",
         error: deleteError.message
-      });
+      }, { merge: true });
     }
 
     return NextResponse.json({
@@ -114,13 +139,12 @@ async function deleteUserData(userId) {
     ];
 
     for (const subcollection of subcollections) {
-      const subRef = collection(db, "users", userId, subcollection);
-      const subSnapshot = await getDocs(subRef);
+      const subSnapshot = await db.collection("users").doc(userId).collection(subcollection).get();
       
-      // Batch delete in groups of 500 (Firestore limit)
+      // Batch delete in groups of 450 (Firestore limit is 500)
       const docs = subSnapshot.docs;
       for (let i = 0; i < docs.length; i += 450) {
-        const batch = writeBatch(db);
+        const batch = db.batch();
         const chunk = docs.slice(i, i + 450);
         chunk.forEach(d => batch.delete(d.ref));
         await batch.commit();
@@ -128,11 +152,8 @@ async function deleteUserData(userId) {
     }
 
     // Delete the main user document
-    await deleteDoc(doc(db, "users", userId));
+    await db.collection("users").doc(userId).delete();
 
-    // Add to unsubscribed_emails to prevent future marketing
-    // (We keep this as a minimal record for compliance)
-    
     console.log(`[CCPA] All data deleted for user: ${userId}`);
     return { success: true };
   } catch (error) {

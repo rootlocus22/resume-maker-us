@@ -1,6 +1,22 @@
 import { NextResponse } from "next/server";
-import { db } from "../../lib/firebase";
-import { doc, getDoc, collection, getDocs } from "firebase/firestore";
+import * as admin from 'firebase-admin';
+
+// Initialize Firebase Admin
+if (!admin.apps.length) {
+  try {
+    admin.initializeApp({
+      credential: admin.credential.cert({
+        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+        privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+      }),
+    });
+  } catch (error) {
+    console.error('Firebase admin initialization error:', error);
+  }
+}
+
+const db = admin.firestore();
 
 export async function GET(request) {
   try {
@@ -49,8 +65,8 @@ async function handleExport(userId) {
 
     // Get basic user information
     try {
-      const userDoc = await getDoc(doc(db, "users", userId));
-      if (userDoc.exists()) {
+      const userDoc = await db.collection("users").doc(userId).get();
+      if (userDoc.exists) {
         const userInfo = userDoc.data();
         userData.personalInformation = {
           email: userInfo.email || "",
@@ -75,8 +91,8 @@ async function handleExport(userId) {
 
     // Get user profile data
     try {
-      const profileDoc = await getDoc(doc(db, "users", userId, "profile", "userProfile"));
-      if (profileDoc.exists()) {
+      const profileDoc = await db.collection("users").doc(userId).collection("profile").doc("userProfile").get();
+      if (profileDoc.exists) {
         userData.personalInformation.profile = profileDoc.data();
         userData.dataTypes.push("Profile Data");
       }
@@ -86,12 +102,10 @@ async function handleExport(userId) {
 
     // Get resumes
     try {
-      const resumesRef = collection(db, "users", userId, "resumes");
-      const resumesSnapshot = await getDocs(resumesRef);
-      userData.resumes = resumesSnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-        // Remove sensitive or unnecessary fields
+      const resumesSnapshot = await db.collection("users").doc(userId).collection("resumes").get();
+      userData.resumes = resumesSnapshot.docs.map(d => ({
+        id: d.id,
+        ...d.data(),
         userId: undefined
       }));
       if (userData.resumes.length > 0) {
@@ -103,11 +117,10 @@ async function handleExport(userId) {
 
     // Get cover letters
     try {
-      const coverLettersRef = collection(db, "users", userId, "coverLetters");
-      const coverLettersSnapshot = await getDocs(coverLettersRef);
-      userData.coverLetters = coverLettersSnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
+      const coverLettersSnapshot = await db.collection("users").doc(userId).collection("coverLetters").get();
+      userData.coverLetters = coverLettersSnapshot.docs.map(d => ({
+        id: d.id,
+        ...d.data(),
         userId: undefined
       }));
       if (userData.coverLetters.length > 0) {
@@ -119,8 +132,8 @@ async function handleExport(userId) {
 
     // Get privacy settings
     try {
-      const settingsDoc = await getDoc(doc(db, "users", userId, "settings", "privacy"));
-      if (settingsDoc.exists()) {
+      const settingsDoc = await db.collection("users").doc(userId).collection("settings").doc("privacy").get();
+      if (settingsDoc.exists) {
         userData.settings.privacy = settingsDoc.data();
         userData.dataTypes.push("Privacy Settings");
       }
@@ -130,8 +143,8 @@ async function handleExport(userId) {
 
     // Get notification settings
     try {
-      const notificationDoc = await getDoc(doc(db, "users", userId, "settings", "notifications"));
-      if (notificationDoc.exists()) {
+      const notificationDoc = await db.collection("users").doc(userId).collection("settings").doc("notifications").get();
+      if (notificationDoc.exists) {
         userData.settings.notifications = notificationDoc.data();
         userData.dataTypes.push("Notification Settings");
       }
@@ -155,11 +168,10 @@ async function handleExport(userId) {
 
     // Get data requests
     try {
-      const requestsRef = collection(db, "users", userId, "dataRequests");
-      const requestsSnapshot = await getDocs(requestsRef);
-      userData.dataRequests = requestsSnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
+      const requestsSnapshot = await db.collection("users").doc(userId).collection("dataRequests").get();
+      userData.dataRequests = requestsSnapshot.docs.map(d => ({
+        id: d.id,
+        ...d.data(),
         userId: undefined
       }));
       if (userData.dataRequests.length > 0) {

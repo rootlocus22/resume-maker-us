@@ -1,7 +1,23 @@
 import { NextResponse } from "next/server";
-import { db } from "../../lib/firebase";
-import { collection, addDoc, doc, getDoc, updateDoc, serverTimestamp } from "firebase/firestore";
+import * as admin from 'firebase-admin';
 import { sendEmail } from "../../lib/sendEmail";
+
+// Initialize Firebase Admin
+if (!admin.apps.length) {
+  try {
+    admin.initializeApp({
+      credential: admin.credential.cert({
+        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+        privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+      }),
+    });
+  } catch (error) {
+    console.error('Firebase admin initialization error:', error);
+  }
+}
+
+const db = admin.firestore();
 
 export async function POST(request) {
   try {
@@ -36,7 +52,7 @@ export async function POST(request) {
       description: description || "",
       verificationMethod: verificationMethod || "email",
       status: "pending",
-      submittedAt: serverTimestamp(),
+      submittedAt: admin.firestore.FieldValue.serverTimestamp(),
       timestamp: timestamp || new Date().toISOString(),
       userId: userId || null,
       ipAddress: request.headers.get("x-forwarded-for") || request.headers.get("x-real-ip") || "unknown",
@@ -44,18 +60,17 @@ export async function POST(request) {
     };
 
     // Store the request in the main CCPA requests collection
-    const requestRef = await addDoc(collection(db, "ccpaRequests"), requestData);
+    const requestRef = await db.collection("ccpaRequests").add(requestData);
 
     // If user is logged in, also store in their personal requests
     if (userId) {
       try {
-        await addDoc(collection(db, "users", userId, "dataRequests"), {
+        await db.collection("users").doc(userId).collection("dataRequests").add({
           ...requestData,
           ccpaRequestId: requestRef.id
         });
       } catch (error) {
         console.error("Error storing user-specific request:", error);
-        // Don't fail the entire request if this fails
       }
     }
 
