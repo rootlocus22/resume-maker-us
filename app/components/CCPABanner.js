@@ -11,12 +11,12 @@ export default function CCPABanner() {
     // Only run client-side after mount (no SSR)
     if (typeof window === 'undefined') return;
 
-    // Check if we're on .com domain (US)
-    const isUSVersion = window.location.hostname.includes('expertresume.com');
+    // Check if we're on the US domain
+    const isUSVersion = window.location.hostname.includes('expertresume.us') || window.location.hostname.includes('expertresume.com');
     setIsUS(isUSVersion);
 
-    // Only show for US domain
-    if (!isUSVersion) return;
+    // Only show for US domain (also show on localhost for testing)
+    if (!isUSVersion && !window.location.hostname.includes('localhost')) return;
 
     // Check if user has already made a choice
     const consent = localStorage.getItem('ccpa_consent');

@@ -274,6 +274,16 @@ export default function Footer() {
                       Refund Policy
                     </Link>
                   </li>
+                  <li>
+                    <Link href="/privacy-dashboard" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm block">
+                      Privacy Dashboard
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/ccpa-opt-out" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm block">
+                      CCPA Opt-Out
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -581,6 +591,16 @@ export default function Footer() {
               <li>
                 <Link href="/refund" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm block">
                   Refund Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy-dashboard" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm block">
+                  Privacy Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link href="/ccpa-opt-out" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm block">
+                  CCPA Opt-Out
                 </Link>
               </li>
             </ul>

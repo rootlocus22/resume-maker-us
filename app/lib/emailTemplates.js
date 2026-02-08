@@ -918,7 +918,7 @@ const emailTemplates = {
                 <p style="color: #166534; font-size: 20px; font-weight: bold; margin: 0;">You've earned $${data.earnings}</p>
                 <p style="color: #166534; font-size: 14px; margin: 5px 0 0;">This amount has been added to your wallet.</p>
               </div>
-              <a href="https://expertresume.us/referral" style="display: inline-block; background: linear-gradient(135deg, ${BRAND.greenSuccess} 0%, #10b981 100%); color: ${BRAND.white}; font-size: 16px; font-weight: bold; padding: 14px 28px; text-decoration: none; border-radius: 50px; margin-top: 10px; box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.4);">View Your Earnings</a>
+              <a href="https://www.expertresume.us/refer-and-earn" style="display: inline-block; background: linear-gradient(135deg, ${BRAND.greenSuccess} 0%, #10b981 100%); color: ${BRAND.white}; font-size: 16px; font-weight: bold; padding: 14px 28px; text-decoration: none; border-radius: 50px; margin-top: 10px; box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.4);">View Your Earnings</a>
             </td>
           </tr>
           ${footerTemplate(data)}
@@ -926,7 +926,7 @@ const emailTemplates = {
       </body>
       </html>
     `,
-    text: (data) => `Congratulations! You earned $${data.earnings}. View your earnings at https://expertresume.us/referral`,
+    text: (data) => `Congratulations! You earned $${data.earnings}. View your earnings at https://www.expertresume.us/refer-and-earn`,
   },
   profile_slot_purchased: {
     subject: (data) => `Profile Slot Added Successfully - ExpertResume`,
@@ -1043,22 +1043,6 @@ const footerTemplate = (data) => {
     <tr>
       <td style="background-color: #f0fdfa; padding: 30px 24px; text-align: center; border-top: 1px solid ${BRAND.tealBorder};">
         
-        <!-- Social Media Icons -->
-        <div style="margin-bottom: 20px;">
-          <a href="https://www.instagram.com/expertresume/" style="text-decoration: none; margin: 0 8px;">
-            <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" width="24" height="24" style="border: 0;">
-          </a>
-          <a href="https://www.facebook.com/expertresume" style="text-decoration: none; margin: 0 8px;">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="24" height="24" style="border: 0;">
-          </a>
-          <a href="https://www.youtube.com/@ExpertResume" style="text-decoration: none; margin: 0 8px;">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="24" height="24" style="border: 0;">
-          </a>
-          <a href="https://www.linkedin.com/in/expertresume" style="text-decoration: none; margin: 0 8px;">
-            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="24" height="24" style="border: 0;">
-          </a>
-        </div>
-
         <p style="color: ${BRAND.tealDark}; font-size: 14px; margin: 0 0 10px;">
           <strong>ExpertResume</strong><br>
           <span style="font-size: 12px; color: ${BRAND.gray};">Powered by Vendax Systems LLC</span>

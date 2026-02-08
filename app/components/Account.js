@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { auth, db } from "../lib/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
-import { User, LogOut, Star, Edit3, HelpCircle, Zap, Clock, Shield, CheckCircle2, ChevronRight, PlusCircle, FileText, CreditCard, Globe, Share2, TrendingUp, Download, Crown, Calendar, ArrowUpRight, AlertCircle, ArrowRight, X, Briefcase, Brain, Users } from "lucide-react";
+import { User, LogOut, Star, Edit3, HelpCircle, Zap, Clock, Shield, CheckCircle2, ChevronRight, PlusCircle, FileText, CreditCard, Globe, Share2, TrendingUp, Download, Crown, Calendar, ArrowUpRight, AlertCircle, ArrowRight, X, Briefcase, Brain, Users, Trash2, DatabaseZap, Eye, Lock } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 import MyResumes from "../my-resumes/page";
 import Link from "next/link";
@@ -743,6 +743,131 @@ export default function Profile() {
                     )}
                   </>
                 )}
+              </div>
+            </div>
+
+            {/* Privacy & Data Management */}
+            <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 sm:p-8">
+              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
+                <Shield size={14} className="text-teal-600" />
+                Privacy & Data Management
+              </h3>
+              <p className="text-sm text-slate-500 mb-6">Manage your personal data in compliance with CCPA. You have the right to access, export, and delete your data at any time.</p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <Link
+                  href="/privacy-dashboard"
+                  className="group flex items-center justify-between p-4 bg-teal-50/50 border border-teal-100 rounded-xl hover:bg-teal-50 hover:border-teal-200 transition-all"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-teal-700 group-hover:bg-teal-600 group-hover:text-white transition-all">
+                      <Eye size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 text-sm">Privacy Dashboard</h4>
+                      <p className="text-[11px] text-slate-500">Manage all privacy settings</p>
+                    </div>
+                  </div>
+                  <ArrowRight size={16} className="text-teal-300 group-hover:text-teal-700 transition-colors" />
+                </Link>
+
+                <button
+                  onClick={async () => {
+                    if (!user) return;
+                    toast.loading("Exporting your data...");
+                    try {
+                      const res = await fetch(`/api/export-user-data?userId=${user.uid}`);
+                      if (!res.ok) throw new Error("Export failed");
+                      const blob = await res.blob();
+                      const url = URL.createObjectURL(blob);
+                      const a = document.createElement("a");
+                      a.href = url;
+                      a.download = `expertresume-data-export-${new Date().toISOString().split("T")[0]}.json`;
+                      a.click();
+                      URL.revokeObjectURL(url);
+                      toast.dismiss();
+                      toast.success("Data exported successfully!");
+                    } catch (err) {
+                      toast.dismiss();
+                      toast.error("Failed to export data. Try again.");
+                    }
+                  }}
+                  className="group flex items-center justify-between p-4 bg-blue-50/50 border border-blue-100 rounded-xl hover:bg-blue-50 hover:border-blue-200 transition-all text-left"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center text-blue-700 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                      <DatabaseZap size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 text-sm">Export My Data</h4>
+                      <p className="text-[11px] text-slate-500">Download all your data (JSON)</p>
+                    </div>
+                  </div>
+                  <Download size={16} className="text-blue-300 group-hover:text-blue-700 transition-colors" />
+                </button>
+
+                <Link
+                  href="/ccpa-opt-out"
+                  className="group flex items-center justify-between p-4 bg-amber-50/50 border border-amber-100 rounded-xl hover:bg-amber-50 hover:border-amber-200 transition-all"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center text-amber-700 group-hover:bg-amber-600 group-hover:text-white transition-all">
+                      <Lock size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 text-sm">CCPA Opt-Out</h4>
+                      <p className="text-[11px] text-slate-500">Do not sell my personal info</p>
+                    </div>
+                  </div>
+                  <ArrowRight size={16} className="text-amber-300 group-hover:text-amber-700 transition-colors" />
+                </Link>
+
+                <button
+                  onClick={() => {
+                    if (!user) return;
+                    if (window.confirm("Are you sure you want to delete your account? This action is permanent and cannot be undone. All your resumes, cover letters, and data will be permanently deleted.")) {
+                      if (window.confirm("FINAL WARNING: This will permanently delete ALL your data including resumes, cover letters, settings, and account information. This cannot be reversed. Continue?")) {
+                        toast.loading("Submitting deletion request...");
+                        fetch("/api/delete-user-account", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({ userId: user.uid })
+                        })
+                          .then(res => res.json())
+                          .then(data => {
+                            toast.dismiss();
+                            if (data.success) {
+                              toast.success("Account deletion request submitted. Check your email for confirmation.");
+                            } else {
+                              toast.error(data.error || "Failed to submit request.");
+                            }
+                          })
+                          .catch(() => {
+                            toast.dismiss();
+                            toast.error("Failed to submit request. Try again.");
+                          });
+                      }
+                    }
+                  }}
+                  className="group flex items-center justify-between p-4 bg-red-50/50 border border-red-100 rounded-xl hover:bg-red-50 hover:border-red-200 transition-all text-left"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center text-red-600 group-hover:bg-red-600 group-hover:text-white transition-all">
+                      <Trash2 size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-red-700 text-sm">Delete My Account</h4>
+                      <p className="text-[11px] text-slate-500">Permanently remove all data</p>
+                    </div>
+                  </div>
+                  <ArrowRight size={16} className="text-red-300 group-hover:text-red-600 transition-colors" />
+                </button>
+              </div>
+
+              <div className="bg-slate-50 rounded-lg p-4 border border-slate-100">
+                <p className="text-[11px] text-slate-500 leading-relaxed">
+                  <strong className="text-slate-700">Your rights under CCPA:</strong> As a California resident, you have the right to know what personal data we collect, request deletion of your data, opt-out of the sale of your personal information, and not be discriminated against for exercising your rights. For questions, contact <a href="mailto:privacy@expertresume.us" className="text-teal-600 underline">privacy@expertresume.us</a>.
+                </p>
               </div>
             </div>
 
