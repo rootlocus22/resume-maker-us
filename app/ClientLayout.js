@@ -7,7 +7,6 @@ import Footer from "./components/Footer";
 
 import CookieYesController from "./components/CookieYesController";
 import CCPABanner from "./components/CCPABanner";
-import GeoBanner from "./components/GeoBanner";
 import { Toaster } from "react-hot-toast";
 import { Analytics } from "@vercel/analytics/react";
 import { useEffect, useState } from "react";
@@ -111,8 +110,6 @@ export default function ClientLayout({ children }) {
 
 
 
-      {/* Top Banner for Geo Redirection */}
-      <GeoBanner />
 
       {/* Only show header when not on auth pages and not enterprise */}
       {showConsumerHeader && <Header />}
