@@ -1,0 +1,23 @@
+ResumeGyani AI: Your All-in-One AI Career Assistant
+
+Supercharge your job search with ResumeGyani AI, the ultimate browser extension for modern job seekers. Our powerful AI-driven tools help you stand out and land your dream job faster.
+
+🚀 KEY FEATURES:
+
+1. LinkedIn Profile to Resume: Instantly convert your LinkedIn profile into a professional, ATS-friendly resume with a single click.
+2. AI Cover Letter Generator: Generate personalized, high-conversion cover letters tailored to specific job descriptions in seconds.
+3. Instant Job Insights: Get real-time analysis of job postings to understand key requirements and how well your profile matches.
+
+📋 POWERFUL SIDE PANEL TOOLS (Login Required):
+Access our comprehensive suite of career tools directly from your browser's side panel. Once logged in, you can:
+- Resume Builder: Access advanced resume editing and formatting tools without leaving your current tab.
+- AI Career Coach: Get instant AI-powered advice on your resume, interviews, and career strategy.
+- Job Tracker: Save and organize job postings from any site and track your application progress.
+- Profile Management: Manage multiple professional identities and resume versions seamlessly.
+
+Why Choose ResumeGyani AI?
+- ATS-Optimized: Our templates are designed to beat Applicant Tracking Systems.
+- AI-Powered: Leverages cutting-edge AI to provide personalized career assistance.
+- Privacy First: Your data is secure and handled with the utmost care.
+
+Standardize your job application process and build a winning career today with ResumeGyani AI!

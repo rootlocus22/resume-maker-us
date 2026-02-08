@@ -1,0 +1,1225 @@
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* US theme – ExpertResume (Deep Navy + Professional Blue) */
+:root {
+  --color-primary: #0F172A;
+  --color-accent: #2563EB;
+  --color-success: #0D9488;
+  --color-bg: #F8FAFC;
+  --color-border: #E5E7EB;
+  --color-text-primary: #020617;
+  --color-text-secondary: #475569;
+  --color-slate-gray: #475569;
+  --color-light-gray: #F8FAFC;
+  --color-warning: #F59E0B;
+  --color-error: #DC2626;
+}
+
+/* globals.css */
+body {
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  background-color: #F8FAFC;
+}
+
+body.builder-fullscreen .app-header {
+  display: none;
+}
+input, select, textarea {
+  font-size: 16px; /* Prevent iOS zooming */
+}
+
+@supports (-webkit-touch-callout: none) {
+  /* CSS specific to iOS devices */
+  input, textarea {
+    font-size: 16px !important;
+  }
+}
+
+code, pre {
+  font-family: var(--font-geist-mono), monospace;
+}
+
+/* Resume text preservation - prevent word joining and preserve hyphens */
+.resume-preview,
+.resume-preview *,
+.resume-content,
+.resume-content *,
+[class*="resume"],
+[class*="Resume"] {
+  word-break: keep-all !important;
+  hyphens: manual !important;
+  overflow-wrap: normal !important;
+  white-space: normal !important;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-feature-settings: "liga" 1, "kern" 1 !important;
+  font-feature-settings: "liga" 1, "kern" 1 !important;
+}
+
+/* ATS Resume Typography Override - Ensure template typography is applied with higher specificity */
+.resume-preview.ats-resume-override,
+.resume-preview.ats-resume-override *:not(.watermark),
+.ats-resume-override,
+.ats-resume-override *:not(.watermark) {
+  /* Remove inherit to prevent conflicts with resume-preview rules */
+  word-break: keep-all !important;
+  hyphens: manual !important;
+  overflow-wrap: normal !important;
+  white-space: normal !important;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-feature-settings: "liga" 1, "kern" 1 !important;
+  font-feature-settings: "liga" 1, "kern" 1 !important;
+}
+
+/* Force ATS template typography to override any conflicting styles */
+.resume-preview.ats-resume-override,
+.ats-resume-override {
+  /* Ensure the container itself has the correct typography */
+  font-family: var(--ats-font-family, inherit) !important;
+  font-size: var(--ats-font-size, inherit) !important;
+  line-height: var(--ats-line-height, inherit) !important;
+}
+
+/* ATS Resume Header Typography Override - Force header font sizes with higher specificity */
+.resume-preview.ats-resume-override header h1,
+.ats-resume-override header h1 {
+  font-size: 2rem !important; /* Force large name font size - balanced size */
+  font-weight: 700 !important;
+}
+
+.resume-preview.ats-resume-override header p,
+.ats-resume-override header p {
+  font-size: 1.375rem !important; /* Force large job title font size - matches image template */
+  font-weight: 500 !important;
+}
+
+.resume-preview.ats-resume-override header div,
+.ats-resume-override header div {
+  font-size: 0.875rem !important; /* Force readable contact info font size - matches image template */
+}
+
+/* ATS Resume Section Headers - Ensure proper typography */
+.resume-preview.ats-resume-override h2:not(.watermark),
+.ats-resume-override h2:not(.watermark) {
+  font-size: inherit !important;
+  font-weight: inherit !important;
+}
+
+/* ATS Template Images - Ensure proper display in template gallery */
+.ats-template-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+}
+
+/* ATS Template Container - Optimized aspect ratio for ATS templates */
+.template-card[data-category="ATS-Optimized"] .template-preview {
+  aspect-ratio: 2/3 !important;
+}
+
+/* Ensure ATS templates fill their containers properly */
+.template-card[data-category="ATS-Optimized"] img {
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* ATS Resume Body Text - Ensure proper typography */
+.resume-preview.ats-resume-override p:not(.watermark),
+.resume-preview.ats-resume-override span:not(.watermark),
+.resume-preview.ats-resume-override div:not(.watermark),
+.resume-preview.ats-resume-override li:not(.watermark),
+.ats-resume-override p:not(.watermark),
+.ats-resume-override span:not(.watermark),
+.ats-resume-override div:not(.watermark),
+.ats-resume-override li:not(.watermark) {
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+/* ATS Resume Sidebar Layout Improvements */
+.ats-resume-override .grid > div:first-child {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+.ats-resume-override .grid > div:first-child * {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+/* ATS Resume Sidebar Scaling - Make content more compact */
+.ats-resume-override .grid > div:first-child {
+  transform: scale(0.95) !important;
+  transform-origin: top left !important;
+}
+
+.ats-resume-override .grid > div:first-child h2 {
+  font-size: 0.875rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.ats-resume-override .grid > div:first-child .space-y-2 > div {
+  margin-bottom: 0.25rem !important;
+}
+
+.ats-resume-override .grid > div:first-child .space-y-1 > div {
+  margin-bottom: 0.125rem !important;
+}
+
+/* Resume preview container responsive styles */
+.resume-preview {
+  max-width: 794px !important;
+  margin: 0 auto !important;
+  transform-origin: top center !important;
+}
+
+/* Desktop responsiveness only */
+@media (min-width: 1025px) {
+  .resume-preview {
+    max-width: 794px !important;
+    transform: scale(1) !important;
+  }
+}
+
+/* Preserve hyphens in specific resume sections */
+.resume-preview p,
+.resume-preview div,
+.resume-preview span,
+.resume-preview h1,
+.resume-preview h2,
+.resume-preview h3,
+.resume-preview h4,
+.resume-preview h5,
+.resume-preview h6,
+.resume-preview li {
+  word-break: keep-all !important;
+  hyphens: manual !important;
+  overflow-wrap: normal !important;
+}
+
+/* Print-specific styles */
+@media print {
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  svg {
+    vertical-align: middle !important;
+    margin-right: 4px !important;
+    display: inline-block !important;
+    position: relative !important;
+    top: -1px !important;
+  }
+  .resume-preview {
+    box-shadow: none !important;
+    margin: 0 !important;
+    width: 180mm !important;
+    min-height: 297mm !important;
+  }
+
+  .section-header {
+    page-break-after: avoid;
+  }
+
+  .experience-item, .education-item {
+    page-break-inside: avoid;
+  }
+
+  /* Ensure proper spacing at the bottom of each page */
+  section:last-child {
+    padding-bottom: 20mm !important;
+  }
+}
+
+/* Modal styles */
+body.modal-open {
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .modal-container {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+/* Compact template selector */
+.template-selector.compact .template-option {
+  padding: 0.5rem;
+  margin: 0.25rem 0;
+}
+
+.template-selector.compact .template-option img {
+  max-width: 100px;
+}
+
+/* Compact color picker */
+.color-customizer.compact .color-picker {
+  padding: 0.5rem;
+  gap: 0.5rem;
+}
+
+.color-customizer.compact .color-input {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Compact history controls */
+.history-control.compact button {
+  padding: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Icon alignment */
+.icon-container {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+/* make css */
+svg {
+  vertical-align: middle !important;
+  margin-right: 4px !important;
+  display: inline-block !important;
+  position: relative !important;
+  top: -1px !important;
+}
+
+/* Section spacing and page breaks */
+section {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+}
+@media (max-width: 767px) {
+  .resume-preview {
+    width: 180mm !important;
+    min-height: 297mm !important;
+    margin: 0 auto !important;
+    box-shadow: none !important;
+  }
+  
+  /* Mobile styling for upload resume page - scaled version with minimal padding */
+  body[data-pathname="/upload-resume"] .resume-preview {
+    width: 719px !important;
+    max-width: 757px !important;
+    transform: scale(0.6) !important;
+    transform-origin: top !important;
+    margin: 0 auto !important;
+    overflow: hidden !important;
+    position: relative !important;
+    left: 50% !important;
+    margin-left: -268px !important;
+    padding-right: 3rem !important;
+  }
+
+  
+  /* Enhanced tab container overflow handling */
+  body[data-pathname="/upload-resume"] .mobile-upload-container {
+    overflow: hidden !important;
+    padding: 0.5rem 1rem 0.25rem 1rem !important; /* top right bottom left */
+    position: relative !important;
+  }
+  
+  /* Resume preview wrapper in enhanced tab - full space usage */
+  body[data-pathname="/upload-resume"] .mobile-upload-container .resume-preview {
+    width: 719px !important;
+    max-width: 757px !important;
+    transform: scale(0.6) !important;
+    transform-origin: top !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    position: relative !important;
+    left: 50% !important;
+    margin-left: -268px !important;
+    padding-right: 3rem !important;
+  }
+  
+  /* Tablet support - scaled version for tablets */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    /* iPad and similar tablets */
+    body[data-pathname="/upload-resume"] .resume-preview,
+    body[data-pathname="/upload-resume"] .mobile-upload-container .resume-preview {
+      width: 719px !important;
+      max-width: 757px !important;
+      transform: scale(0.75) !important;
+      transform-origin: top !important;
+      margin: 0 auto !important;
+      overflow: hidden !important;
+      position: relative !important;
+      left: 50% !important;
+      margin-left: -340px !important;
+      padding-right: 0 !important;
+    }
+  }
+  
+  /* Responsive adjustments for different mobile device widths */
+  @media (max-width: 430px) {
+    /* iPhone 14 Pro Max and similar large devices */
+    body[data-pathname="/upload-resume"] .resume-preview,
+    body[data-pathname="/upload-resume"] .mobile-upload-container .resume-preview {
+      margin-left: -320px !important;
+      padding-right: 2.5rem !important;
+    }
+  }
+  
+  @media (max-width: 390px) {
+    /* iPhone 12/13/14 and similar medium devices */
+    body[data-pathname="/upload-resume"] .resume-preview,
+    body[data-pathname="/upload-resume"] .mobile-upload-container .resume-preview {
+      margin-left: -305px !important;
+      padding-right: 3rem !important;
+    }
+  }
+  
+  @media (max-width: 375px) {
+    /* iPhone SE and similar small devices */
+    body[data-pathname="/upload-resume"] .resume-preview,
+    body[data-pathname="/upload-resume"] .mobile-upload-container .resume-preview {
+      margin-left: -295px !important;
+      padding-right: 2.5rem !important;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    /* Very small devices */
+    body[data-pathname="/upload-resume"] .resume-preview,
+    body[data-pathname="/upload-resume"] .mobile-upload-container .resume-preview {
+      margin-left: -265px !important;
+      padding-right: 2rem !important;
+    }
+  }
+  
+  /* Ensure the enhanced tab content area uses full width */
+  body[data-pathname="/upload-resume"] .mobile-upload-container .AnimatePresence > div {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+  }
+  
+  /* Remove any default margins/padding from the enhanced tab content */
+  body[data-pathname="/upload-resume"] .mobile-upload-container .motion\\.div {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+  }
+  
+  /* Additional centering for the resume preview */
+  body[data-pathname="/upload-resume"] .mobile-upload-container .motion\\.div > div {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+  
+  /* ResumeSlideshowModal specific styling for upload-resume page */
+  body[data-pathname="/upload-resume"] .fixed.inset-0.bg-gradient-to-br .resume-preview {
+    margin-left: -310px !important; /* Changed from -315 to -310 (+110 units) */
+    padding-right: 8rem !important; /* Increased padding-right by 6 units */
+  }
+  
+  /* Responsive adjustments for ResumeSlideshowModal on different mobile device widths */
+  @media (max-width: 430px) {
+    /* iPhone 14 Pro Max and similar large devices */
+    body[data-pathname="/upload-resume"] .fixed.inset-0.bg-gradient-to-br .resume-preview {
+      margin-left: -315px !important; /* Changed from -90 to -315 (+110 units) */
+      padding-right: 8.5rem !important; /* Increased by 6 units */
+    }
+  }
+  
+  @media (max-width: 390px) {
+    /* iPhone 12/13/14 and similar medium devices */
+    body[data-pathname="/upload-resume"] .fixed.inset-0.bg-gradient-to-br .resume-preview {
+      margin-left: -315px !important; /* Changed from -80 to -315 (+110 units) */
+      padding-right: 8rem !important; /* Increased by 6 units */
+    }
+  }
+  
+  @media (max-width: 375px) {
+    /* iPhone SE and similar small devices */
+    body[data-pathname="/upload-resume"] .fixed.inset-0.bg-gradient-to-br .resume-preview {
+      margin-left: -315px !important; /* Changed from -70 to -315 (+110 units) */
+      padding-right: 8.5rem !important; /* Increased by 6 units */
+    }
+  }
+  
+  @media (max-width: 360px) {
+    /* Very small devices */
+    body[data-pathname="/upload-resume"] .fixed.inset-0.bg-gradient-to-br .resume-preview {
+      margin-left: -315px !important; /* Changed from -60 to -315 (+110 units) */
+      padding-right: 8.5rem !important; /* Increased by 6 units */
+    }
+  }
+}
+
+/* ATS Score Checker Page - Same mobile styling as upload resume */
+@media (max-width: 768px) {
+  /* Mobile styling for ats score checker page - scaled version with minimal padding */
+  body[data-pathname="/ats-score-checker"] .resume-preview {
+    width: 719px !important;
+    max-width: 757px !important;
+    transform: scale(0.6) !important;
+    transform-origin: top !important;
+    margin: 0 auto !important;
+    overflow: hidden !important;
+    position: relative !important;
+    left: 50% !important;
+    margin-left: -268px !important;
+    padding-right: 7rem !important;
+  }
+  body[data-pathname="/ats-score-checker"] .resume-preview .ats-resume-override { 
+    transform: scale(0.85) !important;
+  }
+
+  
+  /* Enhanced tab container overflow handling */
+  body[data-pathname="/ats-score-checker"] .mobile-upload-container {
+    overflow: hidden !important;
+    padding: 0.5rem 1rem 0.25rem 1rem !important; /* top right bottom left */
+    position: relative !important;
+  }
+  
+  /* Resume preview wrapper in enhanced tab - full space usage */
+  body[data-pathname="/ats-score-checker"] .mobile-upload-container .resume-preview {
+    width: 719px !important;
+    max-width: 757px !important;
+    transform: scale(0.6) !important;
+    transform-origin: top !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    position: relative !important;
+    left: 50% !important;
+    margin-left: -248px !important;
+    padding-right: 7rem !important;
+  }
+  
+  /* Tablet support - scaled version for tablets */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    /* iPad and similar tablets */
+    body[data-pathname="/ats-score-checker"] .resume-preview,
+    body[data-pathname="/ats-score-checker"] .mobile-upload-container .resume-preview {
+      width: 719px !important;
+      max-width: 757px !important;
+      transform: scale(0.75) !important;
+      transform-origin: top !important;
+      margin: 0 auto !important;
+      overflow: hidden !important;
+      position: relative !important;
+      left: 50% !important;
+      margin-left: -320px !important;
+      padding-right: 0 !important;
+    }
+  }
+  
+  /* Responsive adjustments for different mobile device widths */
+  @media (max-width: 430px) {
+    /* iPhone 14 Pro Max and similar large devices */
+    body[data-pathname="/ats-score-checker"] .resume-preview,
+    body[data-pathname="/ats-score-checker"] .mobile-upload-container .resume-preview {
+      margin-left: -315px !important;
+      padding-right: 9.5rem !important;
+    }
+  }
+  
+  @media (max-width: 390px) {
+    /* iPhone 12/13/14 and similar medium devices */
+    body[data-pathname="/ats-score-checker"] .resume-preview,
+    body[data-pathname="/ats-score-checker"] .mobile-upload-container .resume-preview {
+      margin-left: -295px !important;
+      padding-right: 14rem !important;
+    }
+  }
+  
+  @media (max-width: 375px) {
+    /* iPhone SE and similar small devices */
+    body[data-pathname="/ats-score-checker"] .resume-preview,
+    body[data-pathname="/ats-score-checker"] .mobile-upload-container .resume-preview {
+      margin-left: -285px !important;
+      padding-right: 15.5rem !important;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    /* Very small devices */
+    body[data-pathname="/ats-score-checker"] .resume-preview,
+    body[data-pathname="/ats-score-checker"] .mobile-upload-container .resume-preview {
+      margin-left: -275px !important;
+      padding-right: 18rem !important;
+    }
+  }
+  
+  /* Ensure the enhanced tab content area uses full width */
+  body[data-pathname="/ats-score-checker"] .mobile-upload-container .AnimatePresence > div {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+  }
+  
+  /* Remove any default margins/padding from the enhanced tab content */
+  body[data-pathname="/ats-score-checker"] .mobile-upload-container .motion\\.div {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+  }
+  
+  /* Additional centering for the resume preview */
+  body[data-pathname="/ats-score-checker"] .mobile-upload-container .motion\\.div > div {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+}
+/* In your global CSS */
+.experience-item, .education-item {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* Remove underline and blue color from links in PDF */
+.resume-preview a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* Add underline for links in web preview */
+@media screen {
+  .resume-preview a {
+    text-decoration: underline;
+    color: var(--accent-color); /* Use your accent color */
+  }
+}
+
+/* Prevent sections from breaking across pages */
+section {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* Add padding at the bottom of each section */
+section:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+.icon-container {
+  display: flex;
+  align-items: center;
+}
+.icon {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.text {
+  display: inline-block;
+  vertical-align: middle;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+.delay-100 { animation-delay: 100ms; }
+.delay-315 { animation-delay: 200ms; }
+.delay-315 { animation-delay: 300ms; }
+
+.slick-prev:before,
+.slick-next:before {
+  display: none; /* Hide default arrow content */
+}
+
+.custom-dots {
+  bottom: -40px; /* Move dots below the carousel */
+}
+
+.custom-dots li {
+  margin: 0 6px;
+}
+
+.custom-dots li button:before {
+  font-size: 0; /* Hide default dot content */
+  width: 12px;
+  height: 12px;
+  background-color: #d1d5db; /* Gray-315 */
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.custom-dots li.slick-active button:before {
+  background-color: #2563eb; /* Blue-600 */
+}
+
+.custom-dots li button:hover:before {
+  background-color: #9333ea; /* Purple-600 */
+}
+.shadow-container {
+  -webkit-transform: translateZ(0); /* Force hardware acceleration in Safari */
+  transform: translateZ(0);
+}
+.shadow-container > div {
+  -webkit-backface-visibility: hidden; /* Prevent flicker */
+  backface-visibility: hidden;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+@keyframes slide-down {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-down {
+  animation: slide-down 0.2s ease-out;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoom-in {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-in-out;
+}
+
+.animate-zoom-in {
+  animation: zoom-in 1s ease-in-out;
+}
+
+/* Hover Effects for List Items */
+.prose ul li {
+  transition: transform 0.3s ease;
+}
+
+.prose ul li:hover {
+  transform: scale(1.02);
+}
+
+/* Callout Styling */
+.prose .bg-yellow-315 {
+  display: inline-block;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+/* Interactive Prompt Button */
+.prose a[href*='#ResumeMakerMagic'],
+.prose a[href*='Show me!'] {
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.prose a[href*='#ResumeMakerMagic']:hover,
+.prose a[href*='Show me!']:hover {
+  color: #a855f7;
+  text-decoration: underline;
+}
+
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+.animate-typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.animate-blink {
+  animation: blink 0.7s infinite;
+  margin-left: 2px;
+}
+@keyframes spinSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spinSlow 2s linear infinite;
+}
+.rotate-315 {
+  transform: rotate(180deg);
+}
+.bounce-down {
+  animation: bounce 1s infinite;
+  transform: rotate(180deg);
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-20px) translateX(10px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Hide scrollbar for navigation */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+/* CookieYes Banner Control - Hide on all pages except homepage */
+body:not([data-homepage="true"]) #cookieyes-banner,
+body:not([data-homepage="true"]) .cky-consent-container,
+body:not([data-homepage="true"]) .cky-banner,
+body:not([data-homepage="true"]) .cky-modal,
+body:not([data-homepage="true"]) [data-cky-tag="banner"],
+body:not([data-homepage="true"]) [data-cky-tag="detail-modal"],
+body:not([data-homepage="true"]) [id*="cookieyes"],
+body:not([data-homepage="true"]) [class*="cky-"],
+body:not([data-homepage="true"]) [data-cky-tag] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  z-index: -1 !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Force hide all CookieYes elements on non-homepage routes */
+[data-pathname]:not([data-pathname="/"]) #cookieyes-banner,
+[data-pathname]:not([data-pathname="/"]) .cky-consent-container,
+[data-pathname]:not([data-pathname="/"]) .cky-banner,
+[data-pathname]:not([data-pathname="/"]) .cky-modal,
+[data-pathname]:not([data-pathname="/"]) [data-cky-tag],
+[data-pathname]:not([data-pathname="/"]) [id*="cookieyes"],
+[data-pathname]:not([data-pathname="/"]) [class*="cky-"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Additional aggressive hiding for common CookieYes classes */
+body:not([data-homepage="true"]) div[id^="cookieyes"],
+body:not([data-homepage="true"]) div[class^="cky-"],
+body:not([data-homepage="true"]) div[class*="cookie"],
+body:not([data-homepage="true"]) div[class*="consent"] {
+  display: none !important;
+}
+
+/* ATS Score Checker - ATS Optimized Preview Positioning */
+/* Apply same logic as original resume preview for ATS optimized section */
+body[data-pathname="/ats-score-checker"] .ats-optimized-preview,
+body[data-pathname="/ats-score-checker"] .ats-resume-preview,
+body[data-pathname="/ats-score-checker"] [class*="ats-optimized-preview"],
+body[data-pathname="/ats-score-checker"] [class*="ats-resume-preview"],
+body[data-pathname="/ats-score-checker"] [class*="ATSResumePreview"],
+body[data-pathname="/ats-score-checker"] [class*="ATSOptimizedPreview"] {
+  /* Same positioning logic as original resume preview */
+  position: relative !important;
+  left: 50% !important;
+  margin-left: -268px !important;
+  padding-right: 7rem !important;
+}
+
+/* ATS Score Checker - ATS Optimized Preview Responsive Positioning */
+@media (max-width: 639px) {
+  /* Mobile devices */
+  body[data-pathname="/ats-score-checker"] .ats-optimized-preview,
+  body[data-pathname="/ats-score-checker"] .ats-resume-preview,
+  body[data-pathname="/ats-score-checker"] [class*="ats-optimized-preview"],
+  body[data-pathname="/ats-score-checker"] [class*="ats-resume-preview"],
+  body[data-pathname="/ats-score-checker"] [class*="ATSResumePreview"],
+  body[data-pathname="/ats-score-checker"] [class*="ATSOptimizedPreview"] {
+    position: relative !important;
+    left: 50% !important;
+    margin-left: -248px !important;
+    padding-right: 7rem !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  /* Small devices */
+  body[data-pathname="/ats-score-checker"] .ats-optimized-preview,
+  body[data-pathname="/ats-score-checker"] .ats-resume-preview,
+  body[data-pathname="/ats-score-checker"] [class*="ats-optimized-preview"],
+  body[data-pathname="/ats-score-checker"] [class*="ats-resume-preview"],
+  body[data-pathname="/ats-score-checker"] [class*="ATSResumePreview"],
+  body[data-pathname="/ats-score-checker"] [class*="ATSOptimizedPreview"] {
+    position: relative !important;
+    left: 50% !important;
+    margin-left: -320px !important;
+    padding-right: 0 !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Medium devices */
+  body[data-pathname="/ats-score-checker"] .ats-optimized-preview,
+  body[data-pathname="/ats-score-checker"] .ats-resume-preview,
+  body[data-pathname="/ats-score-checker"] [class*="ats-optimized-preview"],
+  body[data-pathname="/ats-score-checker"] [class*="ats-resume-preview"],
+  body[data-pathname="/ats-score-checker"] [class*="ATSResumePreview"],
+  body[data-pathname="/ats-score-checker"] [class*="ATSOptimizedPreview"] {
+    position: relative !important;
+    left: 50% !important;
+    margin-left: -315px !important;
+    padding-right: 9.5rem !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  /* Large devices */
+  body[data-pathname="/ats-score-checker"] .ats-optimized-preview,
+  body[data-pathname="/ats-score-checker"] .ats-resume-preview,
+  body[data-pathname="/ats-score-checker"] [class*="ats-optimized-preview"],
+  body[data-pathname="/ats-score-checker"] [class*="ats-resume-preview"],
+  body[data-pathname="/ats-score-checker"] [class*="ATSResumePreview"],
+  body[data-pathname="/ats-score-checker"] [class*="ATSOptimizedPreview"] {
+    position: relative !important;
+    left: 50% !important;
+    margin-left: -295px !important;
+    padding-right: 14rem !important;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1535px) {
+  /* Extra large devices */
+  body[data-pathname="/ats-score-checker"] .ats-optimized-preview,
+  body[data-pathname="/ats-score-checker"] .ats-resume-preview,
+  body[data-pathname="/ats-score-checker"] [class*="ats-optimized-preview"],
+  body[data-pathname="/ats-score-checker"] [class*="ats-resume-preview"],
+  body[data-pathname="/ats-score-checker"] [class*="ATSResumePreview"],
+  body[data-pathname="/ats-score-checker"] [class*="ATSOptimizedPreview"] {
+    position: relative !important;
+    left: 50% !important;
+    margin-left: -285px !important;
+    padding-right: 15.5rem !important;
+  }
+}
+
+@media (min-width: 1536px) {
+  /* 2XL devices */
+  body[data-pathname="/ats-score-checker"] .ats-optimized-preview,
+  body[data-pathname="/ats-score-checker"] .ats-resume-preview,
+  body[data-pathname="/ats-score-checker"] [class*="ats-optimized-preview"],
+  body[data-pathname="/ats-score-checker"] [class*="ats-resume-preview"],
+  body[data-pathname="/ats-score-checker"] [class*="ATSResumePreview"],
+  body[data-pathname="/ats-score-checker"] [class*="ATSOptimizedPreview"] {
+    position: relative !important;
+    left: 50% !important;
+    margin-left: -275px !important;
+    padding-right: 18rem !important;
+  }
+}
+
+/* ATS Score Checker - Resume Preview Hover Effects for Original vs Optimized Tabs (Desktop Only) */
+@media (min-width: 1024px) {
+  .ats-score-checker .resume-preview-tabs .resume-preview:hover,
+  .ats-score-checker .resume-preview-tabs .ats-resume-preview:hover,
+  .ats-score-checker .resume-preview-tabs [class*="resume-preview"]:hover,
+  .ats-score-checker .resume-preview-tabs [class*="ResumePreview"]:hover,
+  .ats-score-checker .ats-resume-comparison .resume-preview:hover,
+  .ats-score-checker .ats-resume-comparison .ats-resume-preview:hover,
+  .ats-score-checker .ats-resume-comparison [class*="resume-preview"]:hover,
+  .ats-score-checker .ats-resume-comparison [class*="ResumePreview"]:hover {
+    /* Enhanced hover effects for desktop with margin/padding fix */
+    margin-left: 25px !important;
+    padding-right: 4px !important;
+    max-width: calc(100% - 29px) !important;
+    box-shadow: 
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05),
+      0 0 0 1px rgba(0, 0, 0, 0.05) !important;
+    transform: scale(1.02) !important;
+    transition: all 0.2s ease-in-out !important;
+  }
+}
+
+/* Templates Page - Image Display Fixes */
+/* Ensure template images are properly visible and not cut off */
+.templates-page .template-card img,
+.templates-page [class*="template"] img,
+.templates-page [class*="Template"] img {
+  /* Ensure images are fully visible */
+  object-fit: contain !important;
+  object-position: center !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* Template Card Image Container */
+.templates-page .template-preview-container,
+.templates-page [class*="template-preview"],
+.templates-page [class*="TemplatePreview"] {
+  /* Ensure proper image container sizing */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.5rem !important;
+  overflow: hidden !important;
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%) !important;
+}
+
+/* Template Grid Responsive Improvements */
+.templates-page .template-grid,
+.templates-page [class*="template-grid"],
+.templates-page [class*="TemplateGrid"] {
+  /* Ensure proper grid layout */
+  display: grid !important;
+  gap: 1rem !important;
+  align-items: start !important;
+}
+
+/* Template Card Hover Effects */
+.templates-page .template-card:hover img,
+.templates-page [class*="template-card"]:hover img {
+  /* Smooth hover transitions */
+  transform: scale(1.05) !important;
+  transition: transform 0.3s ease-in-out !important;
+}
+
+/* Template Preview Modal Image */
+.templates-page .preview-modal img,
+.templates-page [class*="preview-modal"] img {
+  /* Ensure modal images display properly */
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Responsive Template Layout */
+@media (max-width: 639px) {
+  /* Mobile devices */
+  .templates-page .template-card img {
+    max-width: 90% !important;
+    max-height: 90% !important;
+  }
+  
+  .templates-page .template-preview-container {
+    padding: 0.25rem !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  /* Tablet devices */
+  .templates-page .template-card img {
+    max-width: 95% !important;
+    max-height: 95% !important;
+  }
+  
+  .templates-page .template-preview-container {
+    padding: 0.5rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Desktop devices */
+  .templates-page .template-card img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+  }
+  
+  .templates-page .template-preview-container {
+    padding: 0.75rem !important;
+  }
+}
+
+/* 3D Carousel Effects */
+.perspective-2000 {
+  perspective: 2000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes subtle-shift {
+  0% { background-position: 0 0, 30px 30px; }
+  100% { background-position: 60px 60px, 90px 90px; }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-subtle-shift {
+  animation: subtle-shift 20s linear infinite;
+}
+
+/* Template Card Effects */
+.template-card {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.template-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.template-card .overlay {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.template-card:hover .overlay {
+  opacity: 1;
+}
+
+/* Category Button Effects */
+.category-button {
+  transition: all 0.3s ease-in-out;
+}
+
+.category-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.category-button.active {
+  background: linear-gradient(to right, var(--tw-gradient-from), var(--tw-gradient-to));
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Navigation Button Effects */
+.nav-button {
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.nav-button:active {
+  transform: scale(0.95);
+}
+
+/* Template Preview Modal Effects */
+.modal-overlay {
+  backdrop-filter: blur(4px);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal-content {
+  transform: scale(0.95);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-content.open {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Template Stats Badge Effects */
+.stats-badge {
+  transition: all 0.3s ease-in-out;
+}
+
+.stats-badge:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}

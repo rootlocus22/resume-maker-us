@@ -1,0 +1,18 @@
+
+// Updated Image Component for WebP Support
+import Image from 'next/image';
+
+export default function OptimizedImage({ src, alt, ...props }) {
+  // Check if WebP version exists
+  const webpSrc = src.replace(/\.(jpg|jpeg|png)$/i, '.webp').replace('/images/', '/images/optimized/');
+  
+  return (
+    <picture>
+      <source srcSet={webpSrc} type="image/webp" />
+      <Image src={src} alt={alt} {...props} />
+    </picture>
+  );
+}
+
+// Usage:
+// <OptimizedImage src="/images/photo.jpg" alt="Description" width={800} height={600} />

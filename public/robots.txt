@@ -1,0 +1,135 @@
+# robots.txt for ResumeGyani - Optimized for SEO
+
+# Allow all good bots
+User-agent: *
+Allow: /
+
+# Block invalid undefined URLs
+Disallow: /*undefined$
+
+# Block Next.js internal files and chunks (comprehensive blocking)
+Disallow: /_next/
+Disallow: /_next/static/
+Disallow: /_next/static/chunks/
+Disallow: /_next/static/css/
+Disallow: /_next/static/media/
+Disallow: /_next/webpack/
+Disallow: /_next/hmr/
+Disallow: /_next/image
+Disallow: /_next/data/
+Disallow: /static/
+
+# Block API routes (except public endpoints)
+Disallow: /api/
+
+# Block JSON files
+Disallow: /*.json$
+
+# Block development files
+Disallow: /_error
+Disallow: /404
+
+# Note: All /_next/ paths are blocked above for SEO
+# Only allow specific static assets if needed (currently all blocked)
+
+# Allow all static files
+Allow: /newlogo.png
+Allow: /icon.png
+Allow: /*.svg$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.webp$
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /account/
+Disallow: /checkout
+Disallow: /my-resumes
+Disallow: /my-cover-letters
+Disallow: /edit-profile
+Disallow: /preview-generator
+Disallow: /test*
+Disallow: /*?*utm_*
+Disallow: /*?*ref=*
+Disallow: /*?*sessionid*
+
+# Allow important public pages
+Allow: /pricing
+Allow: /templates
+Allow: /features
+Allow: /blog
+Allow: /resume-builder
+Allow: /ats-score-checker
+Allow: /upload-resume
+Allow: /cover-letter-builder
+Allow: /about-us
+Allow: /contact-us
+Allow: /faqs
+Allow: /testimonials
+Allow: /signup
+Allow: /login
+
+# Special rules for Google
+User-agent: Googlebot
+# Still block Next.js internal files even for Googlebot
+Disallow: /_next/
+Disallow: /_next/static/
+Disallow: /_next/static/chunks/
+Disallow: /_next/static/css/
+Disallow: /_next/static/media/
+Disallow: /_next/webpack/
+Disallow: /_next/hmr/
+Disallow: /_next/image
+Disallow: /_next/data/
+Allow: /
+Crawl-delay: 0
+
+# Special rules for Google Image bot
+User-agent: Googlebot-Image
+Allow: /
+
+# Special rules for Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# Allow OpenAI's ChatGPT crawler for AI discovery
+User-agent: OAI-SearchBot
+Allow: /
+Crawl-delay: 1
+
+# Allow ChatGPT crawler (alternative name)
+User-agent: ChatGPT-User
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+Crawl-delay: 5
+
+User-agent: SemrushBot
+Crawl-delay: 5
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SeznamBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://resumegyani.in/sitemap.xml
+Sitemap: https://resumegyani.in/sitemap-us.xml
+Sitemap: https://resumegyani.in/sitemap-uk.xml
+Sitemap: https://resumegyani.in/sitemap-interview-global.xml
+
+# Additional info
+# Host: https://resumegyani.in
+# Contact: support@resumegyani.com

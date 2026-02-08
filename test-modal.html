@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Test</title>
+    <style>
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .btn {
+            background: linear-gradient(to right, #2563eb, #7c3aed);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(to right, #1d4ed8, #6d28d9);
+        }
+    </style>
+</head>
+<body>
+    <div style="padding: 2rem;">
+        <h1>Modal Test</h1>
+        <button class="btn" onclick="openModal()">Open Modal</button>
+        
+        <div id="modal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <h2>Test Modal</h2>
+                <p>This is a test modal to verify modal functionality.</p>
+                <button class="btn" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            console.log("Opening modal...");
+            const modal = document.getElementById('modal');
+            modal.classList.remove('hidden');
+        }
+        
+        function closeModal() {
+            console.log("Closing modal...");
+            const modal = document.getElementById('modal');
+            modal.classList.add('hidden');
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html> 

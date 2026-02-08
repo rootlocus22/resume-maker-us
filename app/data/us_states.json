@@ -1,0 +1,87 @@
+[
+    {
+        "name": "California",
+        "slug": "california",
+        "focus": "Tech, Entertainment, Healthcare"
+    },
+    {
+        "name": "Texas",
+        "slug": "texas",
+        "focus": "Tech, Energy, Healthcare"
+    },
+    {
+        "name": "New York",
+        "slug": "new-york",
+        "focus": "Finance, Media, Healthcare"
+    },
+    {
+        "name": "Florida",
+        "slug": "florida",
+        "focus": "Healthcare, Tourism, Logistics"
+    },
+    {
+        "name": "Illinois",
+        "slug": "illinois",
+        "focus": "Manufacturing, Logistics, Healthcare"
+    },
+    {
+        "name": "Pennsylvania",
+        "slug": "pennsylvania",
+        "focus": "Healthcare, Education, Manufacturing"
+    },
+    {
+        "name": "Ohio",
+        "slug": "ohio",
+        "focus": "Manufacturing, Healthcare, Logistics"
+    },
+    {
+        "name": "Georgia",
+        "slug": "georgia",
+        "focus": "Logistics, Tech, Healthcare"
+    },
+    {
+        "name": "Washington",
+        "slug": "washington",
+        "focus": "Tech, Aerospace, Retail"
+    },
+    {
+        "name": "Massachusetts",
+        "slug": "massachusetts",
+        "focus": "Education, Tech, Healthcare"
+    },
+    {
+        "name": "Virginia",
+        "slug": "virginia",
+        "focus": "Gov-Tech, Defense, Data Centers"
+    },
+    {
+        "name": "Colorado",
+        "slug": "colorado",
+        "focus": "Tech, Outdoor, Aerospace"
+    },
+    {
+        "name": "Michigan",
+        "slug": "michigan",
+        "focus": "Automotive, Manufacturing"
+    },
+    {
+        "name": "Tennessee",
+        "slug": "tennessee",
+        "focus": "Logistics, Healthcare, Music"
+    },
+    {
+        "name": "North Carolina",
+        "slug": "north-carolina",
+        "focus": "Tech, Healthcare, Banking"
+    },
+    {
+        "name": "New Jersey",
+        "slug": "new-jersey",
+        "focus": "Pharma, Logistics, Finance"
+    },
+    {
+        "name": "Arizona",
+        "slug": "arizona",
+        "focus": "Customer Service, Retail, Tech"
+    }
+]

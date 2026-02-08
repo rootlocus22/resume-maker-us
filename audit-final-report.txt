@@ -1,0 +1,155 @@
+[dotenv@17.2.3] injecting env (36) from .env.local -- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops
+✅ Firebase Admin initialized with environment variables
+
+═══════════════════════════════════════════════════════════
+  FIRESTORE JOB ROLES - CONTENT QUALITY AUDIT
+═══════════════════════════════════════════════════════════
+
+🔍 Fetching all job roles from Firestore...
+
+   ✓ Fetched batch 1 (100 docs so far)
+   ✓ Fetched batch 2 (200 docs so far)
+   ✓ Fetched batch 3 (300 docs so far)
+   ✓ Fetched batch 4 (400 docs so far)
+   ✓ Fetched batch 5 (500 docs so far)
+   ✓ Fetched batch 6 (600 docs so far)
+   ✓ Fetched batch 7 (700 docs so far)
+   ✓ Fetched batch 8 (800 docs so far)
+   ✓ Fetched batch 9 (900 docs so far)
+   ✓ Fetched batch 10 (1000 docs so far)
+   ✓ Fetched batch 11 (1100 docs so far)
+   ✓ Fetched batch 12 (1200 docs so far)
+   ✓ Fetched batch 13 (1300 docs so far)
+   ✓ Fetched batch 14 (1400 docs so far)
+   ✓ Fetched batch 15 (1500 docs so far)
+   ✓ Fetched batch 16 (1600 docs so far)
+   ✓ Fetched batch 17 (1700 docs so far)
+   ✓ Fetched batch 18 (1800 docs so far)
+   ✓ Fetched batch 19 (1900 docs so far)
+   ✓ Fetched batch 20 (2000 docs so far)
+   ✓ Fetched batch 21 (2100 docs so far)
+   ✓ Fetched batch 22 (2200 docs so far)
+   ✓ Fetched batch 23 (2300 docs so far)
+   ✓ Fetched batch 24 (2400 docs so far)
+   ✓ Fetched batch 25 (2500 docs so far)
+   ✓ Fetched batch 26 (2600 docs so far)
+   ✓ Fetched batch 27 (2700 docs so far)
+   ✓ Fetched batch 28 (2800 docs so far)
+   ✓ Fetched batch 29 (2900 docs so far)
+   ✓ Fetched batch 30 (3000 docs so far)
+   ✓ Fetched batch 31 (3100 docs so far)
+   ✓ Fetched batch 32 (3200 docs so far)
+   ✓ Fetched batch 33 (3300 docs so far)
+   ✓ Fetched batch 34 (3400 docs so far)
+   ✓ Fetched batch 35 (3500 docs so far)
+   ✓ Fetched batch 36 (3600 docs so far)
+   ✓ Fetched batch 37 (3700 docs so far)
+   ✓ Fetched batch 38 (3800 docs so far)
+   ✓ Fetched batch 39 (3900 docs so far)
+   ✓ Fetched batch 40 (4000 docs so far)
+   ✓ Fetched batch 41 (4100 docs so far)
+   ✓ Fetched batch 42 (4200 docs so far)
+   ✓ Fetched batch 43 (4300 docs so far)
+   ✓ Fetched batch 44 (4400 docs so far)
+   ✓ Fetched batch 45 (4500 docs so far)
+   ✓ Fetched batch 46 (4600 docs so far)
+   ✓ Fetched batch 47 (4700 docs so far)
+   ✓ Fetched batch 48 (4800 docs so far)
+   ✓ Fetched batch 49 (4900 docs so far)
+   ✓ Fetched batch 50 (5000 docs so far)
+   ✓ Fetched batch 51 (5100 docs so far)
+   ✓ Fetched batch 52 (5200 docs so far)
+   ✓ Fetched batch 53 (5300 docs so far)
+   ✓ Fetched batch 54 (5400 docs so far)
+   ✓ Fetched batch 55 (5500 docs so far)
+   ✓ Fetched batch 56 (5600 docs so far)
+   ✓ Fetched batch 57 (5700 docs so far)
+   ✓ Fetched batch 58 (5800 docs so far)
+   ✓ Fetched batch 59 (5900 docs so far)
+   ✓ Fetched batch 60 (6000 docs so far)
+   ✓ Fetched batch 61 (6100 docs so far)
+   ✓ Fetched batch 62 (6200 docs so far)
+   ✓ Fetched batch 63 (6300 docs so far)
+   ✓ Fetched batch 64 (6400 docs so far)
+   ✓ Fetched batch 65 (6500 docs so far)
+   ✓ Fetched batch 66 (6600 docs so far)
+   ✓ Fetched batch 67 (6700 docs so far)
+   ✓ Fetched batch 68 (6800 docs so far)
+   ✓ Fetched batch 69 (6900 docs so far)
+   ✓ Fetched batch 70 (7000 docs so far)
+   ✓ Fetched batch 71 (7100 docs so far)
+   ✓ Fetched batch 72 (7200 docs so far)
+   ✓ Fetched batch 73 (7205 docs so far)
+
+✅ Total roles fetched: 7205
+
+📊 Auditing content quality...
+
+📊 QUALITY SUMMARY:
+
+   Total Pages: 7205
+   Avg Word Count: 447
+   Avg Quality Score: 6.00/10
+
+   Distribution:
+   ✅ Excellent (8-10): 0
+   👍 Good (6-7.9): 7205
+   ⚠️  Fair (4-5.9): 0
+   ❌ Poor (<4): 0
+
+   Issues Found:
+   • Thin content (<500 words): 7205
+   • No salary data: 0
+   • No interview Q: 0
+   • Few FAQs (<5): 0
+   • Low keywords (<10): 0
+
+🔬 Checking similarity (sampling 500 random pages)...
+
+   ✓ Processed 50/500 comparisons
+   ✓ Processed 100/500 comparisons
+   ✓ Processed 150/500 comparisons
+   ✓ Processed 200/500 comparisons
+   ✓ Processed 250/500 comparisons
+   ✓ Processed 300/500 comparisons
+   ✓ Processed 350/500 comparisons
+   ✓ Processed 400/500 comparisons
+   ✓ Processed 450/500 comparisons
+   ✓ Processed 500/500 comparisons
+
+🔍 Found 124750 similar pairs (>70% match)
+
+⚠️  DUPLICATE RISK:
+
+   • chief-education-coordinator-resume-india ↔ senior-seo-coordinator-resume-india (98.9% similar)
+   • chief-education-coordinator-resume-india ↔ executive-graphic-design-manager-resume-india (97.4% similar)
+   • chief-education-coordinator-resume-india ↔ junior-medical-executive-resume-india (97.8% similar)
+   • chief-education-coordinator-resume-india ↔ chief-python-architect-resume-india (98.5% similar)
+   • chief-education-coordinator-resume-india ↔ junior-pharmaceutical-executive-resume-india (97.8% similar)
+   • chief-education-coordinator-resume-india ↔ junior-oracle-specialist-resume-india (97.8% similar)
+   • chief-education-coordinator-resume-india ↔ junior-procurement-executive-resume-india (97.8% similar)
+   • chief-education-coordinator-resume-india ↔ junior-python-specialist-resume-india (97.8% similar)
+   • chief-education-coordinator-resume-india ↔ executive-devops-administrator-resume-india (97.8% similar)
+   • chief-education-coordinator-resume-india ↔ associate-corporate-law-coordinator-resume-india (98.1% similar)
+
+🎯 RECOMMENDATIONS:
+
+   ❗ CRITICAL:
+   • Thin Content (7205 pages) - Add 1,500+ words of unique content per page
+
+
+💾 Report saved: audit-reports/audit-report-2025-12-25T19-22-11-869Z.json
+
+═══════════════════════════════════════════════════════════
+  AUDIT COMPLETE
+═══════════════════════════════════════════════════════════
+
+📄 Full report: audit-reports/audit-report-2025-12-25T19-22-11-869Z.json
+
+Next steps:
+1. Review the audit report
+2. Run enhancement script on high-priority pages
+3. Monitor for duplicate content warnings in GSC
+
+✅ Audit completed successfully
+
