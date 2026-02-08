@@ -1,5 +1,7 @@
 import { templates } from "./lib/templates";
 import { resumeExamples, resumeCategories } from "./lib/resumeExamples";
+import { getAllCoverLetterSlugs } from "./lib/coverLetterExamples";
+import { getAllArticleSlugs } from "./lib/blogArticles";
 
 export default async function sitemap() {
   const siteUrl = "https://expertresume.us/";
@@ -34,6 +36,12 @@ export default async function sitemap() {
     { path: "ai-interview/fresher-interview-practice", priority: 0.8, changefreq: "weekly" },
     { path: "ai-interview/software-engineer-interview-ai", priority: 0.8, changefreq: "weekly" },
     { path: "ai-interview/directory", priority: 0.7, changefreq: "weekly" },
+
+    // SEO Landing Pages
+    { path: "resume-format", priority: 0.9, changefreq: "weekly" },
+    { path: "resume-skills", priority: 0.9, changefreq: "weekly" },
+    { path: "resume-objective", priority: 0.9, changefreq: "weekly" },
+    { path: "resume-summary", priority: 0.9, changefreq: "weekly" },
 
     // Business Pages
     { path: "pricing", priority: 0.8, changefreq: "monthly" },
@@ -85,5 +93,48 @@ export default async function sitemap() {
     changefreq: "weekly",
   }));
 
-  return [...staticUrls, ...templateUrls, ...categoryUrls, ...exampleUrls];
+  // Cover Letter Examples Hub Page
+  const coverLetterHubUrl = {
+    url: `${siteUrl}cover-letter-examples`,
+    lastModified: new Date().toISOString(),
+    priority: 0.9,
+    changefreq: "weekly",
+  };
+
+  // Individual Cover Letter Example Pages
+  const coverLetterSlugs = getAllCoverLetterSlugs();
+  const coverLetterUrls = coverLetterSlugs.map(({ slug }) => ({
+    url: `${siteUrl}cover-letter-examples/${slug}`,
+    lastModified: new Date().toISOString(),
+    priority: 0.8,
+    changefreq: "weekly",
+  }));
+
+  // Blog Hub Page
+  const blogHubUrl = {
+    url: `${siteUrl}blog`,
+    lastModified: new Date().toISOString(),
+    priority: 0.9,
+    changefreq: "weekly",
+  };
+
+  // Individual Blog Article Pages
+  const blogSlugs = getAllArticleSlugs();
+  const blogArticleUrls = blogSlugs.map(({ slug }) => ({
+    url: `${siteUrl}blog/${slug}`,
+    lastModified: new Date().toISOString(),
+    priority: 0.8,
+    changefreq: "weekly",
+  }));
+
+  return [
+    ...staticUrls,
+    ...templateUrls,
+    ...categoryUrls,
+    ...exampleUrls,
+    coverLetterHubUrl,
+    ...coverLetterUrls,
+    blogHubUrl,
+    ...blogArticleUrls,
+  ];
 }

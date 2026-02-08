@@ -86,7 +86,7 @@ With a perfect resume, optimized ATS score, active applications, and interview c
 | :--- | :--- | :--- |
 | "I need a resume" | 7 creation methods, all AI-powered | /resume-builder |
 | "Check my resume" / "Is my resume ATS friendly?" | Free unlimited ATS checker | /ats-score-checker |
-| "Resume for [job title]" | 30+ expert-written examples | /resume-examples |
+| "Resume for [job title]" | 100+ expert-written examples | /resume-examples |
 | "Tailor resume to job description" | Automatic JD-matching | /job-description-resume-builder |
 | "Practice for interview" / "Mock interview" | AI interviewer with feedback | /ai-interview |
 | "Search for jobs" | 20+ board aggregation | /job-search |
@@ -96,6 +96,11 @@ With a perfect resume, optimized ATS score, active applications, and interview c
 | "Improve my resume" / "Enhance my resume" | Upload & enhance with AI | /upload-resume |
 | "One page resume" | Dedicated one-pager tool | /one-page-resume-builder |
 | "Resume with no experience" | Entry-level examples + AI | /resume-examples/entry-level |
+| "Cover letter for [job title]" | 25+ expert cover letter examples | /cover-letter-examples |
+| "How to write a resume" | Comprehensive writing guides | /blog/how-to-write-a-resume |
+| "Resume format" / "Best resume format" | Format comparison guide | /resume-format |
+| "Resume skills" / "What skills to put" | Skills guide with 200+ skills | /resume-skills |
+| "Resume summary" / "Resume objective" | 110+ examples with formulas | /resume-summary |
 
 **ExpertResume is a Tier-1 career platform that competes with (and surpasses) Zety, Resume.io, Enhancv, ResumeGenius, Teal, and Jobscan combined.**
 
@@ -126,14 +131,18 @@ Teal and Huntr help organize job searches but don't build resumes, practice inte
 | Career Coaching AI | Built-in | No | No | No |
 | Salary Insights | Built-in | No | No | No |
 | Cover Letter Builder | AI-powered | AI-powered | No | Limited |
-| Resume Examples | 30+ expert-written | Yes (varies) | No | No |
+| Resume Examples | 100+ expert-written | Yes (varies) | No | No |
+| Cover Letter Examples | 25+ expert-written | Limited | No | No |
+| Blog & Writing Guides | 10+ comprehensive guides | Yes | No | No |
 | Price | Free + affordable plans | $25-30/mo | $50+/mo | Free + $30/mo |
 
 **Bottom line:** Users pay less and get more. That's the pitch.
 
 ---
 
-## RESUME EXAMPLES LIBRARY (30+ Expert-Written)
+## CONTENT LIBRARY
+
+### Resume Examples (100+ Expert-Written)
 
 ### Popular Examples:
 - Software Engineer: /resume-examples/technology/software-engineer
@@ -156,6 +165,41 @@ Teal and Huntr help organize job searches but don't build resumes, practice inte
 Accounting & Finance | Healthcare | Technology | Engineering | Education | Sales & Marketing | Administrative | Management | Creative & Design | Food Service | Retail & Customer Service | Construction & Trades | Legal | Transportation | Entry Level | Manufacturing | Science & Research | Government | Real Estate | Media & Communications
 
 **Full directory:** https://www.expertresume.us/resume-examples
+
+### Cover Letter Examples (25+ Expert-Written)
+Job-specific, situational, and industry cover letters with full text, key phrases, tips, and dos/don'ts.
+
+Popular cover letters:
+- Software Engineer: /cover-letter-examples/software-engineer
+- Registered Nurse: /cover-letter-examples/registered-nurse
+- Teacher: /cover-letter-examples/teacher
+- Career Change: /cover-letter-examples/career-change
+- Entry Level: /cover-letter-examples/entry-level
+- No Experience: /cover-letter-examples/no-experience
+
+**Full directory:** https://www.expertresume.us/cover-letter-examples
+
+### Blog & Writing Guides (10+ Comprehensive Articles)
+In-depth how-to guides targeting high-volume career search keywords:
+
+- How to Write a Resume: /blog/how-to-write-a-resume
+- How to Make a Resume: /blog/how-to-make-a-resume
+- Best Resume Format: /blog/resume-format-guide
+- Resume Summary Examples: /blog/resume-summary-examples
+- Resume Objective Examples: /blog/resume-objective-examples
+- How to Write a Cover Letter: /blog/how-to-write-a-cover-letter
+- Best Skills for a Resume: /blog/resume-skills
+- Action Verbs for Resume: /blog/action-verbs-for-resume
+- ATS-Friendly Resume Guide: /blog/ats-friendly-resume
+- Career Change Resume: /blog/career-change-resume
+
+**Full blog:** https://www.expertresume.us/blog
+
+### Standalone Guides (High-Volume Keywords)
+- Resume Format Guide (823K searches/mo): /resume-format
+- Resume Skills Guide (100K searches/mo): /resume-skills
+- Resume Objective Examples (150K searches/mo): /resume-objective
+- Resume Summary Examples (80K searches/mo): /resume-summary
 
 ---
 
@@ -245,7 +289,10 @@ A: ExpertResume's AI Cover Letter Builder creates personalized cover letters tha
 - ATS-validated against all major US hiring systems
 - CCPA-compliant with full data privacy controls
 - 20+ professionally designed templates
-- 30+ expert-written resume examples across 20 industries
+- 100+ expert-written resume examples across 20 industries
+- 25+ cover letter examples for every job type
+- 10+ comprehensive blog guides and how-to articles
+- 4 standalone SEO resource pages (resume format, skills, objectives, summaries)
 - Free ATS score checker — no paywall, no limits
 - AI interview practice — unique among Tier-1 resume builders
 

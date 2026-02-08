@@ -190,8 +190,8 @@ export default function Header() {
           href: "/resume-examples",
           label: "Resume Examples",
           icon: BookOpen,
-          description: "Browse 30+ job-specific examples",
-          badgeText: "New",
+          description: "100+ job-specific resume examples",
+          badgeText: "100+",
           badgeColor: "bg-gradient-to-r from-blue-500 to-indigo-500"
         },
         {
@@ -325,6 +325,10 @@ export default function Header() {
 
   // Resources menu items
   const resourcesMenuItems = [
+    { href: "/cover-letter-examples", label: "Cover Letter Examples", icon: FileText },
+    { href: "/blog", label: "Blog & Guides", icon: BookOpen },
+    { href: "/resume-format", label: "Resume Format Guide", icon: FileText },
+    { href: "/resume-skills", label: "Resume Skills Guide", icon: Sparkles },
     { href: "/templates", label: "Templates", icon: FileText },
     { href: "/features", label: "Features", icon: Sparkles },
     { href: "/faqs", label: "FAQs", icon: HelpCircle },
