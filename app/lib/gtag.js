@@ -3,6 +3,10 @@
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 export const GOOGLE_ADS_ID = "AW-844459331";
 
+// Brand prefix for all events — makes ExpertResume events
+// instantly identifiable in GA4 alongside any other data streams
+const EVENT_PREFIX = "expert_resume";
+
 // Track pageviews
 export const pageview = (url) => {
   if (typeof window !== "undefined" && window.gtag) {
@@ -12,8 +16,24 @@ export const pageview = (url) => {
   }
 };
 
-// Track specific events
+// Track specific events — all actions are auto-prefixed with "expert_resume_"
+// so "hero_cta" becomes "expert_resume_hero_cta" in GA4
 export const event = ({ action, category, label, value }) => {
+  if (typeof window !== "undefined" && window.gtag) {
+    const prefixedAction = action.startsWith(EVENT_PREFIX)
+      ? action
+      : `${EVENT_PREFIX}_${action}`;
+
+    window.gtag("event", prefixedAction, {
+      event_category: category,
+      event_label: label,
+      value: value,
+    });
+  }
+};
+
+// Track events WITHOUT the prefix (for third-party or standard GA4 events)
+export const rawEvent = ({ action, category, label, value }) => {
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("event", action, {
       event_category: category,
