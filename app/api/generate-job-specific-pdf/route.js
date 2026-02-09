@@ -644,8 +644,9 @@ export async function POST(req) {
     };
 
     const isProduction = process.env.NODE_ENV === "production";
-    const { executablePath, args: chromiumArgs } = await getChromiumLaunchOptions();
+    const { executablePath, args: chromiumArgs, env: chromiumEnv } = await getChromiumLaunchOptions();
     const browser = await puppeteer.launch({
+      ...(isProduction && chromiumEnv ? { env: chromiumEnv } : {}),
       args: [
         ...chromiumArgs,
         "--no-sandbox",
