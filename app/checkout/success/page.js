@@ -46,7 +46,7 @@ function CheckoutSuccessContent() {
             value: data.amount,
           });
 
-          // Google Ads conversion (uses AW-17940642780; set NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_PURCHASE in .env)
+          // Google Ads conversion (uses AW-17941472933; set NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_PURCHASE in .env)
           trackGoogleAdsConversion({
             conversionLabel: GOOGLE_ADS_CONVERSION_PURCHASE,
             value: rawAmount >= 15 ? 900 : rawAmount >= 5 ? 500 : 50,
