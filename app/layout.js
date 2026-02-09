@@ -7,6 +7,7 @@ import { LocationProvider } from "./context/LocationContext";
 import { Suspense } from "react";
 import ReferralCodeCapture from "./components/ReferralCodeCapture";
 import ChunkLoadHandler from "./components/ChunkLoadHandler";
+import { Analytics } from "@vercel/analytics/next";
 import { BASE_URL, BRAND_NAME, GA_MEASUREMENT_ID, CLARITY_ID, GOOGLE_ADS_ID } from "./lib/appConfig";
 
 const poppins = Poppins({
@@ -233,6 +234,7 @@ export default function RootLayout({ children }) {
             <ClientLayout>{children}</ClientLayout>
           </AuthProvider>
         </LocationProvider>
+        <Analytics />
         <Script id="referrer-tracker" strategy="lazyOnload">
           {`
             (function() {
