@@ -11,7 +11,7 @@ import {
   BookOpen, Bot, DollarSign, Star, Trophy, Clock, Target, TrendingUp, Award,
   MessageCircle, Phone, Mail, Heart, Gift, Rocket, Crown, AlertCircle, ChevronRight,
   PlayCircle, FileText, BarChart3, Briefcase, GraduationCap, ThumbsUp, Timer,
-  Percent, ArrowRight, Eye, Download, Palette, FileUp, Gauge
+  Percent, ArrowRight, Eye, Download, Palette, FileUp, Gauge, CreditCard
 } from "lucide-react";
 import { useLocation } from "../context/LocationContext";
 import { onAuthStateChanged } from "firebase/auth";
@@ -354,7 +354,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
 
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               Join 15,000+ professionals who landed their dream jobs using our AI-powered resume builder.
-              <span className="font-semibold text-[#0B1F3B]"> Get 3x more interviews guaranteed!</span>
+              <span className="font-semibold text-[#0B1F3B]"> Get 3x more interviews.</span>
             </p>
 
             {/* Social Proof Ticker */}
@@ -468,11 +468,11 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
 
                 <div className="mt-4 p-4 bg-gradient-to-r from-slate-50 to-slate-50 rounded-xl border border-slate-200">
                   <div className="flex items-center gap-2 mb-2">
-                    <Heart className="w-5 h-5 text-red-500" />
-                    <span className="font-semibold text-gray-800">30-Day Money-Back Guarantee</span>
+                    <CreditCard className="w-5 h-5 text-[#0B1F3B]" />
+                    <span className="font-semibold text-gray-800">One-time payment only</span>
                   </div>
                   <p className="text-sm text-gray-600">
-                    Not happy? Get a full refund, no questions asked. We're that confident you'll love it!
+                    Pay once and get full access. No subscriptions, no auto-renewal, no surprise charges—ever.
                   </p>
                 </div>
               </div>
@@ -885,7 +885,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                     <Mail className="w-6 h-6 text-[#0B1F3B]" />
                   </div>
                   <h4 className="font-semibold text-gray-800 mb-2">Email Support</h4>
-                  <p className="text-sm text-gray-600 mb-3">24-hour response guaranteed</p>
+                  <p className="text-sm text-gray-600 mb-3">24-hour response time</p>
                   <a
                     href="mailto:support@expertresume.us"
                     className="text-[#0B1F3B] hover:text-[#071429] font-medium text-sm"

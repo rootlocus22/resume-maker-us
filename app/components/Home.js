@@ -866,7 +866,7 @@ export default function Home() {
                 >
                   💼 Explore Premium Features
                 </Link>
-                <p className="text-yellow-200 text-xs sm:text-sm mt-3 sm:mt-4">7-day satisfaction guarantee</p>
+                <p className="text-yellow-200 text-xs sm:text-sm mt-3 sm:mt-4">One-time payment · No subscriptions</p>
               </div>
             </div>
 
@@ -910,7 +910,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-2">
               <Trophy size={14} className="text-yellow-400 sm:w-4 sm:h-4" />
-              <span>7-Day Satisfaction Guarantee</span>
+              <span>One-time payment · No auto-billing</span>
             </div>
             <div className="flex items-center gap-2">
               <Users size={14} className="text-teal-400 sm:w-4 sm:h-4" />

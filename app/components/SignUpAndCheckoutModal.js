@@ -291,7 +291,7 @@ const SignUpAndCheckoutModal = ({ isOpen, onClose, billingCycle, setBillingCycle
             <div className="text-center mt-2">
               <p className="text-xs md:text-sm text-gray-500">
                 <Lock size={12} className="inline mr-1" />
-                Secure payment • 30-day money-back guarantee
+                Secure payment • One-time payment only • No subscriptions
               </p>
             </div>
           </div>

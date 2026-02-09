@@ -191,7 +191,7 @@ export default function Pricing() {
     },
     {
       q: "What is your refund policy?",
-      a: "We offer a 100% money-back guarantee. If you're not satisfied with ExpertResume within the first 7 days of your purchase, contact us and we'll issue a full refund, no questions asked."
+      a: "Contact us within 7 days of purchase if you're not satisfied. We'll work with you to resolve any issues. See our Terms of Service for full details."
     },
     {
       q: "Is my payment information secure?",
@@ -251,11 +251,11 @@ export default function Pricing() {
 
           {/* Trust strip */}
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-gray-400">
-            <span className="flex items-center gap-1.5"><Shield className="w-4 h-4" /> 7-day money-back guarantee</span>
+            <span className="flex items-center gap-1.5"><DollarSign className="w-4 h-4" /> One-time payment only</span>
             <span className="hidden sm:inline text-gray-200">|</span>
             <span className="flex items-center gap-1.5"><Lock className="w-4 h-4" /> Secure payment via Stripe</span>
             <span className="hidden sm:inline text-gray-200">|</span>
-            <span className="flex items-center gap-1.5"><CreditCard className="w-4 h-4" /> No auto-billing</span>
+            <span className="flex items-center gap-1.5"><CreditCard className="w-4 h-4" /> No subscriptions, no auto-billing</span>
           </div>
         </div>
       </section>
@@ -419,7 +419,7 @@ export default function Pricing() {
                       Get Professional <ArrowRight className="w-4 h-4" />
                     </button>
                     <p className="text-center text-xs text-gray-400 mt-3 flex items-center justify-center gap-1.5">
-                      <Shield className="w-3 h-3" /> 7-day money-back guarantee
+                      <CreditCard className="w-3 h-3" /> One-time payment · No recurring charges
                     </p>
                   </div>
                 </div>
@@ -574,8 +574,8 @@ export default function Pricing() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               { icon: <Lock className="w-6 h-6" />, title: "Secure payments", desc: "256-bit SSL encryption via Stripe. We never store your card details." },
-              { icon: <CreditCard className="w-6 h-6" />, title: "No auto-billing", desc: "One-time payments only. No subscriptions, no surprise charges, ever." },
-              { icon: <Shield className="w-6 h-6" />, title: "Money-back guarantee", desc: "Not satisfied? Full refund within 7 days of purchase. No questions asked." },
+              { icon: <CreditCard className="w-6 h-6" />, title: "One-time payment only", desc: "Pay once and get full access. No subscriptions, no auto-renewal, no surprise charges—ever." },
+              { icon: <DollarSign className="w-6 h-6" />, title: "No recurring billing", desc: "You're in control. Your access runs for the duration you chose. Nothing to cancel." },
               { icon: <BadgeCheck className="w-6 h-6" />, title: "Built for US market", desc: "Optimized for US ATS systems like Greenhouse, Lever, and Workday." },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-xl p-5 border border-gray-100 text-center">
@@ -671,7 +671,7 @@ export default function Pricing() {
                 </Link>
               </div>
               <p className="text-xs text-gray-400 mt-5 flex items-center justify-center gap-1.5">
-                <Shield className="w-3 h-3" /> One-time payment. 7-day money-back guarantee. No auto-billing.
+                <CreditCard className="w-3 h-3" /> One-time payment. No subscriptions. No auto-billing.
               </p>
             </div>
           </div>
