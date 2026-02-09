@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import puppeteer from 'puppeteer';
-import chromium from '@sparticuz/chromium';
+import { getChromiumLaunchOptions } from '../../lib/puppeteerChromium';
 import { OnePagerTemplates } from '../../lib/onePagerTemplatesServer';
 
 export const runtime = 'nodejs';
@@ -180,11 +180,12 @@ export async function POST(request) {
     console.log('[One-Pager Download] Launching Puppeteer...');
 
     const isProduction = process.env.NODE_ENV === "production";
+    const { executablePath, args: chromiumArgs } = await getChromiumLaunchOptions();
 
     // Launch Puppeteer with Chromium for serverless environments
     browser = await puppeteer.launch({
       args: [
-        ...(isProduction ? chromium.args : []),
+        ...chromiumArgs,
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--disable-gpu",
@@ -194,7 +195,7 @@ export async function POST(request) {
         "--force-color-profile=srgb",
       ],
       defaultViewport: { width: 816, height: 1056 },
-      executablePath: isProduction ? await chromium.executablePath() : undefined,
+      executablePath: isProduction ? executablePath : undefined,
       headless: "new",
       ignoreHTTPSErrors: true,
     });

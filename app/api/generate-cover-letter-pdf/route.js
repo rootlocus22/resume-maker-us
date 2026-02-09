@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 //import puppeteer from "puppeteer";
 import puppeteer from "puppeteer";
-import chromium from "@sparticuz/chromium";
+import { getChromiumLaunchOptions } from "../../lib/puppeteerChromium";
 import { coverLetterTemplates } from "../../lib/coverLetterTemplate";
 
 // Inline SVG icons for Phone, Mail, and MapPin (from lucide-react)
@@ -414,16 +414,17 @@ export async function POST(request) {
     }
 
     const isProduction = process.env.NODE_ENV === "production";
+    const { executablePath, args: chromiumArgs } = await getChromiumLaunchOptions();
     const browser = await puppeteer.launch({
       args: [
-        ...(isProduction ? chromium.args : []),
+        ...chromiumArgs,
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--font-render-hinting=none",
         "--disable-gpu",
       ],
       defaultViewport: { width: 794, height: 1123 },
-      executablePath: isProduction ? await chromium.executablePath() : undefined,
+      executablePath: isProduction ? executablePath : undefined,
       headless: "new",
     });
 

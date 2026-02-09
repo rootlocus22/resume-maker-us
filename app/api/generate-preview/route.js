@@ -3,7 +3,7 @@ export const runtime = 'nodejs';
 
 import { NextResponse } from "next/server";
 import puppeteer from "puppeteer";
-import chromium from "@sparticuz/chromium";
+import { getChromiumLaunchOptions } from "../../lib/puppeteerChromium";
 import { templates } from "../../lib/templates.js";
 import { jobSpecificTemplates } from "../../lib/jobSpecificTemplate";
 import { defaultConfig } from "../../lib/templates.js";
@@ -868,9 +868,10 @@ async function getBrowser() {
   if (browserInstance) return browserInstance;
 
   const isProduction = process.env.NODE_ENV === "production";
+  const { executablePath, args: chromiumArgs } = await getChromiumLaunchOptions();
   browserInstance = await puppeteer.launch({
     args: [
-      ...(isProduction ? chromium.args : []),
+      ...chromiumArgs,
       "--no-sandbox",
       "--disable-setuid-sandbox",
       "--disable-gpu",
@@ -880,7 +881,7 @@ async function getBrowser() {
       "--force-color-profile=srgb",
     ],
     defaultViewport: { width: 794, height: 1123 },
-    executablePath: isProduction ? await chromium.executablePath() : undefined,
+    executablePath: isProduction ? executablePath : undefined,
     headless: "new",
   });
 

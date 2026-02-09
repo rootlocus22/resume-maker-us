@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    // Keep Puppeteer/Chromium external so they work in serverless (Vercel)
+    serverExternalPackages: ["puppeteer", "puppeteer-core", "@sparticuz/chromium"],
+
     // Image optimization for better LCP and performance
     images: {
         formats: ['image/webp', 'image/avif'],

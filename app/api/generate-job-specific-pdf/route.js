@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import puppeteer from "puppeteer";
 //import puppeteer from "puppeteer-core";
-import chromium from "@sparticuz/chromium";
+import { getChromiumLaunchOptions } from "../../lib/puppeteerChromium";
 import { jobSpecificTemplates } from "../../lib/jobSpecificTemplate";
 import { coverLetterTemplates } from "../../lib/coverLetterTemplate";
 
@@ -644,16 +644,17 @@ export async function POST(req) {
     };
 
     const isProduction = process.env.NODE_ENV === "production";
+    const { executablePath, args: chromiumArgs } = await getChromiumLaunchOptions();
     const browser = await puppeteer.launch({
       args: [
-        ...(isProduction ? chromium.args : []),
+        ...chromiumArgs,
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--font-render-hinting=none",
         "--disable-gpu",
       ],
       defaultViewport: { width: 794, height: 1123 },
-      executablePath: isProduction ? await chromium.executablePath() : undefined,
+      executablePath: isProduction ? executablePath : undefined,
       headless: "new",
     });
 

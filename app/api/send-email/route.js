@@ -3,6 +3,7 @@ import { SESClient, SendRawEmailCommand } from "@aws-sdk/client-ses";
 import * as admin from 'firebase-admin';
 import { getEmailContent } from "../../lib/emailTemplates";
 import puppeteer from "puppeteer";
+import { getChromiumLaunchOptions } from "../../lib/puppeteerChromium";
 import nodemailer from "nodemailer"; // Used ONLY for MIME construction
 
 // Initialize Firebase Admin
@@ -107,25 +108,16 @@ export async function POST(request) {
 
       try {
         const isProduction = process.env.NODE_ENV === "production";
-        let chromium = null;
-
-        // Dynamically import chromium for production environment
-        if (isProduction) {
-          try {
-            chromium = require("@sparticuz/chromium");
-          } catch (e) {
-            console.error("Failed to load @sparticuz/chromium:", e);
-          }
-        }
+        const { executablePath, args: chromiumArgs } = await getChromiumLaunchOptions();
 
         browser = await puppeteer.launch({
           args: [
-            ...(isProduction && chromium ? chromium.args : []),
+            ...chromiumArgs,
             '--no-sandbox',
             '--disable-setuid-sandbox'
           ],
           defaultViewport: { width: 794, height: 1123 },
-          executablePath: (isProduction && chromium) ? await chromium.executablePath() : undefined,
+          executablePath: isProduction ? executablePath : undefined,
           headless: 'new'
         });
 
