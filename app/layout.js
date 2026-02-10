@@ -209,9 +209,9 @@ export default function RootLayout({ children }) {
       <body className={`${poppins.variable} ${manrope.variable} antialiased bg-[#F5F7FA] text-[#0B1F3B]`}>
         {(hasGA || hasAds) && (
           <>
-            <Script src={`https://www.googletagmanager.com/gtag/js?id=${hasGA ? GA_MEASUREMENT_ID : GOOGLE_ADS_ID}`} strategy="afterInteractive" />
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${hasAds ? GOOGLE_ADS_ID : GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
             <Script id="google-analytics" strategy="afterInteractive">
-              {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());${hasGA ? ` gtag('config', '${GA_MEASUREMENT_ID}', { page_path: window.location.pathname });` : ""}${hasAds ? ` gtag('config', '${GOOGLE_ADS_ID}');` : ""}`}
+              {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());${hasAds ? ` gtag('config', '${GOOGLE_ADS_ID}');` : ""}${hasGA ? ` gtag('config', '${GA_MEASUREMENT_ID}', { page_path: window.location.pathname });` : ""}`}
             </Script>
           </>
         )}

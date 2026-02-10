@@ -46,13 +46,31 @@ function CheckoutSuccessContent() {
             value: data.amount,
           });
 
-          // Google Ads conversion (uses AW-17941472933; set NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_PURCHASE in .env)
+          // Google Ads Purchase conversion – signal engineering: exact value ($14/$25/$45/$60 tiers), plan, enhanced conversions
           trackGoogleAdsConversion({
             conversionLabel: GOOGLE_ADS_CONVERSION_PURCHASE,
-            value: rawAmount >= 15 ? 900 : rawAmount >= 5 ? 500 : 50,
-            currency: data.currency || "USD",
+            value: rawAmount,
+            currency: "USD",
             transactionId: sessionId,
+            billingCycle: data.billingCycle || null,
+            customerEmail: data.customerEmail || null,
           });
+
+          // GA4 purchase event – richer signals for audiences and analytics
+          if (typeof window !== "undefined" && window.gtag) {
+            window.gtag("event", "purchase", {
+              transaction_id: sessionId,
+              value: rawAmount,
+              currency: "USD",
+              items: [{
+                item_id: data.billingCycle || "subscription",
+                item_name: `ExpertResume ${data.billingCycle || "Premium"}`,
+                item_category: "Subscription",
+                price: rawAmount,
+                quantity: 1,
+              }],
+            });
+          }
         } else {
           // If not yet fulfilled, retry a few times (webhook may be processing)
           throw new Error(data.error || "Payment verification failed");

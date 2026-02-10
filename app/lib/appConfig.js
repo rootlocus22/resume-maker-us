@@ -10,8 +10,8 @@ const BRAND_TAGLINE = "AI Job Application System – Get past ATS. Get more inte
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID_US || process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID_US || process.env.NEXT_PUBLIC_CLARITY_ID || "";
 const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID_US || process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "AW-17942761054";
-// Conversion action IDs from Google Ads (create in Ads > Goals > Conversions, then add to .env)
-const GOOGLE_ADS_CONVERSION_PURCHASE = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_PURCHASE || "";
+// Conversion action IDs from Google Ads (from Goals > Conversions; override via .env)
+const GOOGLE_ADS_CONVERSION_PURCHASE = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_PURCHASE || "tsUiCOPQyPUbEN6c4-tC";
 const GOOGLE_ADS_CONVERSION_WELCOME = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_WELCOME || "";
 
 // Payments – US app uses Stripe only

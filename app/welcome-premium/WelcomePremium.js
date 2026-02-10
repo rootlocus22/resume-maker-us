@@ -107,13 +107,14 @@ export default function WelcomePremium({ plan, billingCycle, source, amount, cur
         'page_title': 'Premium Purchase Complete'
       });
 
-      // Event snippet for PurchaseComplete conversion (uses AW-17941472933; set NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_WELCOME in .env)
+      // Event snippet for PurchaseComplete conversion – signal engineering
       trackGoogleAdsConversion({
         conversionLabel: GOOGLE_ADS_CONVERSION_WELCOME,
         value: conversionValue,
-        currency: currencyCode,
+        currency: "USD",
         transactionId: transactionID,
-        allowEnhancedConversions: true
+        billingCycle: billingCycle || null,
+        customerEmail: userEmail || null,
       });
 
       // Also send standard ecommerce purchase event for GA4

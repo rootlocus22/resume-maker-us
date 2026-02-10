@@ -43,16 +43,57 @@ export const rawEvent = ({ action, category, label, value }) => {
   }
 };
 
-// Google Ads conversion - use conversion action ID from env
-// Set NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_PURCHASE / _WELCOME in .env after creating conversion actions in Google Ads
-export const trackGoogleAdsConversion = ({ conversionLabel, value, currency = "USD", transactionId, allowEnhancedConversions = true }) => {
+// US pricing tiers for signal engineering – clear value bands for Google Ads optimization
+export const USD_PRICE_TIERS = { basic: 14, monthly: 25, quarterly: 45, sixMonth: 60 };
+
+// Hash email for enhanced conversions (SHA256)
+async function hashEmail(email) {
+  if (!email || typeof crypto?.subtle === "undefined") return null;
+  try {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(email.toLowerCase().trim());
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
+  } catch {
+    return null;
+  }
+}
+
+// Google Ads conversion with full signal engineering for better value-based bidding
+export const trackGoogleAdsConversion = async ({
+  conversionLabel,
+  value,
+  currency = "USD",
+  transactionId,
+  billingCycle,
+  allowEnhancedConversions = true,
+  customerEmail,
+}) => {
   if (typeof window === "undefined" || !window.gtag || !conversionLabel) return;
-  window.gtag("event", "conversion", {
+  const numValue = Number(value);
+  const safeValue = numValue > 0 ? numValue : 1;
+
+  if (allowEnhancedConversions && customerEmail) {
+    const hashedEmail = await hashEmail(customerEmail);
+    if (hashedEmail) {
+      window.gtag("set", "user_data", { sha256_email_address: hashedEmail });
+    }
+  }
+
+  const conversionPayload = {
     send_to: `${GOOGLE_ADS_ID}/${conversionLabel}`,
-    value,
+    value: safeValue,
     currency,
-    transaction_id: transactionId,
-    allow_enhanced_conversions: allowEnhancedConversions,
-  });
+    transaction_id: transactionId || undefined,
+  };
+
+  if (billingCycle) {
+    conversionPayload.aw_plan_tier = billingCycle;
+    const tierValue = USD_PRICE_TIERS[billingCycle];
+    if (tierValue) conversionPayload.aw_value_band = tierValue;
+  }
+
+  window.gtag("event", "conversion", conversionPayload);
 };
 
