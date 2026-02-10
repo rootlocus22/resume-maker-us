@@ -249,23 +249,40 @@ async function fulfillCheckoutSession(session) {
     // Don't fail fulfillment for email errors
   }
 
-  // Log payment
-  await adminDb.collection("payment_logs").add({
+  const collectionName = process.env.NODE_ENV === "development" ? "payment_logs_test" : "payment_logs";
+  await adminDb.collection(collectionName).add({
     userId,
+    userInfo: {
+      name: paymentName || "",
+      email: paymentEmail || "",
+      phone: paymentPhone || "",
+    },
     type: isStandaloneAddon ? `addon_${addonParam}` : "plan_purchase",
     plan: planToSet,
     billingCycle,
     amount: finalAmount,
+    baseAmount: finalAmount,
     currency: effectiveCurrency,
-    stripeSessionId: session.id,
-    stripePaymentIntent: session.payment_intent,
+    orderId: session.id,
+    paymentId: session.payment_intent || "N/A",
+    signature: "Stripe",
     couponCode: meta.couponCode || null,
     discount: selectedDiscount,
     includeJobTracker,
     includeInterviewKit,
     includeApplyPro,
     status: "success",
-    timestamp: new Date().toISOString(),
+    error: null,
+    cancellationReason: null,
+    acquisitionSource: meta.acqSource || "direct",
+    acquisitionMedium: meta.acqMedium || "none",
+    acquisitionCampaign: meta.acqCampaign || null,
+    acquisitionTerm: meta.acqTerm || null,
+    acquisitionContent: meta.acqContent || null,
+    gclid: meta.gclid || null,
+    fbclid: meta.fbclid || null,
+    timestamp: new Date(),
+    createdAt: new Date().toISOString(),
   });
 
   // Mark as fulfilled (idempotency key)

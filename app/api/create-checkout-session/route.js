@@ -32,6 +32,8 @@ export async function POST(request) {
       profilePhone,
       // Origin for redirect URLs
       origin,
+      // Referrer / acquisition data (gclid, campaign, etc.) for success log attribution
+      referrerData,
     } = await request.json();
 
     // 1. Basic Validation
@@ -193,6 +195,13 @@ export async function POST(request) {
         profileName: (profileName || '').slice(0, 500),
         profileEmail: (profileEmail || '').slice(0, 500),
         profilePhone: (profilePhone || '').slice(0, 500),
+        gclid: (referrerData?.gclid || '').slice(0, 200),
+        fbclid: (referrerData?.fbclid || '').slice(0, 200),
+        acqSource: (referrerData?.source || '').slice(0, 100),
+        acqMedium: (referrerData?.medium || '').slice(0, 100),
+        acqCampaign: (referrerData?.campaign || '').slice(0, 200),
+        acqTerm: (referrerData?.term || '').slice(0, 200),
+        acqContent: (referrerData?.content || '').slice(0, 200),
       },
     });
 

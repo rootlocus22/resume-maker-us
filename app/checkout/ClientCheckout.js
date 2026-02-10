@@ -908,6 +908,14 @@ export default function ClientCheckout({
       setIsPaymentProcessing(true);
       setPaymentStatus('processing');
 
+      let referrerData = null;
+      if (typeof window !== "undefined") {
+        try {
+          const stored = localStorage.getItem("expertresume_referrer");
+          if (stored) referrerData = JSON.parse(stored);
+        } catch (_) {}
+      }
+
       // Create Stripe Checkout Session
       const response = await fetch("/api/create-checkout-session", {
         method: "POST",
@@ -940,6 +948,7 @@ export default function ClientCheckout({
           profileEmail: searchParams.get('profileEmail') || '',
           profilePhone: searchParams.get('profilePhone') || '',
           origin: typeof window !== "undefined" ? window.location.origin : "",
+          referrerData: referrerData || null,
         }),
       });
 
