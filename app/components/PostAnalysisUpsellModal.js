@@ -1,23 +1,27 @@
 "use client";
 
-import { X, Check, Lock, Zap, ArrowRight, ShieldCheck } from "lucide-react";
+import { Check, ArrowRight, ShieldCheck } from "lucide-react";
 import { useEffect, useState } from "react";
 import { getEffectivePricing, formatPrice, getPricingConfigByCurrency } from "../lib/globalPricing";
+import { useLocation } from "../context/LocationContext";
 
 export default function PostAnalysisUpsellModal({ isOpen, onClose, onUpgrade }) {
-    const [pricing, setPricing] = useState({ oneDay: 19900, currency: 'INR' });
+    const { currency: locationCurrency } = useLocation();
+    const currency = locationCurrency || 'USD';
+    const planKey = currency === 'USD' ? 'basic' : 'oneDay';
+    const [pricing, setPricing] = useState({ basic: 1399, currency: 'USD' });
     const [anchorPrice, setAnchorPrice] = useState(null);
 
     useEffect(() => {
-        const prices = getEffectivePricing('INR');
+        const prices = getEffectivePricing(currency);
         setPricing(prices);
-        
-        // Get anchor price from config
+
         const config = getPricingConfigByCurrency(prices.currency);
-        if (config?.plans?.oneDay?.anchorPrice) {
-            setAnchorPrice(config.plans.oneDay.anchorPrice);
+        const plan = config?.plans?.[planKey];
+        if (plan?.anchorPrice) {
+            setAnchorPrice(plan.anchorPrice);
         }
-    }, []);
+    }, [currency, planKey]);
 
     if (!isOpen) return null;
 
@@ -78,18 +82,18 @@ export default function PostAnalysisUpsellModal({ isOpen, onClose, onUpgrade }) 
                     <div className="bg-slate-50 rounded-xl p-4 border border-slate-100 text-center mb-6">
                         <p className="text-xs text-slate-500 font-medium uppercase tracking-wider mb-2">Limited Time Quick-Fix Offer</p>
                         <div className="flex items-center justify-center gap-2 mb-1">
-                            {anchorPrice && anchorPrice > (pricing.oneDay / 100) && (
+                            {anchorPrice && anchorPrice > (pricing[planKey] / 100) && (
                                 <span className="text-gray-400 line-through text-sm">{formatPrice(anchorPrice * 100, pricing.currency)}</span>
                             )}
-                            <span className="text-3xl font-black text-slate-900">{formatPrice(pricing.oneDay, pricing.currency)}</span>
+                            <span className="text-3xl font-black text-slate-900">{formatPrice(pricing[planKey], pricing.currency)}</span>
                         </div>
-                        {anchorPrice && anchorPrice > (pricing.oneDay / 100) && (
-                            <p className="text-xs text-green-600 font-bold">Save {Math.round(((anchorPrice - (pricing.oneDay / 100)) / anchorPrice) * 100)}% on One-Day Pass</p>
+                        {anchorPrice && anchorPrice > (pricing[planKey] / 100) && (
+                            <p className="text-xs text-green-600 font-bold">Save {Math.round(((anchorPrice - (pricing[planKey] / 100)) / anchorPrice) * 100)}%</p>
                         )}
                     </div>
 
                     <button
-                        onClick={() => onUpgrade('oneDay')}
+                        onClick={() => onUpgrade(planKey)}
                         className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-blue-200 transition-all flex items-center justify-center gap-2 group"
                     >
                         <span>Fix My Resume Now</span>

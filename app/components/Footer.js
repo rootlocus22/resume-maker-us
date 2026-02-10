@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import {
-  Mail, Phone, MapPin, ExternalLink,
+  Mail, MapPin, ExternalLink,
   FileText, Shield, HelpCircle, Users,
   Building, Crown, Star, Award, Zap,
   Upload, CheckCircle, BarChart3, Bot,
@@ -295,10 +295,6 @@ export default function Footer() {
                   <a href="mailto:support@expertresume.us" className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors">
                     <Mail size={14} className="sm:w-4 sm:h-4" />
                     <span>support@expertresume.us</span>
-                  </a>
-                  <a href="mailto:support@expertresume.us" className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors">
-                    <Phone size={14} className="sm:w-4 sm:h-4" />
-                    <span>Email support</span>
                   </a>
                   <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-300">
                     <MapPin size={14} className="sm:w-4 sm:h-4" />
@@ -603,10 +599,6 @@ export default function Footer() {
               <a href="mailto:support@expertresume.us" className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors">
                 <Mail size={14} className="sm:w-4 sm:h-4" />
                 <span>support@expertresume.us</span>
-              </a>
-              <a href="mailto:support@expertresume.us" className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 hover:text-white transition-colors">
-                <Phone size={14} className="sm:w-4 sm:h-4" />
-                <span>Support available via Email</span>
               </a>
               <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-300">
                 <MapPin size={14} className="sm:w-4 sm:h-4" />
