@@ -17,14 +17,9 @@ export default function FinalCTA() {
   const [isVisible, setIsVisible] = useState(false);
   const { devicePricing, currency } = useLocation();
 
-  const formatPrice = (price) => {
-    if (currency === 'USD') {
-      return `$${price.toFixed(2)}`;
-    }
-    return `₹${price.toFixed(0)}`;
-  };
+  const formatPrice = (price) => `$${price.toFixed(2)}`;
 
-  const sixMonthPrice = devicePricing?.sixMonth || 899;
+  const sixMonthPrice = devicePricing?.sixMonth || 60;
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 600);
