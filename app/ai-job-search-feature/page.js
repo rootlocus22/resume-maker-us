@@ -57,7 +57,7 @@ export default function AIJobSearchFeaturePage() {
             "offers": {
               "@type": "Offer",
               "price": "200",
-              "priceCurrency": "INR",
+              "priceCurrency": "USD",
               "availability": "https://schema.org/InStock"
             },
             "aggregateRating": {

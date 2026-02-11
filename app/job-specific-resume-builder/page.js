@@ -88,7 +88,7 @@ export default function JobSpecificResumeBuilderPage() {
             offers: {
               "@type": "Offer",
               price: "0.00",
-              priceCurrency: "INR",
+              priceCurrency: "USD",
               availability: "https://schema.org/InStock",
             },
           }),

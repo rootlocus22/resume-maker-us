@@ -92,7 +92,7 @@ export default function FeaturesPage() {
               {
                 "@type": "Offer",
                 price: "0",
-                priceCurrency: "INR",
+                priceCurrency: "USD",
                 priceValidUntil: "2026-12-31",
                 name: "Free Plan",
                 description: "Start building resumes for free with basic features.",

@@ -74,37 +74,8 @@ export const metadata = {
   },
 };
 
-// US-only structured data
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How do I create an ATS-optimized resume for US jobs?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "ExpertResume helps you build an ATS-friendly resume in minutes. Upload your resume or start from scratch, match it to job descriptions, and download a PDF optimized for US applicant tracking systems.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Are ExpertResume templates ATS-friendly?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. All templates are designed to pass common ATS systems used by US employers. You can also check your ATS score before applying.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can I tailor my resume to each job description?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. ExpertResume’s job description match feature lets you optimize keywords and phrasing for each role you apply to.",
-      },
-    },
-  ],
-};
+// FAQPage schema removed from global layout to prevent duplicate FAQPage
+// errors in Google Search Console. Individual pages include their own FAQ schemas.
 
 const orgSchema = {
   "@context": "https://schema.org",
@@ -200,7 +171,6 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
         <link rel="shortcut icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/ExpertResume.png" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
