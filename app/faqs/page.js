@@ -7,12 +7,11 @@ import { getEffectivePricing, formatPrice } from "../lib/globalPricing";
 
 export default function FAQPage() {
   const [openFAQ, setOpenFAQ] = useState(null);
-  const [pricing, setPricing] = useState({ monthly: 49900, yearly: 129900, currency: 'INR' });
+  const [pricing, setPricing] = useState({ monthly: 2499, sixMonth: 5999, currency: 'USD' });
 
   useEffect(() => {
-    // Get pricing from globalPricing (default to non-Android for FAQ page)
-    const devicePricing = getEffectivePricing('INR', false);
-    setPricing(devicePricing);
+    const p = getEffectivePricing('USD', false);
+    setPricing(p);
   }, []);
 
   const toggleFAQ = (index) => {

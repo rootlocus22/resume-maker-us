@@ -11,15 +11,14 @@ import {
   Zap,
   Crown
 } from "lucide-react";
-import { useLocation } from "../context/LocationContext";
+import { getEffectivePricing } from "../lib/globalPricing";
 
 export default function FinalCTA() {
   const [isVisible, setIsVisible] = useState(false);
-  const { devicePricing, currency } = useLocation();
+  const pricing = getEffectivePricing('USD', false);
+  const sixMonthPrice = (pricing?.sixMonth || 5999) / 100;
 
   const formatPrice = (price) => `$${price.toFixed(2)}`;
-
-  const sixMonthPrice = devicePricing?.sixMonth || 60;
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 600);

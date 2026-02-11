@@ -13,6 +13,7 @@ export async function GET(request) {
     const transactionsSnapshot = await adminDb
       .collection("payment_logs")
       .where("userId", "==", userId)
+      .orderBy("timestamp", "desc")
       .get();
 
     const transactions = transactionsSnapshot.docs.map(doc => {

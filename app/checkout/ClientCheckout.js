@@ -63,12 +63,8 @@ export default function ClientCheckout({
   const jobTrackerDuration = searchParams.get('duration'); // '1month', '3months', '6months'
   const jobTrackerAmount = searchParams.get('amount'); // Amount in INR
 
-  // Determine effective currency: from query string if present and valid, else from context, fallback to INR
-  const urlCurrency = searchParams.get('currency');
-  const supportedCurrencies = Object.keys(getSupportedCurrencies());
-  const effectiveCurrency = (urlCurrency && supportedCurrencies.includes(urlCurrency))
-    ? urlCurrency
-    : (contextCurrency || 'INR');
+  // US product: USD only
+  const effectiveCurrency = 'USD';
 
   const initialStepParam = searchParams.get('step');
   const billingCycleParamRaw = searchParams.get('billingCycle');

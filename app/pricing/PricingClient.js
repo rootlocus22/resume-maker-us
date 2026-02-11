@@ -16,18 +16,18 @@ import { doc, getDoc } from "firebase/firestore";
 import { getEffectivePricing, formatPrice as formatGlobalPrice } from "../lib/globalPricing";
 import { PLAN_CONFIG, getPlanConfig, getDownloadLimitMessage } from "../lib/planConfig";
 
-export const getCurrencyAndPriceByCountry = (currency, isAndroidDevice = false) => {
-  const pricing = getEffectivePricing(currency, isAndroidDevice);
+export const getCurrencyAndPriceByCountry = () => {
+  const pricing = getEffectivePricing('USD', false);
   return {
-    currency: currency,
+    currency: 'USD',
     basicPrice: pricing.basic,
     monthlyPrice: pricing.monthly,
     quarterlyPrice: pricing.quarterly,
     sixMonthPrice: pricing.sixMonth,
-    basicAnchorPrice: PLAN_CONFIG.basic.anchorPrice[currency] || (pricing.basic * 3),
-    monthlyAnchorPrice: PLAN_CONFIG.monthly.anchorPrice[currency] || (pricing.monthly * 2),
-    quarterlyAnchorPrice: PLAN_CONFIG.quarterly.anchorPrice[currency] || (pricing.quarterly * 2),
-    sixMonthAnchorPrice: PLAN_CONFIG.sixMonth.anchorPrice[currency] || (pricing.sixMonth * 2),
+    basicAnchorPrice: PLAN_CONFIG.basic.anchorPrice?.USD || (pricing.basic * 3),
+    monthlyAnchorPrice: PLAN_CONFIG.monthly.anchorPrice?.USD || (pricing.monthly * 2),
+    quarterlyAnchorPrice: PLAN_CONFIG.quarterly.anchorPrice?.USD || (pricing.quarterly * 2),
+    sixMonthAnchorPrice: PLAN_CONFIG.sixMonth.anchorPrice?.USD || (pricing.sixMonth * 2),
   };
 };
 
@@ -102,7 +102,7 @@ export default function Pricing() {
   const {
     basicPrice, monthlyPrice, quarterlyPrice, sixMonthPrice,
     basicAnchorPrice, monthlyAnchorPrice, quarterlyAnchorPrice, sixMonthAnchorPrice,
-  } = getCurrencyAndPriceByCountry(currency, false);
+  } = getCurrencyAndPriceByCountry();
 
   const formatPrice = (price, cur) => formatGlobalPrice(price, cur);
 

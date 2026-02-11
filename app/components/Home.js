@@ -50,30 +50,26 @@ const TemplateSlider = dynamic(() => import("./TemplateSlider"), {
   loading: () => <div className="w-full h-96 bg-gray-100 animate-pulse rounded-xl" />
 });
 
-// Pricing logic from globalPricing
+// Pricing - USD only
 import { getEffectivePricing, formatPrice } from '../lib/globalPricing';
 
-const getCurrencyAndPriceByCountry = (currency) => {
-  // Get device-specific pricing from globalPricing
-  const devicePricing = getEffectivePricing(currency, false); // Default to non-Android for this function
-
+const getPricing = () => {
+  const p = getEffectivePricing('USD', false);
   return {
-    currency: devicePricing.currency,
-    annualPrice: devicePricing.yearly,
-    monthlyPrice: devicePricing.monthly,
-    basicPrice: devicePricing.basic,
-    trialPrice: devicePricing.basic, // Use basic price for trial
+    currency: 'USD',
+    annualPrice: p.yearly,
+    monthlyPrice: p.monthly,
+    basicPrice: p.basic,
+    trialPrice: p.basic,
   };
 };
 
-
-
 export default function Home() {
   const [isUSDomain, setIsUSDomain] = useState(false);
-  const { currency, isLoadingGeo } = useLocation();
+  const { isLoadingGeo } = useLocation();
   const { user } = useAuth();
   const router = useRouter();
-  const { trialPrice, monthlyPrice } = getCurrencyAndPriceByCountry(currency);
+  const { trialPrice, monthlyPrice } = getPricing();
   const [isLoaded, setIsLoaded] = useState(false);
 
   // Redirect logged-in users to dashboard (only from homepage)
@@ -736,7 +732,7 @@ export default function Home() {
                     <span className="sm:hidden">Start Free</span>
                     <ArrowRight size={16} className="sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
                   </Link>
-                  <p className="text-gray-600 text-xs sm:text-sm mt-3">✨ No credit card required • Premium from ₹499 (30 days)</p>
+                  <p className="text-gray-600 text-xs sm:text-sm mt-3">✨ No credit card required • Premium from $24.99 (30 days)</p>
                 </div>
               </div>
 

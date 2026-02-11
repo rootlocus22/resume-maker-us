@@ -37,6 +37,7 @@ export default function Profile() {
   const [profileSlots, setProfileSlots] = useState(0);
   const [storedProfiles, setStoredProfiles] = useState([]);
   const [profilePromoDismissed, setProfilePromoDismissed] = useState(false);
+  const [showAllTransactions, setShowAllTransactions] = useState(false);
   const router = useRouter();
   const { currency } = useLocation();
   const pricing = getEffectivePricing(currency);
@@ -99,16 +100,21 @@ export default function Profile() {
           const promoDismissed = localStorage.getItem(`accountProfilePromoDismissed_${currentUser.uid}`) === 'true';
           setProfilePromoDismissed(promoDismissed);
 
-          // Fetch payment logs
-          const response = await fetch(`/api/payment-logs?userId=${currentUser.uid}`);
+          // Fetch payment logs (requires auth token for middleware)
+          const token = await currentUser.getIdToken();
+          const response = await fetch(`/api/payment-logs?userId=${currentUser.uid}`, {
+            headers: { 'Authorization': `Bearer ${token}` },
+          });
           if (!response.ok) {
             throw new Error("Failed to fetch transactions");
           }
           const { transactions } = await response.json();
-          const parsedTransactions = transactions.map(tx => ({
-            ...tx,
-            timestamp: new Date(tx.timestamp),
-          }));
+          const parsedTransactions = transactions
+            .map(tx => ({
+              ...tx,
+              timestamp: new Date(tx.timestamp),
+            }))
+            .sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
           setTransactions(parsedTransactions);
 
           // Extract billing cycle from latest successful payment
@@ -669,7 +675,7 @@ export default function Profile() {
                   <>
                     {/* Mobile Card View */}
                     <div className="md:hidden divide-y divide-slate-100">
-                      {transactions.slice(0, 5).map((tx) => (
+                      {(showAllTransactions ? transactions : transactions.slice(0, 5)).map((tx) => (
                         <div key={tx.id} className="p-5 hover:bg-slate-50/50 transition-colors">
                           <div className="flex justify-between items-start mb-3">
                             <div>
@@ -707,7 +713,7 @@ export default function Profile() {
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-50">
-                          {transactions.slice(0, 5).map((tx) => (
+                          {(showAllTransactions ? transactions : transactions.slice(0, 5)).map((tx) => (
                             <tr key={tx.id} className="hover:bg-slate-50/50 transition-colors">
                               <td className="px-6 py-4 whitespace-nowrap">
                                 <span className="text-xs font-bold text-slate-900">
@@ -735,9 +741,12 @@ export default function Profile() {
                     </div>
                     {transactions.length > 5 && (
                       <div className="px-6 py-4 border-t border-slate-50 flex justify-center">
-                        <button className="text-xs font-bold text-[#0B1F3B] hover:text-[#071429] flex items-center gap-2 transition-colors group">
-                          View all transaction history
-                          <ChevronRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                        <button
+                          onClick={() => setShowAllTransactions(!showAllTransactions)}
+                          className="text-xs font-bold text-[#0B1F3B] hover:text-[#071429] flex items-center gap-2 transition-colors group"
+                        >
+                          {showAllTransactions ? 'Show less' : `View all transaction history (${transactions.length})`}
+                          <ChevronRight size={14} className={`transition-transform ${showAllTransactions ? 'rotate-90' : 'group-hover:translate-x-0.5'}`} />
                         </button>
                       </div>
                     )}
