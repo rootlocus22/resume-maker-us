@@ -2,63 +2,29 @@
 // Pricing logic from Pricing.js
 import { getEffectivePricing } from './globalPricing';
 
-const getCurrencyAndPriceByCountry = (currency) => {
-  // Get device-specific pricing
-  const devicePricing = getEffectivePricing(currency, false);
+const getCurrencyAndPriceByCountry = () => {
+  const devicePricing = getEffectivePricing('USD', false);
 
-  const currencyData = {
-    USD: {
-      currency: "USD",
-      annualPrice: 30000, // $300
-      monthlyPrice: devicePricing.monthly,
-      quarterlyPrice: devicePricing.quarterly,
-      sixMonthPrice: devicePricing.sixMonth,
-      basicPrice: devicePricing.basic,
-      oneDayPrice: devicePricing.oneDay,
-      professionalPrice: 10000, // $100
-      trialPrice: 500, // $5
-      annualBasePrice: 30000,
-      monthlyBasePrice: 3000,
-      basicBasePrice: 500,
-      professionalBasePrice: 10000,
-      trialBasePrice: 500,
-      annualGST: 0,
-      monthlyGST: 0,
-      basicGST: 0,
-      professionalGST: 0,
-      trialGST: 0,
-    },
-    INR: {
-      currency: "INR",
-      annualPrice: 319900,
-      monthlyPrice: devicePricing.monthly,
-      quarterlyPrice: devicePricing.quarterly,
-      sixMonthPrice: devicePricing.sixMonth,
-      basicPrice: devicePricing.basic,
-      oneDayPrice: devicePricing.oneDay,
-      professionalPrice: 99900,
-      trialPrice: 4900,
-      annualBasePrice: 254100,
-      monthlyBasePrice: 25300,
-      basicBasePrice: 8389,
-      professionalBasePrice: 84662,
-      trialBasePrice: 4150,
-      annualGST: 45800,
-      monthlyGST: 4600,
-      basicGST: 1511,
-      professionalGST: 15238,
-      trialGST: 750,
-    },
+  return {
+    currency: "USD",
+    annualPrice: 30000, // $300
+    monthlyPrice: devicePricing.monthly,
+    quarterlyPrice: devicePricing.quarterly,
+    sixMonthPrice: devicePricing.sixMonth,
+    basicPrice: devicePricing.basic,
+    oneDayPrice: devicePricing.oneDay,
+    professionalPrice: 10000, // $100
+    trialPrice: 500, // $5
+    annualBasePrice: 30000,
+    monthlyBasePrice: 3000,
+    basicBasePrice: 500,
+    professionalBasePrice: 10000,
+    trialBasePrice: 500,
   };
-  return currencyData[currency] || currencyData["USD"];
 };
 
-const formatPrice = (price, currency) => {
-  const symbols = { INR: "₹", USD: "$" };
-  if (currency === "USD") {
-    return `${symbols[currency]}${(price / 100).toFixed(2)}`;
-  }
-  return `${symbols[currency] || '$'}${Math.floor(price / 100).toLocaleString("en-US")}`;
+const formatPrice = (price) => {
+  return `$${(price / 100).toFixed(2)}`;
 };
 
 // Brand color constants
@@ -373,9 +339,8 @@ const emailTemplates = {
   paymentIncomplete: {
     subject: (data) => `Complete Your Payment to Unlock ExpertResume Premium, ${data.firstName || 'Friend'}!`,
     html: (data) => {
-      const currency = data.currency || 'USD';
       const billingCycle = data.billingCycle || 'monthly';
-      const prices = getCurrencyAndPriceByCountry(currency);
+      const prices = getCurrencyAndPriceByCountry();
       const price = billingCycle === 'trial' ? prices.trialPrice :
         billingCycle === 'yearly' ? prices.annualPrice :
           billingCycle === 'sixMonth' ? prices.sixMonthPrice :
@@ -431,8 +396,7 @@ const emailTemplates = {
   paymentComplete: {
     subject: (data) => `You're Now a ExpertResume Premium Member, ${data.firstName || 'Friend'}!`,
     html: (data) => {
-      const currency = data.currency || 'USD';
-      const amount = data.amount ? formatPrice(data.amount, currency) : 'your selected plan';
+      const amount = data.amount ? formatPrice(data.amount) : 'your selected plan';
       const billingCycle = data.billingCycle || 'monthly';
 
       const cycleMap = {
@@ -588,29 +552,26 @@ const emailTemplates = {
   invoice: {
     subject: (data) => `Payment Receipt for your ExpertResume ${data.planName || 'Premium Plan'}`,
     html: (data) => {
-      const currency = data.currency || 'USD';
-      const isINR = currency === 'INR';
+      const totalAmount = data.finalAmount || data.amount || 0;
 
-      const totalAmount = data.finalAmount || 0;
-
-      const baseAmount = data.baseAmount || 0;
       const jobSearchAmount = data.addonJobSearchAmount || 0;
       const interviewKitAmount = data.addonInterviewKitAmount || 0;
       const applyProAmount = data.addonApplyProAmount || 0;
+      // baseAmount fallback: use finalAmount/amount if baseAmount not provided
+      const baseAmount = data.baseAmount || (totalAmount - jobSearchAmount - interviewKitAmount - applyProAmount) || totalAmount;
       const subtotal = data.subtotal || totalAmount;
       const discountAmount = data.discountAmount || 0;
       const taxableAmount = data.taxableAmount || totalAmount;
-      const gstAmount = data.gstAmount || 0;
+      const gstAmount = 0; // US product: no GST/tax line
 
-      const fmtTotal = formatPrice(totalAmount, currency);
-      const fmtBase = formatPrice(baseAmount, currency);
-      const fmtJobSearch = formatPrice(jobSearchAmount, currency);
-      const fmtInterviewKit = formatPrice(interviewKitAmount, currency);
-      const fmtApplyPro = formatPrice(applyProAmount, currency);
-      const fmtSubtotal = formatPrice(subtotal, currency);
-      const fmtDiscount = formatPrice(discountAmount, currency);
-      const fmtTaxable = formatPrice(taxableAmount, currency);
-      const fmtGST = formatPrice(gstAmount, currency);
+      const fmtTotal = formatPrice(totalAmount);
+      const fmtBase = formatPrice(baseAmount);
+      const fmtJobSearch = formatPrice(jobSearchAmount);
+      const fmtInterviewKit = formatPrice(interviewKitAmount);
+      const fmtApplyPro = formatPrice(applyProAmount);
+      const fmtSubtotal = formatPrice(subtotal);
+      const fmtDiscount = formatPrice(discountAmount);
+      const fmtTaxable = formatPrice(taxableAmount);
 
       const invoiceDate = new Date().toLocaleDateString('en-US', {
         year: 'numeric',
@@ -672,7 +633,9 @@ const emailTemplates = {
                   <tr>
                     <td style="padding: 16px; color: ${BRAND.dark}; font-size: 14px; font-weight: 500; border-bottom: 1px solid #f3f4f6;">
                       ${data.planName || 'ExpertResume Premium Plan'}
-                      <div style="color: ${BRAND.gray}; font-size: 12px; margin-top: 4px;">Subscription Period: ${data.billingCycle || 'Monthly'}</div>
+                      <div style="color: ${BRAND.gray}; font-size: 12px; margin-top: 4px;">Subscription Period: ${
+                        { oneDay: '1 Day', basic: '30 Days', monthly: '30 Days', quarterly: '90 Days', sixMonth: '180 Days', interview_gyani: 'AI Interview Pro', Lifetime: 'Lifetime' }[data.billingCycle] || data.billingCycle || 'Monthly'
+                      }</div>
                     </td>
                     <td style="padding: 16px; text-align: right; color: ${BRAND.dark}; font-size: 14px; font-weight: 500; border-bottom: 1px solid #f3f4f6;">
                       ${fmtBase}
@@ -731,12 +694,6 @@ const emailTemplates = {
                         <td style="padding: 6px 0; color: ${BRAND.gray}; font-size: 14px;">Taxable Value</td>
                         <td style="padding: 6px 0; text-align: right; color: ${BRAND.dark}; font-size: 14px; font-weight: 500;">${fmtTaxable}</td>
                       </tr>` : ''}
-                      ${isINR ? `
-                      <tr>
-                        <td style="padding: 6px 0; color: ${BRAND.gray}; font-size: 14px;">Taxes</td>
-                        <td style="padding: 6px 0; text-align: right; color: ${BRAND.dark}; font-size: 14px; font-weight: 500;">Included</td>
-                      </tr>
-                      ` : ''}
                       <tr>
                         <td style="padding: 12px 0 0; color: ${BRAND.dark}; font-size: 16px; font-weight: bold; border-top: 2px solid #f3f4f6;">Total Paid</td>
                         <td style="padding: 12px 0 0; text-align: right; color: ${BRAND.teal}; font-size: 18px; font-weight: bold; border-top: 2px solid #f3f4f6;">${fmtTotal}</td>
@@ -768,8 +725,7 @@ const emailTemplates = {
       `;
     },
     text: (data) => {
-      const currency = data.currency || 'USD';
-      const amount = data.amount ? formatPrice(data.amount, currency) : 'your selected plan';
+      const amount = data.amount ? formatPrice(data.amount) : 'your selected plan';
       return `
       PAYMENT RECEIPT
 
