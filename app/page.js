@@ -8,9 +8,16 @@ import HomePageLazyContent from "./components/HomePageLazyContent";
 // ... metadata remains the same ...
 
 export const metadata = {
-  title: "ExpertResume | Resume Builder + Job Search + AI Interview Prep — All in One",
-  description: "The only career platform that takes you from resume to job offer. Build ATS-perfect resumes, search 20+ job boards, practice with AI mock interviews, and land your dream job. Free to start.",
+  title: "Expert Resume Builder | Create Your Expert Resume in 5 Minutes",
+  description: "Build an expert resume that gets you hired faster. Free AI-powered expert resume builder with ATS optimization, 50+ professional templates, and instant job matching. Used by 100,000+ professionals to create standout expert resumes.",
   keywords: [
+    "expert resume",
+    "expert resume builder",
+    "create expert resume",
+    "build expert resume",
+    "professional expert resume",
+    "expert resume template",
+    "ATS expert resume",
     "resume builder",
     "AI resume builder",
     "ATS resume checker",
@@ -24,12 +31,8 @@ export const metadata = {
     "resume for data analyst",
     "cover letter builder",
     "interview prep",
-    "resume score",
     "professional resume",
     "resume templates",
-    "job tracker",
-    "job application tracker",
-    "career platform",
   ],
   authors: [{ name: "ExpertResume" }],
   creator: "ExpertResume",
@@ -55,8 +58,8 @@ export const metadata = {
     }
   },
   openGraph: {
-    title: "ExpertResume | Resume to Job Offer — All in One Career Platform",
-    description: "Build ATS-perfect resumes, search jobs across 20+ boards, practice AI mock interviews, and get hired. The complete career toolkit for US professionals.",
+    title: "Expert Resume Builder | Create Your Expert Resume in Minutes",
+    description: "Build an expert resume that gets interviews. Free AI-powered expert resume builder with ATS optimization, professional templates, and job matching. Trusted by 100,000+ job seekers.",
     url: "https://expertresume.us",
     siteName: "ExpertResume",
     locale: "en_US",
@@ -67,7 +70,7 @@ export const metadata = {
         secureUrl: "https://expertresume.us/ExpertResume.png",
         width: 1200,
         height: 630,
-        alt: "ExpertResume - AI Resume Builder for US Jobs",
+        alt: "Expert Resume Builder - Create Professional Expert Resumes",
         type: "image/png",
       },
     ],

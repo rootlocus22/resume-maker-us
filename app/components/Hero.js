@@ -100,17 +100,17 @@ export default function Hero() {
             <span className="text-gray-200">The Only Platform That Takes You From Resume to Job Offer</span>
           </div>
 
-          {/* Main Headline */}
+          {/* Main Headline - SEO optimized for "expert resume" */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
-            Stop <span className="text-gray-400 line-through decoration-red-400/60">Job Hunting.</span>
+            Build Your <span className="bg-gradient-to-r from-[#00C4B3] to-emerald-300 bg-clip-text text-transparent">Expert Resume</span>
             <br />
-            <span className="bg-gradient-to-r from-[#00C4B3] to-emerald-300 bg-clip-text text-transparent">Start Getting Hired.</span>
+            <span className="text-gray-300">Get Hired Faster.</span>
           </h1>
 
           {/* Sub-headline - The Journey */}
           <p className="text-base sm:text-lg lg:text-xl xl:text-2xl mb-6 sm:mb-8 text-gray-300 leading-relaxed max-w-3xl mx-auto px-4">
-            Build an <span className="text-[#00C4B3] font-semibold">ATS-perfect resume</span>, find matching jobs, practice with an <span className="text-[#00C4B3] font-semibold">AI interviewer</span>, and land your offer — all in one platform.
-            <span className="block text-gray-400 text-sm sm:text-base mt-2">No other tool does all of this. Most charge more for just one.</span>
+            Create an <span className="text-[#00C4B3] font-semibold">expert resume</span> with AI-powered optimization, <span className="text-[#00C4B3] font-semibold">ATS score 90+</span>, job search across 20+ boards, and <span className="text-[#00C4B3] font-semibold">AI interview practice</span> — all in one platform.
+            <span className="block text-gray-400 text-sm sm:text-base mt-2">Free to start. No credit card required.</span>
           </p>
 
           {/* Social proof row */}

@@ -24,13 +24,19 @@ const manrope = Manrope({
   display: "swap",
 });
 
-// US-only SEO – no India keywords
+// SEO optimized for "expert resume" and related keywords
 export const metadata = {
   metadataBase: new URL(BASE_URL),
-  title: "ExpertResume | AI Resume Builder for US Jobs – ATS-Optimized in Minutes",
-  description: "AI-powered resume optimization for the US job market. Get past ATS, match job descriptions, and get more interviews. Trusted by professionals applying to top US companies.",
+  title: "Expert Resume Builder | Create ATS-Optimized Expert Resumes in Minutes",
+  description: "Build an expert resume that gets you hired. AI-powered resume builder with ATS optimization, professional templates, and job-matching tools. Trusted by 100,000+ professionals for creating expert resumes that stand out.",
   keywords: [
+    "expert resume",
+    "expert resume builder",
+    "create expert resume",
+    "professional expert resume",
+    "ATS expert resume",
     "resume builder",
+    "AI resume builder",
     "ATS resume checker",
     "resume optimizer",
     "job application",
@@ -39,28 +45,24 @@ export const metadata = {
     "resume for data analyst",
     "cover letter builder",
     "interview prep",
-    "resume score",
-    "ATS score",
-    "professional resume",
     "resume templates",
-    "AI resume builder",
     "resume writer",
   ],
   authors: [{ name: BRAND_NAME }],
   robots: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
   openGraph: {
-    title: `AI Resume Builder for US Jobs | ${BRAND_NAME}`,
-    description: "Get your resume past ATS. Optimize for each job description. Get more interviews.",
+    title: `Expert Resume Builder | Create ATS-Optimized Expert Resumes | ${BRAND_NAME}`,
+    description: "Build an expert resume that gets you hired. AI-powered tools, ATS optimization, and professional templates trusted by 100,000+ job seekers.",
     url: BASE_URL,
     siteName: BRAND_NAME,
     type: "website",
     locale: "en_US",
-    images: [{ url: `${BASE_URL}/ExpertResume.png`, width: 1200, height: 630, alt: `${BRAND_NAME} - AI Resume Builder` }],
+    images: [{ url: `${BASE_URL}/ExpertResume.png`, width: 1200, height: 630, alt: `Expert Resume Builder - Create Professional Expert Resumes` }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `AI Resume Builder for US Jobs | ${BRAND_NAME}`,
-    description: "ATS-optimized resumes in minutes. Built for the US job market.",
+    title: `Expert Resume Builder | Create ATS-Optimized Expert Resumes`,
+    description: "Build an expert resume in minutes. AI-powered, ATS-optimized, and trusted by 100,000+ professionals.",
     images: [`${BASE_URL}/ExpertResume.png`],
   },
   other: {
