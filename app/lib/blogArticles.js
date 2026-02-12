@@ -1180,6 +1180,683 @@ export const blogArticles = [
   },
 
   // ────────────────────────────────────────────────────────────────
+  // NEW #4: Resume vs CV (ULTRA-HIGH VOLUME)
+  // ────────────────────────────────────────────────────────────────
+  {
+    slug: "resume-vs-cv-difference",
+    title: "Resume vs CV: What's the Difference? Complete Guide (2026)",
+    category: "resume-writing",
+    targetKeyword: "resume vs cv",
+    keywords: [
+      "resume vs cv",
+      "cv vs resume",
+      "difference between resume and cv",
+      "resume versus cv",
+      "cv or resume",
+      "resume and cv difference",
+      "what is the difference between a resume and a cv",
+      "cv vs resume difference",
+      "when to use cv vs resume",
+    ],
+    metaTitle: "Resume vs CV: What's the Difference? Complete Guide (2026)",
+    metaDescription:
+      "Confused about resume vs CV? Learn the key differences, when to use each, formatting guidelines, and examples. Includes country-specific guidance for US, UK, EU, and global applications.",
+    excerpt:
+      "Resume or CV? Curriculum Vitae or Resume? Learn the definitive differences, when to use each document, formatting rules, and see real examples. Plus country-specific guidance for job applications worldwide.",
+    publishedDate: "2026-02-12",
+    updatedDate: "2026-02-12",
+    author: "ExpertResume Team",
+    readTime: "12 min read",
+    content: [
+      {
+        type: "paragraph",
+        text: "You're applying for a job and the posting says 'submit your CV.' But you have a resume. Are they the same thing? Can you send your resume instead? The confusion between resumes and CVs (curriculum vitae) is one of the most common questions job seekers have—and for good reason. The answer depends on where you're applying, what industry you're in, and what type of position you're seeking. This complete guide clears up the confusion once and for all, showing you exactly when to use a resume vs. a CV, the key differences between them, and how to create the right document for your situation.",
+      },
+      {
+        type: "heading",
+        text: "Resume vs CV: Quick Answer",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "In the United States and Canada: A resume is a concise 1-2 page document highlighting your most relevant experience and skills for a specific job. A CV (curriculum vitae) is a comprehensive multi-page academic document listing your entire career history, publications, research, and achievements. In Europe, UK, Ireland, and most other countries: The terms are often used interchangeably, and both refer to what Americans would call a resume—a 1-2 page professional summary.",
+      },
+      {
+        type: "tip",
+        text: "Geographic tip: If you're applying in the US or Canada, assume 'CV' means academic/research document. If applying anywhere else, 'CV' likely means what Americans call a 'resume.'",
+      },
+      {
+        type: "heading",
+        text: "Resume vs CV: The Key Differences",
+        level: 2,
+      },
+      {
+        type: "heading",
+        text: "Length",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Resume: Typically 1 page for entry-level to mid-career professionals, 2 pages for experienced professionals and executives. Never exceeds 2 pages. CV (Academic): Can be 3-10+ pages depending on career length and accomplishments. No page limit—includes everything relevant to your academic career. CV (International): Usually 1-2 pages, similar to an American resume.",
+      },
+      {
+        type: "heading",
+        text: "Purpose",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Resume: Tailored marketing document designed to get you an interview for a specific job. Highlights only the most relevant experience and skills. CV (Academic): Comprehensive record of your entire academic and professional career. Used for academic positions, research roles, fellowships, and grants. CV (International): Job application document, similar purpose to an American resume but may include more personal details.",
+      },
+      {
+        type: "heading",
+        text: "Content",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Resume includes: Contact information, professional summary, work experience (10-15 years max), education, skills, and certifications. CV (Academic) includes: Contact information, education (detailed with dissertation/thesis), teaching experience, research experience, publications, presentations, grants and fellowships, awards and honors, professional affiliations, references, and sometimes courses taught. CV (International) includes: Similar to resume but may add photo, date of birth, nationality, marital status (varies by country).",
+      },
+      {
+        type: "heading",
+        text: "Customization",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Resume: Heavily customized for each job application. You reorder, add, or remove content to match the specific job requirements. CV (Academic): Static document. You add new accomplishments over time but don't remove or reorder based on job postings. CV (International): May be customized slightly for each role, similar to resume practices.",
+      },
+      {
+        type: "heading",
+        text: "When to Use a Resume",
+        level: 2,
+      },
+      {
+        type: "list",
+        items: [
+          "Applying for corporate, business, or industry jobs in the US or Canada",
+          "Non-academic positions in any field (marketing, sales, IT, finance, healthcare, etc.)",
+          "Entry-level to executive positions in the private sector",
+          "Government jobs in the US (except certain research positions)",
+          "Startup and tech company applications",
+          "When the job posting specifically requests a 'resume'",
+        ],
+      },
+      {
+        type: "heading",
+        text: "When to Use a CV",
+        level: 2,
+      },
+      {
+        type: "list",
+        items: [
+          "Academic positions: professor, lecturer, researcher, post-doctoral fellow",
+          "Research scientist roles at universities or research institutions",
+          "Medical positions (residencies, fellowships, medical school applications)",
+          "Applying for grants, scholarships, or fellowships",
+          "International job applications (especially in Europe, UK, Middle East, Asia, Africa)",
+          "Scientific and research positions even in industry (biotech, pharma)",
+          "When the posting specifically asks for a 'CV' or 'curriculum vitae'",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Resume vs CV: Side-by-Side Comparison",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "Feature | Resume | CV (Academic) | CV (International)\n---|---|---|---\nLength | 1-2 pages | 3-10+ pages | 1-2 pages\nPurpose | Get interview for specific job | Comprehensive career record | Job application (like US resume)\nContent | Relevant highlights | Complete history | Relevant highlights + personal info\nCustomization | Highly tailored | Static + additions | Moderately tailored\nGeography | US, Canada | US, Canada (academia) | Europe, UK, Asia, etc.\nTypical Users | Business professionals | Academics, researchers, doctors | All professionals outside US\nFormat | ATS-friendly, clean | Traditional, detailed | Varies by country\nPersonal Info | Name, contact only | Name, contact, references | May include photo, DOB, nationality",
+      },
+      {
+        type: "heading",
+        text: "How to Create a Resume",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "A resume is a targeted, concise document. Follow these guidelines:",
+      },
+      {
+        type: "list",
+        items: [
+          "Keep it to 1-2 pages maximum (1 page if you have less than 10 years of experience)",
+          "Lead with a strong professional summary (3-5 sentences highlighting your value)",
+          "Include only relevant experience from the past 10-15 years",
+          "Use bullet points with quantified achievements (numbers, percentages, dollar amounts)",
+          "Create a dedicated Skills section with 10-15 keywords from the job description",
+          "Tailor content for each application (customize summary, reorder bullets, add relevant keywords)",
+          "Use an ATS-friendly format (standard fonts, no tables, no graphics)",
+          "Include education, certifications, and relevant professional development",
+        ],
+      },
+      {
+        type: "tip",
+        text: "Use ExpertResume's AI Resume Builder to create a professional, ATS-optimized resume in under 15 minutes. Choose from 50+ templates designed for your industry.",
+      },
+      {
+        type: "heading",
+        text: "How to Create an Academic CV",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "An academic CV is comprehensive and detailed. Include:",
+      },
+      {
+        type: "list",
+        items: [
+          "Contact Information: Name, title, institution, email, phone, professional website/Google Scholar",
+          "Education: List all degrees with institution, degree type, year, dissertation/thesis title, advisor",
+          "Academic Positions: All teaching and research positions held",
+          "Publications: Peer-reviewed articles, books, book chapters (in proper citation format)",
+          "Presentations: Conference presentations, invited talks, guest lectures",
+          "Grants and Funding: Research grants received, including amount and funding agency",
+          "Teaching Experience: Courses taught, guest lectures, curriculum development",
+          "Awards and Honors: Academic awards, fellowships, scholarships",
+          "Professional Service: Journal reviewer, committee membership, conference organization",
+          "Professional Affiliations: Learned societies and professional organizations",
+          "References: 3-5 academic references with full contact information (optional but common)",
+        ],
+      },
+      {
+        type: "heading",
+        text: "How to Create an International CV",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "International CVs vary by country but generally follow these guidelines:",
+      },
+      {
+        type: "list",
+        items: [
+          "Length: 1-2 pages for most countries (similar to US resume)",
+          "Personal Information: May include photo (2x2 passport style), date of birth, place of birth, nationality, marital status (check country-specific norms)",
+          "Language Skills: List all languages with proficiency levels (native, fluent, intermediate, basic)",
+          "Format: Europass CV format is common in EU countries (free template available)",
+          "Education: Often listed before work experience in European CVs",
+          "References: 'Available upon request' or include 2-3 references",
+          "Date Format: Use DD/MM/YYYY format (not MM/DD/YYYY)",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Country-Specific CV/Resume Guidelines",
+        level: 2,
+      },
+      {
+        type: "heading",
+        text: "United States",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Use: Resume (1-2 pages) for 99% of jobs. CV only for academic, research, or medical positions. Do NOT include: Photo, age, marital status, social security number. Format: ATS-friendly, reverse chronological, achievement-focused.",
+      },
+      {
+        type: "heading",
+        text: "United Kingdom",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Use: CV (1-2 pages, what Americans call a resume). Do NOT include: Photo (unless creative industry), national insurance number, references (say 'available on request'). Format: Clean, professional, skills-focused. Include: Personal statement at the top.",
+      },
+      {
+        type: "heading",
+        text: "European Union",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Use: CV (1-2 pages) or Europass CV format. May include: Photo (professional headshot), nationality, date of birth. Format: Europass template is widely accepted and standardized. Include: Language certifications (CEFR levels: A1, A2, B1, B2, C1, C2).",
+      },
+      {
+        type: "heading",
+        text: "Canada",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Use: Resume for most jobs, CV for academic positions (similar to US conventions). Do NOT include: Photo, age, marital status, social insurance number. Format: 1-2 pages, bilingual (English/French) if applying in Quebec.",
+      },
+      {
+        type: "heading",
+        text: "Australia & New Zealand",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Use: Resume or CV interchangeably (1-2 pages). May include: References (2-3 professional references). Do NOT include: Photo, age, marital status. Format: Results-oriented, similar to US resume style.",
+      },
+      {
+        type: "heading",
+        text: "Common Resume vs CV Mistakes",
+        level: 2,
+      },
+      {
+        type: "list",
+        items: [
+          "Sending a resume when a CV is requested (or vice versa): Always follow the posting instructions exactly.",
+          "Using US conventions for international applications: Research country-specific norms before applying abroad.",
+          "Making your resume too long: If you're not in academia, keep it to 2 pages maximum, regardless of experience.",
+          "Making your CV too short: Academic CVs should be comprehensive—don't leave out publications or presentations to save space.",
+          "Including a photo on a US resume: This can lead to discrimination concerns and automatic rejection.",
+          "Not customizing your resume: Generic resumes score poorly in ATS and fail to impress recruiters.",
+          "Using 'CV' and 'resume' interchangeably in the US: In American job applications, these terms mean different things.",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Can You Have Both a Resume and a CV?",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "Yes, and many professionals should maintain both documents. If you're an academic who also does consulting, keep both a comprehensive CV for academic positions and a tailored 2-page resume for industry consulting gigs. If you're applying internationally and domestically, maintain a US-style resume and an international CV format. If you're in a research-heavy industry (biotech, pharma), you might need a CV for research positions and a resume for management roles. The key is to use the right document for the right situation.",
+      },
+    ],
+    tableOfContents: [
+      "Resume vs CV: Quick Answer",
+      "Resume vs CV: The Key Differences",
+      "When to Use a Resume",
+      "When to Use a CV",
+      "Resume vs CV: Side-by-Side Comparison",
+      "How to Create a Resume",
+      "How to Create an Academic CV",
+      "How to Create an International CV",
+      "Country-Specific CV/Resume Guidelines",
+      "Common Resume vs CV Mistakes",
+      "Can You Have Both a Resume and a CV?",
+    ],
+    relatedArticles: ["expert-resume-complete-guide", "how-to-write-a-resume", "resume-format-guide"],
+    relatedTools: [
+      { name: "Resume Builder", url: "/resume-builder" },
+      { name: "Resume Templates", url: "/resume-templates" },
+      { name: "ATS Score Checker", url: "/ats-score-checker" },
+    ],
+    faq: [
+      {
+        q: "What is the main difference between a resume and a CV?",
+        a: "In the United States, a resume is a brief 1-2 page document tailored to a specific job, while a CV (curriculum vitae) is a comprehensive multi-page academic document listing your entire career history. Internationally (UK, Europe, Asia), 'CV' typically refers to what Americans call a resume—a concise 1-2 page job application document. The key difference is geographic: US/Canada distinguishes between the two, while most other countries use 'CV' for standard job applications.",
+      },
+      {
+        q: "Should I use a resume or CV for a job application?",
+        a: "In the US and Canada, use a resume for corporate and business positions, and a CV only for academic, research, or medical roles. If applying internationally (Europe, UK, Asia), use what they call a 'CV,' which is essentially a resume with possible additions like a photo or language skills. Always check the job posting—if it asks for a 'CV' and you're applying in the US, they likely want an academic CV; if applying abroad, they want a standard job application document (resume-style).",
+      },
+      {
+        q: "How long should a resume be vs a CV?",
+        a: "A resume should be 1-2 pages maximum: 1 page for early to mid-career professionals (0-10 years), 2 pages for experienced professionals and executives. An academic CV can be 3-10+ pages with no strict page limit—it grows throughout your career as you add publications, presentations, and grants. An international CV is typically 1-2 pages, similar to a resume.",
+      },
+      {
+        q: "Can I use my resume as a CV?",
+        a: "No, not if you're applying for academic or research positions in the US. A resume lacks the comprehensive detail required for a CV (publications, presentations, grants, teaching experience, full research history). However, if you're applying internationally and they request a 'CV,' you can use your resume as a base and adapt it to local conventions (adding a photo if appropriate, language skills, etc.).",
+      },
+      {
+        q: "Do I need a photo on my CV or resume?",
+        a: "In the United States: Never include a photo on your resume or CV—it can lead to discrimination concerns and automatic rejection. In Europe and many other countries: A professional headshot photo is often expected on a CV, typically 2x2 inches in passport style. Check country-specific norms, but when in doubt for US applications, omit the photo.",
+      },
+      {
+        q: "Should I customize my CV like I customize my resume?",
+        a: "Resumes: Yes, heavily customize for every application—reorder content, adjust keywords, tailor your summary to match specific job requirements. Academic CVs: No, they are comprehensive static documents. You add new accomplishments over time but don't remove or reorganize based on job postings. International CVs: Moderate customization similar to resumes—adjust emphasis and possibly reorder sections for relevance.",
+      },
+    ],
+  },
+
+  // ────────────────────────────────────────────────────────────────
+  // NEW #5: How Long Should Resume Be (HIGHEST VOLUME - 60.5K!)  
+  // ────────────────────────────────────────────────────────────────
+  {
+    slug: "how-long-should-resume-be",
+    title: "How Long Should a Resume Be in 2026? (1 or 2 Pages?)",
+    category: "resume-writing",
+    targetKeyword: "how long should a resume be",
+    keywords: [
+      "how long should a resume be",
+      "how long should resume be",
+      "resume length",
+      "one page resume",
+      "two page resume",
+      "how many pages should a resume be",
+      "ideal resume length",
+      "resume too long",
+      "resume page limit",
+    ],
+    metaTitle: "How Long Should a Resume Be in 2026? (1 or 2 Pages?)",
+    metaDescription:
+      "Wondering how long your resume should be? The answer depends on your experience. Learn the ideal resume length for entry-level, mid-career, and executive positions with industry-specific guidelines.",
+    excerpt:
+      "Should your resume be 1 or 2 pages? Learn the definitive answer based on your career level, industry, and experience. Includes guidelines for entry-level, experienced professionals, and executives plus tips to cut resume length.",
+    publishedDate: "2026-02-12",
+    updatedDate: "2026-02-12",
+    author: "ExpertResume Team",
+    readTime: "10 min read",
+    content: [
+      {
+        type: "paragraph",
+        text: "You've spent hours perfecting your resume content—and then you look at the page count. Three pages. Is that too long? Should you cut it down to two? Or squeeze everything onto one page? The question 'how long should a resume be?' is one of the most common resume dilemmas, and the internet is full of conflicting advice. The truth is, there's no one-size-fits-all answer—the ideal resume length depends on your experience level, industry, country, and the specific job you're applying for. This guide gives you the definitive answer for your situation.",
+      },
+      {
+        type: "heading",
+        text: "Quick Answer: Ideal Resume Length by Experience",
+        level: 2,
+      },
+      {
+        type: "list",
+        items: [
+          "Entry-Level (0-5 years): 1 page",
+          "Mid-Career (5-10 years): 1-2 pages (1 page preferred if possible)",
+          "Experienced Professional (10-15 years): 2 pages",
+          "Senior/Executive (15+ years): 2 pages",
+          "Federal Government Resume: 3-5 pages (exception to the rule)",
+          "Academic CV: 3-10+ pages (no page limit)",
+        ],
+      },
+      {
+        type: "tip",
+        text: "The #1 rule: Quality over quantity. A tight, relevant 1-page resume beats a bloated 2-page resume every time. Never add filler just to reach 2 pages.",
+      },
+      {
+        type: "heading",
+        text: "How Long Should a Resume Be for Entry-Level Jobs?",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "If you have 0-5 years of work experience, your resume should be 1 page. Period. Here's why: You don't have enough substantial experience to justify two pages. Recruiters spend 6-7 seconds scanning entry-level resumes—one page forces you to be concise and highlight only the most relevant information. A one-page format is easier for applicant tracking systems (ATS) to parse. Hiring managers for entry-level roles expect one page—going to two pages can signal that you don't understand professional norms.",
+      },
+      {
+        type: "heading",
+        text: "What to Include on a 1-Page Entry-Level Resume",
+        level: 3,
+      },
+      {
+        type: "list",
+        items: [
+          "Contact information (name, phone, email, LinkedIn, location)",
+          "Professional summary or objective (2-3 sentences)",
+          "Work experience: 2-3 most relevant positions with 3-5 bullet points each",
+          "Education (degree, school, graduation year, GPA if 3.5+)",
+          "Skills (8-12 relevant technical and soft skills)",
+          "Certifications (if relevant to the role)",
+        ],
+      },
+      {
+        type: "example",
+        text: "Entry-level resume structure:\n• Header (name, contact)\n• Summary (3 lines)\n• Experience (3 positions, 4 bullets each = 12 bullets)\n• Education\n• Skills\n• Certifications\nTotal: ~450-500 words, fits comfortably on 1 page",
+      },
+      {
+        type: "heading",
+        text: "How Long Should a Resume Be for Mid-Career Professionals?",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "If you have 5-10 years of experience, aim for 1 page if possible, but 2 pages is acceptable if you have substantial relevant accomplishments. This is the gray zone where professional judgment is key. If you can tell your story compactly on one page by focusing on your most impressive achievements, do it. If you have multiple significant accomplishments, leadership roles, certifications, or technical skills that are highly relevant to the job, use two pages.",
+      },
+      {
+        type: "heading",
+        text: "Decision Framework: 1 Page or 2 Pages?",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Stick to 1 page if: Your industry values brevity (consulting, finance, startups). You're changing careers and much of your experience isn't directly relevant. You can compellingly demonstrate your value in 4-6 strong accomplishment bullets per role. Use 2 pages if: You have technical depth that requires detailed skills sections (engineering, data science). You have significant leadership experience managing large teams or budgets. You've held 4-6 relevant positions with meaningful accomplishments at each. You have numerous relevant certifications, publications, or speaking engagements.",
+      },
+      {
+        type: "heading",
+        text: "How Long Should a Resume Be for Experienced Professionals?",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "If you have 10+ years of experience, your resume should be 2 pages. Here's why two pages work better for experienced professionals: You have a decade+ of experience that demonstrates career progression and increasing responsibility. You can show a pattern of achievements across multiple roles. You have space to include leadership experience, strategic initiatives, budget management, and measurable business impact. Hiring managers expect senior candidates to have longer resumes—one page can make you look underqualified.",
+      },
+      {
+        type: "heading",
+        text: "What to Include on a 2-Page Professional Resume",
+        level: 3,
+      },
+      {
+        type: "list",
+        items: [
+          "Page 1: Contact information, executive summary (4-5 sentences), core competencies/skills, and your 2-3 most recent and relevant positions",
+          "Page 2: Earlier career experience (3-4 additional positions with fewer bullets), education, certifications, professional development, and optional: speaking engagements, publications, or board memberships",
+        ],
+      },
+      {
+        type: "tip",
+        text: "Pro tip: End page 1 mid-section (in the middle of your work experience) to encourage readers to flip to page 2. Don't end page 1 at a natural stopping point.",
+      },
+      {
+        type: "heading",
+        text: "How Long Should an Executive Resume Be?",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "Executive resumes (C-suite, VP, Director, Senior Manager) should be 2 pages maximum. Even with 20-30 years of experience, executives should demonstrate the ability to synthesize information concisely. The 2-page format is optimal for executive resumes because it forces priority and strategic thinking, shows you understand executive communication norms (executives value brevity), and allows room for leadership achievements, board positions, and thought leadership without excessive detail.",
+      },
+      {
+        type: "heading",
+        text: "Executive Resume Focus",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Focus your 2 pages on: strategic impact (revenue growth, cost savings, market expansion, digital transformation), leadership scope (team sizes, budgets managed, locations, cross-functional influence), and thought leadership (board positions, speaking engagements, publications, advisory roles). De-emphasize or omit: early career positions (pre-management roles), technical details that aren't strategic, and day-to-day responsibilities.",
+      },
+      {
+        type: "heading",
+        text: "Should You Ever Have a 3-Page Resume?",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "In general, no. There are only a few exceptions where a 3-page resume is acceptable: Federal government resumes (USAJOBS format), which can be 3-5 pages and include detailed KSAs (Knowledge, Skills, Abilities). Academic CVs (not resumes), which have no page limit and grow throughout your career. Highly technical roles requiring extensive certifications, security clearances, and technical proficiencies (cybersecurity, defense contractors). International applications in certain countries that expect comprehensive biographical details.",
+      },
+      {
+        type: "paragraph",
+        text: "For 99% of private sector jobs, a 3-page resume will hurt you. Recruiters won't read it all, ATS may truncate content, and it signals inability to prioritize or communicate concisely.",
+      },
+      {
+        type: "heading",
+        text: "Resume Length by Industry",
+        level: 2,
+      },
+      {
+        type: "heading",
+        text: "Tech and Engineering",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Entry-level: 1 page. Experienced: 2 pages (especially if you have extensive technical skills, GitHub contributions, or open-source projects). Include: Technical skills section, project highlights, certifications (AWS, Azure, etc.).",
+      },
+      {
+        type: "heading",
+        text: "Finance and Consulting",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "All levels: 1 page strongly preferred (these industries value extreme conciseness). Experienced (10+ years): Maximum 2 pages, but 1 page is still ideal. Focus: Quantified impact ($ amounts, percentages), prestige signals (top firms, MBA, deals closed).",
+      },
+      {
+        type: "heading",
+        text: "Healthcare",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Clinical roles: 1-2 pages depending on experience. Administrative/executive healthcare: 2 pages. Medical school/residency applications: CV format (3-10+ pages). Include: Licenses, certifications, specializations, patient outcomes metrics.",
+      },
+      {
+        type: "heading",
+        text: "Creative Industries",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "All levels: 1 page resume + portfolio (your work speaks for itself). Design, UX, marketing, content: The resume is just an overview—your portfolio is the main attraction. Don't try to describe every project in detail.",
+      },
+      {
+        type: "heading",
+        text: "How to Cut Your Resume Down to the Right Length",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "If your resume is too long, use these specific strategies to trim it down without losing impact:",
+      },
+      {
+        type: "heading",
+        text: "1. Remove Irrelevant Experience",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Ask yourself: Does this experience directly support my candidacy for this specific job? If no, remove it or consolidate it into an 'Early Career' section with just company names, titles, and dates (no bullets).",
+      },
+      {
+        type: "heading",
+        text: "2. Cut Older Positions",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Include only the last 10-15 years of experience in detail. For positions beyond that, create a brief 'Earlier Experience' section: 'Additional experience includes roles at [Company A], [Company B], and [Company C] in [function] and [function]. Full details available upon request.'",
+      },
+      {
+        type: "heading",
+        text: "3. Reduce Bullet Points",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Most recent role: 5-6 bullets. Second most recent: 4-5 bullets. Third most recent: 3-4 bullets. Older roles: 2-3 bullets. Apply the 'so what?' test: if a bullet doesn't show impressive results or relevant skills, cut it.",
+      },
+      {
+        type: "heading",
+        text: "4. Use Tighter Formatting",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Reduce margins to 0.5 inches (minimum for readability). Use 10-11pt font for body text (don't go below 10pt). Remove extra line breaks between sections. Use a two-column layout for skills/certifications. Shorten your professional summary from 5 sentences to 3.",
+      },
+      {
+        type: "heading",
+        text: "5. Eliminate Filler Content",
+        level: 3,
+      },
+      {
+        type: "list",
+        items: [
+          "Remove 'References available upon request' (this is assumed)",
+          "Cut generic soft skills like 'good communicator' or 'team player'",
+          "Eliminate hobbies/interests unless directly relevant",
+          "Remove outdated technical skills (Windows XP, Flash, etc.)",
+          "Cut objective statements (use a professional summary instead)",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Common Resume Length Mistakes",
+        level: 2,
+      },
+      {
+        type: "list",
+        items: [
+          "Using a 3+ page resume for non-federal, non-academic jobs: You'll lose the reader's attention and appear unable to prioritize.",
+          "Stretching to fill 2 pages when you only have 1 page of content: Filler is obvious and makes you look inexperienced.",
+          "Squeezing 15 years of experience onto 1 page with 8pt font: Recruiters won't strain to read it—they'll skip to the next resume.",
+          "Including every job since high school: Focus on relevant, recent experience only.",
+          "Listing every skill you've ever touched: Include only skills relevant to the target job.",
+          "Writing paragraphs instead of bullets: Walls of text make your resume look longer and harder to scan.",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Does Resume Length Affect ATS?",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "ATS (Applicant Tracking Systems) don't penalize resume length directly, but longer resumes can create problems. Some ATS systems truncate resumes after 2 pages, cutting off important information. Longer resumes are harder for ATS to parse correctly, increasing the chance of errors. If your resume is 3+ pages, critical keywords might appear on page 3, which recruiters may never see. Recommendation: Keep your resume to 1-2 pages to ensure full ATS compatibility and complete human review.",
+      },
+      {
+        type: "tip",
+        text: "Use ExpertResume's ATS Score Checker to verify your resume is being parsed correctly and all critical information is captured within the first 2 pages.",
+      },
+      {
+        type: "heading",
+        text: "International Resume Length Expectations",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "Resume length norms vary by country. United States/Canada: 1-2 pages maximum for business roles. United Kingdom: 2 pages is standard (called a CV, but format is like US resume). European Union: 1-2 pages, often using Europass CV template. Australia/New Zealand: 2-3 pages is acceptable. Asia (varies widely): Japan often expects 1-2 pages; China may accept longer formats with photo and personal details. Middle East: 2-3 pages accepted, often includes photo. Always research the country-specific norms for your target market.",
+      },
+      {
+        type: "heading",
+        text: "How Long Should a Resume Be? Final Verdict",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "The best resume length is the shortest length that fully demonstrates your qualifications for the specific role. Use 1 page if: you have 0-7 years of experience, are applying in consulting, finance, or startups, or can compellingly tell your story in one page. Use 2 pages if: you have 8+ years of experience, are applying for senior, director, or executive roles, have substantial relevant accomplishments across multiple positions, or work in technical fields requiring detailed skills sections. Never use 3+ pages unless: you're applying for federal government jobs (USAJOBS), academic positions (use a CV instead), or security-cleared positions requiring exhaustive technical details. When in doubt, err on the side of brevity. A focused, achievement-packed 1-page resume beats a rambling 2-page resume every time.",
+      },
+    ],
+    tableOfContents: [
+      "Quick Answer: Ideal Resume Length by Experience",
+      "How Long Should a Resume Be for Entry-Level Jobs?",
+      "How Long Should a Resume Be for Mid-Career Professionals?",
+      "How Long Should a Resume Be for Experienced Professionals?",
+      "How Long Should an Executive Resume Be?",
+      "Should You Ever Have a 3-Page Resume?",
+      "Resume Length by Industry",
+      "How to Cut Your Resume Down to the Right Length",
+      "Common Resume Length Mistakes",
+      "Does Resume Length Affect ATS?",
+      "International Resume Length Expectations",
+      "How Long Should a Resume Be? Final Verdict",
+    ],
+    relatedArticles: ["expert-resume-complete-guide", "resume-vs-cv-difference", "how-to-write-a-resume"],
+    relatedTools: [
+      { name: "Resume Builder", url: "/resume-builder" },
+      { name: "ATS Score Checker", url: "/ats-score-checker" },
+      { name: "Resume Templates", url: "/resume-templates" },
+    ],
+    faq: [
+      {
+        q: "How long should a resume be in 2026?",
+        a: "The ideal resume length in 2026 depends on your experience level: 1 page for entry-level professionals (0-5 years), 1-2 pages for mid-career (5-10 years), and 2 pages for experienced professionals and executives (10+ years). Never exceed 2 pages for corporate jobs. The only exceptions are federal government resumes (3-5 pages) and academic CVs (no page limit).",
+      },
+      {
+        q: "Is a 2-page resume too long?",
+        a: "No, a 2-page resume is not too long if you have 10+ years of experience or substantial relevant accomplishments. For experienced professionals and executives, 2 pages is expected and appropriate. However, if you have less than 10 years of experience, aim for 1 page unless you have exceptional achievements that warrant the extra space. Quality over quantity—a tight 1-page resume is better than a padded 2-page resume.",
+      }, {
+        q: "Should I use a 1-page or 2-page resume?",
+        a: "Use a 1-page resume if you have 0-7 years of experience, are applying for entry-level to mid-level positions, or work in industries that value extreme brevity (consulting, finance, startups). Use a 2-page resume if you have 8+ years of experience, are applying for senior or executive roles, have multiple significant accomplishments across different positions, or work in technical fields requiring detailed skills sections. When in doubt, start with 1 page and expand to 2 only if you have substantial relevant content.",
+      },
+      {
+        q: "Can a resume be 3 pages?",
+        a: "For most private sector jobs, no—a 3-page resume will hurt your chances. Recruiters won't read all 3 pages, and it signals an inability to prioritize. The only acceptable exceptions are: federal government resumes (USAJOBS format allows 3-5 pages), academic CVs (no page limit), highly technical security-cleared positions, and certain international applications. For 99% of jobs, keep your resume to 1-2 pages maximum.",
+      },
+      {
+        q: "How do I fit 15 years of experience on a resume?",
+        a: "Focus on the most recent and relevant 10-12 years with detailed bullets (4-6 bullets for recent roles, 2-3 for older roles). For experience beyond 10-15 years, create a brief 'Earlier Experience' or 'Additional Experience' section with just company names, titles, and dates—no bullets. Use tight formatting: 0.5-inch margins, 10-11pt font, single-column layout. Remove irrelevant positions entirely if they don't support your current career goals. The goal is a 2-page resume that highlights your progression and impact.",
+      },
+      {
+        q: "Does resume length affect ATS?",
+        a: "ATS systems don't directly penalize longer resumes, but length can create practical problems. Some ATS platforms truncate resumes after 2 pages, cutting off important information. Longer resumes are harder for ATS to parse correctly, increasing error rates. Critical keywords on page 3+ may never be seen by recruiters who only review pages 1-2. For optimal ATS performance and human review, keep your resume to 1-2 pages with clean, standard formatting.",
+      },
+    ],
+  },
+
+  // ────────────────────────────────────────────────────────────────
   // 1. How to Write a Resume
   // ────────────────────────────────────────────────────────────────
   {
