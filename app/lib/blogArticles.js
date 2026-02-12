@@ -406,6 +406,779 @@ export const blogArticles = [
     ],
   },
 
+
+  // ────────────────────────────────────────────────────────────────
+  // NEW #2: ATS Resume Optimization (HIGHEST VOLUME KEYWORD)
+  // ────────────────────────────────────────────────────────────────
+  {
+    slug: "ats-resume-optimization-guide",
+    title: "ATS Resume Optimization: How to Beat Applicant Tracking Systems in 2026",
+    category: "ats-optimization",
+    targetKeyword: "ATS resume",
+    keywords: [
+      "ATS resume",
+      "ATS optimization",
+      "ATS-friendly resume",
+      "applicant tracking system",
+      "ATS resume format",
+      "how to beat ATS",
+      "ATS resume scanner",
+      "ATS keywords",
+      "bypass ATS",
+      "optimize resume for ATS",
+    ],
+    metaTitle: "ATS Resume Optimization: How to Beat Applicant Tracking Systems in 2026",
+    metaDescription:
+      "Learn how to optimize your resume for ATS systems. Discover why 75% of resumes get rejected by ATS, 12 proven optimization techniques, formatting rules, and free ATS checker tool.",
+    excerpt:
+      "Your resume is being rejected before a human even sees it. Discover the exact ATS optimization strategies that help your resume pass applicant tracking systems and land in front of hiring managers.",
+    publishedDate: "2026-02-12",
+    updatedDate: "2026-02-12",
+    author: "ExpertResume Team",
+    readTime: "16 min read",
+    content: [
+      {
+        type: "paragraph",
+        text: "You've spent hours perfecting your resume. Your experience is solid. Your qualifications match the job description. You hit submit — and then silence. No interview. No response. Not even a rejection email. The culprit? Your resume probably never made it past the ATS (Applicant Tracking System). In this comprehensive guide, you'll learn exactly how ATS systems work, why they reject 75% of resumes, and the 12 proven techniques to optimize your resume so it passes every time.",
+      },
+      {
+        type: "heading",
+        text: "What Is an ATS (Applicant Tracking System)?",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "An Applicant Tracking System (ATS) is software that companies use to collect, sort, scan, and rank job applications. Think of it as a digital gatekeeper that screens resumes before any human recruiter sees them. Major ATS platforms include Workday, Taleo, Greenhouse, iCIMS, Lever, and BambooHR. Over 98% of Fortune 500 companies and 66% of large organizations use ATS software. Even many small-to-medium businesses now rely on these systems to manage high application volumes.",
+      },
+      {
+        type: "heading",
+        text: "How Does ATS Work? The Scanning Process",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "When you submit your resume through a job portal or company website, the ATS doesn't read your resume the way a human would. Instead, it parses (breaks down) your resume into data fields: contact information, work experience, education, skills, and certifications. The ATS then scans for specific keywords and phrases from the job description. It analyzes your resume format to ensure it can extract text correctly. Finally, it assigns your resume a match score based on how well your qualifications align with the job requirements. Resumes below a certain score threshold (typically 70-80%) are automatically rejected and never reach a human recruiter.",
+      },
+      {
+        type: "tip",
+        text: "Use ExpertResume's free ATS Score Checker to see exactly how an ATS reads your resume and get a match score before you apply. Aim for 80%+ for the best chance of getting through.",
+      },
+      {
+        type: "heading",
+        text: "Why 75% of Resumes Get Rejected by ATS",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "The failure rate is staggering, but it's not because candidates aren't qualified. Here are the top reasons ATS systems reject resumes:",
+      },
+      {
+        type: "list",
+        items: [
+          "Incompatible file format: Sending a resume as a JPEG, PNG, or corrupted PDF that the ATS can't parse",
+          "Complex formatting: Using tables, text boxes, headers/footers, or columns that break ATS parsing",
+          "Missing keywords: Not including exact keyword matches from the job description (ATS looks for 'project management,' not 'managing projects')",
+          "Non-standard section headers: Using creative headings like 'My Journey' instead of 'Work Experience' confuses the ATS",
+          "Fonts and graphics: Fancy fonts, logos, or images that the ATS cannot read or process",
+          "Inconsistent formatting: Different date formats, mixing bullet styles, or irregular spacing that makes parsing difficult",
+          "Lack of context: Acronyms without full spellings (writing 'SEO' without also including 'Search Engine Optimization')",
+          "Outdated file types: Submitting .pages, .odt, or other file formats that major ATS platforms don't support",
+        ],
+      },
+      {
+        type: "heading",
+        text: "12 ATS Optimization Techniques That Actually Work",
+        level: 2,
+      },
+      {
+        type: "heading",
+        text: "1. Use Standard Section Headings",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "ATS software is programmed to recognize specific section headers. Stick to conventional names like 'Work Experience,' 'Professional Experience,' 'Education,' 'Skills,' 'Certifications,' and 'Summary.' Avoid creative alternatives like 'Where I've Been,' 'What I'm Good At,' or 'My Story'—the ATS won't know where to categorize this information.",
+      },
+      {
+        type: "heading",
+        text: "2. Choose ATS-Friendly File Formats",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Always submit your resume as a .docx (Microsoft Word) or .pdf file. PDFs are generally ATS-compatible, but Word documents have the highest compatibility rate across all systems. Never use image files (.jpg, .png), Apple Pages (.pages), or uncommon formats. If the job posting doesn't specify, .docx is your safest bet.",
+      },
+      {
+        type: "heading",
+        text: "3. Mirror Keywords from the Job Description",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "This is the single most important ATS optimization technique. Read the job description carefully and identify key skills, qualifications, tools, and requirements. Then, naturally incorporate these exact phrases into your resume. If the job posting says 'stakeholder management,' use 'stakeholder management'—not 'managing stakeholders' or 'worked with stakeholders.' ATS systems look for exact matches.",
+      },
+      {
+        type: "example",
+        text: "Job Description: 'Experience with Salesforce CRM, data analysis, and cross-functional team leadership.'\n\nYour Resume: 'Led cross-functional team of 12 using Salesforce CRM for data analysis and pipeline management, increasing forecast accuracy by 34%.'",
+      },
+      {
+        type: "heading",
+        text: "4. Avoid Tables, Text Boxes, and Columns",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Many ATS platforms struggle to read content inside tables or text boxes. They may skip entire sections or jumble the text. Use a simple, single-column layout with clearly defined sections. If you need to organize information, use bullet points and line breaks instead of table cells.",
+      },
+      {
+        type: "heading",
+        text: "5. Use Standard Fonts",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Stick to ATS-friendly fonts that are universally readable: Calibri, Arial, Times New Roman, Georgia, Garamond, or Cambria. These fonts are clean, professional, and compatible with all ATS systems. Avoid decorative, script, or custom fonts that may not render correctly in the ATS database.",
+      },
+      {
+        type: "heading",
+        text: "6. Spell Out Acronyms and Abbreviations",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Don't assume the ATS understands industry acronyms. The first time you mention a credential, certification, or technical skill, spell it out fully, then include the acronym in parentheses. For example: 'Project Management Professional (PMP)' or 'Customer Relationship Management (CRM).' This ensures the ATS recognizes both the full term and the abbreviation.",
+      },
+      {
+        type: "heading",
+        text: "7. Include a Skills Section with Keywords",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Create a dedicated 'Skills' or 'Core Competencies' section near the top of your resume. List 10-15 relevant skills that appear in the job description. This creates a keyword-rich section that the ATS can easily scan. Organize by category if you have many skills (e.g., Technical Skills, Leadership Skills, Tools & Platforms).",
+      },
+      {
+        type: "heading",
+        text: "8. Use Consistent Date Formatting",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Choose one date format and use it throughout your resume. Recommended formats: 'January 2020 – December 2023' or 'Jan 2020 – Dec 2023' or '01/2020 – 12/2023.' Avoid mixing formats like 'Jan 2020 – December 2023.' Inconsistency confuses the ATS parser.",
+      },
+      {
+        type: "heading",
+        text: "9. Remove Headers and Footers",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Many ATS systems cannot read content placed in the header or footer sections of a document. Keep all your contact information, work experience, and other content in the main body of the resume. If you must use a header, limit it to your name only.",
+      },
+      {
+        type: "heading",
+        text: "10. Save with a Professional File Name",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Name your resume file professionally: 'FirstName-LastName-Resume.pdf' or 'John-Smith-Software-Engineer-Resume.docx.' Avoid generic names like 'Resume.pdf' or 'final_version_3.docx.' A clear file name helps recruiters find your resume later and signals professionalism.",
+      },
+      {
+        type: "heading",
+        text: "11. Test Your Resume with an ATS Checker",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Before submitting, run your resume through an ATS checker tool to see how the system reads it. These tools show you how well your resume matches the job description, identify missing keywords, and flag formatting issues. Aim for a match score of 80% or higher.",
+      },
+      {
+        type: "tip",
+        text: "ExpertResume's ATS Score Checker is free and shows you exactly how ATS systems parse your resume. Upload your resume and the job description to get instant feedback on what to fix.",
+      },
+      {
+        type: "heading",
+        text: "12. Tailor Your Resume for Every Application",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Generic resumes rarely score well in ATS systems. For each job application, adjust your resume to match that specific job description. Reorder your skills to prioritize the most relevant ones. Tweak your bullet points to include keywords from the posting. Update your professional summary to mirror the role's requirements. This customization significantly increases your ATS match score.",
+      },
+      {
+        type: "heading",
+        text: "ATS-Friendly Resume Format: Best Practices",
+        level: 2,
+      },
+      {
+        type: "list",
+        items: [
+          "Layout: Single column, top-to-bottom structure with clear section breaks",
+          "Margins: 0.5 to 1 inch on all sides for proper text extraction",
+          "Font size: 10-12pt for body text, 14-16pt for your name",
+          "Bullet points: Use standard round bullets (•) or hyphens (-), not custom symbols",
+          "Line spacing: 1-1.15 for readability without wasting space",
+          "Bold and italics: Use sparingly for emphasis (job titles, company names, section headers)",
+          "Color: Black text on white background is safest; subtle accent colors for headers are acceptable",
+          "Length: 1 page for entry-level, 2 pages for experienced professionals; never exceed 2 pages",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Keywords ATS Systems Look For",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "ATS software scans for keywords in several categories. Understanding what the system prioritizes helps you optimize strategically:",
+      },
+      {
+        type: "heading",
+        text: "Hard Skills and Technical Proficiencies",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "These are specific, measurable abilities: programming languages (Python, Java, SQL), software tools (Salesforce, Excel, Adobe Creative Suite), methodologies (Agile, Six Sigma, Lean), and certifications (PMP, CPA, AWS Certified Solutions Architect). Always use the exact terminology from the job description.",
+      },
+      {
+        type: "heading",
+        text: "Job Titles and Role-Specific Terms",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "If the job posting is for a 'Senior Product Manager,' make sure 'Product Manager' or 'Senior Product Manager' appears in your resume—ideally in your professional summary or a previous job title. ATS gives weight to title matches.",
+      },
+      {
+        type: "heading",
+        text: "Industry-Specific Terminology",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Use jargon and terminology common in your industry. For marketing: 'SEO,' 'conversion rate optimization,' 'marketing automation.' For healthcare: 'HIPAA compliance,' 'EHR systems,' 'patient outcomes.' For finance: 'financial modeling,' 'GAAP,' 'budget forecasting.' These terms signal domain expertise to the ATS.",
+      },
+      {
+        type: "heading",
+        text: "Action Verbs and Accomplishments",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "While ATS primarily scans for nouns (skills, tools, credentials), strong action verbs help with readability when a human reviews your resume. Use verbs like 'led,' 'managed,' 'optimized,' 'implemented,' 'developed,' 'increased,' 'reduced,' and 'launched.'",
+      },
+      {
+        type: "heading",
+        text: "Common ATS Myths Debunked",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "There's a lot of misinformation about ATS. Let's clear up the most common myths:",
+      },
+      {
+        type: "list",
+        items: [
+          "Myth: You should stuff your resume with keywords. Reality: Keyword stuffing makes your resume unreadable to humans and can actually lower your score. Use keywords naturally within the context of your accomplishments.",
+          "Myth: ATS can't read PDFs. Reality: Modern ATS systems handle PDFs just fine, as long as the PDF is text-based (not a scanned image). Word documents (.docx) are still slightly safer across all systems.",
+          "Myth: You need to include a 'white text' keyword section. Reality: This black-hat tactic doesn't work and may get you flagged or disqualified. ATS vendors are aware of this trick.",
+          "Myth: ATS rejects resumes over 2 pages. Reality: ATS doesn't care about page length—it cares about keyword matches and formatting. However, recruiters prefer concise resumes, so 2 pages is still the best practice.",
+          "Myth: ATS can't read creative resumes. Reality: ATS struggles with non-standard formatting (graphics, tables, unusual fonts), not creativity in writing. You can have compelling content in an ATS-friendly format.",
+        ],
+      },
+      {
+        type: "heading",
+        text: "ATS Optimization Checklist",
+        level: 2,
+      },
+      {
+        type: "list",
+        items: [
+          "✓ Resume saved as .docx or .pdf (text-based, not scanned)",
+          "✓ Standard section headers (Work Experience, Education, Skills)",
+          "✓ Single-column, top-to-bottom layout with no tables or text boxes",
+          "✓ Standard fonts (Calibri, Arial, Times New Roman, Georgia)",
+          "✓ Keywords from job description naturally integrated throughout",
+          "✓ Acronyms spelled out on first use (e.g., SEO = Search Engine Optimization)",
+          "✓ Consistent date formatting across all entries",
+          "✓ No content in headers/footers (except optionally your name)",
+          "✓ Professional file name (FirstName-LastName-Resume.pdf)",
+          "✓ Dedicated Skills section with 10-15 relevant keywords",
+          "✓ Bullet points use standard symbols (• or -)",
+          "✓ Resume tailored specifically to the target job description",
+          "✓ Tested with ATS checker tool and scored 80%+",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Using ExpertResume's ATS Optimizer",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "ExpertResume's platform includes built-in ATS optimization to ensure your resume passes every time. Every template is ATS-tested and verified to work with major systems like Workday, Taleo, and Greenhouse. The AI resume builder automatically formats your content for maximum ATS compatibility. The ATS Score Checker compares your resume against specific job descriptions and provides a detailed match score with actionable recommendations. Keyword suggestions help you identify and add missing terms from the job posting. Real-time formatting validation flags any ATS-incompatible elements before you export.",
+      },
+      {
+        type: "tip",
+        text: "Build your ATS-optimized resume free at ExpertResume. Our templates are specifically designed to pass ATS while looking great to human recruiters.",
+      },
+      {
+        type: "heading",
+        text: "What Happens After Your Resume Passes ATS?",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "Getting through the ATS is just the first step. Once your resume passes the automated screening, it lands in a recruiter's inbox. At this stage, you have about 7 seconds to make an impression. This is where strong formatting, compelling bullet points, and quantified achievements matter. A resume that's optimized for both ATS and human readers follows ATS best practices (keywords, standard formatting) while also being visually appealing and easy to scan. It leads with a powerful professional summary that immediately establishes value. Every bullet point includes specific metrics showing measurable impact. The overall design is clean, professional, and highlights your most relevant qualifications.",
+      },
+      {
+        type: "heading",
+        text: "ATS Optimization for Different Industries",
+        level: 2,
+      },
+      {
+        type: "heading",
+        text: "Tech and Engineering",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Include programming languages, frameworks, and tools exactly as listed in the job description. Spell out technical acronyms: 'Amazon Web Services (AWS),' 'Structured Query Language (SQL).' Add a Technical Skills section prominently near the top. Include links to GitHub, portfolio, or technical blog if relevant.",
+      },
+      {
+        type: "heading",
+        text: "Healthcare",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "List all certifications with full names and acronyms: 'Registered Nurse (RN),' 'Basic Life Support (BLS).' Include regulatory and compliance keywords: 'HIPAA,' 'Joint Commission,' 'patient safety.' Mention specific medical software and EHR systems by name.",
+      },
+      {
+        type: "heading",
+        text: "Finance and Accounting",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Include accounting standards: 'GAAP,' 'IFRS,' 'SOX compliance.' List software proficiency: 'SAP,' 'Oracle Financials,' 'QuickBooks.' Spell out credentials: 'Certified Public Accountant (CPA),' 'Chartered Financial Analyst (CFA).'",
+      },
+      {
+        type: "heading",
+        text: "Marketing and Creative",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Include both spelled-out terms and acronyms for marketing channels: 'Search Engine Optimization (SEO),' 'Pay-Per-Click (PPC).' List marketing platforms and tools: 'HubSpot,' 'Google Analytics,' 'Salesforce Marketing Cloud.' Even in creative fields, maintain ATS-friendly formatting—save the creativity for your portfolio.",
+      },
+    ],
+    tableOfContents: [
+      "What Is an ATS (Applicant Tracking System)?",
+      "How Does ATS Work? The Scanning Process",
+      "Why 75% of Resumes Get Rejected by ATS",
+      "12 ATS Optimization Techniques That Actually Work",
+      "ATS-Friendly Resume Format: Best Practices",
+      "Keywords ATS Systems Look For",
+      "Common ATS Myths Debunked",
+      "ATS Optimization Checklist",
+      "Using ExpertResume's ATS Optimizer",
+      "What Happens After Your Resume Passes ATS?",
+      "ATS Optimization for Different Industries",
+    ],
+    relatedArticles: ["expert-resume-complete-guide", "resume-keywords", "how-to-write-a-resume"],
+    relatedTools: [
+      { name: "ATS Score Checker", url: "/ats-score-checker" },
+      { name: "Expert Resume Builder", url: "/resume-builder" },
+      { name: "Resume Templates", url: "/resume-templates" },
+    ],
+    faq: [
+      {
+        q: "What percentage of resumes pass ATS?",
+        a: "Studies show that only about 25% of resumes make it past ATS screening. The main reasons for rejection are incompatible formatting, missing keywords, and non-standard section headers. By following ATS optimization best practices—using standard fonts, including relevant keywords, and testing with an ATS checker—you can significantly increase your chances of passing.",
+      },
+      {
+        q: "Can ATS read PDF resumes?",
+        a: "Yes, modern ATS systems can read PDF files, but the PDF must be text-based (not a scanned image or image-based PDF). When you save as PDF from Word or Google Docs, it creates a text-based PDF that ATS can parse. However, .docx files still have slightly better compatibility across all ATS platforms. When in doubt, submit a Word document.",
+      },
+      {
+        q: "Should I use keywords from the job description in my resume?",
+        a: "Absolutely. ATS systems scan for exact keyword matches from the job description. If the posting says 'project management,' use that exact phrase—not 'managing projects' or 'project coordination.' Read the job description carefully, identify 10-15 key skills and requirements, and naturally incorporate these terms into your resume. Aim for 70-85% keyword match for optimal results.",
+      },
+      {
+        q: "How do I check if my resume is ATS-friendly?",
+        a: "Use an ATS checker tool to test your resume. ExpertResume's free ATS Score Checker lets you upload your resume and the job description, then shows you exactly how an ATS parses your document. You'll get a match score, see which keywords are missing, and identify any formatting issues. Aim for a score of 80% or higher before submitting your application.",
+      },
+      {
+        q: "Do I need to optimize my resume for ATS for every job application?",
+        a: "Yes. Each job description has unique keywords and requirements. A generic resume rarely scores above 60% in ATS systems. For best results, customize your resume for each application by adjusting your skills section, reordering bullet points to prioritize relevant experience, updating your professional summary, and incorporating keywords specific to that job posting. This takes 10-15 minutes per application but dramatically increases your success rate.",
+      },
+      {
+        q: "Can I use a creative resume design and still pass ATS?",
+        a: "You can have creative, compelling content, but the format must remain ATS-friendly. Avoid tables, text boxes, graphics, custom fonts, and multi-column layouts. Stick to a clean, single-column design with standard section headers and readable fonts. Save your truly creative design for your portfolio or personal website. ExpertResume offers templates that balance professional aesthetics with ATS compatibility.",
+      },
+    ],
+  },
+
+  // ────────────────────────────────────────────────────────────────
+  // NEW #3: Resume Keywords Guide
+  // ────────────────────────────────────────────────────────────────
+  {
+    slug: "resume-keywords-guide",
+    title: "Resume Keywords: The Complete Guide to Optimizing Your Resume in 2026",
+    category: "ats-optimization",
+    targetKeyword: "resume keywords",
+    keywords: [
+      "resume keywords",
+      "keywords for resume",
+      "resume keyword optimization",
+      "ATS keywords",
+      "how to find resume keywords",
+      "industry-specific resume keywords",
+      "resume keywords list",
+      "keyword stuffing resume",
+      "resume keyword scanner",
+    ],
+    metaTitle: "Resume Keywords: The Complete Guide to Optimizing Your Resume in 2026",
+    metaDescription:
+      "Master resume keyword optimization. Learn how to find keywords in job descriptions, where to place them, and get 500+ industry-specific keywords to help your resume pass ATS and land interviews.",
+    excerpt:
+      "Resume keywords are the secret to getting past ATS and landing interviews. This guide shows you how to find the right keywords, where to place them, and includes 500+ industry-specific keywords you can use today.",
+    publishedDate: "2026-02-12",
+    updatedDate: "2026-02-12",
+    author: "ExpertResume Team",
+    readTime: "14 min read",
+    content: [
+      {
+        type: "paragraph",
+        text: "You have the right experience. Your qualifications match the job. But your resume keeps getting rejected. The problem? Missing keywords. Resume keywords are the specific words and phrases that hiring managers and ATS (Applicant Tracking Systems) scan for when reviewing applications. Get the keywords right, and your resume moves to the top of the pile. Get them wrong, and you're invisible. This comprehensive guide shows you exactly how to identify, integrate, and optimize resume keywords to dramatically improve your interview rate.",
+      },
+      {
+        type: "heading",
+        text: "What Are Resume Keywords?",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "Resume keywords are specific terms, phrases, job titles, skills, certifications, and industry terminology that employers look for when evaluating candidates. These keywords fall into several categories: hard skills (technical abilities, software proficiency, certifications), soft skills (communication, leadership, problem-solving), action verbs (managed, developed, implemented, optimized), job titles and role-specific terms, and industry jargon and terminology. Keywords help ATS systems identify qualified candidates and help recruiters quickly assess relevance during a 7-second resume scan.",
+      },
+      {
+        type: "heading",
+        text: "Why Resume Keywords Matter",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "Modern hiring relies heavily on technology. Over 98% of Fortune 500 companies use ATS software to screen resumes before humans ever see them. Here's how keywords impact your job search:",
+      },
+      {
+        type: "list",
+        items: [
+          "ATS Passing: Systems scan for exact keyword matches from the job description. Resumes with 70-85% keyword match score significantly higher and are more likely to reach human reviewers.",
+          "Recruiter Scanning: Even if a human reviews your resume, they scan for keywords in 6-7 seconds. The presence of relevant keywords immediately signals 'qualified candidate.'",
+          "Search Ranking: When recruiters search resume databases or LinkedIn, profiles with the right keywords appear at the top of search results.",
+          "Qualification Verification: Keywords prove you have specific skills, certifications, or experience without requiring detailed reading.",
+        ],
+      },
+      {
+        type: "tip",
+        text: "Use ExpertResume's free ATS Score Checker to see which keywords you're missing from a job description and get a match score before applying.",
+      },
+      {
+        type: "heading",
+        text: "How to Find the Right Keywords for Your Resume",
+        level: 2,
+      },
+      {
+        type: "heading",
+        text: "Step 1: Analyze the Job Description",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "The job posting is your keyword goldmine. Look for: skills and qualifications under 'Requirements' or 'Qualifications' sections, job titles and alternative titles mentioned throughout the posting, software tools, technologies, and platforms specifically named, certifications, licenses, or credentials referenced, and industry-specific terminology and acronyms. Read through 3-5 similar job postings for the same role to identify patterns—keywords that appear repeatedly across multiple postings are critical.",
+      },
+      {
+        type: "example",
+        text: "Sample Job Description Analysis:\nJob Title: 'Senior Marketing Manager'\nKey Keywords Found:\n- Marketing automation (HubSpot, Marketo)\n- SEO/SEM strategy\n- Campaign ROI analysis\n- Cross-functional team leadership\n- Budget management ($500K+)\n- Content marketing\n- Marketing qualified leads (MQLs)\n- Conversion rate optimization\n- Google Analytics, Salesforce",
+      },
+      {
+        type: "heading",
+        text: "Step 2: Use Keyword Research Tools",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Supplement your analysis with keyword research tools. LinkedIn job postings show 'Skills & Qualifications' sections that list exact keywords. Indeed and Glassdoor job listings highlight required and preferred qualifications. O*NET OnLine provides standardized occupational data with common skills and knowledge for each role. ExpertResume's ATS Checker automatically extracts and ranks keywords from job descriptions. Google autocomplete reveals what terms people commonly search when looking for resumes in your field.",
+      },
+      {
+        type: "heading",
+        text: "Step 3: Review Competitor Resumes",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Look at LinkedIn profiles of people who hold the job you want. Note which skills they list prominently, the terminology they use in their headlines and summaries, and endorsements they've received (these indicate valued skills). This research shows you the language successful candidates in your field use.",
+      },
+      {
+        type: "heading",
+        text: "Where to Place Keywords in Your Resume",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "Keyword placement matters. Strategic positioning ensures both ATS and human reviewers notice them immediately.",
+      },
+      {
+        type: "heading",
+        text: "Professional Summary (Top Priority)",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Your professional summary or profile section at the top of your resume should include your target job title, 3-5 most important hard skills or technical proficiencies, 2-3 key soft skills or leadership qualities, and the most critical industry-specific terms. This section is read first by both ATS and humans, so front-load it with high-value keywords.",
+      },
+      {
+        type: "example",
+        text: "Before: 'Experienced professional with a background in technology and team management.'\n\nAfter: 'Senior Software Engineering Manager with 10+ years leading cross-functional teams in Agile environments. Expert in cloud architecture (AWS, Azure), microservices development, DevOps practices, and scaling high-growth SaaS platforms. Proven track record in technical leadership, stakeholder management, and delivering 40% faster time-to-market.'",
+      },
+      {
+        type: "heading",
+        text: "Skills Section (Critical for ATS)",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Create a dedicated 'Skills,' 'Core Competencies,' or 'Technical Skills' section. List 12-20 relevant keywords in bullet or comma-separated format. Organize by category if you have diverse skills (Technical Skills, Leadership Skills, Tools & Platforms). Include both spelled-out terms and acronyms: 'Search Engine Optimization (SEO).'",
+      },
+      {
+        type: "heading",
+        text: "Work Experience Bullets",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Weave keywords naturally into your achievement bullets. Don't just list keywords—demonstrate how you used them to create results. Use specific tools, methodologies, and technologies by name. Include the skill/keyword + the measurable outcome.",
+      },
+      {
+        type: "example",
+        text: "Weak: 'Worked on marketing campaigns and social media.'\n\nStrong: 'Led multi-channel marketing campaigns using HubSpot marketing automation, increasing marketing qualified leads (MQLs) by 67% and improving conversion rates from 2.1% to 4.3% through A/B testing and SEO optimization.'",
+      },
+      {
+        type: "heading",
+        text: "Education and Certifications",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Always spell out degree names, certifications, and credentials in full, followed by the acronym. For example: 'Master of Business Administration (MBA)' or 'Project Management Professional (PMP), PMI, 2024.' This ensures ATS recognizes both versions.",
+      },
+      {
+        type: "heading",
+        text: "Job Titles",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "If your official title doesn't match industry standards, consider adding a clarifying subtitle. For example: 'Team Lead – Digital Marketing (functioning as Marketing Manager).' This helps ATS match your experience to the job title in the posting.",
+      },
+      {
+        type: "heading",
+        text: "500+ Industry-Specific Resume Keywords",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "Here are high-value keywords organized by industry and function. Use these as a starting point, then customize based on your specific target job description.",
+      },
+      {
+        type: "heading",
+        text: "Technology & Software Engineering",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Programming: Python, Java, JavaScript, C++, C#, Ruby, PHP, Swift, Kotlin, TypeScript, Go, Rust, R, Scala, SQL\n\nFrameworks: React, Angular, Vue.js, Node.js, Django, Flask, Spring Boot, .NET, Laravel, Ruby on Rails\n\nCloud & DevOps: AWS, Azure, Google Cloud Platform (GCP), Docker, Kubernetes, CI/CD, Jenkins, Terraform, Ansible, Git, Linux\n\nData & AI: Machine Learning, Data Science, TensorFlow, PyTorch, SQL, NoSQL, MongoDB, PostgreSQL, Hadoop, Spark, ETL\n\nMethodologies: Agile, Scrum, Kanban, DevOps, Test-Driven Development (TDD), Continuous Integration",
+      },
+      {
+        type: "heading",
+        text: "Marketing & Digital Marketing",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Digital Channels: SEO, SEM, PPC, Social Media Marketing, Content Marketing, Email Marketing, Influencer Marketing, Affiliate Marketing\n\nTools & Platforms: Google Analytics, HubSpot, Salesforce Marketing Cloud, Marketo, Google Ads, Facebook Ads Manager, Hootsuite, SEMrush, Mailchimp\n\nSkills: Marketing Automation, Campaign Management, Conversion Rate Optimization (CRO), A/B Testing, Marketing Analytics, Lead Generation, Brand Strategy, Customer Acquisition Cost (CAC), Marketing Qualified Leads (MQLs)",
+      },
+      {
+        type: "heading",
+        text: "Finance & Accounting",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Technical Skills: Financial Modeling, Budget Forecasting, Variance Analysis, GAAP, IFRS, Financial Reporting, Tax Planning, Audit, Cost Accounting, Revenue Recognition\n\nSoftware: SAP, Oracle Financials, QuickBooks, Xero, NetSuite, Excel (Advanced), Power BI, Tableau\n\nCertifications: CPA (Certified Public Accountant), CFA (Chartered Financial Analyst), CMA (Certified Management Accountant), CIA (Certified Internal Auditor)",
+      },
+      {
+        type: "heading",
+        text: "Healthcare",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Clinical: Patient Care, Clinical Assessment, Treatment Planning, Case Management, HIPAA Compliance, EMR/EHR Systems, Patient Safety, Quality Improvement\n\nAdministrative: Healthcare Administration, Revenue Cycle Management, Medical Coding (ICD-10, CPT), Insurance Verification, Practice Management, Joint Commission Standards\n\nCertifications: RN (Registered Nurse), BLS/ACLS (Basic/Advanced Cardiac Life Support), NP (Nurse Practitioner), FACHE (Fellow of American College of Healthcare Executives)",
+      },
+      {
+        type: "heading",
+        text: "Sales & Business Development",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Skills: B2B Sales, B2C Sales, Lead Generation, Pipeline Management, Contract Negotiation, Account Management, Sales Forecasting, CRM (Customer Relationship Management), Consultative Selling\n\nTools: Salesforce, HubSpot CRM, Pipedrive, Outreach, SalesLoft, LinkedIn Sales Navigator\n\nMetrics: Sales Quota Attainment, Revenue Growth, Win Rate, Average Deal Size, Sales Cycle Length",
+      },
+      {
+        type: "heading",
+        text: "Human Resources",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Recruitment: Talent Acquisition, Full-Cycle Recruiting, Applicant Tracking Systems (ATS), Candidate Sourcing, Behavioral Interviewing, Employer Branding\n\nHRMS: Workday, ADP, BambooHR, SAP SuccessFactors, Oracle HCM\n\nFunctions: Performance Management, Employee Relations, Compensation & Benefits, HRIS, Organizational Development, Change Management, Diversity & Inclusion",
+      },
+      {
+        type: "heading",
+        text: "Project Management",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Methodologies: Agile, Waterfall, Scrum, Kanban, Lean, Six Sigma, PRINCE2\n\nTools: Jira, Asana, Monday.com, Microsoft Project, Trello, Smartsheet, Confluence\n\nSkills: Risk Management, Stakeholder Management, Resource Allocation, Budget Management, Timeline Management, Cross-Functional Team Leadership, Change Management\n\nCertifications: PMP (Project Management Professional), PMI-ACP (Agile Certified Practitioner), CAPM (Certified Associate in Project Management)",
+      },
+      {
+        type: "heading",
+        text: "Keyword Optimization Best Practices",
+        level: 2,
+      },
+      {
+        type: "list",
+        items: [
+          "Match Exact Phrases: If the job says 'project management,' use 'project management,' not 'managing projects.'",
+          "Use Both Acronyms and Spelled-Out Terms: Include both 'SEO' and 'Search Engine Optimization' to ensure ATS catches either version.",
+          "Prioritize by Frequency: If 'Python' appears 5 times in the job description and 'Ruby' appears once, prioritize Python.",
+          "Integrate Naturally: Don't create awkward sentences just to stuff keywords. Read your resume aloud—it should sound natural.",
+          "Update for Each Application: Tailor your keyword selection for every job. A 10-minute customization can increase your ATS score from 60% to 85%.",
+          "Front-Load Important Keywords: Place the most critical keywords in your professional summary and first few experience bullets.",
+          "Quantify When Possible: Pair keywords with metrics: 'Led Agile transformation for 8 teams, reducing sprint cycle time by 30%.'",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Keyword Stuffing: What NOT to Do",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "While keywords are critical, keyword stuffing—cramming excessive keywords into your resume unnaturally—hurts more than it helps. ATS systems can detect unnatural keyword density and may flag your resume. More importantly, if a human reads a keyword-stuffed resume, it looks desperate and unprofessional. Avoid these common mistakes:",
+      },
+      {
+        type: "list",
+        items: [
+          "Repeating the Same Keyword Excessively: Using 'project management' 15 times in a one-page resume looks robotic.",
+          "Creating Invisible Text: Adding white-on-white text with keywords to trick ATS is a well-known tactic that recruiters check for and will disqualify you.",
+          "Listing Unrelated Keywords: Including technologies you've never used just because they're in the job description can backfire in interviews.",
+          "Ignoring Context: Keywords need to be part of coherent sentences describing actual accomplishments, not random lists.",
+        ],
+      },
+      {
+        type: "tip",
+        text: "Aim for a keyword density of 2-4% for your most important keywords. ExpertResume's ATS Checker shows you if your keyword usage is too low, optimal, or excessive.",
+      },
+      {
+        type: "heading",
+        text: "Testing Your Resume Keyword Optimization",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "Before submitting your resume, test it against the job description. Use an ATS checker tool (like ExpertResume's free checker) that shows your match score, identifies missing keywords, and flags formatting issues. Aim for 75-85% keyword match—higher than 90% can look like keyword stuffing. Review the feedback and adjust by adding missing high-priority keywords where they fit naturally. Removing irrelevant keywords that don't apply to the specific role ensures you're re-prioritizing based on the new target. Test again until you achieve your target score.",
+      },
+      {
+        type: "heading",
+        text: "How ExpertResume Helps with Keyword Optimization",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "ExpertResume's AI-powered platform takes the guesswork out of keyword optimization. The ATS Score Checker compares your resume to any job description and provides a detailed keyword analysis. Smart keyword suggestions recommend which terms to add based on the job requirements and your experience. The Resume Builder auto-populates industry-specific keywords as you build your resume. Real-time optimization feedback shows you if keywords are missing or overused. Industry-specific templates include pre-optimized keyword sections tailored to your field.",
+      },
+      {
+        type: "tip",
+        text: "Build your keyword-optimized resume free at ExpertResume. Our AI analyzes job descriptions and automatically suggests the best keywords for your industry.",
+      },
+      {
+        type: "heading",
+        text: "Common Keyword Mistakes to Avoid",
+        level: 2,
+      },
+      {
+        type: "list",
+        items: [
+          "Using Outdated Terms: 'Webmaster' instead of 'Web Developer' dates your resume and won't match modern job postings.",
+          "Ignoring Soft Skills: While technical keywords matter, don't skip soft skills like 'leadership,' 'communication,' 'collaboration,' and 'problem-solving' that appear in job descriptions.",
+          "Forgetting Industry Jargon: If your industry uses specific terminology (like 'GAAP' in accounting or 'SOC 2' in security), include it exactly as written.",
+          "Using Only Generic Terms: 'Managed projects' is generic. 'Managed Agile software development projects using Jira for a cross-functional team of 12' is specific and keyword-rich.",
+          "Not Updating Regularly: As your field evolves, so do the keywords. Update your resume quarterly to reflect current terminology.",
+        ],
+      },
+    ],
+    tableOfContents: [
+      "What Are Resume Keywords?",
+      "Why Resume Keywords Matter",
+      "How to Find the Right Keywords for Your Resume",
+      "Where to Place Keywords in Your Resume",
+      "500+ Industry-Specific Resume Keywords",
+      "Keyword Optimization Best Practices",
+      "Keyword Stuffing: What NOT to Do",
+      "Testing Your Resume Keyword Optimization",
+      "How ExpertResume Helps with Keyword Optimization",
+      "Common Keyword Mistakes to Avoid",
+    ],
+    relatedArticles: ["ats-resume-optimization-guide", "expert-resume-complete-guide", "how-to-write-a-resume"],
+    relatedTools: [
+      { name: "ATS Score Checker", url: "/ats-score-checker" },
+      { name: "Resume Builder with Keywords", url: "/resume-builder" },
+      { name: "Resume Templates", url: "/resume-templates" },
+    ],
+    faq: [
+      {
+        q: "How many keywords should I include in my resume?",
+        a: "Include 15-30 relevant keywords throughout your resume, strategically placed in your professional summary, skills section, and work experience bullets. The exact number depends on your field and the specific job description. Focus on quality over quantity—each keyword should be relevant and used in context. Use ExpertResume's ATS Checker to see if you have the right keyword density for a specific job.",
+      },
+      {
+        q: "Should I use keywords from the job description even if I don't have that exact experience?",
+        a: "Only include keywords for skills and experience you actually possess. Never lie or include keywords for qualifications you don't have—this will be exposed in interviews and reference checks. However, if you have related experience, use the job description's terminology. For example, if you've done 'customer success' work but the job says 'account management,' you can emphasize your account management aspects using their preferred term.",
+      },
+      {
+        q: "Where should keywords appear in my resume?",
+        a: "Keywords should appear in multiple strategic locations: at the top in your professional summary (3-5 key keywords), in a dedicated Skills section (12-20 keywords), throughout your work experience bullets (naturally integrated with accomplishments), in education and certifications sections (spelled out + acronyms), and in your job titles (if applicable). The professional summary and skills section are most critical for ATS scanning.",
+      },
+      {
+        q: "How do I find keywords for my resume?",
+        a: "Start by analyzing the job description for required skills, qualifications, tools, and industry terms that appear multiple times. Compare 3-5 similar job postings to identify common keywords. Use LinkedIn to review profiles of people in your target role and note their skills. Use ExpertResume's ATS Checker to automatically extract and rank keywords from any job posting. Check O*NET for standardized occupational skills data.",
+      },
+      {
+        q: "What's the difference between hard skill keywords and soft skill keywords?",
+        a: "Hard skill keywords are technical, measurable abilities like 'Python programming,' 'Salesforce CRM,' 'Project Management Professional (PMP),' or 'GAAP accounting.' Soft skill keywords are interpersonal qualities like 'leadership,' 'communication,' 'problem-solving,' or 'teamwork.' Both matter for ATS and recruiters. Include 70% hard skills (more concrete and searchable) and 30% soft skills (shows you're well-rounded).",
+      },
+      {
+        q: "Can I use synonyms instead of exact keywords?",
+        a: "ATS systems look for exact matches, so if the job description says 'customer relationship management,' using 'client relations' won't score points with the ATS. However, you can include both terms: use the exact phrase from the job description and also use synonyms or related terms to show breadth. For human reviewers, synonyms demonstrate versatility, but for ATS, exact matches are crucial.",
+      },
+    ],
+  },
+
   // ────────────────────────────────────────────────────────────────
   // 1. How to Write a Resume
   // ────────────────────────────────────────────────────────────────
