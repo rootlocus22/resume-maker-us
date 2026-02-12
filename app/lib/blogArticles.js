@@ -40,6 +40,372 @@ export const blogCategories = {
 };
 
 export const blogArticles = [
+  //────────────────────────────────────────────────────────────────
+  // NEW: Expert Resume - The Complete Guide (PRIMARY KEYWORD ARTICLE)
+  // ────────────────────────────────────────────────────────────────
+  {
+    slug: "expert-resume-complete-guide",
+    title: "Expert Resume: The Complete Guide to Creating a Professional Expert Resume in 2026",
+    category: "resume-writing",
+    targetKeyword: "expert resume",
+    keywords: [
+      "expert resume",
+      "create expert resume",
+      "professional expert resume",
+      "expert resume template",
+      "expert resume builder",
+      "what is an expert resume",
+      "expert resume examples",
+      "expert resume writing",
+      "expert resume format",
+      "expert level resume",
+    ],
+    metaTitle: "Expert Resume: The Complete Guide to Creating a Professional Expert Resume in 2026",
+    metaDescription:
+      "Learn how to create an expert resume that gets you hired. This complete guide covers elements, templates, examples, and writing tips for building a professional expert resume that stands out.",
+    excerpt:
+      "Master expert resume creation with our comprehensive 2026 guide. Learn the 10 essential elements, see real examples, avoid common mistakes, and use our expert resume builder to create a resume that lands interviews.",
+    publishedDate: "2026-02-12",
+    updatedDate: "2026-02-12",
+    author: "ExpertResume Team",
+    readTime: "18 min read",
+    content: [
+      {
+        type: "paragraph",
+        text: "An expert resume is more than just a list of your jobs—it's a strategic marketing document that positions you as a top-tier professional in your field. Whether you're a seasoned executive, a specialized professional, or an industry leader, creating an expert resume requires understanding what separates a good resume from an exceptional one. In this comprehensive guide, you'll discover the exact elements that make an expert resume, see real-world examples, and learn how to build yours using proven strategies that land interviews at the world's best companies.",
+      },
+      {
+        type: "heading",
+        text: "What Is an Expert Resume?",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "An expert resume is a professionally crafted document that showcases advanced skills, significant achievements, and specialized expertise in a specific field or industry. Unlike entry-level or mid-career resumes, an expert resume demonstrates mastery through quantifiable results, leadership impact, and recognition in your profession. It's designed for professionals with 10+ years of experience, C-suite executives, subject matter experts, and industry leaders who need to communicate their value at the highest level.",
+      },
+      {
+        type: "tip",
+        text: "The key difference: an expert resume focuses on impact and leadership rather than just responsibilities. Every line should answer the question, 'How did I make a measurable difference?'",
+      },
+      {
+        type: "heading",
+        text: "Expert Resume vs. Standard Resume: Key Differences",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "Understanding the distinction between an expert resume and a standard resume is crucial for positioning yourself correctly. Here's what sets an expert resume apart:",
+      },
+      {
+        type: "list",
+        items: [
+          "Strategic positioning: Expert resumes lead with a powerful executive summary that immediately establishes authority, while standard resumes may use generic objective statements",
+          "Quantified achievements: Every bullet point includes specific metrics (revenue growth, cost savings, team size, project scope) showing measurable impact",
+          "Leadership emphasis: Highlights strategic decision-making, team leadership, cross-functional collaboration, and organizational influence",
+          "Industry recognition: Includes speaking engagements, publications, awards, certifications, and thought leadership activities",
+          "Selective experience: Focuses on the most recent and relevant 10-15 years, with strategic omission of outdated or non-essential roles",
+          "Professional design: Uses a sophisticated, ATS-friendly format that balances visual appeal with scannability",
+        ],
+      },
+      {
+        type: "heading",
+        text: "10 Essential Elements Every Expert Resume Must Have",
+        level: 2,
+      },
+      {
+        type: "heading",
+        text: "1. Compelling Executive Summary",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Your executive summary is your personal brand statement—a 4-5 sentence powerhouse that immediately positions you as an expert in your field. It should include your professional title, years of experience, core expertise areas, top 2-3 career achievements with metrics, and your unique value proposition.",
+      },
+      {
+        type: "example",
+        text: "Senior Software Engineering Leader with 15+ years driving digital transformation for Fortune 500 companies. Led engineering teams of 50+ developers in migrating legacy systems to cloud-native architectures, reducing infrastructure costs by $12M annually. Expertise in microservices, DevOps culture, and scaling high-growth SaaS platforms from startup to IPO. Known for building engineering excellence cultures that attract top-tier talent and deliver 40% faster time-to-market.",
+      },
+      {
+        type: "heading",
+        text: "2. Strategic Skills Showcase",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "An expert resume strategically organizes skills into categories that mirror the job requirements while showcasing depth and breadth. Include technical skills (relevant tools, technologies, methodologies), leadership skills (people management, strategic planning, change management), and industry expertise (domain-specific knowledge, regulatory frameworks, market insights). Aim for 12-18 high-value skills that directly align with your target role.",
+      },
+      {
+        type: "heading",
+        text: "3. Results-Driven Experience Section",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "This is where the expert resume truly shines. Each role should follow the CAR (Challenge-Action-Result) or STAR (Situation-Task-Action-Result) framework. Structure each position with: clear job title emphasizing seniority, company name with brief context if not well-known, employment dates (month/year format), and 4-6 achievement bullets that each include a specific metric or outcome.",
+      },
+      {
+        type: "example",
+        text: "• Spearheaded company-wide digital transformation initiative, leading a cross-functional team of 30+ across engineering, product, and business units to replace legacy ERP system, resulting in 65% improvement in operational efficiency and $18M in annual cost savings\n\n• Built and scaled data engineering organization from 5 to 45 engineers in 18 months, establishing best practices for data governance that improved data quality scores from 67% to 94% while reducing compliance incidents by 100%",
+      },
+      {
+        type: "heading",
+        text: "4. Relevant Certifications and Credentials",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Expert-level professionals often hold industry-recognized certifications that validate their specialized knowledge. List certifications in order of relevance with the full official name, issuing organization, and year obtained. Prioritize advanced credentials like PMP, CISSP, CFA, AWS Solutions Architect Professional, or industry-specific board certifications.",
+      },
+      {
+        type: "heading",
+        text: "5. Education with Strategic Placement",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "For expert-level professionals, education typically appears near the bottom unless you have prestigious degrees (MBA from top-10 program, PhD from research university) that add significant credibility. Include degree name, institution name with location if prestigious, and graduation year only if within last 10 years. Add academic honors only if exceptional (summa cum laude, Phi Beta Kappa, published research).",
+      },
+      {
+        type: "heading",
+        text: "6. Thought Leadership and Publications",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "This section differentiates true experts from experienced professionals. Include conference presentations and keynotes, published articles or books, podcast or media appearances, patents or intellectual property, and industry awards or recognition. Format as a separate section titled 'Speaking Engagements,' 'Publications,' or 'Professional Recognition' depending on your focus area.",
+      },
+      {
+        type: "heading",
+        text: "7. Professional Affiliations",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Membership in prestigious professional organizations signals credibility and ongoing professional development. Include leadership roles in professional associations, board memberships or advisory positions, and active committee participation. Only list affiliations where you're genuinely active—hiring managers can verify.",
+      },
+      {
+        type: "heading",
+        text: "8. ATS-Optimized Formatting",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Even expert resumes must pass applicant tracking systems. Use standard section headers (Professional Experience, Education, Skills), avoid tables, text boxes, and graphics that confuse ATS parsers, save as .pdf or .docx depending on application requirements, use standard fonts (Calibri, Arial, Garamond, Georgia) in 10-12pt, and maintain consistent formatting for dates, bullet styles, and spacing.",
+      },
+      {
+        type: "heading",
+        text: "9. Keywords from Target Job Descriptions",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Expert resumes are tailored documents—never send the same resume twice. Extract key phrases from the job posting and naturally integrate them throughout your resume. Focus on technical skills, industry terminology, leadership competencies, and required qualifications. Aim for 70-85% keyword match with the job description for optimal ATS scoring.",
+      },
+      {
+        type: "tip",
+        text: "Use ExpertResume's ATS Score Checker to compare your resume against a specific job description and get instant feedback on keyword optimization, formatting issues, and overall match score.",
+      },
+      {
+        type: "heading",
+        text: "10. Professional Design That Commands Respect",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "An expert resume should look as sophisticated as the professional it represents. Use a clean, modern template with clear visual hierarchy, strategic use of white space for readability, subtle accent colors that enhance rather than distract, and professional section dividers or subtle lines. The design should whisper competence, not shout for attention.",
+      },
+      {
+        type: "heading",
+        text: "Expert Resume Templates: Choosing the Right Format",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "The best expert resume template depends on your industry and career focus. For corporate executives and business leaders, use a traditional, minimalist design with emphasis on executive summary and board positions. For creative directors and design professionals, incorporate subtle design elements that showcase aesthetic sensibility without compromising ATS compatibility. For technical experts and engineers, use a clean, data-focused layout with prominent skills section and GitHub/portfolio links. For consultants and advisors, emphasize client impact, project outcomes, and thought leadership.",
+      },
+      {
+        type: "tip",
+        text: "ExpertResume offers 50+ ATS-optimized templates designed specifically for experienced professionals. Each template has been tested with major ATS systems to ensure your expert resume gets through.",
+      },
+      {
+        type: "heading",
+        text: "How to Write Each Section of Your Expert Resume",
+        level: 2,
+      },
+      {
+        type: "heading",
+        text: "Crafting Your Executive Summary",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Start with your most impressive credential or title. Quantify your experience (years, team sizes managed, budget responsibility). Highlight 2-3 signature achievements with specific metrics. Include your core expertise areas using industry keywords. End with your unique value proposition—what makes you different from other experts in your field.",
+      },
+      {
+        type: "heading",
+        text: "Writing Achievement-Focused Bullets",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Use the formula: Strong action verb + specific initiative + quantified outcome. Front-load each bullet with the most impressive information. Include context when the achievement might not be obvious (company size, market conditions, team constraints). Compare before and after states to show transformation. Use percentages, dollar amounts, timeframes, and scope indicators.",
+      },
+      {
+        type: "example",
+        text: "Instead of: 'Responsible for managing sales team and increasing revenue.'\n\nWrite: 'Transformed underperforming sales organization from $12M to $47M in annual recurring revenue in 3 years by implementing consultative selling methodology, restructuring compensation plans, and upgrading talent in 8 of 12 key positions—achieving #1 regional ranking in company.'",
+      },
+      {
+        type: "heading",
+        text: "Common Expert Resume Mistakes to Avoid",
+        level: 2,
+      },
+      {
+        type: "list",
+        items: [
+          "Listing job descriptions instead of accomplishments: Your resume should read like a highlight reel, not a job posting",
+          "Including outdated skills: Mentioning Windows XP or obsolete technologies dates you unnecessarily—focus on current, relevant expertise",
+          "Using a generic template: Expert resumes require customization for each application, not a one-size-fits-all approach",
+          "Exceeding two pages: Even with 20+ years of experience, discipline yourself to 2 pages maximum by being selective about what matters most",
+          "Ignoring ATS optimization: No matter how qualified you are, you won't get an interview if your resume never reaches a human",
+          "Underselling achievements: False modesty has no place in an expert resume—if you led a $50M initiative, say so with confidence",
+          "Including irrelevant early career details: Your summer internship from 1998 doesn't belong on an expert resume",
+          "Forgetting to update contact information: Ensure your LinkedIn profile matches your resume and includes a professional email address",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Expert Resume Examples by Industry",
+        level: 2,
+      },
+      {
+        type: "heading",
+        text: "Software Engineering Executive",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "An expert software engineering resume emphasizes technical leadership, architecture decisions, and team scaling. Highlight technology stack modernization, engineering culture building, recruitment and retention metrics, and cross-functional collaboration with product and business teams. Include links to GitHub, technical blog, or notable open-source contributions.",
+      },
+      {
+        type: "heading",
+        text: "Marketing Director / CMO",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Expert marketing resumes focus on revenue impact, brand positioning, and customer acquisition. Lead with metrics like CAC reduction, LTV improvement, pipeline generation, and brand awareness growth. Include campaign ROI, marketing technology stack implementation, and team development.",
+      },
+      {
+        type: "heading",
+        text: "Finance Executive / CFO",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Finance expert resumes showcase fiscal responsibility, strategic planning, and stakeholder management. Emphasize fundraising (equity rounds, debt facilities), M&A experience, financial systems implementation, and board-level reporting. Include certifications like CPA or CFA prominently.",
+      },
+      {
+        type: "heading",
+        text: "Healthcare Administrator",
+        level: 3,
+      },
+      {
+        type: "paragraph",
+        text: "Healthcare expert resumes balance clinical knowledge with operational excellence. Highlight patient outcomes improvement, regulatory compliance achievements, cost containment initiatives, and accreditation successes. Include relevant credentials (FACHE, CHCIO) and committee leadership.",
+      },
+      {
+        type: "heading",
+        text: "Expert Resume Checklist: Is Yours Ready?",
+        level: 2,
+      },
+      {
+        type: "list",
+        items: [
+          "✓ Executive summary immediately establishes expertise and value proposition",
+          "✓ Every achievement bullet includes specific, quantified results",
+          "✓ Keywords from target job description appear naturally throughout",
+          "✓ Skills section showcases 12-18 relevant high-value competencies",
+          "✓ Professional experience focused on most recent and impactful 10-15 years",
+          "✓ Certifications, credentials, and education properly highlighted",
+          "✓ Thought leadership section (if applicable) demonstrates industry standing",
+          "✓ Format is ATS-compatible with standard headers and clean structure",
+          "✓ Design is professional and sophisticated without being flashy",
+          "✓ Total length is 1-2 pages (2 pages strongly preferred for expert level)",
+          "✓ Proofread multiple times with zero typos or grammatical errors",
+          "✓ File saved as PDF with professional name (FirstName-LastName-Resume.pdf)",
+          "✓ ATS score of 80%+ when matched against target job description",
+        ],
+      },
+      {
+        type: "heading",
+        text: "How to Build Your Expert Resume with ExpertResume",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "Creating an expert resume from scratch can take 10-15 hours of focused work. ExpertResume's AI-powered builder streamlines this process to under 30 minutes while maintaining the quality and customization experts demand. Simply input your basic information and ExpertResume generates tailored content suggestions based on your industry and role. Choose from 50+ professional templates designed for executive-level positions. The AI analyzes your experience and suggests achievement-focused bullet points with proper metrics. Check your ATS score against specific job descriptions before applying. Export your expert resume as a perfectly formatted PDF ready to submit.",
+      },
+      {
+        type: "tip",
+        text: "Start building your expert resume for free at ExpertResume. No credit card required—just professional results in minutes.",
+      },
+      {
+        type: "heading",
+        text: "Next Steps: From Expert Resume to Interview",
+        level: 2,
+      },
+      {
+        type: "paragraph",
+        text: "Once your expert resume is complete, optimize your LinkedIn profile to mirror your resume's positioning and achievements. Identify 20-30 target companies where your expertise adds the most value. Leverage your professional network for warm introductions to hiring managers. Apply strategically rather than broadly—quality over quantity wins at the expert level. Follow up 7-10 days after submitting your application with a personalized note. Prepare for executive-level interviews by developing case studies of your most significant achievements. Consider working with an executive recruiter who specializes in your industry.",
+      },
+    ],
+    tableOfContents: [
+      "What Is an Expert Resume?",
+      "Expert Resume vs. Standard Resume: Key Differences",
+      "10 Essential Elements Every Expert Resume Must Have",
+      "Expert Resume Templates: Choosing the Right Format",
+      "How to Write Each Section of Your Expert Resume",
+      "Common Expert Resume Mistakes to Avoid",
+      "Expert Resume Examples by Industry",
+      "Expert Resume Checklist: Is Yours Ready?",
+      "How to Build Your Expert Resume with ExpertResume",
+      "Next Steps: From Expert Resume to Interview",
+    ],
+    relatedArticles: ["how-to-write-a-resume", "resume-summary-examples", "ats-friendly-resume"],
+    relatedTools: [
+      { name: "Expert Resume Builder", url: "/resume-builder" },
+      { name: "ATS Score Checker", url: "/ats-score-checker" },
+      { name: "Resume Templates", url: "/resume-templates" },
+      { name: "Resume Examples", url: "/resume-examples" },
+    ],
+    faq: [
+      {
+        q: "What makes an expert resume different from a regular resume?",
+        a: "An expert resume focuses on strategic impact and leadership achievements rather than just job responsibilities. It includes quantified results showing measurable business impact, emphasizes thought leadership and industry recognition, showcases advanced certifications and credentials, and demonstrates mastery in a specific field through concrete evidence. The writing is more strategic and results-oriented.",
+      },
+      {
+        q: "How long should an expert resume be?",
+        a: "For most expert-level professionals, a two-page resume is ideal. This length allows you to comprehensively showcase 10-15 years of relevant experience, highlight significant achievements with proper detail, include thought leadership and professional recognition, and maintain readability without overwhelming the reader. One page is generally too restrictive for the depth experts need to convey.",
+      },
+      {
+        q: "Should I include all my years of experience on an expert resume?",
+        a: "No. Focus on your most recent and relevant 10-15 years with detailed bullet points. Earlier experience can be summarized briefly under an 'Early Career' section with just company names, titles, and dates—no bullets. This keeps your resume focused on current, relevant expertise while acknowledging your full career trajectory without dating yourself unnecessarily.",
+      },
+      {
+        q: "How often should I update my expert resume?",
+        a: "Update your expert resume quarterly even if you're not actively job searching. Add new certifications, accomplishments, speaking engagements, or publications as they occur. Review and refresh your metrics annually—what seemed impressive 3 years ago may have been surpassed. Tailor your resume for every single application by adjusting your summary and reordering bullets to match the specific role.",
+      },
+      {
+        q: "Do expert resumes need to be ATS-optimized?",
+        a: "Absolutely. Even C-suite and executive positions increasingly require ATS optimization. Major corporations use ATS to manage high application volumes, and your resume must pass this digital gatekeeper before reaching human eyes. Use standard section headers, avoid complex formatting, include relevant keywords from job descriptions, and test with an ATS checker before sending. ExpertResume's templates are all ATS-optimized while maintaining professional aesthetics.",
+      },
+      {
+        q: "Should I work with a professional resume writer for an expert resume?",
+        a: "It depends on your writing skills, available time, and comfort with self-promotion. Professional resume writers who specialize in executive resumes can provide objective perspective, industry-specific insights, and polished writing. However, they can be expensive ($500-2,000+) and may not capture your unique voice. ExpertResume's AI-powered builder offers a middle ground—professional-quality content suggestions with your personal oversight, at a fraction of the cost.",
+      },
+    ],
+  },
+
   // ────────────────────────────────────────────────────────────────
   // 1. How to Write a Resume
   // ────────────────────────────────────────────────────────────────
