@@ -3,6 +3,34 @@ import { notFound } from 'next/navigation';
 import { generateContent } from '../../../../lib/ai-interview/contentGen';
 import InterviewSEOContent from '../../../../components/ai-interview/InterviewSEOContent';
 import { COUNTRIES, ROLES, INTENTS } from '../../../../lib/ai-interview/data';
+// Note: getExpandedRoles is used in sitemap.js for full URL coverage
+
+// Revalidate every 24 hours for ISR
+export const revalidate = 86400;
+
+// 0. Generate Static Params - Pre-render base role combos at build time
+//    Expanded variants (430 roles) are discovered via sitemap and rendered on-demand via ISR
+export async function generateStaticParams() {
+    const countries = Object.keys(COUNTRIES);
+    const intents = Object.keys(INTENTS);
+    // Use base ROLES (22) for build-time generation to keep builds fast
+    // The full 430 expanded roles are in the sitemap for Google to discover and trigger ISR
+    const params = [];
+
+    for (const country of countries) {
+        for (const role of ROLES) {
+            for (const intent of intents) {
+                params.push({
+                    country,
+                    role: role.slug,
+                    intent,
+                });
+            }
+        }
+    }
+
+    return params;
+}
 
 // 1. Generate Metadata Dynamically
 export async function generateMetadata({ params }) {
