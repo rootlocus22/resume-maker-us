@@ -124,18 +124,6 @@ const nextConfig = {
             permanent: true,
         }));
         return [
-            // Redirect www to non-www (fixes duplicate content in GSC)
-            {
-                source: '/:path*',
-                has: [
-                    {
-                        type: 'host',
-                        value: 'www.expertresume.us',
-                    },
-                ],
-                destination: 'https://expertresume.us/:path*',
-                permanent: true,
-            },
             {
                 source: '/home',
                 destination: '/',
