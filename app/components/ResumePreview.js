@@ -12,6 +12,8 @@ import { formatDate, parseResumeDate } from "../lib/utils";
 import { renderSkillName, renderSkillWithProficiency } from "../lib/skillUtils";
 import ATSResumeRenderer from "./ATSResumeRenderer";
 import VisualAppealRenderer from "./VisualAppealRenderer";
+import PremiumDesignRenderer from "./PremiumDesignRenderer";
+import { premiumDesignTemplates } from "../lib/premiumDesignTemplates.js";
 import { parseRichText } from "../lib/richTextRenderer";
 
 // Feature flag to enable/disable drag and drop functionality
@@ -55,7 +57,7 @@ const tryParseDate = (date, formatStrs, locale = enUS) => {
 };
 
 // Add a helper to render description as bullets if needed
-function renderDescriptionBullets(description, forceATS = false, excludeTexts = []) {
+function renderDescriptionBullets(description, forceATS = false, excludeTexts = [], textStyle = {}) {
   if (!description) return null;
 
   // Handle both string and array descriptions
@@ -84,19 +86,26 @@ function renderDescriptionBullets(description, forceATS = false, excludeTexts = 
     }
   }
 
+  // Explicit inline style for each text element — guarantees font-size/line-height
+  // regardless of CSS inheritance or Tailwind resets
+  const itemStyle = {};
+  if (textStyle.fontSize) itemStyle.fontSize = textStyle.fontSize;
+  if (textStyle.lineHeight) itemStyle.lineHeight = textStyle.lineHeight;
+  if (textStyle.fontFamily) itemStyle.fontFamily = textStyle.fontFamily;
+
   const shouldRenderAsBullets = forceATS ? lines.length > 1 : bulletLines.length >= Math.max(2, lines.length / 2);
 
   if (shouldRenderAsBullets) {
     return (
       <ul className="list-disc ml-5 space-y-1">
         {lines.map((line, idx) => (
-          <li key={idx} dangerouslySetInnerHTML={{ __html: parseRichText(line.replace(/^[-•*]\s*/, "")) }} />
+          <li key={idx} style={itemStyle} dangerouslySetInnerHTML={{ __html: parseRichText(line.replace(/^[-•*]\s*/, "")) }} />
         ))}
       </ul>
     );
   }
   // Otherwise, render as paragraphs inside a div
-  return <div>{lines.map((line, idx) => <p key={idx} dangerouslySetInnerHTML={{ __html: parseRichText(line) }} />)}</div>;
+  return <div>{lines.map((line, idx) => <p key={idx} style={itemStyle} dangerouslySetInnerHTML={{ __html: parseRichText(line) }} />)}</div>;
 }
 
 const ResumePreview = memo(function ResumePreview({
@@ -781,6 +790,19 @@ const ResumePreview = memo(function ResumePreview({
   }
   // For ATS templates, keep the original template font family for maximum compatibility
 
+  // Apply font size preference
+  const fontSizePref = preferences?.typography?.fontSize;
+  if (fontSizePref === 'small') safeStyles.fontSize = '9pt';
+  else if (fontSizePref === 'large') safeStyles.fontSize = '11.5pt';
+
+  // Apply line height preference
+  const lineHeightPref = preferences?.typography?.lineHeight;
+  if (lineHeightPref === 'compact') safeStyles.lineHeight = '1.25';
+  else if (lineHeightPref === 'relaxed') safeStyles.lineHeight = '1.6';
+
+  // Photo visibility — if user explicitly hid photo, null it out for default path rendering
+  const showPhoto = preferences?.visibility?.photo !== false;
+
   const mergedColors = useMemo(() => {
     const defaultColors = safeStyles.colors || {};
     const custom = customColors[template] || customColors || {};
@@ -1404,7 +1426,7 @@ const ResumePreview = memo(function ResumePreview({
         >
           <div className="flex items-center justify-between gap-4 w-full">
             <div className="flex items-center gap-4">
-              {data.photo && (
+              {showPhoto && data.photo && (
                 <img
                   src={data.photo}
                   alt="Profile"
@@ -1628,7 +1650,7 @@ const ResumePreview = memo(function ResumePreview({
 
               {/* Right section - Photo (kept as requested) */}
               <div className="relative flex-shrink-0">
-                {data.photo ? (
+                {showPhoto && data.photo ? (
                   <div className="relative transform rotate-2 hover:rotate-0 transition-transform duration-300">
                     {/* Creative frame */}
                     <div
@@ -1696,7 +1718,7 @@ const ResumePreview = memo(function ResumePreview({
           </div>
 
           <div className="relative z-10 flex items-center gap-6">
-            {data.photo && (
+            {showPhoto && data.photo && (
               <div className="flex-shrink-0">
                 <img
                   src={data.photo}
@@ -1882,7 +1904,7 @@ const ResumePreview = memo(function ResumePreview({
           <div className="absolute inset-0 bg-black opacity-10 rounded-xl"></div>
           <div className="relative z-10 flex items-center justify-center h-full">
             <div className="text-center">
-              {data.photo && (
+              {showPhoto && data.photo && (
                 <img
                   src={data.photo}
                   alt="Profile"
@@ -1965,7 +1987,7 @@ const ResumePreview = memo(function ResumePreview({
             <div className="flex items-start gap-5">
               {/* Photo section with modern styling - smaller for resume */}
               <div className="flex-shrink-0">
-                {data.photo ? (
+                {showPhoto && data.photo ? (
                   <div className="relative group">
                     <img
                       src={data.photo}
@@ -1993,7 +2015,7 @@ const ResumePreview = memo(function ResumePreview({
                   style={{
                     color: mergedColors.primary,
                     fontFamily: safeStyles.fontFamily,
-                    fontSize: safeStyles.fontSize === "11pt" ? "22pt" : "1.75rem"
+                    fontSize: safeStyles.fontSize === "11pt" ? "22pt" : "1.75em"
                   }}
                 >
                   {data.name || "Your Name"}
@@ -2004,7 +2026,7 @@ const ResumePreview = memo(function ResumePreview({
                   style={{
                     color: mergedColors.secondary,
                     fontFamily: safeStyles.fontFamily,
-                    fontSize: safeStyles.fontSize === "11pt" ? "13pt" : "1rem"
+                    fontSize: safeStyles.fontSize === "11pt" ? "13pt" : "1em"
                   }}
                 >
                   {data.jobTitle || ""}
@@ -2114,7 +2136,7 @@ const ResumePreview = memo(function ResumePreview({
             </div>
           </div>
           <div className="flex justify-end">
-            {data.photo ? (
+            {showPhoto && data.photo ? (
               <img
                 src={data.photo}
                 alt="Profile"
@@ -2139,7 +2161,7 @@ const ResumePreview = memo(function ResumePreview({
         <header className="mb-6 p-4 border-b-2" style={{ borderColor: mergedColors.accent }}>
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              {data.photo && (
+              {showPhoto && data.photo && (
                 <img
                   src={data.photo}
                   alt="Profile"
@@ -2176,7 +2198,7 @@ const ResumePreview = memo(function ResumePreview({
       return (
         <header className="mb-6 p-4 bg-gray-50 rounded-lg" style={{ backgroundColor: mergedColors.code || "#f9fafb" }}>
           <div className="flex items-center space-x-4">
-            {data.photo && (
+            {showPhoto && data.photo && (
               <img
                 src={data.photo}
                 alt="Profile"
@@ -2239,7 +2261,7 @@ const ResumePreview = memo(function ResumePreview({
 
           <div className="relative z-10 flex items-center justify-between gap-8">
             <div className="flex items-center gap-6">
-              {data.photo && (
+              {showPhoto && data.photo && (
                 <div className="relative">
                   <img
                     src={data.photo}
@@ -3266,7 +3288,7 @@ const ResumePreview = memo(function ResumePreview({
           </div>
 
           <div className="relative z-10 flex items-center gap-6">
-            {data.photo && (
+            {showPhoto && data.photo && (
               <div className="flex-shrink-0">
                 <img
                   src={data.photo}
@@ -3347,7 +3369,7 @@ const ResumePreview = memo(function ResumePreview({
             </div>
 
             {/* Profile Picture - Moved to Right */}
-            {data.photo ? (
+            {showPhoto && data.photo ? (
               <div className="flex-shrink-0">
                 <img
                   src={data.photo}
@@ -3372,7 +3394,7 @@ const ResumePreview = memo(function ResumePreview({
       return (
         <header className="mb-6">
           <div className="flex items-start gap-6">
-            {data.photo && (
+            {showPhoto && data.photo && (
               <div className="flex-shrink-0">
                 <img
                   src={data.photo}
@@ -3676,7 +3698,7 @@ const ResumePreview = memo(function ResumePreview({
         </div>
         <div className="relative z-10 flex items-center justify-between gap-4 w-full">
           <div className="flex items-center gap-4">
-            {data.photo && (
+            {showPhoto && data.photo && (
               <img
                 src={data.photo}
                 alt="Profile"
@@ -3741,6 +3763,33 @@ const ResumePreview = memo(function ResumePreview({
     // Check both the template prop and templateKey for ATS templates
     const isATSTemplate = (template && template.startsWith('ats_')) || (templateKey && templateKey.includes('ats_'));
 
+    // Check for Premium Design templates — route to PremiumDesignRenderer
+    const isPremiumDesignTemplate = (template && template.startsWith('premium_')) || (templateKey && templateKey.includes('premium_'));
+    if (isPremiumDesignTemplate) {
+      let templateData = premiumDesignTemplates[template] || premiumDesignTemplates[templateKey] ||
+        templates[template] || templates[templateKey];
+
+      if (!templateData) {
+        console.error('ResumePreview - Premium Design Template not found:', template);
+        return (
+          <div className="p-8 text-red-600 bg-red-50 border border-red-200 rounded-lg">
+            <h2 className="text-lg font-bold mb-2">Premium Design Template Error</h2>
+            <p>Could not find Premium Design template: {template}</p>
+          </div>
+        );
+      }
+
+      return (
+        <PremiumDesignRenderer
+          data={data}
+          template={templateData}
+          isCompact={isCompactMode}
+          preferences={preferences}
+          customColors={customColors[template] || customColors || {}}
+        />
+      );
+    }
+
     // Check for Visual Appeal templates (using top-level constant)
     if (isVisualAppealTemplate) {
       // Get the template data for Visual Appeal templates
@@ -3762,6 +3811,8 @@ const ResumePreview = memo(function ResumePreview({
           template={templateData}
           isCompact={isCompactMode}
           isPremium={isPremium}
+          preferences={preferences}
+          customColors={customColors[template] || customColors || {}}
         />
       );
     }
@@ -3831,6 +3882,7 @@ const ResumePreview = memo(function ResumePreview({
           data={data}
           template={templateData}
           isCompact={isCompactMode}
+          preferences={preferences}
         />
       );
     }
@@ -3838,7 +3890,7 @@ const ResumePreview = memo(function ResumePreview({
     // Simple single column layout
     if (columns === 1) {
       return (
-        <div className="space-y-4 w-full relative" style={{ fontFamily: safeStyles.fontFamily, background: mergedColors.background, color: mergedColors.text, width: '100%' }}>
+        <div className="space-y-4 w-full relative" style={{ fontFamily: safeStyles.fontFamily, fontSize: safeStyles.fontSize, lineHeight: safeStyles.lineHeight, background: mergedColors.background, color: mergedColors.text, width: '100%' }}>
           {renderHeader()}
           {sectionsOrder.map(section => renderSection(section)).filter(Boolean)}
           {/* Enhanced Drop zone for adding sections at the end - Only show in editor mode */}
@@ -3872,7 +3924,7 @@ const ResumePreview = memo(function ResumePreview({
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%) rotate(-45deg)",
-                fontSize: "2.5rem",
+                fontSize: "2.5em",
                 color: "rgba(0, 0, 0, 0.15)",
                 fontFamily: safeStyles.fontFamily,
                 pointerEvents: "none",
@@ -3905,9 +3957,9 @@ const ResumePreview = memo(function ResumePreview({
     );
 
     return (
-      <div className="w-full relative" style={{ fontFamily: safeStyles.fontFamily, background: mergedColors.background, color: mergedColors.text, width: '100%' }}>
+      <div className="w-full relative" style={{ fontFamily: safeStyles.fontFamily, fontSize: safeStyles.fontSize, lineHeight: safeStyles.lineHeight, background: mergedColors.background, color: mergedColors.text, width: '100%' }}>
         {renderHeader()}
-        <div className="grid" style={{ gridTemplateColumns: `${sidebarWidth} ${mainWidth}`, gap: "1.5rem", alignItems: "start" }}>
+        <div className="grid" style={{ gridTemplateColumns: `${sidebarWidth} ${mainWidth}`, gap: "1.5em", alignItems: "start" }}>
           {/* Sidebar Container with Enhanced Drag Feedback */}
           <div
             className={`space-y-4 transition-all duration-300 ${isDraggingOverSidebar
@@ -3919,7 +3971,9 @@ const ResumePreview = memo(function ResumePreview({
                 ? 'rgba(59, 130, 246, 0.05)'
                 : (safeLayout.sidebar || mergedColors.sidebarBg || "#f8fafc"),
               fontFamily: safeStyles.fontFamily,
-              padding: "1.5rem",
+              fontSize: safeStyles.fontSize,
+              lineHeight: safeStyles.lineHeight,
+              padding: "1.5em",
               borderRadius: "8px",
               border: isDraggingOverSidebar
                 ? `2px dashed ${mergedColors.accent || '#3b82f6'}`
@@ -3979,9 +4033,11 @@ const ResumePreview = memo(function ResumePreview({
                 ? 'rgba(147, 51, 234, 0.05)'
                 : 'transparent',
               fontFamily: safeStyles.fontFamily,
+              fontSize: safeStyles.fontSize,
+              lineHeight: safeStyles.lineHeight,
               color: mergedColors.text,
-              paddingTop: "1.5rem",
-              paddingRight: "0.75rem",
+              paddingTop: "1.5em",
+              paddingRight: "0.75em",
               position: "relative"
             }}
           >
@@ -4033,7 +4089,7 @@ const ResumePreview = memo(function ResumePreview({
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%) rotate(-45deg)",
-              fontSize: "2.5rem",
+              fontSize: "2.5em",
               color: "rgba(0, 0, 0, 0.15)",
               fontFamily: safeStyles.fontFamily,
               pointerEvents: "none",
@@ -4052,6 +4108,10 @@ const ResumePreview = memo(function ResumePreview({
   };
 
   const renderSection = (section) => {
+    // Visibility preference check — if user explicitly hid a section, skip it
+    const vis = preferences?.visibility || {};
+    if (vis[section] === false) return null;
+
     // Simple existence checks only
     if (section === "summary" && !data.summary?.trim()) return null;
     if (section === "experience" && (!data.experience?.length)) return null;
@@ -4069,8 +4129,10 @@ const ResumePreview = memo(function ResumePreview({
     if (section !== "customSections" && (!t[section] || !t[section].trim())) return null;
 
     const sectionStyle = {
-      marginBottom: "1.5rem",
+      marginBottom: "1.5em",
       fontFamily: safeStyles.fontFamily,
+      fontSize: safeStyles.fontSize,
+      lineHeight: safeStyles.lineHeight,
     };
 
     return (
@@ -4111,31 +4173,53 @@ const ResumePreview = memo(function ResumePreview({
         onTouchMove={isReorderEditor && isMobile ? handleTouchMove : undefined}
         onTouchEnd={isReorderEditor && isMobile ? handleTouchEnd : undefined}
       >
-        {section !== "customSections" && (
-          <h2
-            className="text-lg font-bold mb-3 flex items-center gap-1 pb-2 border-b border-gray-100"
-            style={{
-              color: mergedColors.primary,
-              fontFamily: safeStyles.fontFamily,
-              fontSize: safeStyles.fontSize,
-              lineHeight: safeStyles.lineHeight
-            }}
-          >
-            {safeLayout.showIcons && (
-              <span className="flex-shrink-0 w-4 h-4 flex items-center justify-center">
-                {iconMap[sectionIconMap[section]] || null}
-              </span>
-            )}
-            <span className="flex-1 leading-none">{t[section]}</span>
-            {isReorderEditor && isDragEnabled && (
-              <span className={`flex-shrink-0 w-4 h-4 text-gray-400 hover:text-gray-600 transition-colors ${showTutorial && tutorialStep === 1 ? 'text-blue-500 animate-bounce' : ''} ${showTutorial && tutorialStep === 3 ? 'text-blue-500 scale-110' : ''}`} title={isMobile ? "Touch and drag to reorder" : "Drag to reorder"}>
-                <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                  <path d="M8 6h8v2H8V6zm0 5h8v2H8v-2zm0 5h8v2H8v-2z" />
-                </svg>
-              </span>
-            )}
-          </h2>
-        )}
+        {section !== "customSections" && (() => {
+          const hStyle = safeLayout.headingStyle || 'underline';
+          const headingBaseStyle = {
+            color: mergedColors.primary,
+            fontFamily: safeStyles.fontFamily,
+            fontSize: '1.125em',
+            lineHeight: '1.2',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.25em',
+            marginBottom: '0.75em',
+            fontWeight: 700
+          };
+          let headingExtraStyle = {};
+          let headingClassName = '';
+          if (hStyle === 'underline') {
+            headingExtraStyle = { paddingBottom: '0.5em', borderBottom: `1px solid ${mergedColors.accent || '#e5e7eb'}20` };
+          } else if (hStyle === 'highlight') {
+            headingExtraStyle = { backgroundColor: `${mergedColors.accent || '#3b82f6'}12`, padding: '0.4em 0.75em', borderRadius: '6px', borderLeft: `3px solid ${mergedColors.accent || '#3b82f6'}` };
+          } else if (hStyle === 'accent-bar') {
+            headingExtraStyle = { paddingLeft: '0.75em', borderLeft: `3px solid ${mergedColors.accent || '#3b82f6'}` };
+          } else if (hStyle === 'simple') {
+            headingExtraStyle = { fontWeight: 600 };
+          } else if (hStyle === 'uppercase-spaced') {
+            headingExtraStyle = { textTransform: 'uppercase', letterSpacing: '0.12em', fontSize: '0.9em', paddingBottom: '0.5em', borderBottom: `2px solid ${mergedColors.primary || '#1f2937'}` };
+          }
+          return (
+            <h2
+              className={headingClassName}
+              style={{ ...headingBaseStyle, ...headingExtraStyle }}
+            >
+              {safeLayout.showIcons && (
+                <span className="flex-shrink-0 w-4 h-4 flex items-center justify-center">
+                  {iconMap[sectionIconMap[section]] || null}
+                </span>
+              )}
+              <span style={{ flex: 1, lineHeight: 'inherit' }}>{t[section]}</span>
+              {isReorderEditor && isDragEnabled && (
+                <span className={`flex-shrink-0 w-4 h-4 text-gray-400 hover:text-gray-600 transition-colors ${showTutorial && tutorialStep === 1 ? 'text-blue-500 animate-bounce' : ''} ${showTutorial && tutorialStep === 3 ? 'text-blue-500 scale-110' : ''}`} title={isMobile ? "Touch and drag to reorder" : "Drag to reorder"}>
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                    <path d="M8 6h8v2H8V6zm0 5h8v2H8v-2zm0 5h8v2H8v-2z" />
+                  </svg>
+                </span>
+              )}
+            </h2>
+          );
+        })()}
 
         {!isCompactMode && section === "summary" && (
           <div
@@ -4150,14 +4234,23 @@ const ResumePreview = memo(function ResumePreview({
           />
         )}
 
-        {!isCompactMode && section === "experience" && normalizedData.experience?.map((exp, index) => (
-          <div key={index} className="mb-3 bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 relative" style={{ fontFamily: safeStyles.fontFamily }}>
+        {!isCompactMode && section === "experience" && (() => {
+          const eStyle = safeLayout.entryStyle || 'card';
+          const entryWrapperStyle = (isLast) => {
+            const base = { fontFamily: safeStyles.fontFamily, fontSize: safeStyles.fontSize, lineHeight: safeStyles.lineHeight, position: 'relative', marginBottom: '0.75em' };
+            if (eStyle === 'card') return { ...base, backgroundColor: 'white', padding: '1em', borderRadius: '0.5em', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' };
+            if (eStyle === 'bordered') return { ...base, paddingBottom: '0.75em', borderBottom: isLast ? 'none' : `1px solid ${mergedColors.accent || '#e5e7eb'}20` };
+            if (eStyle === 'flat') return { ...base, paddingBottom: '0.5em' };
+            return { ...base, backgroundColor: 'white', padding: '1em', borderRadius: '0.5em', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' };
+          };
+          return normalizedData.experience?.map((exp, index) => (
+          <div key={index} style={entryWrapperStyle(index === normalizedData.experience.length - 1)}>
             {safeLayout.timelineStyle && (
               <div className="absolute left-0 top-0 h-full w-1.5 rounded-full" style={{ backgroundColor: mergedColors.accent }}>
                 <div className="w-4 h-4 rounded-full absolute top-3 -left-1.5 border-2 border-white shadow-sm" style={{ backgroundColor: mergedColors.accent }}></div>
               </div>
             )}
-            <div className="space-y-2 mb-2" style={{ paddingLeft: safeLayout.timelineStyle ? "1.5rem" : "0" }}>
+            <div className="space-y-2 mb-2" style={{ paddingLeft: safeLayout.timelineStyle ? "1.5em" : "0" }}>
               <div>
                 <h3 className="font-semibold mb-1" style={{
                   color: mergedColors.primary,
@@ -4169,40 +4262,52 @@ const ResumePreview = memo(function ResumePreview({
               </div>
 
               <div className="flex flex-wrap items-center gap-2">
-                <p className="text-xs" style={{
+                <p style={{
                   color: mergedColors.secondary,
-                  fontFamily: safeStyles.fontFamily
+                  fontFamily: safeStyles.fontFamily,
+                  fontSize: '0.85em',
+                  lineHeight: safeStyles.lineHeight
                 }}>
                   {exp.startDate ? formatDate(exp.startDate, preferences, language, country) : 'Present'} - {exp.endDate ? formatDate(exp.endDate, preferences, language, country) : 'Present'}
                 </p>
 
                 {exp.location && (
-                  <span className="text-xs text-gray-500">
+                  <span style={{ fontSize: '0.85em', color: '#6B7280', lineHeight: safeStyles.lineHeight }}>
                     | {cleanText(exp.location)}
                   </span>
                 )}
               </div>
             </div>
-            <div className="whitespace-pre-line leading-tight" style={{
+            <div className="whitespace-pre-line" style={{
               color: mergedColors.text,
               fontFamily: safeStyles.fontFamily,
               fontSize: safeStyles.fontSize,
               lineHeight: safeStyles.lineHeight,
               paddingLeft: safeLayout.timelineStyle ? '1.5rem' : '0'
             }}>
-              {renderDescriptionBullets(exp.description, template?.startsWith?.('ats_'))}
+              {renderDescriptionBullets(exp.description, template?.startsWith?.('ats_'), [], { fontSize: safeStyles.fontSize, lineHeight: safeStyles.lineHeight, fontFamily: safeStyles.fontFamily })}
             </div>
           </div>
-        ))}
+        ));
+        })()}
 
-        {!isCompactMode && section === "education" && data.education?.map((edu, index) => (
-          <div key={index} className="mb-3 bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 relative" style={{ fontFamily: safeStyles.fontFamily }}>
+        {!isCompactMode && section === "education" && (() => {
+          const eStyle = safeLayout.entryStyle || 'card';
+          const entryWrapperStyle = (isLast) => {
+            const base = { fontFamily: safeStyles.fontFamily, fontSize: safeStyles.fontSize, lineHeight: safeStyles.lineHeight, position: 'relative', marginBottom: '0.75em' };
+            if (eStyle === 'card') return { ...base, backgroundColor: 'white', padding: '1em', borderRadius: '0.5em', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' };
+            if (eStyle === 'bordered') return { ...base, paddingBottom: '0.75em', borderBottom: isLast ? 'none' : `1px solid ${mergedColors.accent || '#e5e7eb'}20` };
+            if (eStyle === 'flat') return { ...base, paddingBottom: '0.5em' };
+            return { ...base, backgroundColor: 'white', padding: '1em', borderRadius: '0.5em', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' };
+          };
+          return data.education?.map((edu, index) => (
+          <div key={index} style={entryWrapperStyle(index === data.education.length - 1)}>
             {safeLayout.timelineStyle && (
               <div className="absolute left-0 top-0 h-full w-1.5 rounded-full" style={{ backgroundColor: mergedColors.accent }}>
                 <div className="w-4 h-4 rounded-full absolute top-3 -left-1.5 border-2 border-white shadow-sm" style={{ backgroundColor: mergedColors.accent }}></div>
               </div>
             )}
-            <div className="space-y-2" style={{ paddingLeft: safeLayout.timelineStyle ? "1.5rem" : "0" }}>
+            <div className="space-y-2" style={{ paddingLeft: safeLayout.timelineStyle ? "1.5em" : "0" }}>
               <div>
                 <h3 className="font-semibold mb-1" style={{
                   color: mergedColors.primary,
@@ -4211,27 +4316,31 @@ const ResumePreview = memo(function ResumePreview({
                 }}>
                   {cleanText(edu.institution)}
                 </h3>
-                <p className="text-sm" style={{
+                <p style={{
                   color: mergedColors.text,
                   fontFamily: safeStyles.fontFamily,
-                  fontSize: safeStyles.fontSize
+                  fontSize: safeStyles.fontSize,
+                  lineHeight: safeStyles.lineHeight
                 }}>
                   {cleanText(edu.degree)} in {cleanText(edu.field)}
                 </p>
               </div>
 
               <div className="flex flex-wrap items-center gap-2">
-                <p className="text-xs" style={{
+                <p style={{
                   color: mergedColors.secondary,
-                  fontFamily: safeStyles.fontFamily
+                  fontFamily: safeStyles.fontFamily,
+                  fontSize: '0.85em',
+                  lineHeight: safeStyles.lineHeight
                 }}>
                   {edu.startDate ? formatDate(edu.startDate, preferences, language, country) : 'Present'} - {edu.endDate ? formatDate(edu.endDate, preferences, language, country) : 'Present'}
                 </p>
 
                 {edu.gpa && preferences?.education?.showGPA !== false && (
-                  <span className="text-xs px-2 py-1 bg-gray-100 rounded" style={{
+                  <span className="px-2 py-1 bg-gray-100 rounded" style={{
                     color: mergedColors.text,
-                    fontFamily: safeStyles.fontFamily
+                    fontFamily: safeStyles.fontFamily,
+                    fontSize: '0.85em'
                   }}>
                     {preferences?.education?.gpaLabel || 'GPA'}: {cleanText(edu.gpa, "numeric")}
                     {preferences?.education?.gpaScale ? `/${preferences.education.gpaScale}` : ''}
@@ -4240,7 +4349,8 @@ const ResumePreview = memo(function ResumePreview({
               </div>
             </div>
           </div>
-        ))}
+        ));
+        })()}
 
         {!isCompactMode && section === "skills" && data.skills && (
           <div>
@@ -4276,7 +4386,7 @@ const ResumePreview = memo(function ResumePreview({
                           <div key={startIdx + idx} className="flex items-center">
                             <span className="text-xs mr-2 flex-shrink-0" style={{ color: mergedColors.accent }}>•</span>
                             <span
-                              className="leading-tight break-words"
+                              className="break-words"
                               style={{
                                 color: mergedColors.text,
                                 fontFamily: safeStyles.fontFamily,
@@ -4313,13 +4423,14 @@ const ResumePreview = memo(function ResumePreview({
               }
 
               // Default skills rendering based on preferences
-              return preferences?.skills?.displayStyle === 'tags' ? (
+              const effectiveDisplayStyle = preferences?.skills?.displayStyle || 'tags';
+              return effectiveDisplayStyle === 'tags' ? (
                 <div className="flex flex-wrap gap-2">
                   {data.skills.map((skill, idx) => (
                     <span key={idx} style={{
                       background: '#E0E7FF',
                       color: '#3730A3',
-                      fontSize: '0.75rem',
+                      fontSize: safeStyles.fontSize,
                       padding: '0.25rem 0.5rem',
                       borderRadius: '0.375rem',
                       fontFamily: safeStyles.fontFamily
@@ -4328,7 +4439,7 @@ const ResumePreview = memo(function ResumePreview({
                     </span>
                   ))}
                 </div>
-              ) : preferences?.skills?.displayStyle === 'grid' ? (
+              ) : effectiveDisplayStyle === 'grid' ? (
                 <div className="grid gap-2" style={{
                   gridTemplateColumns: safeLayout.columns === 2 ? "1fr" : preferences?.skills?.columns ? `repeat(${preferences.skills.columns}, 1fr)` : "repeat(2, 1fr)",
                   fontFamily: safeStyles.fontFamily
@@ -4341,7 +4452,7 @@ const ResumePreview = memo(function ResumePreview({
                     </div>
                   ))}
                 </div>
-              ) : preferences?.skills?.displayStyle === 'bars' ? (
+              ) : effectiveDisplayStyle === 'bars' ? (
                 <div className="space-y-1">
                   {data.skills.map((skill, idx) => {
                     const proficiency = skill.proficiency || 0;
@@ -4354,12 +4465,11 @@ const ResumePreview = memo(function ResumePreview({
                       const index = levels.findIndex(l => l.toLowerCase() === String(proficiency).toLowerCase());
                       if (index >= 0) percent = ((index + 1) / levels.length) * 100;
                     } else {
-                      // 1-5 numeric scale
                       percent = Math.min(100, (parseInt(proficiency, 10) || 0) * 20);
                     }
                     return (
                       <div key={idx} className="flex flex-col gap-0.5">
-                        <div className="flex justify-between text-xs" style={{
+                        <div className="flex justify-between" style={{
                           fontFamily: safeStyles.fontFamily,
                           fontSize: safeStyles.fontSize,
                           lineHeight: safeStyles.lineHeight
@@ -4380,19 +4490,18 @@ const ResumePreview = memo(function ResumePreview({
                   })}
                 </div>
               ) : (
-                <div className="space-y-1">
+                <div className="flex flex-wrap gap-2">
                   {data.skills.map((skill, idx) => (
-                    <div key={idx} className="flex items-start" style={{
-                      color: mergedColors.text,
-                      fontFamily: safeStyles.fontFamily,
+                    <span key={idx} style={{
+                      background: '#E0E7FF',
+                      color: '#3730A3',
                       fontSize: safeStyles.fontSize,
-                      lineHeight: safeStyles.lineHeight
+                      padding: '0.25rem 0.5rem',
+                      borderRadius: '0.375rem',
+                      fontFamily: safeStyles.fontFamily
                     }}>
-                      <span className="mr-2 mt-0.5 flex-shrink-0">•</span>
-                      <span style={{ wordBreak: 'break-word', overflowWrap: 'break-word' }}>
-                        {cleanText(renderSkillWithProficiency(skill, preferences?.skills?.showProficiency))}
-                      </span>
-                    </div>
+                      {cleanText(renderSkillWithProficiency(skill, preferences?.skills?.showProficiency))}
+                    </span>
                   ))}
                 </div>
               );
@@ -4401,13 +4510,13 @@ const ResumePreview = memo(function ResumePreview({
         )}
 
         {!isCompactMode && section === "certifications" && data.certifications?.map((cert, index) => (
-          <div key={index} className="mb-3" style={{ fontFamily: safeStyles.fontFamily }}>
+          <div key={index} className="mb-3" style={{ fontFamily: safeStyles.fontFamily, fontSize: safeStyles.fontSize, lineHeight: safeStyles.lineHeight }}>
             {/* Check if this is an ATS template with single-column layout for bullet rendering */}
             {template && template.startsWith('ats_') && safeLayout.columns === 1 ? (
               <div className="flex items-start">
                 <span className="text-xs mr-2 mt-1 flex-shrink-0" style={{ color: mergedColors.accent }}>•</span>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold leading-tight" style={{
+                  <h3 className="font-semibold" style={{
                     color: mergedColors.primary,
                     fontFamily: safeStyles.fontFamily,
                     fontSize: safeStyles.fontSize,
@@ -4416,9 +4525,10 @@ const ResumePreview = memo(function ResumePreview({
                   }}>
                     {cleanText(cert.name)}
                   </h3>
-                  <p className="text-xs leading-tight" style={{
+                  <p style={{
                     color: mergedColors.secondary,
                     fontFamily: safeStyles.fontFamily,
+                    fontSize: '0.85em',
                     lineHeight: safeStyles.lineHeight
                   }}>
                     {cert.issuer && cleanText(cert.issuer)}
@@ -4431,7 +4541,7 @@ const ResumePreview = memo(function ResumePreview({
               <div className="flex items-start">
                 <span className="text-xs mr-2 mt-1 flex-shrink-0" style={{ color: mergedColors.accent }}>•</span>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold leading-tight" style={{
+                  <h3 className="font-semibold" style={{
                     color: mergedColors.primary,
                     fontFamily: safeStyles.fontFamily,
                     fontSize: safeStyles.fontSize,
@@ -4440,9 +4550,10 @@ const ResumePreview = memo(function ResumePreview({
                   }}>
                     {cleanText(cert.name)}
                   </h3>
-                  <p className="text-xs leading-tight" style={{
+                  <p style={{
                     color: mergedColors.secondary,
                     fontFamily: safeStyles.fontFamily,
+                    fontSize: '0.85em',
                     lineHeight: safeStyles.lineHeight
                   }}>
                     {cert.issuer && cleanText(cert.issuer)}
@@ -4451,30 +4562,44 @@ const ResumePreview = memo(function ResumePreview({
                   </p>
                 </div>
               </div>
-            ) : (
-              <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 relative">
+            ) : (() => {
+              const eStyle = safeLayout.entryStyle || 'card';
+              const isLast = index === data.certifications.length - 1;
+              const certStyle = eStyle === 'card'
+                ? { backgroundColor: 'white', padding: '1em', borderRadius: '0.5em', boxShadow: '0 1px 3px rgba(0,0,0,0.08)', position: 'relative' }
+                : eStyle === 'bordered'
+                ? { paddingBottom: '0.75em', borderBottom: isLast ? 'none' : `1px solid ${mergedColors.accent || '#e5e7eb'}20`, position: 'relative' }
+                : { paddingBottom: '0.5em', position: 'relative' };
+              return (
+              <div style={certStyle}>
                 {safeLayout.timelineStyle && (
                   <div className="absolute left-0 top-0 h-full w-1.5 rounded-full" style={{ backgroundColor: mergedColors.accent }}>
                     <div className="w-4 h-4 rounded-full absolute top-3 -left-1.5 border-2 border-white shadow-sm" style={{ backgroundColor: mergedColors.accent }}></div>
                   </div>
                 )}
-                <div style={{ paddingLeft: safeLayout.timelineStyle ? "1.5rem" : "0" }}>
+                <div style={{ paddingLeft: safeLayout.timelineStyle ? "1.5em" : "0" }}>
                   <h3 className="font-semibold" style={{ color: mergedColors.primary, fontFamily: safeStyles.fontFamily, fontSize: safeStyles.fontSize }}>
                     {cleanText(cert.name)}
                   </h3>
-                  <p className="text-xs" style={{ color: mergedColors.secondary, fontFamily: safeStyles.fontFamily }}>
+                  <p style={{ color: mergedColors.secondary, fontFamily: safeStyles.fontFamily, fontSize: '0.85em', lineHeight: safeStyles.lineHeight }}>
                     {cleanText(cert.issuer)}{cert.date && cert.date.trim() !== '' && cert.date.toLowerCase() !== 'ongoing' && cert.date.toLowerCase() !== 'undefined' ? ` • ${formatDate(cert.date, preferences, language, country)}` : ''}
                   </p>
                 </div>
               </div>
-            )}
+              );
+            })()}
           </div>
         ))}
 
-        {!isCompactMode && section === "languages" && data.languages && (
-          <div style={{ display: "grid", gridTemplateColumns: safeLayout.columns === 2 ? "1fr" : "repeat(2, 1fr)", gap: "0.5rem", fontFamily: safeStyles.fontFamily }}>
+        {!isCompactMode && section === "languages" && data.languages && (() => {
+          const eStyle = safeLayout.entryStyle || 'card';
+          const langItemStyle = eStyle === 'card'
+            ? { backgroundColor: 'white', padding: '0.75em', borderRadius: '0.5em', boxShadow: '0 1px 3px rgba(0,0,0,0.08)', fontFamily: safeStyles.fontFamily, fontSize: safeStyles.fontSize, lineHeight: safeStyles.lineHeight }
+            : { padding: '0.35em 0', fontFamily: safeStyles.fontFamily, fontSize: safeStyles.fontSize, lineHeight: safeStyles.lineHeight };
+          return (
+          <div style={{ display: "grid", gridTemplateColumns: safeLayout.columns === 2 ? "1fr" : "repeat(2, 1fr)", gap: "0.5em", fontFamily: safeStyles.fontFamily, fontSize: safeStyles.fontSize, lineHeight: safeStyles.lineHeight }}>
             {data.languages.map((lang, index) => (
-              <div key={index} className="bg-white p-3 rounded-lg shadow-sm hover:shadow-md transition-all duration-200" style={{ fontFamily: safeStyles.fontFamily }}>
+              <div key={index} style={langItemStyle}>
                 <span style={{
                   color: mergedColors.text,
                   fontFamily: safeStyles.fontFamily,
@@ -4486,7 +4611,8 @@ const ResumePreview = memo(function ResumePreview({
               </div>
             ))}
           </div>
-        )}
+          );
+        })()}
 
         {!isCompactMode && section === "customSections" && data.customSections && (
           <>
@@ -4499,36 +4625,46 @@ const ResumePreview = memo(function ResumePreview({
                 return acc;
               }, {});
 
+              const hStyle = safeLayout.headingStyle || 'underline';
+              const eStyle = safeLayout.entryStyle || 'card';
+              const customHeadingBase = { color: mergedColors.primary, fontFamily: safeStyles.fontFamily, fontSize: '1.125em', lineHeight: '1.2', display: 'flex', alignItems: 'center', gap: '0.25em', marginBottom: '0.5em', fontWeight: 700 };
+              let customHeadingExtra = {};
+              if (hStyle === 'underline') customHeadingExtra = { paddingBottom: '0.5em', borderBottom: `1px solid ${mergedColors.accent || '#e5e7eb'}20` };
+              else if (hStyle === 'highlight') customHeadingExtra = { backgroundColor: `${mergedColors.accent || '#3b82f6'}12`, padding: '0.4em 0.75em', borderRadius: '6px', borderLeft: `3px solid ${mergedColors.accent || '#3b82f6'}` };
+              else if (hStyle === 'accent-bar') customHeadingExtra = { paddingLeft: '0.75em', borderLeft: `3px solid ${mergedColors.accent || '#3b82f6'}` };
+              else if (hStyle === 'simple') customHeadingExtra = { fontWeight: 600 };
+              else if (hStyle === 'uppercase-spaced') customHeadingExtra = { textTransform: 'uppercase', letterSpacing: '0.12em', fontSize: '0.9em', paddingBottom: '0.5em', borderBottom: `2px solid ${mergedColors.primary || '#1f2937'}` };
+
               return Object.entries(groups).map(([type, items], groupIdx) => {
-                // Use pluralized generic header for the section
                 const sectionTitle = (t[type] || type.charAt(0).toUpperCase() + type.slice(1));
 
                 return (
                   <section key={groupIdx} className="resume-section" style={sectionStyle}>
-                    <h2 className="text-base font-bold mb-2 flex items-center gap-1" style={{
-                      color: mergedColors.primary,
-                      fontFamily: safeStyles.fontFamily,
-                      fontSize: safeStyles.fontSize,
-                      lineHeight: safeStyles.lineHeight
-                    }}>
+                    <h2 style={{ ...customHeadingBase, ...customHeadingExtra }}>
                       {safeLayout.showIcons && (
                         <span className="flex-shrink-0 w-4 h-4 flex items-center justify-center">
                           {iconMap[sectionIconMap[type]] || null}
                         </span>
                       )}
-                      <span className="flex-1">{sectionTitle}</span>
+                      <span style={{ flex: 1, lineHeight: 'inherit' }}>{sectionTitle}</span>
                     </h2>
 
                     {items.map((item, itemIdx) => {
                       const itemTitle = item.name || item.title || "";
+                      const isLast = itemIdx === items.length - 1;
+                      const customEntryStyle = eStyle === 'card'
+                        ? { fontFamily: safeStyles.fontFamily, fontSize: safeStyles.fontSize, lineHeight: safeStyles.lineHeight, marginBottom: '0.75em', backgroundColor: 'white', padding: '1em', borderRadius: '0.5em', boxShadow: '0 1px 3px rgba(0,0,0,0.08)', position: 'relative' }
+                        : eStyle === 'bordered'
+                        ? { fontFamily: safeStyles.fontFamily, fontSize: safeStyles.fontSize, lineHeight: safeStyles.lineHeight, marginBottom: '0.75em', paddingBottom: '0.75em', borderBottom: isLast ? 'none' : `1px solid ${mergedColors.accent || '#e5e7eb'}20`, position: 'relative' }
+                        : { fontFamily: safeStyles.fontFamily, fontSize: safeStyles.fontSize, lineHeight: safeStyles.lineHeight, marginBottom: '0.75em', paddingBottom: '0.5em', position: 'relative' };
                       return (
-                        <div key={itemIdx} className="mb-3 bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 relative" style={{ fontFamily: safeStyles.fontFamily }}>
+                        <div key={itemIdx} style={customEntryStyle}>
                           {safeLayout.timelineStyle && (
                             <div className="absolute left-0 top-0 h-full w-1.5 rounded-full" style={{ backgroundColor: mergedColors.accent }}>
                               <div className="w-4 h-4 rounded-full absolute top-3 -left-1.5 border-2 border-white shadow-sm" style={{ backgroundColor: mergedColors.accent }}></div>
                             </div>
                           )}
-                          <div style={{ paddingLeft: safeLayout.timelineStyle ? "1.5rem" : "0" }}>
+                          <div style={{ paddingLeft: safeLayout.timelineStyle ? "1.5em" : "0" }}>
                             {itemTitle && (
                               <h3 className="font-semibold mb-1" style={{
                                 color: mergedColors.primary,
@@ -4539,7 +4675,7 @@ const ResumePreview = memo(function ResumePreview({
                               </h3>
                             )}
                             <div style={{ color: mergedColors.text, fontFamily: safeStyles.fontFamily, fontSize: safeStyles.fontSize, lineHeight: safeStyles.lineHeight }}>
-                              {renderDescriptionBullets(item.description, template?.startsWith?.('ats_'), [sectionTitle, itemTitle])}
+                              {renderDescriptionBullets(item.description, template?.startsWith?.('ats_'), [sectionTitle, itemTitle], { fontSize: safeStyles.fontSize, lineHeight: safeStyles.lineHeight, fontFamily: safeStyles.fontFamily })}
                             </div>
                             {item.technologies && (
                               <p style={{ color: mergedColors.text, fontFamily: safeStyles.fontFamily, fontSize: safeStyles.fontSize, lineHeight: safeStyles.lineHeight }}>
@@ -4547,9 +4683,11 @@ const ResumePreview = memo(function ResumePreview({
                               </p>
                             )}
                             {item.date && (
-                              <p className="text-xs mt-1" style={{
+                              <p className="mt-1" style={{
                                 color: mergedColors.secondary,
-                                fontFamily: safeStyles.fontFamily
+                                fontFamily: safeStyles.fontFamily,
+                                fontSize: '0.85em',
+                                lineHeight: safeStyles.lineHeight
                               }}>
                                 {formatDate(item.date, preferences, language, country)}
                               </p>
@@ -4606,17 +4744,29 @@ const ResumePreview = memo(function ResumePreview({
         textRendering: "optimizeLegibility",
         WebkitFontFeatureSettings: '"liga" 1, "kern" 1',
         fontFeatureSettings: '"liga" 1, "kern" 1',
-        paddingTop: "1rem"
+        paddingTop: "1em"
       }}
       ref={containerRef}
     >
+      {/* Override Tailwind rem-based font/leading classes so they scale with preferences */}
+      <style>{`
+        .resume-preview .text-xs  { font-size: 0.75em !important; }
+        .resume-preview .text-sm  { font-size: 0.875em !important; }
+        .resume-preview .text-base { font-size: 1em !important; }
+        .resume-preview .text-lg  { font-size: 1.125em !important; }
+        .resume-preview .text-xl  { font-size: 1.25em !important; }
+        .resume-preview .text-2xl { font-size: 1.5em !important; }
+        .resume-preview .text-3xl { font-size: 1.875em !important; }
+        .resume-preview .leading-relaxed { line-height: ${safeStyles.lineHeight || '1.625'} !important; }
+        .resume-preview .leading-tight { line-height: 1.25 !important; }
+      `}</style>
       <div
         className={`rounded-xl overflow-hidden relative bg-white ${isVisualAppealTemplate ? '' : 'shadow-lg border border-gray-200'}`}
         style={{
           fontFamily: safeStyles.fontFamily,
           background: mergedColors.background,
           color: mergedColors.text,
-          padding: template && template.startsWith('ats_') ? "0" : (isVisualAppealTemplate ? "0" : "0.5rem")
+          padding: template && template.startsWith('ats_') ? "0" : (isVisualAppealTemplate ? "0" : "0.5em")
         }}
       >
 

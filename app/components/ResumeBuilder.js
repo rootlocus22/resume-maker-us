@@ -32,7 +32,8 @@ import {
   Maximize2,
   Minimize2,
 } from "lucide-react";
-import { Cog6ToothIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon } from '@heroicons/react/24/outline';
+import InlineResumeSettings from './InlineResumeSettings';
 // Lazy load core components for TBT optimization
 const ResumeForm = lazy(() => import("./ResumeForm"));
 const ResumePreview = lazy(() => import("./ResumePreview"));
@@ -59,6 +60,7 @@ import { templates } from "../lib/templates.js";
 import { defaultConfig } from "../lib/templates.js";
 import { atsFriendlyTemplates } from "../lib/atsFriendlyTemplates.js";
 import { visualAppealTemplates } from "../lib/visualAppealTemplates.js";
+import { premiumDesignTemplates } from "../lib/premiumDesignTemplates.js";
 import { coverLetterTemplates } from "../lib/coverLetterTemplate";
 import { useAuth } from "../context/AuthContext"; // [NEW]
 import { useRouter, useSearchParams } from "next/navigation";
@@ -98,7 +100,7 @@ const TemplateSelector = lazy(() => import("./TemplateSelector"));
 const UnsavedChangesModal = lazy(() => import("./UnsavedChangesModal"));
 const PaymentForm = lazy(() => import("./PaymentForm"));
 const LoginAndSubscribeModal = lazy(() => import("./LoginAndSubscribeModal"));
-const ResumePreferences = lazy(() => import("./ResumePreferences"));
+// ResumePreferences modal replaced by inline InlineResumeSettings
 const FormConfigPanel = lazy(() => import('./FormConfigPanel'));
 // HelpModal and GuidedTour removed for simpler UI
 const JobSpecificResumePreview = lazy(() => import("../components/JobSpecificResumePreview"));
@@ -436,10 +438,11 @@ export default function ResumeBuilder() {
 
   // Template state initialized with prop/url param
   const [template, setTemplate] = useState(initialTemplate);
-  const currentTemplate = templates[template] || atsFriendlyTemplates[template] || visualAppealTemplates[template];
+  const currentTemplate = templates[template] || atsFriendlyTemplates[template] || visualAppealTemplates[template] || premiumDesignTemplates[template];
   const isATSTemplate = currentTemplate?.category === "ATS-Optimized" || template?.startsWith("ats_");
   const isVisualAppealTemplate = currentTemplate?.category === "Visual Appeal" || template?.startsWith("visual_");
-  const isColorCustomizationAvailable = !(isATSTemplate || isVisualAppealTemplate);
+  const isPremiumDesignTemplate = currentTemplate?.category === "Premium Design" || template?.startsWith("premium_");
+  const isColorCustomizationAvailable = !(isATSTemplate || isVisualAppealTemplate || isPremiumDesignTemplate);
 
   // AI Text Parsing State
   const [isAiBuildMode, setIsAiBuildMode] = useState(false);
@@ -618,7 +621,6 @@ export default function ResumeBuilder() {
   const [isApplyingAI, setIsApplyingAI] = useState(false);
   const [atsScore, setAtsScore] = useState(null);
   const [isSaving, setIsSaving] = useState(false);
-  const [showPreferences, setShowPreferences] = useState(false);
   const [preferences, setPreferences] = useState(() => loadResumePreferences(defaultConfig));
   const [showConfigPanel, setShowConfigPanel] = useState(false);
   const [previewScale, setPreviewScale] = useState(null);
@@ -2517,13 +2519,16 @@ export default function ResumeBuilder() {
     }
 
     // Check template category and use the appropriate API
-    const currentTemplate = templates[template] || atsFriendlyTemplates[template] || visualAppealTemplates[template];
+    const currentTemplate = templates[template] || atsFriendlyTemplates[template] || visualAppealTemplates[template] || premiumDesignTemplates[template];
     // Check key prefix as fallback since template objects might missing id property
     const isATSTemplate = (currentTemplate && currentTemplate.id && currentTemplate.id.startsWith('ats_')) || (template && template.startsWith('ats_'));
     const isVisualAppealTemplate = (currentTemplate && currentTemplate.id && currentTemplate.id.startsWith('visual_')) || (template && template.startsWith('visual_'));
+    const isPremiumDesignTemplate = (template && template.startsWith('premium_'));
 
     let apiEndpoint = "/api/generate-pdf"; // Default
-    if (isATSTemplate) {
+    if (isPremiumDesignTemplate) {
+      apiEndpoint = "/api/generate-premium-design-pdf";
+    } else if (isATSTemplate) {
       apiEndpoint = "/api/generate-ats-pdf";
     } else if (isVisualAppealTemplate) {
       apiEndpoint = "/api/generate-visual-appeal-pdf";
@@ -2536,9 +2541,17 @@ export default function ResumeBuilder() {
       const cleanResumeData = sanitizeDataForDeepCloning(resumeData);
       const cleanPreferences = sanitizeDataForDeepCloning(freshPreferences);
 
-      const requestBody = isATSTemplate ? {
+      const requestBody = isPremiumDesignTemplate ? {
         data: cleanResumeData,
-        template: currentTemplate // Send the full template object for ATS templates
+        template: template, // Send template key string — API will look up from premiumDesignTemplates
+        customColors,
+        language,
+        country,
+        preferences: cleanPreferences
+      } : isATSTemplate ? {
+        data: cleanResumeData,
+        template: currentTemplate, // Send the full template object for ATS templates
+        preferences: cleanPreferences
       } : isVisualAppealTemplate ? {
         data: cleanResumeData,
         template: currentTemplate, // Send the full template object for Visual Appeal templates
@@ -2603,11 +2616,22 @@ export default function ResumeBuilder() {
         console.log('ResumeBuilder - Full Resume Data:', resumeData);
       }
 
+      // Debug logging for Premium Design templates
+      if (isPremiumDesignTemplate) {
+        console.log('ResumeBuilder - Premium Design PDF Request:', {
+          templateKey: template,
+          templateName: currentTemplate?.name,
+          layoutType: currentTemplate?.layout?.layoutType,
+          apiEndpoint
+        });
+      }
+
       console.log('ResumeBuilder - Generating PDF with config:', {
         apiEndpoint,
         template: template,
         isATSTemplate,
         isVisualAppealTemplate,
+        isPremiumDesignTemplate,
         hasUser: !!user,
         colors: customColors,
         prefs: freshPreferences
@@ -3091,14 +3115,13 @@ export default function ResumeBuilder() {
     }
   };
 
-  // Handle preferences change
+  // Handle preferences change — live update (no modal close needed)
   const handlePreferencesChange = (newPreferences) => {
     if (newPreferences) {
       const clonedPrefs = JSON.parse(JSON.stringify(newPreferences));
       setPreferences(clonedPrefs);
       saveResumePreferences(clonedPrefs);
     }
-    setShowPreferences(false);
   };
 
   // Handle section order changes from drag and drop (when saving from editor)
@@ -3900,15 +3923,7 @@ export default function ResumeBuilder() {
               </div>
             </div>
 
-            {/* Settings Button - Right */}
-            <button
-              onClick={() => setShowPreferences(true)}
-              className="flex flex-col items-center text-gray-600 hover:text-[#0B1F3B] transition-all duration-200 p-1"
-              data-tour="settings-button"
-            >
-              <Cog6ToothIcon className="h-4 w-4" />
-              <span className="text-[10px] font-medium mt-0.5">Settings</span>
-            </button>
+            {/* Settings are now inline at the form level — no separate button needed */}
           </div>
         </div>
 
@@ -4224,11 +4239,12 @@ export default function ResumeBuilder() {
                     />
 
                     {(() => {
-                      const currentTemplate = templates[template] || atsFriendlyTemplates[template] || visualAppealTemplates[template];
+                      const currentTemplate = templates[template] || atsFriendlyTemplates[template] || visualAppealTemplates[template] || premiumDesignTemplates[template];
                       const isATSTemplate = currentTemplate?.category === "ATS-Optimized";
                       const isVisualAppealTemplate = currentTemplate?.category === "Visual Appeal" || template?.startsWith('visual_');
+                      const isPremiumDesignTemplate = currentTemplate?.category === "Premium Design" || template?.startsWith('premium_');
 
-                      if (isATSTemplate || isVisualAppealTemplate) {
+                      if (isATSTemplate || isVisualAppealTemplate || isPremiumDesignTemplate) {
                         return null;
                       }
 
@@ -4313,14 +4329,7 @@ export default function ResumeBuilder() {
                   </button>
                 )}
 
-                <button
-                  onClick={() => setShowPreferences(true)}
-                  className="flex items-center gap-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md transition-all duration-200 text-sm font-medium h-9"
-                  data-tour="settings-button"
-                >
-                  <Cog6ToothIcon className="h-4 w-4" />
-                  Settings
-                </button>
+                {/* Settings are now inline at the form level */}
                 <button
                   onClick={() => setIsBuilderFullscreen((prev) => !prev)}
                   className="flex items-center gap-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md transition-all duration-200 text-sm font-medium h-9"
@@ -4445,15 +4454,20 @@ export default function ResumeBuilder() {
                         </div>
                       </div>
                     ) : (
-                      <ResumeForm
-                        data={resumeData}
-                        onUpdate={handleUpdate}
-                        language={language}
-                        country={country}
-                        preferences={preferences}
-                        currentUserId={user?.uid}
-                        currentResumeId="default"
-                      />
+                      <>
+                        {/* Inline Settings — live preview updates */}
+                        <InlineResumeSettings preferences={preferences} onChange={handlePreferencesChange} />
+
+                        <ResumeForm
+                          data={resumeData}
+                          onUpdate={handleUpdate}
+                          language={language}
+                          country={country}
+                          preferences={preferences}
+                          currentUserId={user?.uid}
+                          currentResumeId="default"
+                        />
+                      </>
                     )}
                   </Suspense>
                 )}
@@ -4833,30 +4847,7 @@ export default function ResumeBuilder() {
 
       {/* Exit Intent Popup - Removed */}
 
-      {/* Preferences Modal */}
-      {showPreferences && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-            <div className="flex justify-between items-center p-4 border-b">
-              <h2 className="text-xl font-semibold">Resume Preferences</h2>
-              <button
-                onClick={() => setShowPreferences(false)}
-                className="text-gray-500 hover:text-gray-700"
-              >
-                <XMarkIcon className="h-6 w-6" />
-              </button>
-            </div>
-            <Suspense fallback={<div className="text-center py-4">Loading preferences...</div>}>
-              <ResumePreferences
-                config={preferences}
-                onChange={handlePreferencesChange}
-                user={user}
-                onClose={() => setShowPreferences(false)}
-              />
-            </Suspense>
-          </div>
-        </div>
-      )}
+      {/* Settings are now inline at the form level — modal removed */}
 
       {/* Config Panel */}
       {showConfigPanel && (

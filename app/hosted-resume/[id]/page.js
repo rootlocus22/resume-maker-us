@@ -383,9 +383,10 @@ export default function HostedResumePage() {
       const { templates: baseTemplates } = await import('../../lib/templates');
       const { atsFriendlyTemplates } = await import('../../lib/atsFriendlyTemplates');
       const { visualAppealTemplates } = await import('../../lib/visualAppealTemplates');
+      const { premiumDesignTemplates } = await import('../../lib/premiumDesignTemplates');
 
       // Merge all templates to find the correct one
-      const allTemplates = { ...baseTemplates, ...atsFriendlyTemplates, ...visualAppealTemplates };
+      const allTemplates = { ...baseTemplates, ...atsFriendlyTemplates, ...visualAppealTemplates, ...premiumDesignTemplates };
 
       // Get the template name
       const templateName = selectedTemplate || resumeData.template || 'modern_professional';
@@ -394,9 +395,12 @@ export default function HostedResumePage() {
       // Determine template type and API endpoint based on category
       const isATSTemplate = currentTemplate?.category === "ATS-Optimized" || templateName.startsWith('ats_');
       const isVisualAppealTemplate = currentTemplate?.category === "Visual Appeal" || templateName.startsWith('visual_');
+      const isPremiumDesignTemplate = currentTemplate?.category === "Premium Design" || templateName.startsWith('premium_');
 
       let apiEndpoint = "/api/generate-pdf"; // Default
-      if (isATSTemplate) {
+      if (isPremiumDesignTemplate) {
+        apiEndpoint = "/api/generate-premium-design-pdf";
+      } else if (isATSTemplate) {
         apiEndpoint = "/api/generate-ats-pdf";
       } else if (isVisualAppealTemplate) {
         apiEndpoint = "/api/generate-visual-appeal-pdf";
@@ -404,7 +408,17 @@ export default function HostedResumePage() {
 
       // Build request payload based on template type
       let requestPayload;
-      if (isATSTemplate) {
+      if (isPremiumDesignTemplate) {
+        // Premium Design templates: pass template key — API looks up from premiumDesignTemplates
+        requestPayload = {
+          data: dataToUse,
+          template: templateName,
+          customColors: dataToUse.customColors || {},
+          language: dataToUse.language || 'en',
+          country: dataToUse.country || 'us',
+          preferences: dataToUse.preferences || {}
+        };
+      } else if (isATSTemplate) {
         // ATS templates: pass template object
         requestPayload = {
           data: dataToUse,
@@ -417,7 +431,7 @@ export default function HostedResumePage() {
           template: currentTemplate,
           customColors: dataToUse.customColors || {},
           language: dataToUse.language || 'en',
-          country: dataToUse.country || 'in',
+          country: dataToUse.country || 'us',
           preferences: dataToUse.preferences || {}
         };
       } else {
@@ -427,7 +441,7 @@ export default function HostedResumePage() {
           template: templateName,
           customColors: dataToUse.customColors || {},
           language: dataToUse.language || 'en',
-          country: dataToUse.country || 'in',
+          country: dataToUse.country || 'us',
           isPremium: true, // No watermark for hosted resumes
           preferences: dataToUse.preferences || {}
         };

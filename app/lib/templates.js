@@ -3,6 +3,7 @@ import { diverseTemplates } from "./realTemplates.js"; // Import the diverse tem
 import { atsFriendlyTemplates } from "./atsFriendlyTemplates.js"; // Import ATS-friendly templates
 import { visualAppealTemplates } from "./visualAppealTemplates.js"; // Import Visual Appeal templates
 import { onePagerTemplates } from "./onePagerTemplates.js"; // Import One-Pager templates
+import { premiumDesignTemplates } from "./premiumDesignTemplates.js"; // Import Premium Design templates
 
 // Configuration options for date formats and section settings
 export const defaultConfig = {
@@ -46,8 +47,9 @@ export const defaultConfig = {
 const originalUserTemplates = {
   executive_professional: {
     name: "Executive Professional",
+    description: "Sophisticated serif design with accent-bar headings for senior roles",
     previewImage: "/templates/previews/executive_professional.png",
-    category: "Professional",
+    category: "Standard",
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "achievements", "experience", "education", "skills", "certifications", "languages", "customSections"],
@@ -57,7 +59,9 @@ const originalUserTemplates = {
       columns: 2,
       sidebar: "linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)",
       sidebarWidth: "30%",
-      headerStyle: "elegant" // New header style for executive look
+      headerStyle: "elegant",
+      headingStyle: "accent-bar",
+      entryStyle: "bordered"
     },
     styles: {
       fontFamily: "'Helvetica Neue', Arial, sans-serif",
@@ -117,8 +121,9 @@ const originalUserTemplates = {
 
   minimalist_professional: {
     name: "Minimalist Professional",
+    description: "Clean single-column design with minimal decoration for a polished look",
     previewImage: "/templates/previews/minimalist_professional.png",
-    category: "Professional",
+    category: "Standard",
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "experience", "education", "skills", "certifications", "languages", "customSections"],
@@ -128,7 +133,9 @@ const originalUserTemplates = {
       columns: 1,
       contentWidth: "90%",
       headerStyle: "minimal",
-      sectionStyle: "clean"
+      sectionStyle: "clean",
+      headingStyle: "simple",
+      entryStyle: "flat"
     },
     styles: {
       fontFamily: "'Inter', system-ui, sans-serif",
@@ -201,8 +208,9 @@ const originalUserTemplates = {
   // Classic Category (Universal Appeal)
   classic: {
     name: "Classic",
+    description: "Traditional layout with gradient header and clean bordered sections",
     previewImage: "/templates/previews/classic.png",
-    category: "Classic",
+    category: "Standard",
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "experience", "education", "skills", "certifications", "languages", "customSections"],
@@ -210,7 +218,9 @@ const originalUserTemplates = {
       mainSections: ["personal", "summary", "experience", "education", "skills", "certifications", "languages"],
       showIcons: false,
       columns: 1,
-      headerStyle: "modern", // Explicitly set to use the centered gradient header
+      headerStyle: "modern",
+      headingStyle: "underline",
+      entryStyle: "bordered"
     },
     styles: {
       fontFamily: "'Arial', sans-serif",
@@ -247,8 +257,9 @@ const originalUserTemplates = {
   },
   classic_with_icons: {
     name: "Classic with Icons",
+    description: "Classic layout enhanced with section icons and card-style entries",
     previewImage: "/templates/previews/classic_with_icons.png",
-    category: "Classic",
+    category: "Standard",
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "experience", "education", "skills", "certifications", "languages", "customSections"],
@@ -256,7 +267,9 @@ const originalUserTemplates = {
       mainSections: ["personal", "summary", "experience", "education", "skills", "certifications", "languages"],
       showIcons: true,
       columns: 1,
-      headerStyle: "modern", //
+      headerStyle: "modern",
+      headingStyle: "underline",
+      entryStyle: "card"
     },
     styles: {
       fontFamily: "'Arial', sans-serif",
@@ -294,8 +307,9 @@ const originalUserTemplates = {
 
   modern_professional: {
     name: "Modern Professional",
+    description: "Two-column layout with highlighted headings and a blue sidebar",
     previewImage: "/templates/previews/modern_professional.png",
-    category: "Professional",
+    category: "Standard",
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "skills", "experience", "education", "certifications", "languages", "customSections"],
@@ -306,6 +320,8 @@ const originalUserTemplates = {
       sidebar: "linear-gradient(135deg, #f0f7ff 0%, #e3f2fd 20%)",
       sidebarWidth: "30%",
       headerStyle: "modern",
+      headingStyle: "highlight",
+      entryStyle: "bordered",
       spacing: {
         sectionGap: "1.75rem",
         contentPadding: "1.25rem"
@@ -359,8 +375,9 @@ const originalUserTemplates = {
   },
   timeline_professional: {
     name: "Timeline Professional",
+    description: "Visual timeline markers on entries with a two-column sidebar layout",
     previewImage: "/templates/previews/timeline_professional.png",
-    category: "Professional",
+    category: "Standard",
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "skills", "experience", "education", "certifications", "languages", "customSections"],
@@ -371,7 +388,9 @@ const originalUserTemplates = {
       timelineStyle: true,
       sidebar: "#f7fafc",
       sidebarWidth: "35%",
-      headerStyle: "full-width", // Changed from "compact" to match modern_professional
+      headerStyle: "full-width",
+      headingStyle: "accent-bar",
+      entryStyle: "flat"
     },
     styles: {
       fontFamily: "'Roboto', sans-serif",
@@ -397,83 +416,7 @@ const originalUserTemplates = {
 
 
 
-  // ATS Category (Optimized for Applicant Tracking Systems)
-  ats_optimized: {
-    name: "ATS Optimized",
-    previewImage: "/templates/previews/ats_optimized.png",
-    category: "Professional",
-    premium: false,
-    layout: {
-      sectionsOrder: ["personal", "summary", "skills", "experience", "education", "certifications", "languages", "customSections"],
-      sidebarSections: [],
-      mainSections: ["personal", "summary", "skills", "experience", "education", "certifications"],
-      showIcons: false,
-      columns: 1,
-      maxWidth: "850px",
-      contentMargin: "auto",
-      headerStyle: "standard",
-      sectionStyle: "clear",
-      skillsLayout: "multi-column", // Special skills layout for ATS templates
-      maxSkillsPerColumn: 5 // Maximum skills per column
-    },
-    styles: {
-      fontFamily: "'Arial', 'Helvetica', sans-serif", // Standard fonts for maximum compatibility
-      fontSize: "11.5pt",
-      lineHeight: "1.4",
-      colors: {
-        primary: "#000000",    // Pure black for maximum contrast
-        secondary: "#444444",  // Dark gray
-        accent: "#2563eb",     // Standard blue
-        text: "#1f2937",       // Dark gray for body text
-        background: "#ffffff",
-        sectionTitles: "#000000"
-      },
-      spacing: {
-        sectionGap: "1.5rem",
-        paragraphSpacing: "0.75rem",
-        listSpacing: "0.5rem"
-      },
-      typography: {
-        headers: {
-          fontWeight: "bold",
-          transform: "none",    // No text transformation for better ATS parsing
-          marginBottom: "1rem"
-        },
-        body: {
-          fontWeight: "normal",
-          letterSpacing: "normal"
-        }
-      },
-      lists: {
-        bulletStyle: "standard", // Simple bullet points for compatibility
-        indentation: "1.5rem"
-      }
-    },
-    defaultData: {
-      personal: {
-        name: "",
-        jobTitle: "",
-        email: "",
-        phone: "",
-        address: "",
-        dateOfBirth: "",
-        gender: "",
-        maritalStatus: "",
-        linkedin: "",
-        portfolio: "",
-        photo: ""
-      },
-      summary: "",
-      skills: {
-        technical: [],
-        soft: [],
-        tools: []
-      },
-      experience: [],
-      education: [],
-      certifications: []
-    }
-  },
+  // standard_ats_optimized removed — ATS templates are in the dedicated ATS-Optimized category
 
   /*
     creative_professional: {
@@ -569,238 +512,7 @@ const originalUserTemplates = {
       }
     }, */
 
-  // Freshers Single Column - Clean and Professional Design
-  freshers: {
-    name: "Freshers Single",
-    previewImage: "/templates/previews/freshers_single.png",
-    category: "Freshers",
-    premium: false,
-    layout: {
-      sectionsOrder: ["personal", "summary", "education", "projects", "skills", "achievements", "languages", "customSections"],
-      sidebarSections: [],
-      mainSections: ["personal", "summary", "education", "projects", "skills", "achievements", "languages"],
-      showIcons: false,
-      columns: 1,
-    },
-    styles: {
-      fontFamily: "'Inter', sans-serif",
-      fontSize: "12pt",
-      lineHeight: "1.5",
-      colors: {
-        primary: "#1f2937", // Professional dark blue-gray
-        secondary: "#6b7280",
-        accent: "#3b82f6", // Blue accent
-        text: "#111827",
-        background: "#ffffff",
-        headerBg: "#f8fafc",
-        borderColor: "#e5e7eb",
-      },
-    },
-    defaultData: {
-      personal: {
-        name: "Your Name",
-        jobTitle: "Recent Graduate",
-        email: "your.email@example.com",
-        phone: "(555) 123-4567",
-        address: "City, State",
-        dateOfBirth: "",
-        gender: "",
-        maritalStatus: "",
-        linkedin: "https://linkedin.com/in/yourprofile",
-        github: "https://github.com/yourusername"
-      },
-      summary: "Recent graduate with strong academic foundation and hands-on project experience. Seeking opportunities to apply technical skills and contribute to innovative projects in a collaborative environment.",
-      education: [
-        {
-          institution: "University Name",
-          degree: "Bachelor of Technology in Computer Science",
-          fieldOfStudy: "Computer Science & Engineering",
-          startDate: "2021-08",
-          endDate: "2025-05",
-          gpa: "8.5",
-          percentage: "85%"
-        }
-      ],
-      projects: [
-        {
-          title: "E-Commerce Platform",
-          description: "Developed a full-stack e-commerce website with user authentication, product catalog, shopping cart, and payment integration using modern web technologies.",
-          technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "Stripe API"],
-          startDate: "2024-01",
-          endDate: "2024-04",
-          url: "https://github.com/yourusername/ecommerce-project"
-        },
-        {
-          title: "Task Management App",
-          description: "Built a collaborative task management application with real-time updates, user roles, and progress tracking features.",
-          technologies: ["React Native", "Firebase", "Redux", "TypeScript"],
-          startDate: "2023-09",
-          endDate: "2023-12"
-        }
-      ],
-      skills: [
-        {
-          category: "Programming Languages",
-          items: ["JavaScript (ES6+)", "Python", "Java", "C++"]
-        },
-        {
-          category: "Web Technologies",
-          items: ["React.js", "Node.js", "HTML5", "CSS3", "Express.js"]
-        },
-        {
-          category: "Databases",
-          items: ["MongoDB", "MySQL", "PostgreSQL"]
-        },
-        {
-          category: "Tools & Platforms",
-          items: ["Git", "Docker", "AWS", "VS Code", "Postman"]
-        },
-        {
-          category: "Soft Skills",
-          items: ["Problem Solving", "Communication", "Teamwork", "Time Management"]
-        }
-      ],
-      achievements: [
-        "Dean's List for 3 consecutive semesters (2022-2025)",
-        "1st place in University Coding Competition 2024",
-        "Final year project selected for Department Showcase",
-        "Member of University Programming Club",
-        "Completed 50+ LeetCode problems"
-      ],
-      languages: [
-        {
-          language: "English",
-          proficiency: "Fluent"
-        },
-        {
-          language: "Hindi",
-          proficiency: "Native"
-        }
-      ]
-    },
-  },
-
-  // Freshers Double Column - Modern Two-Column Layout
-  freshers_simple: {
-    name: "Freshers Double",
-    previewImage: "/templates/previews/freshers_double.png",
-    category: "Freshers",
-    premium: false,
-    layout: {
-      sectionsOrder: ["personal", "summary", "education", "projects", "skills", "achievements", "languages", "customSections"],
-      sidebarSections: ["personal", "skills", "languages", "achievements"],
-      mainSections: ["summary", "education", "projects"],
-      showIcons: false,
-      columns: 2,
-    },
-    styles: {
-      fontFamily: "'Inter', sans-serif",
-      fontSize: "11pt",
-      lineHeight: "1.4",
-      colors: {
-        primary: "#1e40af", // Modern blue
-        secondary: "#64748b",
-        accent: "#3b82f6",
-        text: "#1e293b",
-        background: "#ffffff",
-        headerBg: "#f1f5f9",
-        borderColor: "#cbd5e1",
-      },
-    },
-    defaultData: {
-      personal: {
-        name: "Your Name",
-        jobTitle: "Software Engineer",
-        email: "your.email@example.com",
-        phone: "(555) 123-4567",
-        address: "San Francisco, CA",
-        dateOfBirth: "",
-        gender: "",
-        maritalStatus: "",
-        linkedin: "https://linkedin.com/in/yourprofile",
-        github: "https://github.com/yourusername",
-        portfolio: "https://yourportfolio.com"
-      },
-      summary: "Passionate software engineer with strong foundation in computer science and hands-on experience in full-stack development. Proven ability to learn quickly and work effectively in collaborative environments. Seeking opportunities to contribute to innovative projects and grow professionally.",
-      education: [
-        {
-          institution: "US Institute of Technology",
-          degree: "B.Tech in Computer Science",
-          fieldOfStudy: "Computer Science & Engineering",
-          startDate: "2021-08",
-          endDate: "2025-05",
-          gpa: "8.7",
-          percentage: "87%"
-        }
-      ],
-
-      projects: [
-        {
-          title: "AI-Powered Resume Parser",
-          description: "Built an intelligent resume parsing system using Python and machine learning. Implemented NLP algorithms to extract key information and classify skills automatically.",
-          technologies: ["Python", "NLTK", "Scikit-learn", "Flask", "React"],
-          startDate: "2024-01",
-          endDate: "2024-05",
-          url: "https://github.com/yourusername/resume-parser"
-        },
-        {
-          title: "Real-time Chat Application",
-          description: "Developed a real-time chat application with features like user authentication, message encryption, and file sharing. Implemented using WebSocket for instant messaging.",
-          technologies: ["Node.js", "Socket.io", "MongoDB", "React", "JWT"],
-          startDate: "2023-09",
-          endDate: "2023-12"
-        }
-      ],
-      skills: [
-        {
-          category: "Programming",
-          items: ["JavaScript", "Python", "Java", "C++", "TypeScript"]
-        },
-        {
-          category: "Frontend",
-          items: ["React", "Vue.js", "HTML5", "CSS3", "Tailwind CSS"]
-        },
-        {
-          category: "Backend",
-          items: ["Node.js", "Express.js", "Django", "Spring Boot"]
-        },
-        {
-          category: "Database",
-          items: ["MongoDB", "PostgreSQL", "Redis", "MySQL"]
-        },
-        {
-          category: "DevOps",
-          items: ["Docker", "AWS", "Git", "CI/CD", "Kubernetes"]
-        },
-        {
-          category: "Tools",
-          items: ["VS Code", "Postman", "Figma", "Jira", "Docker Desktop"]
-        }
-      ],
-      achievements: [
-        "Google Developer Student Clubs Lead (2024-2025)",
-        "Microsoft Student Partner (2023-2024)",
-        "Hackathon Winner - Smart India Hackathon 2024",
-        "Dean's List - All 8 semesters",
-        "Published research paper in IEEE conference",
-        "Mentored 20+ junior students in programming"
-      ],
-      languages: [
-        {
-          language: "English",
-          proficiency: "Professional"
-        },
-        {
-          language: "Hindi",
-          proficiency: "Native"
-        },
-        {
-          language: "Kannada",
-          proficiency: "Conversational"
-        }
-      ]
-    },
-  },
+  // freshers templates removed — redundant with other Standard templates
 };
 
 
@@ -852,13 +564,18 @@ function injectCustomSections(templateObj) {
 }
 
 export const templates = {
-  // USER'S ORIGINAL TEMPLATES COME FIRST
+  // PREMIUM DESIGN TEMPLATES FIRST — World-class layouts (Zety/EnhanceCV quality)
+  ...injectCustomSections(premiumDesignTemplates),
+  // VISUAL APPEAL TEMPLATES — Photo-friendly, eye-catching designs
+  ...injectCustomSections(visualAppealTemplates),
+  // ATS-FRIENDLY TEMPLATES — High ATS scores, recruiter-approved
+  ...injectCustomSections(atsFriendlyTemplates),
+  // CLASSIC & PROFESSIONAL TEMPLATES
   ...injectCustomSections(diverseTemplates),
-  ...injectCustomSections(originalUserTemplates),             // All the new diverse layout templates
-  ...injectCustomSections(atsFriendlyTemplates),        // ATS-friendly templates for high scores
-  ...injectCustomSections(visualAppealTemplates),       // Visual Appeal templates with photos
-  ...onePagerTemplates,                                 // One-Pager templates (don't need custom sections injection)
-  /*  ...injectCustomSections(jobSpecificTemplates),   */       // Job-specific templates COME LAST
+  ...injectCustomSections(originalUserTemplates),
+  // ONE-PAGER TEMPLATES (don't need custom sections injection)
+  ...onePagerTemplates,
+  /*  ...injectCustomSections(jobSpecificTemplates),   */
 };
 
 // Export functions to get templates by category and type

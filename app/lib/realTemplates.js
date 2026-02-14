@@ -6,8 +6,9 @@ export const diverseTemplates = {
    // ============================
    infographic_professional: {
     name: "Professional Infographic",
+    description: "Data-driven layout with visual progress bars and highlighted section headings",
     previewImage: "/templates/previews/infographic_professional.png",
-    category: "Infographic",
+    category: "Standard",
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "skills", "experience", "education", "certifications"],
@@ -16,13 +17,15 @@ export const diverseTemplates = {
       showIcons: true,
       columns: 1,
       headerStyle: "minimal",
+      headingStyle: "highlight",
+      entryStyle: "bordered",
       visualElements: true,
       progressBars: true,
       spacing: "comfortable"
     },
     styles: {
       fontFamily: "'Inter', sans-serif",
-      fontSize: "14px",  
+      fontSize: "10.5pt",  
       lineHeight: "1.6",
       colors: {
         primary: "#1f2937",
@@ -40,8 +43,9 @@ export const diverseTemplates = {
   // ============================
   minimal_clean: {
     name: "Clean Minimal",
+    description: "Ultra-clean design with zero decoration — pure content focus",
     previewImage: "/templates/previews/minimal_clean.png",
-    category: "Minimal",
+    category: "Standard",
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "experience", "education", "skills"],
@@ -50,11 +54,13 @@ export const diverseTemplates = {
       showIcons: false,
       columns: 1,
       headerStyle: "minimal",
+      headingStyle: "simple",
+      entryStyle: "flat",
       spacing: "minimal"
     },
     styles: {
       fontFamily: "'Inter', sans-serif",
-      fontSize: "14px",
+      fontSize: "10.5pt",
       lineHeight: "1.7",
       colors: {
         primary: "#1f2937",
@@ -68,8 +74,9 @@ export const diverseTemplates = {
 
   minimal_swiss: {
     name: "Swiss Typography",
+    description: "Helvetica-based Swiss design with uppercase spaced headings and red accents",
     previewImage: "/templates/previews/minimal_swiss.png",
-    category: "Minimal",
+    category: "Standard",
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "experience", "education", "skills"],
@@ -78,11 +85,13 @@ export const diverseTemplates = {
       showIcons: false,
       columns: 1,
       headerStyle: "minimal",
+      headingStyle: "uppercase-spaced",
+      entryStyle: "flat",
       spacing: "swiss"
     },
     styles: {
       fontFamily: "'Helvetica Neue', sans-serif",
-      fontSize: "14px",
+      fontSize: "10.5pt",
       lineHeight: "1.5",
       colors: {
         primary: "#000000",
@@ -95,8 +104,9 @@ export const diverseTemplates = {
   },
   timeline_vertical: {
     name: "Vertical Timeline", 
+    description: "Visual timeline markers connecting your career progression vertically",
     previewImage: "/templates/previews/timeline_vertical.png",
-    category: "Timeline",
+    category: "Standard",
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "experience", "education", "skills", "certifications"],
@@ -105,12 +115,14 @@ export const diverseTemplates = {
       showIcons: false,
       columns: 1,
       headerStyle: "minimal",
+      headingStyle: "underline",
+      entryStyle: "flat",
       timelineStyle: true,
       spacing: "comfortable"
     },
     styles: {
       fontFamily: "'Inter', sans-serif",
-      fontSize: "14px",
+      fontSize: "10.5pt",
       lineHeight: "1.6",
       colors: {
         primary: "#1f2937",
@@ -128,21 +140,24 @@ export const diverseTemplates = {
   // ============================
   executive_luxury: {
     name: "Executive Luxury",
+    description: "Elegant serif design with gold accent bars for C-suite professionals",
     previewImage: "/templates/previews/executive_luxury.png",
-    category: "Executive",
+    category: "Standard",
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "experience", "education", "skills", "certifications"],
       sidebarSections: [],
       mainSections: ["personal", "summary", "experience", "education", "skills", "certifications"],
       headerStyle: "elegant",
+      headingStyle: "accent-bar",
+      entryStyle: "bordered",
       showIcons: false,
       columns: 1,
       spacing: "luxury"
     },
     styles: {
       fontFamily: "'Playfair Display', serif",
-      fontSize: "15px",
+      fontSize: "11pt",
       lineHeight: "1.7",
       colors: {
         primary: "#1a1a1a",
@@ -156,26 +171,29 @@ export const diverseTemplates = {
 
   executive_corporate: {
     name: "Corporate Executive",
+    description: "Conservative Times New Roman layout with bordered sections for traditional industries",
     previewImage: "/templates/previews/executive_corporate.png",
-    category: "Executive", 
+    category: "Standard", 
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "experience", "education", "skills"],
       sidebarSections: [],
       mainSections: ["personal", "summary", "experience", "education", "skills"],
       headerStyle: "elegant",
+      headingStyle: "uppercase-spaced",
+      entryStyle: "flat",
       showIcons: false,
       columns: 1,
       spacing: "corporate"
     },
     styles: {
       fontFamily: "'Times New Roman', serif",
-      fontSize: "14px",
+      fontSize: "10.5pt",
       lineHeight: "1.5",
       colors: {
-        primary: "#1e3a8a",
-        secondary: "#3b82f6",
-        accent: "#60a5fa",
+        primary: "#1e293b",
+        secondary: "#475569",
+        accent: "#1e40af",
         text: "#1f2937",
         background: "#ffffff"
       }
@@ -187,14 +205,17 @@ export const diverseTemplates = {
   // ============================
   portfolio_professional: {
     name: "Professional Portfolio",
+    description: "Modern portfolio header with icon badges, two-column card layout",
     previewImage: "/templates/previews/portfolio_professional.png",
-    category: "Portfolio",
+    category: "Standard",
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "experience", "skills", "education"],
       sidebarSections: ["skills"],
       mainSections: ["personal", "summary", "experience", "education"],
       headerStyle: "portfolio-modern",
+      headingStyle: "highlight",
+      entryStyle: "card",
       showIcons: true,
       columns: 2,
       sidebarWidth: "30%",
@@ -205,9 +226,9 @@ export const diverseTemplates = {
       fontSize: "11pt",
       lineHeight: "1.5",
       colors: {
-        primary: "#1e40af",
-        secondary: "#3b82f6",
-        accent: "#60a5fa",
+        primary: "#0f172a",
+        secondary: "#475569",
+        accent: "#6366f1",
         text: "#374151",
         background: "#ffffff",
         sidebarBg: "#f8fafc"
@@ -219,8 +240,9 @@ export const diverseTemplates = {
   // ============================
   modern_sidebar_left: {
     name: "Modern Left Sidebar",
+    description: "Wide sidebar with accent-bar headings and bordered entries",
     previewImage: "/templates/previews/modern_sidebar_left.png",
-    category: "Modern",
+    category: "Standard",
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "experience", "education", "skills", "languages", "certifications"],
@@ -230,12 +252,14 @@ export const diverseTemplates = {
       columns: 2,
       sidebarWidth: "35%",
       headerStyle: "full-width",
+      headingStyle: "accent-bar",
+      entryStyle: "bordered",
       sidebar: "#f8f9fa",
       spacing: "compact"
     },
     styles: {
       fontFamily: "Inter, sans-serif",
-      fontSize: "13px",
+      fontSize: "10pt",
       lineHeight: "1.4",
       colors: {
         primary: "#1a202c",
@@ -250,8 +274,9 @@ export const diverseTemplates = {
 
   modern_sidebar_right: {
     name: "Modern Right Sidebar",
+    description: "Teal-themed layout with right sidebar and card-style experience entries",
     previewImage: "/templates/previews/modern_sidebar_right.png",
-    category: "Modern",
+    category: "Standard",
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "experience", "education", "skills", "languages", "certifications"],
@@ -261,20 +286,22 @@ export const diverseTemplates = {
       columns: 2,
       sidebarWidth: "30%",
       headerStyle: "full-width",
+      headingStyle: "underline",
+      entryStyle: "card",
       sidebar: "#f7fafc",
       spacing: "comfortable"
     },
     styles: {
       fontFamily: "Inter, sans-serif",
-      fontSize: "14px",
+      fontSize: "10.5pt",
       lineHeight: "1.5",
       colors: {
-        primary: "#2b6cb0",
-        secondary: "#4299e1",
-        accent: "#63b3ed",
+        primary: "#0e7490",
+        secondary: "#155e75",
+        accent: "#06b6d4",
         text: "#2d3748",
         background: "#ffffff",
-        sidebarBg: "#f7fafc"
+        sidebarBg: "#f0fdfa"
       }
     }
   },
@@ -284,8 +311,9 @@ export const diverseTemplates = {
   // ============================
   creative_header_hero: {
     name: "Creative Header Hero",
+    description: "Bold emerald gradient hero banner with highlighted section headings",
     previewImage: "/templates/previews/creative_header_hero.png",
-    category: "Creative",
+    category: "Standard",
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "experience", "skills", "education", "certifications"],
@@ -294,41 +322,46 @@ export const diverseTemplates = {
       showIcons: true,
       columns: 1,
       headerStyle: "hero-banner",
+      headingStyle: "highlight",
+      entryStyle: "bordered",
       spacing: "comfortable"
     },
     styles: {
       fontFamily: "'Inter', sans-serif",
-      fontSize: "14px",
+      fontSize: "10.5pt",
       lineHeight: "1.6",
       colors: {
-        primary: "#1e40af",
-        secondary: "#3b82f6", 
-        accent: "#60a5fa",
+        primary: "#065f46",
+        secondary: "#047857",
+        accent: "#10b981",
         text: "#1f2937",
         background: "#ffffff",
-        headerGradient: "linear-gradient(135deg, #1e40af 0%, #60a5fa 100%)"
+        headerGradient: "linear-gradient(135deg, #065f46 0%, #10b981 100%)"
       }
     }
   },
 
   creative_asymmetric: {
     name: "Creative Asymmetric",
+    description: "Purple gradient header with asymmetric two-column layout and card entries",
     previewImage: "/templates/previews/creative_asymmetric.png",
-    category: "Creative",
+    category: "Standard",
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "skills", "languages", "experience", "education", "certifications"],
-      sidebarSections: ["skills", "certifications"],  // Compact sections go LEFT
-      mainSections: ["personal", "summary", "experience", "education"], // Experience goes RIGHT
+      sidebarSections: ["skills", "certifications"],
+      mainSections: ["personal", "summary", "experience", "education"],
       showIcons: true,
       columns: 2,
       sidebarWidth: "35%",
       headerStyle: "creative-asymmetric",
+      headingStyle: "accent-bar",
+      entryStyle: "card",
       spacing: "modern"
     },
     styles: {
       fontFamily: "'Inter', sans-serif",
-      fontSize: "13px",
+      fontSize: "10pt",
       lineHeight: "1.5",
       colors: {
         primary: "#7c3aed",
@@ -355,14 +388,17 @@ export const diverseTemplates = {
   // ============================
   tech_professional: {
     name: "Professional Tech",
+    description: "Developer-focused layout with amber accents and clean bordered entries",
     previewImage: "/templates/previews/tech_professional.png",
-    category: "Tech",
+    category: "Standard",
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "skills", "experience", "education"],
       sidebarSections: ["skills"],
       mainSections: ["personal", "summary", "experience", "education"],
       headerStyle: "tech-header",
+      headingStyle: "simple",
+      entryStyle: "bordered",
       showIcons: false,
       columns: 2,
       sidebarWidth: "30%",
@@ -370,12 +406,12 @@ export const diverseTemplates = {
     },
     styles: {
       fontFamily: "'Inter', sans-serif",
-      fontSize: "13px",
+      fontSize: "10pt",
       lineHeight: "1.5",
       colors: {
-        primary: "#1f2937",
-        secondary: "#4b5563",
-        accent: "#3b82f6",
+        primary: "#1e293b",
+        secondary: "#475569",
+        accent: "#f59e0b",
         text: "#374151",
         background: "#ffffff",
         code: "#f9fafb"
@@ -385,14 +421,17 @@ export const diverseTemplates = {
 
   tech_modern: {
     name: "Modern Tech",
+    description: "Cyan-accented tech layout with underlined headings and card entries",
     previewImage: "/templates/previews/tech_modern.png",
-    category: "Tech",
+    category: "Standard",
     premium: false,
     layout: {
       sectionsOrder: ["personal", "summary", "skills", "experience", "education"],
       sidebarSections: ["skills"],
       mainSections: ["personal", "summary", "experience", "education"],
       headerStyle: "full-width",
+      headingStyle: "underline",
+      entryStyle: "card",
       showIcons: true,
       columns: 2,
       sidebarWidth: "30%",
@@ -400,7 +439,7 @@ export const diverseTemplates = {
     },
     styles: {
       fontFamily: "'Inter', sans-serif",
-      fontSize: "13px",
+      fontSize: "10pt",
       lineHeight: "1.6",
       colors: {
         primary: "#1f2937",
@@ -416,45 +455,10 @@ export const diverseTemplates = {
 
 // Template categories for organization
 export const templateCategories = {
-  "Modern": {
-    name: "Modern",
-    description: "Contemporary sidebar and split layouts",
-    count: 2
-  },
-  "Creative": {
-    name: "Creative",
-    description: "Unique, artistic design approaches",
-    count: 2
-  },
-  "Timeline": {
-    name: "Timeline",
-    description: "Visual timeline-based layouts",
-    count: 1
-  },
-  "Infographic": {
-    name: "Infographic",
-    description: "Visual, chart-based presentations",
-    count: 1
-  },
-  "Minimal": {
-    name: "Minimal",
-    description: "Clean, typography-focused designs",
-    count: 2
-  },
-  "Executive": {
-    name: "Executive",
-    description: "High-level professional layouts",
-    count: 2
-  },
-  "Portfolio": {
-    name: "Portfolio",
-    description: "Work showcase layouts",
-    count: 1
-  },
-  "Tech": {
-    name: "Tech",
-    description: "Developer and tech-focused layouts",
-    count: 2
+  "Standard": {
+    name: "Standard",
+    description: "Professional resume templates with diverse layouts and styles",
+    count: Object.keys(diverseTemplates).length
   }
 };
 
@@ -477,4 +481,4 @@ export const templateStats = {
 };
 
 // Export the diverse templates as the main export
-export default diverseTemplates; 
+export default diverseTemplates;

@@ -58,6 +58,7 @@ import { templates } from "../lib/templates";
 import { defaultConfig } from "../lib/templates";
 import { atsFriendlyTemplates } from "../lib/atsFriendlyTemplates.js";
 import { visualAppealTemplates } from "../lib/visualAppealTemplates.js";
+import { premiumDesignTemplates } from "../lib/premiumDesignTemplates.js";
 import { saveResumeDataWithIndiaHandling } from "../lib/storage";
 import { cleanResumeDataForFirebase } from "../lib/utils";
 import { useProfileGuard } from "../hooks/useProfileGuard"; // [NEW]
@@ -2055,12 +2056,15 @@ export default function JobDescriptionResumeBuilder({
     }
 
     // Check template category and use the appropriate API
-    const currentTemplate = templates[selectedTemplate] || atsFriendlyTemplates[selectedTemplate] || visualAppealTemplates[selectedTemplate];
+    const currentTemplate = templates[selectedTemplate] || atsFriendlyTemplates[selectedTemplate] || visualAppealTemplates[selectedTemplate] || premiumDesignTemplates[selectedTemplate];
     const isATSTemplate = currentTemplate?.category === "ATS-Optimized";
     const isVisualAppealTemplate = currentTemplate?.category === "Visual Appeal" || selectedTemplate?.startsWith('visual_');
+    const isPremiumDesignTemplate = currentTemplate?.category === "Premium Design" || selectedTemplate?.startsWith('premium_');
 
     let apiEndpoint = "/api/generate-pdf"; // Default
-    if (isATSTemplate) {
+    if (isPremiumDesignTemplate) {
+      apiEndpoint = "/api/generate-premium-design-pdf";
+    } else if (isATSTemplate) {
       apiEndpoint = "/api/generate-ats-pdf";
     } else if (isVisualAppealTemplate) {
       apiEndpoint = "/api/generate-visual-appeal-pdf";
@@ -2111,9 +2115,17 @@ export default function JobDescriptionResumeBuilder({
 
     setIsGeneratingPdf(true);
     try {
-      const requestBody = isATSTemplate ? {
+      const requestBody = isPremiumDesignTemplate ? {
         data: dataToUse,
-        template: currentTemplate // Send the full template object for ATS templates
+        template: selectedTemplate, // Send template key — API looks up from premiumDesignTemplates
+        customColors,
+        language: 'en',
+        country: 'us',
+        preferences: {}
+      } : isATSTemplate ? {
+        data: dataToUse,
+        template: currentTemplate, // Send the full template object for ATS templates
+        preferences: {}
       } : isVisualAppealTemplate ? {
         data: dataToUse,
         template: currentTemplate, // Send the full template object for Visual Appeal templates

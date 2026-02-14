@@ -60,6 +60,7 @@ import { saveUserInfo } from "../utils/saveUserInfo";
 import { defaultConfig, templates } from "../lib/templates";
 import { atsFriendlyTemplates } from "../lib/atsFriendlyTemplates.js";
 import { visualAppealTemplates } from "../lib/visualAppealTemplates.js";
+import { premiumDesignTemplates } from "../lib/premiumDesignTemplates.js";
 import {
   saveWorkingResume,
   loadWorkingResume,
@@ -1848,10 +1849,14 @@ export default function UploadResumeContainerClient({
       // Determine template type and use the appropriate API
       const isATSTemplate = template && template.startsWith('ats_');
       const isVisualAppealTemplate = template && template.startsWith('visual_');
+      const isPremiumDesignTemplate = template && template.startsWith('premium_');
 
       let apiEndpoint, templateData;
 
-      if (isATSTemplate) {
+      if (isPremiumDesignTemplate) {
+        apiEndpoint = "/api/generate-premium-design-pdf";
+        templateData = template; // Send template key — API looks up from premiumDesignTemplates
+      } else if (isATSTemplate) {
         apiEndpoint = "/api/generate-ats-pdf";
         templateData = atsFriendlyTemplates[template];
         if (!templateData) {

@@ -604,16 +604,20 @@ export default function ResumeSlideshowModal({
       const { templates } = await import('../lib/templates');
       const { atsFriendlyTemplates } = await import('../lib/atsFriendlyTemplates');
       const { visualAppealTemplates } = await import('../lib/visualAppealTemplates');
+      const { premiumDesignTemplates } = await import('../lib/premiumDesignTemplates');
 
-      const allTemplates = { ...templates, ...atsFriendlyTemplates, ...visualAppealTemplates };
+      const allTemplates = { ...templates, ...atsFriendlyTemplates, ...visualAppealTemplates, ...premiumDesignTemplates };
       const currentTemplate = allTemplates[slide.template];
 
       const isATSTemplate = currentTemplate?.category === "ATS-Optimized";
       const isVisualAppealTemplate = currentTemplate?.category === "Visual Appeal" || slide.template?.startsWith('visual_');
+      const isPremiumDesignTemplate = currentTemplate?.category === "Premium Design" || slide.template?.startsWith('premium_');
 
       let apiEndpoint = "/api/generate-pdf"; // Default
       if (isOnePagerTemplate) {
         apiEndpoint = "/api/download-one-pager";
+      } else if (isPremiumDesignTemplate) {
+        apiEndpoint = "/api/generate-premium-design-pdf";
       } else if (isATSTemplate) {
         apiEndpoint = "/api/generate-ats-pdf";
       } else if (isVisualAppealTemplate) {
@@ -628,6 +632,15 @@ export default function ResumeSlideshowModal({
         requestBody = {
           data: resumeData,
           template: templateName
+        };
+      } else if (isPremiumDesignTemplate) {
+        requestBody = {
+          data: resumeData,
+          template: slide.template,
+          customColors: slide.colors,
+          language: preferences.language || "en",
+          country: preferences.country || "us",
+          preferences
         };
       } else if (isATSTemplate) {
         requestBody = {
