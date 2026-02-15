@@ -274,6 +274,46 @@ export const ADDON_CONFIG = {
   }
 };
 
+export const ENTERPRISE_CONFIG = {
+  academic: {
+    name: "Academic Plan",
+    priceText: "$1.49 — $1.99",
+    unit: "per student",
+    description: "Perfect for universities and colleges looking to standardize student resumes.",
+    features: [
+      "All professional templates",
+      "Bulk PDF + Word export",
+      "Admin dashboard access",
+      "LinkedIn profile optimization"
+    ]
+  },
+  agency: {
+    name: "Agency Plan",
+    priceText: "$299 — $599",
+    unit: "per month",
+    description: "For placement agencies requiring high-volume resume processing.",
+    features: [
+      "Unlimited resume creation",
+      "White-label options available",
+      "Advanced ATS checker",
+      "Dedicated account manager",
+      "Priority support"
+    ]
+  },
+  partner: {
+    name: "Partner Plan",
+    priceText: "Custom",
+    unit: "quote",
+    description: "White-label solution for HR consultancies to offer branded resume services.",
+    features: [
+      "Full White-label (Your Brand)",
+      "Custom domain support",
+      "API access integration",
+      "Revenue sharing options"
+    ]
+  }
+};
+
 export const COUPON_OPTIONS = [
   { code: "SAVE10", value: 0.10, label: "10% OFF" },
   { code: "SAVE15", value: 0.15, label: "15% OFF" },

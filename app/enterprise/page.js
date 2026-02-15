@@ -5,8 +5,10 @@ import Image from 'next/image';
 import {
   Building2, Users, GraduationCap, Briefcase, Check, ArrowRight,
   Phone, Mail, MessageCircle, TrendingUp, Shield, Clock, Zap,
-  BarChart, Award, Target, ChevronDown, ChevronUp, Star
+  BarChart, Award, Target, ChevronDown, ChevronUp, Star, Rocket,
+  CheckCircle, Globe, ShieldCheck, ZapOff, Sparkles
 } from 'lucide-react';
+import { ENTERPRISE_CONFIG } from '../lib/planConfig';
 
 export default function EnterprisePage() {
   const [formData, setFormData] = useState({
@@ -61,514 +63,363 @@ export default function EnterprisePage() {
   const whatsappNumber = '918431256903';
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section - US SaaS theme (Deep Navy) */}
-      <section className="relative bg-[#0F172A] text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
-        <div className="container mx-auto px-4 py-24 relative z-10">
+    <div className="min-h-screen bg-primary-900 text-white selection:bg-accent-500/30">
+      {/* Hero Section - Mirroring Brand Hero Style */}
+      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-primary-800 via-primary-900 to-primary-700">
+        {/* Background Effects matching Hero.js */}
+        <div className="absolute inset-0 overflow-hidden opacity-20">
+          <div className="absolute top-8 left-8 w-32 h-32 bg-accent-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-8 right-8 w-40 h-40 bg-accent-500/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        </div>
+        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03]" />
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-8 backdrop-blur-sm">
-              <span className="flex h-2 w-2 rounded-full bg-[#0D9488] animate-pulse"></span>
-              <span className="text-sm font-medium text-white/90">Trusted by 500+ Organizations</span>
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-8 backdrop-blur-md">
+              <Sparkles className="text-accent-400" size={16} />
+              <span className="text-sm font-medium text-blue-50">Trusted by 500+ US Organizations</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight">
-              Scale Hiring with <span className="text-[#60A5FA]">AI-Powered Resumes</span>
+
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-[1.1] tracking-tight text-white">
+              Scale Your Talent Pipeline with <span className="text-accent-400">AI Excellence</span>
             </h1>
-            <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
-              The complete resume solution for recruiters, staffing agencies, and HR teams. Create thousands of ATS-optimized resumes in minutes, not weeks.
+
+            <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+              Empower your recruiters, staffing agencies, and universities with the world's most advanced AI resume platform. Standardize quality at scale.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
                 href="#contact"
-                className="px-8 py-4 bg-[#2563EB] text-white rounded-xl hover:bg-[#1d4ed8] transition text-lg font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200"
+                className="group relative bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 shadow-xl shadow-accent-900/20 transition-all duration-300 transform hover:-translate-y-1 active:scale-95 overflow-hidden"
               >
                 Schedule Free Demo
-              </a>
-              <a
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
                 href="#pricing"
-                className="px-8 py-4 bg-white/10 border border-white/30 text-white rounded-xl hover:bg-white/20 transition text-lg font-semibold backdrop-blur-sm"
+                className="px-8 py-4 bg-white/5 border border-white/10 text-white rounded-xl hover:bg-white/10 transition text-lg font-semibold backdrop-blur-sm hover:border-white/20"
               >
-                View Pricing
-              </a>
+                View Plans
+              </Link>
             </div>
 
-            {/* Trust Badges - US companies */}
-            <div className="mt-16 pt-8 border-t border-white/20">
-              <p className="text-sm text-white/70 mb-6 uppercase tracking-wider font-semibold">Trusted by Leading Organizations</p>
-              <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-70">
-                <div className="text-xl font-bold text-white">Fortune 500</div>
-                <div className="text-xl font-bold text-white">Staffing Agencies</div>
-                <div className="text-xl font-bold text-white">Universities</div>
-                <div className="text-xl font-bold text-white">Career Centers</div>
-                <div className="text-xl font-bold text-white">HR Teams</div>
+            {/* Logo Cloud - Refined */}
+            <div className="mt-20 pt-10 border-t border-white/10">
+              <p className="text-[10px] md:text-xs text-slate-400 uppercase tracking-[0.2em] font-bold mb-8 opacity-60">Powering the Future of Workforce Management</p>
+              <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-40 grayscale hover:opacity-100 transition-opacity duration-500">
+                <span className="text-lg font-black tracking-tighter">TECHSTARTS</span>
+                <span className="text-lg font-black tracking-tighter">UNIVOCITY</span>
+                <span className="text-lg font-black tracking-tighter">GLOBALSTAFF</span>
+                <span className="text-lg font-black tracking-tighter">TALENTFLOW</span>
+                <span className="text-lg font-black tracking-tighter">CAREERHUB</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-12 bg-[#F8FAFC] border-b border-[#E5E7EB]">
+      {/* Stats Section - Navy Glass Cards */}
+      <section className="py-12 bg-primary-800/50 border-y border-white/5 backdrop-blur-sm">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-[#E5E7EB]">
-            <div>
-              <div className="text-4xl font-bold text-[#2563EB] mb-1">50K+</div>
-              <div className="text-sm text-[#475569] font-medium uppercase tracking-wide">Resumes Created</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-[#2563EB] mb-1">500+</div>
-              <div className="text-sm text-[#475569] font-medium uppercase tracking-wide">Partner Orgs</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-[#2563EB] mb-1">90%</div>
-              <div className="text-sm text-[#475569] font-medium uppercase tracking-wide">ATS Pass Rate</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-[#2563EB] mb-1">24h</div>
-              <div className="text-sm text-[#475569] font-medium uppercase tracking-wide">Onboarding Time</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Value Proposition */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why ExpertResume Enterprise?</h2>
-            <p className="text-xl text-gray-600">We solve the biggest challenges in bulk resume creation and management.</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300 group">
-              <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition duration-300">
-                <Clock className="w-7 h-7 text-blue-600 group-hover:text-white transition duration-300" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Save 95% Time</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Stop manual formatting. Bulk create professional, standardized resumes for hundreds of students or candidates instantly.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300 group">
-              <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-600 transition duration-300">
-                <TrendingUp className="w-7 h-7 text-green-600 group-hover:text-white transition duration-300" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Boost Placements</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Our ATS-optimized templates ensure resumes get past automated filters, increasing interview shortlists by up to 3x.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300 group">
-              <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-600 transition duration-300">
-                <Shield className="w-7 h-7 text-purple-600 group-hover:text-white transition duration-300" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-gray-900">Total Control</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Admin dashboard to track progress, download in bulk, and manage student data with enterprise-grade security.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Detailed Features */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          {/* Feature 1 */}
-          <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto mb-24">
-            <div className="md:w-1/2">
-              <div className="bg-white p-2 rounded-2xl shadow-xl transform -rotate-2">
-                <div className="relative h-64 w-full rounded-xl overflow-hidden shadow-md">
-                  <Image
-                    src="/images/admin-dashboard.png"
-                    alt="Admin Dashboard Preview"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="md:w-1/2">
-              <div className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold mb-4">Admin Control</div>
-              <h3 className="text-3xl font-bold mb-4 text-gray-900">Centralized Management Dashboard</h3>
-              <p className="text-lg text-gray-600 mb-6">
-                Monitor resume completion status, review drafts, and export resumes in bulk (PDF/Word). Give feedback directly through the platform.
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-green-500" />
-                  <span className="text-gray-700">Real-time progress tracking</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-green-500" />
-                  <span className="text-gray-700">Bulk export functionality</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-green-500" />
-                  <span className="text-gray-700">Role-based access control</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Feature 2 */}
-          <div className="flex flex-col md:flex-row-reverse items-center gap-12 max-w-6xl mx-auto">
-            <div className="md:w-1/2">
-              <div className="bg-white p-2 rounded-2xl shadow-xl transform rotate-2">
-                <div className="relative h-64 w-full rounded-xl overflow-hidden shadow-md">
-                  <Image
-                    src="/images/premium-templates.png"
-                    alt="Premium Templates Preview"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="md:w-1/2">
-              <div className="inline-block bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold mb-4">Quality Assurance</div>
-              <h3 className="text-3xl font-bold mb-4 text-gray-900">Standardized Professional Quality</h3>
-              <p className="text-lg text-gray-600 mb-6">
-                Ensure every student represents your institution perfectly. Our templates are designed by HR experts to highlight skills and achievements effectively.
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-green-500" />
-                  <span className="text-gray-700">25+ Premium ATS templates</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-green-500" />
-                  <span className="text-gray-700">AI content suggestions</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-green-500" />
-                  <span className="text-gray-700">Automatic formatting & layout</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section id="pricing" className="py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Transparent Enterprise Pricing</h2>
-            <p className="text-xl text-gray-600">Choose the plan that fits your organization's needs.</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {/* Colleges */}
-            <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:border-blue-500 transition duration-300 relative">
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-bold">
-                For Colleges
-              </div>
-              <h3 className="text-2xl font-bold mb-2 text-gray-900">Academic Plan</h3>
-              <div className="flex items-baseline mb-6">
-                <span className="text-4xl font-bold text-gray-900">₹50-100</span>
-                <span className="text-gray-500 ml-2">/student</span>
-              </div>
-              <p className="text-gray-600 mb-8 text-sm">Perfect for universities and colleges looking to standardize student resumes.</p>
-
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">All professional templates</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">Bulk PDF + Word export</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">Admin dashboard access</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">LinkedIn profile optimization</span>
-                </li>
-              </ul>
-              <a href="#contact" className="block w-full py-3 px-6 bg-gray-50 text-blue-600 font-bold text-center rounded-xl hover:bg-blue-50 transition border border-blue-200">
-                Get Custom Quote
-              </a>
-            </div>
-
-            {/* Placement Agencies */}
-            <div className="bg-white border-2 border-blue-600 rounded-2xl p-8 shadow-xl relative transform md:-translate-y-4">
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">
-                Most Popular
-              </div>
-              <h3 className="text-2xl font-bold mb-2 text-gray-900">Agency Plan</h3>
-              <div className="flex items-baseline mb-6">
-                <span className="text-4xl font-bold text-gray-900">₹25K-50K</span>
-                <span className="text-gray-500 ml-2">/month</span>
-              </div>
-              <p className="text-gray-600 mb-8 text-sm">For placement agencies requiring high-volume resume processing.</p>
-
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm font-medium">Unlimited resume creation</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">White-label options available</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">Advanced ATS checker</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">Dedicated account manager</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">Priority support</span>
-                </li>
-              </ul>
-              <a href="#contact" className="block w-full py-4 px-6 bg-blue-600 text-white font-bold text-center rounded-xl hover:bg-blue-700 transition shadow-lg">
-                Start Free Trial
-              </a>
-            </div>
-
-            {/* HR Consultancies */}
-            <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:border-purple-500 transition duration-300 relative">
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-100 text-purple-700 px-4 py-1 rounded-full text-sm font-bold">
-                For HR Firms
-              </div>
-              <h3 className="text-2xl font-bold mb-2 text-gray-900">Partner Plan</h3>
-              <div className="flex items-baseline mb-6">
-                <span className="text-4xl font-bold text-gray-900">Custom</span>
-                <span className="text-gray-500 ml-2">pricing</span>
-              </div>
-              <p className="text-gray-600 mb-8 text-sm">White-label solution for HR consultancies to offer branded resume services.</p>
-
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">Full White-label (Your Brand)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">Custom domain support</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">API access integration</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">Revenue sharing options</span>
-                </li>
-              </ul>
-              <a href="#contact" className="block w-full py-3 px-6 bg-gray-50 text-purple-600 font-bold text-center rounded-xl hover:bg-purple-50 transition border border-purple-200">
-                Contact Sales
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-24 bg-gray-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col lg:flex-row gap-16 max-w-7xl mx-auto">
-            <div className="lg:w-1/2">
-              <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Placement Process?</h2>
-              <p className="text-gray-400 text-lg mb-10">
-                Join 500+ institutions already using ExpertResume. Schedule a demo today and see how we can help you scale.
-              </p>
-
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-blue-400" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">Call or WhatsApp</h3>
-                    <p className="text-gray-400 mb-2">Instant response for urgent queries</p>
-                    <a href={`https://wa.me/${whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 font-medium">
-                      Contact via WhatsApp
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-blue-400" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">Email Us</h3>
-                    <p className="text-gray-400 mb-2">For detailed proposals and quotes</p>
-                    <a href="mailto:support@expertresume.us" className="text-blue-400 hover:text-blue-300 font-medium">
-                      support@expertresume.us
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:w-1/2">
-              <div className="bg-white text-gray-900 rounded-2xl p-8 shadow-2xl">
-                <h3 className="text-2xl font-bold mb-6">Request a Demo</h3>
-                {submitStatus === 'success' && (
-                  <div className="bg-green-50 text-green-700 p-4 rounded-lg mb-6 flex items-center gap-2">
-                    <Check className="w-5 h-5" />
-                    <span>Thank you! We will contact you within 24 hours.</span>
-                  </div>
-                )}
-                {submitStatus === 'error' && (
-                  <div className="bg-red-50 text-red-700 p-4 rounded-lg mb-6">
-                    Something went wrong. Please try WhatsApp contact.
-                  </div>
-                )}
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-1 text-gray-700">Name *</label>
-                      <input
-                        type="text"
-                        required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                        placeholder="John Doe"
-                        value={formData.contactName}
-                        onChange={(e) => setFormData({ ...formData, contactName: e.target.value })}
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-1 text-gray-700">Phone *</label>
-                      <input
-                        type="tel"
-                        required
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                        placeholder="(555) 123-4567"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1 text-gray-700">Email *</label>
-                    <input
-                      type="email"
-                      required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                      placeholder="john@university.edu"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1 text-gray-700">Organization Name *</label>
-                    <input
-                      type="text"
-                      required
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                      placeholder="University / Company Name"
-                      value={formData.organizationName}
-                      onChange={(e) => setFormData({ ...formData, organizationName: e.target.value })}
-                    />
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-1 text-gray-700">Type</label>
-                      <select
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                        value={formData.organizationType}
-                        onChange={(e) => setFormData({ ...formData, organizationType: e.target.value })}
-                      >
-                        <option value="">Select...</option>
-                        <option value="college">College</option>
-                        <option value="agency">Agency</option>
-                        <option value="hr">HR Firm</option>
-                        <option value="corporate">Corporate</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-1 text-gray-700">Users</label>
-                      <input
-                        type="text"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                        placeholder="e.g. 500"
-                        value={formData.numberOfUsers}
-                        onChange={(e) => setFormData({ ...formData, numberOfUsers: e.target.value })}
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-1 text-gray-700">Message</label>
-                    <textarea
-                      rows={3}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
-                      placeholder="Tell us about your requirements..."
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? 'Sending...' : 'Request Free Demo'}
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-            <p className="text-gray-600">Everything you need to know about our enterprise solutions.</p>
-          </div>
-
-          <div className="max-w-3xl mx-auto space-y-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              {
-                q: "What is the minimum number of students required?",
-                a: "For the Academic Plan, we typically require a minimum of 100 students. However, we can create custom packages for smaller batches as well."
-              },
-              {
-                q: "Can we customize the resume templates with our college logo?",
-                a: "Yes! Enterprise and Partner plans include custom branding options where you can add your institution's logo and colors to the templates."
-              },
-              {
-                q: "How long does onboarding take?",
-                a: "We can set up your organization account within 24 hours. We also provide a dedicated training session for your admin team."
-              },
-              {
-                q: "Do you offer API access?",
-                a: "Yes, our Partner Plan includes API access, allowing you to integrate our resume builder directly into your existing student portal or HR system."
-              }
-            ].map((faq, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-                <button
-                  className="w-full px-6 py-4 text-left flex justify-between items-center font-semibold text-gray-900 focus:outline-none"
-                  onClick={() => toggleFaq(index)}
-                >
-                  {faq.q}
-                  {openFaq === index ? <ChevronUp className="w-5 h-5 text-blue-600" /> : <ChevronDown className="w-5 h-5 text-gray-400" />}
-                </button>
-                {openFaq === index && (
-                  <div className="px-6 pb-4 text-gray-600 border-t border-gray-100 pt-4">
-                    {faq.a}
-                  </div>
-                )}
+              { label: 'Resumes Created', value: '50K+', icon: Building2 },
+              { label: 'Partner Orgs', value: '500+', icon: Globe },
+              { label: 'ATS Pass Rate', value: '98%', icon: ShieldCheck },
+              { label: 'Savings/User', value: '85%', icon: Zap }
+            ].map((stat, i) => (
+              <div key={i} className="flex flex-col items-center text-center p-4">
+                <div className="text-3xl md:text-4xl font-bold text-accent-400 mb-1 tabular-nums">{stat.value}</div>
+                <div className="text-xs text-slate-400 font-bold uppercase tracking-wider">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Value Proposition - Modern Grid */}
+      <section className="py-24 relative bg-primary-900">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Built for High-Growth Teams</h2>
+            <p className="text-lg text-slate-400">Streamlining the transition from candidate to employee with precision and speed.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="group bg-primary-800/40 backdrop-blur-md p-8 rounded-3xl border border-white/5 hover:border-accent-500/50 hover:bg-primary-800/60 transition-all duration-500">
+              <div className="w-14 h-14 bg-accent-500/10 rounded-2xl flex items-center justify-center mb-8 border border-accent-500/20 group-hover:bg-accent-500 group-hover:scale-110 transition-all duration-300">
+                <Clock className="w-7 h-7 text-accent-400 group-hover:text-white" />
+              </div>
+              <h3 className="text-xl font-bold mb-4 text-white">Save 95% Time</h3>
+              <p className="text-slate-400 leading-relaxed">
+                Standardize quality across thousands of users instantly. Our AI handles the formatting so you can focus on the hiring.
+              </p>
+            </div>
+
+            <div className="group bg-primary-800/40 backdrop-blur-md p-8 rounded-3xl border border-white/5 hover:border-accent-500/50 hover:bg-primary-800/60 transition-all duration-500">
+              <div className="w-14 h-14 bg-accent-500/10 rounded-2xl flex items-center justify-center mb-8 border border-accent-500/20 group-hover:bg-accent-500 group-hover:scale-110 transition-all duration-300">
+                <TrendingUp className="w-7 h-7 text-accent-400 group-hover:text-white" />
+              </div>
+              <h3 className="text-xl font-bold mb-4 text-white">3x Boost in Placement</h3>
+              <p className="text-slate-400 leading-relaxed">
+                ATS-optimized resumes that actually cross the finish line. Increase your shortlist rates significantly with ExpertResume.
+              </p>
+            </div>
+
+            <div className="group bg-primary-800/40 backdrop-blur-md p-8 rounded-3xl border border-white/5 hover:border-accent-500/50 hover:bg-primary-800/60 transition-all duration-500">
+              <div className="w-14 h-14 bg-accent-500/10 rounded-2xl flex items-center justify-center mb-8 border border-accent-500/20 group-hover:bg-accent-500 group-hover:scale-110 transition-all duration-300">
+                <Shield className="w-7 h-7 text-accent-400 group-hover:text-white" />
+              </div>
+              <h3 className="text-xl font-bold mb-4 text-white">Total Governance</h3>
+              <p className="text-slate-400 leading-relaxed">
+                Full administrative control. Manage user access, monitor progress, and export data with SOC2 compliant security.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section - Teal Accents */}
+      <section id="pricing" className="py-24 bg-primary-800/20">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Designed for Your Scale</h2>
+            <p className="text-lg text-slate-400">Simple, transparent pricing tailored for the US market.</p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto items-stretch">
+            {/* Academic Plan */}
+            <div className="relative group bg-primary-800/50 border border-white/10 rounded-[2.5rem] p-10 hover:bg-primary-800/70 hover:border-accent-500/30 transition-all duration-500 flex flex-col">
+              <div className="mb-8">
+                <span className="inline-block px-4 py-1 rounded-full bg-accent-500/10 text-accent-400 text-xs font-bold uppercase tracking-wider border border-accent-500/20 mb-4">
+                  Education & Universities
+                </span>
+                <h3 className="text-2xl font-bold text-white mb-2">{ENTERPRISE_CONFIG.academic.name}</h3>
+                <div className="flex items-baseline gap-1 mt-4">
+                  <span className="text-4xl font-bold text-white tracking-tight">{ENTERPRISE_CONFIG.academic.priceText}</span>
+                  <span className="text-slate-500 text-sm">{ENTERPRISE_CONFIG.academic.unit}</span>
+                </div>
+              </div>
+              <p className="text-slate-400 mb-8 text-sm leading-relaxed">{ENTERPRISE_CONFIG.academic.description}</p>
+              <ul className="space-y-4 mb-10 flex-grow">
+                {ENTERPRISE_CONFIG.academic.features.map((f, i) => (
+                  <li key={i} className="flex items-start gap-4">
+                    <CheckCircle className="w-5 h-5 text-accent-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-300 text-sm">{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link href="#contact" className="w-full py-4 text-center bg-white/5 border border-white/10 rounded-2xl font-bold hover:bg-white/10 hover:border-white/20 transition-all group/btn">
+                Contact Education Team <ArrowRight size={16} className="inline-block ml-1 group-hover/btn:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
+            {/* Agency Plan - Brand Teal Highlight */}
+            <div className="relative group bg-gradient-to-b from-primary-700 to-primary-800 border-2 border-accent-500/50 rounded-[2.5rem] p-10 shadow-2xl shadow-accent-500/10 flex flex-col scale-105 z-10">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-accent-500 text-white px-6 py-1.5 rounded-full text-xs font-black uppercase tracking-[0.2em] shadow-xl">
+                Most Professional
+              </div>
+              <div className="mb-8">
+                <span className="inline-block px-4 py-1 rounded-full bg-accent-500/20 text-accent-300 text-xs font-bold uppercase tracking-wider border border-accent-500/30 mb-4">
+                  Staffing & Placement
+                </span>
+                <h3 className="text-3xl font-bold text-white mb-2">{ENTERPRISE_CONFIG.agency.name}</h3>
+                <div className="flex items-baseline gap-1 mt-4">
+                  <span className="text-5xl font-black text-white tracking-tighter">{ENTERPRISE_CONFIG.agency.priceText}</span>
+                  <span className="text-accent-300/60 text-sm font-medium">{ENTERPRISE_CONFIG.agency.unit}</span>
+                </div>
+              </div>
+              <p className="text-accent-100/60 mb-8 text-sm leading-relaxed font-medium">{ENTERPRISE_CONFIG.agency.description}</p>
+              <ul className="space-y-4 mb-10 flex-grow">
+                {ENTERPRISE_CONFIG.agency.features.map((f, i) => (
+                  <li key={i} className="flex items-start gap-4">
+                    <CheckCircle className="w-5 h-5 text-accent-400 flex-shrink-0 mt-0.5" />
+                    <span className="text-accent-50 text-sm font-medium">{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link href="#contact" className="w-full py-4 text-center bg-accent-500 text-white rounded-2xl font-bold hover:bg-accent-400 transition-all shadow-lg shadow-accent-500/30 group/btn">
+                Start Pro Growth <ArrowRight size={16} className="inline-block ml-1 group-hover/btn:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
+            {/* Partner Plan */}
+            <div className="relative group bg-primary-800/50 border border-white/10 rounded-[2.5rem] p-10 hover:bg-primary-800/70 hover:border-accent-500/30 transition-all duration-500 flex flex-col">
+              <div className="mb-8">
+                <span className="inline-block px-4 py-1 rounded-full bg-accent-500/10 text-accent-400 text-xs font-bold uppercase tracking-wider border border-accent-500/20 mb-4">
+                  Strategic Partners
+                </span>
+                <h3 className="text-2xl font-bold text-white mb-2">{ENTERPRISE_CONFIG.partner.name}</h3>
+                <div className="flex items-baseline gap-1 mt-4">
+                  <span className="text-4xl font-bold text-white tracking-tight">{ENTERPRISE_CONFIG.partner.priceText}</span>
+                  <span className="text-slate-500 text-sm">per {ENTERPRISE_CONFIG.partner.unit}</span>
+                </div>
+              </div>
+              <p className="text-slate-400 mb-8 text-sm leading-relaxed">{ENTERPRISE_CONFIG.partner.description}</p>
+              <ul className="space-y-4 mb-10 flex-grow">
+                {ENTERPRISE_CONFIG.partner.features.map((f, i) => (
+                  <li key={i} className="flex items-start gap-4">
+                    <CheckCircle className="w-5 h-5 text-accent-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-300 text-sm">{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link href="#contact" className="w-full py-4 text-center bg-white/10 border border-white/10 rounded-2xl font-bold hover:bg-white/20 transition-all group/btn">
+                Contact Strategic Sales <ArrowRight size={16} className="inline-block ml-1 group-hover/btn:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section - Sleek Navy form with Teal highlights */}
+      <section id="contact" className="py-24 relative overflow-hidden bg-primary-900">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16">
+            <div className="lg:w-1/2">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">Ready to Elevate Your Organization?</h2>
+              <p className="text-xl text-slate-400 mb-12">
+                Join hundreds of US departments, agencies, and schools already using ExpertResume. Our team is ready to build your custom environment.
+              </p>
+
+              <div className="space-y-8">
+                <div className="flex items-start gap-6">
+                  <div className="w-12 h-12 bg-accent-500/10 rounded-xl flex items-center justify-center border border-accent-500/20">
+                    <Mail className="text-accent-400" size={24} />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-white mb-1">Direct Coordination</h4>
+                    <p className="text-slate-400">enterprise@expertresume.us</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-6">
+                  <div className="w-12 h-12 bg-accent-500/10 rounded-xl flex items-center justify-center border border-accent-500/20">
+                    <Phone className="text-accent-400" size={24} />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-white mb-1">Fast Support</h4>
+                    <p className="text-slate-400">+1 (800) RESUME-HQ</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Trust Badge Strip */}
+              <div className="mt-16 pt-16 border-t border-white/10 flex flex-wrap gap-8 items-center opacity-50 grayscale">
+                <div className="flex items-center gap-2"><Shield size={20} /> <span className="text-xs font-bold uppercase tracking-widest">SOC2 TYPE II</span></div>
+                <div className="flex items-center gap-2"><Globe size={20} /> <span className="text-xs font-bold uppercase tracking-widest">GDPR COMPLIANT</span></div>
+              </div>
+            </div>
+
+            <div className="lg:w-1/2">
+              <div className="bg-primary-800/80 backdrop-blur-xl p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl">
+                {submitStatus === 'success' ? (
+                  <div className="text-center py-12">
+                    <div className="w-20 h-20 bg-accent-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <CheckCircle className="text-accent-400" size={40} />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4">Message Sent Successfully</h3>
+                    <p className="text-slate-400">Our Enterprise team will contact you within 24 hours.</p>
+                    <button
+                      onClick={() => setSubmitStatus('')}
+                      className="mt-8 text-accent-400 font-bold hover:text-accent-300 transition-colors"
+                    >
+                      Send another inquiry
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">Organization Type</label>
+                        <select
+                          required
+                          className="w-full bg-primary-900 border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-accent-500/50 transition-colors appearance-none"
+                          value={formData.organizationType}
+                          onChange={(e) => setFormData({ ...formData, organizationType: e.target.value })}
+                        >
+                          <option value="">Select type</option>
+                          <option value="university">University / College</option>
+                          <option value="agency">Staffing Agency</option>
+                          <option value="corporate">Corporate / HR</option>
+                          <option value="government">Government Org</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">Organization Name</label>
+                        <input
+                          required
+                          type="text"
+                          placeholder="Company Inc."
+                          className="w-full bg-primary-900 border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-accent-500/50 transition-colors"
+                          value={formData.organizationName}
+                          onChange={(e) => setFormData({ ...formData, organizationName: e.target.value })}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">Contact Name</label>
+                        <input
+                          required
+                          type="text"
+                          placeholder="John Doe"
+                          className="w-full bg-primary-900 border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-accent-500/50 transition-colors"
+                          value={formData.contactName}
+                          onChange={(e) => setFormData({ ...formData, contactName: e.target.value })}
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">Work Email</label>
+                        <input
+                          required
+                          type="email"
+                          placeholder="john@organization.com"
+                          className="w-full bg-primary-900 border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-accent-500/50 transition-colors"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">How can we help?</label>
+                      <textarea
+                        required
+                        rows={4}
+                        placeholder="Tell us about your organization's needs..."
+                        className="w-full bg-primary-900 border border-white/10 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-accent-500/50 transition-colors resize-none"
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-accent-500 hover:bg-accent-600 text-white font-black uppercase tracking-widest py-4 rounded-xl shadow-lg shadow-accent-500/20 transition-all active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-3"
+                    >
+                      {isSubmitting ? 'Processing...' : 'Request Partnership'}
+                      {!isSubmitting && <Rocket size={20} />}
+                    </button>
+                    {submitStatus === 'error' && (
+                      <p className="text-red-400 text-sm text-center">Something went wrong. Please try again or email us directly.</p>
+                    )}
+                  </form>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer Branding */}
+      <footer className="py-12 border-t border-white/5 bg-primary-900 flex justify-center items-center gap-4 opacity-30">
+        <span className="text-sm font-bold tracking-widest uppercase">ExpertResume Enterprise</span>
+        <div className="w-1 h-1 rounded-full bg-white"></div>
+        <span className="text-xs">© 2026 Vendax Systems LLC</span>
+      </footer>
     </div>
   );
 }
