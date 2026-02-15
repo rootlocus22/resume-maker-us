@@ -3,6 +3,7 @@ import Image from "next/image";
 
 export const dynamicParams = true;
 import { notFound } from "next/navigation";
+import { getCanonicalUrl } from "../../lib/canonical";
 import { templates, getTemplatesByCategory } from "../../lib/templates";
 import { ArrowRight, CheckCircle, Zap, Star, Layout, Shield, Clock, Download, Share2, Eye } from "lucide-react";
 
@@ -24,15 +25,15 @@ export async function generateMetadata({ params }) {
         };
     }
 
+    const canonical = await getCanonicalUrl(`/resume-templates/${slug}`);
     return {
         title: `${template.name} Resume Template - free Download | ExpertResume`,
         description: `Create a professional resume with the ${template.name} template. Perfect for ${template.category} roles. ATS-optimized, fully customizable, and free to use.`,
-        alternates: {
-            canonical: `https://expertresume.us/resume-templates/${slug}`,
-        },
+        alternates: { canonical },
         openGraph: {
             title: `${template.name} Resume Template`,
             description: `Create a professional resume with the ${template.name} template.`,
+            url: canonical,
             images: [
                 {
                     url: template.previewImage,

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCategoryBySlug, getExamplesByCategory, resumeCategories } from "../../lib/resumeExamples";
 import { BASE_URL, BRAND_NAME } from "../../lib/appConfig";
+import { getCanonicalUrl } from "../../lib/canonical";
 import { FileText, ArrowRight, ArrowLeft, CheckCircle, Zap } from "lucide-react";
 
 export async function generateStaticParams() {
@@ -16,16 +17,15 @@ export async function generateMetadata({ params }) {
   if (!categoryData) return { title: "Category Not Found" };
 
   const examples = getExamplesByCategory(category);
+  const canonical = await getCanonicalUrl(`/resume-examples/${category}`);
   return {
     title: `${categoryData.name} Resume Examples (${examples.length}+ Free Samples) | ${BRAND_NAME}`,
     description: `${categoryData.description} Browse ${examples.length}+ free ${categoryData.name.toLowerCase()} resume examples with expert writing tips and ATS-optimized templates.`,
-    alternates: {
-      canonical: `${BASE_URL}/resume-examples/${category}`,
-    },
+    alternates: { canonical },
     openGraph: {
       title: `${categoryData.name} Resume Examples | ${BRAND_NAME}`,
       description: `${examples.length}+ free ${categoryData.name.toLowerCase()} resume examples with expert writing guides.`,
-      url: `${BASE_URL}/resume-examples/${category}`,
+      url: canonical,
     },
   };
 }

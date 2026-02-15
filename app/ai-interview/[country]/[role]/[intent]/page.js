@@ -1,6 +1,7 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { generateContent } from '../../../../lib/ai-interview/contentGen';
+import { getCanonicalUrl } from '../../../../lib/canonical';
 import InterviewSEOContent from '../../../../components/ai-interview/InterviewSEOContent';
 import { COUNTRIES, ROLES, INTENTS } from '../../../../lib/ai-interview/data';
 // Note: getExpandedRoles is used in sitemap.js for full URL coverage
@@ -39,15 +40,15 @@ export async function generateMetadata({ params }) {
 
     if (!data) return {};
 
+    const canonical = await getCanonicalUrl(`/ai-interview/${country}/${role}/${intent}`);
     return {
         title: data.metadata.title,
         description: data.metadata.description,
-        alternates: {
-            canonical: `https://expertresume.us/ai-interview/${country}/${role}/${intent}`
-        },
+        alternates: { canonical },
         openGraph: {
             title: data.metadata.title,
             description: data.metadata.description,
+            url: canonical,
             type: 'website',
         }
     };

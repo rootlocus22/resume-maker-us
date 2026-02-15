@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getExampleBySlug, getCategoryBySlug, getRelatedExamples, getAllExampleSlugs } from "../../../lib/resumeExamples";
 import { BASE_URL, BRAND_NAME } from "../../../lib/appConfig";
+import { getCanonicalUrl } from "../../../lib/canonical";
 import { FileText, ArrowRight, ArrowLeft, CheckCircle, Zap, Star, DollarSign, TrendingUp, BookOpen, AlertCircle, Award, Lightbulb, Target, Download } from "lucide-react";
 
 export async function generateStaticParams() {
@@ -12,20 +13,19 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const { slug } = await params;
+  const { category, slug } = await params;
   const example = getExampleBySlug(slug);
   if (!example) return { title: "Resume Example Not Found" };
 
+  const canonical = await getCanonicalUrl(`/resume-examples/${category}/${example.slug}`);
   return {
     title: example.metaTitle,
     description: example.metaDescription,
-    alternates: {
-      canonical: `${BASE_URL}/resume-examples/${example.category}/${example.slug}`,
-    },
+    alternates: { canonical },
     openGraph: {
       title: example.metaTitle,
       description: example.metaDescription,
-      url: `${BASE_URL}/resume-examples/${example.category}/${example.slug}`,
+      url: canonical,
       type: "article",
     },
     keywords: example.keywords,

@@ -8,6 +8,7 @@ import {
   getRelatedArticles,
 } from "../../lib/blogArticles";
 import { BASE_URL, BRAND_NAME } from "../../lib/appConfig";
+import { getCanonicalUrl } from "../../lib/canonical";
 import {
   FileText,
   ArrowRight,
@@ -34,16 +35,15 @@ export async function generateMetadata({ params }) {
   const article = getArticleBySlug(slug);
   if (!article) return { title: "Article Not Found" };
 
+  const canonical = await getCanonicalUrl(`/blog/${article.slug}`);
   return {
     title: `${article.metaTitle} | ${BRAND_NAME}`,
     description: article.metaDescription,
-    alternates: {
-      canonical: `${BASE_URL}/blog/${article.slug}`,
-    },
+    alternates: { canonical },
     openGraph: {
       title: article.metaTitle,
       description: article.metaDescription,
-      url: `${BASE_URL}/blog/${article.slug}`,
+      url: canonical,
       type: "article",
       publishedTime: article.publishedDate,
       modifiedTime: article.updatedDate,

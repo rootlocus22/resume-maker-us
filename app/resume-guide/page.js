@@ -1,24 +1,26 @@
 import Link from "next/link";
 import { adminDb } from "../lib/firebase-admin";
+import { getCanonicalUrl } from "../lib/canonical";
 import { BASE_URL, BRAND_NAME } from "../lib/appConfig";
 import { FileText, ArrowRight, Search, Briefcase, TrendingUp, Zap, ChevronRight, Star, Target } from "lucide-react";
 
 export const revalidate = 86400; // Revalidate every 24 hours
 
-export const metadata = {
-  title: `Resume Guide by Job Title - ATS-Optimized Templates & Tips | ${BRAND_NAME}`,
-  description:
-    "Browse 2,000+ professional resume guides organized by job title, industry, and experience level. Each guide includes ATS keywords, interview questions, salary data, and expert tips for the US job market.",
-  alternates: {
-    canonical: `${BASE_URL}/resume-guide`,
-  },
-  openGraph: {
-    title: "Resume Guide by Job Title | ExpertResume",
-    description: "2,000+ ATS-optimized resume guides for every US job role.",
-    url: `${BASE_URL}/resume-guide`,
-    type: "website",
-  },
-};
+export async function generateMetadata() {
+  const canonical = await getCanonicalUrl("/resume-guide");
+  return {
+    title: `Resume Guide by Job Title - ATS-Optimized Templates & Tips | ${BRAND_NAME}`,
+    description:
+      "Browse 2,000+ professional resume guides organized by job title, industry, and experience level. Each guide includes ATS keywords, interview questions, salary data, and expert tips for the US job market.",
+    alternates: { canonical },
+    openGraph: {
+      title: "Resume Guide by Job Title | ExpertResume",
+      description: "2,000+ ATS-optimized resume guides for every US job role.",
+      url: canonical,
+      type: "website",
+    },
+  };
+}
 
 async function getAllRolesGrouped() {
   if (!adminDb) return {};

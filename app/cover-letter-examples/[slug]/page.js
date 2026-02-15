@@ -8,6 +8,7 @@ import {
 } from "../../lib/coverLetterExamples";
 import { getExampleBySlug as getResumeBySlug } from "../../lib/resumeExamples";
 import { BASE_URL, BRAND_NAME } from "../../lib/appConfig";
+import { getCanonicalUrl } from "../../lib/canonical";
 import {
   FileText,
   ArrowRight,
@@ -34,16 +35,15 @@ export async function generateMetadata({ params }) {
   const example = getCoverLetterBySlug(slug);
   if (!example) return { title: "Cover Letter Example Not Found" };
 
+  const canonical = await getCanonicalUrl(`/cover-letter-examples/${example.slug}`);
   return {
     title: example.metaTitle,
     description: example.metaDescription,
-    alternates: {
-      canonical: `${BASE_URL}/cover-letter-examples/${example.slug}`,
-    },
+    alternates: { canonical },
     openGraph: {
       title: example.metaTitle,
       description: example.metaDescription,
-      url: `${BASE_URL}/cover-letter-examples/${example.slug}`,
+      url: canonical,
       type: "article",
     },
     keywords: example.keywords,

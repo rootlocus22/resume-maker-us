@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { adminDb } from "../../lib/firebase-admin";
+import { getCanonicalUrl } from "../../lib/canonical";
 import { BASE_URL, BRAND_NAME } from "../../lib/appConfig";
 import {
   FileText, ArrowRight, CheckCircle, Zap, Star, DollarSign,
@@ -42,16 +43,19 @@ export async function generateMetadata({ params }) {
     return { title: "Resume Guide Not Found" };
   }
 
+  // Self-referencing canonical from request host so Google indexes (fixes "Duplicate without user-selected canonical")
+  const canonical = await getCanonicalUrl(`/resume-guide/${slug}`);
+
   return {
     title: role.seo_title || `${role.job_title} Resume Guide | ${BRAND_NAME}`,
     description: role.meta_description,
     alternates: {
-      canonical: `${BASE_URL}/resume-guide/${slug}`,
+      canonical,
     },
     openGraph: {
       title: role.seo_title,
       description: role.meta_description,
-      url: `${BASE_URL}/resume-guide/${slug}`,
+      url: canonical,
       type: "article",
       images: [role.hero_image || "/og-image.png"],
     },

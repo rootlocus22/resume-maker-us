@@ -124,9 +124,9 @@ Disallow: /
 User-agent: BLEXBot
 Disallow: /
 
-# Sitemap location
-Sitemap: https://expertresume.us/sitemap.xml
+# Sitemap location (use www to match live site and canonicals)
+Sitemap: https://www.expertresume.us/sitemap.xml
 
 # Additional info
-# Host: https://expertresume.us
+# Host: https://www.expertresume.us
 # Contact: support@vendaxsystemlabs.com
