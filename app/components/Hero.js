@@ -44,16 +44,16 @@ export default function Hero() {
       label: "Build",
       description: "AI Resume",
       icon: FileText,
-      color: "from-accent to-accent-300",
-      glow: "teal",
+      color: "from-blue-400 to-blue-300",
+      glow: "blue",
     },
     {
       step: "2",
       label: "Optimize",
       description: "ATS Score 90+",
       icon: Target,
-      color: "from-accent-400 to-accent-300",
-      glow: "emerald",
+      color: "from-indigo-400 to-indigo-300",
+      glow: "indigo",
     },
     {
       step: "3",
@@ -97,7 +97,7 @@ export default function Hero() {
           {/* Positioning badge */}
           <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6 text-xs sm:text-sm font-medium shadow-lg">
             <Trophy className="mr-1.5 sm:mr-2 text-yellow-400" size={14} />
-            <span className="text-gray-200">The Only Platform That Takes You From Resume to Job Offer</span>
+            <span className="text-gray-200">AI-Powered Tools to Help You Build, Optimize, and Ace Your Next Interview</span>
           </div>
 
           {/* Main Headline - SEO optimized for "expert resume" */}
@@ -129,37 +129,43 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Primary CTA */}
-          <div className="flex justify-center mb-4 sm:mb-6">
+          {/* All CTAs - Minimal Horizontal Layout */}
+          <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 max-w-4xl mx-auto mb-12 sm:mb-16 px-4">
             <Link
               href="/resume-builder"
-              className="group relative bg-accent hover:bg-accent-600 text-white px-8 sm:px-10 py-3.5 sm:py-4 rounded-xl font-bold text-base sm:text-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl hover:shadow-accent/25 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] overflow-hidden"
+              className="group relative bg-accent hover:bg-accent-600 text-white px-6 py-3.5 rounded-full font-bold text-sm sm:text-base flex items-center justify-center gap-3 shadow-lg hover:shadow-xl hover:shadow-accent/40 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 overflow-hidden border border-white/20"
               onClick={() => handleClick("hero_cta")}
             >
-              <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/25 to-transparent transform skew-x-12 animate-shine" />
-              <Rocket size={18} className="sm:w-5 sm:h-5 flex-shrink-0" />
-              <span className="leading-none pb-0.5">Build My Resume Free — No Signup</span>
-              <ArrowRight className="group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" size={18} />
+              <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform skew-x-12 animate-shine" />
+              <Rocket size={20} className="flex-shrink-0" />
+              <span>Build New Resume</span>
             </Link>
-          </div>
 
-          {/* Secondary CTAs */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-lg mx-auto mb-8 sm:mb-10">
+            <Link
+              href="/upload-resume"
+              className="group relative bg-white/5 backdrop-blur-md text-white px-6 py-3.5 rounded-full font-bold text-sm sm:text-base flex items-center justify-center gap-3 border border-white/10 hover:bg-white/10 hover:border-blue-400/50 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95"
+              onClick={() => handleClick("upload_enhance_hero")}
+            >
+              <UploadCloud size={20} className="text-blue-300 group-hover:text-blue-200" />
+              <span>Upload & Enhance</span>
+            </Link>
+
             <Link
               href="/ats-score-checker"
-              className="group bg-accent/10 backdrop-blur-md text-accent-100 px-3 sm:px-5 py-3 sm:py-4 rounded-xl text-xs sm:text-sm font-semibold flex flex-row items-center justify-center gap-2 border border-accent/30 hover:bg-accent/20 hover:border-accent-400/50 transition-all duration-300 shadow-lg h-full"
+              className="group relative bg-white/5 backdrop-blur-md text-white px-6 py-3.5 rounded-full font-bold text-sm sm:text-base flex items-center justify-center gap-3 border border-white/10 hover:bg-white/10 hover:border-indigo-400/50 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95"
               onClick={() => handleClick("check_score_hero")}
             >
-              <Target size={18} className="text-accent-300 group-hover:text-accent-200" />
-              <span className="text-center">Check ATS Score Free</span>
+              <Target size={20} className="text-indigo-300 group-hover:text-indigo-200" />
+              <span>Check ATS Score</span>
             </Link>
+
             <Link
               href="/ai-interview"
-              className="group bg-purple-500/10 backdrop-blur-md text-purple-50 px-3 sm:px-5 py-3 sm:py-4 rounded-xl text-xs sm:text-sm font-semibold flex flex-row items-center justify-center gap-2 border border-purple-500/30 hover:bg-purple-500/20 hover:border-purple-400/50 transition-all duration-300 shadow-lg h-full"
+              className="group relative bg-white/5 backdrop-blur-md text-white px-6 py-3.5 rounded-full font-bold text-sm sm:text-base flex items-center justify-center gap-3 border border-white/10 hover:bg-white/10 hover:border-purple-400/50 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95"
               onClick={() => handleClick("ai_interview_hero")}
             >
-              <Mic size={18} className="text-purple-300 group-hover:text-purple-200" />
-              <span className="text-center">Practice Interview</span>
+              <Mic size={20} className="text-purple-300 group-hover:text-purple-200" />
+              <span>Practice Interview</span>
             </Link>
           </div>
 

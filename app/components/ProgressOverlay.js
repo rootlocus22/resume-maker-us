@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Bot, FileUp, FileText,Search, Camera, Download, Save, Sparkles, Zap, Star, Wand2, Crown, Trophy, Target, Rocket, DollarSign } from "lucide-react";
+import { Bot, FileUp, FileText, Search, Camera, Download, Save, Sparkles, Zap, Star, Wand2, Crown, Trophy, Target, Rocket, DollarSign } from "lucide-react";
 
 export default function ProgressOverlay({ isVisible, type }) {
   const [displayText, setDisplayText] = useState("");
@@ -203,13 +203,13 @@ export default function ProgressOverlay({ isVisible, type }) {
   const IconComponent = currentConfig.icon;
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 bg-gradient-to-br from-gray-900/95 via-slate-900/95 to-gray-900/95 backdrop-blur-sm flex items-center justify-center z-[9999] p-4"
     >
-      <motion.div 
+      <motion.div
         initial={{ scale: 0.8, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.8, y: 20 }}
@@ -218,7 +218,7 @@ export default function ProgressOverlay({ isVisible, type }) {
       >
         {/* Animated background gradient */}
         <div className={`absolute inset-0 bg-gradient-to-br ${currentConfig.color} opacity-5 animate-pulse`} />
-        
+
         {/* Floating stars animation */}
         <AnimatePresence>
           {showStars && (
@@ -227,8 +227,8 @@ export default function ProgressOverlay({ isVisible, type }) {
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, scale: 0, x: Math.random() * 300, y: Math.random() * 400 }}
-                  animate={{ 
-                    opacity: [0, 1, 0], 
+                  animate={{
+                    opacity: [0, 1, 0],
                     scale: [0, 1, 0],
                     y: [Math.random() * 400, Math.random() * 200]
                   }}
@@ -245,7 +245,7 @@ export default function ProgressOverlay({ isVisible, type }) {
         <div className="relative z-10">
           {/* Header Section */}
           <div className="text-center mb-6">
-            <motion.div 
+            <motion.div
               className="relative mx-auto mb-4"
               animate={{ rotate: 360 }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
@@ -256,24 +256,24 @@ export default function ProgressOverlay({ isVisible, type }) {
               </div>
               <motion.div
                 className="absolute inset-0 rounded-full border-2 border-transparent"
-                style={{ 
-                  borderTopColor: `rgb(${currentConfig.accentColor === 'emerald' ? '34, 197, 94' : 
-                                        currentConfig.accentColor === 'purple' ? '168, 85, 247' :
-                                        currentConfig.accentColor === 'blue' ? '59, 130, 246' :
-                                        currentConfig.accentColor === 'orange' ? '249, 115, 22' :
-                                        currentConfig.accentColor === 'pink' ? '236, 72, 153' :
-                                        '34, 197, 94'})`,
+                style={{
+                  borderTopColor: `rgb(${currentConfig.accentColor === 'emerald' ? '34, 197, 94' :
+                    currentConfig.accentColor === 'purple' ? '168, 85, 247' :
+                      currentConfig.accentColor === 'blue' ? '59, 130, 246' :
+                        currentConfig.accentColor === 'orange' ? '249, 115, 22' :
+                          currentConfig.accentColor === 'pink' ? '236, 72, 153' :
+                            '34, 197, 94'})`,
                 }}
                 animate={{ rotate: -360 }}
                 transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
               />
             </motion.div>
-            
-            <motion.h2 
+
+            <motion.h2
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-xl font-bold text-gray-800 mb-2"
+              className="text-xl font-bold text-white mb-2"
             >
               {currentConfig.title}
             </motion.h2>
@@ -282,11 +282,11 @@ export default function ProgressOverlay({ isVisible, type }) {
           {/* Message Display */}
           <div className="mb-6">
             <div className="min-h-[3rem] flex items-center justify-center">
-              <motion.p 
+              <motion.p
                 key={messageCycle}
                 initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-base font-medium text-gray-700 text-center leading-relaxed"
+                className="text-base font-medium text-white text-center leading-relaxed"
               >
                 {displayText}
                 <motion.span
@@ -303,8 +303,8 @@ export default function ProgressOverlay({ isVisible, type }) {
           {/* Enhanced Progress Bar */}
           <div className="mb-6">
             <div className="flex justify-between items-center mb-2">
-              <span className="text-sm font-medium text-gray-600">Progress</span>
-              <span className="text-sm font-bold text-gray-800">{Math.round(progress)}%</span>
+              <span className="text-sm font-medium text-white">Progress</span>
+              <span className="text-sm font-bold text-white">{Math.round(progress)}%</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden shadow-inner">
               <motion.div
@@ -323,24 +323,26 @@ export default function ProgressOverlay({ isVisible, type }) {
           </div>
 
           {/* Motivation Section */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
             className={`text-center p-4 bg-gradient-to-r ${currentConfig.color} bg-opacity-10 rounded-xl border border-opacity-20`}
-            style={{ borderColor: `rgb(${currentConfig.accentColor === 'emerald' ? '34, 197, 94' : 
-                                              currentConfig.accentColor === 'purple' ? '168, 85, 247' :
-                                              currentConfig.accentColor === 'blue' ? '59, 130, 246' :
-                                              currentConfig.accentColor === 'orange' ? '249, 115, 22' :
-                                              currentConfig.accentColor === 'pink' ? '236, 72, 153' :
-                                              '34, 197, 94'})` }}
+            style={{
+              borderColor: `rgb(${currentConfig.accentColor === 'emerald' ? '34, 197, 94' :
+                currentConfig.accentColor === 'purple' ? '168, 85, 247' :
+                  currentConfig.accentColor === 'blue' ? '59, 130, 246' :
+                    currentConfig.accentColor === 'orange' ? '249, 115, 22' :
+                      currentConfig.accentColor === 'pink' ? '236, 72, 153' :
+                        '34, 197, 94'})`
+            }}
           >
             <div className="flex items-center justify-center gap-2 mb-2">
               <Sparkles size={16} className={`text-${currentConfig.accentColor}-500`} />
-              <span className="text-sm font-semibold text-gray-700">Did You Know?</span>
+              <span className="text-sm font-semibold text-white">Did You Know?</span>
               <Sparkles size={16} className={`text-${currentConfig.accentColor}-500`} />
             </div>
-            <p className="text-sm text-gray-600 font-medium">
+            <p className="text-sm text-white font-medium">
               {currentConfig.motivation}
             </p>
           </motion.div>

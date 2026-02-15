@@ -4729,40 +4729,7 @@ export default function ResumeBuilder() {
         <div className="fixed inset-0 bg-gray-900/70 flex items-center justify-center z-50 p-2 md:p-4">
           <div className="bg-white rounded-xl shadow-xl max-w-sm md:max-w-md w-full p-3 md:p-6">
             <h2 className="text-lg md:text-xl font-bold text-gray-800 mb-2 md:mb-4">We'd Love Your Feedback</h2>
-            <p className="text-gray-600 mb-3 md:mb-6 text-xs md:text-sm">How was your experience with ExpertResume?</p>
-
-            {/* Google Reviews Section */}
-            <div className="mb-4 md:mb-6 p-3 bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg">
-              <div className="text-center mb-3">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <Star className="w-5 h-5 text-yellow-500 fill-current" />
-                  <span className="text-sm font-semibold text-gray-700">Love ExpertResume?</span>
-                </div>
-                <p className="text-xs text-gray-600 mb-3">Help others discover us by leaving a Google review!</p>
-                <button
-                  type="button"
-                  onClick={() => {
-                    window.open("https://www.google.com/search?sca_esv=b86c91fa3b6f4170&sxsrf=AE3TifPRLtJDqL7htl0SenZk1iF4fN_QhQ:1757186068465&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-EyuK-rVchB7bNyuFSky99VIlTHwKPQ6uyKj-l2eXBvvt_2RPuK0ZKgpBkeHf4GvIkJ6Hp590pQZMMtlfBNnwajafjd_9&q=ExpertResume+Reviews&sa=X&ved=2ahUKEwiI4aib7MSPAxXnzTQHHe2tDUEQ0bkNegQIUBAE&biw=1728&bih=992&dpr=2#lrd=0x3bae136ed29b6951:0x1613f7ea596d7546,3,,,,", '_blank', 'noopener,noreferrer');
-                    setIsFeedbackModalOpen(false);
-                  }}
-                  className="w-full bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white px-3 py-2 rounded-lg font-semibold transition-all duration-300 shadow-md hover:shadow-lg text-xs flex items-center justify-center gap-2"
-                >
-                  <Star className="w-4 h-4 fill-current" />
-                  Rate Us on Google
-                  <ExternalLink className="w-3 h-3" />
-                </button>
-              </div>
-            </div>
-
-            {/* OR Divider */}
-            <div className="relative mb-4">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-200"></div>
-              </div>
-              <div className="relative flex justify-center text-xs">
-                <span className="bg-white px-2 text-gray-500">OR</span>
-              </div>
-            </div>
+            <p className="text-white mb-3 md:mb-6 text-xs md:text-sm">How was your experience with ExpertResume?</p>
 
             <form onSubmit={handleFeedbackSubmit}>
               <div className="mb-2 md:mb-4">
