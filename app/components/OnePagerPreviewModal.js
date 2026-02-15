@@ -553,7 +553,7 @@ export default function OnePagerPreviewModal({
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 flex-shrink-0">
+            <div className="bg-gradient-to-r from-primary to-accent text-white p-6 flex-shrink-0">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
@@ -561,7 +561,7 @@ export default function OnePagerPreviewModal({
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold">One-Pager Resume</h2>
-                    <p className="text-purple-100">Premium AI-powered resume optimization</p>
+                    <p className="text-white/70">Premium AI-powered resume optimization</p>
                   </div>
                 </div>
                 <button
@@ -743,7 +743,7 @@ export default function OnePagerPreviewModal({
                           transition={{ delay: 0.6 + index * 0.1, duration: 0.3 }}
                           className="flex items-center gap-1"
                         >
-                          <span className="text-emerald-500 font-bold">{item.icon}</span>
+                          <span className="text-accent font-bold">{item.icon}</span>
                           <span>{item.text}</span>
                         </motion.div>
                       ))}
@@ -795,8 +795,8 @@ export default function OnePagerPreviewModal({
                         isBasicPlan && (hasReachedDownloadLimit() || needsPremiumForOnePager())
                           ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                           : needsPremiumForOnePager()
-                          ? 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white hover:from-indigo-700 hover:to-blue-700'
-                          : 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white hover:from-emerald-700 hover:to-teal-700'
+                          ? 'bg-gradient-to-r from-primary to-accent text-white hover:from-primary-800 hover:to-accent-600'
+                          : 'bg-accent text-white hover:bg-accent-600'
                       }`}
                       disabled={isBasicPlan && (hasReachedDownloadLimit() || needsPremiumForOnePager())}
                     >
@@ -824,7 +824,7 @@ export default function OnePagerPreviewModal({
                       whileHover={{ scale: 1.02, y: -2 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => handleUpgradeClick("basic")}
-                      className="w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-blue-600 text-white px-6 py-3 rounded-xl hover:from-indigo-700 hover:to-blue-700 transition-all text-sm font-semibold flex flex-col items-center justify-center gap-1 shadow-md order-1 sm:order-2"
+                      className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-xl hover:from-primary-800 hover:to-accent-600 transition-all text-sm font-semibold flex flex-col items-center justify-center gap-1 shadow-md order-1 sm:order-2"
                     >
                       <div className="flex items-center gap-2">
                         <motion.span

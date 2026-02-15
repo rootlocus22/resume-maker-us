@@ -10,9 +10,9 @@ const promotionalMessages = [
     text: 'Find Jobs Near You',
     description: 'Discover local job opportunities',
     link: '/jobs-nearby',
-    color: 'bg-emerald-500',
-    lightColor: 'bg-emerald-50',
-    darkColor: 'text-emerald-700'
+    color: 'bg-accent',
+    lightColor: 'bg-accent-50',
+    darkColor: 'text-accent-700'
   },
   {
     id: 2,
@@ -30,9 +30,9 @@ const promotionalMessages = [
     text: 'Create AI Resume',
     description: 'Build your resume with AI assistance',
     link: '/upload-resume',
-    color: 'bg-blue-500',
-    lightColor: 'bg-blue-50',
-    darkColor: 'text-blue-700'
+    color: 'bg-accent',
+    lightColor: 'bg-accent-50',
+    darkColor: 'text-accent-700'
   },
   {
     id: 4,

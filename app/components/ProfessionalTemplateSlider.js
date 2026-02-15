@@ -248,24 +248,24 @@ export default function ProfessionalTemplateSlider() {
     );
 
   return (
-    <section id="templates-section" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+    <section id="templates-section" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-accent-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-200/20 to-purple-200/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-indigo-200/20 to-pink-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-accent-200/20 to-primary-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-primary-200/20 to-accent-200/20 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 px-4 py-2 rounded-full text-sm font-semibold text-blue-600 mb-6">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-accent-50 to-primary-50 border border-accent-200 px-4 py-2 rounded-full text-sm font-semibold text-accent-600 mb-6">
             <Sparkles className="w-4 h-4" />
             PROFESSIONAL TEMPLATES
           </div>
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
             Choose Your Perfect
-            <span className="block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Resume Template
             </span>
           </h2>
@@ -281,7 +281,7 @@ export default function ProfessionalTemplateSlider() {
                 key={category.name}
                 onClick={() => setSelectedCategory(category.name)}
                 className={`flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 ${selectedCategory === category.name
-                  ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-lg scale-105'
+                  ? 'bg-gradient-to-r from-primary to-accent text-white shadow-lg scale-105'
                   : 'bg-white text-gray-700 hover:bg-gray-50 hover:shadow-md'
                   }`}
               >
@@ -369,7 +369,7 @@ export default function ProfessionalTemplateSlider() {
                         <Users className="w-4 h-4" />
                         {formatNumber(template.downloads)}
                       </span>
-                      <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-semibold">
+                      <span className="px-3 py-1 bg-accent-50 text-accent-600 rounded-full text-xs font-semibold">
                         {template.category}
                       </span>
                     </div>
@@ -407,7 +407,7 @@ export default function ProfessionalTemplateSlider() {
               key={index}
               onClick={() => goToSlide(index)}
               className={`transition-all duration-300 rounded-full ${index === currentSlide
-                ? 'w-8 h-2 bg-gradient-to-r from-blue-500 to-indigo-500'
+                ? 'w-8 h-2 bg-gradient-to-r from-primary to-accent'
                 : 'w-2 h-2 bg-gray-300 hover:bg-gray-400'
                 }`}
               aria-label={`Go to slide ${index + 1}`}
@@ -429,7 +429,7 @@ export default function ProfessionalTemplateSlider() {
               <span className="font-semibold text-gray-700 text-sm sm:text-base">ATS-Optimized</span>
             </div>
             <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-4 sm:px-6 py-3 rounded-full shadow-lg border-2 border-gray-100">
-              <Crown className="w-5 h-5 text-blue-600" />
+              <Crown className="w-5 h-5 text-accent-600" />
               <span className="font-semibold text-gray-700 text-sm sm:text-base">Expert-Designed</span>
             </div>
             <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-4 sm:px-6 py-3 rounded-full shadow-lg border-2 border-gray-100">
@@ -488,7 +488,7 @@ export default function ProfessionalTemplateSlider() {
                 {/* CTA */}
                 <Link
                   href={getTemplateUrl(activePreview)}
-                  className="block w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-4 rounded-xl font-bold hover:from-blue-600 hover:to-indigo-600 transition-colors duration-300 text-center"
+                  className="block w-full bg-gradient-to-r from-primary to-accent text-white py-4 rounded-xl font-bold hover:from-primary-600 hover:to-accent-600 transition-colors duration-300 text-center"
                   onClick={() => {
                     handleTemplateClick(activePreview, 'use_from_preview');
                     setActivePreview(null);

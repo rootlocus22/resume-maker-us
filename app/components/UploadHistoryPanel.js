@@ -144,12 +144,12 @@ export default function UploadHistoryPanel({
             className="bg-white rounded-xl sm:rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] sm:max-h-[85vh] overflow-hidden flex flex-col mx-2 sm:mx-0"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-primary to-accent px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between">
               <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
                 <Clock size={24} className="text-white flex-shrink-0 sm:w-7 sm:h-7" />
                 <div className="min-w-0">
                   <h2 className="text-lg sm:text-2xl font-bold text-white truncate">Upload History</h2>
-                  <p className="text-blue-100 text-xs sm:text-sm hidden sm:block">Quickly restore previous resume uploads</p>
+                  <p className="text-accent-100 text-xs sm:text-sm hidden sm:block">Quickly restore previous resume uploads</p>
                 </div>
               </div>
               <button
@@ -164,7 +164,7 @@ export default function UploadHistoryPanel({
             <div className="flex-1 overflow-y-auto p-3 sm:p-6">
               {isLoading ? (
                 <div className="flex flex-col items-center justify-center py-12 sm:py-16">
-                  <Loader2 size={40} className="text-blue-600 animate-spin mb-3 sm:mb-4 sm:w-12 sm:h-12" />
+                  <Loader2 size={40} className="text-accent animate-spin mb-3 sm:mb-4 sm:w-12 sm:h-12" />
                   <p className="text-sm sm:text-base text-gray-600">Loading history...</p>
                 </div>
               ) : history.length === 0 ? (
@@ -183,14 +183,14 @@ export default function UploadHistoryPanel({
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className="bg-white border-2 border-gray-200 rounded-xl overflow-hidden hover:border-blue-400 hover:shadow-lg transition-all duration-200 cursor-pointer"
+                      className="bg-white border-2 border-gray-200 rounded-xl overflow-hidden hover:border-accent-400 hover:shadow-lg transition-all duration-200 cursor-pointer"
                       onClick={() => handleRestore(item)}
                     >
                       {/* Item Header */}
                       <div className="p-3 sm:p-4 flex items-center justify-between gap-2">
                         <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0">
-                          <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg sm:rounded-xl flex items-center justify-center">
-                            <FileText size={20} className="text-blue-600 sm:w-6 sm:h-6" />
+                          <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-accent-50 to-accent-100 rounded-lg sm:rounded-xl flex items-center justify-center">
+                            <FileText size={20} className="text-accent sm:w-6 sm:h-6" />
                           </div>
                           
                           <div className="flex-1 min-w-0">
@@ -203,7 +203,7 @@ export default function UploadHistoryPanel({
                                 {formatHistoryTimestamp(item.timestamp)}
                               </span>
                               {item.atsScore && (
-                                <span className="flex items-center gap-1 font-medium text-blue-600">
+                                <span className="flex items-center gap-1 font-medium text-accent">
                                   <CheckCircle size={12} className="sm:w-3.5 sm:h-3.5" />
                                   Score: {item.atsScore}%
                                 </span>
@@ -215,7 +215,7 @@ export default function UploadHistoryPanel({
                         <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
                           <button
                             onClick={(e) => toggleExpand(e, item.id)}
-                            className="p-1.5 sm:p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                            className="p-1.5 sm:p-2 text-gray-500 hover:text-accent hover:bg-accent-50 rounded-lg transition-colors"
                           >
                             {expandedId === item.id ? (
                               <ChevronUp size={18} className="sm:w-5 sm:h-5" />
@@ -279,7 +279,7 @@ export default function UploadHistoryPanel({
                               )}
                               <button
                                 onClick={() => handleRestore(item)}
-                                className="w-full py-2 sm:py-2.5 px-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white text-sm sm:text-base font-medium rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30"
+                                className="w-full py-2 sm:py-2.5 px-4 bg-gradient-to-r from-primary to-accent text-white text-sm sm:text-base font-medium rounded-lg hover:from-primary-800 hover:to-accent-600 transition-all flex items-center justify-center gap-2 shadow-lg shadow-accent/30"
                               >
                                 <RotateCcw size={16} className="sm:w-[18px] sm:h-[18px]" />
                                 Restore This Upload

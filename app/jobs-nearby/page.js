@@ -250,7 +250,7 @@ function JobsHubContent() {
                 <span className="text-sm">You've reached the free limit. Unlock unlimited tracking!</span>
                 <button
                   onClick={() => { toast.dismiss(t.id); router.push('/checkout?billingCycle=quarterly&step=1'); }}
-                  className="bg-[#0B1F3B] text-white px-3 py-1.5 rounded text-xs font-bold mt-1"
+                  className="bg-primary text-white px-3 py-1.5 rounded text-xs font-bold mt-1"
                 >
                   Upgrade to Expert Plan
                 </button>
@@ -515,7 +515,7 @@ function JobsHubContent() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] font-sans text-gray-900 pb-20 pt-16 lg:pt-0">
+    <div className="min-h-screen bg-bg font-sans text-gray-900 pb-20 pt-16 lg:pt-0">
 
       {/* 1. Dynamic Search Section (Hero vs Compact) */}
       <div className={`bg-white border-b border-gray-200 transition-all duration-300 sticky top-16 lg:top-0 inset-x-0 z-40 ${hasSearched ? 'py-3 shadow-md' : 'pt-4 pb-4 shadow-sm'
@@ -532,11 +532,11 @@ function JobsHubContent() {
               {/* Logo/Brand for Compact Mode */}
               {hasSearched && (
                 <div className="hidden lg:flex items-center gap-2 mr-4 md:mr-8 border-r border-gray-200 pr-6 h-8">
-                  <span className="font-bold text-xl tracking-tight text-gray-900">Job<span className="text-[#00C4B3]">Search</span></span>
+                  <span className="font-bold text-xl tracking-tight text-gray-900">Job<span className="text-accent">Search</span></span>
                 </div>
               )}
 
-              <div className={`flex items-center bg-gray-50 transition-all focus-within:ring-2 ring-[#00C4B3]/20 ${hasSearched
+              <div className={`flex items-center bg-gray-50 transition-all focus-within:ring-2 ring-accent/20 ${hasSearched
                 ? 'flex-1 h-10 rounded-lg px-3 border border-gray-200'
                 : 'flex-1 rounded-lg px-3 py-2.5'
                 }`}>
@@ -551,7 +551,7 @@ function JobsHubContent() {
                 />
               </div>
 
-              <div className={`flex items-center bg-gray-50 transition-all focus-within:ring-2 ring-[#00C4B3]/20 ${hasSearched
+              <div className={`flex items-center bg-gray-50 transition-all focus-within:ring-2 ring-accent/20 ${hasSearched
                 ? 'w-48 h-10 rounded-lg px-3 border border-gray-200 hidden md:flex'
                 : 'flex-1 rounded-lg px-3 py-2.5'
                 }`}>
@@ -569,7 +569,7 @@ function JobsHubContent() {
               <button
                 type="submit"
                 disabled={loading || limitReached}
-                className={`bg-[#0B1F3B] hover:bg-[#071429] text-white font-semibold transition-all shadow-md hover:shadow-[#0B1F3B]/20 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 ${hasSearched
+                className={`bg-primary hover:bg-gray-900 text-white font-semibold transition-all shadow-md hover:shadow-primary/20 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 ${hasSearched
                   ? 'h-10 px-6 rounded-lg text-sm whitespace-nowrap'
                   : 'py-2.5 px-6 rounded-lg text-sm'
                   }`}
@@ -585,16 +585,16 @@ function JobsHubContent() {
 
 
             {!hasSearched && !hasProAccess && (
-              <div className="hidden lg:flex flex-col gap-3 bg-gradient-to-br from-[#0B1F3B] to-[#132D54] text-white rounded-2xl p-5 shadow-xl">
+              <div className="hidden lg:flex flex-col gap-3 bg-gradient-to-br from-primary to-[#132D54] text-white rounded-2xl p-5 shadow-xl">
                 <div className="flex items-center justify-between">
                   <p className="text-xs font-bold uppercase tracking-wider">Apply Pro OS</p>
-                  <Crown className="w-4 h-4 text-[#00C4B3]" />
+                  <Crown className="w-4 h-4 text-accent" />
                 </div>
                 <h3 className="text-lg font-bold">Unlock daily alerts + auto‑save matches</h3>
                 <p className="text-xs text-slate-300">Get 50 searches/day, AI match scores, and auto‑followups.</p>
                 <button
                   onClick={() => router.push('/checkout?billingCycle=quarterly&step=1')}
-                  className="bg-[#00C4B3] text-white px-4 py-2 rounded-lg text-xs font-black hover:bg-[#00B3A3] transition-colors"
+                  className="bg-accent text-white px-4 py-2 rounded-lg text-xs font-black hover:bg-[#00B3A3] transition-colors"
                 >
                   Upgrade to Expert Plan
                 </button>
@@ -604,15 +604,15 @@ function JobsHubContent() {
 
           {!hasSearched && hasProAccess && (
             <div className="mt-4 text-xs text-gray-500 flex items-center justify-center gap-2">
-              <Sparkles className="w-4 h-4 text-[#00C4B3]" />
+              <Sparkles className="w-4 h-4 text-accent" />
               Saved alerts and auto‑save are ready for your next search.
             </div>
           )}
 
           {/* USAGE TRACKER & UPGRADE CTA */}
           <div className="mt-4 flex flex-col items-center gap-2">
-            <p className={`text-xs font-bold flex items-center justify-center gap-1.5 ${limitReached ? 'text-red-500' : 'text-[#0B1F3B]'}`}>
-              <Sparkles size={14} className={limitReached ? 'text-red-500' : 'text-[#00C4B3] animate-pulse'} />
+            <p className={`text-xs font-bold flex items-center justify-center gap-1.5 ${limitReached ? 'text-red-500' : 'text-primary'}`}>
+              <Sparkles size={14} className={limitReached ? 'text-red-500' : 'text-accent animate-pulse'} />
               <span>
                 {limitReached
                   ? (isPremium
@@ -629,7 +629,7 @@ function JobsHubContent() {
             {limitReached && !isPremium && (
               <button
                 onClick={() => router.push('/checkout?billingCycle=quarterly&step=1')}
-                className="flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-[#0B1F3B] to-[#132D54] text-white text-sm font-extrabold rounded-full shadow-xl hover:shadow-[#0B1F3B]/20 hover:-translate-y-1 transition-all active:scale-95"
+                className="flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-primary to-[#132D54] text-white text-sm font-extrabold rounded-full shadow-xl hover:shadow-primary/20 hover:-translate-y-1 transition-all active:scale-95"
               >
                 < Crown size={16} />
                 Upgrade to Expert (Job Search Included)
@@ -649,7 +649,7 @@ function JobsHubContent() {
                 <button
                   key={i}
                   onClick={() => handleRecentClick(s)}
-                  className="px-3 py-1 bg-gray-100 hover:bg-[#00C4B3]/10 text-gray-600 hover:text-[#0B1F3B] text-xs rounded-full transition-colors border border-transparent hover:border-[#00C4B3]/20"
+                  className="px-3 py-1 bg-gray-100 hover:bg-accent/10 text-gray-600 hover:text-primary text-xs rounded-full transition-colors border border-transparent hover:border-accent/20"
                 >
                   {s}
                 </button>
@@ -686,8 +686,8 @@ function JobsHubContent() {
         {/* Initial Empty State */}
         {!hasSearched && (
           <div className="text-center py-10">
-            <div className="inline-flex items-center justify-center p-4 bg-[#0B1F3B]/5 rounded-full mb-4">
-              <Sparkles className="w-8 h-8 text-[#00C4B3]" />
+            <div className="inline-flex items-center justify-center p-4 bg-primary/5 rounded-full mb-4">
+              <Sparkles className="w-8 h-8 text-accent" />
             </div>
             <h3 className="font-bold text-gray-800 text-lg">Ready to Launch?</h3>
             <p className="text-gray-500 max-w-sm mx-auto">
@@ -736,10 +736,10 @@ function JobsHubContent() {
                     <button
                       onClick={handleLoadMore}
                       disabled={isLoadingMore}
-                      className="w-full sm:w-auto px-4 py-2 rounded-lg text-xs font-bold border border-[#0B1F3B] text-[#0B1F3B] hover:bg-[#0B1F3B]/5 transition-all disabled:opacity-60 flex items-center justify-center gap-2"
+                      className="w-full sm:w-auto px-4 py-2 rounded-lg text-xs font-bold border border-primary text-primary hover:bg-primary/5 transition-all disabled:opacity-60 flex items-center justify-center gap-2"
                     >
                       {isLoadingMore && (
-                        <span className="w-3.5 h-3.5 border-2 border-[#0B1F3B]/40 border-t-[#0B1F3B] rounded-full animate-spin"></span>
+                        <span className="w-3.5 h-3.5 border-2 border-primary/40 border-t-primary rounded-full animate-spin"></span>
                       )}
                       {isLoadingMore ? "Loading more..." : "Load more jobs"}
                     </button>
@@ -751,7 +751,7 @@ function JobsHubContent() {
                       {!hasProAccess && (
                         <button
                           onClick={() => router.push('/checkout?billingCycle=quarterly&step=1')}
-                          className="text-[11px] font-bold text-[#0B1F3B] hover:underline"
+                          className="text-[11px] font-bold text-primary hover:underline"
                         >
                           Unlock more jobs with Expert Plan
                         </button>
@@ -800,7 +800,7 @@ function JobsHubContent() {
                 </div>
                 <button
                   onClick={() => router.push('/checkout?billingCycle=quarterly&step=1')}
-                  className="bg-[#0B1F3B] text-white px-4 py-2 rounded-lg text-xs font-black shadow-sm hover:bg-[#132D54] transition-colors"
+                  className="bg-primary text-white px-4 py-2 rounded-lg text-xs font-black shadow-sm hover:bg-[#132D54] transition-colors"
                 >
                   Upgrade
                 </button>

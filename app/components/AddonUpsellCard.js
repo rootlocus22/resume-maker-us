@@ -53,16 +53,16 @@ export default function AddonUpsellCard({ addonId, title, description, variant =
     const styles = {
         default: "bg-white border-gray-200 shadow-sm",
         premium: "bg-gradient-to-br from-gray-900 to-gray-800 text-white border-gray-700 shadow-xl",
-        highlight: "bg-gradient-to-br from-indigo-50 to-blue-50 border-blue-200 shadow-md",
-        emerald: "bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-200 shadow-md",
+        highlight: "bg-gradient-to-br from-primary-50 to-accent-50 border-accent-200 shadow-md",
+        emerald: "bg-gradient-to-br from-accent-50 to-accent-100 border-accent-200 shadow-md",
         purple: "bg-gradient-to-br from-purple-50 to-fuchsia-50 border-purple-200 shadow-md"
     };
 
     const buttonStyles = {
-        default: "bg-blue-600 text-white hover:bg-blue-700",
+        default: "bg-accent text-white hover:bg-accent-600",
         premium: "bg-white text-gray-900 hover:bg-gray-100",
-        highlight: "bg-blue-600 text-white hover:bg-blue-700",
-        emerald: "bg-emerald-600 text-white hover:bg-emerald-700",
+        highlight: "bg-accent text-white hover:bg-accent-600",
+        emerald: "bg-accent text-white hover:bg-accent-600",
         purple: "bg-purple-600 text-white hover:bg-purple-700"
     };
 
@@ -92,7 +92,7 @@ export default function AddonUpsellCard({ addonId, title, description, variant =
             <div>
                 <div className={`flex items-center gap-3 ${compact ? 'mb-2' : 'mb-3'}`}>
                     <div className={`p-2 rounded-lg ${variant === 'premium' ? 'bg-gray-700/50' : 'bg-white/60 shadow-sm'}`}>
-                        <Icon size={compact ? 16 : 20} className={variant === 'premium' ? 'text-yellow-400' : 'text-blue-600'} />
+                        <Icon size={compact ? 16 : 20} className={variant === 'premium' ? 'text-yellow-400' : 'text-accent-600'} />
                     </div>
                     <div>
                         <div className="flex items-center gap-1">

@@ -74,7 +74,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
     const colorClasses = {
       green: 'bg-green-100 text-green-700',
       red: 'bg-red-100 text-red-700',
-      blue: 'bg-slate-100 text-[#0B1F3B]',
+      blue: 'bg-slate-100 text-primary',
       yellow: 'bg-yellow-100 text-yellow-700'
     };
     
@@ -91,7 +91,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
     
     return suggestions.slice(0, maxItems).map((suggestion, index) => (
       <li key={index} className="text-xs sm:text-sm text-gray-700 flex items-start gap-2">
-        <div className="w-1 h-1 bg-teal-400 rounded-full mt-1.5 flex-shrink-0"></div>
+        <div className="w-1 h-1 bg-accent rounded-full mt-1.5 flex-shrink-0"></div>
         {renderTextContent(suggestion)}
       </li>
     ));
@@ -339,15 +339,15 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
   const getCategoryColor = (color) => {
     const colorMap = {
       red: 'bg-red-500',
-      blue: 'bg-[#0B1F3B]',
+      blue: 'bg-primary',
       green: 'bg-green-500',
       purple: 'bg-purple-500',
       orange: 'bg-orange-500',
-      indigo: 'bg-teal-500',
+      indigo: 'bg-accent',
       yellow: 'bg-yellow-500',
       pink: 'bg-pink-500',
-      teal: 'bg-teal-500',
-      emerald: 'bg-emerald-500',
+      teal: 'bg-accent',
+      emerald: 'bg-accent-600',
       cyan: 'bg-cyan-500',
       amber: 'bg-amber-500',
       gray: 'bg-gray-500'
@@ -452,8 +452,8 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
       {result?.actionableRecommendations && result.actionableRecommendations.length > 0 && (
         <div className="bg-slate-50 border border-slate-200 rounded-lg p-4">
           <div className="flex items-start gap-3 mb-3">
-            <Award className="text-[#0B1F3B] mt-1" size={16} />
-            <h4 className="font-medium text-[#0B1F3B]">Actionable Recommendations</h4>
+            <Award className="text-primary mt-1" size={16} />
+            <h4 className="font-medium text-primary">Actionable Recommendations</h4>
           </div>
           <div className="space-y-3">
             {renderActionableRecommendations(result.actionableRecommendations)}
@@ -570,7 +570,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
 
         {categoryKey === 'softSkills' && data.suggested && data.suggested.length > 0 && (
           <div className="bg-slate-50 border border-slate-200 rounded-lg p-4">
-            <h4 className="font-medium text-[#0B1F3B] mb-3">Suggested Soft Skills</h4>
+            <h4 className="font-medium text-primary mb-3">Suggested Soft Skills</h4>
             <div className="flex flex-wrap gap-2">
               {renderArrayItems(data.suggested, 8, 'blue')}
             </div>
@@ -695,11 +695,11 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
 
             {data.quantificationIssues && data.quantificationIssues.length > 0 && (
               <div className="bg-slate-50 border border-slate-200 rounded-lg p-4">
-                <h4 className="font-medium text-[#0B1F3B] mb-3">Quantification Opportunities</h4>
+                <h4 className="font-medium text-primary mb-3">Quantification Opportunities</h4>
                 <ul className="space-y-1">
                   {renderSuggestions(data.quantificationIssues)}
                 </ul>
-                <p className="text-sm text-[#0B1F3B] mt-2">
+                <p className="text-sm text-primary mt-2">
                   Add specific metrics and numbers to make your achievements more impactful.
                 </p>
               </div>
@@ -764,7 +764,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
           <div className="p-8 text-center">
             <div className="bg-gradient-to-r from-slate-50 to-slate-100 border border-slate-200 rounded-lg p-6">
               <div className="flex justify-center mb-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
                   <Star className="text-white" size={24} />
                 </div>
               </div>
@@ -819,7 +819,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
               </div>
               <button 
                 onClick={() => onUpgradeClick ? onUpgradeClick('basic', 'detailed-analysis') : window.open('/checkout?source=ats-score-checker', '_blank')}
-                className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-6 py-3 rounded-lg font-semibold hover:from-[#071429] hover:to-[#008C81] transition-all duration-200 shadow-lg"
+                className="bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-lg font-semibold hover:from-gray-900 hover:to-accent-700 transition-all duration-200 shadow-lg"
               >
                 Upgrade to Premium
               </button>
@@ -838,7 +838,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
           <div className="p-8 text-center">
             <div className="bg-gradient-to-r from-slate-50 to-slate-100 border border-slate-200 rounded-lg p-6">
               <div className="flex justify-center mb-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
                   <Award className="text-white" size={24} />
                 </div>
               </div>
@@ -852,7 +852,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
                 <div className="mb-4 p-3 bg-gray-50 rounded-lg">
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm font-medium text-gray-700">Available Recommendations:</span>
-                    <span className="text-sm font-bold text-[#0B1F3B]">
+                    <span className="text-sm font-bold text-primary">
                       {recommendationsCategory.count}
                     </span>
                   </div>
@@ -881,7 +881,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
               </div>
               <button 
                 onClick={() => onUpgradeClick ? onUpgradeClick('basic', 'detailed-analysis') : window.open('/checkout?source=ats-score-checker', '_blank')}
-                className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-6 py-3 rounded-lg font-semibold hover:from-[#071429] hover:to-[#008C81] transition-all duration-200 shadow-lg"
+                className="bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-lg font-semibold hover:from-gray-900 hover:to-accent-700 transition-all duration-200 shadow-lg"
               >
                 Upgrade to Premium
               </button>
@@ -902,7 +902,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
       <div className="bg-gray-50 border-b border-gray-200 px-3 sm:px-4 md:px-6 py-3">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
           <h1 className="text-base sm:text-lg font-semibold text-gray-900">Resume ATS Analysis Results</h1>
-          <button className="text-[#0B1F3B] hover:text-[#0B1F3B] font-medium text-sm sm:text-base self-end sm:self-auto">Print</button>
+          <button className="text-primary hover:text-primary font-medium text-sm sm:text-base self-end sm:self-auto">Print</button>
         </div>
         <div className="flex flex-col sm:flex-row sm:items-center gap-2 mt-2">
           <h2 className="text-lg sm:text-xl font-bold text-gray-900">
@@ -936,7 +936,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
               );
             } else if (analysisType === 'GENERAL' || (!hasJobDescription && analysisType !== 'COMPARATIVE')) {
               return (
-                <div className="bg-blue-100 text-[#0B1F3B] px-2 py-1 rounded-full text-xs font-medium self-start sm:self-auto">
+                <div className="bg-accent-50 text-primary px-2 py-1 rounded-full text-xs font-medium self-start sm:self-auto">
                   General ATS
                 </div>
               );
@@ -987,7 +987,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
             </div>
             
             <button 
-              className="mt-3 sm:mt-4 bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-[#071429] transition-colors flex items-center gap-2 mx-auto text-sm sm:text-base"
+              className="mt-3 sm:mt-4 bg-accent text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-accent-600 transition-colors flex items-center gap-2 mx-auto text-sm sm:text-base"
               onClick={onReset}
             >
               <Upload size={14} className="sm:w-4 sm:h-4" />
@@ -1000,7 +1000,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
             <div className="flex items-center justify-between mb-3">
               <h3 className="font-semibold text-gray-900 text-sm sm:text-base">Summary</h3>
               {!hasEnterpriseAccess && (!isPremium && !isBasicPlan || isPremium === undefined) && (
-                <span className="px-2 py-1 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white text-xs rounded-full font-medium">
+                <span className="px-2 py-1 bg-gradient-to-r from-primary to-accent text-white text-xs rounded-full font-medium">
                   <Star size={10} className="inline mr-1" />
                   Basic
                 </span>
@@ -1031,7 +1031,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
               {result?.actionableRecommendations && (
                 <div className="flex justify-between text-xs sm:text-sm">
                   <span className="text-gray-600">Recommendations:</span>
-                  <span className="font-medium text-[#0B1F3B]">
+                  <span className="font-medium text-primary">
                     {result.actionableRecommendations.length}
                   </span>
                 </div>
@@ -1040,7 +1040,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
                 <div className="pt-2 border-t border-gray-100">
                   <div className="flex justify-between text-xs sm:text-sm">
                     <span className="text-gray-600">Premium Categories:</span>
-                    <span className="font-medium text-[#0B1F3B]">
+                    <span className="font-medium text-primary">
                       {categories.filter(cat => cat.isPremium).length}
                     </span>
                   </div>
@@ -1071,7 +1071,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
                     isDisabled 
                       ? 'bg-gray-100 border-gray-300 cursor-not-allowed opacity-60' 
                       : currentSection === category.name 
-                        ? 'border-[#0B1F3B] bg-slate-50' 
+                        ? 'border-primary bg-slate-50' 
                         : 'bg-white border-gray-200 hover:border-slate-300'
                   }`}
                 >
@@ -1081,7 +1081,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
                       {category.name}
                     </span>
                     {/* {isDisabled && (
-                      <span className="ml-auto px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white">
+                      <span className="ml-auto px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-primary to-accent text-white">
                         <Star size={10} className="inline mr-1" />
                         Premium
                       </span>
@@ -1128,7 +1128,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
                             {category.score}/100
                           </span>
                         )}
-                        <span className="text-[#0B1F3B] font-medium">
+                        <span className="text-primary font-medium">
                           Upgrade to access
                         </span>
                       </>
@@ -1169,7 +1169,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
             <button 
               className={`px-3 sm:px-4 py-2 font-medium border-b-2 transition-colors text-sm sm:text-base ${
                 currentSection === 'Executive Summary' 
-                  ? 'text-[#0B1F3B] border-[#0B1F3B]' 
+                  ? 'text-primary border-primary' 
                   : 'text-gray-500 border-transparent hover:text-gray-700'
               }`}
               onClick={() => setCurrentSection('Executive Summary')}
@@ -1186,7 +1186,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
               </span>
             )}
             {result?.analysisType?.toUpperCase() === 'GENERAL' && (
-              <span className="bg-blue-100 text-[#0B1F3B] px-2 py-1 rounded-full text-xs font-medium self-start sm:self-auto">
+              <span className="bg-accent-50 text-primary px-2 py-1 rounded-full text-xs font-medium self-start sm:self-auto">
                 General ATS
               </span>
             )}
@@ -1204,7 +1204,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
           {!hasEnterpriseAccess && (!isPremium && !isBasicPlan || isPremium === undefined) && (
             <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-gradient-to-r from-slate-50 to-slate-100 border border-slate-200 rounded-lg">
               <div className="flex items-center gap-3 mb-2">
-                <Star className="text-[#0B1F3B] sm:w-5 sm:h-5" size={18} />
+                <Star className="text-primary sm:w-5 sm:h-5" size={18} />
                 <h3 className="font-semibold text-gray-900 text-sm sm:text-base">Unlock Full Analysis</h3>
               </div>
               <p className="text-xs sm:text-sm text-gray-700 mb-3">
@@ -1218,7 +1218,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-teal-500 rounded-full"></span>
+                  <span className="w-2 h-2 bg-accent rounded-full"></span>
                   <span className="text-gray-600">
                     {categories.filter(cat => cat.isPremium).length} premium insights
                   </span>
@@ -1226,7 +1226,7 @@ export default function ModernAnalysisDisplay({ result, onReset, isPremium, isBa
               </div>
               <button 
                 onClick={() => onUpgradeClick ? onUpgradeClick('basic', 'detailed-analysis') : window.open('/checkout?source=ats-score-checker', '_blank')}
-                className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium hover:from-[#071429] hover:to-[#008C81] transition-all duration-200"
+                className="bg-gradient-to-r from-primary to-accent text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium hover:from-gray-900 hover:to-accent-700 transition-all duration-200"
               >
                 Upgrade to Premium
               </button>

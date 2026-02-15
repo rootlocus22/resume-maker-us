@@ -202,7 +202,7 @@ const LiveAnalyticsDashboard = () => {
 
   const getStatusColor = (status) => {
     switch (status) {
-      case 'new': return 'bg-blue-100 text-blue-800';
+      case 'new': return 'bg-primary-100 text-primary-800';
       case 'contacted': return 'bg-yellow-100 text-yellow-800';
       case 'converted': return 'bg-green-100 text-green-800';
       case 'closed': return 'bg-gray-100 text-gray-800';
@@ -257,7 +257,7 @@ const LiveAnalyticsDashboard = () => {
       <div className="min-h-screen bg-gray-50 p-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-center h-64">
-            <RefreshCw className="w-8 h-8 animate-spin text-blue-600" />
+            <RefreshCw className="w-8 h-8 animate-spin text-primary" />
             <span className="ml-3 text-lg text-gray-600">Loading analytics data...</span>
           </div>
         </div>
@@ -277,7 +277,7 @@ const LiveAnalyticsDashboard = () => {
           <button
             onClick={handleRefresh}
             disabled={loading}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+            className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-600 disabled:opacity-50"
           >
             <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
             Refresh
@@ -292,7 +292,7 @@ const LiveAnalyticsDashboard = () => {
                 <p className="text-sm font-medium text-gray-600">Total Users</p>
                 <p className="text-2xl font-bold text-gray-900">{stats.totalRecords || 0}</p>
               </div>
-              <Users className="w-8 h-8 text-blue-600" />
+              <Users className="w-8 h-8 text-primary" />
             </div>
           </div>
 
@@ -342,7 +342,7 @@ const LiveAnalyticsDashboard = () => {
               <select
                 value={timeFilter}
                 onChange={(e) => setTimeFilter(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
               >
                 {timeFilterOptions.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -358,7 +358,7 @@ const LiveAnalyticsDashboard = () => {
               <select
                 value={entryPointFilter}
                 onChange={(e) => setEntryPointFilter(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
               >
                 <option value="">All Entry Points</option>
                 <option value="ats-score-checker">ATS Score Checker</option>
@@ -372,7 +372,7 @@ const LiveAnalyticsDashboard = () => {
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
               >
                 <option value="">All Statuses</option>
                 <option value="new">New</option>
@@ -388,7 +388,7 @@ const LiveAnalyticsDashboard = () => {
               <select
                 value={priorityFilter}
                 onChange={(e) => setPriorityFilter(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
               >
                 <option value="">All Priorities</option>
                 <option value="high">High</option>
@@ -407,7 +407,7 @@ const LiveAnalyticsDashboard = () => {
                   placeholder="Search by name, email, phone..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
                 />
               </div>
             </div>
@@ -481,7 +481,7 @@ const LiveAnalyticsDashboard = () => {
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                      <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-primary-100 text-primary-800">
                         {record.entryPoint}
                       </span>
                     </td>
@@ -512,7 +512,7 @@ const LiveAnalyticsDashboard = () => {
                           setSelectedRecord(record);
                           setShowModal(true);
                         }}
-                        className="text-blue-600 hover:text-blue-900 flex items-center gap-1"
+                        className="text-primary hover:text-primary-900 flex items-center gap-1"
                       >
                         <Eye className="w-4 h-4" />
                         View
@@ -603,7 +603,7 @@ const LiveAnalyticsDashboard = () => {
                     <h4 className="font-semibold text-gray-900 mb-3">Skills</h4>
                     <div className="flex flex-wrap gap-2">
                       {selectedRecord.skills.slice(0, 10).map((skill, index) => (
-                        <span key={index} className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
+                        <span key={index} className="px-2 py-1 bg-primary-100 text-primary-800 text-xs rounded-full">
                           {skill.name}
                         </span>
                       ))}
@@ -654,7 +654,7 @@ const LiveAnalyticsDashboard = () => {
                     <select
                       value={selectedRecord.supportStatus}
                       onChange={(e) => updateRecordStatus(selectedRecord.id, { supportStatus: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
                     >
                       <option value="new">New</option>
                       <option value="contacted">Contacted</option>
@@ -669,7 +669,7 @@ const LiveAnalyticsDashboard = () => {
                     <select
                       value={selectedRecord.supportPriority}
                       onChange={(e) => updateRecordStatus(selectedRecord.id, { supportPriority: e.target.value })}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
                     >
                       <option value="low">Low</option>
                       <option value="medium">Medium</option>
@@ -682,7 +682,7 @@ const LiveAnalyticsDashboard = () => {
                     {!showAddContact ? (
                       <button
                         onClick={() => setShowAddContact(true)}
-                        className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm"
+                        className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-600 text-sm"
                       >
                         <Plus className="w-4 h-4" />
                         Add Contact Attempt
@@ -692,7 +692,7 @@ const LiveAnalyticsDashboard = () => {
                         <select
                           value={contactAttempt.method}
                           onChange={(e) => setContactAttempt({ ...contactAttempt, method: e.target.value })}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-sm"
                         >
                           <option value="">Select method...</option>
                           <option value="phone">Phone Call</option>
@@ -705,14 +705,14 @@ const LiveAnalyticsDashboard = () => {
                           placeholder="Contact notes..."
                           value={contactAttempt.notes}
                           onChange={(e) => setContactAttempt({ ...contactAttempt, notes: e.target.value })}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-sm"
                           rows={2}
                         />
                         
                         <select
                           value={contactAttempt.outcome}
                           onChange={(e) => setContactAttempt({ ...contactAttempt, outcome: e.target.value })}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent text-sm"
                         >
                           <option value="">Select outcome...</option>
                           <option value="successful">Successful</option>

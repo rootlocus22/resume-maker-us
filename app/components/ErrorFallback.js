@@ -71,7 +71,7 @@ export default function ErrorFallback({
                 <div className="space-y-3">
                     <button
                         onClick={reset}
-                        className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3 px-6 rounded-xl font-semibold transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                        className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-accent hover:from-primary-800 hover:to-accent-600 text-white py-3 px-6 rounded-xl font-semibold transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                     >
                         <RefreshCcw size={18} />
                         Try Again

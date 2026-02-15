@@ -69,7 +69,7 @@ const FresherDiscountPopup = ({
     <div className={`fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-2 sm:p-4 transition-opacity duration-300 ${isClosing ? 'opacity-0' : 'opacity-100'}`}>
       <div className={`bg-white rounded-xl sm:rounded-2xl w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto transform transition-all duration-300 ${isClosing ? 'scale-95 opacity-0' : 'scale-100 opacity-100'} flex flex-col max-h-[90vh] sm:max-h-[85vh]`}>
         {/* Header */}
-        <div className="relative bg-gradient-to-r from-green-500 to-emerald-600 text-white p-4 sm:p-6 rounded-t-xl sm:rounded-t-2xl flex-shrink-0">
+        <div className="relative bg-gradient-to-r from-accent to-accent-600 text-white p-4 sm:p-6 rounded-t-xl sm:rounded-t-2xl flex-shrink-0">
           <button
             onClick={handleClose}
             className="absolute top-2 sm:top-4 right-2 sm:right-4 p-1.5 sm:p-1 hover:bg-white hover:bg-opacity-20 rounded-full transition-colors"
@@ -91,12 +91,12 @@ const FresherDiscountPopup = ({
         {/* Scrollable Content */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-6">
           {/* AI Analysis */}
-          <div className="bg-blue-50 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6 border border-blue-100">
+          <div className="bg-accent-50 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6 border border-accent/10">
             <div className="flex items-start space-x-2 sm:space-x-3">
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-accent mt-0.5 flex-shrink-0" />
               <div>
-                <h3 className="font-semibold text-blue-900 mb-1 text-sm sm:text-base">AI Analysis</h3>
-                <p className="text-blue-700 text-xs sm:text-sm">
+                <h3 className="font-semibold text-primary mb-1 text-sm sm:text-base">AI Analysis</h3>
+                <p className="text-accent-700 text-xs sm:text-sm">
                   {fresherData.fresherAnalysis || "Detected as fresh graduate based on resume analysis"}
                 </p>
               </div>
@@ -127,7 +127,7 @@ const FresherDiscountPopup = ({
                 </div>
                 <button
                   onClick={handleCopyCode}
-                  className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-xs sm:text-sm font-medium"
+                  className="px-3 py-2 bg-accent text-white rounded-lg hover:bg-accent-600 transition-colors text-xs sm:text-sm font-medium"
                 >
                   {copied ? (
                     <div className="flex items-center space-x-1">
@@ -166,7 +166,7 @@ const FresherDiscountPopup = ({
           <div className="space-y-3">
             <button
               onClick={handleGoToCheckout}
-              className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 sm:py-3 px-6 rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all duration-200 font-medium flex items-center justify-center space-x-2 text-sm sm:text-base"
+              className="w-full bg-gradient-to-r from-accent to-accent-600 text-white py-3 sm:py-3 px-6 rounded-lg hover:from-accent-700 hover:to-accent-700 transition-all duration-200 font-medium flex items-center justify-center space-x-2 text-sm sm:text-base"
             >
               <span>Claim 50% Discount</span>
               <ArrowRight className="w-4 h-4" />

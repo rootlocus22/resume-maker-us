@@ -36,10 +36,10 @@ export const metadata = {
 export default function ResumeBuilderPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="flex-1 bg-[#F8FAFC] flex flex-col items-center p-4 md:p-8 relative">
+      <div className="flex-1 bg-bg flex flex-col items-center p-4 md:p-8 relative">
         <div className="fixed inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-[#00C4B3]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-20 w-40 h-40 bg-[#0B1F3B]/5 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-10 w-32 h-32 bg-accent/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
         </div>
 
         <UploadResumeWrapper />

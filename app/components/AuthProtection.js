@@ -28,12 +28,12 @@ export default function AuthProtection({ children, fallback = null }) {
   // Show loading while checking authentication with better UX
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-accent-50 via-white to-primary-50">
         <div className="text-center">
           <div className="relative">
-            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-600 mx-auto mb-6"></div>
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-accent mx-auto mb-6"></div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="h-8 w-8 bg-blue-100 rounded-full animate-pulse"></div>
+              <div className="h-8 w-8 bg-accent-50 rounded-full animate-pulse"></div>
             </div>
           </div>
           <h3 className="text-lg font-semibold text-gray-800 mb-2">Preparing Your Workspace</h3>
@@ -46,12 +46,12 @@ export default function AuthProtection({ children, fallback = null }) {
   // If user is not authenticated, show a message while redirecting
   if (!user) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-accent-50 via-white to-primary-50">
         <div className="text-center">
           <div className="relative">
-            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-600 mx-auto mb-6"></div>
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-accent mx-auto mb-6"></div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="h-8 w-8 bg-blue-100 rounded-full animate-pulse"></div>
+              <div className="h-8 w-8 bg-accent-50 rounded-full animate-pulse"></div>
             </div>
           </div>
           <h3 className="text-lg font-semibold text-gray-800 mb-2">Authentication Required</h3>

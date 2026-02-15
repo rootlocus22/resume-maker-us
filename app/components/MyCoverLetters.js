@@ -78,7 +78,7 @@ export default function MyCoverLetters() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-accent"></div>
       </div>
     );
   }
@@ -92,7 +92,7 @@ export default function MyCoverLetters() {
           <p className="text-gray-600 text-sm md:text-base mb-4">You need to log in to view your saved cover letters.</p>
           <button
             onClick={() => router.push("/login")}
-            className="bg-gradient-to-r from-blue-600 to-blue-600 text-white px-6 py-2 rounded-lg hover:from-blue-700 hover:to-blue-700 transition-all w-full md:w-auto"
+            className="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-lg hover:from-primary-800 hover:to-accent-600 transition-all w-full md:w-auto"
           >
             Go to Login
           </button>
@@ -109,7 +109,7 @@ export default function MyCoverLetters() {
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center sm:text-left">My Cover Letters</h1>
           <button
             onClick={() => router.push("/cover-letter-builder")}
-            className="bg-gradient-to-r from-blue-600 to-blue-600 text-white px-4 py-2 rounded-lg hover:from-blue-700 hover:to-blue-700 transition-all w-full sm:w-auto"
+            className="bg-gradient-to-r from-primary to-accent text-white px-4 py-2 rounded-lg hover:from-primary-800 hover:to-accent-600 transition-all w-full sm:w-auto"
           >
             Create New
           </button>
@@ -147,7 +147,7 @@ export default function MyCoverLetters() {
                     <div className="flex gap-2 w-full sm:w-auto justify-end">
                       <button
                         onClick={() => handleEdit(coverLetter.id, coverLetter.template)}
-                        className="flex items-center gap-1 bg-gradient-to-r from-blue-600 to-blue-600 text-white px-3 py-2 rounded-lg hover:from-blue-700 hover:to-blue-700 transition-all w-full sm:w-auto justify-center text-sm"
+                        className="flex items-center gap-1 bg-gradient-to-r from-primary to-accent text-white px-3 py-2 rounded-lg hover:from-primary-800 hover:to-accent-600 transition-all w-full sm:w-auto justify-center text-sm"
                       >
                         <Edit size={16} /> Edit
                       </button>

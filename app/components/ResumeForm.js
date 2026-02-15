@@ -273,7 +273,7 @@ const PersonalInfoSection = memo(({ data, onChange, t, currentUserId, currentRes
                           }`}
                       />
                       {isDefaultPhoto(data.photo) && (
-                        <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-[#0B1F3B] rounded-full flex items-center justify-center shadow-lg border-2 border-white">
+                        <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg border-2 border-white">
                           <ImagePlus size={16} className="text-white" />
                         </div>
                       )}
@@ -286,7 +286,7 @@ const PersonalInfoSection = memo(({ data, onChange, t, currentUserId, currentRes
                           <p className="text-sm font-semibold text-gray-900">Default Photo Active</p>
                           <p className="text-xs text-gray-600">Upload your photo for a more personalized resume</p>
                           <div className="flex gap-2">
-                            <label className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#0B1F3B] text-white text-xs font-medium rounded-md hover:bg-[#071429] cursor-pointer transition-colors">
+                            <label className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary text-white text-xs font-medium rounded-md hover:bg-gray-900 cursor-pointer transition-colors">
                               <Upload size={14} />
                               Upload Photo
                               <input
@@ -339,10 +339,10 @@ const PersonalInfoSection = memo(({ data, onChange, t, currentUserId, currentRes
                   /* Drag & Drop Upload Zone */
                   <label className="block">
                     <div className="relative group cursor-pointer">
-                      <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center transition-all hover:border-teal-400 hover:bg-slate-50/50 group-hover:shadow-md">
+                      <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center transition-all hover:border-accent hover:bg-slate-50/50 group-hover:shadow-md">
                         <div className="flex flex-col items-center gap-3">
                           <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center group-hover:bg-slate-200 transition-colors">
-                            <ImagePlus size={28} className="text-[#0B1F3B]" />
+                            <ImagePlus size={28} className="text-primary" />
                           </div>
                           <div>
                             <p className="text-sm font-semibold text-gray-900 mb-1">
@@ -366,7 +366,7 @@ const PersonalInfoSection = memo(({ data, onChange, t, currentUserId, currentRes
 
                 {/* Help Text */}
                 <p className="text-xs text-gray-500 flex items-center gap-1.5">
-                  <span className="inline-block w-1 h-1 bg-[#0B1F3B] rounded-full"></span>
+                  <span className="inline-block w-1 h-1 bg-primary rounded-full"></span>
                   Professional headshot recommended for best results
                 </p>
               </div>
@@ -374,7 +374,7 @@ const PersonalInfoSection = memo(({ data, onChange, t, currentUserId, currentRes
               <select
                 value={data[field.name] || ""}
                 onChange={(e) => handleChange(field.name, e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#0B1F3B] focus:border-[#0B1F3B]"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-primary"
               >
                 {field.options.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -387,7 +387,7 @@ const PersonalInfoSection = memo(({ data, onChange, t, currentUserId, currentRes
                 type={field.type}
                 value={data[field.name] || ""}
                 onChange={(e) => handleChange(field.name, e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#0B1F3B] focus:border-[#0B1F3B]"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-primary"
                 placeholder={field.label}
               />
             )}
@@ -407,7 +407,7 @@ const PersonalInfoSection = memo(({ data, onChange, t, currentUserId, currentRes
               key={field.key}
               type="button"
               onClick={() => toggleOptionalField(field.key)}
-              className="inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#0B1F3B] bg-slate-50 border border-slate-200 rounded-lg hover:bg-slate-100 transition-colors group"
+              className="inline-flex items-center gap-2 px-3 py-2 text-sm font-medium text-primary bg-slate-50 border border-slate-200 rounded-lg hover:bg-slate-100 transition-colors group"
             >
               <Plus size={14} className="group-hover:rotate-90 transition-transform" />
               <span>{field.icon}</span>
@@ -431,7 +431,7 @@ const SummarySection = memo(({ value, onChange, t, generateAISuggestion, isLoadi
         <label className="block text-sm font-medium text-gray-700">{t.summary}</label>
         <button
           onClick={() => generateAISuggestion("summary", safeValue || "Software Engineer")}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white text-xs font-medium rounded-md hover:from-[#071429] hover:to-[#008C81] transition-all shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-primary to-accent text-white text-xs font-medium rounded-md hover:from-gray-900 hover:to-accent-700 transition-all shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
           title="Generate AI-powered professional summary"
           disabled={isLoadingAI}
         >
@@ -509,7 +509,7 @@ const ArrayItem = memo(({ section, item, index, onChange, onRemove, fields, t, g
   return (
     <div className={section === 'skills' ? 'p-4 border-2 border-gray-200 rounded-xl bg-white hover:border-slate-300 hover:shadow-md transition duration-200' : 'p-2 border border-gray-200 rounded-lg bg-gray-50'}>
       <div className="flex justify-between items-center mb-3">
-        <h4 className={section === 'skills' ? 'text-xs font-bold text-[#0B1F3B] uppercase tracking-wider' : 'text-sm font-medium text-gray-800'}>{section.slice(0, -1)} #{index + 1}</h4>
+        <h4 className={section === 'skills' ? 'text-xs font-bold text-primary uppercase tracking-wider' : 'text-sm font-medium text-gray-800'}>{section.slice(0, -1)} #{index + 1}</h4>
         <button onClick={() => onRemove(index)} className={section === 'skills' ? 'text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-lg p-2 transition-colors' : 'text-red-500 hover:text-red-700 transition-colors'}>
           <Trash2 size={18} />
         </button>
@@ -579,11 +579,11 @@ const ArrayItem = memo(({ section, item, index, onChange, onRemove, fields, t, g
                             }
                           }
                         }}
-                        className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 hover:border-teal-400 transition-all group"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 hover:border-accent transition-all group"
                         title={hasBullets(safeItem[field.name]) ? "Convert to paragraph" : "Convert to bullet points"}
                       >
                         <svg
-                          className="w-3.5 h-3.5 text-gray-500 group-hover:text-[#0B1F3B] transition-colors"
+                          className="w-3.5 h-3.5 text-gray-500 group-hover:text-primary transition-colors"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -664,16 +664,16 @@ const ArrayItem = memo(({ section, item, index, onChange, onRemove, fields, t, g
                                         <div className="flex items-start">
                                           <div className="flex-shrink-0">
                                             <div className="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center">
-                                              <svg className="w-4 h-4 text-[#0B1F3B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                              <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                               </svg>
                                             </div>
                                           </div>
                                           <div className="ml-3 flex-1">
-                                            <p className="text-sm font-medium text-[#0B1F3B]">
+                                            <p className="text-sm font-medium text-primary">
                                               AI Content Applied
                                             </p>
-                                            <p className="mt-1 text-sm text-[#0B1F3B]">
+                                            <p className="mt-1 text-sm text-primary">
                                               Please review and edit the suggestions to ensure they accurately reflect your experience.
                                             </p>
                                           </div>
@@ -682,7 +682,7 @@ const ArrayItem = memo(({ section, item, index, onChange, onRemove, fields, t, g
                                       <div className="flex border-l border-slate-200">
                                         <button
                                           onClick={() => toast.dismiss(t.id)}
-                                          className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-[#0B1F3B] hover:text-teal-600 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[#0B1F3B]"
+                                          className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-primary hover:text-accent hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-accent"
                                         >
                                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -707,7 +707,7 @@ const ArrayItem = memo(({ section, item, index, onChange, onRemove, fields, t, g
                             setIsLoadingAIBullets(false);
                           }
                         }}
-                        className="text-xs px-2 py-1 bg-slate-100 text-[#0B1F3B] rounded border hover:bg-slate-200 transition-colors ml-2"
+                        className="text-xs px-2 py-1 bg-slate-100 text-primary rounded border hover:bg-slate-200 transition-colors ml-2"
                         title="Generate AI Bullet Points"
                         disabled={isLoadingAIBullets}
                       >
@@ -765,13 +765,13 @@ const ArrayItem = memo(({ section, item, index, onChange, onRemove, fields, t, g
                   {field.aiPowered && (
                     <button
                       onClick={() => generateAISuggestion(section, `${safeItem.jobTitle || ""} at ${safeItem.company || ""}`, index)}
-                      className="absolute bottom-2 right-2 p-1.5 bg-slate-100 rounded-md text-[#0B1F3B] hover:bg-slate-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="absolute bottom-2 right-2 p-1.5 bg-slate-100 rounded-md text-primary hover:bg-slate-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       title={t.aiSuggest}
                       disabled={parentIsLoadingAI}
                     >
                       {parentIsLoadingAI ? (
                         <svg
-                          className="animate-spin h-4 w-4 text-[#0B1F3B]"
+                          className="animate-spin h-4 w-4 text-primary"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -803,7 +803,7 @@ const ArrayItem = memo(({ section, item, index, onChange, onRemove, fields, t, g
                     return fieldValue || field.options[0].value;
                   })()}
                   onChange={(e) => handleFieldChange(field.name, e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#0B1F3B] focus:border-[#0B1F3B] bg-white"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-primary bg-white"
                 >
                   {field.options.map((option) => (
                     <option key={option.value} value={option.value}>{option.label}</option>
@@ -822,7 +822,7 @@ const ArrayItem = memo(({ section, item, index, onChange, onRemove, fields, t, g
                         return fieldValue;
                       })())}
                       onChange={(e) => handleFieldChange(field.name, e.target.value)}
-                      className="flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#0B1F3B] focus:border-[#0B1F3B] disabled:bg-gray-100 disabled:cursor-not-allowed"
+                      className="flex-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-primary disabled:bg-gray-100 disabled:cursor-not-allowed"
                       disabled={(() => {
                         const fieldValue = safeItem[field.name];
                         return typeof fieldValue === 'string' && fieldValue?.trim().toLowerCase() === 'present';
@@ -842,9 +842,9 @@ const ArrayItem = memo(({ section, item, index, onChange, onRemove, fields, t, g
                         onChange={(e) => {
                           handleFieldChange(field.name, e.target.checked ? 'Present' : '');
                         }}
-                        className="w-4 h-4 text-[#0B1F3B] rounded focus:ring-2 focus:ring-[#0B1F3B] cursor-pointer"
+                        className="w-4 h-4 text-primary rounded focus:ring-2 focus:ring-accent cursor-pointer"
                       />
-                      <span className="text-sm text-gray-700 group-hover:text-[#0B1F3B] transition-colors">
+                      <span className="text-sm text-gray-700 group-hover:text-primary transition-colors">
                         I currently work here
                       </span>
                     </label>
@@ -874,7 +874,7 @@ const ArrayItem = memo(({ section, item, index, onChange, onRemove, fields, t, g
                                 const formattedDate = date.toISOString().split('T')[0];
                                 handleFieldChange(field.name, formattedDate);
                               }}
-                              className="px-2 py-1 text-xs font-medium text-gray-600 bg-gray-100 rounded hover:bg-slate-100 hover:text-[#0B1F3B] transition-colors"
+                              className="px-2 py-1 text-xs font-medium text-gray-600 bg-gray-100 rounded hover:bg-slate-100 hover:text-primary transition-colors"
                               title={`${preset.months ? preset.months + ' months' : preset.years + ' year'} ago`}
                             >
                               {preset.label}
@@ -895,7 +895,7 @@ const ArrayItem = memo(({ section, item, index, onChange, onRemove, fields, t, g
                     return fieldValue;
                   })())}
                   onChange={(e) => handleFieldChange(field.name, e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#0B1F3B] focus:border-[#0B1F3B]"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-primary"
                 />
               ) : (
                 <input
@@ -919,7 +919,7 @@ const ArrayItem = memo(({ section, item, index, onChange, onRemove, fields, t, g
                   autoCapitalize="off"
                   spellCheck="false"
                   data-lpignore="true"
-                  className={section === 'skills' ? 'w-full px-4 py-3 text-base border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#0B1F3B] focus:border-[#0B1F3B]' : 'w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#0B1F3B] focus:border-[#0B1F3B]'}
+                  className={section === 'skills' ? 'w-full px-4 py-3 text-base border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-primary' : 'w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-primary'}
                   placeholder={field.placeholder || field.label}
                   max={field.max}
                   min={field.min}
@@ -967,20 +967,20 @@ const ArraySection = memo(({ section, items, onChange, onAdd, onRemove, fields, 
       <div className="flex flex-wrap gap-3 mt-2">
         <button
           onClick={onAdd}
-          className="flex items-center gap-2 px-4 py-3 bg-[#0B1F3B] text-white rounded-md hover:bg-[#071429] transition-colors text-sm font-medium"
+          className="flex items-center gap-2 px-4 py-3 bg-primary text-white rounded-md hover:bg-gray-900 transition-colors text-sm font-medium"
         >
           <Plus size={16} /> {t[section + "Add"]}
         </button>
         {section === "skills" && (
           <button
             onClick={() => generateAISuggestion(section, items.map(item => (typeof item === 'object' && item.name) ? item.name : String(item)).join(", ") || "Software Engineer")}
-            className="flex items-center gap-2 px-4 py-3 bg-slate-100 text-[#0B1F3B] rounded-md hover:bg-slate-200 transition-colors text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 px-4 py-3 bg-slate-100 text-primary rounded-md hover:bg-slate-200 transition-colors text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={isLoadingAI}
           >
             {isLoadingAI ? (
               <>
                 <svg
-                  className="animate-spin h-4 w-4 text-[#0B1F3B]"
+                  className="animate-spin h-4 w-4 text-primary"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -1374,16 +1374,16 @@ export default function ResumeForm({ data: rawData, onUpdate, language = "en", c
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
                     <div className="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center">
-                      <svg className="w-4 h-4 text-[#0B1F3B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
                   </div>
                   <div className="ml-3 flex-1">
-                    <p className="text-sm font-medium text-[#0B1F3B]">
+                    <p className="text-sm font-medium text-primary">
                       AI Content Applied
                     </p>
-                    <p className="mt-1 text-sm text-[#0B1F3B]">
+                    <p className="mt-1 text-sm text-primary">
                       Please review and edit the suggestions to ensure they accurately reflect your experience.
                     </p>
                   </div>
@@ -1392,7 +1392,7 @@ export default function ResumeForm({ data: rawData, onUpdate, language = "en", c
               <div className="flex border-l border-slate-200">
                 <button
                   onClick={() => toast.dismiss(t.id)}
-                  className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-[#0B1F3B] hover:text-teal-600 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[#0B1F3B]"
+                  className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-primary hover:text-accent hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-accent"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -1478,16 +1478,16 @@ export default function ResumeForm({ data: rawData, onUpdate, language = "en", c
               <div className="flex items-start">
                 <div className="flex-shrink-0">
                   <div className="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4 text-[#0B1F3B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                 </div>
                 <div className="ml-3 flex-1">
-                  <p className="text-sm font-medium text-[#0B1F3B]">
+                  <p className="text-sm font-medium text-primary">
                     AI Content Applied
                   </p>
-                  <p className="mt-1 text-sm text-[#0B1F3B]">
+                  <p className="mt-1 text-sm text-primary">
                     Please review and edit the suggestions to ensure they accurately reflect your experience.
                   </p>
                 </div>
@@ -1496,7 +1496,7 @@ export default function ResumeForm({ data: rawData, onUpdate, language = "en", c
             <div className="flex border-l border-slate-200">
               <button
                 onClick={() => toast.dismiss(t.id)}
-                className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-[#0B1F3B] hover:text-teal-600 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[#0B1F3B]"
+                className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-primary hover:text-accent hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-accent"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -1525,8 +1525,8 @@ export default function ResumeForm({ data: rawData, onUpdate, language = "en", c
   // ATS Score Header Component
   const ATSScoreHeader = () => {
     const getScoreColor = (score) => {
-      if (score >= 90) return "text-[#0B1F3B] bg-slate-50 border-slate-200";
-      if (score >= 80) return "text-[#0B1F3B] bg-slate-50 border-slate-200";
+      if (score >= 90) return "text-primary bg-slate-50 border-slate-200";
+      if (score >= 80) return "text-primary bg-slate-50 border-slate-200";
       if (score >= 60) return "text-yellow-700 bg-yellow-50 border-yellow-200";
       return "text-red-700 bg-red-50 border-red-200";
     };
@@ -1554,11 +1554,11 @@ export default function ResumeForm({ data: rawData, onUpdate, language = "en", c
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0 }}
               transition={{ duration: 0.5 }}
-              className="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-[#0B1F3B]/20 to-[#0B1F3B]/20 backdrop-blur-sm"
+              className="absolute inset-0 flex items-center justify-center bg-gradient-to-r from-primary/20 to-primary/20 backdrop-blur-sm"
             >
               <div className="text-center">
                 <div className="text-2xl mb-1">🎉</div>
-                <p className="text-sm font-bold text-[#0B1F3B]">Excellent Score!</p>
+                <p className="text-sm font-bold text-primary">Excellent Score!</p>
               </div>
             </motion.div>
           )}
@@ -1586,7 +1586,7 @@ export default function ResumeForm({ data: rawData, onUpdate, language = "en", c
       >
         <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
           <div
-            className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center flex-shrink-0 ${isCompleted ? "bg-[#0B1F3B] text-white" : "bg-gray-300 text-gray-600"
+            className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center flex-shrink-0 ${isCompleted ? "bg-primary text-white" : "bg-gray-300 text-gray-600"
               }`}
           >
             {isCompleted ? <CheckCircle className="w-4 h-4" /> : <div className="w-2 h-2 bg-current rounded-full" />}
@@ -1599,7 +1599,7 @@ export default function ResumeForm({ data: rawData, onUpdate, language = "en", c
                 <button
                   type="button"
                   onClick={handleSort}
-                  className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 text-[#0B1F3B] bg-slate-50 hover:bg-slate-100 rounded-lg transition-colors border border-slate-200 flex-shrink-0"
+                  className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 text-primary bg-slate-50 hover:bg-slate-100 rounded-lg transition-colors border border-slate-200 flex-shrink-0"
                   title={`Sort: ${currentSortOrder === 'newest' ? 'Newest First (click for Oldest First)' : 'Oldest First (click for Newest First)'}`}
                 >
                   <ArrowUpDown size={14} className="sm:w-4 sm:h-4" />
@@ -1616,7 +1616,7 @@ export default function ResumeForm({ data: rawData, onUpdate, language = "en", c
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0 }}
-              className="flex items-center gap-1 text-[#0B1F3B] font-medium"
+              className="flex items-center gap-1 text-primary font-medium"
             >
               <Zap className="w-4 h-4" />
               <span className="text-sm">Great!</span>
@@ -1626,7 +1626,7 @@ export default function ResumeForm({ data: rawData, onUpdate, language = "en", c
           <div className="w-16 h-2 bg-gray-200 rounded-full overflow-hidden">
             <div
               style={{ width: `${completionPercent}%` }}
-              className={`h-full rounded-full ${completionPercent >= 80 ? "bg-[#0B1F3B]" :
+              className={`h-full rounded-full ${completionPercent >= 80 ? "bg-primary" :
                 completionPercent >= 60 ? "bg-yellow-500" : "bg-red-500"
                 }`}
             />
@@ -2138,13 +2138,13 @@ export default function ResumeForm({ data: rawData, onUpdate, language = "en", c
             className="mb-6 p-4 bg-slate-50 border border-slate-200 rounded-xl"
           >
             <div className="flex items-start gap-3">
-              <Target className="w-5 h-5 text-[#0B1F3B] mt-0.5" />
+              <Target className="w-5 h-5 text-primary mt-0.5" />
               <div>
-                <h4 className="font-semibold text-[#0B1F3B] mb-2">ATS Optimization Tips</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-[#0B1F3B]">
+                <h4 className="font-semibold text-primary mb-2">ATS Optimization Tips</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-primary">
                   {lowScoringSections.map(([key, section]) => (
                     <div key={key} className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-teal-400 rounded-full" />
+                      <div className="w-2 h-2 bg-accent rounded-full" />
                       <span>{section.feedback}</span>
                     </div>
                   ))}

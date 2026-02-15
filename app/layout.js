@@ -163,7 +163,7 @@ export default function RootLayout({ children }) {
         )}
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="theme-color" content="#0B1F3B" />
+        <meta name="theme-color" content="var(--color-primary)" />
         <link rel="preconnect" href="https://va.vercel-scripts.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
@@ -178,7 +178,7 @@ export default function RootLayout({ children }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       </head>
-      <body className={`${poppins.variable} ${manrope.variable} antialiased bg-[#F5F7FA] text-[#0B1F3B]`}>
+      <body className={`${poppins.variable} ${manrope.variable} antialiased bg-[#F5F7FA] text-primary`}>
         {(hasGA || hasAds) && (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${hasAds ? GOOGLE_ADS_ID : GA_MEASUREMENT_ID}`} strategy="afterInteractive" />

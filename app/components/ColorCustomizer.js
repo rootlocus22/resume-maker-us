@@ -68,7 +68,7 @@ export default function ColorCustomizer({ template, colors = {}, onChange, onDon
           </span>
           <button
             onClick={() => setActiveColorKey(colorKey)} // Always set to this colorKey, no toggle off
-            className="w-8 h-8 rounded-full border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-8 h-8 rounded-full border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-400"
             style={{ backgroundColor: (colors && colors[colorKey]) || templateColors[colorKey] }}
             title={colorKey.charAt(0).toUpperCase() + colorKey.slice(1)}
           />
@@ -86,7 +86,7 @@ export default function ColorCustomizer({ template, colors = {}, onChange, onDon
                 type="text"
                 value={(colors && colors[colorKey]) || templateColors[colorKey]}
                 onChange={(e) => handleColorChange(colorKey, e.target.value)}
-                className="mt-2 w-full p-1 border border-gray-300 rounded-md text-xs text-gray-700 focus:ring-1 focus:ring-blue-400 focus:border-transparent"
+                className="mt-2 w-full p-1 border border-gray-300 rounded-md text-xs text-gray-700 focus:ring-1 focus:ring-accent-400 focus:border-transparent"
                 placeholder="#HEX"
               />
             </div>
@@ -108,7 +108,7 @@ export default function ColorCustomizer({ template, colors = {}, onChange, onDon
       {onDone && (
         <button
           onClick={onDone}
-          className="mt-3 w-full px-3 py-2 text-sm bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-md font-semibold shadow-md hover:from-blue-700 hover:to-blue-700 transition-all"
+          className="mt-3 w-full px-3 py-2 text-sm bg-gradient-to-r from-primary to-accent text-white rounded-md font-semibold shadow-md hover:from-primary-800 hover:to-accent-600 transition-all"
         >
           Done
         </button>

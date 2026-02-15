@@ -212,7 +212,7 @@ function ReferAndEarnContent() {
           {/* Learn More Banner */}
           <a 
             href="/faqs"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white rounded-xl font-semibold hover:from-[#071429] hover:to-[#008C81] transition-all shadow-lg hover:shadow-xl hover:scale-105 text-sm sm:text-base"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-xl font-semibold hover:from-gray-900 hover:to-accent-700 transition-all shadow-lg hover:shadow-xl hover:scale-105 text-sm sm:text-base"
           >
             <Rocket className="w-5 h-5" />
             FAQs

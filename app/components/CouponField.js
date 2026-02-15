@@ -72,7 +72,7 @@ const CouponField = ({
             }}
           >
             <div className={`w-2 h-2 rounded-full ${
-              ['bg-yellow-400', 'bg-red-400', 'bg-blue-400', 'bg-green-400', 'bg-purple-400'][Math.floor(Math.random() * 5)]
+              ['bg-yellow-400', 'bg-red-400', 'bg-accent-400', 'bg-green-400', 'bg-purple-400'][Math.floor(Math.random() * 5)]
             }`} />
           </div>
         ))}

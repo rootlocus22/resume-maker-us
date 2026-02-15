@@ -41,7 +41,7 @@ export default function EditProfileSkeleton() {
                     {/* Footer Actions */}
                     <div className="bg-gray-50 px-4 py-3 sm:px-6 flex justify-end gap-3">
                         <div className="h-10 bg-gray-200 rounded w-24"></div>
-                        <div className="h-10 bg-[#0B1F3B]/10 rounded w-24"></div>
+                        <div className="h-10 bg-primary/10 rounded w-24"></div>
                     </div>
                 </div>
             </div>

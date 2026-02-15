@@ -88,14 +88,14 @@ const RichTextarea = ({
       className={`
         p-1.5 rounded-md transition-colors duration-200
         ${isActive 
-          ? 'bg-blue-100 text-blue-700 border border-blue-300' 
+          ? 'bg-accent-50 text-accent-700 border border-accent/30' 
           : isHighlight 
-            ? 'bg-blue-100 text-blue-700 hover:bg-blue-200' 
+            ? 'bg-accent-50 text-accent-700 hover:bg-accent-100' 
             : isDisabled 
               ? 'opacity-50 cursor-not-allowed text-gray-400' 
               : 'text-gray-600 hover:bg-gray-100 hover:text-gray-800'
         }
-        focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
+        focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50
       `}
     >
       <Icon size={14} />
@@ -103,7 +103,7 @@ const RichTextarea = ({
   );
 
   return (
-    <div className={`border border-gray-300 rounded-md shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 ${className}`}>
+    <div className={`border border-gray-300 rounded-md shadow-sm focus-within:ring-2 focus-within:ring-accent focus-within:border-accent ${className}`}>
       {showToolbar && (
         <div className="flex items-center justify-between p-2 border-b border-gray-200 bg-gray-50 rounded-t-md">
           <div className="flex items-center gap-1">

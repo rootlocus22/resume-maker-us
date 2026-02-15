@@ -26,26 +26,26 @@ export default function FinalCTA() {
   }, []);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-primary to-primary-800 text-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden opacity-20">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-blue-500/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 bg-accent/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
           {/* Trust Badge */}
-          <div className="inline-flex items-center bg-[#00C4B3]/20 backdrop-blur-sm border border-[#00C4B3]/30 px-6 py-3 rounded-full text-sm font-bold mb-8">
+          <div className="inline-flex items-center bg-accent/20 backdrop-blur-sm border border-accent/30 px-6 py-3 rounded-full text-sm font-bold mb-8">
             <Rocket className="mr-2" size={18} />
             <span>Stop Paying for 5 Tools. Get One That Does It All.</span>
           </div>
 
           {/* Main Headline */}
           <h2 className="text-4xl lg:text-6xl font-bold mb-8 leading-tight">
-            Resume + Jobs + Interviews = <span className="bg-gradient-to-r from-[#00C4B3] to-emerald-400 bg-clip-text text-transparent">One Platform</span>
+            Resume + Jobs + Interviews = <span className="bg-gradient-to-r from-accent to-accent-300 bg-clip-text text-transparent">One Platform</span>
           </h2>
 
           {/* Subtitle */}
@@ -88,14 +88,14 @@ export default function FinalCTA() {
               className="flex items-center gap-2"
               role="listitem"
             >
-              <Shield className="w-5 h-5 text-blue-400" aria-hidden="true" />
+              <Shield className="w-5 h-5 text-accent-400" aria-hidden="true" />
               <span>100% Secure & Private</span>
             </div>
             <div
               className="flex items-center gap-2"
               role="listitem"
             >
-              <Users className="w-5 h-5 text-blue-400" aria-hidden="true" />
+              <Users className="w-5 h-5 text-accent-400" aria-hidden="true" />
               <span>Trusted by 100,000+ users</span>
             </div>
             <div
@@ -118,7 +118,7 @@ export default function FinalCTA() {
               role="listitem"
             >
               <div
-                className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6"
+                className="w-16 h-16 bg-gradient-to-br from-accent to-accent-600 rounded-2xl flex items-center justify-center mx-auto mb-6"
                 aria-hidden="true"
               >
                 <CheckCircle className="w-8 h-8 text-white" />
@@ -142,7 +142,7 @@ export default function FinalCTA() {
               role="listitem"
             >
               <div
-                className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6"
+                className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-6"
                 aria-hidden="true"
               >
                 <Zap className="w-8 h-8 text-white" />
@@ -258,7 +258,7 @@ export default function FinalCTA() {
           <div className="mt-12">
             <Link
               href="/resume-builder"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-12 py-6 rounded-xl font-bold text-2xl hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-accent text-white px-12 py-6 rounded-xl font-bold text-2xl hover:from-primary-800 hover:to-accent-600 transition-all duration-300 transform hover:scale-105 shadow-2xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent"
               role="button"
               aria-label="Create your resume now for free"
               onKeyDown={(e) => {

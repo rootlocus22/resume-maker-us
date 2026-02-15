@@ -208,7 +208,7 @@ export default function PostDownloadSurvey({
                   value={comment}
                   onChange={(e) => setComment(e.target.value)}
                   placeholder="Describe the issue you encountered..."
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent resize-none"
                   rows={4}
                 />
               </div>
@@ -225,7 +225,7 @@ export default function PostDownloadSurvey({
                 <button
                   type="submit"
                   disabled={isSubmitting || detailedRating === 0}
-                  className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+                  className="flex-1 bg-accent text-white py-2 px-4 rounded-lg font-medium hover:bg-accent-600 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? 'Submitting...' : 'Submit'}
                 </button>

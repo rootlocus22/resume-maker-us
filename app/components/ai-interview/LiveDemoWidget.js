@@ -34,7 +34,7 @@ export default function LiveDemoWidget({ role, country }) {
                     <span className="text-slate-400 font-mono text-sm uppercase tracking-wider">Live AI Simulation</span>
                 </div>
                 <div className="flex gap-2">
-                    <span className="px-2 py-1 rounded bg-blue-900/30 text-blue-400 text-xs border border-blue-500/20">{country} Mode</span>
+                    <span className="px-2 py-1 rounded bg-primary/30 text-accent-400 text-xs border border-accent/20">{country} Mode</span>
                     <span className="px-2 py-1 rounded bg-purple-900/30 text-purple-400 text-xs border border-purple-500/20">{role}</span>
                 </div>
             </div>
@@ -50,21 +50,21 @@ export default function LiveDemoWidget({ role, country }) {
                         className="text-center"
                     >
                         <Link href="/ai-interview/setup">
-                            <div className="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-blue-600/40 cursor-pointer hover:scale-110 transition-transform group relative">
-                                <span className="absolute inset-0 rounded-full bg-blue-600 animate-ping opacity-20"></span>
+                            <div className="w-24 h-24 bg-accent rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-accent/40 cursor-pointer hover:scale-110 transition-transform group relative">
+                                <span className="absolute inset-0 rounded-full bg-accent animate-ping opacity-20"></span>
                                 <Mic className="w-10 h-10 text-white group-hover:rotate-12 transition-transform" />
                             </div>
                         </Link>
                         <h3 className="text-2xl text-white font-bold mb-3">Start Real Practice</h3>
                         <p className="text-slate-400 text-sm max-w-sm mx-auto mb-8 leading-relaxed">
                             Don't just watch a demo. Experience the full AI interview tailored for
-                            <span className="text-blue-400 font-semibold mx-1">{country}</span>
+                            <span className="text-accent-400 font-semibold mx-1">{country}</span>
                             employers.
                         </p>
 
                         <Link
                             href="/ai-interview/setup"
-                            className="inline-flex items-center gap-2 px-8 py-3 bg-white text-blue-900 rounded-lg font-bold hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl"
+                            className="inline-flex items-center gap-2 px-8 py-3 bg-white text-primary rounded-lg font-bold hover:bg-accent-50 transition-all shadow-lg hover:shadow-xl"
                         >
                             Launch Interview Interface <ArrowRight className="w-4 h-4" />
                         </Link>

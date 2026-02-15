@@ -30,7 +30,7 @@ const CurrencySwitcher = ({
   if (isLoadingGeo) {
     return (
       <div className={`flex items-center space-x-2 ${className}`}>
-        <div className="w-4 h-4 border-2 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
+        <div className="w-4 h-4 border-2 border-gray-300 border-t-accent rounded-full animate-spin"></div>
         <span className="text-sm text-gray-500">Loading...</span>
       </div>
     );
@@ -55,13 +55,13 @@ const CurrencySwitcher = ({
                 key={curr.code}
                 onClick={() => handleCurrencyChange(curr.code)}
                 className={`w-full text-left px-3 py-2 text-sm hover:bg-gray-50 transition-colors duration-200 ${
-                  curr.code === currency ? 'bg-blue-50 text-blue-600 font-medium' : 'text-gray-700'
+                  curr.code === currency ? 'bg-accent-50 text-accent-600 font-medium' : 'text-gray-700'
                 }`}
               >
                 <div className="flex items-center justify-between">
                   <span>{curr.symbol} {curr.code}</span>
                   {curr.code === currency && (
-                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                    <div className="w-2 h-2 bg-accent rounded-full"></div>
                   )}
                 </div>
               </button>
@@ -91,7 +91,7 @@ const CurrencySwitcher = ({
                 key={curr.code}
                 onClick={() => handleCurrencyChange(curr.code)}
                 className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors duration-200 ${
-                  curr.code === currency ? 'bg-blue-50 text-blue-600 font-medium' : 'text-gray-700'
+                  curr.code === currency ? 'bg-accent-50 text-accent-600 font-medium' : 'text-gray-700'
                 }`}
               >
                 <div className="flex items-center justify-between">
@@ -100,7 +100,7 @@ const CurrencySwitcher = ({
                     <div className="text-xs text-gray-500">{curr.name}</div>
                   </div>
                   {curr.code === currency && (
-                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                    <div className="w-2 h-2 bg-accent rounded-full"></div>
                   )}
                 </div>
               </button>
@@ -121,7 +121,7 @@ const CurrencySwitcher = ({
       )}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+        className="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-300 rounded-lg hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
       >
         <div className="flex items-center space-x-3">
           <Globe className="w-5 h-5 text-gray-500" />
@@ -140,7 +140,7 @@ const CurrencySwitcher = ({
               key={curr.code}
               onClick={() => handleCurrencyChange(curr.code)}
               className={`w-full text-left px-4 py-3 hover:bg-gray-50 transition-colors duration-200 ${
-                curr.code === currency ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
+                curr.code === currency ? 'bg-accent-50 text-accent-600' : 'text-gray-700'
               } ${curr.code === currencies[0].code ? 'rounded-t-lg' : ''} ${curr.code === currencies[currencies.length - 1].code ? 'rounded-b-lg' : ''}`}
             >
               <div className="flex items-center justify-between">
@@ -152,7 +152,7 @@ const CurrencySwitcher = ({
                   </div>
                 </div>
                 {curr.code === currency && (
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                  <div className="w-2 h-2 bg-accent rounded-full"></div>
                 )}
               </div>
             </button>

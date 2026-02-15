@@ -126,22 +126,22 @@ const SignUpAndCheckoutModal = ({ isOpen, onClose, billingCycle, setBillingCycle
         <div className="flex-1 overflow-y-auto px-4 md:px-6">
           {!(user || isSignedUp) ? (
             <div className="space-y-3 md:space-y-4 mb-4">
-              <div className="bg-blue-50 border border-blue-100 rounded-xl p-4">
+              <div className="bg-accent-50 border border-accent/20 rounded-xl p-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <Sparkles className="text-blue-600" size={16} />
-                  <h3 className="font-semibold text-blue-900 text-sm md:text-base">Why Join Us?</h3>
+                  <Sparkles className="text-accent" size={16} />
+                  <h3 className="font-semibold text-primary text-sm md:text-base">Why Join Us?</h3>
                 </div>
-                <ul className="space-y-2 text-xs md:text-sm text-blue-800">
+                <ul className="space-y-2 text-xs md:text-sm text-primary">
                   <li className="flex items-center gap-2">
-                    <Check size={14} className="text-blue-500" />
+                    <Check size={14} className="text-accent" />
                     <span>ATS-optimized resume templates</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check size={14} className="text-blue-500" />
+                    <Check size={14} className="text-accent" />
                     <span>AI-powered content enhancement</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check size={14} className="text-blue-500" />
+                    <Check size={14} className="text-accent" />
                     <span>Unlimited downloads & edits</span>
                   </li>
                 </ul>
@@ -154,7 +154,7 @@ const SignUpAndCheckoutModal = ({ isOpen, onClose, billingCycle, setBillingCycle
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Enter your full name"
-                  className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                  className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-sm"
                   disabled={isLoading}
                 />
               </div>
@@ -165,7 +165,7 @@ const SignUpAndCheckoutModal = ({ isOpen, onClose, billingCycle, setBillingCycle
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                  className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-sm"
                   disabled={isLoading}
                 />
               </div>
@@ -176,13 +176,13 @@ const SignUpAndCheckoutModal = ({ isOpen, onClose, billingCycle, setBillingCycle
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
-                  className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                  className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-sm"
                   disabled={isLoading}
                 />
               </div>
               <button
                 onClick={handleEmailSignUp}
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-600 text-white py-2 md:py-3 rounded-lg font-bold shadow-md hover:from-blue-700 hover:to-blue-700 transition-all disabled:opacity-70 text-sm md:text-base"
+                className="w-full bg-gradient-to-r from-primary to-accent text-white py-2 md:py-3 rounded-lg font-bold shadow-md hover:from-primary-800 hover:to-accent-600 transition-all disabled:opacity-70 text-sm md:text-base"
                 disabled={isLoading}
               >
                 {isLoading ? "Processing..." : "Create Your Account"}
@@ -203,56 +203,56 @@ const SignUpAndCheckoutModal = ({ isOpen, onClose, billingCycle, setBillingCycle
             </div>
           ) : (
             <div className="space-y-4 md:space-y-6">
-              <div className="bg-gradient-to-r from-blue-50 to-blue-50 rounded-xl p-4 border border-blue-100">
+              <div className="bg-gradient-to-r from-accent-50 to-accent-50 rounded-xl p-4 border border-accent/20">
                 <div className="flex items-center gap-2 mb-2 md:mb-3">
                   <Crown className="text-yellow-500" size={20} />
                   <h3 className="font-bold text-gray-900 text-sm md:text-base">Premium Features</h3>
                 </div>
                 <ul className="space-y-2 md:space-y-3 text-xs md:text-sm">
                   <li className="flex items-start gap-2">
-                    <Check size={14} className="text-blue-500 mt-0.5" />
+                    <Check size={14} className="text-accent mt-0.5" />
                     <div>
                       <span className="font-medium text-gray-900">ATS Optimization</span>
                       <p className="text-gray-600">Get past applicant tracking systems</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check size={14} className="text-blue-500 mt-0.5" />
+                    <Check size={14} className="text-accent mt-0.5" />
                     <div>
                       <span className="font-medium text-gray-900">AI Content Enhancement</span>
                       <p className="text-gray-600">Professional content suggestions</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check size={14} className="text-blue-500 mt-0.5" />
+                    <Check size={14} className="text-accent mt-0.5" />
                     <div>
                       <span className="font-medium text-gray-900">Premium Templates</span>
                       <p className="text-gray-600">Stand out with beautiful designs</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check size={14} className="text-blue-500 mt-0.5" />
+                    <Check size={14} className="text-accent mt-0.5" />
                     <div>
                       <span className="font-medium text-gray-900">Unlimited Downloads</span>
                       <p className="text-gray-600">Download as many versions as you need</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check size={14} className="text-blue-500 mt-0.5" />
+                    <Check size={14} className="text-accent mt-0.5" />
                     <div>
                       <span className="font-medium text-gray-900">Conversational AI Interview Trainer</span>
                       <p className="text-gray-600">Practice with AI to ace your interviews</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check size={14} className="text-blue-500 mt-0.5" />
+                    <Check size={14} className="text-accent mt-0.5" />
                     <div>
                       <span className="font-medium text-gray-900">Unlimited AI Queries Problem Solver</span>
                       <p className="text-gray-600">Solve complex problems with AI assistance</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check size={14} className="text-blue-500 mt-0.5" />
+                    <Check size={14} className="text-accent mt-0.5" />
                     <div>
                       <span className="font-medium text-gray-900">Upcoming AI Curated Courses</span>
                       <p className="text-gray-600">Access tailored learning paths to boost your skills</p>
@@ -270,7 +270,7 @@ const SignUpAndCheckoutModal = ({ isOpen, onClose, billingCycle, setBillingCycle
                   <span className="text-xs md:text-sm font-medium text-gray-600">Annual Plan</span>
                   <div className="text-right">
                     <span className="text-base md:text-lg font-bold text-gray-900">{pricing.yearly}/yr</span>
-                    <span className="block text-[10px] md:text-xs text-blue-600 font-medium">Save 20%</span>
+                    <span className="block text-[10px] md:text-xs text-accent font-medium">Save 20%</span>
                   </div>
                 </div>
               </div>
@@ -283,7 +283,7 @@ const SignUpAndCheckoutModal = ({ isOpen, onClose, billingCycle, setBillingCycle
           <div className="px-4 pb-4 md:px-6 md:pb-6">
             <button
               onClick={handlePurchase}
-              className="w-full bg-gradient-to-r from-blue-600 to-blue-600 text-white py-3 md:py-4 rounded-xl font-bold shadow-lg hover:from-blue-700 hover:to-blue-700 transition-all disabled:opacity-70 text-base md:text-lg"
+              className="w-full bg-gradient-to-r from-primary to-accent text-white py-3 md:py-4 rounded-xl font-bold shadow-lg hover:from-primary-800 hover:to-accent-600 transition-all disabled:opacity-70 text-base md:text-lg"
               disabled={isLoading}
             >
               {isLoading ? "Processing..." : "Get Premium Access Now"}

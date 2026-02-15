@@ -25,7 +25,7 @@ const GoogleReviewsButton = ({
   const getVariantStyles = () => {
     switch (variant) {
       case "success":
-        return "bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white shadow-xl hover:shadow-2xl";
+        return "bg-gradient-to-r from-accent to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white shadow-xl hover:shadow-2xl";
       case "testimonial":
         return "bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-white shadow-xl hover:shadow-2xl border-2 border-yellow-300/50";
       case "upgrade":

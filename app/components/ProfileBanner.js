@@ -16,7 +16,7 @@ export default function ProfileBanner() {
   }
 
   return (
-    <div className="bg-gradient-to-r from-blue-600 via-blue-500 to-orange-400 text-white relative overflow-hidden">
+    <div className="bg-gradient-to-r from-primary via-accent to-orange-400 text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-black/10"></div>
       
       {/* Animated background elements */}
@@ -63,7 +63,7 @@ export default function ProfileBanner() {
           <div className="pl-13">
             <Link
               href="/edit-profile"
-              className="inline-flex items-center px-4 py-2 bg-white text-blue-600 font-semibold rounded-full hover:bg-gray-100 transition-all duration-200 text-sm"
+              className="inline-flex items-center px-4 py-2 bg-white text-accent font-semibold rounded-full hover:bg-gray-100 transition-all duration-200 text-sm"
             >
               Create Profile
               <ArrowRight size={14} className="ml-2" />
@@ -93,7 +93,7 @@ export default function ProfileBanner() {
             <div className="flex-shrink-0 flex items-center space-x-3">
               <Link
                 href="/edit-profile"
-                className="inline-flex items-center px-4 py-2 bg-white text-blue-600 font-semibold rounded-full hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-lg"
+                className="inline-flex items-center px-4 py-2 bg-white text-accent font-semibold rounded-full hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-lg"
               >
                 Create Profile
                 <ArrowRight size={16} className="ml-2" />
@@ -112,7 +112,7 @@ export default function ProfileBanner() {
       </div>
       
       {/* Subtle animation border */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 via-blue-400 to-blue-400 animate-pulse"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-400 via-accent-400 to-accent-400 animate-pulse"></div>
     </div>
   );
 }

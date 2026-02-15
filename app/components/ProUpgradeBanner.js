@@ -50,7 +50,7 @@ export default function ProUpgradeBanner({ userSubscription }) {
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 rounded-2xl p-4 sm:p-6 shadow-2xl border-2 border-indigo-300 relative overflow-hidden"
+        className="bg-gradient-to-r from-primary via-primary-800 to-accent rounded-2xl p-4 sm:p-6 shadow-2xl border-2 border-primary-300 relative overflow-hidden"
       >
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">

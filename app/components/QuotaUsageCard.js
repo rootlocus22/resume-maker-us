@@ -209,7 +209,7 @@ const QuotaUsageCard = ({ onUpgrade, refreshTrigger }) => {
           <button
             onClick={syncQuotas}
             disabled={loading}
-            className="p-1 text-blue-500 hover:text-blue-700 hover:bg-blue-100 rounded transition-colors disabled:opacity-50"
+            className="p-1 text-accent hover:text-accent-700 hover:bg-accent-50 rounded transition-colors disabled:opacity-50"
             title="Sync quotas"
           >
             <TrendingUp size={12} className={loading ? "animate-pulse" : ""} />
@@ -228,7 +228,7 @@ const QuotaUsageCard = ({ onUpgrade, refreshTrigger }) => {
               loadQuotaSummary();
             }}
             disabled={loading}
-            className="p-1 text-blue-500 hover:text-blue-700 hover:bg-blue-100 rounded transition-colors disabled:opacity-50"
+            className="p-1 text-accent hover:text-accent-700 hover:bg-accent-50 rounded transition-colors disabled:opacity-50"
             title="Force Refresh"
           >
             <Zap size={12} className={loading ? "animate-pulse" : ""} />
@@ -257,7 +257,7 @@ const QuotaUsageCard = ({ onUpgrade, refreshTrigger }) => {
               }`}
             >
               <div className="flex items-center gap-3">
-                <Icon size={16} className={isAtLimit ? "text-red-600" : isNearLimit ? "text-orange-600" : "text-blue-600"} />
+                <Icon size={16} className={isAtLimit ? "text-red-600" : isNearLimit ? "text-orange-600" : "text-accent"} />
                 <div>
                   <div className="font-medium capitalize text-gray-700">
                     {key.replace(/([A-Z])/g, ' $1').trim()}
@@ -305,7 +305,7 @@ const QuotaUsageCard = ({ onUpgrade, refreshTrigger }) => {
                 onUpgrade?.();
                 router.push("/enterprise/checkout");
               }}
-              className="px-2 py-1 bg-blue-600 text-white rounded text-xs hover:bg-blue-700 transition-colors"
+              className="px-2 py-1 bg-accent text-white rounded text-xs hover:bg-accent-600 transition-colors"
             >
               Upgrade
             </button>

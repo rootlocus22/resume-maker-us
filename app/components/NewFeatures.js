@@ -32,10 +32,10 @@ export default function NewFeatures() {
         { url: "/images/features/hq/ats_3.png", alt: "Score improvement" }
       ],
       multiImage: true,
-      color: "from-blue-500 to-cyan-600",
-      lightColor: "from-blue-50 to-cyan-50",
-      iconBg: "bg-blue-100",
-      iconColor: "text-blue-600",
+      color: "from-accent to-accent-600",
+      lightColor: "from-accent-50 to-accent-50",
+      iconBg: "bg-accent-50",
+      iconColor: "text-accent",
       benefits: [
         "Instant ATS compatibility check",
         "Detailed score breakdown across 8+ categories",
@@ -54,10 +54,10 @@ export default function NewFeatures() {
         { url: "/images/features/hq/job_search_results.png", alt: "See Results" }
       ],
       multiImage: true,
-      color: "from-indigo-500 to-violet-600",
-      lightColor: "from-indigo-50 to-violet-50",
-      iconBg: "bg-indigo-100",
-      iconColor: "text-indigo-600",
+      color: "from-primary to-accent",
+      lightColor: "from-primary-50 to-accent-50",
+      iconBg: "bg-primary-50",
+      iconColor: "text-primary",
       benefits: [
         "Aggregate 20+ Job Sites",
         "Filter by 'Posted Today'",
@@ -77,10 +77,10 @@ export default function NewFeatures() {
         { url: "/images/features/hq/jd_builder_result_anon.png", alt: "Tailored resume" }
       ],
       multiImage: true,
-      color: "from-emerald-500 to-teal-600",
-      lightColor: "from-emerald-50 to-teal-50",
-      iconBg: "bg-emerald-100",
-      iconColor: "text-emerald-600",
+      color: "from-accent to-accent-600",
+      lightColor: "from-accent-50 to-accent-50",
+      iconBg: "bg-accent-50",
+      iconColor: "text-accent",
       benefits: [
         "Paste any job description",
         "AI extracts 26+ keywords automatically",
@@ -99,10 +99,10 @@ export default function NewFeatures() {
         { url: "/images/features/hq/smart_parser_analysis_anon.png", alt: "AI parsing & analysis" }
       ],
       multiImage: true,
-      color: "from-blue-400 to-cyan-500",
-      lightColor: "from-blue-50 to-cyan-50",
-      iconBg: "bg-blue-100",
-      iconColor: "text-blue-600",
+      color: "from-accent-400 to-accent",
+      lightColor: "from-accent-50 to-accent-50",
+      iconBg: "bg-accent-50",
+      iconColor: "text-accent",
       benefits: [
         "Upload any resume format",
         "AI-powered intelligent parsing",
@@ -159,11 +159,11 @@ export default function NewFeatures() {
   }, []);
 
   return (
-    <section className="py-20 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+    <section className="py-20 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-accent-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden opacity-40">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-200/30 to-purple-200/30 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-indigo-200/20 to-pink-200/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-accent-200/30 to-primary-200/30 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-primary-200/20 to-accent-200/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -407,10 +407,10 @@ export default function NewFeatures() {
         {/* Bottom CTA */}
         <div className={`text-center mt-20 lg:mt-24 transition-all duration-700 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-          <div className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-3xl p-12 lg:p-16 border border-blue-100">
+          <div className="relative bg-gradient-to-br from-accent-50 via-primary-50 to-accent-50 rounded-3xl p-12 lg:p-16 border border-accent/20">
             {/* Floating Elements */}
-            <div className="absolute top-0 left-1/4 w-48 h-48 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-full blur-3xl transform -translate-y-1/2"></div>
-            <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-full blur-3xl transform translate-y-1/2"></div>
+            <div className="absolute top-0 left-1/4 w-48 h-48 bg-gradient-to-br from-accent/10 to-primary/10 rounded-full blur-3xl transform -translate-y-1/2"></div>
+            <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl transform translate-y-1/2"></div>
 
             {/* Content */}
             <div className="relative">
@@ -424,7 +424,7 @@ export default function NewFeatures() {
               {/* CTA Button */}
               <Link
                 href="/resume-builder"
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 group"
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-accent text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 group"
               >
                 <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
                 Start Building For Free

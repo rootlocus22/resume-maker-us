@@ -33,7 +33,7 @@ const InputForm = memo(({ userId, activeMode, userDetails, isLoading, onSubmit }
             ? "Your response..."
             : "What do you want to explore next?"
         }
-        className="w-full p-3 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none text-sm bg-gray-50 min-h-[50px] max-h-[120px] shadow-inner transition-all"
+        className="w-full p-3 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-none text-sm bg-gray-50 min-h-[50px] max-h-[120px] shadow-inner transition-all"
         disabled={isLoading || !userId}
         onKeyDown={(e) => {
           if (e.key === 'Enter' && !e.shiftKey) {
@@ -47,7 +47,7 @@ const InputForm = memo(({ userId, activeMode, userDetails, isLoading, onSubmit }
         disabled={!input.trim() || isLoading || !userId}
         className={`absolute right-2 bottom-2 p-1.5 rounded-md transition-all ${
           input.trim() && !isLoading && userId
-            ? "bg-blue-500 text-white hover:bg-blue-600 shadow-sm"
+            ? "bg-accent text-white hover:bg-accent-600 shadow-sm"
             : "bg-gray-200 text-gray-400 cursor-not-allowed"
         }`}
       >
@@ -171,14 +171,14 @@ const MessageBubble = memo(({ message }) => {
     <div className={`flex ${message.role === "user" ? "justify-end" : "justify-start"} animate-fade-in`}>
       <div className={`max-w-[90%] overflow-x-auto rounded-xl p-3 relative ${
         message.role === "user" 
-          ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg"
+          ? "bg-gradient-to-r from-primary to-accent text-white shadow-lg"
           : "bg-white text-gray-800 shadow-md border border-gray-100"
       }`}>
         <div className="flex items-center gap-1.5 mb-1">
           {message.role === "assistant" ? (
-            <FaRobot className="text-blue-500" size={14} />
+            <FaRobot className="text-accent" size={14} />
           ) : (
-            <FiUser className="text-blue-200" size={14} />
+            <FiUser className="text-accent-200" size={14} />
           )}
           <span className="text-xs font-medium">
             {message.role === "assistant" ? "AI Trainer" : "You"}
@@ -193,7 +193,7 @@ const MessageBubble = memo(({ message }) => {
         {message.role !== "user" && (
           <button
             onClick={() => handleCopyToClipboard(message.content)}
-            className="absolute -bottom-3 right-3 bg-white text-gray-500 p-1 rounded-full shadow-md hover:text-blue-500 transition-colors"
+            className="absolute -bottom-3 right-3 bg-white text-gray-500 p-1 rounded-full shadow-md hover:text-accent transition-colors"
             title="Copy to clipboard"
           >
             <FiCopy size={14} />
@@ -619,7 +619,7 @@ export default function InterviewTrainer() {
                   type="text"
                   value={userDetails.name}
                   onChange={(e) => setUserDetails({ ...userDetails, name: e.target.value })}
-                  className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent"
                   required
                   placeholder="Enter your full name"
                 />
@@ -630,7 +630,7 @@ export default function InterviewTrainer() {
                   type="text"
                   value={userDetails.role}
                   onChange={(e) => setUserDetails({ ...userDetails, role: e.target.value })}
-                  className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent"
                   required
                   placeholder="e.g., Software Engineer"
                 />
@@ -642,7 +642,7 @@ export default function InterviewTrainer() {
                     type="number"
                     value={userDetails.experience}
                     onChange={(e) => setUserDetails({ ...userDetails, experience: e.target.value })}
-                    className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent"
                     placeholder="Years"
                   />
                 </div>
@@ -652,14 +652,14 @@ export default function InterviewTrainer() {
                     type="text"
                     value={userDetails.skills}
                     onChange={(e) => setUserDetails({ ...userDetails, skills: e.target.value })}
-                    className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent"
                     placeholder="e.g., React, Python"
                   />
                 </div>
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all shadow-lg"
+                className="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-xl font-semibold hover:from-primary-800 hover:to-accent-600 transition-all shadow-lg"
               >
                 Start Practicing
               </button>
@@ -703,7 +703,7 @@ export default function InterviewTrainer() {
       <header className="bg-white border-b border-gray-200 py-2 px-3 sticky top-0 z-20">
         <div className="flex justify-between items-center max-w-6xl mx-auto">
           <div className="flex items-center gap-2">
-            <h1 className="text-lg font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+            <h1 className="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               AI Interview Trainer
             </h1>
             <div className="relative">
@@ -719,7 +719,7 @@ export default function InterviewTrainer() {
                 <div className="absolute left-0 mt-1 w-48 bg-white border border-gray-200 rounded-xl shadow-xl z-30 py-1">
                   <button
                     onClick={() => switchHistory("current")}
-                    className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-blue-50"
+                    className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-accent-50"
                   >
                     <FiClock size={14} /> Current Session
                   </button>
@@ -729,7 +729,7 @@ export default function InterviewTrainer() {
                     <button
                       key={history.id}
                       onClick={() => switchHistory(history.id)}
-                      className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-blue-50"
+                      className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-accent-50"
                     >
                       <FiClock size={14} />
                       {new Date(history.timestamp).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
@@ -741,7 +741,7 @@ export default function InterviewTrainer() {
           </div>
           <div className="flex items-center gap-3">
             {badges.map(badge => (
-              <span key={badge} className="hidden sm:flex items-center gap-1 bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-medium">
+              <span key={badge} className="hidden sm:flex items-center gap-1 bg-accent-50 text-accent-700 px-3 py-1 rounded-full text-xs font-medium">
                 <FiAward size={12} /> {badge}
               </span>
             ))}
@@ -768,12 +768,12 @@ export default function InterviewTrainer() {
               onClick={() => switchMode("interview")}
               className={`w-full flex items-center gap-2 p-2.5 rounded-lg mb-1.5 transition-colors text-sm ${
                 activeMode === "interview" 
-                  ? "bg-blue-50 text-blue-600 font-medium"
+                  ? "bg-accent-50 text-accent font-medium"
                   : "text-gray-600 hover:bg-gray-100"
               }`}
             >
               <div className={`p-1.5 rounded-md ${
-                activeMode === "interview" ? "bg-blue-100 text-blue-600" : "bg-gray-100 text-gray-500"
+                activeMode === "interview" ? "bg-accent-50 text-accent" : "bg-gray-100 text-gray-500"
               }`}>
                 <FiUser size={16} />
               </div>
@@ -783,12 +783,12 @@ export default function InterviewTrainer() {
               onClick={() => switchMode("problem")}
               className={`w-full flex items-center gap-2 p-2.5 rounded-lg mb-1.5 transition-colors text-sm ${
                 activeMode === "problem" 
-                  ? "bg-blue-50 text-blue-600 font-medium"
+                  ? "bg-accent-50 text-accent font-medium"
                   : "text-gray-600 hover:bg-gray-100"
               }`}
             >
               <div className={`p-1.5 rounded-md ${
-                activeMode === "problem" ? "bg-blue-100 text-blue-600" : "bg-gray-100 text-gray-500"
+                activeMode === "problem" ? "bg-accent-50 text-accent" : "bg-gray-100 text-gray-500"
               }`}>
                 <FaRobot size={16} />
               </div>
@@ -796,9 +796,9 @@ export default function InterviewTrainer() {
             </button>
           </div>
           <div className="p-3 border-t border-gray-200">
-            <div className="bg-blue-50 rounded-lg p-3">
-              <h3 className="font-medium text-blue-800 mb-1.5 text-xs">Pro Tips</h3>
-              <p className="text-xs text-blue-700 leading-relaxed">
+            <div className="bg-accent-50 rounded-lg p-3">
+              <h3 className="font-medium text-primary mb-1.5 text-xs">Pro Tips</h3>
+              <p className="text-xs text-accent-700 leading-relaxed">
                 {activeMode === "interview" 
                   ? "Use STAR method (Situation, Task, Action, Result) for structured answers."
                   : "Break problems into steps and explain your reasoning clearly."}
@@ -817,9 +817,9 @@ export default function InterviewTrainer() {
               <div className="flex justify-start">
                 <div className="bg-white rounded-xl p-3 shadow-md border border-gray-100 max-w-[80%]">
                   <div className="flex items-center gap-1.5">
-                    <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-bounce"></div>
-                    <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-bounce" style={{ animationDelay: "0.2s" }}></div>
-                    <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-bounce" style={{ animationDelay: "0.4s" }}></div>
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent animate-bounce"></div>
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent animate-bounce" style={{ animationDelay: "0.2s" }}></div>
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent animate-bounce" style={{ animationDelay: "0.4s" }}></div>
                   </div>
                 </div>
               </div>
@@ -838,7 +838,7 @@ export default function InterviewTrainer() {
               onClick={() => switchMode("interview")}
               className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium ${
                 activeMode === "interview"
-                  ? "bg-blue-500 text-white shadow-md"
+                  ? "bg-accent text-white shadow-md"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >
@@ -848,7 +848,7 @@ export default function InterviewTrainer() {
               onClick={() => switchMode("problem")}
               className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium ${
                 activeMode === "problem"
-                  ? "bg-blue-500 text-white shadow-md"
+                  ? "bg-accent text-white shadow-md"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >

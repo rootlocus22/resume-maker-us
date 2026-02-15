@@ -1159,7 +1159,7 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
                             href={project.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm text-blue-600 hover:underline"
+                            className="text-sm text-accent hover:underline"
                           >
                             View Project →
                           </a>

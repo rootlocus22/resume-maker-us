@@ -1994,7 +1994,7 @@ const ResumePreview = memo(function ResumePreview({
                       alt="Profile"
                       className="w-20 h-20 rounded-xl object-cover shadow-md border-2 border-white group-hover:shadow-lg transition-shadow duration-300"
                     />
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-transparent to-blue-500 opacity-0 group-hover:opacity-15 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-transparent to-accent opacity-0 group-hover:opacity-15 transition-opacity duration-300"></div>
                   </div>
                 ) : (
                   <div
@@ -2642,7 +2642,7 @@ const ResumePreview = memo(function ResumePreview({
     // ATS HEALTHCARE HEADER - Medical professional style
     if (safeLayout.headerStyle === "healthcare") {
       return (
-        <header className="mb-6 border-b-2 border-blue-600 pb-4">
+        <header className="mb-6 border-b-2 border-accent pb-4">
           <div className="text-center">
             <h1
               className="text-3xl font-bold mb-2"
@@ -2796,7 +2796,7 @@ const ResumePreview = memo(function ResumePreview({
     // ATS STUDENT HEADER - Academic style
     if (safeLayout.headerStyle === "student") {
       return (
-        <header className="mb-6 border-b-2 border-blue-500 pb-4">
+        <header className="mb-6 border-b-2 border-accent pb-4">
           <div className="text-center">
             <h1
               className="text-3xl font-bold mb-2"
@@ -3000,7 +3000,7 @@ const ResumePreview = memo(function ResumePreview({
     // ATS CONSULTING HEADER - Consulting professional style
     if (safeLayout.headerStyle === "consulting") {
       return (
-        <header className="mb-6 border-b-2 border-blue-800 pb-4">
+        <header className="mb-6 border-b-2 border-primary pb-4">
           <div className="text-center">
             <h1
               className="text-3xl font-bold mb-2"
@@ -3230,7 +3230,7 @@ const ResumePreview = memo(function ResumePreview({
     // ATS DATA SCIENTIST HEADER - Data science style
     if (safeLayout.headerStyle === "data-scientist") {
       return (
-        <header className="mb-6 border-b-2 border-indigo-600 pb-4">
+        <header className="mb-6 border-b-2 border-primary pb-4">
           <div className="text-center">
             <h1
               className="text-3xl font-bold mb-2"
@@ -3963,7 +3963,7 @@ const ResumePreview = memo(function ResumePreview({
           {/* Sidebar Container with Enhanced Drag Feedback */}
           <div
             className={`space-y-4 transition-all duration-300 ${isDraggingOverSidebar
-              ? 'ring-2 ring-blue-400 ring-opacity-60 bg-blue-50/30'
+              ? 'ring-2 ring-accent ring-opacity-60 bg-accent-50/30'
               : ''
               }`}
             style={{
@@ -3988,8 +3988,8 @@ const ResumePreview = memo(function ResumePreview({
                 ? 'opacity-100'
                 : 'opacity-0'
                 }`}>
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 rounded-lg border-2 border-dashed border-blue-300"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent-50/50 to-primary-50/50 rounded-lg border-2 border-dashed border-accent-300"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-accent text-white px-4 py-2 rounded-lg shadow-lg">
                   <span className="text-sm font-medium">Drop in Sidebar</span>
                 </div>
               </div>
@@ -4001,7 +4001,7 @@ const ResumePreview = memo(function ResumePreview({
             {isReorderEditor && isDragEnabled && (
               <div
                 className={`h-12 border-2 border-dashed rounded-lg transition-all duration-300 flex items-center justify-center ${dragOverTarget === 'sidebar-end'
-                  ? 'border-blue-500 bg-blue-100 shadow-lg scale-105'
+                  ? 'border-accent bg-accent-100 shadow-lg scale-105'
                   : 'border-gray-300 bg-gray-50 hover:border-gray-400 hover:bg-gray-100'
                   }`}
                 onDragOver={(e) => handleDragOver(e, 'sidebar-end')}
@@ -4009,11 +4009,11 @@ const ResumePreview = memo(function ResumePreview({
                 onDrop={(e) => handleDrop(e, 'sidebar-end', 'sidebar')}
               >
                 <div className="flex items-center gap-2">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className={`transition-colors duration-300 ${dragOverTarget === 'sidebar-end' ? 'text-blue-600' : 'text-gray-400'
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className={`transition-colors duration-300 ${dragOverTarget === 'sidebar-end' ? 'text-accent-600' : 'text-gray-400'
                     }`}>
                     <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                  <span className={`text-sm font-medium transition-colors duration-300 ${dragOverTarget === 'sidebar-end' ? 'text-blue-700' : 'text-gray-600'
+                  <span className={`text-sm font-medium transition-colors duration-300 ${dragOverTarget === 'sidebar-end' ? 'text-accent-700' : 'text-gray-600'
                     }`}>
                     Drop in Sidebar
                   </span>
@@ -4047,8 +4047,8 @@ const ResumePreview = memo(function ResumePreview({
                 ? 'opacity-100'
                 : 'opacity-0'
                 }`}>
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-blue-50/50 rounded-lg border-2 border-dashed border-purple-300"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-purple-600 text-white px-4 py-2 rounded-lg shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 to-accent-50/50 rounded-lg border-2 border-dashed border-primary-300"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-white px-4 py-2 rounded-lg shadow-lg">
                   <span className="text-sm font-medium">Drop in Main Area</span>
                 </div>
               </div>
@@ -4060,7 +4060,7 @@ const ResumePreview = memo(function ResumePreview({
             {isReorderEditor && isDragEnabled && (
               <div
                 className={`h-12 border-2 border-dashed rounded-lg transition-all duration-300 flex items-center justify-center ${dragOverTarget === 'main-end'
-                  ? 'border-purple-500 bg-purple-100 shadow-lg scale-105'
+                  ? 'border-primary bg-primary-100 shadow-lg scale-105'
                   : 'border-gray-300 bg-gray-50 hover:border-gray-400 hover:bg-gray-100'
                   }`}
                 onDragOver={(e) => handleDragOver(e, 'main-end')}
@@ -4068,11 +4068,11 @@ const ResumePreview = memo(function ResumePreview({
                 onDrop={(e) => handleDrop(e, 'main-end', 'main')}
               >
                 <div className="flex items-center gap-2">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className={`transition-colors duration-300 ${dragOverTarget === 'main-end' ? 'text-purple-600' : 'text-gray-400'
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className={`transition-colors duration-300 ${dragOverTarget === 'main-end' ? 'text-primary-600' : 'text-gray-400'
                     }`}>
                     <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                  <span className={`text-sm font-medium transition-colors duration-300 ${dragOverTarget === 'main-end' ? 'text-purple-700' : 'text-gray-600'
+                  <span className={`text-sm font-medium transition-colors duration-300 ${dragOverTarget === 'main-end' ? 'text-primary-700' : 'text-gray-600'
                     }`}>
                     Drop in Main Area
                   </span>
@@ -4139,7 +4139,7 @@ const ResumePreview = memo(function ResumePreview({
       <section
         key={section}
         data-section={section}
-        className={`resume-section transition-all duration-300 ${isReorderEditor && isDragEnabled ? (isMobile ? 'touch-manipulation select-none' : 'cursor-move') : ''} ${isReorderEditor && draggedSection === section ? 'opacity-50' : ''} ${isReorderEditor && dragOverTarget === section ? 'ring-2 ring-blue-400 ring-opacity-60 bg-blue-50/50 scale-105 shadow-lg' : ''} ${isReorderEditor && isDragging && draggedSection === section ? 'transform scale-105 shadow-xl z-10' : ''} ${isReorderEditor && isCompactMode ? 'compact-mode' : ''} ${isReorderEditor && showTutorial && tutorialStep === 1 ? 'ring-2 ring-blue-300 ring-opacity-50 animate-pulse' : ''} ${isReorderEditor && showTutorial && tutorialStep === 2 ? 'ring-2 ring-blue-300 ring-opacity-50' : ''} ${isReorderEditor && showTutorial && tutorialStep === 3 ? 'ring-2 ring-blue-300 ring-opacity-50 hover:ring-blue-400' : ''}`}
+        className={`resume-section transition-all duration-300 ${isReorderEditor && isDragEnabled ? (isMobile ? 'touch-manipulation select-none' : 'cursor-move') : ''} ${isReorderEditor && draggedSection === section ? 'opacity-50' : ''} ${isReorderEditor && dragOverTarget === section ? 'ring-2 ring-accent ring-opacity-60 bg-accent-50/50 scale-105 shadow-lg' : ''} ${isReorderEditor && isDragging && draggedSection === section ? 'transform scale-105 shadow-xl z-10' : ''} ${isReorderEditor && isCompactMode ? 'compact-mode' : ''} ${isReorderEditor && showTutorial && tutorialStep === 1 ? 'ring-2 ring-accent-300 ring-opacity-50 animate-pulse' : ''} ${isReorderEditor && showTutorial && tutorialStep === 2 ? 'ring-2 ring-accent-300 ring-opacity-50' : ''} ${isReorderEditor && showTutorial && tutorialStep === 3 ? 'ring-2 ring-accent-300 ring-opacity-50 hover:ring-accent-400' : ''}`}
         style={{
           ...sectionStyle,
           ...(ENABLE_DRAG_AND_DROP && isDragging && draggedSection === section ? {
@@ -4211,7 +4211,7 @@ const ResumePreview = memo(function ResumePreview({
               )}
               <span style={{ flex: 1, lineHeight: 'inherit' }}>{t[section]}</span>
               {isReorderEditor && isDragEnabled && (
-                <span className={`flex-shrink-0 w-4 h-4 text-gray-400 hover:text-gray-600 transition-colors ${showTutorial && tutorialStep === 1 ? 'text-blue-500 animate-bounce' : ''} ${showTutorial && tutorialStep === 3 ? 'text-blue-500 scale-110' : ''}`} title={isMobile ? "Touch and drag to reorder" : "Drag to reorder"}>
+                <span className={`flex-shrink-0 w-4 h-4 text-gray-400 hover:text-gray-600 transition-colors ${showTutorial && tutorialStep === 1 ? 'text-accent animate-bounce' : ''} ${showTutorial && tutorialStep === 3 ? 'text-accent scale-110' : ''}`} title={isMobile ? "Touch and drag to reorder" : "Drag to reorder"}>
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
                     <path d="M8 6h8v2H8V6zm0 5h8v2H8v-2zm0 5h8v2H8v-2z" />
                   </svg>
@@ -4407,7 +4407,7 @@ const ResumePreview = memo(function ResumePreview({
 
                 return (
                   <div>
-                    <div className="text-xs text-blue-600 mb-2 font-semibold">
+                    <div className="text-xs text-accent-600 mb-2 font-semibold">
                       🎯 ATS-Optimized 3-Column Layout
                     </div>
                     <div className="grid gap-4" style={{
@@ -4788,7 +4788,7 @@ const ResumePreview = memo(function ResumePreview({
             <div className="transform -rotate-12 text-6xl sm:text-8xl font-black tracking-widest whitespace-nowrap">
               EXPERTRESUME
             </div>
-            <div className="transform -rotate-12 text-6xl sm:text-8xl font-black tracking-widest whitespace-nowrap text-emerald-600">
+            <div className="transform -rotate-12 text-6xl sm:text-8xl font-black tracking-widest whitespace-nowrap text-accent-600">
               UPGRADE TO REMOVE
             </div>
             <div className="transform -rotate-12 text-6xl sm:text-8xl font-black tracking-widest whitespace-nowrap">

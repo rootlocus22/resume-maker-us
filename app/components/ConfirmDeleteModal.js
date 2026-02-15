@@ -37,7 +37,7 @@ export default function ConfirmDeleteModal({
               className="bg-white rounded-xl sm:rounded-2xl shadow-2xl max-w-md w-full overflow-hidden"
             >
               {/* Header */}
-              <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
+              <div className="bg-gradient-to-r from-primary to-accent px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
                 <h3 className="text-lg sm:text-xl font-bold text-white flex-1 min-w-0 truncate">
                   {title}
                 </h3>

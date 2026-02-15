@@ -190,11 +190,11 @@ export default function ClientModal({
         className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden"
       >
           {/* Header */}
-          <div className="px-8 py-6 border-b border-gray-200 bg-gradient-to-r from-blue-600 to-blue-600 text-white">
+          <div className="px-8 py-6 border-b border-gray-200 bg-gradient-to-r from-primary to-accent text-white">
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="text-2xl font-bold">{title || defaultTitle}</h2>
-                <p className="text-blue-100 mt-1">
+                <p className="text-accent-100 mt-1">
                   {isEditMode 
                     ? "Update client information and preferences" 
                     : "Add a new client to your professional portfolio"
@@ -217,7 +217,7 @@ export default function ClientModal({
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                    <User className="h-5 w-5 text-blue-600" />
+                    <User className="h-5 w-5 text-accent-600" />
                     Basic Information
                   </h3>
                   
@@ -233,7 +233,7 @@ export default function ClientModal({
                         value={formData.name}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 transition-colors ${
+                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent transition-colors ${
                           errors.name ? 'border-red-300 bg-red-50' : 'border-gray-300'
                         }`}
                         placeholder="Enter client's full name"
@@ -256,7 +256,7 @@ export default function ClientModal({
                           value={formData.email}
                           onChange={handleChange}
                           onBlur={handleBlur}
-                          className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 transition-colors ${
+                          className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent transition-colors ${
                             errors.email ? 'border-red-300 bg-red-50' : 'border-gray-300'
                           }`}
                           placeholder="client@company.com"
@@ -280,7 +280,7 @@ export default function ClientModal({
                           value={formData.phone}
                           onChange={handleChange}
                           onBlur={handleBlur}
-                          className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 transition-colors ${
+                          className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent transition-colors ${
                             errors.phone ? 'border-red-300 bg-red-50' : 'border-gray-300'
                           }`}
                           placeholder="+1 (555) 123-4567"
@@ -294,7 +294,7 @@ export default function ClientModal({
                 {/* Professional Information */}
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                    <Briefcase className="h-5 w-5 text-blue-600" />
+                    <Briefcase className="h-5 w-5 text-accent-600" />
                     Professional Details
                   </h3>
                   
@@ -313,7 +313,7 @@ export default function ClientModal({
                           name="company"
                           value={formData.company}
                           onChange={handleChange}
-                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent"
                           placeholder="Company name"
                         />
                       </div>
@@ -329,7 +329,7 @@ export default function ClientModal({
                         name="position"
                         value={formData.position}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent"
                         placeholder="Job title or role"
                       />
                     </div>
@@ -343,7 +343,7 @@ export default function ClientModal({
                         name="industry"
                         value={formData.industry}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent"
                       >
                         {industries.map(industry => (
                           <option key={industry.value} value={industry.value}>
@@ -361,7 +361,7 @@ export default function ClientModal({
                 {/* Project Information */}
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                    <DollarSign className="h-5 w-5 text-blue-600" />
+                    <DollarSign className="h-5 w-5 text-accent-600" />
                     Project Information
                   </h3>
                   
@@ -375,7 +375,7 @@ export default function ClientModal({
                         name="budget"
                         value={formData.budget}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent"
                       >
                         {budgetRanges.map(range => (
                           <option key={range.value} value={range.value}>
@@ -426,7 +426,7 @@ export default function ClientModal({
                         name="status"
                         value={formData.status}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent"
                       >
                         {statuses.map(status => (
                           <option key={status.value} value={status.value}>
@@ -454,7 +454,7 @@ export default function ClientModal({
                       value={formData.notes}
                       onChange={handleChange}
                       rows={4}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent"
                       placeholder="Any additional notes, preferences, or requirements..."
                     />
                   </div>
@@ -474,7 +474,7 @@ export default function ClientModal({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-lg hover:from-blue-700 hover:to-blue-700 transition-all font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 px-6 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-lg hover:from-primary-700 hover:to-accent-700 transition-all font-medium disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? "Processing..." : (submitText || defaultSubmitText)}
               </button>

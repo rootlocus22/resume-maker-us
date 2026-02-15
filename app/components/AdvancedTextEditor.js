@@ -358,11 +358,11 @@ const AdvancedTextEditor = ({
       className={`
         flex-1 sm:flex-none p-2.5 sm:p-3 rounded-lg transition-all duration-200 flex items-center justify-center
         ${isActive 
-          ? 'bg-blue-100 text-blue-700 border border-blue-300 shadow-sm' 
+          ? 'bg-accent-50 text-accent-700 border border-accent/30 shadow-sm' 
           : 'text-gray-600 hover:bg-gray-100 hover:text-gray-800 hover:shadow-sm active:scale-95'
         }
         ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
-        focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
+        focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50
         min-h-[44px] sm:min-w-[44px] sm:min-h-[44px]
         touch-manipulation
       `}
@@ -382,7 +382,7 @@ const AdvancedTextEditor = ({
         {/* Header */}
         <div className="flex items-center justify-between p-3 sm:p-4 border-b border-gray-200 bg-gray-50">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
-            <Type size={18} className="text-blue-600 flex-shrink-0" />
+            <Type size={18} className="text-accent flex-shrink-0" />
             <div className="min-w-0 flex-1">
               <h2 className="text-base sm:text-lg font-semibold text-gray-900 truncate">{title}</h2>
               <p className="text-xs sm:text-sm text-gray-500 capitalize truncate">{fieldName} Editor</p>
@@ -446,7 +446,7 @@ const AdvancedTextEditor = ({
               <button
                 onClick={handleAIRephrase}
                 disabled={isRephrasing || isGeneratingBullets || !currentState.trim()}
-                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg hover:from-purple-600 hover:to-blue-600 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm text-sm whitespace-nowrap"
+                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-primary text-white rounded-lg hover:from-purple-600 hover:to-primary-800 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm text-sm whitespace-nowrap"
                 title="Rephrase with AI"
               >
                 <Sparkles size={16} />
@@ -460,7 +460,7 @@ const AdvancedTextEditor = ({
                   <button
                     onClick={handleAIBullets}
                     disabled={isRephrasing || isGeneratingBullets || !currentState.trim()}
-                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm text-sm whitespace-nowrap"
+                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary to-accent text-white rounded-lg hover:from-primary-800 hover:to-accent-600 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm text-sm whitespace-nowrap"
                     title="Generate AI Bullets"
                   >
                     <Sparkles size={16} />
@@ -508,7 +508,7 @@ const AdvancedTextEditor = ({
               <button
                 onClick={handleAIRephrase}
                 disabled={isRephrasing || isGeneratingBullets || !currentState.trim()}
-                className={`${disableAIBullets ? 'w-full' : 'flex-1'} flex items-center justify-center gap-2 px-3 py-2.5 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg active:scale-95 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm touch-manipulation font-medium text-sm`}
+                className={`${disableAIBullets ? 'w-full' : 'flex-1'} flex items-center justify-center gap-2 px-3 py-2.5 bg-gradient-to-r from-purple-500 to-primary text-white rounded-lg active:scale-95 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm touch-manipulation font-medium text-sm`}
                 title="Rephrase with AI"
               >
                 <Sparkles size={16} />
@@ -519,7 +519,7 @@ const AdvancedTextEditor = ({
                 <button
                   onClick={handleAIBullets}
                   disabled={isRephrasing || isGeneratingBullets || !currentState.trim()}
-                  className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-lg active:scale-95 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm touch-manipulation font-medium text-sm"
+                  className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 bg-gradient-to-r from-primary to-accent text-white rounded-lg active:scale-95 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm touch-manipulation font-medium text-sm"
                   title="Generate AI Bullets"
                 >
                   <Sparkles size={16} />
@@ -603,7 +603,7 @@ const AdvancedTextEditor = ({
           <div className="flex items-center gap-2 w-full sm:w-auto">
             <button
               onClick={handleSave}
-              className="flex-1 sm:flex-none px-3 sm:px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm touch-manipulation"
+              className="flex-1 sm:flex-none px-3 sm:px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent-600 transition-colors font-medium text-sm touch-manipulation"
             >
               Save & Close
             </button>

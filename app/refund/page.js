@@ -71,7 +71,7 @@ export default function RefundPage() {
       <div className="min-h-screen py-12 sm:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white shadow-lg rounded-xl p-6 sm:p-8">
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-center bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] bg-clip-text text-transparent mb-4 sm:mb-6">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-center bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent mb-4 sm:mb-6">
               Cancellation & Refund Policy
             </h1>
             <p className="text-center text-gray-500 text-sm mb-6">
@@ -81,13 +81,13 @@ export default function RefundPage() {
             {/* Trust Preamble */}
             <div className="text-center mb-6 sm:mb-8">
               <p className="text-gray-700 text-sm sm:text-base font-medium">
-                At <span className="font-semibold text-[#0B1F3B]">ExpertResume</span>, operated by Vendax Systems LLC, we’re committed to providing you with exceptional tools to advance your career. Our policies are designed to be transparent and fair, ensuring you can trust us every step of the way.
+                At <span className="font-semibold text-primary">ExpertResume</span>, operated by Vendax Systems LLC, we’re committed to providing you with exceptional tools to advance your career. Our policies are designed to be transparent and fair, ensuring you can trust us every step of the way.
               </p>
             </div>
 
             <div className="space-y-6 text-gray-700">
               {/* Policy Overview */}
-              <div className="border-l-4 border-[#0B1F3B] pl-4 mb-6">
+              <div className="border-l-4 border-primary pl-4 mb-6">
                 <h2 className="text-lg font-semibold text-gray-800 mb-2">Our Commitment to You</h2>
                 <p className="text-sm sm:text-base">
                   We strive to deliver high-quality digital services instantly accessible upon purchase. Due to the nature of our offerings, we maintain a <strong>no-refund and no-cancellation policy</strong>. Please review this policy carefully before proceeding with any purchase.
@@ -99,7 +99,7 @@ export default function RefundPage() {
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-[#0B1F3B]"
+                    className="h-5 w-5 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -109,7 +109,7 @@ export default function RefundPage() {
                   No Cancellations After Purchase
                 </h3>
                 <p className="text-sm sm:text-base">
-                  Once you purchase a <strong>premium ExpertResume service</strong> or subscription, <strong>cancellations are not permitted</strong>. We encourage you to try our <Link href="/" className="text-[#0B1F3B] hover:underline">free version</Link> to explore features before committing to a paid plan.
+                  Once you purchase a <strong>premium ExpertResume service</strong> or subscription, <strong>cancellations are not permitted</strong>. We encourage you to try our <Link href="/" className="text-primary hover:underline">free version</Link> to explore features before committing to a paid plan.
                 </p>
               </div>
 
@@ -118,7 +118,7 @@ export default function RefundPage() {
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-[#0B1F3B]"
+                    className="h-5 w-5 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -137,7 +137,7 @@ export default function RefundPage() {
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-[#0B1F3B]"
+                    className="h-5 w-5 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -148,7 +148,7 @@ export default function RefundPage() {
                 </h3>
                 <p className="text-sm sm:text-base">
                   Our team is here to assist you. If you have any questions about our services or this policy, please reach out to us at{" "}
-                  <a href="mailto:support@expertresume.us" className="text-[#0B1F3B] hover:underline">support@expertresume.us</a>. We typically respond within 24-48 hours.
+                  <a href="mailto:support@expertresume.us" className="text-primary hover:underline">support@expertresume.us</a>. We typically respond within 24-48 hours.
                 </p>
               </div>
             </div>
@@ -159,7 +159,7 @@ export default function RefundPage() {
                 <div className="flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-[#0B1F3B]"
+                    className="h-6 w-6 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -171,7 +171,7 @@ export default function RefundPage() {
                 <div className="flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-[#0B1F3B]"
+                    className="h-6 w-6 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -184,7 +184,7 @@ export default function RefundPage() {
 
               <Link
                 href="/"
-                className="inline-block bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white px-6 py-3 rounded-full font-semibold text-lg hover:from-[#071429] hover:to-[#071429] transition-all duration-300 shadow-md hover:shadow-lg"
+                className="inline-block bg-gradient-to-r from-primary to-primary text-white px-6 py-3 rounded-full font-semibold text-lg hover:from-gray-900 hover:to-gray-900 transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 Back to Home
               </Link>
@@ -193,7 +193,7 @@ export default function RefundPage() {
             {/* Legal Disclaimer */}
             <div className="mt-6 text-center text-xs text-gray-500">
               <p>
-                Vendax Systems LLC reserves the right to update this policy at any time. Changes will be effective upon posting. For inquiries: <a href="mailto:support@expertresume.us" className="text-[#0B1F3B] hover:underline">support@expertresume.us</a> | 28 Geary St STE 650 Suite #500, San Francisco, CA 94108, United States.
+                Vendax Systems LLC reserves the right to update this policy at any time. Changes will be effective upon posting. For inquiries: <a href="mailto:support@expertresume.us" className="text-primary hover:underline">support@expertresume.us</a> | 28 Geary St STE 650 Suite #500, San Francisco, CA 94108, United States.
               </p>
             </div>
           </div>

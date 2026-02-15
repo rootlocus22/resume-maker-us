@@ -10,7 +10,7 @@ export default function PdfPreviewModal({ pdfPreviewUrl, onClose, isLoading }) {
       <h2 className="text-2xl font-semibold mb-6 text-gray-800">PDF Preview</h2>
       {isLoading ? (
         <div className="flex justify-center items-center h-[60vh]">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-600" />
+          <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-accent" />
         </div>
       ) : (
         <div className="flex justify-center">
@@ -37,7 +37,7 @@ export default function PdfPreviewModal({ pdfPreviewUrl, onClose, isLoading }) {
         <a
           href={pdfPreviewUrl}
           download="resume.pdf"
-          className="bg-gradient-to-r from-blue-600 to-blue-600 text-white px-4 py-2 rounded-md hover:from-blue-700 hover:to-blue-700 font-medium"
+          className="bg-accent hover:bg-accent-600 text-white px-4 py-2 rounded-md font-medium"
         >
           Download PDF
         </a>

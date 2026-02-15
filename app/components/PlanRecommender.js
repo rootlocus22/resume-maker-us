@@ -27,7 +27,7 @@ export default function PlanRecommender({ onRecommend, currency = 'INR' }) {
                 {
                     id: 'job_search',
                     text: "I am actively applying to many jobs.",
-                    icon: <Target className="w-5 h-5 text-blue-500" />,
+                    icon: <Target className="w-5 h-5 text-accent" />,
                     desc: "Best Value"
                 },
                 {
@@ -57,7 +57,7 @@ export default function PlanRecommender({ onRecommend, currency = 'INR' }) {
                 {
                     id: 'interview_prep',
                     text: "Preparing for interviews & salary negotiation.",
-                    icon: <Brain className="w-5 h-5 text-indigo-500" />,
+                    icon: <Brain className="w-5 h-5 text-primary" />,
                     desc: "Full Prep"
                 }
             ]
@@ -184,9 +184,9 @@ export default function PlanRecommender({ onRecommend, currency = 'INR' }) {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="w-full max-w-2xl mx-auto bg-white rounded-2xl shadow-xl border border-blue-100 overflow-hidden"
+                className="w-full max-w-2xl mx-auto bg-white rounded-2xl shadow-xl border border-accent-100 overflow-hidden"
             >
-                <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-white text-center">
+                <div className="bg-gradient-to-r from-primary to-accent p-6 text-white text-center">
                     <h2 className="text-2xl font-bold mb-2">We Found Your Perfect Match!</h2>
                     <p className="opacity-90">Based on your goals, we recommend:</p>
                 </div>
@@ -196,7 +196,7 @@ export default function PlanRecommender({ onRecommend, currency = 'INR' }) {
                         <div className="flex-1">
                             <div className="flex items-center gap-2 mb-2">
                                 <Star className="w-5 h-5 text-yellow-500 fill-current" />
-                                <span className="text-sm font-semibold text-blue-600 uppercase tracking-wide">Recommended For You</span>
+                                <span className="text-sm font-semibold text-accent-600 uppercase tracking-wide">Recommended For You</span>
                             </div>
                             <h3 className="text-3xl font-bold text-gray-900 mb-2">{recommendation.title}</h3>
                             <p className="text-gray-600">{recommendation.reason}</p>
@@ -219,7 +219,7 @@ export default function PlanRecommender({ onRecommend, currency = 'INR' }) {
                     <div className="flex flex-col sm:flex-row gap-4">
                         <button
                             onClick={handleProceed}
-                            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
+                            className="flex-1 bg-accent hover:bg-accent-600 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
                         >
                             Get Started Now <ArrowRight className="w-5 h-5" />
                         </button>
@@ -243,7 +243,7 @@ export default function PlanRecommender({ onRecommend, currency = 'INR' }) {
                 {/* Progress Bar */}
                 <div className="h-1 bg-gray-100 w-full">
                     <motion.div
-                        className="h-full bg-blue-500"
+                        className="h-full bg-accent"
                         initial={{ width: 0 }}
                         animate={{ width: `${((step + 1) / questions.length) * 100}%` }}
                     />
@@ -251,7 +251,7 @@ export default function PlanRecommender({ onRecommend, currency = 'INR' }) {
 
                 <div className="p-6 sm:p-8">
                     <div className="text-center mb-8">
-                        <span className="inline-block px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-bold tracking-wide mb-3">
+                        <span className="inline-block px-3 py-1 bg-accent-50 text-accent-600 rounded-full text-xs font-bold tracking-wide mb-3">
                             STEP {step + 1} OF {questions.length}
                         </span>
                         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{currentQ.question}</h2>
@@ -270,20 +270,20 @@ export default function PlanRecommender({ onRecommend, currency = 'INR' }) {
                                     whileTap={{ scale: 0.99 }}
                                     onClick={() => handleAnswer(option.id)}
                                     className={`flex items-center p-4 border-2 rounded-xl text-left bg-white group transition-all
-                                        ${isSelected ? 'border-blue-500 bg-blue-50 ring-2 ring-blue-100' : 'border-gray-200 hover:border-blue-300'}
+                                        ${isSelected ? 'border-accent bg-accent-50 ring-2 ring-accent-100' : 'border-gray-200 hover:border-accent-300'}
                                     `}
                                 >
-                                    <div className={`p-3 rounded-lg transition-colors mr-4 ${isSelected ? 'bg-white text-blue-600' : 'bg-gray-50 text-gray-600'}`}>
+                                    <div className={`p-3 rounded-lg transition-colors mr-4 ${isSelected ? 'bg-white text-accent-600' : 'bg-gray-50 text-gray-600'}`}>
                                         {option.icon}
                                     </div>
                                     <div className="flex-1">
-                                        <h3 className={`font-bold text-lg transition-colors ${isSelected ? 'text-blue-700' : 'text-gray-900'}`}>
+                                        <h3 className={`font-bold text-lg transition-colors ${isSelected ? 'text-accent-700' : 'text-gray-900'}`}>
                                             {option.text}
                                         </h3>
                                         <p className="text-sm text-gray-500">{option.desc}</p>
                                     </div>
-                                    <div className={`ml-auto transition-opacity text-blue-500 ${isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'}`}>
-                                        {currentQ.id === 'needs' ? <CheckCircle2 className="w-6 h-6 fill-blue-100" /> : <ArrowRight className="w-6 h-6" />}
+                                    <div className={`ml-auto transition-opacity text-accent ${isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'}`}>
+                                        {currentQ.id === 'needs' ? <CheckCircle2 className="w-6 h-6 fill-accent-100" /> : <ArrowRight className="w-6 h-6" />}
                                     </div>
                                 </motion.button>
                             );
@@ -295,7 +295,7 @@ export default function PlanRecommender({ onRecommend, currency = 'INR' }) {
                         <div className="mt-8 flex justify-end">
                             <button
                                 onClick={handleNextStep}
-                                className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-all flex items-center gap-2"
+                                className="bg-accent hover:bg-accent-600 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-all flex items-center gap-2"
                             >
                                 See My Plan <ArrowRight className="w-5 h-5" />
                             </button>

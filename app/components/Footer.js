@@ -41,13 +41,10 @@ export default function Footer() {
     });
     return () => unsubscribe();
   }, []);
-  // Dark navy footer – explicit colors so it never fails
-  const footerBg = { background: 'linear-gradient(135deg, #050F20 0%, #0B1F3B 50%, #071429 100%)' };
-
   // For logged in users, show collapsible footer
   if (isLoggedIn) {
     return (
-      <footer className="relative text-white" style={footerBg}>
+      <footer className="relative text-white bg-gradient-to-br from-gray-900 via-primary to-gray-900">
 
         {/* Expandable Content */}
         {isExpanded && (
@@ -78,8 +75,8 @@ export default function Footer() {
                     <Star className="text-yellow-400" size={16} />
                     <span className="text-xs sm:text-sm text-white font-medium">Trusted by 100,000+ Job Seekers</span>
                   </div>
-                  <div className="flex items-center gap-2 bg-teal-500/20 px-2 py-0.5 rounded-full border border-teal-400/40">
-                    <CheckCircle className="text-teal-300" size={12} />
+                  <div className="flex items-center gap-2 bg-accent/20 px-2 py-0.5 rounded-full border border-accent-400/40">
+                    <CheckCircle className="text-accent-300" size={12} />
                     <span className="text-[10px] sm:text-xs text-green-100 font-medium">Free to Build • No Signup to Start</span>
                   </div>
                 </div>
@@ -368,7 +365,7 @@ export default function Footer() {
 
   // For non-logged in users, show full footer
   return (
-    <footer className="relative text-white" style={footerBg}>
+    <footer className="relative text-white bg-gradient-to-br from-gray-900 via-primary to-gray-900">
 
       {/* Main Footer Content */}
       <div className="relative max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-12">

@@ -132,11 +132,11 @@ export default function EnhancedTestimonials() {
   const currentTestimonial = testimonials[currentIndex] || testimonials[0];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-accent-50 relative overflow-hidden">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 overflow-hidden opacity-30">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-100 to-blue-100 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-r from-accent-50 to-primary-100 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-100 to-accent-50 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -144,13 +144,13 @@ export default function EnhancedTestimonials() {
         <div className={`text-center mb-16 transition-all duration-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 px-4 py-2 rounded-full text-sm font-semibold text-blue-700 mb-6">
+          <div className="inline-flex items-center gap-2 bg-accent-50 border border-accent/20 px-4 py-2 rounded-full text-sm font-semibold text-accent-700 mb-6">
             <Users className="w-4 h-4" />
             Success Stories from Real Users
           </div>
           
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-            What Our <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Happy Users</span> Say
+            What Our <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Happy Users</span> Say
           </h2>
           
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -178,7 +178,7 @@ export default function EnhancedTestimonials() {
                 >
                   {/* Quote Icon */}
                   <div 
-                    className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg"
+                    className="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6 shadow-lg"
                     aria-hidden="true"
                   >
                     <Quote className="w-7 h-7 text-white" />
@@ -204,7 +204,7 @@ export default function EnhancedTestimonials() {
                   </blockquote>
                   
                   {/* Result Badge */}
-                  <div className="inline-flex items-center bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 px-4 py-2 rounded-xl mb-6">
+                  <div className="inline-flex items-center bg-gradient-to-r from-green-50 to-accent-50 border-2 border-green-200 px-4 py-2 rounded-xl mb-6">
                     <TrendingUp className="w-4 h-4 text-green-600 mr-2" />
                     <span className="text-green-700 font-bold text-sm">
                       Result: {currentTestimonial.result}
@@ -213,7 +213,7 @@ export default function EnhancedTestimonials() {
                   
                   {/* Author */}
                   <div className="flex items-center gap-4 pt-4 border-t-2 border-gray-100">
-                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center shadow-lg">
+                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center shadow-lg">
                       <span className="text-white font-bold text-xl">
                         {currentTestimonial.name[0]}
                       </span>
@@ -221,7 +221,7 @@ export default function EnhancedTestimonials() {
                     <div>
                       <p className="font-bold text-lg text-gray-900">{currentTestimonial.name}</p>
                       <p className="text-gray-600">{currentTestimonial.role}</p>
-                      <p className="text-blue-600 text-sm font-semibold">{currentTestimonial.company}</p>
+                      <p className="text-accent text-sm font-semibold">{currentTestimonial.company}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -239,9 +239,9 @@ export default function EnhancedTestimonials() {
                         setCurrentIndex(index);
                       }
                     }}
-                    className={`h-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
+                    className={`h-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent ${
                       index === currentIndex 
-                        ? 'bg-gradient-to-r from-blue-600 to-indigo-600 w-8' 
+                        ? 'bg-gradient-to-r from-primary to-accent w-8' 
                         : 'bg-gray-300 w-2 hover:bg-gray-400'
                     }`}
                     aria-label={`View testimonial from ${testimonials[index].name}`}
@@ -259,11 +259,11 @@ export default function EnhancedTestimonials() {
             {/* Main Stats */}
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-white rounded-2xl p-6 border-2 border-gray-100 shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
-                <div className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">100k+</div>
+                <div className="text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2">100k+</div>
                 <div className="text-gray-600 font-medium">Happy Users</div>
               </div>
               <div className="bg-white rounded-2xl p-6 border-2 border-gray-100 shadow-lg text-center hover:shadow-xl transition-shadow duration-300">
-                <div className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">4.9★</div>
+                <div className="text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2">4.9★</div>
                 <div className="text-gray-600 font-medium">Average Rating</div>
               </div>
             </div>
@@ -271,7 +271,7 @@ export default function EnhancedTestimonials() {
             {/* Platform Features */}
             <div className="bg-white rounded-2xl p-8 border-2 border-gray-100 shadow-xl">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                <Sparkles className="w-6 h-6 text-blue-600" />
+                <Sparkles className="w-6 h-6 text-accent" />
                 Why Choose ExpertResume
               </h3>
               
@@ -281,12 +281,12 @@ export default function EnhancedTestimonials() {
                 aria-label="Platform features"
               >
                 <div 
-                  className="flex items-center justify-between p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200"
+                  className="flex items-center justify-between p-4 bg-gradient-to-r from-green-50 to-accent-50 rounded-xl border border-green-200"
                   role="listitem"
                 >
                   <div className="flex items-center gap-3">
                     <div 
-                      className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg"
+                      className="w-12 h-12 bg-gradient-to-br from-green-500 to-accent-600 rounded-xl flex items-center justify-center shadow-lg"
                       aria-hidden="true"
                     >
                       <TrendingUp className="w-6 h-6 text-white" />
@@ -311,12 +311,12 @@ export default function EnhancedTestimonials() {
                 </div>
 
                 <div 
-                  className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200"
+                  className="flex items-center justify-between p-4 bg-gradient-to-r from-accent-50 to-primary-50 rounded-xl border border-accent/20"
                   role="listitem"
                 >
                   <div className="flex items-center gap-3">
                     <div 
-                      className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg"
+                      className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-lg"
                       aria-hidden="true"
                     >
                       <Award className="w-6 h-6 text-white" />
@@ -336,7 +336,7 @@ export default function EnhancedTestimonials() {
                     role="text"
                     aria-labelledby="templates-label"
                   >
-                    <p className="text-3xl font-bold text-blue-600">50+</p>
+                    <p className="text-3xl font-bold text-accent">50+</p>
                   </div>
                 </div>
 

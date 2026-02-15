@@ -41,7 +41,7 @@ export default function JobApplicationStatusModal({ isOpen, onClose, job }) {
                             <span className="text-sm">Upgrade to ApplyOS to track unlimited jobs!</span>
                             <button
                                 onClick={() => { toast.dismiss(t.id); router.push('/checkout?billingCycle=apply_pro'); }}
-                                className="bg-blue-600 text-white px-3 py-1.5 rounded text-xs font-bold mt-1"
+                                className="bg-accent text-white px-3 py-1.5 rounded text-xs font-bold mt-1"
                             >
                                 Upgrade Now
                             </button>
@@ -99,8 +99,8 @@ export default function JobApplicationStatusModal({ isOpen, onClose, job }) {
                         className="bg-white rounded-2xl shadow-xl max-w-md w-full overflow-hidden"
                     >
                         <div className="p-6 text-center">
-                            <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <FileText className="w-8 h-8 text-blue-600" />
+                            <div className="w-16 h-16 bg-accent-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <FileText className="w-8 h-8 text-accent" />
                             </div>
 
                             <h2 className="text-xl font-bold text-gray-900 mb-2">Did you apply?</h2>
@@ -112,7 +112,7 @@ export default function JobApplicationStatusModal({ isOpen, onClose, job }) {
                                 <button
                                     onClick={() => handleStatusSelect('applied')}
                                     disabled={loading}
-                                    className="w-full flex items-center justify-center gap-3 bg-blue-600 text-white p-3 rounded-xl font-bold hover:bg-blue-700 transition-colors disabled:opacity-70"
+                                    className="w-full flex items-center justify-center gap-3 bg-accent text-white p-3 rounded-xl font-bold hover:bg-accent-600 transition-colors disabled:opacity-70"
                                 >
                                     <CheckCircle size={20} />
                                     Yes, I Applied

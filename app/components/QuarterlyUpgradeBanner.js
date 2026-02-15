@@ -15,7 +15,7 @@ const QuarterlyUpgradeBanner = ({ className = "", currency = "INR" }) => {
     const formattedQuarterlyPrice = formatPrice(quarterlyPrice, currency);
 
     return (
-        <div className={`relative overflow-hidden rounded-2xl shadow-lg border border-indigo-100 group ${className}`}>
+        <div className={`relative overflow-hidden rounded-2xl shadow-lg border border-primary-100 group ${className}`}>
             {/* Background with Image */}
             <div className="absolute inset-0 z-0">
                 <Image
@@ -25,13 +25,13 @@ const QuarterlyUpgradeBanner = ({ className = "", currency = "INR" }) => {
                     className="object-cover object-right opacity-90 group-hover:scale-105 transition-transform duration-700"
                     priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-900 via-indigo-900/80 to-indigo-900/60" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-900 via-primary-900/80 to-primary-900/60" />
             </div>
 
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between p-6 md:p-8 gap-6">
                 {/* Left Content */}
                 <div className="flex-1 text-white max-w-2xl">
-                    <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 rounded-full text-xs font-semibold text-indigo-100 mb-4 animate-fade-in-up">
+                    <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 rounded-full text-xs font-semibold text-primary-100 mb-4 animate-fade-in-up">
                         <Sparkles size={14} className="text-amber-400" />
                         <span>Recommended Upgrade</span>
                     </div>
@@ -40,7 +40,7 @@ const QuarterlyUpgradeBanner = ({ className = "", currency = "INR" }) => {
                         Land Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-100">Dream Job</span> Faster
                     </h2>
 
-                    <p className="text-indigo-100 text-sm md:text-base mb-6 opacity-90 leading-relaxed max-w-lg">
+                    <p className="text-primary-100 text-sm md:text-base mb-6 opacity-90 leading-relaxed max-w-lg">
                         Don't let download limits slow you down. Unlock the full power of ExpertResume to accelerate your career growth.
                     </p>
 
@@ -52,8 +52,8 @@ const QuarterlyUpgradeBanner = ({ className = "", currency = "INR" }) => {
                             Unlimited Downloads
                         </div>
                         <div className="flex items-center gap-2 text-sm font-medium text-white/90">
-                            <div className="bg-blue-500/20 p-1 rounded-full">
-                                <Target size={16} className="text-blue-400" />
+                            <div className="bg-accent/20 p-1 rounded-full">
+                                <Target size={16} className="text-accent-400" />
                             </div>
                             AI Job Search
                         </div>
@@ -64,8 +64,8 @@ const QuarterlyUpgradeBanner = ({ className = "", currency = "INR" }) => {
                             Career Roadmap
                         </div>
                         <div className="flex items-center gap-2 text-sm font-medium text-white/90">
-                            <div className="bg-indigo-500/20 p-1 rounded-full">
-                                <Sparkles size={16} className="text-indigo-400" />
+                            <div className="bg-primary/20 p-1 rounded-full">
+                                <Sparkles size={16} className="text-primary-400" />
                             </div>
                             AI Interview
                         </div>
@@ -89,7 +89,7 @@ const QuarterlyUpgradeBanner = ({ className = "", currency = "INR" }) => {
                     {/* Monthly CTA - Refined Design */}
                     <Link href={`/checkout?billingCycle=monthly&currency=${currency}`} className="flex-1">
                         <button className="w-full group/btn relative overflow-hidden bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-bold py-4 px-4 rounded-xl border border-white/20 transition-all duration-300 transform hover:-translate-y-0.5 flex flex-col items-center justify-center gap-1">
-                            <span className="text-xs uppercase tracking-wider font-semibold text-indigo-200">Quick Start</span>
+                            <span className="text-xs uppercase tracking-wider font-semibold text-primary-200">Quick Start</span>
                             <div className="flex items-baseline justify-center gap-1">
                                 <span className="text-2xl font-bold">{formattedMonthlyPrice}</span>
                                 <span className="text-xs opacity-60">/ month</span>

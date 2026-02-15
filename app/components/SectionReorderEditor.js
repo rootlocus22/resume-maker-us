@@ -279,7 +279,7 @@ export default function SectionReorderEditor({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className={`fixed inset-0 z-50 flex flex-col ${isFullscreen ? 'bg-gray-900' : 'bg-gradient-to-br from-slate-900 via-gray-900 to-indigo-900'}`}
+          className={`fixed inset-0 z-50 flex flex-col ${isFullscreen ? 'bg-gray-900' : 'bg-gradient-to-br from-slate-900 via-gray-900 to-primary-900'}`}
         >
           {/* Glassmorphism Header */}
           <motion.div
@@ -296,7 +296,7 @@ export default function SectionReorderEditor({
                   whileHover={{ scale: 1.02 }}
                 >
                   <div className="relative">
-                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-2xl">
+                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center shadow-2xl">
                       <Sparkles className="text-white" size={28} />
                     </div>
                     <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
@@ -305,7 +305,7 @@ export default function SectionReorderEditor({
                   </div>
                   <div>
                     <div className="flex items-center gap-3">
-                      <h1 className="text-2xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                      <h1 className="text-2xl font-bold bg-gradient-to-r from-white to-accent-200 bg-clip-text text-transparent">
                         Resume Editor Pro
                       </h1>
                       <motion.span
@@ -316,7 +316,7 @@ export default function SectionReorderEditor({
                         PREMIUM
                       </motion.span>
                     </div>
-                    <p className="text-blue-200 text-sm font-medium">
+                    <p className="text-accent-200 text-sm font-medium">
                       Professional drag-and-drop section editor
                     </p>
                   </div>
@@ -325,17 +325,17 @@ export default function SectionReorderEditor({
                 {/* Live Status Indicators */}
                 <div className="flex items-center gap-3">
                   <motion.div
-                    className="flex items-center gap-2 bg-emerald-500/20 backdrop-blur-sm px-4 py-2 rounded-full border border-emerald-400/30"
-                    animate={{ boxShadow: ['0 0 0 0 rgba(16, 185, 129, 0.4)', '0 0 0 8px rgba(16, 185, 129, 0)', '0 0 0 0 rgba(16, 185, 129, 0.4)'] }}
+                    className="flex items-center gap-2 bg-accent-500/20 backdrop-blur-sm px-4 py-2 rounded-full border border-accent-400/30"
+                    animate={{ boxShadow: ['0 0 0 0 rgba(0, 196, 179, 0.4)', '0 0 0 8px rgba(0, 196, 179, 0)', '0 0 0 0 rgba(0, 196, 179, 0.4)'] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
-                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                    <span className="text-emerald-200 text-sm font-medium">Live Editor</span>
+                    <div className="w-2 h-2 bg-accent-400 rounded-full animate-pulse"></div>
+                    <span className="text-accent-200 text-sm font-medium">Live Editor</span>
                   </motion.div>
 
                   <div className={`flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-sm transition-all duration-300 ${hasChanges
                       ? 'bg-amber-500/20 border-amber-400/30 text-amber-200'
-                      : 'bg-blue-500/20 border-blue-400/30 text-blue-200'
+                      : 'bg-accent-500/20 border-accent-400/30 text-accent-200'
                     }`}>
                     {hasChanges ? (
                       <AlertCircle size={14} className="animate-pulse" />
@@ -426,7 +426,7 @@ export default function SectionReorderEditor({
                     onClick={handleSave}
                     disabled={!hasChanges}
                     className={`flex items-center gap-2 px-6 py-2 rounded-full font-medium transition-all duration-200 ${hasChanges
-                        ? 'bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white shadow-lg hover:shadow-xl border border-emerald-400/50'
+                        ? 'bg-gradient-to-r from-accent to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white shadow-lg hover:shadow-xl border border-accent-400/50'
                         : 'bg-gray-600/50 text-gray-400 cursor-not-allowed border border-gray-500/30'
                       }`}
                     whileHover={hasChanges ? { scale: 1.02, y: -1 } : {}}
@@ -468,7 +468,7 @@ export default function SectionReorderEditor({
                     {/* Quick Start Guide */}
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center">
                           <MousePointer size={16} className="text-white" />
                         </div>
                         <h3 className="text-white font-semibold text-lg">Quick Start</h3>
@@ -528,7 +528,7 @@ export default function SectionReorderEditor({
                     {/* Layout Info */}
                     <div className="space-y-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-teal-600 rounded-lg flex items-center justify-center">
+                        <div className="w-8 h-8 bg-gradient-to-r from-accent to-accent-700 rounded-lg flex items-center justify-center">
                           <Layout size={16} className="text-white" />
                         </div>
                         <h3 className="text-white font-semibold text-lg">Current Layout</h3>
@@ -537,8 +537,8 @@ export default function SectionReorderEditor({
                       <div className="p-4 bg-white/5 rounded-lg border border-white/10">
                         <div className="flex items-center justify-between mb-3">
                           <span className="text-white/70 text-sm">Mode:</span>
-                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${previewPreferences?.layout?.customSectionOrder?.layout === 'single-column'
-                              ? 'bg-blue-500/20 text-blue-300 border border-blue-400/30'
+                          <span                           className={`px-2 py-1 rounded-full text-xs font-medium ${previewPreferences?.layout?.customSectionOrder?.layout === 'single-column'
+                              ? 'bg-accent-500/20 text-accent-300 border border-accent-400/30'
                               : 'bg-purple-500/20 text-purple-300 border border-purple-400/30'
                             }`}>
                             {previewPreferences?.layout?.customSectionOrder?.layout === 'single-column'
@@ -623,7 +623,7 @@ export default function SectionReorderEditor({
                         <motion.button
                           onClick={handleToggleCompactMode}
                           className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${localCompactMode
-                              ? 'bg-blue-500 text-white'
+                              ? 'bg-accent text-white'
                               : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
                             }`}
                           whileHover={{ scale: 1.05 }}
@@ -686,7 +686,7 @@ export default function SectionReorderEditor({
                   className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <Palette size={16} className="text-blue-400" />
+                  <Palette size={16} className="text-accent-400" />
                   <span className="text-white/90 text-sm font-medium">
                     {template.charAt(0).toUpperCase() + template.slice(1).replace('_', ' ')}
                   </span>
@@ -695,7 +695,7 @@ export default function SectionReorderEditor({
                 {/* Layout Badge */}
                 <motion.div
                   className={`flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-sm ${previewPreferences?.layout?.customSectionOrder?.layout === 'single-column'
-                      ? 'bg-blue-500/20 border-blue-400/30 text-blue-300'
+                      ? 'bg-accent-500/20 border-accent-400/30 text-accent-300'
                       : 'bg-purple-500/20 border-purple-400/30 text-purple-300'
                     }`}
                   whileHover={{ scale: 1.02 }}
@@ -737,9 +737,9 @@ export default function SectionReorderEditor({
                 )}
 
                 {/* Performance Indicator */}
-                <div className="flex items-center gap-2 bg-emerald-500/20 backdrop-blur-sm px-3 py-1 rounded-full border border-emerald-400/30">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                  <span className="text-emerald-200 text-xs font-medium">Real-time</span>
+                <div className="flex items-center gap-2 bg-accent-500/20 backdrop-blur-sm px-3 py-1 rounded-full border border-accent-400/30">
+                  <div className="w-2 h-2 bg-accent-400 rounded-full animate-pulse"></div>
+                  <span className="text-accent-200 text-xs font-medium">Real-time</span>
                 </div>
               </div>
 

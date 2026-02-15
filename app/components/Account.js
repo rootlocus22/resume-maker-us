@@ -308,7 +308,7 @@ export default function Profile() {
         {/* Public Profile Promotion Banner */}
         {!hasPublicProfile && !profilePromoDismissed && (
           <div className="relative bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden mb-8 group hover:border-slate-300 transition-colors">
-            <div className="absolute top-0 left-0 w-1 h-full bg-[#0B1F3B]"></div>
+            <div className="absolute top-0 left-0 w-1 h-full bg-primary"></div>
             <button
               onClick={handleDismissProfilePromo}
               className="absolute top-4 right-4 w-8 h-8 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-slate-500 transition-colors"
@@ -320,7 +320,7 @@ export default function Profile() {
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
                 <div className="flex-shrink-0">
                   <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-200">
-                    <Globe size={28} className="text-[#0B1F3B]" />
+                    <Globe size={28} className="text-primary" />
                   </div>
                 </div>
                 <div className="flex-1 text-center sm:text-left">
@@ -381,7 +381,7 @@ export default function Profile() {
             {/* Usage Statistics */}
             <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-5 sm:p-6">
               <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-6 flex items-center gap-2">
-                <Zap size={16} className="text-[#0B1F3B]" />
+                <Zap size={16} className="text-primary" />
                 Resource Usage
               </h3>
               <div className="space-y-6">
@@ -394,7 +394,7 @@ export default function Profile() {
                   </div>
                   <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-[#0B1F3B] transition-all duration-700 ease-out rounded-full"
+                      className="h-full bg-primary transition-all duration-700 ease-out rounded-full"
                       style={{
                         width: `${(plan === "premium" || plan === "monthly" || plan === "sixMonth")
                           ? 100
@@ -419,7 +419,7 @@ export default function Profile() {
                   </div>
                   <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-[#0B1F3B] transition-all duration-700 ease-out rounded-full"
+                      className="h-full bg-primary transition-all duration-700 ease-out rounded-full"
                       style={{ width: `${Math.min((usage.previews / 10) * 100, 100)}%` }}
                     />
                   </div>
@@ -431,7 +431,7 @@ export default function Profile() {
                   </div>
                   <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-[#0B1F3B] transition-all duration-700 ease-out rounded-full"
+                      className="h-full bg-primary transition-all duration-700 ease-out rounded-full"
                       style={{ width: `${Math.min((usage.resumes / 10) * 100, 100)}%` }}
                     />
                   </div>
@@ -439,23 +439,23 @@ export default function Profile() {
                 <div className="pt-2 border-t border-slate-50">
                   <button
                     onClick={() => setShowUsageTips(!showUsageTips)}
-                    className="text-xs font-bold text-[#0B1F3B] hover:text-[#071429] flex items-center gap-1.5 transition-colors group"
+                    className="text-xs font-bold text-primary hover:text-gray-900 flex items-center gap-1.5 transition-colors group"
                   >
-                    <HelpCircle size={14} className="text-slate-400 group-hover:text-[#0B1F3B] transition-colors" />
+                    <HelpCircle size={14} className="text-slate-400 group-hover:text-primary transition-colors" />
                     Viewing Usage Policy
                   </button>
                   {showUsageTips && (
                     <div className="mt-3 p-4 bg-slate-50 rounded-lg text-[11px] text-slate-600 leading-relaxed border border-slate-100 animate-slideDown">
                       <p className="flex items-start gap-2 mb-1.5 font-medium">
-                        <span className="text-[#0B1F3B] mt-0.5">•</span>
+                        <span className="text-primary mt-0.5">•</span>
                         Downloads reset immediately upon plan upgrade.
                       </p>
                       <p className="flex items-start gap-2 mb-1.5 font-medium">
-                        <span className="text-[#0B1F3B] mt-0.5">•</span>
+                        <span className="text-primary mt-0.5">•</span>
                         Resume previews allocated per billing cycle.
                       </p>
                       <p className="flex items-start gap-2 font-medium">
-                        <span className="text-[#0B1F3B] mt-0.5">•</span>
+                        <span className="text-primary mt-0.5">•</span>
                         Upgrade to Pro for unlimited resource access.
                       </p>
                     </div>
@@ -467,7 +467,7 @@ export default function Profile() {
             {/* Profile Management Card */}
             <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-5 sm:p-6">
               <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-6 flex items-center gap-2">
-                <Users size={16} className="text-[#0B1F3B]" />
+                <Users size={16} className="text-primary" />
                 Linked Identities
               </h3>
 
@@ -482,7 +482,7 @@ export default function Profile() {
                       <p className="text-[11px] text-slate-500 mt-1 font-medium transition-colors">Default Profile</p>
                     </div>
                   </div>
-                  <span className="text-[10px] font-bold text-[#0B1F3B] bg-slate-50 px-2 py-0.5 rounded-full border border-slate-200 uppercase tracking-tight">Active</span>
+                  <span className="text-[10px] font-bold text-primary bg-slate-50 px-2 py-0.5 rounded-full border border-slate-200 uppercase tracking-tight">Active</span>
                 </div>
 
                 {storedProfiles.map((profile, index) => (
@@ -581,7 +581,7 @@ export default function Profile() {
                     {getPlanFeatures('resume').map((feature, index) => (
                       <div key={index} className="flex items-center gap-3">
                         <div className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-50 flex items-center justify-center border border-slate-200">
-                          <CheckCircle2 size={12} className="text-[#0B1F3B]" />
+                          <CheckCircle2 size={12} className="text-primary" />
                         </div>
                         <span className="text-sm text-slate-600 font-medium">{feature}</span>
                       </div>
@@ -597,7 +597,7 @@ export default function Profile() {
                   <div className="mt-12 pt-10 border-t border-slate-100">
                     <div className="flex items-center justify-between mb-6">
                       <h4 className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">Available Upgrades</h4>
-                      <Link href="/pricing" className="text-xs font-bold text-[#0B1F3B] hover:text-[#071429] flex items-center gap-1.5 transition-colors">
+                      <Link href="/pricing" className="text-xs font-bold text-primary hover:text-gray-900 flex items-center gap-1.5 transition-colors">
                         Compare Plans
                         <ChevronRight size={14} />
                       </Link>
@@ -612,7 +612,7 @@ export default function Profile() {
                             }`}
                         >
                           {option.billingCycle === "sixMonth" && (
-                            <div className="absolute -top-3 left-6 bg-[#0B1F3B] text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
+                            <div className="absolute -top-3 left-6 bg-primary text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
                               Most Efficient
                             </div>
                           )}
@@ -636,7 +636,7 @@ export default function Profile() {
                           <button
                             onClick={() => handleUpgrade(option.billingCycle)}
                             className={`w-full py-3 rounded-xl font-bold text-sm transition-all active:scale-95 ${option.billingCycle === "sixMonth"
-                              ? "bg-[#0B1F3B] text-white hover:bg-[#071429] shadow-sm"
+                              ? "bg-primary text-white hover:bg-gray-900 shadow-sm"
                               : "bg-white text-slate-900 border border-slate-200 hover:bg-slate-50 shadow-sm"
                               }`}
                           >
@@ -662,7 +662,7 @@ export default function Profile() {
               <div className="p-0">
                 {transactionsLoading ? (
                   <div className="p-12 flex justify-center">
-                    <div className="animate-spin rounded-full h-6 w-6 border-2 border-slate-200 border-t-[#0B1F3B]" />
+                    <div className="animate-spin rounded-full h-6 w-6 border-2 border-slate-200 border-t-primary" />
                   </div>
                 ) : transactions.length === 0 ? (
                   <div className="p-10 text-center">
@@ -743,7 +743,7 @@ export default function Profile() {
                       <div className="px-6 py-4 border-t border-slate-50 flex justify-center">
                         <button
                           onClick={() => setShowAllTransactions(!showAllTransactions)}
-                          className="text-xs font-bold text-[#0B1F3B] hover:text-[#071429] flex items-center gap-2 transition-colors group"
+                          className="text-xs font-bold text-primary hover:text-gray-900 flex items-center gap-2 transition-colors group"
                         >
                           {showAllTransactions ? 'Show less' : `View all transaction history (${transactions.length})`}
                           <ChevronRight size={14} className={`transition-transform ${showAllTransactions ? 'rotate-90' : 'group-hover:translate-x-0.5'}`} />
@@ -758,7 +758,7 @@ export default function Profile() {
             {/* Privacy & Data Management */}
             <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 sm:p-8">
               <h3 className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
-                <Shield size={14} className="text-teal-600" />
+                <Shield size={14} className="text-accent-600" />
                 Privacy & Data Management
               </h3>
               <p className="text-sm text-slate-500 mb-6">Manage your personal data in compliance with CCPA. You have the right to access, export, and delete your data at any time.</p>
@@ -766,10 +766,10 @@ export default function Profile() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 <Link
                   href="/privacy-dashboard"
-                  className="group flex items-center justify-between p-4 bg-teal-50/50 border border-teal-100 rounded-xl hover:bg-teal-50 hover:border-teal-200 transition-all"
+                  className="group flex items-center justify-between p-4 bg-accent-50/50 border border-accent-100 rounded-xl hover:bg-accent-50 hover:border-accent-200 transition-all"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center text-teal-700 group-hover:bg-teal-600 group-hover:text-white transition-all">
+                    <div className="w-10 h-10 bg-accent-100 rounded-xl flex items-center justify-center text-accent-700 group-hover:bg-accent-600 group-hover:text-white transition-all">
                       <Eye size={20} />
                     </div>
                     <div>
@@ -777,7 +777,7 @@ export default function Profile() {
                       <p className="text-[11px] text-slate-500">Manage all privacy settings</p>
                     </div>
                   </div>
-                  <ArrowRight size={16} className="text-teal-300 group-hover:text-teal-700 transition-colors" />
+                  <ArrowRight size={16} className="text-accent-300 group-hover:text-accent-700 transition-colors" />
                 </Link>
 
                 <button
@@ -801,10 +801,10 @@ export default function Profile() {
                       toast.error("Failed to export data. Try again.");
                     }
                   }}
-                  className="group flex items-center justify-between p-4 bg-blue-50/50 border border-blue-100 rounded-xl hover:bg-blue-50 hover:border-blue-200 transition-all text-left"
+                  className="group flex items-center justify-between p-4 bg-accent-50/50 border border-accent-100 rounded-xl hover:bg-accent-50 hover:border-accent-200 transition-all text-left"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center text-blue-700 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                    <div className="w-10 h-10 bg-accent-100 rounded-xl flex items-center justify-center text-accent-700 group-hover:bg-accent-600 group-hover:text-white transition-all">
                       <DatabaseZap size={20} />
                     </div>
                     <div>
@@ -812,7 +812,7 @@ export default function Profile() {
                       <p className="text-[11px] text-slate-500">Download all your data (JSON)</p>
                     </div>
                   </div>
-                  <Download size={16} className="text-blue-300 group-hover:text-blue-700 transition-colors" />
+                  <Download size={16} className="text-accent-300 group-hover:text-accent-700 transition-colors" />
                 </button>
 
                 <Link
@@ -875,7 +875,7 @@ export default function Profile() {
 
               <div className="bg-slate-50 rounded-lg p-4 border border-slate-100">
                 <p className="text-[11px] text-slate-500 leading-relaxed">
-                  <strong className="text-slate-700">Your rights under CCPA:</strong> As a California resident, you have the right to know what personal data we collect, request deletion of your data, opt-out of the sale of your personal information, and not be discriminated against for exercising your rights. For questions, contact <a href="mailto:privacy@expertresume.us" className="text-teal-600 underline">privacy@expertresume.us</a>.
+                  <strong className="text-slate-700">Your rights under CCPA:</strong> As a California resident, you have the right to know what personal data we collect, request deletion of your data, opt-out of the sale of your personal information, and not be discriminated against for exercising your rights. For questions, contact <a href="mailto:privacy@expertresume.us" className="text-accent-600 underline">privacy@expertresume.us</a>.
                 </p>
               </div>
             </div>
@@ -883,7 +883,7 @@ export default function Profile() {
             {/* Quick Actions */}
             <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 sm:p-8">
               <h3 className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em] mb-8 flex items-center gap-2">
-                <Zap size={14} className="text-[#0B1F3B]" />
+                <Zap size={14} className="text-primary" />
                 Experience Shortcuts
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -892,7 +892,7 @@ export default function Profile() {
                   className="group flex items-center justify-between p-4 bg-slate-50/50 border border-slate-100 rounded-xl hover:bg-white hover:border-slate-300 transition-all hover:shadow-sm"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-center text-[#0B1F3B] shadow-tiny group-hover:bg-[#0B1F3B] group-hover:text-white transition-all duration-300">
+                    <div className="w-10 h-10 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-center text-primary shadow-tiny group-hover:bg-primary group-hover:text-white transition-all duration-300">
                       <FileText size={20} />
                     </div>
                     <div>
@@ -940,7 +940,7 @@ export default function Profile() {
                   className="group flex items-center justify-between p-4 bg-slate-50/50 border border-slate-100 rounded-xl hover:bg-white hover:border-slate-300 transition-all hover:shadow-sm"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-center text-teal-600 shadow-tiny group-hover:bg-teal-600 group-hover:text-white transition-all duration-300">
+                    <div className="w-10 h-10 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-center text-accent-600 shadow-tiny group-hover:bg-accent-600 group-hover:text-white transition-all duration-300">
                       <Globe size={20} />
                     </div>
                     <div>

@@ -35,7 +35,7 @@ export default function JobCard({
     return (
         <div className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group h-full flex flex-col relative">
             {/* Top accent border */}
-            <div className={`absolute top-0 left-0 w-full h-1 ${showScore && matchScore >= 80 ? 'bg-gradient-to-r from-green-400 to-emerald-500' : 'bg-gradient-to-r from-blue-400 to-indigo-500'}`}></div>
+            <div className={`absolute top-0 left-0 w-full h-1 ${showScore && matchScore >= 80 ? 'bg-gradient-to-r from-accent-400 to-accent-500' : 'bg-gradient-to-r from-primary-400 to-primary'}`}></div>
 
             <div className="p-6 flex-1 flex flex-col">
                 {/* Job Header */}
@@ -58,7 +58,7 @@ export default function JobCard({
                                 {job.type || "Full Time"}
                             </span>
                         </div>
-                        <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors line-clamp-2 leading-tight">
+                        <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 group-hover:text-accent transition-colors line-clamp-2 leading-tight">
                             {job.title}
                         </h3>
                         <div className="flex items-center gap-2 text-gray-500 text-sm font-medium mb-3">
@@ -92,7 +92,7 @@ export default function JobCard({
                             </div>
                         ) : (
                             <Link href="/pricing?feature=match-score">
-                                <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border-[3px] border-gray-100 bg-gray-50 text-gray-300 cursor-pointer hover:border-blue-200 hover:text-blue-500 transition-all group/lock">
+                                <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center border-[3px] border-gray-100 bg-gray-50 text-gray-300 cursor-pointer hover:border-accent/20 hover:text-accent transition-all group/lock">
                                     <Lock className="w-5 h-5 sm:w-6 sm:h-6 group-hover/lock:scale-110 transition-transform" />
                                 </div>
                             </Link>
@@ -113,7 +113,7 @@ export default function JobCard({
                         </div>
                     </div>
                     <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-100 rounded-lg p-2.5 flex items-center gap-3 group/stat">
-                        <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-blue-600 border border-gray-100 group-hover/stat:border-blue-200 transition-colors">
+                        <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm text-accent border border-gray-100 group-hover/stat:border-accent/20 transition-colors">
                             <Clock className="w-4 h-4" />
                         </div>
                         <div className="min-w-0">
@@ -130,9 +130,9 @@ export default function JobCard({
 
                 {/* Application Method */}
                 {job.applicationMethod && (
-                    <div className="bg-blue-50/30 rounded-lg px-3 py-2 mb-4 border border-blue-50 flex items-center gap-2.5">
-                        <ExternalLink className="w-3.5 h-3.5 text-blue-400 flex-shrink-0" />
-                        <p className="text-xs text-blue-800 truncate">
+                    <div className="bg-accent-50/30 rounded-lg px-3 py-2 mb-4 border border-accent-50 flex items-center gap-2.5">
+                        <ExternalLink className="w-3.5 h-3.5 text-accent-400 flex-shrink-0" />
+                        <p className="text-xs text-primary truncate">
                             <span className="font-semibold opacity-70 mr-1">Apply via:</span>
                             {job.applicationMethod}
                         </p>
@@ -180,7 +180,7 @@ export default function JobCard({
                     {/* Match Score */}
                     <button
                         onClick={() => router.push(`/jobs/match?jobTitle=${encodeURIComponent(job.title)}&company=${encodeURIComponent(job.company)}&location=${encodeURIComponent(job.location)}&description=${encodeURIComponent(job.description)}`)}
-                        className="col-span-1 bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-md hover:shadow-lg py-2.5 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-1.5 text-xs active:scale-95 group/match relative overflow-hidden"
+                        className="col-span-1 bg-gradient-to-r from-accent-600 to-accent text-white shadow-md hover:shadow-lg py-2.5 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-1.5 text-xs active:scale-95 group/match relative overflow-hidden"
                         title="AI Match Score Analysis"
                     >
                         <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/match:translate-y-0 transition-transform duration-300"></div>
@@ -213,7 +213,7 @@ export default function JobCard({
                     {/* Tailor Resume */}
                     <button
                         onClick={handleTailorClick}
-                        className="col-span-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md hover:shadow-lg py-2.5 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-1.5 text-xs active:scale-95 group/tailor relative overflow-hidden"
+                        className="col-span-1 bg-gradient-to-r from-primary to-accent text-white shadow-md hover:shadow-lg py-2.5 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-1.5 text-xs active:scale-95 group/tailor relative overflow-hidden"
                         title="Create a tailored resume for this job"
                     >
                         <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/tailor:translate-y-0 transition-transform duration-300"></div>

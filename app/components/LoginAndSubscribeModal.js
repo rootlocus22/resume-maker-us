@@ -151,7 +151,7 @@ export default function LoginAndSubscribeModal({ isOpen, onClose, billingCycle =
           </div>
           <button
             onClick={handleEmailSignUp}
-            className="w-full bg-gradient-to-r from-blue-600 to-blue-600 text-white py-3 rounded-lg font-bold shadow-md hover:from-blue-700 hover:to-blue-700 transition-all disabled:opacity-70"
+            className="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-lg font-bold shadow-md hover:from-primary-800 hover:to-accent-600 transition-all disabled:opacity-70"
             disabled={isLoading}
           >
             {isLoading ? "Processing..." : `Sign Up for ${pricing.basicPrice} (7 days)`}

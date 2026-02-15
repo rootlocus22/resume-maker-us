@@ -360,7 +360,7 @@ export default function SalaryAnalyzerPage() {
   const getDemandColor = (demand) => {
     switch (demand?.toLowerCase()) {
       case "very high": return "text-green-600 bg-green-100";
-      case "high": return "text-[#0B1F3B] bg-[#0B1F3B]/10";
+      case "high": return "text-primary bg-primary/10";
       case "moderate": return "text-yellow-600 bg-yellow-100";
       case "low": return "text-red-600 bg-red-100";
       default: return "text-gray-600 bg-gray-100";
@@ -370,7 +370,7 @@ export default function SalaryAnalyzerPage() {
   const getTrendIcon = (trend) => {
     switch (trend?.toLowerCase()) {
       case "growing": return <TrendingUp className="text-green-500" size={16} />;
-      case "stable": return <BarChart3 className="text-[#0B1F3B]" size={16} />;
+      case "stable": return <BarChart3 className="text-primary" size={16} />;
       case "declining": return <TrendingDown className="text-red-500" size={16} />;
       default: return <BarChart3 className="text-gray-500" size={16} />;
     }
@@ -379,15 +379,15 @@ export default function SalaryAnalyzerPage() {
   // Show upgrade modal if user doesn't have access to Salary Analyzer
   if (showUpgradeModal && !hasAccess && user) {
     return (
-      <div className="min-h-screen bg-[#F8FAFC] flex items-center justify-center p-4">
+      <div className="min-h-screen bg-bg flex items-center justify-center p-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           className="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full"
         >
           <div className="text-center">
-            <div className="w-20 h-20 bg-gradient-to-r from-[#0B1F3B] to-[#132D54] rounded-full flex items-center justify-center mx-auto mb-6">
-              <Crown className="w-10 h-10 text-[#00C4B3]" />
+            <div className="w-20 h-20 bg-gradient-to-r from-primary to-[#132D54] rounded-full flex items-center justify-center mx-auto mb-6">
+              <Crown className="w-10 h-10 text-accent" />
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Upgrade to Pro for Salary Analyzer
@@ -395,23 +395,23 @@ export default function SalaryAnalyzerPage() {
             <p className="text-gray-600 mb-6 text-lg">
               The Salary Analyzer feature is available for <strong>Pro Monthly</strong> and <strong>Pro 6-Month</strong> plans.
             </p>
-            <div className="bg-[#0B1F3B]/5 rounded-lg p-6 mb-6">
+            <div className="bg-primary/5 rounded-lg p-6 mb-6">
               <h3 className="font-semibold text-gray-900 mb-3">Unlock with Pro Plans:</h3>
               <ul className="space-y-2 text-left">
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="text-[#00C4B3]" size={20} />
+                  <CheckCircle className="text-accent" size={20} />
                   <span>JD Builder - Tailor to Any Job</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="text-[#00C4B3]" size={20} />
+                  <CheckCircle className="text-accent" size={20} />
                   <span>ExpertResume GPT</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="text-[#00C4B3]" size={20} />
+                  <CheckCircle className="text-accent" size={20} />
                   <span>Salary Analyzer</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="text-[#00C4B3]" size={20} />
+                  <CheckCircle className="text-accent" size={20} />
                   <span>Unlimited Downloads</span>
                 </li>
               </ul>
@@ -419,13 +419,13 @@ export default function SalaryAnalyzerPage() {
             <div className="flex gap-4">
               <button
                 onClick={() => router.push('/checkout?billingCycle=monthly')}
-                className="flex-1 bg-[#0B1F3B] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#132D54] transition-all"
+                className="flex-1 bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#132D54] transition-all"
               >
                 Upgrade to Pro Monthly
               </button>
               <button
                 onClick={() => router.push('/pricing')}
-                className="flex-1 border-2 border-[#0B1F3B] text-[#0B1F3B] px-6 py-3 rounded-lg font-semibold hover:bg-[#0B1F3B]/5 transition-all"
+                className="flex-1 border-2 border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary/5 transition-all"
               >
                 View All Plans
               </button>
@@ -437,19 +437,19 @@ export default function SalaryAnalyzerPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC]">
+    <div className="min-h-screen bg-bg">
       {/* Hero Section - Compact */}
-      <div className="bg-gradient-to-r from-[#0B1F3B] to-[#132D54] text-white py-8">
+      <div className="bg-gradient-to-r from-primary to-[#132D54] text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="flex-1 text-center lg:text-left">
               <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1.5 rounded-full text-xs font-medium mb-3">
-                <Crown className="mr-1.5 text-[#00C4B3]" size={14} />
+                <Crown className="mr-1.5 text-accent" size={14} />
                 Premium Salary Intelligence
               </div>
 
               <h1 className="text-3xl sm:text-4xl font-bold mb-2">
-                Know Your <span className="text-[#00C4B3]">True Worth</span>
+                Know Your <span className="text-accent">True Worth</span>
               </h1>
 
               <p className="text-slate-300 max-w-xl text-sm mb-4">
@@ -464,9 +464,9 @@ export default function SalaryAnalyzerPage() {
                   </span>
                 </div>
                 {countryCode !== "IN" && (
-                  <div className="flex items-center gap-1.5 bg-[#00C4B3]/20 rounded-full px-3 py-1.5">
-                    <CheckCircle className="w-3.5 h-3.5 text-[#00C4B3]" />
-                    <span className="text-[#00C4B3] text-xs">Global Ready</span>
+                  <div className="flex items-center gap-1.5 bg-accent/20 rounded-full px-3 py-1.5">
+                    <CheckCircle className="w-3.5 h-3.5 text-accent" />
+                    <span className="text-accent text-xs">Global Ready</span>
                   </div>
                 )}
               </div>
@@ -475,15 +475,15 @@ export default function SalaryAnalyzerPage() {
             {/* Quick Stats - Side */}
             <div className="flex gap-6 lg:gap-8">
               <div className="text-center">
-                <div className="text-2xl font-bold text-[#00C4B3]">94%</div>
+                <div className="text-2xl font-bold text-accent">94%</div>
                 <div className="text-xs text-slate-400">Accuracy</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-[#00C4B3]">$12K</div>
+                <div className="text-2xl font-bold text-accent">$12K</div>
                 <div className="text-xs text-slate-400">Avg. Boost</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-[#00C4B3]">50K+</div>
+                <div className="text-2xl font-bold text-accent">50K+</div>
                 <div className="text-xs text-slate-400">Data Points</div>
               </div>
             </div>
@@ -502,8 +502,8 @@ export default function SalaryAnalyzerPage() {
             >
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-[#0B1F3B]/10 rounded-lg flex items-center justify-center">
-                    <Target className="text-[#0B1F3B]" size={20} />
+                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <Target className="text-primary" size={20} />
                   </div>
                   <div>
                     <h2 className="text-xl font-bold text-gray-900">Salary Analysis</h2>
@@ -516,7 +516,7 @@ export default function SalaryAnalyzerPage() {
                   <select
                     value={currency}
                     onChange={(e) => switchCurrency(e.target.value)}
-                    className="text-sm border border-gray-300 rounded-md px-3 py-1 focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3]"
+                    className="text-sm border border-gray-300 rounded-md px-3 py-1 focus:ring-2 focus:ring-accent focus:border-accent"
                   >
                     <option value="USD">USD ($)</option>
                     <option value="EUR">EUR (€)</option>
@@ -536,7 +536,7 @@ export default function SalaryAnalyzerPage() {
                   <select
                     value={formData.industry}
                     onChange={(e) => setFormData(prev => ({ ...prev, industry: e.target.value }))}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-all"
                   >
                     <option value="">Select Industry</option>
                     {industries.map((ind) => (
@@ -552,7 +552,7 @@ export default function SalaryAnalyzerPage() {
                     value={formData.jobTitle}
                     onChange={(e) => setFormData(prev => ({ ...prev, jobTitle: e.target.value }))}
                     placeholder="e.g., Senior Software Engineer"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-all"
                   />
                 </div>
 
@@ -561,7 +561,7 @@ export default function SalaryAnalyzerPage() {
                   <select
                     value={formData.experience}
                     onChange={(e) => setFormData(prev => ({ ...prev, experience: e.target.value }))}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-all"
                   >
                     <option value="">Select Experience</option>
                     {experiences.map((exp) => (
@@ -575,7 +575,7 @@ export default function SalaryAnalyzerPage() {
                   <select
                     value={formData.location}
                     onChange={(e) => setFormData(prev => ({ ...prev, location: e.target.value }))}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-all"
                   >
                     <option value="">Select Location</option>
                     {locations.map((loc) => (
@@ -593,7 +593,7 @@ export default function SalaryAnalyzerPage() {
                     value={formData.currentSalary}
                     onChange={(e) => setFormData(prev => ({ ...prev, currentSalary: e.target.value }))}
                     placeholder="Enter your current salary"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-all"
                   />
                 </div>
 
@@ -619,7 +619,7 @@ export default function SalaryAnalyzerPage() {
                                 setFormData(prev => ({ ...prev, skills: prev.skills.filter(s => s !== skill) }));
                               }
                             }}
-                            className="rounded border-gray-300 text-[#0B1F3B] focus:ring-[#00C4B3]"
+                            className="rounded border-gray-300 text-primary focus:ring-accent"
                           />
                           {skill}
                         </label>
@@ -640,7 +640,7 @@ export default function SalaryAnalyzerPage() {
                   disabled={isLoading || (!isPremium && analysisCount >= 1)}
                   className={`w-full py-4 rounded-lg font-semibold text-white flex items-center justify-center gap-2 transition-all ${isLoading || (!isPremium && analysisCount >= 1)
                       ? "bg-gray-400 cursor-not-allowed"
-                      : "bg-[#0B1F3B] hover:bg-[#132D54] shadow-lg"
+                      : "bg-primary hover:bg-[#132D54] shadow-lg"
                     }`}
                 >
                   {isLoading ? (
@@ -662,21 +662,21 @@ export default function SalaryAnalyzerPage() {
                 </motion.button>
 
                 {!isPremium && (
-                  <div className="bg-[#0B1F3B]/5 border border-[#0B1F3B]/15 rounded-lg p-4">
+                  <div className="bg-primary/5 border border-primary/15 rounded-lg p-4">
                     <div className="flex items-center gap-2 mb-2">
-                      <Crown className="text-[#0B1F3B]" size={16} />
-                      <span className="text-sm font-medium text-[#0B1F3B]">Premium Feature</span>
+                      <Crown className="text-primary" size={16} />
+                      <span className="text-sm font-medium text-primary">Premium Feature</span>
                     </div>
                     <p className="text-xs text-gray-600 mb-3">
                       Free users get 1 analysis. Upgrade for unlimited access and advanced insights.
                     </p>
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-xs text-gray-600">Analyses used:</span>
-                      <span className="text-xs font-medium text-[#0B1F3B]">{analysisCount}/1</span>
+                      <span className="text-xs font-medium text-primary">{analysisCount}/1</span>
                     </div>
                     <Link
                       href="/pricing"
-                      className="inline-flex items-center gap-2 bg-[#0B1F3B] text-white px-3 py-2 rounded text-sm font-medium hover:bg-[#132D54] transition-colors"
+                      className="inline-flex items-center gap-2 bg-primary text-white px-3 py-2 rounded text-sm font-medium hover:bg-[#132D54] transition-colors"
                     >
                       Upgrade Now
                       <ArrowRight size={14} />
@@ -711,7 +711,7 @@ export default function SalaryAnalyzerPage() {
                           key={tab.id}
                           onClick={() => setActiveTab(tab.id)}
                           className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeTab === tab.id
-                              ? "bg-[#0B1F3B]/10 text-[#0B1F3B] border border-[#0B1F3B]/20"
+                              ? "bg-primary/10 text-primary border border-primary/20"
                               : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                             }`}
                         >
@@ -730,36 +730,36 @@ export default function SalaryAnalyzerPage() {
                         <div className="space-y-6">
                           {/* Salary Summary */}
                           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="bg-gradient-to-br from-[#0B1F3B]/5 to-[#0B1F3B]/10 p-6 rounded-xl border border-[#0B1F3B]/15">
+                            <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-6 rounded-xl border border-primary/15">
                               <div className="flex items-center gap-3 mb-3">
-                                <DollarSign className="text-[#0B1F3B]" size={20} />
-                                <span className="text-sm font-medium text-[#0B1F3B]">Average Salary</span>
+                                <DollarSign className="text-primary" size={20} />
+                                <span className="text-sm font-medium text-primary">Average Salary</span>
                               </div>
-                              <div className="text-2xl font-bold text-[#0B1F3B]">
+                              <div className="text-2xl font-bold text-primary">
                                 {formatSalary(analysisResult.marketOverview?.averageSalary)}
                               </div>
                               <div className="text-xs text-gray-600 mt-1">Per year</div>
                             </div>
 
-                            <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border border-green-200">
+                            <div className="bg-gradient-to-br from-accent-50 to-accent-50 p-6 rounded-xl border border-accent/20">
                               <div className="flex items-center gap-3 mb-3">
-                                <TrendingUp className="text-green-600" size={20} />
-                                <span className="text-sm font-medium text-green-800">Market Trend</span>
+                                <TrendingUp className="text-accent" size={20} />
+                                <span className="text-sm font-medium text-primary">Market Trend</span>
                               </div>
-                              <div className="text-2xl font-bold text-green-900">
+                              <div className="text-2xl font-bold text-primary">
                                 {analysisResult.marketOverview?.marketTrend}
                               </div>
-                              <div className="text-xs text-green-700 mt-1">
+                              <div className="text-xs text-accent-700 mt-1">
                                 {analysisResult.marketOverview?.industryGrowth} growth
                               </div>
                             </div>
 
-                            <div className="bg-gradient-to-br from-[#00C4B3]/5 to-[#00C4B3]/10 p-6 rounded-xl border border-[#00C4B3]/20">
+                            <div className="bg-gradient-to-br from-accent/5 to-accent/10 p-6 rounded-xl border border-accent/20">
                               <div className="flex items-center gap-3 mb-3">
-                                <Users className="text-[#00C4B3]" size={20} />
-                                <span className="text-sm font-medium text-[#0B1F3B]">Demand Level</span>
+                                <Users className="text-accent" size={20} />
+                                <span className="text-sm font-medium text-primary">Demand Level</span>
                               </div>
-                              <div className="text-2xl font-bold text-[#0B1F3B]">
+                              <div className="text-2xl font-bold text-primary">
                                 {analysisResult.marketOverview?.demandLevel}
                               </div>
                               <div className="text-xs text-gray-600 mt-1">Job market</div>
@@ -822,8 +822,8 @@ export default function SalaryAnalyzerPage() {
 
                                   {/* P50 Marker (Median) */}
                                   <div className="flex flex-col items-center">
-                                    <div className="w-2 h-6 bg-[#0B1F3B] rounded-full mb-1 shadow-sm"></div>
-                                    <span className="text-xs text-[#0B1F3B] font-bold">50th</span>
+                                    <div className="w-2 h-6 bg-primary rounded-full mb-1 shadow-sm"></div>
+                                    <span className="text-xs text-primary font-bold">50th</span>
                                   </div>
 
                                   {/* P75 Marker */}
@@ -862,7 +862,7 @@ export default function SalaryAnalyzerPage() {
                                 <div className="text-xs font-medium text-gray-700">
                                   {formatSalary(analysisResult.marketOverview?.percentiles?.p25)}
                                 </div>
-                                <div className="text-xs font-bold text-[#0B1F3B]">
+                                <div className="text-xs font-bold text-primary">
                                   {formatSalary(analysisResult.marketOverview?.percentiles?.p50)}
                                 </div>
                                 <div className="text-xs font-medium text-gray-700">
@@ -877,7 +877,7 @@ export default function SalaryAnalyzerPage() {
                               <div className="mt-3 pt-3 border-t border-gray-200">
                                 <div className="flex items-center justify-center gap-4 text-xs text-gray-600">
                                   <div className="flex items-center gap-1">
-                                    <div className="w-2 h-2 bg-[#0B1F3B] rounded-full"></div>
+                                    <div className="w-2 h-2 bg-primary rounded-full"></div>
                                     <span>Median</span>
                                   </div>
                                   <div className="flex items-center gap-1">
@@ -915,7 +915,7 @@ export default function SalaryAnalyzerPage() {
                                 </div>
                                 <div>
                                   <div className="text-sm text-gray-600">Market Position</div>
-                                  <div className="text-xl font-bold text-[#0B1F3B]">
+                                  <div className="text-xl font-bold text-primary">
                                     {analysisResult.comparison.percentile} Percentile
                                   </div>
                                 </div>
@@ -930,9 +930,9 @@ export default function SalaryAnalyzerPage() {
 
                           {/* Premium Upgrade Section for Free Users */}
                           {!isPremium && (
-                            <div className="bg-gradient-to-r from-[#0B1F3B]/5 to-[#00C4B3]/5 p-6 rounded-xl border border-[#0B1F3B]/15">
+                            <div className="bg-gradient-to-r from-primary/5 to-accent/5 p-6 rounded-xl border border-primary/15">
                               <div className="flex items-center gap-3 mb-4">
-                                <Crown className="text-[#0B1F3B]" size={20} />
+                                <Crown className="text-primary" size={20} />
                                 <h3 className="text-lg font-semibold text-gray-900">Unlock Premium Insights</h3>
                               </div>
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
@@ -940,29 +940,29 @@ export default function SalaryAnalyzerPage() {
                                   <h4 className="font-medium text-gray-900 mb-3">What you'll get with Premium:</h4>
                                   <ul className="space-y-2">
                                     <li className="flex items-center gap-2 text-sm">
-                                      <CheckCircle className="text-[#00C4B3]" size={16} />
+                                      <CheckCircle className="text-accent" size={16} />
                                       Detailed Market Insights & Trends
                                     </li>
                                     <li className="flex items-center gap-2 text-sm">
-                                      <CheckCircle className="text-[#00C4B3]" size={16} />
+                                      <CheckCircle className="text-accent" size={16} />
                                       Negotiation Strategies & Tips
                                     </li>
                                     <li className="flex items-center gap-2 text-sm">
-                                      <CheckCircle className="text-[#00C4B3]" size={16} />
+                                      <CheckCircle className="text-accent" size={16} />
                                       Company Benchmarks & Salary Data
                                     </li>
                                     <li className="flex items-center gap-2 text-sm">
-                                      <CheckCircle className="text-[#00C4B3]" size={16} />
+                                      <CheckCircle className="text-accent" size={16} />
                                       Skill Analysis & Premium Insights
                                     </li>
                                   </ul>
                                 </div>
                                 <div className="text-center">
-                                  <div className="text-2xl font-bold text-[#0B1F3B] mb-2">{monthlyPrice}/month</div>
+                                  <div className="text-2xl font-bold text-primary mb-2">{monthlyPrice}/month</div>
                                   <div className="text-sm text-gray-600 mb-4">or {yearlyPrice}/year (Save {yearlySavings}%)</div>
                                   <Link
                                     href="/pricing"
-                                    className="inline-flex items-center gap-2 bg-[#0B1F3B] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#132D54] transition-all shadow-lg"
+                                    className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-[#132D54] transition-all shadow-lg"
                                   >
                                     <Crown size={18} />
                                     Upgrade Now
@@ -1029,24 +1029,24 @@ export default function SalaryAnalyzerPage() {
                                     <div className="text-2xl font-bold text-red-600">13%</div>
                                     <div className="text-sm text-red-700">Gender Pay Gap</div>
                                   </div>
-                                  <div className="text-center p-4 bg-green-50 rounded-lg">
-                                    <div className="text-2xl font-bold text-green-600">Increasing</div>
-                                    <div className="text-sm text-green-700">Remote Work Trend</div>
+                                  <div className="text-center p-4 bg-accent-50 rounded-lg">
+                                    <div className="text-2xl font-bold text-accent">Increasing</div>
+                                    <div className="text-sm text-accent-700">Remote Work Trend</div>
                                   </div>
-                                  <div className="text-center p-4 bg-[#0B1F3B]/5 rounded-lg">
-                                    <div className="text-2xl font-bold text-[#0B1F3B]">Hybrid</div>
+                                  <div className="text-center p-4 bg-primary/5 rounded-lg">
+                                    <div className="text-2xl font-bold text-primary">Hybrid</div>
                                     <div className="text-sm text-gray-600">Work Culture</div>
                                   </div>
                                 </div>
                               </div>
                               <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-6 text-center border border-[#0B1F3B]/20">
-                                  <Crown className="text-[#0B1F3B] mx-auto mb-3" size={32} />
+                                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-6 text-center border border-primary/20">
+                                  <Crown className="text-primary mx-auto mb-3" size={32} />
                                   <h4 className="text-lg font-semibold text-gray-900 mb-2">Premium Insights</h4>
                                   <p className="text-gray-600 mb-4">Unlock detailed market trends and insights</p>
                                   <Link
                                     href="/pricing"
-                                    className="inline-flex items-center gap-2 bg-[#0B1F3B] text-white px-4 py-2 rounded-lg font-medium hover:bg-[#132D54] transition-all"
+                                    className="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-[#132D54] transition-all"
                                   >
                                     <Crown size={16} />
                                     Upgrade Now
@@ -1068,14 +1068,14 @@ export default function SalaryAnalyzerPage() {
                                   </div>
                                   <div className="text-sm text-red-700">Gender Pay Gap</div>
                                 </div>
-                                <div className="text-center p-4 bg-green-50 rounded-lg">
-                                  <div className="text-2xl font-bold text-green-600">
+                                <div className="text-center p-4 bg-accent-50 rounded-lg">
+                                  <div className="text-2xl font-bold text-accent">
                                     {analysisResult.marketInsights?.remoteWorkTrend}
                                   </div>
-                                  <div className="text-sm text-green-700">Remote Work Trend</div>
+                                  <div className="text-sm text-accent-700">Remote Work Trend</div>
                                 </div>
-                                <div className="text-center p-4 bg-[#0B1F3B]/5 rounded-lg">
-                                  <div className="text-2xl font-bold text-[#0B1F3B]">
+                                <div className="text-center p-4 bg-primary/5 rounded-lg">
+                                  <div className="text-2xl font-bold text-primary">
                                     {analysisResult.marketInsights?.workCulture}
                                   </div>
                                   <div className="text-sm text-gray-600">Work Culture</div>
@@ -1088,7 +1088,7 @@ export default function SalaryAnalyzerPage() {
 
                       {activeTab === "negotiation" && (
                         <div className="space-y-6">
-                          <div className="bg-gradient-to-r from-green-50 to-[#00C4B3]/5 p-6 rounded-xl border border-green-200">
+                          <div className="bg-gradient-to-r from-accent-50 to-accent/5 p-6 rounded-xl border border-accent/20">
                             <h3 className="text-lg font-semibold text-gray-900 mb-4">Negotiation Strategy</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                               <div>
@@ -1102,7 +1102,7 @@ export default function SalaryAnalyzerPage() {
                               </div>
                               <div>
                                 <h4 className="font-medium text-gray-900 mb-2">Best Timing</h4>
-                                <div className="text-lg font-semibold text-[#0B1F3B]">
+                                <div className="text-lg font-semibold text-primary">
                                   {analysisResult.negotiationGuide?.timing}
                                 </div>
                               </div>
@@ -1150,13 +1150,13 @@ export default function SalaryAnalyzerPage() {
                                 </div>
                               </div>
                               <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-6 text-center border border-[#0B1F3B]/20">
-                                  <Crown className="text-[#0B1F3B] mx-auto mb-3" size={32} />
+                                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-6 text-center border border-primary/20">
+                                  <Crown className="text-primary mx-auto mb-3" size={32} />
                                   <h4 className="text-lg font-semibold text-gray-900 mb-2">Premium Strategy</h4>
                                   <p className="text-gray-600 mb-4">Unlock complete negotiation tactics and action items</p>
                                   <Link
                                     href="/pricing"
-                                    className="inline-flex items-center gap-2 bg-[#0B1F3B] text-white px-4 py-2 rounded-lg font-medium hover:bg-[#132D54] transition-all"
+                                    className="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-[#132D54] transition-all"
                                   >
                                     <Crown size={16} />
                                     Upgrade Now
@@ -1201,8 +1201,8 @@ export default function SalaryAnalyzerPage() {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                   {analysisResult.actionItems?.map((item, index) => (
                                     <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
-                                      <div className="w-6 h-6 bg-[#0B1F3B]/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                                        <span className="text-xs font-bold text-[#0B1F3B]">{index + 1}</span>
+                                      <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <span className="text-xs font-bold text-primary">{index + 1}</span>
                                       </div>
                                       <span className="text-sm text-gray-700">{item}</span>
                                     </div>
@@ -1223,7 +1223,7 @@ export default function SalaryAnalyzerPage() {
                                 <div className="space-y-4">
                                   <div>
                                     <div className="text-sm text-gray-600">Salary Multiplier</div>
-                                    <div className="text-2xl font-bold text-[#0B1F3B]">
+                                    <div className="text-2xl font-bold text-primary">
                                       {((data.salaryMultiplier - 1) * 100).toFixed(0)}%
                                     </div>
                                   </div>
@@ -1263,22 +1263,22 @@ export default function SalaryAnalyzerPage() {
                                   <div>
                                     <h4 className="font-medium text-gray-900 mb-3">Top Payers</h4>
                                     <div className="space-y-3">
-                                      <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                                      <div className="flex justify-between items-center p-3 bg-accent-50 rounded-lg">
                                         <div>
                                           <div className="font-medium text-gray-900">Google</div>
                                           <div className="text-sm text-gray-600">Best benefits</div>
                                         </div>
                                         <div className="text-right">
-                                          <div className="font-bold text-green-600">+40%</div>
+                                          <div className="font-bold text-accent">+40%</div>
                                         </div>
                                       </div>
-                                      <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                                      <div className="flex justify-between items-center p-3 bg-accent-50 rounded-lg">
                                         <div>
                                           <div className="font-medium text-gray-900">Microsoft</div>
                                           <div className="text-sm text-gray-600">Good work-life balance</div>
                                         </div>
                                         <div className="text-right">
-                                          <div className="font-bold text-green-600">+30%</div>
+                                          <div className="font-bold text-accent">+30%</div>
                                         </div>
                                       </div>
                                     </div>
@@ -1286,13 +1286,13 @@ export default function SalaryAnalyzerPage() {
                                   <div>
                                     <h4 className="font-medium text-gray-900 mb-3">Mid-Tier Companies</h4>
                                     <div className="space-y-3">
-                                      <div className="flex justify-between items-center p-3 bg-[#0B1F3B]/5 rounded-lg">
+                                      <div className="flex justify-between items-center p-3 bg-primary/5 rounded-lg">
                                         <div>
                                           <div className="font-medium text-gray-900">Accenture</div>
                                           <div className="text-sm text-gray-600">Stable career</div>
                                         </div>
                                         <div className="text-right">
-                                          <div className="font-bold text-[#0B1F3B]">-5%</div>
+                                          <div className="font-bold text-primary">-5%</div>
                                         </div>
                                       </div>
                                     </div>
@@ -1300,13 +1300,13 @@ export default function SalaryAnalyzerPage() {
                                 </div>
                               </div>
                               <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-6 text-center border border-[#0B1F3B]/20">
-                                  <Crown className="text-[#0B1F3B] mx-auto mb-3" size={32} />
+                                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-6 text-center border border-primary/20">
+                                  <Crown className="text-primary mx-auto mb-3" size={32} />
                                   <h4 className="text-lg font-semibold text-gray-900 mb-2">Company Data</h4>
                                   <p className="text-gray-600 mb-4">Unlock detailed company benchmarks and insights</p>
                                   <Link
                                     href="/pricing"
-                                    className="inline-flex items-center gap-2 bg-[#0B1F3B] text-white px-4 py-2 rounded-lg font-medium hover:bg-[#132D54] transition-all"
+                                    className="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-[#132D54] transition-all"
                                   >
                                     <Crown size={16} />
                                     Upgrade Now
@@ -1326,13 +1326,13 @@ export default function SalaryAnalyzerPage() {
                                   <h4 className="font-medium text-gray-900 mb-3">Top Payers</h4>
                                   <div className="space-y-3">
                                     {analysisResult.companyBenchmarks?.topPayers?.map((company, index) => (
-                                      <div key={index} className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                                      <div key={index} className="flex justify-between items-center p-3 bg-accent-50 rounded-lg">
                                         <div>
                                           <div className="font-medium text-gray-900">{company.company}</div>
                                           <div className="text-sm text-gray-600">{company.note}</div>
                                         </div>
                                         <div className="text-right">
-                                          <div className="font-bold text-green-600">
+                                          <div className="font-bold text-accent">
                                             +{((company.multiplier - 1) * 100).toFixed(0)}%
                                           </div>
                                         </div>
@@ -1344,13 +1344,13 @@ export default function SalaryAnalyzerPage() {
                                   <h4 className="font-medium text-gray-900 mb-3">Mid-Tier Companies</h4>
                                   <div className="space-y-3">
                                     {analysisResult.companyBenchmarks?.midTier?.map((company, index) => (
-                                      <div key={index} className="flex justify-between items-center p-3 bg-[#0B1F3B]/5 rounded-lg">
+                                      <div key={index} className="flex justify-between items-center p-3 bg-primary/5 rounded-lg">
                                         <div>
                                           <div className="font-medium text-gray-900">{company.company}</div>
                                           <div className="text-sm text-gray-600">{company.note}</div>
                                         </div>
                                         <div className="text-right">
-                                          <div className="font-bold text-[#0B1F3B]">
+                                          <div className="font-bold text-primary">
                                             {((company.multiplier - 1) * 100).toFixed(0)}%
                                           </div>
                                         </div>
@@ -1369,19 +1369,19 @@ export default function SalaryAnalyzerPage() {
                           <div className="bg-white p-6 rounded-xl border border-gray-200">
                             <div className="flex items-center gap-3 mb-4">
                               <h3 className="text-lg font-semibold text-gray-900">High-Value Skills</h3>
-                              <div className="px-3 py-1 bg-[#0B1F3B]/10 text-[#0B1F3B] text-xs font-medium rounded-full">
+                              <div className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
                                 {formData.industry} Industry
                               </div>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                               {analysisResult.skillAnalysis?.highValueSkills?.map((skill, index) => (
-                                <div key={index} className="flex items-center justify-between p-4 bg-green-50 rounded-lg border border-green-200">
+                                <div key={index} className="flex items-center justify-between p-4 bg-accent-50 rounded-lg border border-accent/20">
                                   <div>
                                     <div className="font-medium text-gray-900">{skill.skill}</div>
                                     <div className="text-sm text-gray-600">Demand: {skill.demand}</div>
                                   </div>
                                   <div className="text-right">
-                                    <div className="font-bold text-green-600">
+                                    <div className="font-bold text-accent">
                                       +{((skill.premium - 1) * 100).toFixed(0)}%
                                     </div>
                                     <div className="text-xs text-gray-500">Salary boost</div>
@@ -1397,36 +1397,36 @@ export default function SalaryAnalyzerPage() {
                               <div className="bg-white p-6 rounded-xl border border-gray-200 blur-sm">
                                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Emerging Skills</h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                  <div className="flex items-center justify-between p-4 bg-[#0B1F3B]/5 rounded-lg border border-[#0B1F3B]/15">
+                                  <div className="flex items-center justify-between p-4 bg-primary/5 rounded-lg border border-primary/15">
                                     <div>
                                       <div className="font-medium text-gray-900">AI/ML</div>
                                       <div className="text-sm text-gray-600">Trend: Rising</div>
                                     </div>
                                     <div className="text-right">
-                                      <div className="font-bold text-[#0B1F3B]">+35%</div>
+                                      <div className="font-bold text-primary">+35%</div>
                                       <div className="text-xs text-gray-500">Salary boost</div>
                                     </div>
                                   </div>
-                                  <div className="flex items-center justify-between p-4 bg-[#0B1F3B]/5 rounded-lg border border-[#0B1F3B]/15">
+                                  <div className="flex items-center justify-between p-4 bg-primary/5 rounded-lg border border-primary/15">
                                     <div>
                                       <div className="font-medium text-gray-900">DevOps</div>
                                       <div className="text-sm text-gray-600">Trend: Stable</div>
                                     </div>
                                     <div className="text-right">
-                                      <div className="font-bold text-[#0B1F3B]">+30%</div>
+                                      <div className="font-bold text-primary">+30%</div>
                                       <div className="text-xs text-gray-500">Salary boost</div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
                               <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-6 text-center border border-[#0B1F3B]/20">
-                                  <Crown className="text-[#0B1F3B] mx-auto mb-3" size={32} />
+                                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-6 text-center border border-primary/20">
+                                  <Crown className="text-primary mx-auto mb-3" size={32} />
                                   <h4 className="text-lg font-semibold text-gray-900 mb-2">Skill Analysis</h4>
                                   <p className="text-gray-600 mb-4">Unlock emerging skills and market trends</p>
                                   <Link
                                     href="/pricing"
-                                    className="inline-flex items-center gap-2 bg-[#0B1F3B] text-white px-4 py-2 rounded-lg font-medium hover:bg-[#132D54] transition-all"
+                                    className="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-[#132D54] transition-all"
                                   >
                                     <Crown size={16} />
                                     Upgrade Now
@@ -1442,19 +1442,19 @@ export default function SalaryAnalyzerPage() {
                             <div className="bg-white p-6 rounded-xl border border-gray-200">
                               <div className="flex items-center gap-3 mb-4">
                                 <h3 className="text-lg font-semibold text-gray-900">Emerging Skills</h3>
-                                <div className="px-3 py-1 bg-[#0B1F3B]/10 text-[#0B1F3B] text-xs font-medium rounded-full">
+                                <div className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
                                   {formData.industry} Industry
                                 </div>
                               </div>
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {analysisResult.skillAnalysis?.emergingSkills?.map((skill, index) => (
-                                  <div key={index} className="flex items-center justify-between p-4 bg-[#0B1F3B]/5 rounded-lg border border-[#0B1F3B]/15">
+                                  <div key={index} className="flex items-center justify-between p-4 bg-primary/5 rounded-lg border border-primary/15">
                                     <div>
                                       <div className="font-medium text-gray-900">{skill.skill}</div>
                                       <div className="text-sm text-gray-600">Trend: {skill.trend}</div>
                                     </div>
                                     <div className="text-right">
-                                      <div className="font-bold text-[#0B1F3B]">
+                                      <div className="font-bold text-primary">
                                         +{((skill.premium - 1) * 100).toFixed(0)}%
                                       </div>
                                       <div className="text-xs text-gray-500">Salary boost</div>
@@ -1475,8 +1475,8 @@ export default function SalaryAnalyzerPage() {
                   animate={{ opacity: 1 }}
                   className="bg-white rounded-2xl shadow-xl border border-gray-100 p-12 text-center"
                 >
-                  <div className="w-16 h-16 bg-[#0B1F3B]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <DollarSign className="text-[#0B1F3B]" size={32} />
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <DollarSign className="text-primary" size={32} />
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">Ready to Analyze Your Salary?</h3>
                   <p className="text-gray-600 mb-6">

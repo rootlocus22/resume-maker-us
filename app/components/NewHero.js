@@ -134,18 +134,18 @@ export default function NewHero() {
   }, []);
 
   return (
-    <section className="relative bg-gradient-to-br from-[#F5F7FA] via-white to-slate-50 text-[#0B1F3B] py-8 sm:py-12 lg:py-24 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-[#F5F7FA] via-white to-slate-50 text-primary py-8 sm:py-12 lg:py-24 overflow-hidden">
       {/* Light Background Elements - US theme teal/navy */}
       <div className="absolute inset-0 overflow-hidden opacity-30">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-teal-200/30 to-cyan-200/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-[#0B1F3B]/10 to-teal-200/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-slate-200/20 to-teal-100/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-r from-accent-200/30 to-accent-100/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-primary/10 to-accent-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-slate-200/20 to-accent-100/20 rounded-full blur-3xl"></div>
       </div>
 
       {/* Subtle Grid Pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="h-full w-full" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #0B1F3B 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, var(--color-primary) 1px, transparent 0)`,
           backgroundSize: '20px 20px'
         }}></div>
       </div>
@@ -157,7 +157,7 @@ export default function NewHero() {
             }`}>
             {/* Trust Badge */}
             <div className="inline-flex items-center bg-white/80 backdrop-blur-sm border border-slate-200 px-4 py-2 rounded-full text-sm font-medium shadow-lg">
-              <Trophy className="mr-2 text-[#0B1F3B]" size={16} />
+              <Trophy className="mr-2 text-primary" size={16} />
               <span className="text-gray-700">Trusted by 100,000+ professionals</span>
             </div>
 
@@ -165,7 +165,7 @@ export default function NewHero() {
             <div>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
                 Your Complete
-                <span className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] bg-clip-text text-transparent block">
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent block">
                   Career Launchpad
                 </span>
               </h1>
@@ -179,7 +179,7 @@ export default function NewHero() {
             <div className="space-y-4">
               <Link
                 href="/resume-builder"
-                className="group w-full sm:w-auto flex items-center justify-center gap-3 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-6 sm:px-8 py-4 rounded-xl font-bold text-base sm:text-lg hover:from-[#071429] hover:to-[#008C81] transition-all duration-300 transform hover:scale-105 hover:shadow-[0_8px_30px_rgba(11,31,59,0.35)] shadow-2xl relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#0B1F3B] focus:ring-offset-2"
+                className="group w-full sm:w-auto flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-accent text-white px-6 sm:px-8 py-4 rounded-xl font-bold text-base sm:text-lg hover:from-gray-900 hover:to-accent-600 transition-all duration-300 transform hover:scale-105 hover:shadow-[0_8px_30px_rgba(11,31,59,0.35)] shadow-2xl relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
                 onClick={() => handleClick("hero_cta")}
                 role="button"
                 aria-label="Start building your resume for free"
@@ -199,7 +199,7 @@ export default function NewHero() {
               <div className="flex justify-center sm:justify-start">
                 <a
                   href="#templates-section"
-                  className="inline-flex items-center gap-2 text-[#0B1F3B] font-semibold text-base sm:text-lg hover:text-[#071429] transition-colors duration-300 group focus:outline-none focus:ring-2 focus:ring-[#0B1F3B] focus:ring-offset-2 rounded-lg px-2 py-1"
+                  className="inline-flex items-center gap-2 text-primary font-semibold text-base sm:text-lg hover:text-gray-900 transition-colors duration-300 group focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded-lg px-2 py-1"
                   onClick={(e) => {
                     e.preventDefault();
                     const section = document.getElementById('templates-section');
@@ -230,11 +230,11 @@ export default function NewHero() {
             {/* Stats */}
             <div className="flex items-center justify-center sm:justify-start gap-4 sm:gap-8 w-full overflow-visible">
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#0B1F3B]">100k+</div>
+                <div className="text-3xl font-bold text-primary">100k+</div>
                 <div className="text-sm text-gray-500">Active Users</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#0B1F3B]">4.9</div>
+                <div className="text-3xl font-bold text-primary">4.9</div>
                 <div className="text-sm text-gray-500">Rating</div>
               </div>
             </div>
@@ -266,7 +266,7 @@ export default function NewHero() {
                           {/* Loading text */}
                           <div className="text-center">
                             <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full">
-                              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-[#0B1F3B]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                               </svg>
@@ -297,7 +297,7 @@ export default function NewHero() {
                               handlePreviewOpen(featuredTemplates[currentTemplate]);
                             }
                           }}
-                          className="bg-white/90 backdrop-blur-sm text-gray-900 px-6 py-3 rounded-full font-semibold flex items-center gap-2 transform -translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#0B1F3B] focus:ring-offset-2"
+                          className="bg-white/90 backdrop-blur-sm text-gray-900 px-6 py-3 rounded-full font-semibold flex items-center gap-2 transform -translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-white focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
                           aria-label={`Quick view of ${featuredTemplates[currentTemplate].name} template`}
                         >
                           <Eye size={18} aria-hidden="true" />
@@ -422,14 +422,14 @@ export default function NewHero() {
 
               {/* Floating Elements */}
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-30">
-                <div className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-bounce">
+                <div className="bg-gradient-to-r from-primary to-accent text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-bounce">
                   <Sparkles className="w-4 h-4 inline mr-1" />
                   50+ Templates
                 </div>
               </div>
 
               {/* Background Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3B]/20 via-teal-500/20 to-cyan-500/20 rounded-3xl blur-3xl -z-10 scale-110"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-accent-400/20 rounded-3xl blur-3xl -z-10 scale-110"></div>
             </div>
 
             {/* Template Navigation Dots */}
@@ -446,7 +446,7 @@ export default function NewHero() {
                   }}
                   aria-label={`View template ${index + 1}`}
                   aria-current={index === currentTemplate ? 'true' : 'false'}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#0B1F3B] focus:ring-offset-2 ${index === currentTemplate
+                  className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 ${index === currentTemplate
                       ? 'bg-yellow-400 w-8 shadow-lg'
                       : 'bg-gray-400 hover:bg-gray-300'
                     }`}
@@ -457,15 +457,15 @@ export default function NewHero() {
             {/* Template Stats */}
             <div className="flex justify-center gap-8 mt-6 text-center">
               <div>
-                <div className="text-2xl font-bold text-[#0B1F3B]">50+</div>
+                <div className="text-2xl font-bold text-primary">50+</div>
                 <div className="text-sm text-gray-500">Templates</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-[#0B1F3B]">4.9★</div>
+                <div className="text-2xl font-bold text-primary">4.9★</div>
                 <div className="text-sm text-gray-500">Rating</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-[#0B1F3B]">100k+</div>
+                <div className="text-2xl font-bold text-primary">100k+</div>
                 <div className="text-sm text-gray-500">Downloads</div>
               </div>
             </div>
@@ -483,23 +483,23 @@ export default function NewHero() {
               <div className="flex items-center gap-2 mb-6">
                 <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
                 <span className="text-gray-800 font-semibold">4.9 Positive reviews</span>
-                <div className="w-8 h-8 bg-gradient-to-br from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
                   <span className="text-white text-sm font-bold">S</span>
                 </div>
               </div>
 
               {/* Testimonial Card */}
               <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
                 <div className="relative bg-white/95 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 shadow-xl hover:shadow-2xl transition-all duration-300">
                   {/* Quote Icon */}
-                  <div className="absolute -top-3 -left-3 w-8 h-8 bg-gradient-to-br from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center shadow-lg">
+                  <div className="absolute -top-3 -left-3 w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center shadow-lg">
                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                     </svg>
                   </div>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center ring-2 ring-white shadow-lg transform hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center ring-2 ring-white shadow-lg transform hover:scale-110 transition-transform duration-300">
                       <span className="text-white font-bold">
                         {testimonials[currentTestimonial].name[0]}
                       </span>
@@ -522,7 +522,7 @@ export default function NewHero() {
                         key={index}
                         onClick={() => setCurrentTestimonial(index)}
                         className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentTestimonial
-                            ? 'bg-[#0B1F3B] w-6'
+                            ? 'bg-primary w-6'
                             : 'bg-gray-300 hover:bg-gray-400'
                           }`}
                       />
@@ -534,21 +534,21 @@ export default function NewHero() {
               {/* User Stats */}
               <div className="grid grid-cols-2 gap-6 mt-12">
                 <div className="relative group cursor-pointer">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
                   <div className="relative bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-300">
                     <div className="flex items-center justify-center gap-3">
-                      <Users className="w-6 h-6 text-[#0B1F3B] group-hover:scale-110 transition-transform duration-300" />
-                      <div className="text-3xl font-bold bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] bg-clip-text text-transparent">100k+</div>
+                      <Users className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
+                      <div className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">100k+</div>
                     </div>
                     <div className="text-sm text-gray-600 text-center mt-1 font-medium">Resumes Created</div>
                   </div>
                 </div>
                 <div className="relative group cursor-pointer">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
                   <div className="relative bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-300">
                     <div className="flex items-center justify-center gap-3">
-                      <Trophy className="w-6 h-6 text-[#0B1F3B] group-hover:scale-110 transition-transform duration-300" />
-                      <div className="text-3xl font-bold bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] bg-clip-text text-transparent">50+</div>
+                      <Trophy className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-300" />
+                      <div className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">50+</div>
                     </div>
                     <div className="text-sm text-gray-600 text-center mt-1 font-medium">Pro Templates</div>
                   </div>
@@ -579,7 +579,7 @@ export default function NewHero() {
               <div className="absolute top-4 right-4 z-10">
                 <button
                   onClick={() => setIsPreviewOpen(false)}
-                  className="bg-white/90 backdrop-blur-sm hover:bg-white text-gray-800 rounded-full p-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#0B1F3B] focus:ring-offset-2"
+                  className="bg-white/90 backdrop-blur-sm hover:bg-white text-gray-800 rounded-full p-2 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
                   aria-label="Close preview"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -601,7 +601,7 @@ export default function NewHero() {
                         </div>
                         <div className="text-center">
                           <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full">
-                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-[#0B1F3B]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                             </svg>
@@ -666,7 +666,7 @@ export default function NewHero() {
                         setIsPreviewOpen(false);
                         handleClick("template_preview_cta");
                       }}
-                      className="block text-center bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105 shadow-xl"
+                      className="block text-center bg-gradient-to-r from-primary to-accent text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-primary-800 hover:to-accent-600 transition-all duration-300 transform hover:scale-105 shadow-xl"
                     >
                       Use This Template
                     </Link>

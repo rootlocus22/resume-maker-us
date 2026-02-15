@@ -209,12 +209,12 @@ export default function OnePagerBuilderPage() {
               {onePagerResumes.map((resume) => (
                 <div
                   key={resume.id}
-                  className="bg-white rounded-xl shadow-sm border border-gray-200 hover:border-[#00C4B3]/30 hover:shadow-md transition-all duration-200 p-5 cursor-pointer group"
+                  className="bg-white rounded-xl shadow-sm border border-gray-200 hover:border-accent/30 hover:shadow-md transition-all duration-200 p-5 cursor-pointer group"
                   onClick={() => handleEditResume(resume.id)}
                 >
                   <div className="flex items-start justify-between mb-4">
-                    <div className="w-12 h-12 bg-[#00C4B3]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <FileText className="text-[#00C4B3]" size={24} />
+                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <FileText className="text-accent" size={24} />
                     </div>
                     <div className="text-right">
                       <div className="flex items-center text-xs text-gray-500 mb-1">
@@ -227,7 +227,7 @@ export default function OnePagerBuilderPage() {
                     </div>
                   </div>
 
-                  <h3 className="text-base font-semibold text-gray-900 mb-2 group-hover:text-[#00C4B3] transition-colors truncate">
+                  <h3 className="text-base font-semibold text-gray-900 mb-2 group-hover:text-accent transition-colors truncate">
                     {resume.resumeName || resume.personal?.name || 'Untitled Resume'}
                   </h3>
 
@@ -252,11 +252,11 @@ export default function OnePagerBuilderPage() {
                   </div>
 
                   <div className="flex items-center justify-between pt-3 border-t border-gray-100">
-                    <div className="flex items-center text-[#00C4B3] font-medium text-sm">
+                    <div className="flex items-center text-accent font-medium text-sm">
                       <Edit size={14} className="mr-2" />
                       <span>Edit</span>
                     </div>
-                    <ArrowRight size={16} className="text-gray-400 group-hover:text-[#00C4B3] group-hover:translate-x-1 transition-all" />
+                    <ArrowRight size={16} className="text-gray-400 group-hover:text-accent group-hover:translate-x-1 transition-all" />
                   </div>
                 </div>
               ))}
@@ -273,11 +273,11 @@ export default function OnePagerBuilderPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Start from Scratch */}
             <div
-              className="bg-white rounded-xl shadow-sm border border-gray-200 hover:border-[#00C4B3]/30 hover:shadow-md transition-all duration-200 p-6 cursor-pointer group"
+              className="bg-white rounded-xl shadow-sm border border-gray-200 hover:border-accent/30 hover:shadow-md transition-all duration-200 p-6 cursor-pointer group"
               onClick={handleStartFromScratch}
             >
-              <div className="w-14 h-14 bg-[#00C4B3]/10 rounded-xl flex items-center justify-center mb-4">
-                <Plus className="text-[#00C4B3]" size={28} />
+              <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-4">
+                <Plus className="text-accent" size={28} />
               </div>
 
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Start from Scratch</h3>
@@ -300,16 +300,16 @@ export default function OnePagerBuilderPage() {
                 </div>
               </div>
 
-              <div className="flex items-center text-[#00C4B3] font-medium text-sm pt-4 border-t border-gray-100 group-hover:translate-x-1 transition-transform">
+              <div className="flex items-center text-accent font-medium text-sm pt-4 border-t border-gray-100 group-hover:translate-x-1 transition-transform">
                 <span>Start Building</span>
                 <ArrowRight size={16} className="ml-2" />
               </div>
             </div>
 
             {/* Upload Resume */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 hover:border-[#00C4B3]/30 hover:shadow-md transition-all duration-200 p-6 group">
-              <div className="w-14 h-14 bg-[#00C4B3]/10 rounded-xl flex items-center justify-center mb-4">
-                <Upload className="text-[#00C4B3]" size={28} />
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 hover:border-accent/30 hover:shadow-md transition-all duration-200 p-6 group">
+              <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-4">
+                <Upload className="text-accent" size={28} />
               </div>
 
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Upload Resume</h3>
@@ -340,7 +340,7 @@ export default function OnePagerBuilderPage() {
                   disabled={isUploading}
                   className="hidden"
                 />
-                <div className="flex items-center justify-center bg-[#0B1F3B] hover:bg-[#0B1F3B]/90 text-white px-6 py-3 rounded-xl font-medium transition-colors cursor-pointer text-sm">
+                <div className="flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-xl font-medium transition-colors cursor-pointer text-sm">
                   {isUploading ? (
                     <>
                       <Loader2 size={16} className="mr-2 animate-spin" />

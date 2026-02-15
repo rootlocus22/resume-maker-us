@@ -141,7 +141,7 @@ const InlineVersionSelector = ({
       case 'ai_rephrase':
         return <Sparkles size={12} className="text-purple-500" />;
       case 'ai_bullets':
-        return <Sparkles size={12} className="text-blue-500" />;
+        return <Sparkles size={12} className="text-accent" />;
       case 'manual_edit':
         return <Edit3 size={12} className="text-gray-500" />;
       default:
@@ -233,13 +233,13 @@ const InlineVersionSelector = ({
           <div className="p-2 sm:p-3 border-b border-gray-200 bg-gray-50">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-1.5 sm:gap-2">
-                <Clock size={14} className="text-blue-600 sm:w-4 sm:h-4" />
+                <Clock size={14} className="text-accent sm:w-4 sm:h-4" />
                 <span className="text-xs sm:text-sm font-semibold text-gray-900">Version History</span>
               </div>
               <button
                 onClick={loadVersionHistory}
                 disabled={isLoading}
-                className="text-xs text-blue-600 hover:text-blue-700 disabled:opacity-50 px-1 py-0.5"
+                className="text-xs text-accent hover:text-accent-700 disabled:opacity-50 px-1 py-0.5"
               >
                 {isLoading ? 'Loading...' : 'Refresh'}
               </button>
@@ -269,8 +269,8 @@ const InlineVersionSelector = ({
                     key={version.id}
                     onClick={() => handleSelectVersion(version, index)}
                     className={`
-                      w-full p-2 sm:p-3 text-left hover:bg-blue-50 active:bg-blue-100 transition-colors
-                      ${selectedIndex === index ? 'bg-blue-50 border-l-2 border-blue-500' : ''}
+                      w-full p-2 sm:p-3 text-left hover:bg-accent-50 active:bg-accent-100 transition-colors
+                      ${selectedIndex === index ? 'bg-accent-50 border-l-2 border-accent' : ''}
                     `}
                   >
                     <div className="flex items-start justify-between gap-1 sm:gap-2 mb-1">
@@ -287,7 +287,7 @@ const InlineVersionSelector = ({
                       </div>
                       <div className="flex items-center gap-0.5 sm:gap-1 flex-shrink-0">
                         {selectedIndex === index && (
-                          <Check size={12} className="text-blue-600 sm:w-3.5 sm:h-3.5" />
+                          <Check size={12} className="text-accent sm:w-3.5 sm:h-3.5" />
                         )}
                         <span className="text-[10px] sm:text-xs text-gray-500 whitespace-nowrap">
                           {formatTimestamp(version.timestamp)}

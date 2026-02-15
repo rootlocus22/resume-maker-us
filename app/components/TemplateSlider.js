@@ -74,12 +74,12 @@ export default function TemplateSlider() {
           >
             {/* Compact badges */}
             {template.premium && (
-              <span className="absolute top-1 left-1 z-20 bg-blue-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full shadow-md">
+              <span className="absolute top-1 left-1 z-20 bg-accent text-white text-xs font-bold px-1.5 py-0.5 rounded-full shadow-md">
                 <Crown size={8} className="inline mr-1" />Pro
               </span>
             )}
             {template.isPopular && (
-              <span className="absolute top-1 right-1 z-20 bg-blue-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full shadow-md">
+              <span className="absolute top-1 right-1 z-20 bg-accent text-white text-xs font-bold px-1.5 py-0.5 rounded-full shadow-md">
                 <Star size={8} className="inline mr-1" />Hot
               </span>
             )}
@@ -102,7 +102,7 @@ export default function TemplateSlider() {
               
               {/* Premium overlay */}
               {template.premium && (
-                <div className="absolute inset-0 bg-blue-600/50 flex items-center justify-center text-white z-10">
+                <div className="absolute inset-0 bg-accent/50 flex items-center justify-center text-white z-10">
                   <div className="text-center">
                     <Crown className="w-4 h-4 mx-auto mb-1" />
                     <div className="text-xs font-bold">Premium</div>
@@ -148,12 +148,12 @@ export default function TemplateSlider() {
               >
                 {/* Mobile badges */}
                 {template.premium && (
-                  <span className="absolute top-0.5 left-0.5 z-20 bg-blue-500 text-white text-xs font-bold px-1 py-0.5 rounded-full shadow-md">
+                  <span className="absolute top-0.5 left-0.5 z-20 bg-accent text-white text-xs font-bold px-1 py-0.5 rounded-full shadow-md">
                     <Crown size={6} className="inline mr-0.5" />Pro
                   </span>
                 )}
                 {template.isPopular && (
-                  <span className="absolute top-0.5 right-0.5 z-20 bg-blue-500 text-white text-xs font-bold px-1 py-0.5 rounded-full shadow-md">
+                  <span className="absolute top-0.5 right-0.5 z-20 bg-accent text-white text-xs font-bold px-1 py-0.5 rounded-full shadow-md">
                     <Star size={6} className="inline mr-0.5" />Hot
                   </span>
                 )}
@@ -174,7 +174,7 @@ export default function TemplateSlider() {
                   />
                   
                   {template.premium && (
-                    <div className="absolute inset-0 bg-blue-600/50 flex items-center justify-center text-white z-10">
+                    <div className="absolute inset-0 bg-accent/50 flex items-center justify-center text-white z-10">
                       <div className="text-center">
                         <Crown className="w-3 h-3 mx-auto mb-0.5" />
                         <div className="text-xs font-bold">Premium</div>

@@ -1007,19 +1007,19 @@ export default function ClientCheckout({
   // Show payment processing page
   if (isPaymentProcessing) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#0B1F3B]/5 via-white to-[#00C4B3]/5 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-primary/5 via-white to-accent/5 flex items-center justify-center">
         <div className="max-w-md w-full mx-4">
           <div className="bg-white rounded-2xl shadow-2xl p-8 text-center">
             {/* Payment Processing Animation */}
             <div className="relative mb-8">
               <div className="w-20 h-20 mx-auto relative">
                 {/* Outer spinning ring */}
-                <div className="absolute inset-0 rounded-full border-4 border-[#00C4B3]/20"></div>
-                <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-[#0B1F3B] animate-spin"></div>
+                <div className="absolute inset-0 rounded-full border-4 border-accent/20"></div>
+                <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-primary animate-spin"></div>
 
                 {/* Inner pulsing circle */}
-                <div className="absolute inset-2 rounded-full bg-[#00C4B3]/10 animate-pulse flex items-center justify-center">
-                  <div className="w-6 h-6 bg-[#0B1F3B] rounded-full animate-bounce"></div>
+                <div className="absolute inset-2 rounded-full bg-accent/10 animate-pulse flex items-center justify-center">
+                  <div className="w-6 h-6 bg-primary rounded-full animate-bounce"></div>
                 </div>
               </div>
             </div>
@@ -1051,7 +1051,7 @@ export default function ClientCheckout({
                               billingCycle === "yearly" ? "Pro Yearly" : "Pro Plan";
                   })()}
                   {includeJobTracker && ['monthly', 'quarterly', 'sixMonth'].includes(billingCycle) && (
-                    <span className="ml-2 text-xs text-[#0B1F3B] font-semibold">+ Job Search</span>
+                    <span className="ml-2 text-xs text-primary font-semibold">+ Job Search</span>
                   )}
                 </span>
               </div>
@@ -1095,7 +1095,7 @@ export default function ClientCheckout({
               </div>
 
               <div className="flex items-center text-sm">
-                <div className="w-5 h-5 rounded-full bg-[#0B1F3B] flex items-center justify-center mr-3">
+                <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center mr-3">
                   <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
                 </div>
                 <span className="text-gray-700">Processing payment...</span>
@@ -1122,11 +1122,11 @@ export default function ClientCheckout({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0B1F3B]/5 via-white to-[#00C4B3]/5 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-white to-accent/5 relative overflow-hidden">
       {/* Enhanced Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#0B1F3B]/30 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#0B1F3B]/30 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/30 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-primary/30 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
         <div className="absolute top-40 left-1/2 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
       </div>
 
@@ -1143,7 +1143,7 @@ export default function ClientCheckout({
               animationDuration: `${20 + Math.random() * 15}s`
             }}
           >
-            <div className="w-1 h-1 bg-[#00C4B3]/20 rounded-full opacity-30"></div>
+            <div className="w-1 h-1 bg-accent/20 rounded-full opacity-30"></div>
           </div>
         ))}
       </div>
@@ -1155,14 +1155,14 @@ export default function ClientCheckout({
         <div className="max-w-6xl mx-auto pb-16 pt-4">
           {/* Compact Flow Indicator - 2 Steps */}
           <div className="mb-4 text-center">
-            <div className="inline-flex items-center gap-2 bg-[#0B1F3B]/5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-[#00C4B3]/20">
-              <div className={`flex items-center gap-1 ${step >= 1 ? 'text-[#0B1F3B] font-semibold' : 'text-gray-400'}`}>
-                <span className={`w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold ${step >= 1 ? 'bg-[#0B1F3B] text-white' : 'bg-gray-300 text-gray-600'}`}>1</span>
+            <div className="inline-flex items-center gap-2 bg-primary/5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-accent/20">
+              <div className={`flex items-center gap-1 ${step >= 1 ? 'text-primary font-semibold' : 'text-gray-400'}`}>
+                <span className={`w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold ${step >= 1 ? 'bg-primary text-white' : 'bg-gray-300 text-gray-600'}`}>1</span>
                 <span className="text-xs sm:text-sm">Plan & Details</span>
               </div>
               <ChevronRight size={12} className="text-gray-400 flex-shrink-0" />
-              <div className={`flex items-center gap-1 ${step >= 2 ? 'text-[#0B1F3B] font-semibold' : 'text-gray-400'}`}>
-                <span className={`w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold ${step >= 2 ? 'bg-[#0B1F3B] text-white' : 'bg-gray-300 text-gray-600'}`}>2</span>
+              <div className={`flex items-center gap-1 ${step >= 2 ? 'text-primary font-semibold' : 'text-gray-400'}`}>
+                <span className={`w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold ${step >= 2 ? 'bg-primary text-white' : 'bg-gray-300 text-gray-600'}`}>2</span>
                 <span className="text-xs sm:text-sm">Review & Pay</span>
               </div>
             </div>
@@ -1171,7 +1171,7 @@ export default function ClientCheckout({
           {/* === COMPARISON TABLE (Hide in Standalone Mode) === */}
           {!isStandaloneAddon && (
             <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-              <div className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] px-4 py-3 md:px-5 md:py-4 text-white relative overflow-hidden">
+              <div className="bg-gradient-to-r from-primary to-accent px-4 py-3 md:px-5 md:py-4 text-white relative overflow-hidden">
                 <div className="relative z-10">
                   <div className="flex items-center justify-between gap-3">
                     <div className="flex-1 min-w-0">
@@ -1237,18 +1237,18 @@ export default function ClientCheckout({
                   {isStandaloneAddon && currentAddonConfig ? (
                     <div className="max-w-3xl mx-auto mb-8">
                       <motion.div
-                        className="flex flex-col border-2 rounded-2xl p-6 border-[#0B1F3B] bg-white ring-4 ring-[#0B1F3B]/5 shadow-2xl relative z-10 overflow-hidden"
+                        className="flex flex-col border-2 rounded-2xl p-6 border-primary bg-white ring-4 ring-primary/5 shadow-2xl relative z-10 overflow-hidden"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                       >
                         {/* Header */}
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 border-b border-gray-100 pb-6">
                           <div className="flex items-center gap-4">
-                            <div className="p-3 bg-[#00C4B3]/10 rounded-xl">
-                              {AddonIcon && <AddonIcon className="w-8 h-8 text-[#0B1F3B]" />}
+                            <div className="p-3 bg-accent/10 rounded-xl">
+                              {AddonIcon && <AddonIcon className="w-8 h-8 text-primary" />}
                             </div>
                             <div>
-                              <div className="text-sm font-bold text-[#0B1F3B] uppercase tracking-wider mb-1">Power-Up</div>
+                              <div className="text-sm font-bold text-primary uppercase tracking-wider mb-1">Power-Up</div>
                               <h2 className="text-2xl font-bold text-gray-900">{currentAddonConfig.name}</h2>
                               <p className="text-gray-500 text-sm hidden md:block">{currentAddonConfig.description}</p>
                             </div>
@@ -1268,7 +1268,7 @@ export default function ClientCheckout({
                                     key={cycle}
                                     onClick={() => handleProTabChange(cycle)}
                                     className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${proBillingCycle === cycle
-                                      ? 'bg-white text-[#0B1F3B] shadow-sm'
+                                      ? 'bg-white text-primary shadow-sm'
                                       : 'text-gray-500 hover:text-gray-700'
                                       }`}
                                   >
@@ -1293,13 +1293,13 @@ export default function ClientCheckout({
                             <select
                               value={proBillingCycle}
                               onChange={(e) => handleProTabChange(e.target.value)}
-                              className="w-full appearance-none bg-[#0B1F3B]/5 border border-[#00C4B3]/20 text-[#0F172A] text-base font-bold rounded-xl px-4 py-3 pr-10 focus:outline-none focus:ring-2 focus:ring-[#00C4B3]"
+                              className="w-full appearance-none bg-primary/5 border border-accent/20 text-primary text-base font-bold rounded-xl px-4 py-3 pr-10 focus:outline-none focus:ring-2 focus:ring-accent"
                             >
                               <option value="monthly">Monthly Plan</option>
                               <option value="quarterly">Quarterly Plan (Best Value)</option>
                               <option value="sixMonth">6-Month Plan</option>
                             </select>
-                            <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-[#0B1F3B]">
+                            <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-primary">
                               <ChevronDown size={20} />
                             </div>
                           </div>
@@ -1336,7 +1336,7 @@ export default function ClientCheckout({
                             </div>
                           </div>
                           <div className="text-right">
-                            <div className="text-xs font-bold text-[#0B1F3B] bg-[#0B1F3B]/5 px-2 py-1 rounded inline-block mb-1">
+                            <div className="text-xs font-bold text-primary bg-primary/5 px-2 py-1 rounded inline-block mb-1">
                               {proBillingCycle === 'quarterly' ? 'Most Popular' : proBillingCycle === 'sixMonth' ? 'Best Value' : 'Standard'}
                             </div>
                             <p className="text-xs text-gray-500">One-time payment</p>
@@ -1380,15 +1380,15 @@ export default function ClientCheckout({
                         {/* End of pricing flex container and price-col div */}
 
                         {/* UPSSELL / EDUCATION BLOCK */}
-                        <div className="bg-[#0B1F3B]/5 border border-[#00C4B3]/20 rounded-lg p-3 mb-4">
+                        <div className="bg-primary/5 border border-accent/20 rounded-lg p-3 mb-4">
                           <div className="flex items-start gap-2 mb-2">
-                            <AlertCircle size={14} className="text-[#0B1F3B] mt-0.5 shrink-0" />
-                            <p className="text-[10px] text-[#0F172A] font-medium leading-tight">
+                            <AlertCircle size={14} className="text-primary mt-0.5 shrink-0" />
+                            <p className="text-[10px] text-primary font-medium leading-tight">
                               <strong>Reality Check:</strong> 87% of users upgrade to Pro within 48h to access the full toolkit.
                             </p>
                           </div>
-                          <div className="h-px bg-[#00C4B3]/20 my-2"></div>
-                          <p className="text-[10px] text-[#0F172A] leading-tight mb-2">
+                          <div className="h-px bg-accent/20 my-2"></div>
+                          <p className="text-[10px] text-primary leading-tight mb-2">
                             Starter is great for testing, but to <strong>land a high-paying job</strong>, you need the tools included in Pro:
                           </p>
                           <ul className="space-y-1">
@@ -1550,23 +1550,23 @@ export default function ClientCheckout({
                                 <span>AI Cover Letter Builder</span>
                               </li>
                               {/* Dynamic Premium Features */}
-                              <li className={`flex items-start gap-2 text-sm leading-snug ${['quarterly', 'sixMonth'].includes(proBillingCycle) ? 'text-[#0B1F3B] font-bold' : 'text-gray-400 opacity-70'}`}>
+                              <li className={`flex items-start gap-2 text-sm leading-snug ${['quarterly', 'sixMonth'].includes(proBillingCycle) ? 'text-primary font-bold' : 'text-gray-400 opacity-70'}`}>
                                 {['quarterly', 'sixMonth'].includes(proBillingCycle) ? (
-                                  <CheckCircle size={14} className="text-[#0B1F3B] mt-0.5 shrink-0" />
+                                  <CheckCircle size={14} className="text-primary mt-0.5 shrink-0" />
                                 ) : (
                                   <XCircle size={14} className="text-gray-400 mt-0.5 shrink-0" />
                                 )}
                                 <span>
                                   AI Job Search Pro
-                                  {proBillingCycle === 'sixMonth' && <span className="text-xs font-normal ml-1 text-[#0B1F3B]">(Unlimited)</span>}
-                                  {proBillingCycle === 'quarterly' && <span className="text-xs font-normal ml-1 text-[#0B1F3B]">(100+ Jobs/Day)</span>}
+                                  {proBillingCycle === 'sixMonth' && <span className="text-xs font-normal ml-1 text-primary">(Unlimited)</span>}
+                                  {proBillingCycle === 'quarterly' && <span className="text-xs font-normal ml-1 text-primary">(100+ Jobs/Day)</span>}
                                   {proBillingCycle === 'monthly' && <span className="text-xs font-normal ml-1">(Not Included)</span>}
                                 </span>
                               </li>
 
-                              <li className={`flex items-start gap-2 text-sm leading-snug ${['quarterly', 'sixMonth'].includes(proBillingCycle) ? 'text-[#0B1F3B] font-bold' : 'text-gray-400 opacity-70'}`}>
+                              <li className={`flex items-start gap-2 text-sm leading-snug ${['quarterly', 'sixMonth'].includes(proBillingCycle) ? 'text-primary font-bold' : 'text-gray-400 opacity-70'}`}>
                                 {['quarterly', 'sixMonth'].includes(proBillingCycle) ? (
-                                  <CheckCircle size={14} className="text-[#0B1F3B] mt-0.5 shrink-0" />
+                                  <CheckCircle size={14} className="text-primary mt-0.5 shrink-0" />
                                 ) : (
                                   <XCircle size={14} className="text-gray-400 mt-0.5 shrink-0" />
                                 )}
@@ -1576,9 +1576,9 @@ export default function ClientCheckout({
                                 </span>
                               </li>
 
-                              <li className={`flex items-start gap-2 text-sm leading-snug ${['quarterly', 'sixMonth'].includes(proBillingCycle) ? 'text-[#0B1F3B] font-bold' : 'text-gray-400 opacity-70'}`}>
+                              <li className={`flex items-start gap-2 text-sm leading-snug ${['quarterly', 'sixMonth'].includes(proBillingCycle) ? 'text-primary font-bold' : 'text-gray-400 opacity-70'}`}>
                                 {['quarterly', 'sixMonth'].includes(proBillingCycle) ? (
-                                  <CheckCircle size={14} className="text-[#0B1F3B] mt-0.5 shrink-0" />
+                                  <CheckCircle size={14} className="text-primary mt-0.5 shrink-0" />
                                 ) : (
                                   <XCircle size={14} className="text-gray-400 mt-0.5 shrink-0" />
                                 )}
@@ -1588,9 +1588,9 @@ export default function ClientCheckout({
                                 </span>
                               </li>
 
-                              <li className={`flex items-start gap-2 text-sm leading-snug ${['quarterly', 'sixMonth'].includes(proBillingCycle) ? 'text-[#0B1F3B] font-bold' : 'text-gray-400 opacity-70'}`}>
+                              <li className={`flex items-start gap-2 text-sm leading-snug ${['quarterly', 'sixMonth'].includes(proBillingCycle) ? 'text-primary font-bold' : 'text-gray-400 opacity-70'}`}>
                                 {['quarterly', 'sixMonth'].includes(proBillingCycle) ? (
-                                  <CheckCircle size={14} className="text-[#0B1F3B] mt-0.5 shrink-0" />
+                                  <CheckCircle size={14} className="text-primary mt-0.5 shrink-0" />
                                 ) : (
                                   <XCircle size={14} className="text-gray-400 mt-0.5 shrink-0" />
                                 )}
@@ -1614,37 +1614,37 @@ export default function ClientCheckout({
                     plans.length === 0 && userCurrentPlan && userCurrentPlan !== "free" && userCurrentPlan !== "anonymous" && (
                       <div className="text-center py-12">
                         <div className="p-8 bg-white rounded-2xl border border-gray-100 shadow-md">
-                          <Crown className="w-16 h-16 text-[#0B1F3B] mx-auto mb-4 animate-pulse" />
+                          <Crown className="w-16 h-16 text-primary mx-auto mb-4 animate-pulse" />
                           <h3 className="text-xl font-bold text-gray-800 mb-3">You're at the Top!</h3>
                           <p className="text-gray-600 mb-6 text-base">
                             Your {userCurrentPlan === "oneDay" ? "Quick Start" : userCurrentPlan === "basic" ? "Starter" : userCurrentPlan === "monthly" ? "Monthly" : "6-Month"} plan is our premium tier. Enjoy the full power!
                           </p>
                           <button
                             onClick={() => router.push('/account')}
-                            className="px-6 py-3 bg-[#0B1F3B] text-white rounded-xl hover:bg-[#0B1F3B]/90 transition-colors font-bold"
+                            className="px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary/90 transition-colors font-bold"
                           >
                             View My Dashboard
                           </button>
                         </div>
-                        <div className="bg-white rounded p-2 border border-[#00C4B3]/20">
-                          <p className="text-[10px] text-[#0B1F3B]">Original Price</p>
+                        <div className="bg-white rounded p-2 border border-accent/20">
+                          <p className="text-[10px] text-primary">Original Price</p>
                           <p className="text-sm font-medium line-through text-gray-400">{formatPrice(originalTotalWithGST, effectiveCurrency)}</p>
                         </div>
-                        <div className="bg-[#00C4B3]/10 rounded p-2 border border-[#00C4B3]/20">
-                          <p className="text-[10px] text-[#0B1F3B]">You Save</p>
-                          <p className="text-base font-bold text-[#0F172A]">{formatPrice(totalSavings, effectiveCurrency)}</p>
+                        <div className="bg-accent/10 rounded p-2 border border-accent/20">
+                          <p className="text-[10px] text-primary">You Save</p>
+                          <p className="text-base font-bold text-primary">{formatPrice(totalSavings, effectiveCurrency)}</p>
                         </div>
                       </div>
                     )}
 
                   {/* Transparent Savings Blue Card - Mobile Only (Restored) */}
                   {selectedDiscount > 0 && (
-                    <div className="block lg:hidden bg-gradient-to-br from-[#0B1F3B] to-[#00C4B3] rounded-lg p-5 border border-[#00C4B3] shadow-md mb-4 text-white">
-                      <div className="flex justify-between items-start mb-4 border-b border-[#00C4B3]/30 pb-3">
+                    <div className="block lg:hidden bg-gradient-to-br from-primary to-accent rounded-lg p-5 border border-accent shadow-md mb-4 text-white">
+                      <div className="flex justify-between items-start mb-4 border-b border-accent/30 pb-3">
                         <div>
                           <p className="text-white/80 text-sm font-medium">Total Savings</p>
                           <div className="flex items-center gap-2 mt-1">
-                            <span className="bg-yellow-400 text-[#0F172A] text-xs font-bold px-2 py-0.5 rounded-full">
+                            <span className="bg-yellow-400 text-primary text-xs font-bold px-2 py-0.5 rounded-full">
                               {Math.round(selectedDiscount * 100)}% OFF
                             </span>
                           </div>
@@ -1680,8 +1680,8 @@ export default function ClientCheckout({
                         </div>
                       </div>
 
-                      <div className="mt-3 pt-3 border-t border-[#00C4B3]/30 flex items-center justify-between">
-                        <div className="flex items-center gap-1.5 bg-[#0B1F3B]/30 px-2 py-1 rounded">
+                      <div className="mt-3 pt-3 border-t border-accent/30 flex items-center justify-between">
+                        <div className="flex items-center gap-1.5 bg-primary/30 px-2 py-1 rounded">
                           <Trophy className="text-yellow-300 w-3 h-3" />
                           <span className="text-white/90 text-[10px] font-semibold">
                             Saved {formatPrice(totalSavings, effectiveCurrency)}
@@ -1697,15 +1697,15 @@ export default function ClientCheckout({
 
                   {/* Transparent Savings Blue Card - Unified for Desktop & Mobile - NOW DESKTOP ONLY */}
                   {selectedDiscount > 0 && (
-                    <div className="hidden lg:block bg-gradient-to-br from-[#0B1F3B] to-[#00C4B3] rounded-lg p-5 border border-[#00C4B3] shadow-md mb-4 text-white">
-                      <div className="flex justify-between items-start mb-4 border-b border-[#00C4B3]/30 pb-3">
+                    <div className="hidden lg:block bg-gradient-to-br from-primary to-accent rounded-lg p-5 border border-accent shadow-md mb-4 text-white">
+                      <div className="flex justify-between items-start mb-4 border-b border-accent/30 pb-3">
                         <div>
                           <p className="text-white/80 text-sm font-medium">Total Pocket Savings</p>
                           <div className="flex flex-col gap-1 mt-1">
                             <span className="text-[10px] text-white/80">
                               Includes: {formatPrice(discountAmount, effectiveCurrency)} Plan + {formatPrice(totalSavings - discountAmount, effectiveCurrency)} Tax
                             </span>
-                            <span className="bg-yellow-400 text-[#0F172A] text-xs font-bold px-2 py-0.5 rounded-full w-fit">
+                            <span className="bg-yellow-400 text-primary text-xs font-bold px-2 py-0.5 rounded-full w-fit">
                               {Math.round(selectedDiscount * 100)}% OFF
                             </span>
                           </div>
@@ -1741,8 +1741,8 @@ export default function ClientCheckout({
                         </div>
                       </div>
 
-                      <div className="mt-3 pt-3 border-t border-[#00C4B3]/30 flex items-center justify-between">
-                        <div className="flex items-center gap-1.5 bg-[#0B1F3B]/30 px-2 py-1 rounded">
+                      <div className="mt-3 pt-3 border-t border-accent/30 flex items-center justify-between">
+                        <div className="flex items-center gap-1.5 bg-primary/30 px-2 py-1 rounded">
                           <Trophy className="text-yellow-300 w-3 h-3" />
                           <span className="text-white/90 text-[10px] font-semibold">
                             Saved {formatPrice(totalSavings, effectiveCurrency)}
@@ -1795,17 +1795,17 @@ export default function ClientCheckout({
                   {/* FEATURES PREVIEW - MOBILE ONLY (Moved here to sit at the end) */}
                   <div className="lg:hidden bg-white rounded-lg p-3 sm:p-4 border border-gray-200 shadow-sm">
                     <div className="flex items-center gap-2 mb-3">
-                      <Award className="text-[#0B1F3B]" size={18} />
+                      <Award className="text-primary" size={18} />
                       <h3 className="text-sm sm:text-base font-bold text-gray-900">What You Get</h3>
                     </div>
                     <div className="grid grid-cols-2 gap-3">
                       {/* Updated Key Features */}
-                      <div className="flex items-center gap-2.5 p-2.5 bg-[#0B1F3B]/5 rounded-md">
-                        <FileText className="text-[#0B1F3B] flex-shrink-0" size={16} />
+                      <div className="flex items-center gap-2.5 p-2.5 bg-primary/5 rounded-md">
+                        <FileText className="text-primary flex-shrink-0" size={16} />
                         <span className="text-sm font-semibold text-gray-900">50+ Pro Templates</span>
                       </div>
-                      <div className="flex items-center gap-2.5 p-2.5 bg-[#0B1F3B]/5 rounded-md">
-                        <Download className="text-[#0B1F3B] flex-shrink-0" size={16} />
+                      <div className="flex items-center gap-2.5 p-2.5 bg-primary/5 rounded-md">
+                        <Download className="text-primary flex-shrink-0" size={16} />
                         <span className="text-sm font-semibold text-gray-900">
                           {billingCycle === "basic" ? `${PLAN_CONFIG.basic.downloads} Downloads` : "Unlimited Downloads"}
                         </span>
@@ -1814,12 +1814,12 @@ export default function ClientCheckout({
                         <Target className="text-sky-600 flex-shrink-0" size={16} />
                         <span className="text-sm font-semibold text-gray-900">Smart JD Matcher</span>
                       </div>
-                      <div className="flex items-center gap-2.5 p-2.5 bg-[#0B1F3B]/5 rounded-md">
-                        <BarChart3 className="text-[#0B1F3B] flex-shrink-0" size={16} />
+                      <div className="flex items-center gap-2.5 p-2.5 bg-primary/5 rounded-md">
+                        <BarChart3 className="text-primary flex-shrink-0" size={16} />
                         <span className="text-sm font-semibold text-gray-900">ATS Score Optimizer</span>
                       </div>
-                      <div className="flex items-center gap-2.5 p-2.5 bg-[#0B1F3B]/5 rounded-md">
-                        <MessageSquare className="text-[#0B1F3B] flex-shrink-0" size={16} />
+                      <div className="flex items-center gap-2.5 p-2.5 bg-primary/5 rounded-md">
+                        <MessageSquare className="text-primary flex-shrink-0" size={16} />
                         <span className="text-sm font-semibold text-gray-900">AI Interview Coach</span>
                       </div>
                       <div className="flex items-center gap-2.5 p-2.5 bg-cyan-50 rounded-md">
@@ -1827,28 +1827,28 @@ export default function ClientCheckout({
                         <span className="text-sm font-semibold text-gray-900">Salary Analyzer Tool</span>
                       </div>
                       {includeJobTracker && ['monthly', 'quarterly', 'sixMonth'].includes(billingCycle) && (
-                        <div className="flex items-center gap-2.5 p-2.5 bg-[#00C4B3]/10 rounded-md border border-[#00C4B3]/30">
-                          <Briefcase className="text-[#0B1F3B] flex-shrink-0" size={16} />
-                          <span className="text-sm font-bold text-[#0F172A]">AI Job Search</span>
+                        <div className="flex items-center gap-2.5 p-2.5 bg-accent/10 rounded-md border border-accent/30">
+                          <Briefcase className="text-primary flex-shrink-0" size={16} />
+                          <span className="text-sm font-bold text-primary">AI Job Search</span>
                         </div>
                       )}
                       {includeInterviewKit && ['monthly', 'quarterly', 'sixMonth'].includes(billingCycle) && (
-                        <div className="flex items-center gap-2.5 p-2.5 bg-[#00C4B3]/10 rounded-md border border-[#00C4B3]/30">
-                          <Brain className="text-[#0B1F3B] flex-shrink-0" size={16} />
-                          <span className="text-sm font-bold text-[#0F172A]">Interview Prep Kit</span>
+                        <div className="flex items-center gap-2.5 p-2.5 bg-accent/10 rounded-md border border-accent/30">
+                          <Brain className="text-primary flex-shrink-0" size={16} />
+                          <span className="text-sm font-bold text-primary">Interview Prep Kit</span>
                         </div>
                       )}
                       {includeApplyPro && ['quarterly', 'sixMonth'].includes(billingCycle) && (
-                        <div className="flex items-center gap-2.5 p-2.5 bg-[#00C4B3]/10 rounded-md border border-[#00C4B3]/30">
-                          <Zap className="text-[#0B1F3B] flex-shrink-0" size={16} />
-                          <span className="text-sm font-bold text-[#0F172A]">Apply Pro Engine</span>
+                        <div className="flex items-center gap-2.5 p-2.5 bg-accent/10 rounded-md border border-accent/30">
+                          <Zap className="text-primary flex-shrink-0" size={16} />
+                          <span className="text-sm font-bold text-primary">Apply Pro Engine</span>
                         </div>
                       )}
                     </div>
 
                     {/* Trust Badge */}
                     <div className="mt-3 flex items-center justify-center gap-2 text-xs text-gray-600 bg-gray-50 p-2 rounded-lg">
-                      <Bell className="text-[#0B1F3B]" size={12} />
+                      <Bell className="text-primary" size={12} />
                       <span><strong>No auto-renewal</strong> • You're in control</span>
                     </div>
                   </div>
@@ -1877,7 +1877,7 @@ export default function ClientCheckout({
                           }
                           setStep(1);
                         }}
-                        className="text-sm text-[#0B1F3B] font-semibold hover:text-[#0B1F3B]"
+                        className="text-sm text-primary font-semibold hover:text-primary"
                       >
                         Edit
                       </button>
@@ -1888,9 +1888,9 @@ export default function ClientCheckout({
                       {/* Removed isAddonOnlyPurchase check */}
                       <div className="flex justify-between items-center">
                         <div className="flex items-center gap-3">
-                          <div className={`p-2 rounded-lg ${isStandaloneAddon ? 'bg-[#00C4B3]/10' : 'bg-green-100'}`}>
+                          <div className={`p-2 rounded-lg ${isStandaloneAddon ? 'bg-accent/10' : 'bg-green-100'}`}>
                             {isStandaloneAddon && AddonIcon ? (
-                              <AddonIcon className="text-[#0B1F3B] w-5 h-5" />
+                              <AddonIcon className="text-primary w-5 h-5" />
                             ) : (
                               <Crown className="text-green-600 w-5 h-5" />
                             )}
@@ -2064,7 +2064,7 @@ export default function ClientCheckout({
 
                         <div className="flex justify-between items-end pt-2 border-t border-gray-100 mt-2">
                           <span className="font-bold text-gray-900">Total to Pay</span>
-                          <span className="text-2xl font-black text-[#0B1F3B]">
+                          <span className="text-2xl font-black text-primary">
                             {formatPrice(finalTotal, effectiveCurrency)}
                           </span>
                         </div>
@@ -2075,7 +2075,7 @@ export default function ClientCheckout({
                   {/* Payment Method Selection Placeholder - Can be expanded */}
                   <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <CreditCard className="text-[#0B1F3B]" size={24} />
+                      <CreditCard className="text-primary" size={24} />
                       <div>
                         <p className="font-bold text-gray-900 text-sm">Secure Payment Gateway</p>
                         <p className="text-xs text-gray-500">Encrypted & Safe. Cards, Apple Pay, Google Pay.</p>
@@ -2096,17 +2096,17 @@ export default function ClientCheckout({
           className="mt-8 md:mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"
         >
           <div className="bg-white p-3 md:p-4 rounded-xl shadow-sm text-center">
-            <Shield className="text-[#0B1F3B] mx-auto mb-1.5 md:mb-2" size={18} />
+            <Shield className="text-primary mx-auto mb-1.5 md:mb-2" size={18} />
             <p className="font-semibold text-xs md:text-sm">Secure Payment</p>
             <p className="text-xs text-gray-600 mt-1">256-bit Encryption</p>
           </div>
           <div className="bg-white p-3 md:p-4 rounded-xl shadow-sm text-center">
-            <Bot className="text-[#0B1F3B] mx-auto mb-1.5 md:mb-2" size={18} />
+            <Bot className="text-primary mx-auto mb-1.5 md:mb-2" size={18} />
             <p className="font-semibold text-xs md:text-sm">AI Powered</p>
             <p className="text-xs text-gray-600 mt-1">Cutting-Edge Tech</p>
           </div>
           <div className="bg-white p-3 md:p-4 rounded-xl shadow-sm text-center">
-            <Users className="text-[#0B1F3B] mx-auto mb-1.5 md:mb-2" size={18} />
+            <Users className="text-primary mx-auto mb-1.5 md:mb-2" size={18} />
             <p className="font-semibold text-xs md:text-sm">15,000+ Users</p>
             <p className="text-xs text-gray-600 mt-1">Trusted Worldwide</p>
           </div>
@@ -2193,8 +2193,8 @@ export default function ClientCheckout({
                       }}
                       disabled={isLoading}
                       className={`flex-1 md:flex-none md:w-[280px] px-3 sm:px-4 md:px-4 py-2.5 md:py-2.5 text-white rounded-lg md:rounded-lg font-semibold shadow-md hover:shadow-lg transition-all disabled:opacity-70 disabled:cursor-not-allowed text-xs md:text-sm flex items-center justify-center gap-1.5 ${step === 2
-                        ? "bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] hover:opacity-95 border border-[#00C4B3]"
-                        : "bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] hover:opacity-95 border border-[#00C4B3]"
+                        ? "bg-gradient-to-r from-primary to-accent hover:opacity-95 border border-accent"
+                        : "bg-gradient-to-r from-primary to-accent hover:opacity-95 border border-accent"
                         }`}
                     >
                       {isLoading ? (
@@ -2264,7 +2264,7 @@ export default function ClientCheckout({
                     setShowRetryModal(false);
                     handlePaymentSubmit();
                   }}
-                  className="w-full py-3 bg-[#0B1F3B] hover:bg-[#0B1F3B]/90 text-white font-bold rounded-xl shadow-lg shadow-[#00C4B3]/20 transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl shadow-lg shadow-accent/20 transition-all flex items-center justify-center gap-2"
                 >
                   <CreditCard size={18} />
                   <span>Retry Payment</span>

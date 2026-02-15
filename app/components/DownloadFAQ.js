@@ -50,7 +50,7 @@ export default function DownloadFAQ({ className = '' }) {
   return (
     <div className={className}>
       <div className="flex items-center gap-2 mb-4">
-        <HelpCircle className="w-5 h-5 text-blue-600" />
+        <HelpCircle className="w-5 h-5 text-accent" />
         <h3 className="text-lg font-semibold text-gray-900">Download & PDF Help</h3>
       </div>
       

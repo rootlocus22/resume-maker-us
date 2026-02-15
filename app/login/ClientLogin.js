@@ -195,7 +195,7 @@ function LoginContent() {
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-50 flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <CheckCircle className="text-[#0B1F3B]" size={32} />
+            <CheckCircle className="text-primary" size={32} />
           </div>
           <h3 className="text-xl font-semibold text-gray-800 mb-2">Already signed in!</h3>
           <p className="text-gray-600">Redirecting you to your dashboard...</p>
@@ -225,7 +225,7 @@ function LoginContent() {
   return (
     <div className="min-h-screen flex">
       {/* Left Side - Beautiful Gradient with Benefits */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#050F20] via-[#0B1F3B] to-[#071429] p-12 flex-col justify-between text-white relative overflow-hidden">
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-gray-900 via-primary to-gray-900 p-12 flex-col justify-between text-white relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-20 w-32 h-32 rounded-full bg-white/20"></div>
@@ -335,16 +335,16 @@ function LoginContent() {
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-1.5 mb-1">
-                            <h3 className="text-xs sm:text-sm font-semibold text-[#0B1F3B]">Secure Checkout</h3>
+                            <h3 className="text-xs sm:text-sm font-semibold text-primary">Secure Checkout</h3>
                             <div className="flex-shrink-0">
-                              <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#0B1F3B] rounded-full animate-pulse"></div>
+                              <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-primary rounded-full animate-pulse"></div>
                             </div>
                           </div>
-                          <p className="text-xs sm:text-sm text-[#071429] font-medium leading-tight">
+                          <p className="text-xs sm:text-sm text-gray-900 font-medium leading-tight">
                             {message}
                           </p>
-                          <div className="mt-1.5 sm:mt-2 flex items-center gap-1 text-xs text-[#071429]">
-                            <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#0B1F3B] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <div className="mt-1.5 sm:mt-2 flex items-center gap-1 text-xs text-gray-900">
+                            <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             <span className="font-medium text-xs">Secure checkout • No hidden fees</span>
@@ -353,7 +353,7 @@ function LoginContent() {
                         {/* Message Close Button */}
                         <button
                           onClick={() => setShowMessage(false)}
-                          className="flex-shrink-0 p-1 text-[#0B1F3B] hover:text-[#071429] hover:bg-slate-100 rounded-full transition-colors touch-manipulation"
+                          className="flex-shrink-0 p-1 text-primary hover:text-gray-900 hover:bg-slate-100 rounded-full transition-colors touch-manipulation"
                           aria-label="Close message"
                         >
                           <X size={12} className="sm:w-3 sm:h-3" />
@@ -364,7 +364,7 @@ function LoginContent() {
                 )}
                 <p className="text-sm sm:text-base text-gray-600 mt-2">
                   New to ExpertResume?{' '}
-                  <Link href="/signup" className="text-[#0B1F3B] hover:text-[#071429] font-semibold hover:underline transition-colors">
+                  <Link href="/signup" className="text-primary hover:text-gray-900 font-semibold hover:underline transition-colors">
                     Create your free account
                   </Link>
                 </p>
@@ -395,7 +395,7 @@ function LoginContent() {
                   <div className="grid grid-cols-1 gap-2 sm:gap-3">
                     <div className="flex items-center gap-2 sm:gap-3">
                       <div className="w-7 h-7 sm:w-8 sm:h-8 bg-slate-100 rounded-lg flex items-center justify-center">
-                        <Zap size={14} className="sm:w-4 sm:h-4 text-[#0B1F3B]" />
+                        <Zap size={14} className="sm:w-4 sm:h-4 text-primary" />
                       </div>
                       <span className="text-xs sm:text-sm text-gray-700 font-medium">5-minute resume creation</span>
                     </div>
@@ -465,7 +465,7 @@ function LoginContent() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email address"
-                      className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-[#0B1F3B] focus:border-[#0B1F3B] outline-none transition-all duration-200 hover:border-gray-300 text-base sm:text-lg placeholder-gray-400 touch-manipulation"
+                      className="w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all duration-200 hover:border-gray-300 text-base sm:text-lg placeholder-gray-400 touch-manipulation"
                       disabled={isLoading}
                     />
                   </div>
@@ -486,7 +486,7 @@ function LoginContent() {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Enter your password"
-                      className="w-full pl-10 sm:pl-12 pr-12 sm:pr-14 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-[#0B1F3B] focus:border-[#0B1F3B] outline-none transition-all duration-200 hover:border-gray-300 text-base sm:text-lg placeholder-gray-400 touch-manipulation"
+                      className="w-full pl-10 sm:pl-12 pr-12 sm:pr-14 py-3 sm:py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all duration-200 hover:border-gray-300 text-base sm:text-lg placeholder-gray-400 touch-manipulation"
                       disabled={isLoading}
                     />
                     <button
@@ -501,7 +501,7 @@ function LoginContent() {
                 <div className="flex justify-end mt-2">
                   <Link
                     href="/forgot-password"
-                    className="text-xs sm:text-sm font-semibold text-[#0B1F3B] hover:text-[#071429] hover:underline transition-colors"
+                    className="text-xs sm:text-sm font-semibold text-primary hover:text-gray-900 hover:underline transition-colors"
                   >
                     Forgot Password?
                   </Link>
@@ -512,7 +512,7 @@ function LoginContent() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] hover:from-[#071429] hover:to-[#008C81] text-white py-3.5 sm:py-4 rounded-2xl font-bold text-base sm:text-lg transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl active:shadow-lg touch-manipulation"
+                  className="w-full bg-gradient-to-r from-primary to-accent hover:from-gray-900 hover:to-accent-700 text-white py-3.5 sm:py-4 rounded-2xl font-bold text-base sm:text-lg transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-xl hover:shadow-2xl active:shadow-lg touch-manipulation"
                 >
                   {isLoading ? (
                     <>
@@ -534,15 +534,15 @@ function LoginContent() {
                 className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-6 sm:mt-8 text-xs sm:text-sm text-gray-500"
               >
                 <div className="flex items-center gap-1.5 sm:gap-2">
-                  <CheckCircle size={14} className="sm:w-[18px] sm:h-[18px] text-[#0B1F3B]" />
+                  <CheckCircle size={14} className="sm:w-[18px] sm:h-[18px] text-primary" />
                   <span className="font-medium">Secure Login</span>
                 </div>
                 <div className="flex items-center gap-1.5 sm:gap-2">
-                  <CheckCircle size={14} className="sm:w-[18px] sm:h-[18px] text-[#0B1F3B]" />
+                  <CheckCircle size={14} className="sm:w-[18px] sm:h-[18px] text-primary" />
                   <span className="font-medium">Privacy Protected</span>
                 </div>
                 <div className="flex items-center gap-1.5 sm:gap-2">
-                  <CheckCircle size={14} className="sm:w-[18px] sm:h-[18px] text-[#0B1F3B]" />
+                  <CheckCircle size={14} className="sm:w-[18px] sm:h-[18px] text-primary" />
                   <span className="font-medium">Free Tier Available</span>
                 </div>
               </div>
@@ -569,9 +569,9 @@ function LoginContent() {
                 className="text-xs text-center text-gray-500 mt-6"
               >
                 By signing in, you agree to our{' '}
-                <Link href="/terms" className="text-[#0B1F3B] hover:underline font-semibold">Terms of Service</Link>
+                <Link href="/terms" className="text-primary hover:underline font-semibold">Terms of Service</Link>
                 {' '}and{' '}
-                <Link href="/privacy" className="text-[#0B1F3B] hover:underline font-semibold">Privacy Policy</Link>
+                <Link href="/privacy" className="text-primary hover:underline font-semibold">Privacy Policy</Link>
               </p>
             </div>
           </div>

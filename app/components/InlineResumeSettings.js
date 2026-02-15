@@ -84,7 +84,7 @@ export default function InlineResumeSettings({ preferences, onChange }) {
         <button
           onClick={() => togglePanel('font')}
           className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all flex-shrink-0 ${
-            activePanel === 'font' ? 'bg-indigo-50 text-indigo-700 ring-1 ring-indigo-200' : 'text-gray-600 hover:bg-gray-50'
+            activePanel === 'font' ? 'bg-primary-50 text-primary ring-1 ring-primary-200' : 'text-gray-600 hover:bg-gray-50'
           }`}
         >
           <Type size={13} />
@@ -97,7 +97,7 @@ export default function InlineResumeSettings({ preferences, onChange }) {
         <button
           onClick={() => togglePanel('size')}
           className={`flex items-center gap-1 px-2 py-1.5 rounded-lg text-xs font-medium transition-all flex-shrink-0 ${
-            activePanel === 'size' ? 'bg-indigo-50 text-indigo-700 ring-1 ring-indigo-200' : 'text-gray-600 hover:bg-gray-50'
+            activePanel === 'size' ? 'bg-primary-50 text-primary ring-1 ring-primary-200' : 'text-gray-600 hover:bg-gray-50'
           }`}
         >
           <span className="text-[10px]">A</span>
@@ -108,7 +108,7 @@ export default function InlineResumeSettings({ preferences, onChange }) {
         <button
           onClick={() => togglePanel('date')}
           className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all flex-shrink-0 ${
-            activePanel === 'date' ? 'bg-indigo-50 text-indigo-700 ring-1 ring-indigo-200' : 'text-gray-600 hover:bg-gray-50'
+            activePanel === 'date' ? 'bg-primary-50 text-primary ring-1 ring-primary-200' : 'text-gray-600 hover:bg-gray-50'
           }`}
         >
           <Calendar size={13} />
@@ -119,7 +119,7 @@ export default function InlineResumeSettings({ preferences, onChange }) {
         <button
           onClick={() => togglePanel('visibility')}
           className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all flex-shrink-0 ${
-            activePanel === 'visibility' ? 'bg-indigo-50 text-indigo-700 ring-1 ring-indigo-200' : 'text-gray-600 hover:bg-gray-50'
+            activePanel === 'visibility' ? 'bg-primary-50 text-primary ring-1 ring-primary-200' : 'text-gray-600 hover:bg-gray-50'
           }`}
         >
           <Eye size={13} />
@@ -145,7 +145,7 @@ export default function InlineResumeSettings({ preferences, onChange }) {
                     onClick={() => update('typography', 'fontPair', f)}
                     className={`px-2 py-2 rounded-lg text-xs font-medium text-center transition-all ${
                       currentFont === f.id
-                        ? 'bg-indigo-100 text-indigo-700 ring-1 ring-indigo-300 shadow-sm'
+                        ? 'bg-primary-100 text-primary ring-1 ring-primary-200 shadow-sm'
                         : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-300'
                     }`}
                     style={{ fontFamily: f.fontFamily }}
@@ -170,7 +170,7 @@ export default function InlineResumeSettings({ preferences, onChange }) {
                       onClick={() => update('typography', 'fontSize', s.value)}
                       className={`flex-1 py-2 rounded-lg text-sm font-medium text-center transition-all ${
                         currentFontSize === s.value
-                          ? 'bg-indigo-100 text-indigo-700 ring-1 ring-indigo-300'
+                          ? 'bg-primary-100 text-primary ring-1 ring-primary-200'
                           : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-300'
                       }`}
                     >
@@ -189,7 +189,7 @@ export default function InlineResumeSettings({ preferences, onChange }) {
                       onClick={() => update('typography', 'lineHeight', lh)}
                       className={`flex-1 py-1.5 rounded-lg text-xs font-medium text-center transition-all capitalize ${
                         (preferences?.typography?.lineHeight || 'normal') === lh
-                          ? 'bg-indigo-100 text-indigo-700 ring-1 ring-indigo-300'
+                          ? 'bg-primary-100 text-primary ring-1 ring-primary-200'
                           : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-300'
                       }`}
                     >
@@ -222,7 +222,7 @@ export default function InlineResumeSettings({ preferences, onChange }) {
                     }}
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                       currentDateFormat === d.value
-                        ? 'bg-indigo-100 text-indigo-700 ring-1 ring-indigo-300'
+                        ? 'bg-primary-100 text-primary ring-1 ring-primary-200'
                         : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-300'
                     }`}
                   >

@@ -150,12 +150,12 @@ export default function ATSHistoryPanel({
             className="bg-white rounded-xl sm:rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] sm:max-h-[85vh] overflow-hidden flex flex-col mx-2 sm:mx-0"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-primary to-accent px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between">
               <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
                 <Target size={24} className="text-white flex-shrink-0 sm:w-7 sm:h-7" />
                 <div className="min-w-0">
                   <h2 className="text-lg sm:text-2xl font-bold text-white truncate">ATS Check History</h2>
-                  <p className="text-blue-100 text-xs sm:text-sm hidden sm:block">Review previous ATS analysis results</p>
+                  <p className="text-accent-100 text-xs sm:text-sm hidden sm:block">Review previous ATS analysis results</p>
                 </div>
               </div>
               <button
@@ -170,7 +170,7 @@ export default function ATSHistoryPanel({
             <div className="flex-1 overflow-y-auto p-3 sm:p-6">
               {isLoading ? (
                 <div className="flex flex-col items-center justify-center py-12 sm:py-16">
-                  <Loader2 size={40} className="text-blue-600 animate-spin mb-3 sm:mb-4 sm:w-12 sm:h-12" />
+                  <Loader2 size={40} className="text-accent-600 animate-spin mb-3 sm:mb-4 sm:w-12 sm:h-12" />
                   <p className="text-sm sm:text-base text-gray-600">Loading history...</p>
                 </div>
               ) : history.length === 0 ? (
@@ -189,14 +189,14 @@ export default function ATSHistoryPanel({
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className="bg-white border-2 border-gray-200 rounded-xl overflow-hidden hover:border-blue-400 hover:shadow-lg transition-all duration-200 cursor-pointer"
+                      className="bg-white border-2 border-gray-200 rounded-xl overflow-hidden hover:border-accent-400 hover:shadow-lg transition-all duration-200 cursor-pointer"
                       onClick={() => handleRestore(item)}
                     >
                       {/* Item Header */}
                       <div className="p-3 sm:p-4 flex items-center justify-between gap-2">
                         <div className="flex items-center gap-2 sm:gap-4 flex-1 min-w-0">
-                          <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg sm:rounded-xl flex items-center justify-center">
-                            <Target size={20} className="text-blue-600 sm:w-6 sm:h-6" />
+                          <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-accent-100 to-accent-200 rounded-lg sm:rounded-xl flex items-center justify-center">
+                            <Target size={20} className="text-accent-600 sm:w-6 sm:h-6" />
                           </div>
                           
                           <div className="flex-1 min-w-0">
@@ -221,7 +221,7 @@ export default function ATSHistoryPanel({
                         <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
                           <button
                             onClick={(e) => toggleExpand(e, item.id)}
-                            className="p-1.5 sm:p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                            className="p-1.5 sm:p-2 text-gray-500 hover:text-accent-600 hover:bg-accent-50 rounded-lg transition-colors"
                           >
                             {expandedId === item.id ? (
                               <ChevronUp size={18} className="sm:w-5 sm:h-5" />
@@ -251,7 +251,7 @@ export default function ATSHistoryPanel({
                               {item.atsAnalysis && (
                                 <div className="bg-white p-4 rounded-lg border border-gray-200">
                                   <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                                    <CheckCircle size={18} className="text-blue-600" />
+                                    <CheckCircle size={18} className="text-accent-600" />
                                     ATS Analysis Summary
                                   </h4>
                                   {item.atsAnalysis.overallScore && (
@@ -264,7 +264,7 @@ export default function ATSHistoryPanel({
                                       </div>
                                       <div className="w-full bg-gray-200 rounded-full h-2">
                                         <div
-                                          className="bg-gradient-to-r from-blue-600 to-blue-700 h-2 rounded-full transition-all"
+                                          className="bg-gradient-to-r from-primary to-accent h-2 rounded-full transition-all"
                                           style={{ width: `${item.atsAnalysis.overallScore}%` }}
                                         />
                                       </div>
@@ -277,15 +277,15 @@ export default function ATSHistoryPanel({
                               )}
                               
                               {item.jobDescription && (
-                                <div className="bg-blue-50 p-3 rounded-lg border border-blue-200 text-sm">
-                                  <span className="font-medium text-blue-900 block mb-1">Analyzed with Job Description</span>
-                                  <span className="text-blue-700 text-xs">Comparative analysis performed</span>
+                                <div className="bg-accent-50 p-3 rounded-lg border border-accent-200 text-sm">
+                                  <span className="font-medium text-primary block mb-1">Analyzed with Job Description</span>
+                                  <span className="text-accent-700 text-xs">Comparative analysis performed</span>
                                 </div>
                               )}
 
                               <button
                                 onClick={() => handleRestore(item)}
-                                className="w-full py-2.5 px-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30"
+                                className="w-full py-2.5 px-4 bg-gradient-to-r from-primary to-accent text-white font-medium rounded-lg hover:from-primary-700 hover:to-accent-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-accent-500/30"
                               >
                                 <RotateCcw size={18} />
                                 Restore This Analysis

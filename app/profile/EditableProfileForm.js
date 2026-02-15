@@ -980,9 +980,9 @@ const EditableProfileForm = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC]">
+      <div className="min-h-screen flex items-center justify-center bg-bg">
         <div className="flex flex-col items-center gap-3">
-          <div className="animate-spin rounded-full h-12 w-12 border-4 border-[#0B1F3B] border-t-transparent" />
+          <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary border-t-transparent" />
           <p className="text-gray-600 text-sm">Loading profile...</p>
         </div>
       </div>
@@ -990,7 +990,7 @@ const EditableProfileForm = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC]">
+    <div className="min-h-screen bg-bg">
       <style jsx>{`
         input[type="month"] {
           max-width: 100%;
@@ -1006,11 +1006,11 @@ const EditableProfileForm = () => {
 
 
       {/* Mobile-First Header */}
-      <div className="bg-white/90 backdrop-blur-lg shadow-lg border-b border-[#0B1F3B]/10">
+      <div className="bg-white/90 backdrop-blur-lg shadow-lg border-b border-primary/10">
         <div className=" mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-4 sm:py-6 gap-4">
             <div className="text-center sm:text-left">
-              <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#0B1F3B] to-[#132D54] bg-clip-text text-transparent">
+              <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary to-[#132D54] bg-clip-text text-transparent">
                 Edit Profile
               </h1>
               <p className="text-gray-600 text-sm sm:text-base mt-1">Create your professional presence</p>
@@ -1020,7 +1020,7 @@ const EditableProfileForm = () => {
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto">
               <button
                 onClick={() => setShowImportModal(true)}
-                className="flex items-center justify-center gap-2 px-4 py-2.5 text-[#0B1F3B] hover:text-[#132D54] border-2 border-[#0B1F3B]/20 rounded-xl hover:bg-[#0B1F3B]/5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] font-medium"
+                className="flex items-center justify-center gap-2 px-4 py-2.5 text-primary hover:text-[#132D54] border-2 border-primary/20 rounded-xl hover:bg-primary/5 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] font-medium"
               >
                 <Upload size={18} />
                 <span className="hidden sm:inline">Import Resume</span>
@@ -1042,7 +1042,7 @@ const EditableProfileForm = () => {
               <button
                 onClick={saveProfile}
                 disabled={saving}
-                className="flex items-center justify-center gap-2 px-6 py-2.5 bg-[#0B1F3B] text-white rounded-xl hover:bg-[#132D54] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl font-medium"
+                className="flex items-center justify-center gap-2 px-6 py-2.5 bg-primary text-white rounded-xl hover:bg-[#132D54] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl font-medium"
               >
                 <Save size={18} />
                 {saving ? "Saving..." : "Save Changes"}
@@ -1056,7 +1056,7 @@ const EditableProfileForm = () => {
         <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
           {/* Mobile Tab Navigation */}
           <div className="lg:hidden">
-            <div className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-lg border border-[#0B1F3B]/10 p-3 mb-6">
+            <div className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-lg border border-primary/10 p-3 mb-6">
               <div className="flex overflow-x-auto scrollbar-hide gap-1">
                 {sections.map(section => {
                   const Icon = section.icon;
@@ -1065,8 +1065,8 @@ const EditableProfileForm = () => {
                       key={section.id}
                       onClick={() => setActiveSection(section.id)}
                       className={`flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-xl whitespace-nowrap transition-all duration-200 ${activeSection === section.id
-                        ? "bg-[#0B1F3B] text-white shadow-lg"
-                        : "text-gray-600 hover:bg-[#0B1F3B]/5 hover:text-[#0B1F3B]"
+                        ? "bg-primary text-white shadow-lg"
+                        : "text-gray-600 hover:bg-primary/5 hover:text-primary"
                         }`}
                     >
                       <Icon size={16} />
@@ -1080,10 +1080,10 @@ const EditableProfileForm = () => {
 
           {/* Desktop Sidebar Navigation */}
           <div className="hidden lg:block w-80 flex-shrink-0">
-            <div className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-lg border border-[#0B1F3B]/10 p-6 sticky top-8">
+            <div className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-lg border border-primary/10 p-6 sticky top-8">
               <div className="mb-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Profile Sections</h3>
-                <div className="h-1 w-12 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-full"></div>
+                <div className="h-1 w-12 bg-gradient-to-r from-primary to-accent rounded-full"></div>
               </div>
               <nav className="space-y-2">
                 {sections.map(section => {
@@ -1093,11 +1093,11 @@ const EditableProfileForm = () => {
                       key={section.id}
                       onClick={() => setActiveSection(section.id)}
                       className={`w-full flex items-center gap-3 px-4 py-3 text-left rounded-xl transition-all duration-200 group ${activeSection === section.id
-                        ? "bg-gradient-to-r from-[#0B1F3B] to-[#132D54] text-white shadow-lg transform scale-[1.02]"
-                        : "text-gray-600 hover:bg-[#0B1F3B]/5 hover:text-[#0B1F3B] hover:translate-x-1"
+                        ? "bg-gradient-to-r from-primary to-[#132D54] text-white shadow-lg transform scale-[1.02]"
+                        : "text-gray-600 hover:bg-primary/5 hover:text-primary hover:translate-x-1"
                         }`}
                     >
-                      <Icon size={20} className={`${activeSection === section.id ? 'text-white' : 'text-[#0B1F3B]/70 group-hover:text-[#0B1F3B]'}`} />
+                      <Icon size={20} className={`${activeSection === section.id ? 'text-white' : 'text-primary/70 group-hover:text-primary'}`} />
                       <span className="font-medium">{section.label}</span>
                       {activeSection === section.id && (
                         <ChevronRight size={16} className="ml-auto text-white" />
@@ -1111,21 +1111,21 @@ const EditableProfileForm = () => {
 
           {/* Main Content */}
           <div className="flex-1">
-            <div className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-lg border border-[#0B1F3B]/10 p-4 sm:p-6 lg:p-8">
+            <div className="bg-white/90 backdrop-blur-lg rounded-2xl shadow-lg border border-primary/10 p-4 sm:p-6 lg:p-8">
               {/* Personal Information Section */}
               {activeSection === "personal" && (
                 <div className="space-y-6 sm:space-y-8">
-                  <div className="border-b border-[#0B1F3B]/10 pb-4 sm:pb-6">
-                    <h2 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-[#0B1F3B] to-[#132D54] bg-clip-text text-transparent mb-2">
+                  <div className="border-b border-primary/10 pb-4 sm:pb-6">
+                    <h2 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-primary to-[#132D54] bg-clip-text text-transparent mb-2">
                       Personal Information
                     </h2>
                     <p className="text-gray-600 text-sm sm:text-base mt-1">Let's start with the basics about you</p>
                   </div>
 
                   {/* Profile Picture */}
-                  <div className="flex flex-col sm:flex-row items-center gap-6 p-4 sm:p-6 bg-gradient-to-r from-[#0B1F3B]/5 to-[#00C4B3]/5 rounded-2xl border border-[#0B1F3B]/10">
+                  <div className="flex flex-col sm:flex-row items-center gap-6 p-4 sm:p-6 bg-gradient-to-r from-primary/5 to-accent/5 rounded-2xl border border-primary/10">
                     <div className="relative group">
-                      <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden bg-gradient-to-br from-[#0B1F3B]/20 to-[#00C4B3]/20 border-4 border-white shadow-xl group-hover:shadow-2xl transition-all duration-300 relative">
+                      <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20 border-4 border-white shadow-xl group-hover:shadow-2xl transition-all duration-300 relative">
                         {formData.profilePicture ? (
                           <img
                             src={formData.profilePicture}
@@ -1133,8 +1133,8 @@ const EditableProfileForm = () => {
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                           />
                         ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0B1F3B]/10 to-[#00C4B3]/10">
-                            <User size={32} className="text-[#0B1F3B]" />
+                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10">
+                            <User size={32} className="text-primary" />
                           </div>
                         )}
 
@@ -1153,7 +1153,7 @@ const EditableProfileForm = () => {
                         disabled={uploadingProfilePicture}
                         className={`absolute -bottom-2 -right-2 p-2.5 rounded-full transition-all duration-200 shadow-lg ${uploadingProfilePicture
                           ? 'bg-gray-400 cursor-not-allowed'
-                          : 'bg-[#0B1F3B] text-white hover:bg-[#132D54] hover:shadow-xl hover:scale-110 active:scale-95'
+                          : 'bg-primary text-white hover:bg-[#132D54] hover:shadow-xl hover:scale-110 active:scale-95'
                           }`}
                       >
                         <Camera size={18} />
@@ -1171,12 +1171,12 @@ const EditableProfileForm = () => {
                       <p className="text-sm text-gray-600 mb-3">Upload a professional photo to make a great first impression</p>
 
                       {uploadingProfilePicture && (
-                        <div className="bg-[#0B1F3B]/5 border border-[#0B1F3B]/15 rounded-lg p-3 mb-3">
+                        <div className="bg-primary/5 border border-primary/15 rounded-lg p-3 mb-3">
                           <div className="flex items-center gap-3">
-                            <div className="animate-spin rounded-full h-4 w-4 border-2 border-[#0B1F3B] border-t-transparent"></div>
+                            <div className="animate-spin rounded-full h-4 w-4 border-2 border-primary border-t-transparent"></div>
                             <div className="flex-1">
-                              <p className="text-[#0B1F3B] font-medium text-sm">Saving to cloud storage...</p>
-                              <p className="text-[#0B1F3B] text-xs">Your image is already visible, we're just saving it securely</p>
+                              <p className="text-primary font-medium text-sm">Saving to cloud storage...</p>
+                              <p className="text-primary text-xs">Your image is already visible, we're just saving it securely</p>
                             </div>
                           </div>
                         </div>
@@ -1188,7 +1188,7 @@ const EditableProfileForm = () => {
                           disabled={uploadingProfilePicture}
                           className={`inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border-2 transition-all duration-200 ${uploadingProfilePicture
                             ? 'text-gray-400 bg-gray-50 border-gray-200 cursor-not-allowed'
-                            : 'text-[#0B1F3B] hover:text-[#132D54] bg-white border-[#0B1F3B]/15 hover:border-[#0B1F3B]/30 hover:scale-105 active:scale-95'
+                            : 'text-primary hover:text-[#132D54] bg-white border-primary/15 hover:border-primary/30 hover:scale-105 active:scale-95'
                             }`}
                         >
                           <Upload size={16} />
@@ -1219,7 +1219,7 @@ const EditableProfileForm = () => {
                         type="text"
                         value={formData.firstName}
                         onChange={(e) => handleInputChange("firstName", e.target.value)}
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
                         placeholder="Enter your first name"
                         required
                       />
@@ -1232,7 +1232,7 @@ const EditableProfileForm = () => {
                         type="text"
                         value={formData.lastName}
                         onChange={(e) => handleInputChange("lastName", e.target.value)}
-                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
                         placeholder="Enter your last name"
                         required
                       />
@@ -1242,7 +1242,7 @@ const EditableProfileForm = () => {
                   {/* Contact Information */}
                   <div className="space-y-4 sm:space-y-6">
                     <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-                      <Mail className="text-[#0B1F3B]" size={20} />
+                      <Mail className="text-primary" size={20} />
                       Contact Information
                     </h3>
 
@@ -1256,7 +1256,7 @@ const EditableProfileForm = () => {
                             type="email"
                             value={formData.email}
                             onChange={(e) => handleInputChange("email", e.target.value)}
-                            className="flex-1 px-4 py-3 border-2 border-gray-200 rounded-xl sm:rounded-r-none focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
+                            className="flex-1 px-4 py-3 border-2 border-gray-200 rounded-xl sm:rounded-r-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
                             placeholder="your.email@example.com"
                             disabled={user?.email}
                           />
@@ -1264,8 +1264,8 @@ const EditableProfileForm = () => {
                             onClick={() => sendOTP("email")}
                             disabled={formData.emailVerified || !formData.email}
                             className={`px-4 py-3 rounded-xl sm:rounded-l-none border-2 sm:border-l-0 border-gray-200 text-sm font-semibold transition-all duration-200 mt-2 sm:mt-0 ${formData.emailVerified
-                              ? "bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white shadow-lg"
-                              : "bg-white/70 text-gray-700 hover:bg-[#0B1F3B]/5 hover:text-[#0B1F3B] hover:border-[#0B1F3B]/20"
+                              ? "bg-gradient-to-r from-primary to-accent text-white shadow-lg"
+                              : "bg-white/70 text-gray-700 hover:bg-primary/5 hover:text-primary hover:border-primary/20"
                               }`}
                           >
                             {formData.emailVerified ? (
@@ -1289,15 +1289,15 @@ const EditableProfileForm = () => {
                             type="tel"
                             value={formData.phone}
                             onChange={(e) => handleInputChange("phone", e.target.value)}
-                            className="flex-1 px-4 py-3 border-2 border-gray-200 rounded-xl sm:rounded-r-none focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
+                            className="flex-1 px-4 py-3 border-2 border-gray-200 rounded-xl sm:rounded-r-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
                             placeholder="+1 (555) 000-0000"
                           />
                           <button
                             onClick={() => sendOTP("phone")}
                             disabled={formData.phoneVerified || !formData.phone}
                             className={`px-4 py-3 rounded-xl sm:rounded-l-none border-2 sm:border-l-0 border-gray-200 text-sm font-semibold transition-all duration-200 mt-2 sm:mt-0 ${formData.phoneVerified
-                              ? "bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white shadow-lg"
-                              : "bg-white/70 text-gray-700 hover:bg-[#0B1F3B]/5 hover:text-[#0B1F3B] hover:border-[#0B1F3B]/20"
+                              ? "bg-gradient-to-r from-primary to-accent text-white shadow-lg"
+                              : "bg-white/70 text-gray-700 hover:bg-primary/5 hover:text-primary hover:border-primary/20"
                               }`}
                           >
                             {formData.phoneVerified ? (
@@ -1317,14 +1317,14 @@ const EditableProfileForm = () => {
                   {/* Professional Headline */}
                   <div className="space-y-2">
                     <label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
-                      <Briefcase className="text-[#0B1F3B]" size={18} />
+                      <Briefcase className="text-primary" size={18} />
                       Professional Headline
                     </label>
                     <input
                       type="text"
                       value={formData.headline}
                       onChange={(e) => handleInputChange("headline", e.target.value)}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
                       placeholder="e.g. Senior Software Engineer passionate about AI and Machine Learning"
                     />
                   </div>
@@ -1332,14 +1332,14 @@ const EditableProfileForm = () => {
                   {/* About */}
                   <div className="space-y-2">
                     <label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
-                      <User className="text-[#0B1F3B]" size={18} />
+                      <User className="text-primary" size={18} />
                       About Me
                     </label>
                     <textarea
                       value={formData.about}
                       onChange={(e) => handleInputChange("about", e.target.value)}
                       rows={4}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white resize-none"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white resize-none"
                       placeholder="Share your story, passion, and what drives you professionally..."
                     />
                     <p className="text-xs text-gray-500">Tell potential employers what makes you unique</p>
@@ -1348,14 +1348,14 @@ const EditableProfileForm = () => {
                   {/* Location */}
                   <div className="space-y-2">
                     <label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
-                      <MapPin className="text-[#0B1F3B]" size={18} />
+                      <MapPin className="text-primary" size={18} />
                       Location
                     </label>
                     <input
                       type="text"
                       value={formData.location}
                       onChange={(e) => handleInputChange("location", e.target.value)}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
                       placeholder="San Francisco, CA"
                     />
                   </div>
@@ -1363,26 +1363,26 @@ const EditableProfileForm = () => {
                   {/* Social Links */}
                   <div className="space-y-4 sm:space-y-6">
                     <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-                      <Link className="text-[#0B1F3B]" size={20} />
+                      <Link className="text-primary" size={20} />
                       Social Links
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                       <div className="space-y-2">
                         <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-                          <Globe className="text-[#0B1F3B]/70" size={16} />
+                          <Globe className="text-primary/70" size={16} />
                           Website
                         </label>
                         <input
                           type="url"
                           value={formData.website}
                           onChange={(e) => handleInputChange("website", e.target.value)}
-                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
+                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
                           placeholder="https://yourwebsite.com"
                         />
                       </div>
                       <div className="space-y-2">
                         <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-                          <svg className="w-4 h-4 text-[#0B1F3B]" fill="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
                           </svg>
                           LinkedIn
@@ -1391,7 +1391,7 @@ const EditableProfileForm = () => {
                           type="url"
                           value={formData.linkedin}
                           onChange={(e) => handleInputChange("linkedin", e.target.value)}
-                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
+                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
                           placeholder="https://linkedin.com/in/username"
                         />
                       </div>
@@ -1406,13 +1406,13 @@ const EditableProfileForm = () => {
                           type="url"
                           value={formData.github}
                           onChange={(e) => handleInputChange("github", e.target.value)}
-                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
+                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
                           placeholder="https://github.com/username"
                         />
                       </div>
                       <div className="space-y-2">
                         <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-                          <svg className="w-4 h-4 text-[#0B1F3B]/60" fill="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-4 h-4 text-primary/60" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
                           </svg>
                           Twitter
@@ -1421,7 +1421,7 @@ const EditableProfileForm = () => {
                           type="url"
                           value={formData.twitter}
                           onChange={(e) => handleInputChange("twitter", e.target.value)}
-                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
+                          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-200 bg-white/50 backdrop-blur-sm hover:bg-white focus:bg-white"
                           placeholder="https://twitter.com/username"
                         />
                       </div>
@@ -1431,7 +1431,7 @@ const EditableProfileForm = () => {
                   {/* Profile Settings */}
                   <div className="space-y-4 sm:space-y-6">
                     <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
-                      <Settings className="text-[#0B1F3B]" size={20} />
+                      <Settings className="text-primary" size={20} />
                       Profile Settings
                     </h3>
                     <div className="space-y-4">
@@ -1448,7 +1448,7 @@ const EditableProfileForm = () => {
                               onChange={(e) => handleInputChange("publicProfile", e.target.checked)}
                               className="sr-only peer"
                             />
-                            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00C4B3]/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#0B1F3B]"></div>
+                            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-accent/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
                             <span className="ml-3 text-sm font-medium text-gray-900">
                               {formData.publicProfile ? 'Enabled' : 'Disabled'}
                             </span>
@@ -1469,7 +1469,7 @@ const EditableProfileForm = () => {
                               onChange={(e) => handleInputChange("allowMatching", e.target.checked)}
                               className="sr-only peer"
                             />
-                            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#00C4B3]/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#0B1F3B]"></div>
+                            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-accent/30 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
                             <span className="ml-3 text-sm font-medium text-gray-900">
                               {formData.allowMatching ? 'Enabled' : 'Disabled'}
                             </span>
@@ -1478,18 +1478,18 @@ const EditableProfileForm = () => {
                       </div>
 
                       {formData.publicProfile && (
-                        <div className="p-4 sm:p-6 bg-gradient-to-r from-[#0B1F3B]/5 to-[#00C4B3]/5 border-2 border-[#0B1F3B]/15 rounded-2xl animate-in slide-in-from-top duration-300">
+                        <div className="p-4 sm:p-6 bg-gradient-to-r from-primary/5 to-accent/5 border-2 border-primary/15 rounded-2xl animate-in slide-in-from-top duration-300">
                           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                             <div>
-                              <h4 className="font-semibold text-[#0B1F3B] mb-1 flex items-center gap-2">
+                              <h4 className="font-semibold text-primary mb-1 flex items-center gap-2">
                                 <Share2 size={18} />
                                 Share Your Profile
                               </h4>
-                              <p className="text-sm text-[#0B1F3B]/80">Let others discover your professional profile</p>
+                              <p className="text-sm text-primary/80">Let others discover your professional profile</p>
                             </div>
                             <button
                               onClick={() => setShowShareModal(true)}
-                              className="flex items-center justify-center gap-2 px-6 py-3 bg-[#0B1F3B] text-white rounded-xl hover:bg-[#132D54] transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 font-medium"
+                              className="flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-xl hover:bg-[#132D54] transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 font-medium"
                             >
                               <Share2 size={18} />
                               Share Profile
@@ -1513,7 +1513,7 @@ const EditableProfileForm = () => {
                       </div>
                       <button
                         onClick={() => addArrayItem("experiences")}
-                        className="flex items-center gap-2 px-4 py-2 bg-[#0B1F3B] text-white rounded-lg hover:bg-[#132D54] transition-colors"
+                        className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-[#132D54] transition-colors"
                       >
                         <PlusCircle size={16} />
                         Add Experience
@@ -1546,7 +1546,7 @@ const EditableProfileForm = () => {
                             type="text"
                             value={experience.title}
                             onChange={(e) => handleArrayFieldChange("experiences", index, "title", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           />
                         </div>
                         <div>
@@ -1557,7 +1557,7 @@ const EditableProfileForm = () => {
                             type="text"
                             value={experience.company}
                             onChange={(e) => handleArrayFieldChange("experiences", index, "company", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           />
                         </div>
                         <div>
@@ -1568,7 +1568,7 @@ const EditableProfileForm = () => {
                             type="text"
                             value={experience.location}
                             onChange={(e) => handleArrayFieldChange("experiences", index, "location", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           />
                         </div>
                       </div>
@@ -1583,7 +1583,7 @@ const EditableProfileForm = () => {
                             type="month"
                             value={experience.startDate}
                             onChange={(e) => handleArrayFieldChange("experiences", index, "startDate", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent text-sm min-w-0"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-sm min-w-0"
                           />
                         </div>
                         <div>
@@ -1595,7 +1595,7 @@ const EditableProfileForm = () => {
                             value={experience.endDate}
                             onChange={(e) => handleArrayFieldChange("experiences", index, "endDate", e.target.value)}
                             disabled={experience.current}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent disabled:bg-gray-100 text-sm min-w-0"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent disabled:bg-gray-100 text-sm min-w-0"
                           />
                         </div>
                       </div>
@@ -1611,7 +1611,7 @@ const EditableProfileForm = () => {
                               handleArrayFieldChange("experiences", index, "endDate", "");
                             }
                           }}
-                          className="h-4 w-4 text-[#0B1F3B] focus:ring-[#00C4B3] border-gray-300 rounded"
+                          className="h-4 w-4 text-primary focus:ring-accent border-gray-300 rounded"
                         />
                         <label htmlFor={`current-${index}`} className="ml-2 block text-sm text-gray-900">
                           I currently work here
@@ -1626,7 +1626,7 @@ const EditableProfileForm = () => {
                           value={experience.description}
                           onChange={(e) => handleArrayFieldChange("experiences", index, "description", e.target.value)}
                           rows={3}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                         />
                       </div>
                     </div>
@@ -1645,7 +1645,7 @@ const EditableProfileForm = () => {
                       </div>
                       <button
                         onClick={() => addArrayItem("educations")}
-                        className="flex items-center gap-2 px-4 py-2 bg-[#0B1F3B] text-white rounded-lg hover:bg-[#132D54] transition-colors"
+                        className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-[#132D54] transition-colors"
                       >
                         <PlusCircle size={16} />
                         Add Education
@@ -1678,7 +1678,7 @@ const EditableProfileForm = () => {
                             type="text"
                             value={education.degree}
                             onChange={(e) => handleArrayFieldChange("educations", index, "degree", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                             placeholder="e.g. Bachelor of Science"
                           />
                         </div>
@@ -1690,7 +1690,7 @@ const EditableProfileForm = () => {
                             type="text"
                             value={education.school}
                             onChange={(e) => handleArrayFieldChange("educations", index, "school", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                             placeholder="University/School name"
                           />
                         </div>
@@ -1702,7 +1702,7 @@ const EditableProfileForm = () => {
                             type="text"
                             value={education.location}
                             onChange={(e) => handleArrayFieldChange("educations", index, "location", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                             placeholder="City, State"
                           />
                         </div>
@@ -1714,7 +1714,7 @@ const EditableProfileForm = () => {
                             type="text"
                             value={education.gpa}
                             onChange={(e) => handleArrayFieldChange("educations", index, "gpa", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                             placeholder="3.8/4.0"
                           />
                         </div>
@@ -1726,7 +1726,7 @@ const EditableProfileForm = () => {
                             type="month"
                             value={education.startDate}
                             onChange={(e) => handleArrayFieldChange("educations", index, "startDate", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent text-sm min-w-0"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-sm min-w-0"
                           />
                         </div>
                         <div>
@@ -1737,7 +1737,7 @@ const EditableProfileForm = () => {
                             type="month"
                             value={education.endDate}
                             onChange={(e) => handleArrayFieldChange("educations", index, "endDate", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent text-sm min-w-0"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-sm min-w-0"
                           />
                         </div>
                       </div>
@@ -1750,7 +1750,7 @@ const EditableProfileForm = () => {
                           value={education.description}
                           onChange={(e) => handleArrayFieldChange("educations", index, "description", e.target.value)}
                           rows={3}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           placeholder="Field of study, relevant coursework, achievements..."
                         />
                       </div>
@@ -1776,7 +1776,7 @@ const EditableProfileForm = () => {
                         value={formData.skills?.join(", ") || ""}
                         onChange={(e) => handleSkillsChange(e.target.value)}
                         rows={4}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                         placeholder="React, JavaScript, Python, Project Management, Leadership..."
                       />
                       <p className="text-xs text-gray-500 mt-1">
@@ -1791,7 +1791,7 @@ const EditableProfileForm = () => {
                           {formData.skills.map((skill, index) => (
                             <span
                               key={index}
-                              className="inline-flex items-center gap-1 px-3 py-1 bg-[#0B1F3B]/10 text-[#0B1F3B] text-sm rounded-full border border-[#0B1F3B]/15"
+                              className="inline-flex items-center gap-1 px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/15"
                             >
                               {skill}
                               <button
@@ -1799,7 +1799,7 @@ const EditableProfileForm = () => {
                                   const newSkills = formData.skills.filter((_, i) => i !== index);
                                   handleInputChange("skills", newSkills);
                                 }}
-                                className="ml-1 text-[#0B1F3B] hover:text-[#0B1F3B]"
+                                className="ml-1 text-primary hover:text-primary"
                               >
                                 <X size={12} />
                               </button>
@@ -1823,7 +1823,7 @@ const EditableProfileForm = () => {
                       </div>
                       <button
                         onClick={() => addArrayItem("certifications")}
-                        className="flex items-center gap-2 px-4 py-2 bg-[#0B1F3B] text-white rounded-lg hover:bg-[#132D54] transition-colors"
+                        className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-[#132D54] transition-colors"
                       >
                         <PlusCircle size={16} />
                         Add Certification
@@ -1856,7 +1856,7 @@ const EditableProfileForm = () => {
                             type="text"
                             value={certification.name}
                             onChange={(e) => handleArrayFieldChange("certifications", index, "name", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           />
                         </div>
                         <div>
@@ -1867,7 +1867,7 @@ const EditableProfileForm = () => {
                             type="text"
                             value={certification.issuer}
                             onChange={(e) => handleArrayFieldChange("certifications", index, "issuer", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           />
                         </div>
                         <div>
@@ -1878,7 +1878,7 @@ const EditableProfileForm = () => {
                             type="month"
                             value={certification.issueDate}
                             onChange={(e) => handleArrayFieldChange("certifications", index, "issueDate", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent text-sm min-w-0"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-sm min-w-0"
                           />
                         </div>
                         <div>
@@ -1889,7 +1889,7 @@ const EditableProfileForm = () => {
                             type="month"
                             value={certification.expiryDate}
                             onChange={(e) => handleArrayFieldChange("certifications", index, "expiryDate", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent text-sm min-w-0"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-sm min-w-0"
                           />
                         </div>
                         <div>
@@ -1900,7 +1900,7 @@ const EditableProfileForm = () => {
                             type="text"
                             value={certification.credentialId}
                             onChange={(e) => handleArrayFieldChange("certifications", index, "credentialId", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           />
                         </div>
                         <div>
@@ -1911,7 +1911,7 @@ const EditableProfileForm = () => {
                             type="url"
                             value={certification.credentialUrl}
                             onChange={(e) => handleArrayFieldChange("certifications", index, "credentialUrl", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           />
                         </div>
                       </div>
@@ -1931,7 +1931,7 @@ const EditableProfileForm = () => {
                       </div>
                       <button
                         onClick={() => addArrayItem("projects")}
-                        className="flex items-center gap-2 px-4 py-2 bg-[#0B1F3B] text-white rounded-lg hover:bg-[#132D54] transition-colors"
+                        className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-[#132D54] transition-colors"
                       >
                         <PlusCircle size={16} />
                         Add Project
@@ -1964,7 +1964,7 @@ const EditableProfileForm = () => {
                             type="text"
                             value={project.title}
                             onChange={(e) => handleArrayFieldChange("projects", index, "title", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           />
                         </div>
                         <div>
@@ -1975,7 +1975,7 @@ const EditableProfileForm = () => {
                             type="month"
                             value={project.startDate}
                             onChange={(e) => handleArrayFieldChange("projects", index, "startDate", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent text-sm min-w-0"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-sm min-w-0"
                           />
                         </div>
                         <div>
@@ -1986,7 +1986,7 @@ const EditableProfileForm = () => {
                             type="month"
                             value={project.endDate}
                             onChange={(e) => handleArrayFieldChange("projects", index, "endDate", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent text-sm min-w-0"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-sm min-w-0"
                           />
                         </div>
                         <div>
@@ -1997,7 +1997,7 @@ const EditableProfileForm = () => {
                             type="url"
                             value={project.projectUrl}
                             onChange={(e) => handleArrayFieldChange("projects", index, "projectUrl", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           />
                         </div>
                         <div>
@@ -2008,7 +2008,7 @@ const EditableProfileForm = () => {
                             type="url"
                             value={project.githubUrl}
                             onChange={(e) => handleArrayFieldChange("projects", index, "githubUrl", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           />
                         </div>
                       </div>
@@ -2021,7 +2021,7 @@ const EditableProfileForm = () => {
                           type="text"
                           value={project.technologies?.join(", ") || ""}
                           onChange={(e) => handleTechnologiesChange(index, e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           placeholder="React, Node.js, MongoDB, AWS..."
                         />
                       </div>
@@ -2034,7 +2034,7 @@ const EditableProfileForm = () => {
                           value={project.description}
                           onChange={(e) => handleArrayFieldChange("projects", index, "description", e.target.value)}
                           rows={3}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           placeholder="Describe the project, your role, and achievements..."
                         />
                       </div>
@@ -2054,7 +2054,7 @@ const EditableProfileForm = () => {
                       </div>
                       <button
                         onClick={() => addArrayItem("languages")}
-                        className="flex items-center gap-2 px-4 py-2 bg-[#0B1F3B] text-white rounded-lg hover:bg-[#132D54] transition-colors"
+                        className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-[#132D54] transition-colors"
                       >
                         <PlusCircle size={16} />
                         Add Language
@@ -2087,7 +2087,7 @@ const EditableProfileForm = () => {
                             type="text"
                             value={language.language}
                             onChange={(e) => handleArrayFieldChange("languages", index, "language", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                             placeholder="e.g. English, Spanish, French"
                           />
                         </div>
@@ -2098,7 +2098,7 @@ const EditableProfileForm = () => {
                           <select
                             value={language.proficiency}
                             onChange={(e) => handleArrayFieldChange("languages", index, "proficiency", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           >
                             <option value="Beginner">Beginner</option>
                             <option value="Elementary">Elementary</option>
@@ -2124,7 +2124,7 @@ const EditableProfileForm = () => {
                       </div>
                       <button
                         onClick={() => addArrayItem("volunteer")}
-                        className="flex items-center gap-2 px-4 py-2 bg-[#0B1F3B] text-white rounded-lg hover:bg-[#132D54] transition-colors"
+                        className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-[#132D54] transition-colors"
                       >
                         <PlusCircle size={16} />
                         Add Volunteer Work
@@ -2157,7 +2157,7 @@ const EditableProfileForm = () => {
                             type="text"
                             value={vol.organization}
                             onChange={(e) => handleArrayFieldChange("volunteer", index, "organization", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           />
                         </div>
                         <div>
@@ -2168,7 +2168,7 @@ const EditableProfileForm = () => {
                             type="text"
                             value={vol.role}
                             onChange={(e) => handleArrayFieldChange("volunteer", index, "role", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           />
                         </div>
                         <div>
@@ -2179,7 +2179,7 @@ const EditableProfileForm = () => {
                             type="month"
                             value={vol.startDate}
                             onChange={(e) => handleArrayFieldChange("volunteer", index, "startDate", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent text-sm min-w-0"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-sm min-w-0"
                           />
                         </div>
                         <div>
@@ -2190,7 +2190,7 @@ const EditableProfileForm = () => {
                             type="month"
                             value={vol.endDate}
                             onChange={(e) => handleArrayFieldChange("volunteer", index, "endDate", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent text-sm min-w-0"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-sm min-w-0"
                           />
                         </div>
                       </div>
@@ -2203,7 +2203,7 @@ const EditableProfileForm = () => {
                           value={vol.description}
                           onChange={(e) => handleArrayFieldChange("volunteer", index, "description", e.target.value)}
                           rows={3}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           placeholder="Describe your volunteer work and impact..."
                         />
                       </div>
@@ -2223,7 +2223,7 @@ const EditableProfileForm = () => {
                       </div>
                       <button
                         onClick={() => addArrayItem("publications")}
-                        className="flex items-center gap-2 px-4 py-2 bg-[#0B1F3B] text-white rounded-lg hover:bg-[#132D54] transition-colors"
+                        className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-[#132D54] transition-colors"
                       >
                         <PlusCircle size={16} />
                         Add Publication
@@ -2256,7 +2256,7 @@ const EditableProfileForm = () => {
                             type="text"
                             value={publication.title}
                             onChange={(e) => handleArrayFieldChange("publications", index, "title", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           />
                         </div>
                         <div>
@@ -2267,7 +2267,7 @@ const EditableProfileForm = () => {
                             type="text"
                             value={publication.publisher}
                             onChange={(e) => handleArrayFieldChange("publications", index, "publisher", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           />
                         </div>
                         <div>
@@ -2278,7 +2278,7 @@ const EditableProfileForm = () => {
                             type="month"
                             value={publication.publishDate}
                             onChange={(e) => handleArrayFieldChange("publications", index, "publishDate", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent text-sm min-w-0"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent text-sm min-w-0"
                           />
                         </div>
                         <div className="md:col-span-2">
@@ -2289,7 +2289,7 @@ const EditableProfileForm = () => {
                             type="url"
                             value={publication.url}
                             onChange={(e) => handleArrayFieldChange("publications", index, "url", e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           />
                         </div>
                       </div>
@@ -2302,7 +2302,7 @@ const EditableProfileForm = () => {
                           value={publication.description}
                           onChange={(e) => handleArrayFieldChange("publications", index, "description", e.target.value)}
                           rows={3}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           placeholder="Brief description of the publication..."
                         />
                       </div>
@@ -2322,7 +2322,7 @@ const EditableProfileForm = () => {
           <div className="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-md mx-4 animate-in zoom-in-95 duration-200">
             <div className="flex justify-between items-center mb-6">
               <div>
-                <h3 className="text-xl font-bold bg-gradient-to-r from-[#0B1F3B] to-[#132D54] bg-clip-text text-transparent">
+                <h3 className="text-xl font-bold bg-gradient-to-r from-primary to-[#132D54] bg-clip-text text-transparent">
                   Verify {otpType === "phone" ? "Phone" : "Email"}
                 </h3>
                 <p className="text-sm text-gray-500 mt-1">
@@ -2338,10 +2338,10 @@ const EditableProfileForm = () => {
             </div>
 
             <div className="mb-6 text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-[#0B1F3B]/10 to-[#00C4B3]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 {otpType === "phone" ?
-                  <Phone className="text-[#0B1F3B]" size={24} /> :
-                  <Mail className="text-[#0B1F3B]" size={24} />
+                  <Phone className="text-primary" size={24} /> :
+                  <Mail className="text-primary" size={24} />
                 }
               </div>
               <p className="text-sm text-gray-600 mb-4">
@@ -2352,7 +2352,7 @@ const EditableProfileForm = () => {
                 value={otp}
                 onChange={(e) => setOTP(e.target.value.replace(/\D/g, '').slice(0, 6))}
                 maxLength={6}
-                className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] text-center text-2xl tracking-[0.5em] font-bold bg-gray-50 transition-all duration-200"
+                className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent text-center text-2xl tracking-[0.5em] font-bold bg-gray-50 transition-all duration-200"
                 placeholder="000000"
                 autoFocus
               />
@@ -2371,7 +2371,7 @@ const EditableProfileForm = () => {
               <button
                 onClick={verifyOTP}
                 disabled={otp.length !== 6}
-                className="flex-1 px-4 py-3 bg-[#0B1F3B] text-white rounded-xl hover:bg-[#132D54] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium shadow-lg hover:shadow-xl"
+                className="flex-1 px-4 py-3 bg-primary text-white rounded-xl hover:bg-[#132D54] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium shadow-lg hover:shadow-xl"
               >
                 {otp.length === 6 ? "Verify Code" : `${6 - otp.length} digits left`}
               </button>
@@ -2381,7 +2381,7 @@ const EditableProfileForm = () => {
             <div className="mt-4 text-center">
               <button
                 onClick={() => sendOTP(otpType)}
-                className="text-sm text-[#0B1F3B] hover:text-[#0B1F3B]/80 font-medium"
+                className="text-sm text-primary hover:text-primary/80 font-medium"
               >
                 Didn't receive the code? Resend
               </button>
@@ -2396,7 +2396,7 @@ const EditableProfileForm = () => {
           <div className="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-md mx-4 animate-in zoom-in-95 duration-200">
             <div className="flex justify-between items-center mb-6">
               <div>
-                <h3 className="text-xl font-bold bg-gradient-to-r from-[#0B1F3B] to-[#132D54] bg-clip-text text-transparent">
+                <h3 className="text-xl font-bold bg-gradient-to-r from-primary to-[#132D54] bg-clip-text text-transparent">
                   Import Resume
                 </h3>
                 <p className="text-sm text-gray-500 mt-1">
@@ -2412,8 +2412,8 @@ const EditableProfileForm = () => {
             </div>
 
             <div className="mb-6">
-              <div className="w-16 h-16 bg-gradient-to-r from-[#0B1F3B]/10 to-[#00C4B3]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Upload className="text-[#0B1F3B]" size={24} />
+              <div className="w-16 h-16 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Upload className="text-primary" size={24} />
               </div>
               <p className="text-sm text-gray-600 mb-4 text-center">
                 Upload your resume and we'll automatically extract your experience, education, and skills using AI.
@@ -2424,7 +2424,7 @@ const EditableProfileForm = () => {
                   type="file"
                   accept=".pdf, .docx"
                   onChange={(e) => setImportFile(e.target.files[0])}
-                  className="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-xl focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all duration-200 bg-gray-50 hover:bg-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-[#0B1F3B]/5 file:text-[#0B1F3B] hover:file:bg-[#0B1F3B]/10"
+                  className="w-full px-4 py-3 border-2 border-dashed border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-200 bg-gray-50 hover:bg-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-primary/5 file:text-primary hover:file:bg-primary/10"
                 />
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   {!importFile && (
@@ -2437,13 +2437,13 @@ const EditableProfileForm = () => {
               </div>
 
               {importFile && (
-                <div className="mt-3 p-3 bg-[#0B1F3B]/5 rounded-lg border border-[#0B1F3B]/15">
+                <div className="mt-3 p-3 bg-primary/5 rounded-lg border border-primary/15">
                   <div className="flex items-center gap-2">
-                    <FileText className="text-[#0B1F3B]" size={16} />
-                    <span className="text-sm font-medium text-[#0B1F3B]/80">{importFile.name}</span>
+                    <FileText className="text-primary" size={16} />
+                    <span className="text-sm font-medium text-primary/80">{importFile.name}</span>
                     <button
                       onClick={() => setImportFile(null)}
-                      className="ml-auto text-[#0B1F3B]/50 hover:text-[#0B1F3B]"
+                      className="ml-auto text-primary/50 hover:text-primary"
                     >
                       <X size={14} />
                     </button>
@@ -2460,7 +2460,7 @@ const EditableProfileForm = () => {
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div
-                    className="bg-[#0B1F3B] h-2 rounded-full transition-all duration-300"
+                    className="bg-primary h-2 rounded-full transition-all duration-300"
                     style={{ width: `${importProgress}%` }}
                   ></div>
                 </div>
@@ -2484,7 +2484,7 @@ const EditableProfileForm = () => {
               <button
                 onClick={handleResumeImport}
                 disabled={isImporting || !importFile}
-                className="flex-1 px-4 py-3 bg-[#0B1F3B] text-white rounded-xl hover:bg-[#132D54] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium shadow-lg hover:shadow-xl"
+                className="flex-1 px-4 py-3 bg-primary text-white rounded-xl hover:bg-[#132D54] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium shadow-lg hover:shadow-xl"
               >
                 {isImporting ? "Processing..." : "Import Resume"}
               </button>
@@ -2499,7 +2499,7 @@ const EditableProfileForm = () => {
           <div className="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-md mx-4 animate-in zoom-in-95 duration-200">
             <div className="flex justify-between items-center mb-6">
               <div>
-                <h3 className="text-xl font-bold bg-gradient-to-r from-[#0B1F3B] to-[#132D54] bg-clip-text text-transparent">
+                <h3 className="text-xl font-bold bg-gradient-to-r from-primary to-[#132D54] bg-clip-text text-transparent">
                   Share Profile
                 </h3>
                 <p className="text-sm text-gray-500 mt-1">
@@ -2515,8 +2515,8 @@ const EditableProfileForm = () => {
             </div>
 
             <div className="mb-6">
-              <div className="w-16 h-16 bg-gradient-to-r from-[#0B1F3B]/10 to-[#00C4B3]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Share2 className="text-[#0B1F3B]" size={24} />
+              <div className="w-16 h-16 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Share2 className="text-primary" size={24} />
               </div>
               <p className="text-sm text-gray-500 mb-4 text-center">Copy your profile link to share</p>
               <div className="flex flex-col sm:flex-row gap-2">
@@ -2533,7 +2533,7 @@ const EditableProfileForm = () => {
                       toast.success("Profile link copied to clipboard!");
                     }
                   }}
-                  className="px-6 py-3 bg-[#0B1F3B] text-white rounded-xl hover:bg-[#132D54] transition-all duration-200 shadow-lg hover:shadow-xl font-medium flex items-center justify-center gap-2 hover:scale-105 active:scale-95"
+                  className="px-6 py-3 bg-primary text-white rounded-xl hover:bg-[#132D54] transition-all duration-200 shadow-lg hover:shadow-xl font-medium flex items-center justify-center gap-2 hover:scale-105 active:scale-95"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -2551,12 +2551,12 @@ const EditableProfileForm = () => {
                   href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(`${typeof window !== 'undefined' ? window.location.origin : ''}/public-profile/${user?.uid}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center justify-center p-4 rounded-xl bg-gradient-to-br from-[#0B1F3B]/5 to-[#0B1F3B]/10 hover:from-[#0B1F3B]/10 hover:to-[#0B1F3B]/20 transition-all duration-200 group hover:scale-105 active:scale-95"
+                  className="flex flex-col items-center justify-center p-4 rounded-xl bg-gradient-to-br from-primary/5 to-primary/10 hover:from-primary/10 hover:to-primary/20 transition-all duration-200 group hover:scale-105 active:scale-95"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#0A66C2" className="group-hover:scale-110 transition-transform">
                     <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
                   </svg>
-                  <span className="mt-2 text-xs font-medium text-[#0B1F3B]/80">LinkedIn</span>
+                  <span className="mt-2 text-xs font-medium text-primary/80">LinkedIn</span>
                 </a>
 
                 {/* Twitter/X */}
@@ -2577,12 +2577,12 @@ const EditableProfileForm = () => {
                   href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${typeof window !== 'undefined' ? window.location.origin : ''}/public-profile/${user?.uid}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center justify-center p-4 rounded-xl bg-gradient-to-br from-[#0B1F3B]/5 to-[#0B1F3B]/10 hover:from-[#0B1F3B]/10 hover:to-[#0B1F3B]/20 transition-all duration-200 group hover:scale-105 active:scale-95"
+                  className="flex flex-col items-center justify-center p-4 rounded-xl bg-gradient-to-br from-primary/5 to-primary/10 hover:from-primary/10 hover:to-primary/20 transition-all duration-200 group hover:scale-105 active:scale-95"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#1877F2" className="group-hover:scale-110 transition-transform">
                     <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5A10.978 10.978 0 0112 6c1.54 0 3.04.31 4.43.87.14.06.27.13.4.2l.07.04 1.48-1.48-.07-.04A11.978 11.978 0 0012 4c-6.627 0-12 5.373-12 12 0 6.627 5.373 12 12 12a11.978 11.978 0 007.94-3.06l-.07-.04-1.48 1.48.07.04A11.978 11.978 0 0024 12z" />
                   </svg>
-                  <span className="mt-2 text-xs font-medium text-[#0B1F3B]/80">Facebook</span>
+                  <span className="mt-2 text-xs font-medium text-primary/80">Facebook</span>
                 </a>
 
                 {/* WhatsApp */}
@@ -2590,12 +2590,12 @@ const EditableProfileForm = () => {
                   href={`https://wa.me/?text=${encodeURIComponent(`Check out my professional profile: ${typeof window !== 'undefined' ? window.location.origin : ''}/public-profile/${user?.uid}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center justify-center p-4 rounded-xl bg-gradient-to-br from-[#00C4B3]/5 to-[#00C4B3]/10 hover:from-[#00C4B3]/10 hover:to-[#00C4B3]/20 transition-all duration-200 group hover:scale-105 active:scale-95"
+                  className="flex flex-col items-center justify-center p-4 rounded-xl bg-gradient-to-br from-accent/5 to-accent/10 hover:from-accent/10 hover:to-accent/20 transition-all duration-200 group hover:scale-105 active:scale-95"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#25D366" className="group-hover:scale-110 transition-transform">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                   </svg>
-                  <span className="mt-2 text-xs font-medium text-[#0B1F3B]/80">WhatsApp</span>
+                  <span className="mt-2 text-xs font-medium text-primary/80">WhatsApp</span>
                 </a>
               </div>
             </div>
@@ -2605,7 +2605,7 @@ const EditableProfileForm = () => {
                 href={`/public-profile/${user?.uid}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full px-4 py-3 bg-[#0B1F3B] text-white rounded-xl hover:bg-[#132D54] transition-all duration-200 shadow-lg hover:shadow-xl font-medium flex items-center justify-center gap-2 hover:scale-105 active:scale-95"
+                className="w-full px-4 py-3 bg-primary text-white rounded-xl hover:bg-[#132D54] transition-all duration-200 shadow-lg hover:shadow-xl font-medium flex items-center justify-center gap-2 hover:scale-105 active:scale-95"
               >
                 <Eye size={18} />
                 View Demo Profile
@@ -2661,7 +2661,7 @@ const EditableProfileForm = () => {
                   }
                 }}
                 disabled={saving}
-                className="flex-1 px-4 py-3 bg-[#0B1F3B] text-white rounded-xl hover:bg-[#132D54] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium shadow-lg hover:shadow-xl"
+                className="flex-1 px-4 py-3 bg-primary text-white rounded-xl hover:bg-[#132D54] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium shadow-lg hover:shadow-xl"
               >
                 {saving ? "Saving..." : "Save & Preview"}
               </button>

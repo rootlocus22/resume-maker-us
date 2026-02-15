@@ -42,7 +42,7 @@ const JobDetailPane = memo(function JobDetailPane({ job, isPremium, onClose }) {
         toast((t) => (
             <div className="flex flex-col gap-1">
                 <span className="font-bold text-sm flex items-center gap-2">
-                    <Rocket className="w-4 h-4 text-[#0B1F3B]" />
+                    <Rocket className="w-4 h-4 text-primary" />
                     Opening Application...
                 </span>
                 <span className="text-xs text-gray-600">Track this application to get daily progress nudges.</span>
@@ -106,7 +106,7 @@ const JobDetailPane = memo(function JobDetailPane({ job, isPremium, onClose }) {
                             </span>
                             <button
                                 onClick={() => { toast.dismiss(t.id); router.push('/checkout?billingCycle=quarterly&step=1'); }}
-                                className="bg-[#0B1F3B] text-white px-3 py-1.5 rounded text-xs font-bold mt-1"
+                                className="bg-primary text-white px-3 py-1.5 rounded text-xs font-bold mt-1"
                             >
                                 Upgrade Now
                             </button>
@@ -197,7 +197,7 @@ const JobDetailPane = memo(function JobDetailPane({ job, isPremium, onClose }) {
                     <div className="flex flex-col sm:flex-row gap-2">
                         <button
                             onClick={handleApplyClick}
-                            className="w-full sm:w-auto bg-[#0B1F3B] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#132D54] transition-colors flex items-center justify-center gap-1.5"
+                            className="w-full sm:w-auto bg-primary text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#132D54] transition-colors flex items-center justify-center gap-1.5"
                         >
                             Apply now
                             <ExternalLink className="w-3.5 h-3.5" />
@@ -205,7 +205,7 @@ const JobDetailPane = memo(function JobDetailPane({ job, isPremium, onClose }) {
                         <button
                             onClick={handleSaveJob}
                             disabled={saving}
-                            className="w-full sm:w-auto px-4 py-2 border border-[#0B1F3B] text-[#0B1F3B] rounded-lg text-sm font-semibold hover:bg-[#0B1F3B]/5 transition-colors flex items-center justify-center gap-1.5 disabled:opacity-50"
+                            className="w-full sm:w-auto px-4 py-2 border border-primary text-primary rounded-lg text-sm font-semibold hover:bg-primary/5 transition-colors flex items-center justify-center gap-1.5 disabled:opacity-50"
                         >
                             <BookmarkPlus className="w-3.5 h-3.5" />
                             {saving ? 'Saving...' : 'Save'}
@@ -217,9 +217,9 @@ const JobDetailPane = memo(function JobDetailPane({ job, isPremium, onClose }) {
             {/* Content - COMPACT with max-width for readability */}
             <div className="p-4 space-y-4 max-w-6xl mx-auto">
                 {/* AI Tools Card - COMPACT*/}
-                <div className="bg-gradient-to-br from-[#0B1F3B]/5 via-[#00C4B3]/5 to-slate-50 rounded-lg p-4 border border-[#0B1F3B]/10">
+                <div className="bg-gradient-to-br from-primary/5 via-accent/5 to-slate-50 rounded-lg p-4 border border-primary/10">
                     <div className="flex items-center gap-1.5 mb-3">
-                        <Sparkles className="w-4 h-4 text-[#00C4B3]" />
+                        <Sparkles className="w-4 h-4 text-accent" />
                         <h2 className="text-sm font-bold text-gray-900">Your AI-Powered Job Tools</h2>
                         {!isPremium && (
                             <Crown className="w-3.5 h-3.5 text-yellow-500" />
@@ -235,12 +235,12 @@ const JobDetailPane = memo(function JobDetailPane({ job, isPremium, onClose }) {
                             }}
                             disabled={!isPremium}
                             className={`flex flex-col items-center gap-1.5 p-3 rounded-lg border-2 transition-all ${isPremium
-                                ? 'bg-white border-[#00C4B3]/30 hover:border-[#00C4B3] hover:shadow-md cursor-pointer'
+                                ? 'bg-white border-accent/30 hover:border-accent hover:shadow-md cursor-pointer'
                                 : 'bg-gray-50 border-gray-200 cursor-not-allowed opacity-60'
                                 }`}
                         >
                             <div className="relative">
-                                <Target className="w-5 h-5 text-[#0B1F3B]" />
+                                <Target className="w-5 h-5 text-primary" />
                                 {!isPremium && <Lock className="w-2.5 h-2.5 absolute -top-0.5 -right-0.5 text-amber-500" />}
                             </div>
                             <span className="text-xs font-semibold text-gray-900">Match Score</span>
@@ -255,12 +255,12 @@ const JobDetailPane = memo(function JobDetailPane({ job, isPremium, onClose }) {
                             }}
                             disabled={!isPremium}
                             className={`flex flex-col items-center gap-1.5 p-3 rounded-lg border-2 transition-all ${isPremium
-                                ? 'bg-white border-[#0B1F3B]/20 hover:border-[#0B1F3B]/50 hover:shadow-md cursor-pointer'
+                                ? 'bg-white border-primary/20 hover:border-primary/50 hover:shadow-md cursor-pointer'
                                 : 'bg-gray-50 border-gray-200 cursor-not-allowed opacity-60'
                                 }`}
                         >
                             <div className="relative">
-                                <Sparkles className="w-5 h-5 text-[#00C4B3]" />
+                                <Sparkles className="w-5 h-5 text-accent" />
                                 {!isPremium && <Lock className="w-2.5 h-2.5 absolute -top-0.5 -right-0.5 text-amber-500" />}
                             </div>
                             <span className="text-xs font-semibold text-gray-900">Stand Out</span>
@@ -270,9 +270,9 @@ const JobDetailPane = memo(function JobDetailPane({ job, isPremium, onClose }) {
                         {/* Tailor CV */}
                         <Link
                             href={`/job-description-resume-builder?jobTitle=${encodeURIComponent(job.job_title)}&company=${encodeURIComponent(job.employer_name)}&jobDescription=${encodeURIComponent(job.job_description || job.job_title)}`}
-                            className="flex flex-col items-center gap-1.5 p-3 rounded-lg border-2 bg-white border-[#00C4B3]/30 hover:border-[#00C4B3] hover:shadow-md transition-all"
+                            className="flex flex-col items-center gap-1.5 p-3 rounded-lg border-2 bg-white border-accent/30 hover:border-accent hover:shadow-md transition-all"
                         >
-                            <FileText className="w-5 h-5 text-[#0B1F3B]" />
+                            <FileText className="w-5 h-5 text-primary" />
                             <span className="text-xs font-semibold text-gray-900">Tailor CV</span>
                             <span className="text-[10px] text-gray-600 text-center leading-tight">Optimize resume</span>
                         </Link>
@@ -285,12 +285,12 @@ const JobDetailPane = memo(function JobDetailPane({ job, isPremium, onClose }) {
                             }}
                             disabled={!isPremium}
                             className={`flex flex-col items-center gap-1.5 p-3 rounded-lg border-2 transition-all ${isPremium
-                                ? 'bg-white border-[#0B1F3B]/20 hover:border-[#0B1F3B]/50 hover:shadow-md cursor-pointer'
+                                ? 'bg-white border-primary/20 hover:border-primary/50 hover:shadow-md cursor-pointer'
                                 : 'bg-gray-50 border-gray-200 cursor-not-allowed opacity-60'
                                 }`}
                         >
                             <div className="relative">
-                                <PenTool className="w-5 h-5 text-[#0B1F3B]" />
+                                <PenTool className="w-5 h-5 text-primary" />
                                 {!isPremium && <Lock className="w-2.5 h-2.5 absolute -top-0.5 -right-0.5 text-amber-500" />}
                             </div>
                             <span className="text-xs font-semibold text-gray-900">Cover Letter</span>
@@ -300,7 +300,7 @@ const JobDetailPane = memo(function JobDetailPane({ job, isPremium, onClose }) {
 
                     {!isPremium && (
                         <p className="text-[10px] text-gray-600 mt-2.5 text-center leading-tight">
-                            🔒 Upgrade to <span className="font-semibold text-[#0B1F3B]">Premium</span> to unlock all AI tools
+                            🔒 Upgrade to <span className="font-semibold text-primary">Premium</span> to unlock all AI tools
                         </p>
                     )}
                 </div>
@@ -316,7 +316,7 @@ const JobDetailPane = memo(function JobDetailPane({ job, isPremium, onClose }) {
                     {job.job_description && job.job_description.length > 500 && (
                         <button
                             onClick={() => setShowFullDescription(!showFullDescription)}
-                            className="mt-3 text-[#0B1F3B] hover:text-[#132D54] font-semibold flex items-center gap-1 text-sm"
+                            className="mt-3 text-primary hover:text-[#132D54] font-semibold flex items-center gap-1 text-sm"
                         >
                             {showFullDescription ? (
                                 <>Show less <ChevronUp className="w-4 h-4" /></>

@@ -199,14 +199,14 @@ function MessageBubble({ message, onCopy }) {
           <div className="flex items-center gap-2 mb-2">
             <div className={`w-7 h-7 rounded-full flex items-center justify-center ${
               isStreaming 
-                ? "bg-gradient-to-br from-blue-500 to-purple-600 animate-pulse" 
-                : "bg-gradient-to-br from-blue-500 to-purple-600"
+                ? "bg-gradient-to-br from-primary to-accent animate-pulse" 
+                : "bg-gradient-to-br from-primary to-accent"
             }`}>
               <Sparkles className="w-4 h-4 text-white" />
             </div>
             <span className="text-sm font-medium text-gray-700">
               ExpertResume AI
-              {isStreaming && <span className="ml-2 text-xs text-blue-600">typing...</span>}
+              {isStreaming && <span className="ml-2 text-xs text-accent-600">typing...</span>}
             </span>
           </div>
         )}
@@ -215,7 +215,7 @@ function MessageBubble({ message, onCopy }) {
         <div
           className={`rounded-2xl px-4 py-3 ${
             isUser
-              ? "bg-blue-600 text-white"
+              ? "bg-accent text-white"
               : "bg-white border border-gray-200 text-gray-800"
           }`}
           style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}
@@ -229,7 +229,7 @@ function MessageBubble({ message, onCopy }) {
           >
             <MessageContentRenderer content={message.content} isUser={isUser} onCopy={onCopy} />
             {isStreaming && (
-              <span className="inline-block w-1.5 h-4 bg-blue-600 ml-1 animate-pulse"></span>
+              <span className="inline-block w-1.5 h-4 bg-accent ml-1 animate-pulse"></span>
             )}
           </div>
 
@@ -292,11 +292,11 @@ function SuggestionCard({ icon: Icon, title, description, onClick }) {
   return (
     <button
       onClick={onClick}
-      className="flex items-start gap-3 p-4 bg-white border border-gray-200 rounded-xl hover:border-blue-500 hover:shadow-md transition-all text-left group"
+      className="flex items-start gap-3 p-4 bg-white border border-gray-200 rounded-xl hover:border-accent hover:shadow-md transition-all text-left group"
       style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}
     >
-      <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-100 transition-colors">
-        <Icon className="w-5 h-5 text-blue-600" />
+      <div className="w-10 h-10 rounded-lg bg-accent-50 flex items-center justify-center flex-shrink-0 group-hover:bg-accent-100 transition-colors">
+        <Icon className="w-5 h-5 text-accent-600" />
       </div>
       <div className="flex-1 min-w-0">
         <h3 className="text-sm font-semibold text-gray-900 mb-1 leading-tight">{title}</h3>
@@ -656,7 +656,7 @@ export default function ExpertResumeGPT({ isOpen, onClose, isPremium }) {
         <div className="p-4 border-b border-gray-200">
           <button
             onClick={createNewConversation}
-            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium"
+            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-accent hover:bg-accent-600 text-white rounded-lg transition-colors font-medium"
           >
             <Plus className="w-4 h-4" />
             New Chat
@@ -698,7 +698,7 @@ export default function ExpertResumeGPT({ isOpen, onClose, isPremium }) {
             <div className="p-4 border-b border-gray-200">
               <button
                 onClick={createNewConversation}
-                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium"
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-accent hover:bg-accent-600 text-white rounded-lg transition-colors font-medium"
               >
                 <Plus className="w-4 h-4" />
                 New Chat
@@ -734,7 +734,7 @@ export default function ExpertResumeGPT({ isOpen, onClose, isPremium }) {
               <Menu className="w-5 h-5 text-gray-600" />
             </button>
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                 <Sparkles className="w-4 h-4 text-white" />
               </div>
               <div>
@@ -768,7 +768,7 @@ export default function ExpertResumeGPT({ isOpen, onClose, isPremium }) {
               <div className="space-y-8">
                 {/* Welcome Message */}
                 <div className="text-center py-12">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mx-auto mb-4">
                     <Sparkles className="w-8 h-8 text-white" />
                   </div>
                   <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2" 
@@ -801,14 +801,14 @@ export default function ExpertResumeGPT({ isOpen, onClose, isPremium }) {
               <>
                 {/* Contextual Info Banner - Shows in conversation */}
                 {userContext && (userContext.hasResumes || userContext.uploadCount > 0) && (
-                  <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg sticky top-0 z-10">
+                  <div className="mb-4 p-3 bg-accent-50 border border-accent-200 rounded-lg sticky top-0 z-10">
                     <div className="flex items-start gap-2">
-                      <Sparkles className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <Sparkles className="w-4 h-4 text-accent-600 flex-shrink-0 mt-0.5" />
                       <div className="flex-1 min-w-0">
-                        <p className="text-xs text-blue-800 font-medium">
+                        <p className="text-xs text-accent-800 font-medium">
                           🎯 Personalized AI Coach Active
                         </p>
-                        <p className="text-xs text-blue-600 mt-1">
+                        <p className="text-xs text-accent-600 mt-1">
                           I have access to 
                           {userContext.hasResumes && (
                             <> your {userContext.resumeCount} resume{userContext.resumeCount > 1 ? 's' : ''}
@@ -835,7 +835,7 @@ export default function ExpertResumeGPT({ isOpen, onClose, isPremium }) {
                 ))}
                 {isLoading && (
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                       <Sparkles className="w-4 h-4 text-white" />
                     </div>
                     <div className="flex gap-1">
@@ -867,7 +867,7 @@ export default function ExpertResumeGPT({ isOpen, onClose, isPremium }) {
                     }
                   }}
                   placeholder="Ask me anything about your career..."
-                  className="w-full px-4 py-3.5 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none max-h-32 text-[15px] text-gray-900 placeholder-gray-400 font-normal shadow-sm hover:border-gray-400 transition-colors"
+                  className="w-full px-4 py-3.5 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent resize-none max-h-32 text-[15px] text-gray-900 placeholder-gray-400 font-normal shadow-sm hover:border-gray-400 transition-colors"
                   style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}
                   rows={1}
                   disabled={isLoading}
@@ -876,7 +876,7 @@ export default function ExpertResumeGPT({ isOpen, onClose, isPremium }) {
               <button
                 onClick={() => handleSend()}
                 disabled={!input.trim() || isLoading}
-                className="h-12 w-12 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white rounded-2xl transition-all flex items-center justify-center flex-shrink-0 shadow-md hover:shadow-lg disabled:shadow-sm"
+                className="h-12 w-12 bg-accent hover:bg-accent-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white rounded-2xl transition-all flex items-center justify-center flex-shrink-0 shadow-md hover:shadow-lg disabled:shadow-sm"
               >
                 <Send className="w-5 h-5" />
               </button>

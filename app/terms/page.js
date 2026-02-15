@@ -66,7 +66,7 @@ export default function TermsPage() {
       <div className="min-h-screen py-12 sm:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white shadow-lg rounded-xl p-6 sm:p-8">
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-center bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] bg-clip-text text-transparent mb-4 sm:mb-6">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-center bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent mb-4 sm:mb-6">
               Terms & Conditions
             </h1>
             <p className="text-center text-gray-500 text-sm mb-6">
@@ -76,13 +76,13 @@ export default function TermsPage() {
             {/* Trust Preamble */}
             <div className="text-center mb-6 sm:mb-8">
               <p className="text-gray-700 text-sm sm:text-base font-medium">
-                Welcome to <span className="font-semibold text-[#0B1F3B]">ExpertResume</span>, operated by Vendax Systems LLC. We’re dedicated to helping you succeed in your career with our free and premium resume-building tools. These Terms & Conditions outline your rights and responsibilities, ensuring a transparent and trustworthy experience.
+                Welcome to <span className="font-semibold text-primary">ExpertResume</span>, operated by Vendax Systems LLC. We’re dedicated to helping you succeed in your career with our free and premium resume-building tools. These Terms & Conditions outline your rights and responsibilities, ensuring a transparent and trustworthy experience.
               </p>
             </div>
 
             <div className="space-y-6 text-gray-700">
               {/* Definitions */}
-              <div className="border-l-4 border-[#0B1F3B] pl-4 mb-6">
+              <div className="border-l-4 border-primary pl-4 mb-6">
                 <h2 className="text-lg font-semibold text-gray-800 mb-2">Definitions</h2>
                 <p className="text-sm sm:text-base">
                   In these Terms and Conditions, <strong>"we", "us", "our"</strong> refer to Vendax Systems LLC, 28 Geary St STE 650 Suite #500, San Francisco, California 94108, United States. <strong>"You", "your", "user", "visitor"</strong> refer to any individual or entity accessing our website or purchasing our services.
@@ -94,7 +94,7 @@ export default function TermsPage() {
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-[#0B1F3B]"
+                    className="h-5 w-5 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -112,7 +112,7 @@ export default function TermsPage() {
                     We strive for accuracy, but neither we nor third parties guarantee the completeness or suitability of information on this site. Any inaccuracies or errors are excluded from liability to the fullest extent permitted by law.
                   </li>
                   <li>
-                    Use of our website and services is at your own risk. It’s your responsibility to ensure our offerings meet your needs. Test our <Link href="/" className="text-[#0B1F3B] hover:underline">free tools</Link> to confirm suitability.
+                    Use of our website and services is at your own risk. It’s your responsibility to ensure our offerings meet your needs. Test our <Link href="/" className="text-primary hover:underline">free tools</Link> to confirm suitability.
                   </li>
                 </ul>
               </div>
@@ -122,7 +122,7 @@ export default function TermsPage() {
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-[#0B1F3B]"
+                    className="h-5 w-5 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -144,7 +144,7 @@ export default function TermsPage() {
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-[#0B1F3B]"
+                    className="h-5 w-5 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -163,7 +163,7 @@ export default function TermsPage() {
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-[#0B1F3B]"
+                    className="h-5 w-5 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -185,7 +185,7 @@ export default function TermsPage() {
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-[#0B1F3B]"
+                    className="h-5 w-5 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -200,7 +200,7 @@ export default function TermsPage() {
                   </p>
                   <div className="grid sm:grid-cols-3 gap-4">
                     <div className="bg-white p-4 rounded-xl border border-slate-200">
-                      <h4 className="text-[10px] font-black text-[#0B1F3B] uppercase tracking-widest mb-1 leading-none">FREE TRIAL</h4>
+                      <h4 className="text-[10px] font-black text-primary uppercase tracking-widest mb-1 leading-none">FREE TRIAL</h4>
                       <p className="text-xs font-bold text-slate-800">1 Session / Month</p>
                       <p className="text-[9px] text-slate-400 font-medium italic">2 Questions per session</p>
                     </div>
@@ -210,8 +210,8 @@ export default function TermsPage() {
                       <p className="text-[9px] text-slate-400 font-medium italic">15 Questions per session</p>
                     </div>
                     <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm border-2 border-slate-200 relative overflow-hidden">
-                      <div className="absolute top-0 right-0 px-2 py-0.5 bg-[#0B1F3B] text-[7px] text-white font-black uppercase">MAX</div>
-                      <h4 className="text-[10px] font-black text-[#0B1F3B] uppercase tracking-widest mb-1 leading-none">AI INTERVIEW PRO</h4>
+                      <div className="absolute top-0 right-0 px-2 py-0.5 bg-primary text-[7px] text-white font-black uppercase">MAX</div>
+                      <h4 className="text-[10px] font-black text-primary uppercase tracking-widest mb-1 leading-none">AI INTERVIEW PRO</h4>
                       <p className="text-xs font-bold text-slate-800">20 Sessions / Month</p>
                       <p className="text-[9px] text-slate-400 font-medium italic">15 Questions per session</p>
                     </div>
@@ -250,7 +250,7 @@ export default function TermsPage() {
                     <li>
                       <strong>Additional Profile Slots:</strong> To build resumes for others (e.g., family or friends), you must purchase additional <strong>Profile Slots</strong>.
                       <br />
-                      <span className="text-sm font-semibold text-[#0B1F3B]">Price: See pricing page for additional profile options (Lifetime Validity)</span>
+                      <span className="text-sm font-semibold text-primary">Price: See pricing page for additional profile options (Lifetime Validity)</span>
                     </li>
                     <li>
                       <strong>Restrictions:</strong> Downloading resumes for unauthorized profiles without an available slot is restricted. Sharing accounts to bypass this limit is a violation of our terms and may lead to account suspension.
@@ -264,7 +264,7 @@ export default function TermsPage() {
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-[#0B1F3B]"
+                    className="h-5 w-5 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -283,7 +283,7 @@ export default function TermsPage() {
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-[#0B1F3B]"
+                    className="h-5 w-5 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -294,7 +294,7 @@ export default function TermsPage() {
                 </h3>
                 <p className="text-sm sm:text-base">
                   We’re not liable for transaction declines due to cardholder limits set by our acquiring bank. For payment issues, contact{" "}
-                  <a href="mailto:support@expertresume.us" className="text-[#0B1F3B] hover:underline">support@expertresume.us</a>.
+                  <a href="mailto:support@expertresume.us" className="text-primary hover:underline">support@expertresume.us</a>.
                 </p>
               </div>
 
@@ -303,7 +303,7 @@ export default function TermsPage() {
                 <h3 className="text-lg font-semibold text-gray-800 mb-2 flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-[#0B1F3B]"
+                    className="h-5 w-5 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -314,7 +314,7 @@ export default function TermsPage() {
                 </h3>
                 <p className="text-sm sm:text-base">
                   We’re here to help! Contact us at{" "}
-                  <a href="mailto:support@expertresume.us" className="text-[#0B1F3B] hover:underline">support@expertresume.us</a> with any questions. Expect a response within 24-48 hours.
+                  <a href="mailto:support@expertresume.us" className="text-primary hover:underline">support@expertresume.us</a> with any questions. Expect a response within 24-48 hours.
                 </p>
               </div>
             </div>
@@ -325,7 +325,7 @@ export default function TermsPage() {
                 <div className="flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-[#0B1F3B]"
+                    className="h-6 w-6 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -337,7 +337,7 @@ export default function TermsPage() {
                 <div className="flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-[#0B1F3B]"
+                    className="h-6 w-6 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -350,7 +350,7 @@ export default function TermsPage() {
 
               <Link
                 href="/"
-                className="inline-block bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white px-6 py-3 rounded-full font-semibold text-lg hover:from-[#071429] hover:to-[#071429] transition-all duration-300 shadow-md hover:shadow-lg"
+                className="inline-block bg-gradient-to-r from-primary to-primary text-white px-6 py-3 rounded-full font-semibold text-lg hover:from-gray-900 hover:to-gray-900 transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 Back to Home
               </Link>
@@ -360,7 +360,7 @@ export default function TermsPage() {
             <div className="mt-6 text-center text-xs text-gray-500">
               <p>
                 Vendax Systems LLC reserves the right to modify these Terms & Conditions at any time. Updates are effective upon posting. For inquiries, reach us at{" "}
-                <a href="mailto:support@expertresume.us" className="text-[#0B1F3B] hover:underline">support@expertresume.us</a>.
+                <a href="mailto:support@expertresume.us" className="text-primary hover:underline">support@expertresume.us</a>.
               </p>
             </div>
           </div>

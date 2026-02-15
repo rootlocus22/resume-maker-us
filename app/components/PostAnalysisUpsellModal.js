@@ -94,7 +94,7 @@ export default function PostAnalysisUpsellModal({ isOpen, onClose, onUpgrade }) 
 
                     <button
                         onClick={() => onUpgrade(planKey)}
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-blue-200 transition-all flex items-center justify-center gap-2 group"
+                        className="w-full bg-accent hover:bg-accent-600 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-accent/20 transition-all flex items-center justify-center gap-2 group"
                     >
                         <span>Fix My Resume Now</span>
                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

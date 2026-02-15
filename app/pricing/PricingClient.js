@@ -327,17 +327,17 @@ export default function Pricing() {
 
               {/* PROFESSIONAL PLAN */}
               <div className="flex">
-                <div className="w-full bg-white rounded-2xl border-2 border-[#00C4B3] p-6 sm:p-8 relative flex flex-col justify-between shadow-lg shadow-teal-100/50">
+                <div className="w-full bg-white rounded-2xl border-2 border-accent p-6 sm:p-8 relative flex flex-col justify-between shadow-lg shadow-teal-100/50">
                   {/* Badge */}
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="bg-[#00C4B3] text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-sm tracking-wide">
+                    <span className="bg-accent text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-sm tracking-wide">
                       MOST POPULAR
                     </span>
                   </div>
 
                   <div>
                     <div className="flex items-center gap-2.5 mb-1 mt-2">
-                      <Crown className="w-5 h-5 text-[#00C4B3]" />
+                      <Crown className="w-5 h-5 text-accent" />
                       <h3 className="text-lg font-semibold text-gray-900">Professional</h3>
                     </div>
                     <p className="text-sm text-gray-500 mb-5">Everything you need to get hired</p>
@@ -404,7 +404,7 @@ export default function Pricing() {
                         "Advanced analytics",
                       ].map((feature, i) => (
                         <div key={i} className="flex items-start gap-3 text-sm text-gray-700">
-                          <Check className="w-4 h-4 text-[#00C4B3] mt-0.5 shrink-0" strokeWidth={2.5} />
+                          <Check className="w-4 h-4 text-accent mt-0.5 shrink-0" strokeWidth={2.5} />
                           <span className="font-medium">{feature}</span>
                         </div>
                       ))}
@@ -414,7 +414,7 @@ export default function Pricing() {
                   <div>
                     <button
                       onClick={(e) => handlePlanClick(e, proBillingCycle)}
-                      className="w-full py-3.5 rounded-xl font-semibold text-sm bg-[#00C4B3] text-white hover:bg-[#00b3a3] transition-all flex items-center justify-center gap-2 shadow-md shadow-teal-200/40"
+                      className="w-full py-3.5 rounded-xl font-semibold text-sm bg-accent text-white hover:bg-accent-600 transition-all flex items-center justify-center gap-2 shadow-md shadow-teal-200/40"
                     >
                       Get Professional <ArrowRight className="w-4 h-4" />
                     </button>
@@ -440,7 +440,7 @@ export default function Pricing() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <div className="bg-gray-50 rounded-2xl p-6 sm:p-8 text-center border border-gray-100">
             <div className="flex items-center justify-center gap-2 mb-3">
-              <Briefcase className="w-5 h-5 text-[#00C4B3]" />
+              <Briefcase className="w-5 h-5 text-accent" />
               <h3 className="text-lg font-semibold text-gray-900">Prefer a done-for-you resume?</h3>
             </div>
             <p className="text-sm text-gray-500 mb-4 max-w-lg mx-auto">
@@ -471,7 +471,7 @@ export default function Pricing() {
                   <tr className="border-b border-gray-100">
                     <th className="text-left px-5 py-4 text-sm font-semibold text-gray-900 w-1/2">Feature</th>
                     <th className="text-center px-4 py-4 text-sm font-semibold text-gray-500 w-1/4">Starter</th>
-                    <th className="text-center px-4 py-4 text-sm font-semibold text-[#00C4B3] w-1/4">Professional</th>
+                    <th className="text-center px-4 py-4 text-sm font-semibold text-accent w-1/4">Professional</th>
                   </tr>
                 </thead>
                 <tbody className="text-sm">
@@ -505,9 +505,9 @@ export default function Pricing() {
                       </td>
                       <td className="px-4 py-3 text-center">
                         {typeof row.pro === 'string' ? (
-                          <span className="text-[#00C4B3] text-xs font-bold">{row.pro}</span>
+                          <span className="text-accent text-xs font-bold">{row.pro}</span>
                         ) : row.pro ? (
-                          <Check className="w-4 h-4 text-[#00C4B3] mx-auto" strokeWidth={2.5} />
+                          <Check className="w-4 h-4 text-accent mx-auto" strokeWidth={2.5} />
                         ) : (
                           <span className="text-gray-300">--</span>
                         )}
@@ -542,7 +542,7 @@ export default function Pricing() {
                 { icon: <FileText className="w-5 h-5" />, title: "Cover Letter Builder", desc: "AI-generated cover letters matched to jobs", cost: "$20-40 elsewhere" },
               ].map((tool, i) => (
                 <div key={i} className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-gray-200 transition-colors bg-white">
-                  <div className="p-2 bg-teal-50 rounded-lg text-[#00C4B3] h-fit shrink-0">
+                  <div className="p-2 bg-teal-50 rounded-lg text-accent h-fit shrink-0">
                     {tool.icon}
                   </div>
                   <div>
@@ -579,7 +579,7 @@ export default function Pricing() {
               { icon: <BadgeCheck className="w-6 h-6" />, title: "Built for US market", desc: "Optimized for US ATS systems like Greenhouse, Lever, and Workday." },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-xl p-5 border border-gray-100 text-center">
-                <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center mx-auto mb-3 text-[#00C4B3]">
+                <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center mx-auto mb-3 text-accent">
                   {item.icon}
                 </div>
                 <h4 className="text-sm font-semibold text-gray-900 mb-1">{item.title}</h4>
@@ -601,7 +601,7 @@ export default function Pricing() {
               { stat: "50+", label: "Professional templates", icon: <Sparkles className="w-5 h-5" /> },
             ].map((item, i) => (
               <div key={i}>
-                <div className="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center mx-auto mb-2 text-[#00C4B3]">
+                <div className="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center mx-auto mb-2 text-accent">
                   {item.icon}
                 </div>
                 <p className="text-2xl sm:text-3xl font-bold text-gray-900">{item.stat}</p>
@@ -659,7 +659,7 @@ export default function Pricing() {
               <div className="flex flex-col sm:flex-row justify-center gap-3">
                 <button
                   onClick={(e) => handlePlanClick(e, proBillingCycle)}
-                  className="bg-[#00C4B3] text-white px-8 py-3 rounded-xl font-semibold text-sm hover:bg-[#00b3a3] transition-colors shadow-lg shadow-teal-900/20 flex items-center justify-center gap-2"
+                  className="bg-accent text-white px-8 py-3 rounded-xl font-semibold text-sm hover:bg-accent-600 transition-colors shadow-lg shadow-teal-900/20 flex items-center justify-center gap-2"
                 >
                   Get Professional <ArrowRight className="w-4 h-4" />
                 </button>

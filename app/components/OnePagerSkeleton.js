@@ -69,7 +69,7 @@ export default function OnePagerSkeleton() {
             {/* Loading Overlay (Optional, for transitions) */}
             <div className="fixed inset-0 bg-white/50 backdrop-blur-sm z-40 flex items-center justify-center">
                 <div className="flex flex-col items-center gap-3">
-                    <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+                    <Loader2 className="w-8 h-8 text-accent animate-spin" />
                     <span className="text-sm font-medium text-gray-600">Loading Builder...</span>
                 </div>
             </div>

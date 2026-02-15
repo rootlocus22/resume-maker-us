@@ -39,7 +39,7 @@ function DailyGoalTracker({ jobs }) {
   const progress = Math.min(100, (appliedToday / DAILY_GOAL) * 100);
 
   return (
-    <div className="bg-gradient-to-r from-[#0B1F3B] to-[#132D54] rounded-xl p-4 sm:p-6 mb-6 text-white shadow-xl relative overflow-hidden">
+    <div className="bg-gradient-to-r from-primary to-[#132D54] rounded-xl p-4 sm:p-6 mb-6 text-white shadow-xl relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2 transform pointer-events-none"></div>
 
@@ -57,9 +57,9 @@ function DailyGoalTracker({ jobs }) {
             <span>{appliedToday} / {DAILY_GOAL} Applied</span>
             <span>{appliedToday >= DAILY_GOAL ? 'Goal Reached! 🎉' : 'Keep going!'}</span>
           </div>
-            <div className="h-4 bg-[#071429]/50 rounded-full overflow-hidden border border-[#0B1F3B]/30">
+            <div className="h-4 bg-gray-900/50 rounded-full overflow-hidden border border-primary/30">
             <div
-              className={`h-full transition-all duration-1000 ease-out ${appliedToday >= DAILY_GOAL ? 'bg-gradient-to-r from-green-400 to-emerald-500' : 'bg-gradient-to-r from-[#00C4B3] to-[#00A89A]'}`}
+              className={`h-full transition-all duration-1000 ease-out ${appliedToday >= DAILY_GOAL ? 'bg-gradient-to-r from-green-400 to-emerald-500' : 'bg-gradient-to-r from-accent to-[#00A89A]'}`}
               style={{ width: `${progress}%` }}
             >
               {progress > 0 && <div className="w-full h-full animate-shimmer bg-white/20"></div>}
@@ -80,7 +80,7 @@ function FunnelAnalytics({ applied, interviews, offers, isPremium, userData }) {
     <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden mb-6">
       <div className="bg-gray-50 px-4 py-3 border-b border-gray-100 flex items-center justify-between">
         <h3 className="text-sm font-bold text-gray-900 flex items-center gap-2">
-          <TrendingUp className="w-4 h-4 text-[#0B1F3B]" />
+          <TrendingUp className="w-4 h-4 text-primary" />
           Job Search Funnel Insights
         </h3>
         {!isPremium && (
@@ -95,13 +95,13 @@ function FunnelAnalytics({ applied, interviews, offers, isPremium, userData }) {
           <div className="relative">
             <div className="flex justify-between items-end mb-2">
               <span className="text-xs font-semibold text-gray-500 uppercase">Apply → Interview</span>
-              <span className={`text-lg font-bold ${interviewRate >= 15 ? 'text-green-600' : 'text-[#0B1F3B]'}`}>
+              <span className={`text-lg font-bold ${interviewRate >= 15 ? 'text-green-600' : 'text-primary'}`}>
                 {interviewRate}%
               </span>
             </div>
             <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
               <div
-                className={`h-full transition-all duration-1000 ${interviewRate >= 15 ? 'bg-green-500' : 'bg-[#00C4B3]'}`}
+                className={`h-full transition-all duration-1000 ${interviewRate >= 15 ? 'bg-green-500' : 'bg-accent'}`}
                 style={{ width: `${Math.min(100, interviewRate * 2.5)}%` }} // Scaled for visibility
               ></div>
             </div>
@@ -116,13 +116,13 @@ function FunnelAnalytics({ applied, interviews, offers, isPremium, userData }) {
           <div className="relative">
             <div className="flex justify-between items-end mb-2">
               <span className="text-xs font-semibold text-gray-500 uppercase">Interview → Offer</span>
-              <span className={`text-lg font-bold ${offerRate >= 20 ? 'text-green-600' : 'text-[#0B1F3B]'}`}>
+              <span className={`text-lg font-bold ${offerRate >= 20 ? 'text-green-600' : 'text-primary'}`}>
                 {offerRate}%
               </span>
             </div>
             <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
               <div
-                className={`h-full transition-all duration-1000 ${offerRate >= 20 ? 'bg-green-500' : 'bg-[#00C4B3]'}`}
+                className={`h-full transition-all duration-1000 ${offerRate >= 20 ? 'bg-green-500' : 'bg-accent'}`}
                 style={{ width: `${Math.min(100, offerRate * 1.5)}%` }}
               ></div>
             </div>
@@ -140,7 +140,7 @@ function FunnelAnalytics({ applied, interviews, offers, isPremium, userData }) {
               <Lock className="w-3.5 h-3.5 text-amber-500" />
               <span className="text-[11px] text-gray-600 italic">"Why are my rates low?" — Unlock AI Analysis</span>
             </div>
-            <Link href="/checkout?billingCycle=quarterly&step=1" className="text-[11px] font-bold text-[#0B1F3B] hover:underline">
+            <Link href="/checkout?billingCycle=quarterly&step=1" className="text-[11px] font-bold text-primary hover:underline">
               Upgrade to Pro
             </Link>
           </div>
@@ -191,7 +191,7 @@ function StreakTracker({ jobs, user, isApplyPro }) {
         </div>
       </div>
       {!isApplyPro && (
-        <Link href="/checkout?billingCycle=quarterly&step=1" className="text-xs font-bold text-[#0B1F3B] hover:underline">
+        <Link href="/checkout?billingCycle=quarterly&step=1" className="text-xs font-bold text-primary hover:underline">
           Unlock streak protection
         </Link>
       )}
@@ -221,18 +221,18 @@ function DailyFocus({ jobs, onAction }) {
           >
             <div className="flex justify-between items-start mb-1">
               <span className={`text-[10px] font-bold uppercase tracking-wider ${task.priority === 'high' ? 'text-red-600' :
-                task.priority === 'medium' ? 'text-[#0B1F3B]' : 'text-gray-500'
+                task.priority === 'medium' ? 'text-primary' : 'text-gray-500'
                 }`}>
                 {task.priority} Priority
               </span>
               {task.type === 'follow-up' && <Clock className="w-3 h-3 text-red-400" />}
-              {task.type === 'apply' && <Rocket className="w-3 h-3 text-[#00C4B3]" />}
+              {task.type === 'apply' && <Rocket className="w-3 h-3 text-accent" />}
             </div>
             <h4 className="text-sm font-bold text-gray-900 mb-1 leading-tight">{task.text}</h4>
             <p className="text-[11px] text-gray-500 mb-3">{task.subtext}</p>
             <button
               onClick={() => onAction(task)}
-              className="text-xs font-bold text-[#0B1F3B] flex items-center gap-1 hover:gap-2 transition-all"
+              className="text-xs font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all"
             >
               Start Task <ArrowRight size={12} />
             </button>
@@ -248,7 +248,7 @@ function ApplyProMissions({ isApplyPro }) {
     {
       title: "Auto‑follow up on saved jobs",
       description: "Send 2 follow‑ups automatically today.",
-      icon: <Mail className="w-4 h-4 text-[#0B1F3B]" />
+      icon: <Mail className="w-4 h-4 text-primary" />
     },
     {
       title: "AI Fit refresh for top roles",
@@ -258,7 +258,7 @@ function ApplyProMissions({ isApplyPro }) {
     {
       title: "Interview prep sprint",
       description: "Practice 5 tailored Qs for your next interview.",
-      icon: <Target className="w-4 h-4 text-[#0B1F3B]" />
+      icon: <Target className="w-4 h-4 text-primary" />
     }
   ];
 
@@ -270,7 +270,7 @@ function ApplyProMissions({ isApplyPro }) {
           <h3 className="text-base font-bold text-gray-900">Apply Pro Daily Missions</h3>
         </div>
         {!isApplyPro && (
-          <Link href="/checkout?billingCycle=quarterly&step=1" className="text-xs font-bold text-[#0B1F3B] hover:underline">
+          <Link href="/checkout?billingCycle=quarterly&step=1" className="text-xs font-bold text-primary hover:underline">
             Unlock Apply Pro
           </Link>
         )}
@@ -464,7 +464,7 @@ function MyJobsContent() {
             <span className="text-xs">AI Job Matching is exclusive to Expert & Ultimate plans.</span>
             <button
               onClick={() => { toast.dismiss(t.id); router.push('/checkout?billingCycle=quarterly&step=1'); }}
-              className="bg-[#0B1F3B] text-white px-3 py-1 mt-1 rounded text-xs font-bold w-fit"
+              className="bg-primary text-white px-3 py-1 mt-1 rounded text-xs font-bold w-fit"
             >
               Upgrade Now
             </button>
@@ -635,7 +635,7 @@ function MyJobsContent() {
                 </div>
               ) : (
                 <div className="flex items-center gap-1 px-2 py-1 bg-gray-50 text-gray-500 rounded-full border border-gray-100">
-                  <Sparkles size={10} className="text-[#00C4B3]" />
+                  <Sparkles size={10} className="text-accent" />
                   <span className="text-[10px] font-bold">Pending Match</span>
                 </div>
               )}
@@ -697,7 +697,7 @@ function MyJobsContent() {
           {job.link && (
             <button
               onClick={() => openJobLink(job)}
-              className="flex-1 bg-[#0B1F3B] text-white px-3 sm:px-4 py-2 rounded-lg font-medium hover:bg-[#132D54] transition-all duration-300 flex items-center justify-center gap-2 text-xs sm:text-sm"
+              className="flex-1 bg-primary text-white px-3 sm:px-4 py-2 rounded-lg font-medium hover:bg-[#132D54] transition-all duration-300 flex items-center justify-center gap-2 text-xs sm:text-sm"
             >
               <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
               View Job
@@ -725,7 +725,7 @@ function MyJobsContent() {
                         </span>
                         <button
                           onClick={() => { toast.dismiss(t.id); router.push('/checkout?billingCycle=quarterly&step=1'); }}
-                          className="bg-[#0B1F3B] text-white px-3 py-1 mt-1 rounded text-xs font-bold w-fit"
+                          className="bg-primary text-white px-3 py-1 mt-1 rounded text-xs font-bold w-fit"
                         >
                           Upgrade to Expert
                         </button>
@@ -736,18 +736,18 @@ function MyJobsContent() {
                   handleRunAiAnalysis(job);
                 }}
                 disabled={analyzingJobId === job.id}
-                className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 border-2 text-[#0B1F3B] rounded-lg font-bold transition-all duration-300 flex items-center justify-center gap-2 text-xs ${analyzingJobId === job.id
-                  ? 'bg-[#0B1F3B]/5 border-[#0B1F3B]/20 cursor-not-allowed opacity-70'
-                  : 'border-[#0B1F3B]/20 hover:bg-[#0B1F3B]/5'
+                className={`flex-1 sm:flex-none px-3 sm:px-4 py-2 border-2 text-primary rounded-lg font-bold transition-all duration-300 flex items-center justify-center gap-2 text-xs ${analyzingJobId === job.id
+                  ? 'bg-primary/5 border-primary/20 cursor-not-allowed opacity-70'
+                  : 'border-primary/20 hover:bg-primary/5'
                   }`}
               >
                 {analyzingJobId === job.id ? (
-                  <div className="w-3 h-3 border-2 border-[#0B1F3B] border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-3 h-3 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
                 ) : (
                   // Show lock if NOT quarterly/sixMonth/addon
                   !(isQuarterlyPlan || isSixMonthPlan || userData?.hasJobTrackerFeature === true || userData?.hasJobsFeature === true)
                     ? <Lock size={14} className="text-amber-500" />
-                    : <Zap size={14} className="fill-[#00C4B3]/20" />
+                    : <Zap size={14} className="fill-accent/20" />
                 )}
                 AI Match
               </button>
@@ -790,8 +790,8 @@ function MyJobsContent() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#00C4B3]/5 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-2 border-[#0B1F3B] border-t-transparent"></div>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-accent/5 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-2 border-primary border-t-transparent"></div>
       </div>
     );
   }
@@ -803,17 +803,17 @@ function MyJobsContent() {
   ).length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#00C4B3]/5">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-accent/5">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
         {/* Header */}
         <div className="mb-6 sm:mb-8">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3 sm:gap-4">
             <div>
-              <div className="flex items-center gap-2 text-xs font-bold text-[#0B1F3B] bg-[#0B1F3B]/5 w-fit px-2.5 py-1 rounded-full mb-2">
+              <div className="flex items-center gap-2 text-xs font-bold text-primary bg-primary/5 w-fit px-2.5 py-1 rounded-full mb-2">
                 <Sparkles className="w-3 h-3" />
                 Job Search Command Center
               </div>
-              <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-1 tracking-tight">Job Search Intelligence <span className="text-[#00C4B3]">OS</span></h1>
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-1 tracking-tight">Job Search Intelligence <span className="text-accent">OS</span></h1>
               <p className="text-sm sm:text-base text-gray-500 font-medium">
                 Turn applications into interviews with daily focus and momentum.
               </p>
@@ -821,14 +821,14 @@ function MyJobsContent() {
             <div className="flex flex-wrap items-center gap-3 w-full lg:w-auto">
               {!isApplyPro && (
                 <Link href="/checkout?billingCycle=quarterly&step=1" className="flex-1 lg:flex-none">
-                  <button className="w-full flex items-center justify-center gap-2 bg-[#00C4B3] text-white px-4 py-2.5 sm:py-3 rounded-lg font-black hover:bg-[#00B3A3] transition-all duration-300 shadow-md text-sm">
+                  <button className="w-full flex items-center justify-center gap-2 bg-accent text-white px-4 py-2.5 sm:py-3 rounded-lg font-black hover:bg-[#00B3A3] transition-all duration-300 shadow-md text-sm">
                     <Zap className="w-4 h-4 fill-white" />
                     Unlock Apply OS
                   </button>
                 </Link>
               )}
               <Link href="/jobs-nearby" className="flex-1 lg:flex-none">
-                <button className="w-full lg:w-auto bg-[#0B1F3B] text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-bold hover:bg-[#132D54] transition-all duration-300 flex items-center justify-center gap-2 shadow-lg text-sm">
+                <button className="w-full lg:w-auto bg-primary text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-bold hover:bg-[#132D54] transition-all duration-300 flex items-center justify-center gap-2 shadow-lg text-sm">
                   <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
                   Find More Jobs
                 </button>
@@ -850,8 +850,8 @@ function MyJobsContent() {
                     <p className="text-[11px] font-bold uppercase tracking-wider text-gray-500">Pipeline Health</p>
                     <h3 className="text-2xl font-extrabold text-gray-900">{totalJobs} tracked</h3>
                   </div>
-                  <div className="p-2 bg-[#0B1F3B]/5 rounded-lg">
-                    <Target className="w-5 h-5 text-[#0B1F3B]" />
+                  <div className="p-2 bg-primary/5 rounded-lg">
+                    <Target className="w-5 h-5 text-primary" />
                   </div>
                 </div>
                 <div className="mt-4 grid grid-cols-2 gap-3">
@@ -875,14 +875,14 @@ function MyJobsContent() {
               </div>
 
               {!isApplyPro && (
-                <div className="bg-gradient-to-br from-[#0B1F3B] to-[#132D54] rounded-xl p-4 sm:p-5 text-white shadow-lg">
+                <div className="bg-gradient-to-br from-primary to-[#132D54] rounded-xl p-4 sm:p-5 text-white shadow-lg">
                   <div className="flex items-center justify-between mb-3">
                     <p className="text-xs font-bold uppercase tracking-wider">Apply Pro OS</p>
-                    <Crown className="w-4 h-4 text-[#00C4B3]" />
+                    <Crown className="w-4 h-4 text-accent" />
                   </div>
                   <p className="text-sm font-semibold mb-3">Automate follow‑ups, boost AI fit scores, and track unlimited jobs.</p>
                   <Link href="/checkout?addon=apply_pro">
-                    <button className="w-full bg-[#00C4B3] text-white px-4 py-2.5 rounded-lg font-black hover:bg-[#00B3A3] transition-all text-sm">
+                    <button className="w-full bg-accent text-white px-4 py-2.5 rounded-lg font-black hover:bg-[#00B3A3] transition-all text-sm">
                       Upgrade to Apply Pro
                     </button>
                   </Link>
@@ -896,33 +896,33 @@ function MyJobsContent() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-gradient-to-r from-[#0B1F3B] via-[#132D54] to-[#0B1F3B] rounded-2xl p-6 sm:p-8 mb-8 text-white shadow-2xl relative overflow-hidden group"
+              className="bg-gradient-to-r from-primary via-[#132D54] to-primary rounded-2xl p-6 sm:p-8 mb-8 text-white shadow-2xl relative overflow-hidden group"
             >
               {/* Background Glow */}
-              <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-[#00C4B3]/10 rounded-full blur-3xl group-hover:bg-[#00C4B3]/20 transition-all duration-700"></div>
+              <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-64 h-64 bg-accent/10 rounded-full blur-3xl group-hover:bg-accent/20 transition-all duration-700"></div>
 
               <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex-1 text-center md:text-left">
                   <div className="inline-flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-4">
-                    <Rocket className="w-3 h-3 text-[#00C4B3]" />
+                    <Rocket className="w-3 h-3 text-accent" />
                     ApplyOS Premium
                   </div>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold mb-3">Your Job Search is Manual. <span className="text-[#00C4B3] underline decoration-[#00C4B3]/30">Make it Automatic.</span></h2>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold mb-3">Your Job Search is Manual. <span className="text-accent underline decoration-accent/30">Make it Automatic.</span></h2>
                   <p className="text-slate-300 text-sm sm:text-base max-w-xl mb-6 leading-relaxed">
                     Get the unfair advantage with automated follow-ups, AI interview coaching, and deep fit analysis. Turn applications into offers 3x faster.
                   </p>
 
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-2">
                     <div className="flex items-center gap-2 text-xs font-semibold">
-                      <Zap className="w-4 h-4 text-[#00C4B3]" />
+                      <Zap className="w-4 h-4 text-accent" />
                       Deep AI Match
                     </div>
                     <div className="flex items-center gap-2 text-xs font-semibold">
-                      <Target className="w-4 h-4 text-[#00C4B3]" />
+                      <Target className="w-4 h-4 text-accent" />
                       Unlimited Tracking
                     </div>
                     <div className="flex items-center gap-2 text-xs font-semibold hidden sm:flex">
-                      <Award className="w-4 h-4 text-[#00C4B3]" />
+                      <Award className="w-4 h-4 text-accent" />
                       Pro Analytics
                     </div>
                   </div>
@@ -934,7 +934,7 @@ function MyJobsContent() {
                     <div className="text-2xl font-black text-white">Get Offer Ready</div>
                   </div>
                   <Link href="/checkout?addon=apply_pro" className="w-full">
-                    <button className="w-full bg-[#00C4B3] text-white px-8 py-4 rounded-xl font-black hover:bg-[#00B3A3] transition-all duration-300 shadow-xl flex items-center justify-center gap-2 group-hover:scale-105 transform">
+                    <button className="w-full bg-accent text-white px-8 py-4 rounded-xl font-black hover:bg-[#00B3A3] transition-all duration-300 shadow-xl flex items-center justify-center gap-2 group-hover:scale-105 transform">
                       Upgrade to Apply Pro
                       <ArrowRight size={20} />
                     </button>
@@ -949,8 +949,8 @@ function MyJobsContent() {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
             <div className="bg-white rounded-xl p-3 sm:p-4 border border-gray-200 shadow-sm">
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-3 mb-2">
-                <div className="p-2 bg-[#0B1F3B]/10 rounded-lg">
-                  <Bookmark className="w-4 h-4 sm:w-5 sm:h-5 text-[#0B1F3B]" />
+                <div className="p-2 bg-primary/10 rounded-lg">
+                  <Bookmark className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                 </div>
                 <span className="text-xl sm:text-2xl font-bold text-gray-900">{savedJobs.length}</span>
               </div>
@@ -959,8 +959,8 @@ function MyJobsContent() {
 
             <div className="bg-white rounded-xl p-3 sm:p-4 border border-gray-200 shadow-sm">
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-3 mb-2">
-                <div className="p-2 bg-[#00C4B3]/10 rounded-lg">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-[#00C4B3]" />
+                <div className="p-2 bg-accent/10 rounded-lg">
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                 </div>
                 <span className="text-xl sm:text-2xl font-bold text-gray-900">{appliedJobs.length}</span>
               </div>
@@ -969,8 +969,8 @@ function MyJobsContent() {
 
             <div className="bg-white rounded-xl p-3 sm:p-4 border border-gray-200 shadow-sm">
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-3 mb-2">
-                <div className="p-2 bg-[#0B1F3B]/10 rounded-lg">
-                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#0B1F3B]" />
+                <div className="p-2 bg-primary/10 rounded-lg">
+                  <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                 </div>
                 <span className="text-xl sm:text-2xl font-bold text-gray-900">{interviewJobs.length}</span>
               </div>
@@ -979,8 +979,8 @@ function MyJobsContent() {
 
             <div className="bg-white rounded-xl p-3 sm:p-4 border border-gray-200 shadow-sm">
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-3 mb-2">
-                <div className="p-2 bg-[#00C4B3]/10 rounded-lg">
-                  <Award className="w-4 h-4 sm:w-5 sm:h-5 text-[#00C4B3]" />
+                <div className="p-2 bg-accent/10 rounded-lg">
+                  <Award className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
                 </div>
                 <span className="text-xl sm:text-2xl font-bold text-gray-900">{offerJobs.length}</span>
               </div>
@@ -1005,13 +1005,13 @@ function MyJobsContent() {
                 <ApplyProMissions isApplyPro={isApplyPro} />
 
                 {/* EDUCATIONAL BLOCK: Career Switcher's Blueprint */}
-                <div className="mt-8 bg-gradient-to-r from-[#0B1F3B] to-[#132D54] rounded-xl p-6 text-white overflow-hidden relative shadow-xl border border-[#0B1F3B]">
+                <div className="mt-8 bg-gradient-to-r from-primary to-[#132D54] rounded-xl p-6 text-white overflow-hidden relative shadow-xl border border-primary">
                   <div className="absolute top-0 right-0 p-4 opacity-10">
                     <Target size={120} />
                   </div>
                   <div className="relative z-10">
-                    <div className="flex items-center gap-2 mb-3 text-[#00C4B3]">
-                      <Zap className="fill-[#00C4B3]" size={20} />
+                    <div className="flex items-center gap-2 mb-3 text-accent">
+                      <Zap className="fill-accent" size={20} />
                       <span className="text-xs font-black tracking-widest uppercase">The Career Switcher's Blueprint</span>
                     </div>
                     <h3 className="text-xl sm:text-2xl font-bold mb-4">Why Tracking Beats Applying</h3>
@@ -1022,30 +1022,30 @@ function MyJobsContent() {
                         </p>
                         <div className="flex items-start gap-3 mb-2">
 
-                          <div className="bg-[#00C4B3]/20 p-1.5 rounded text-slate-300 mt-0.5">1</div>
+                          <div className="bg-accent/20 p-1.5 rounded text-slate-300 mt-0.5">1</div>
                           <p className="text-xs text-slate-300"><strong className="text-white">Track Everything:</strong> If you don't track, you can't follow up. </p>
                         </div>
                         <div className="flex items-start gap-3">
-                          <div className="bg-[#00C4B3]/20 p-1.5 rounded text-slate-300 mt-0.5">2</div>
+                          <div className="bg-accent/20 p-1.5 rounded text-slate-300 mt-0.5">2</div>
                           <p className="text-xs text-slate-300"><strong className="text-white">Follow Up:</strong> A rejection is better than ghosting. Force a response.</p>
                         </div>
                       </div>
                       <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm border border-white/10">
                         <div className="flex items-center justify-between mb-3 border-b border-white/10 pb-2">
                           <span className="text-sm font-bold">The Apply Pro Advantage</span>
-                          <Crown size={16} className="text-[#00C4B3]" />
+                          <Crown size={16} className="text-accent" />
                         </div>
                         <ul className="space-y-2.5">
                           <li className="flex items-center gap-2 text-xs text-slate-300">
-                            <CheckCircle2 size={14} className="text-[#00C4B3]" />
+                            <CheckCircle2 size={14} className="text-accent" />
                             <span>See which resumes work (A/B Test)</span>
                           </li>
                           <li className="flex items-center gap-2 text-xs text-slate-300">
-                            <CheckCircle2 size={14} className="text-[#00C4B3]" />
+                            <CheckCircle2 size={14} className="text-accent" />
                             <span>AI Fit Scores for every job</span>
                           </li>
                           <li className="flex items-center gap-2 text-xs text-slate-300">
-                            <CheckCircle2 size={14} className="text-[#00C4B3]" />
+                            <CheckCircle2 size={14} className="text-accent" />
                             <span>One-click Interview Prep</span>
                           </li>
                         </ul>
@@ -1058,7 +1058,7 @@ function MyJobsContent() {
                 {/* Interview Prep Upsell */}
                 <div className="mt-8">
                   <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                    <Zap className="w-5 h-5 text-[#00C4B3]" />
+                    <Zap className="w-5 h-5 text-accent" />
                     Ace Your Interviews
                   </h3>
            
@@ -1091,7 +1091,7 @@ function MyJobsContent() {
                 Start finding and saving jobs to track your applications here
               </p>
               <Link href="/jobs-nearby">
-                <button className="bg-[#0B1F3B] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold hover:bg-[#132D54] transition-all duration-300 flex items-center gap-2 mx-auto shadow-lg text-sm sm:text-base">
+                <button className="bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold hover:bg-[#132D54] transition-all duration-300 flex items-center gap-2 mx-auto shadow-lg text-sm sm:text-base">
                   <Target className="w-4 h-4 sm:w-5 sm:h-5" />
                   Find Jobs Now
                 </button>
@@ -1108,7 +1108,7 @@ function MyJobsContent() {
               {offerJobs.length > 0 && (
                 <div>
                   <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                    <Award className="w-5 h-5 sm:w-6 sm:h-6 text-[#00C4B3]" />
+                    <Award className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
                     <h2 className="text-lg sm:text-xl font-bold text-gray-900">
                       Offers Received ({offerJobs.length})
                     </h2>
@@ -1131,7 +1131,7 @@ function MyJobsContent() {
               {interviewJobs.length > 0 && (
                 <div>
                   <div className="flex items-center gap-3 mb-4">
-                    <Calendar className="w-6 h-6 text-[#0B1F3B]" />
+                    <Calendar className="w-6 h-6 text-primary" />
                     <h2 className="text-xl font-bold text-gray-900">
                       Interviews Scheduled ({interviewJobs.length})
                     </h2>
@@ -1141,7 +1141,7 @@ function MyJobsContent() {
                       <JobCard
                         key={job.id}
                         job={job}
-                        statusColor="bg-[#0B1F3B]"
+                        statusColor="bg-primary"
                         statusIcon={Calendar}
                         statusLabel="Interview"
                       />
@@ -1154,7 +1154,7 @@ function MyJobsContent() {
               {appliedJobs.length > 0 && (
                 <div>
                   <div className="flex items-center gap-3 mb-4">
-                    <CheckCircle className="w-6 h-6 text-[#00C4B3]" />
+                    <CheckCircle className="w-6 h-6 text-accent" />
                     <h2 className="text-xl font-bold text-gray-900">
                       Applied ({appliedJobs.length})
                     </h2>
@@ -1164,7 +1164,7 @@ function MyJobsContent() {
                       <JobCard
                         key={job.id}
                         job={job}
-                        statusColor="bg-[#0B1F3B]"
+                        statusColor="bg-primary"
                         statusIcon={CheckCircle}
                         statusLabel="Applied"
                       />
@@ -1177,7 +1177,7 @@ function MyJobsContent() {
               {savedJobs.length > 0 && (
                 <div id="section-saved">
                   <div className="flex items-center gap-3 mb-4">
-                    <Bookmark className="w-6 h-6 text-[#0B1F3B]" />
+                    <Bookmark className="w-6 h-6 text-primary" />
                     <h2 className="text-xl font-bold text-gray-900">
                       Saved for Later ({savedJobs.length})
                     </h2>
@@ -1239,7 +1239,7 @@ function MyJobsContent() {
               </div>
 
               <div className="mb-6">
-                <div className="bg-[#0B1F3B]/5 rounded-lg p-4 mb-4">
+                <div className="bg-primary/5 rounded-lg p-4 mb-4">
                   <h4 className="font-bold text-gray-900">{selectedJob.title}</h4>
                   <p className="text-sm text-gray-600">{selectedJob.company}</p>
                 </div>
@@ -1250,7 +1250,7 @@ function MyJobsContent() {
                 <select
                   value={editStatus}
                   onChange={(e) => setEditStatus(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent mb-4"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent mb-4"
                 >
                   <option value="saved">Saved</option>
                   <option value="applied">Applied</option>
@@ -1266,7 +1266,7 @@ function MyJobsContent() {
                   value={editNotes}
                   onChange={(e) => setEditNotes(e.target.value)}
                   placeholder="Add notes about this job..."
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent resize-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent resize-none"
                   rows="3"
                 />
               </div>
@@ -1280,7 +1280,7 @@ function MyJobsContent() {
                 </button>
                 <button
                   onClick={handleUpdateJob}
-                  className="flex-1 px-6 py-3 bg-[#0B1F3B] text-white rounded-lg font-bold hover:bg-[#132D54] transition-all duration-300"
+                  className="flex-1 px-6 py-3 bg-primary text-white rounded-lg font-bold hover:bg-[#132D54] transition-all duration-300"
                 >
                   Update
                 </button>
@@ -1369,10 +1369,10 @@ function MyJobsContent() {
                     <button
                       key={resume.id}
                       onClick={() => handleRunAiAnalysis(pendingJobForAi, resume)}
-                      className="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-[#00C4B3] hover:bg-[#00C4B3]/5 transition-all flex items-center justify-between group"
+                      className="w-full text-left p-4 rounded-xl border-2 border-gray-100 hover:border-accent hover:bg-accent/5 transition-all flex items-center justify-between group"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="p-2 bg-[#0B1F3B]/10 rounded-lg text-[#0B1F3B] group-hover:bg-[#0B1F3B] group-hover:text-white transition-colors">
+                        <div className="p-2 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                           <FileText size={20} />
                         </div>
                         <div>
@@ -1382,14 +1382,14 @@ function MyJobsContent() {
                           </p>
                         </div>
                       </div>
-                      <ChevronRight size={18} className="text-gray-300 group-hover:text-[#0B1F3B]" />
+                      <ChevronRight size={18} className="text-gray-300 group-hover:text-primary" />
                     </button>
                   ))}
                 </div>
               </div>
 
               <div className="p-4 bg-gray-50 border-t border-gray-100 text-center">
-                <Link href="/resume-builder" className="text-sm font-bold text-[#0B1F3B] hover:underline flex items-center justify-center gap-2">
+                <Link href="/resume-builder" className="text-sm font-bold text-primary hover:underline flex items-center justify-center gap-2">
                   <Plus size={14} /> Create a new targeted resume
                 </Link>
               </div>
@@ -1407,7 +1407,7 @@ function MyJobsContent() {
                 <p className="text-[10px] text-gray-500">Auto‑followups, AI fit, unlimited tracking.</p>
               </div>
               <Link href="/checkout?addon=apply_pro">
-                <button className="bg-[#0B1F3B] text-white px-4 py-2 rounded-lg text-xs font-black shadow-sm hover:bg-[#132D54] transition-colors">
+                <button className="bg-primary text-white px-4 py-2 rounded-lg text-xs font-black shadow-sm hover:bg-[#132D54] transition-colors">
                   Upgrade
                 </button>
               </Link>

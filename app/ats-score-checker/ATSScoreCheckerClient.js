@@ -1384,14 +1384,14 @@ Nice to Have:
 
 
   const PremiumUpsellSection = () => (
-    <div className="bg-gradient-to-br from-[#0B1F3B] to-[#0B1F3B] p-2 rounded-xl my-8 relative overflow-hidden">
+    <div className="bg-gradient-to-br from-primary to-primary-800 p-2 rounded-xl my-8 relative overflow-hidden">
       <div className="absolute top-0 right-0 opacity-10">
         <Sparkles size={150} />
       </div>
       <div className="relative z-10">
         <div className="text-center mb-8">
           <h3 className="text-2xl font-bold text-white mb-2">
-            Get <span className="text-[#00C4B3]">3x More Interviews</span> with Premium
+            Get <span className="text-accent">3x More Interviews</span> with Premium
           </h3>
           <p className="text-white/80 max-w-2xl mx-auto">
             Our users report 3x higher interview rates after optimizing with Premium tools
@@ -1417,8 +1417,8 @@ Nice to Have:
             },
           ].map((feature, i) => (
             <div key={i} className="bg-white/10 p-6 rounded-xl border border-white/10 backdrop-blur-sm">
-              <div className="bg-[#00C4B3]/20 p-3 rounded-full w-fit mb-4">
-                <feature.icon size={24} className="text-[#00C4B3]" />
+              <div className="bg-accent/20 p-3 rounded-full w-fit mb-4">
+                <feature.icon size={24} className="text-accent" />
               </div>
               <h4 className="text-lg font-bold text-white mb-2">{feature.title}</h4>
               <p className="text-white/80 text-sm">{feature.desc}</p>
@@ -1601,11 +1601,11 @@ Nice to Have:
             className="bg-white rounded-2xl shadow-xl p-3 sm:p-4 md:p-6 lg:p-8 text-center border border-gray-200/50 backdrop-blur-sm"
           >
             <div className="max-w-2xl mx-auto">
-              <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-[#0F172A] mb-2 sm:mb-3 md:mb-4">
+              <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-primary mb-2 sm:mb-3 md:mb-4">
                 Get your free ATS score for US job applications.
               </h1>
               <h2 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-[#475569] mb-3 sm:mb-4 md:mb-5">
-                Beat applicant tracking systems — <span className="font-bold text-[#0B1F3B]">score in 60 seconds</span> + AI-powered fixes.
+                Beat applicant tracking systems — <span className="font-bold text-primary">score in 60 seconds</span> + AI-powered fixes.
               </h2>
 
               <div className="flex items-center justify-center gap-2 mb-4 sm:mb-6">
@@ -1621,9 +1621,9 @@ Nice to Have:
 
               {/* Free Check Limit Banner - Only show for free users, not basic plan users or enterprise mode */}
               {!enterpriseMode && !isPremium && !isBasicPlan && !isOneDayPlan && (
-                <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-[#0B1F3B]/5 border border-[#00C4B3]/20 rounded-xl">
-                  <div className="flex items-center justify-center gap-2 text-[#0B1F3B]">
-                    <Star size={14} className="sm:w-[18px] sm:h-[18px] text-[#00C4B3]" />
+                <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-primary/5 border border-accent/20 rounded-xl">
+                  <div className="flex items-center justify-center gap-2 text-primary">
+                    <Star size={14} className="sm:w-[18px] sm:h-[18px] text-accent" />
                     <span className="font-semibold text-sm sm:text-base">
                       {atsCheckCount === 0 ? "1 Free ATS Check Available" : "Free Check Used"}
                     </span>
@@ -1631,7 +1631,7 @@ Nice to Have:
                   {atsCheckCount > 0 && (
                     <div className="text-center mt-2 sm:mt-3">
                       <>
-                        <p className="text-xs sm:text-sm text-[#0B1F3B] mb-2 sm:mb-3">
+                        <p className="text-xs sm:text-sm text-primary mb-2 sm:mb-3">
                           {`Get unlimited ATS checks starting at ${pricing.currency === 'INR' ? '₹' : '$'}${pricing.basic / 100} (${pricing.currency === 'INR' && isAndroidDevice ? '7 days' : '7 days'})`}
                         </p>
 
@@ -1653,17 +1653,17 @@ Nice to Have:
                   { icon: Briefcase, text: "Job-Specific Tips" },
                   { icon: TrendingUp, text: "3x More Interviews" },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-1 sm:gap-2 bg-[#F8FAFC] p-2 sm:p-2 rounded-lg border border-[#E5E7EB]">
-                    <item.icon size={12} className="sm:w-4 sm:h-4 text-[#00C4B3]" />
+                  <div key={i} className="flex items-center gap-1 sm:gap-2 bg-bg p-2 sm:p-2 rounded-lg border border-border">
+                    <item.icon size={12} className="sm:w-4 sm:h-4 text-accent" />
                     <span className="text-xs sm:text-sm font-medium text-gray-700">{item.text}</span>
                   </div>
                 ))}
               </div>
 
               {/* Pro Tip */}
-              <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-[#F8FAFC] border border-[#E5E7EB] rounded-xl">
-                <div className="flex items-center justify-center gap-2 text-[#0B1F3B] mb-2">
-                  <Briefcase size={14} className="sm:w-4 sm:h-4 text-[#00C4B3]" />
+              <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-bg border border-border rounded-xl">
+                <div className="flex items-center justify-center gap-2 text-primary mb-2">
+                  <Briefcase size={14} className="sm:w-4 sm:h-4 text-accent" />
                   <span className="text-xs sm:text-sm font-medium">💡 Pro Tip</span>
                 </div>
                 <p className="text-xs sm:text-sm text-[#475569] text-center leading-relaxed">
@@ -1672,12 +1672,12 @@ Nice to Have:
               </div>
 
               <motion.div whileHover={{ scale: 1.02 }} className="mb-4 sm:mb-6">
-                <label className="flex flex-col items-center gap-3 sm:gap-4 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-4 sm:px-8 py-4 sm:py-6 rounded-xl hover:opacity-95 transition-all cursor-pointer w-full mx-auto shadow-lg hover:shadow-xl">
+                <label className="flex flex-col items-center gap-3 sm:gap-4 bg-gradient-to-r from-primary to-accent text-white px-4 sm:px-8 py-4 sm:py-6 rounded-xl hover:opacity-95 transition-all cursor-pointer w-full mx-auto shadow-lg hover:shadow-xl">
                   <div className="relative">
                     <div className="p-3 sm:p-4 bg-white/20 rounded-full animate-pulse">
                       <UploadCloud size={20} className="sm:w-8 sm:h-8" />
                     </div>
-                    <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-white/90 text-[#0B1F3B] text-xs font-bold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full">
+                    <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-white/90 text-primary text-xs font-bold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full">
                       FREE
                     </div>
                   </div>
@@ -1706,11 +1706,11 @@ Nice to Have:
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   onClick={() => setIsHistoryPanelOpen(true)}
-                  className="mt-4 w-full bg-[#0B1F3B]/5 border-2 border-[#00C4B3]/30 text-[#0B1F3B] px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base font-semibold hover:bg-[#0B1F3B]/10 transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2"
+                  className="mt-4 w-full bg-primary/5 border-2 border-accent/30 text-primary px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base font-semibold hover:bg-primary/10 transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2"
                 >
                   <Clock size={18} className="sm:w-5 sm:h-5" />
                   <span className="text-sm sm:text-base">View ATS Check History</span>
-                  <span className="bg-[#00C4B3]/20 text-[#0B1F3B] px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-bold whitespace-nowrap">
+                  <span className="bg-accent/20 text-primary px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-bold whitespace-nowrap">
                     Quick Access
                   </span>
                 </motion.button>
@@ -1780,8 +1780,8 @@ Nice to Have:
 
         {/* Simplified Upgrade CTA - Hide in enterprise mode */}
         {!enterpriseMode && result && !isPremium && !isBasicPlan && (
-          <div className="bg-[#F8FAFC] border border-[#E5E7EB] rounded-2xl p-4 sm:p-6 text-center">
-            <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] mb-3">
+          <div className="bg-bg border border-border rounded-2xl p-4 sm:p-6 text-center">
+            <h3 className="text-lg sm:text-xl font-bold text-primary mb-3">
               Ready to Create Your Optimized Resume?
             </h3>
             <p className="text-sm sm:text-base text-[#475569] mb-4 sm:mb-6 max-w-2xl mx-auto">
@@ -1790,7 +1790,7 @@ Nice to Have:
             <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-lg mx-auto">
               <button
                 onClick={() => handleUpgradeClick('basic', 'ats-simple-cta')}
-                className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold hover:opacity-95 transition-all flex items-center justify-center gap-2"
+                className="bg-gradient-to-r from-primary to-accent text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold hover:opacity-95 transition-all flex items-center justify-center gap-2"
               >
                 <Crown size={18} />
                 Upgrade Now - {formatPrice(pricing.basic, pricing.currency)}
@@ -1804,16 +1804,16 @@ Nice to Have:
 
         {/* Fixed Bottom CTA for Free Users - Hide in enterprise mode */}
         {!enterpriseMode && !isPremium && !isBasicPlan && result && (
-          <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-[#E5E7EB] z-50">
+          <div className="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-border z-50">
             <div className="max-w-6xl mx-auto p-3 sm:p-4">
               <div className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
                 <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="bg-[#00C4B3]/10 p-2 rounded-lg">
-                    <Crown size={20} className="sm:w-6 sm:h-6 text-[#0B1F3B]" />
+                  <div className="bg-accent/10 p-2 rounded-lg">
+                    <Crown size={20} className="sm:w-6 sm:h-6 text-primary" />
                   </div>
                   <div>
-                    <p className="font-bold text-sm sm:text-base text-[#0F172A]">
-                      Ready to unlock your <span className="text-[#00C4B3]">full ATS potential</span>?
+                    <p className="font-bold text-sm sm:text-base text-primary">
+                      Ready to unlock your <span className="text-accent">full ATS potential</span>?
                     </p>
                     <p className="text-xs sm:text-sm text-[#475569]">
                       Get detailed analysis and create optimized resumes
@@ -1823,14 +1823,14 @@ Nice to Have:
                 <div className="flex flex-row gap-2 sm:gap-3">
                   <button
                     onClick={() => setShowAIBoostModal(true)}
-                    className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-4 sm:px-6 py-3 sm:py-3 rounded-lg font-semibold hover:opacity-95 transition-all flex items-center gap-2 flex-1 sm:flex-none"
+                    className="bg-gradient-to-r from-primary to-accent text-white px-4 sm:px-6 py-3 sm:py-3 rounded-lg font-semibold hover:opacity-95 transition-all flex items-center gap-2 flex-1 sm:flex-none"
                   >
                     <Zap size={18} className="sm:w-5 sm:h-5" />
                     <span className="text-sm sm:text-sm">AI Boost</span>
                   </button>
                   <button
                     onClick={() => handleUpgradeClick('basic', 'ats-bottom-cta')}
-                    className="bg-[#0B1F3B] text-white px-4 sm:px-6 py-3 sm:py-3 rounded-lg font-semibold hover:bg-[#0B1F3B]/90 transition-all flex items-center gap-2 flex-1 sm:flex-none"
+                    className="bg-primary text-white px-4 sm:px-6 py-3 sm:py-3 rounded-lg font-semibold hover:bg-primary/90 transition-all flex items-center gap-2 flex-1 sm:flex-none"
                   >
                     <Crown size={18} className="sm:w-5 sm:h-5" />
                     <span className="text-sm sm:text-sm">Upgrade</span>
@@ -1862,10 +1862,10 @@ Nice to Have:
               >
                 <div className="p-4 sm:p-6 lg:p-8">
                   <div className="text-center mb-4 sm:mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-4">
                       <Crown size={32} className="text-white" />
                     </div>
-                    <h2 className="text-xl sm:text-2xl font-bold text-[#0F172A] mb-2">
+                    <h2 className="text-xl sm:text-2xl font-bold text-primary mb-2">
                       Unlock Full ATS Analysis
                     </h2>
                     <p className="text-sm sm:text-base text-[#475569]">
@@ -1898,7 +1898,7 @@ Nice to Have:
                         setShowUpgradeModal(false);
                         handleUpgradeClick('basic', 'ats-upgrade-modal');
                       }}
-                      className="w-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white py-3 px-6 rounded-lg font-bold hover:opacity-95 transition-all shadow-lg flex items-center justify-center gap-2"
+                      className="w-full bg-gradient-to-r from-primary to-accent text-white py-3 px-6 rounded-lg font-bold hover:opacity-95 transition-all shadow-lg flex items-center justify-center gap-2"
                     >
                       <Crown size={18} />
                       Upgrade Now - {formatPrice(pricing.basic, pricing.currency)}
@@ -1926,7 +1926,7 @@ Nice to Have:
                 <div className="p-3 sm:p-4 md:p-6">
                   <div className="flex items-center justify-between mb-4 sm:mb-6">
                     <h2 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 flex items-center gap-2">
-                      <Target className="text-[#00C4B3] sm:w-5 sm:h-5" size={18} />
+                      <Target className="text-accent sm:w-5 sm:h-5" size={18} />
                       <span className="truncate">Add Job Description (Optional)</span>
                     </h2>
                     <button
@@ -1937,11 +1937,11 @@ Nice to Have:
                     </button>
                   </div>
 
-                  <div className="bg-[#F8FAFC] border border-[#E5E7EB] rounded-lg p-3 sm:p-4 mb-4 sm:mb-6">
+                  <div className="bg-bg border border-border rounded-lg p-3 sm:p-4 mb-4 sm:mb-6">
                     <div className="flex items-start gap-2 sm:gap-3">
-                      <Info className="text-[#00C4B3] mt-1 flex-shrink-0 sm:w-5 sm:h-5" size={18} />
+                      <Info className="text-accent mt-1 flex-shrink-0 sm:w-5 sm:h-5" size={18} />
                       <div className="min-w-0 flex-1">
-                        <h3 className="text-sm sm:text-base md:text-lg font-semibold text-[#0F172A] mb-2">Get Better ATS Analysis</h3>
+                        <h3 className="text-sm sm:text-base md:text-lg font-semibold text-primary mb-2">Get Better ATS Analysis</h3>
                         <p className="text-[#475569] text-xs sm:text-sm mb-3 leading-relaxed">
                           Adding a job description enables targeted ATS analysis and can improve your score by 15-25 points.
                         </p>
@@ -1956,7 +1956,7 @@ Nice to Have:
                     <select
                       value={selectedRole}
                       onChange={(e) => handleRoleChange(e.target.value)}
-                      className="w-full px-3 py-2 sm:py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent text-sm sm:text-base"
+                      className="w-full px-3 py-2 sm:py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent text-sm sm:text-base"
                     >
                       <option value="">Choose a role...</option>
                       {getRoleOptions(detectedIndustry).map((role) => (
@@ -1973,21 +1973,21 @@ Nice to Have:
                       value={jobDescription}
                       onChange={(e) => setJobDescription(e.target.value)}
                       placeholder="Paste your job description here or select a role above to auto-generate one..."
-                      className="w-full h-32 sm:h-48 px-3 py-2 sm:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent resize-none text-sm sm:text-base"
+                      className="w-full h-32 sm:h-48 px-3 py-2 sm:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-none text-sm sm:text-base"
                     />
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                     <button
                       onClick={handleSkipJobDescription}
-                      className="w-full sm:flex-1 px-4 py-2.5 sm:py-3 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#00C4B3] focus:ring-offset-2 text-sm sm:text-base font-medium transition-colors"
+                      className="w-full sm:flex-1 px-4 py-2.5 sm:py-3 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 text-sm sm:text-base font-medium transition-colors"
                     >
                       Skip & Analyze
                     </button>
                     <button
                       onClick={handleAnalyzeWithJobDescription}
                       disabled={!jobDescription.trim()}
-                      className="w-full sm:flex-1 px-4 py-2.5 sm:py-3 bg-[#0B1F3B] text-white rounded-md hover:bg-[#0B1F3B]/90 focus:outline-none focus:ring-2 focus:ring-[#00C4B3] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base font-medium transition-colors"
+                      className="w-full sm:flex-1 px-4 py-2.5 sm:py-3 bg-primary text-white rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base font-medium transition-colors"
                     >
                       Analyze with Job Description
                     </button>
@@ -2046,7 +2046,7 @@ Nice to Have:
                   </button>
                   <button
                     className={`px-6 py-4 text-sm font-medium border-b-2 transition-colors ${activeTab === 'optimized'
-                      ? 'text-[#0B1F3B] border-[#00C4B3]'
+                      ? 'text-primary border-accent'
                       : 'text-gray-500 border-transparent hover:text-gray-700'
                       }`}
                     onClick={() => startTransition(() => setActiveTab('optimized'))}
@@ -2142,10 +2142,10 @@ Nice to Have:
                               <div className="absolute bottom-0 left-0 right-0 h-4/5 sm:h-3/5 bg-gradient-to-t from-white/99 via-white/90 to-transparent backdrop-blur-md flex items-end justify-center p-2 sm:p-6">
                                 <div className="bg-white/98 backdrop-blur-lg rounded-xl p-3 sm:p-6 shadow-2xl border border-gray-300 max-w-sm text-center w-full mx-1 sm:mx-0">
                                   <div className="mb-3 sm:mb-4">
-                                    <div className="mx-auto w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center mb-2 sm:mb-3">
+                                    <div className="mx-auto w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mb-2 sm:mb-3">
                                       <Lock className="text-white sm:w-5 sm:h-5" size={16} />
                                     </div>
-                                    <h3 className="text-base sm:text-lg font-bold text-[#0F172A] mb-1 sm:mb-2">
+                                    <h3 className="text-base sm:text-lg font-bold text-primary mb-1 sm:mb-2">
                                       Unlock ATS Optimization
                                     </h3>
                                     <p className="text-xs sm:text-sm text-[#475569] mb-3 sm:mb-4">
@@ -2154,7 +2154,7 @@ Nice to Have:
                                   </div>
                                   <button
                                     onClick={() => handleUpgradeClick('basic', 'ats-preview-blur')}
-                                    className="w-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold hover:opacity-95 transition-all duration-200 flex items-center justify-center gap-2"
+                                    className="w-full bg-gradient-to-r from-primary to-accent text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold hover:opacity-95 transition-all duration-200 flex items-center justify-center gap-2"
                                   >
                                     <Crown size={16} className="sm:w-5 sm:h-5" />
                                     <span className="text-sm sm:text-base">Upgrade to Premium</span>
@@ -2175,7 +2175,7 @@ Nice to Have:
                       <p className="text-gray-600 mb-4">Please upload a resume first to use the ATS AI Boost feature.</p>
                       <button
                         onClick={() => setShowAIBoostModal(false)}
-                        className="bg-[#0B1F3B] text-white px-4 py-2 rounded-lg hover:bg-[#0B1F3B]/90 transition-colors"
+                        className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors"
                       >
                         Close
                       </button>

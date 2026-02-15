@@ -169,7 +169,7 @@ export default function FAQPage() {
     <div className="min-h-screen py-12 sm:py-16 lg:py-20 bg-gray-50">
       <div className="max-w-5xl mx-auto px-6 sm:px-8">
         {/* Header */}
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-center bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] bg-clip-text text-transparent mb-8">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-8">
           Frequently Asked Questions
         </h1>
         <p className="text-lg text-center text-gray-700 mb-12">
@@ -204,7 +204,7 @@ export default function FAQPage() {
         <div className="text-center mt-12">
           <Link
             href="/contact-us"
-            className="inline-block bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-6 sm:px-8 py-3 rounded-full font-semibold text-sm sm:text-base hover:from-[#0B1F3B]/90 hover:to-[#00C4B3]/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="inline-block bg-gradient-to-r from-primary to-accent text-white px-6 sm:px-8 py-3 rounded-full font-semibold text-sm sm:text-base hover:from-primary/90 hover:to-accent/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
           >
             Contact Us
           </Link>

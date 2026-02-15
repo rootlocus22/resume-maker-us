@@ -119,18 +119,18 @@ export default function AIInterviewPro() {
       title: "Behavioral",
       icon: Users,
       description: "Practice real-world scenarios",
-      color: "from-blue-500 to-blue-600",
-      bgColor: "bg-blue-50",
-      borderColor: "border-blue-200"
+      color: "from-primary to-accent",
+      bgColor: "bg-accent-50",
+      borderColor: "border-accent/20"
     },
     {
       id: "technical",
       title: "Technical",
       icon: Code,
       description: "Field-specific questions",
-      color: "from-green-500 to-green-600",
-      bgColor: "bg-green-50",
-      borderColor: "border-green-200"
+      color: "from-accent to-accent-600",
+      bgColor: "bg-accent-50",
+      borderColor: "border-accent/20"
     },
     {
       id: "case-study",
@@ -482,7 +482,7 @@ export default function AIInterviewPro() {
       <div className="flex-1 overflow-y-auto p-4">
         {isLoading ? (
           <div className="text-center py-8">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-3"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-accent mx-auto mb-3"></div>
             <p className="text-gray-500 text-sm">Loading history...</p>
           </div>
         ) : (
@@ -516,7 +516,7 @@ export default function AIInterviewPro() {
                   <div
                     key={item.id}
                     className={`p-3 rounded-lg cursor-pointer transition-all mb-2 ${currentSessionId === item.id
-                        ? 'bg-blue-50 border border-blue-200'
+                        ? 'bg-accent-50 border border-accent/20'
                         : 'hover:bg-gray-50 border border-transparent'
                       }`}
                     onClick={() => resumeConversation(item)}
@@ -572,7 +572,7 @@ export default function AIInterviewPro() {
           className="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full"
         >
           <div className="text-center">
-            <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-6">
               <Crown className="w-10 h-10 text-white" />
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -581,23 +581,23 @@ export default function AIInterviewPro() {
             <p className="text-gray-600 mb-6 text-lg">
               The Interview Simulation  feature is only available for <strong>Pro Monthly ($9.99)</strong> and <strong>Pro 6-Month ($19.99)</strong> plans.
             </p>
-            <div className="bg-blue-50 rounded-lg p-6 mb-6">
+            <div className="bg-accent-50 rounded-lg p-6 mb-6">
               <h3 className="font-semibold text-gray-900 mb-3">Unlock with Pro Plans:</h3>
               <ul className="space-y-2 text-left">
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="text-blue-600" size={20} />
+                  <CheckCircle className="text-accent" size={20} />
                   <span>JD Builder - Tailor to Any Job</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="text-blue-600" size={20} />
+                  <CheckCircle className="text-accent" size={20} />
                   <span>ExpertResume GPT</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="text-blue-600" size={20} />
+                  <CheckCircle className="text-accent" size={20} />
                   <span>Salary Analyzer</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="text-blue-600" size={20} />
+                  <CheckCircle className="text-accent" size={20} />
                   <span>Unlimited Downloads</span>
                 </li>
               </ul>
@@ -605,13 +605,13 @@ export default function AIInterviewPro() {
             <div className="flex gap-4">
               <button
                 onClick={() => router.push('/checkout?billingCycle=monthly')}
-                className="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all"
+                className="flex-1 bg-accent hover:bg-accent-600 text-white px-6 py-3 rounded-lg font-semibold transition-all"
               >
                 Upgrade to Pro Monthly
               </button>
               <button
                 onClick={() => router.push('/pricing')}
-                className="flex-1 border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-all"
+                className="flex-1 border-2 border-accent text-accent px-6 py-3 rounded-lg font-semibold hover:bg-accent-50 transition-all"
               >
                 View All Plans
               </button>
@@ -648,8 +648,8 @@ export default function AIInterviewPro() {
                 {/* User Profile Setup */}
                 <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="p-2 bg-blue-100 rounded-lg">
-                      <User className="text-blue-600" size={24} />
+                    <div className="p-2 bg-accent-50 rounded-lg">
+                      <User className="text-accent" size={24} />
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900">Tell us about yourself</h2>
                   </div>
@@ -661,7 +661,7 @@ export default function AIInterviewPro() {
                         value={userProfile.name}
                         onChange={(e) => setUserProfile(prev => ({ ...prev, name: e.target.value }))}
                         placeholder="Enter your name"
-                        className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base"
+                        className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent text-base"
                       />
                     </div>
                     <div>
@@ -671,7 +671,7 @@ export default function AIInterviewPro() {
                         value={userProfile.field}
                         onChange={(e) => setUserProfile(prev => ({ ...prev, field: e.target.value }))}
                         placeholder="e.g., Marketing, Engineering, Design, Sales"
-                        className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base"
+                        className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent text-base"
                       />
                     </div>
                     <div>
@@ -679,7 +679,7 @@ export default function AIInterviewPro() {
                       <select
                         value={userProfile.experience}
                         onChange={(e) => setUserProfile(prev => ({ ...prev, experience: e.target.value }))}
-                        className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base"
+                        className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent text-base"
                       >
                         <option value="">Select experience</option>
                         <option value="entry">Entry Level (0-2 years)</option>
@@ -694,7 +694,7 @@ export default function AIInterviewPro() {
                         value={userProfile.targetRole}
                         onChange={(e) => setUserProfile(prev => ({ ...prev, targetRole: e.target.value }))}
                         placeholder="e.g., Senior Marketing Manager"
-                        className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base"
+                        className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent text-base"
                       />
                     </div>
                   </div>
@@ -762,8 +762,8 @@ export default function AIInterviewPro() {
               <div className="bg-white border-b border-gray-200 p-6 flex-shrink-0">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 bg-blue-100 rounded-lg">
-                      <MessageSquare className="text-blue-600" size={20} />
+                    <div className="p-2 bg-accent-50 rounded-lg">
+                      <MessageSquare className="text-accent" size={20} />
                     </div>
                     <div>
                       <h2 className="text-xl font-semibold text-gray-900">Interview Session</h2>
@@ -791,7 +791,7 @@ export default function AIInterviewPro() {
                     className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
                   >
                     <div className={`max-w-[70%] rounded-2xl p-4 shadow-sm ${message.role === "user"
-                        ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white"
+                        ? "bg-gradient-to-r from-primary to-accent text-white"
                         : "bg-white border border-gray-200 text-gray-900"
                       }`}>
                       <p className="text-base leading-relaxed">{message.content}</p>
@@ -831,7 +831,7 @@ export default function AIInterviewPro() {
                     onChange={(e) => setInput(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Type your response..."
-                    className="flex-1 p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none text-base"
+                    className="flex-1 p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent resize-none text-base"
                     rows={2}
                     disabled={isTyping}
                   />
@@ -839,7 +839,7 @@ export default function AIInterviewPro() {
                     onClick={sendMessage}
                     disabled={!input.trim() || isTyping}
                     className={`p-4 rounded-xl font-medium transition-all flex-shrink-0 ${input.trim() && !isTyping
-                        ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 shadow-lg"
+                        ? "bg-gradient-to-r from-primary to-accent text-white hover:from-primary-700 hover:to-accent-600 shadow-lg"
                         : "bg-gray-300 text-gray-500 cursor-not-allowed"
                       }`}
                   >
@@ -877,8 +877,8 @@ export default function AIInterviewPro() {
                 <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6">
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-3">
-                      <div className="p-2 bg-green-100 rounded-lg">
-                        <History className="text-green-600" size={24} />
+                      <div className="p-2 bg-accent-50 rounded-lg">
+                        <History className="text-accent" size={24} />
                       </div>
                       <h2 className="text-xl font-bold text-gray-900">Recent Conversations</h2>
                     </div>
@@ -936,7 +936,7 @@ export default function AIInterviewPro() {
                               <div className="flex items-center gap-2 ml-4">
                                 <button
                                   onClick={() => resumeConversation(item)}
-                                  className="p-2 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all"
+                                  className="p-2 text-accent hover:text-accent-700 hover:bg-accent-50 rounded-lg transition-all"
                                   title="Resume conversation"
                                 >
                                   <MessageSquare size={18} />
@@ -960,8 +960,8 @@ export default function AIInterviewPro() {
             {/* Mobile Profile Setup */}
             <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-blue-100 rounded-lg">
-                  <User className="text-blue-600" size={24} />
+                <div className="p-2 bg-accent-50 rounded-lg">
+                  <User className="text-accent" size={24} />
                 </div>
                 <h2 className="text-xl font-bold text-gray-900">Tell us about yourself</h2>
               </div>
@@ -973,7 +973,7 @@ export default function AIInterviewPro() {
                     value={userProfile.name}
                     onChange={(e) => setUserProfile(prev => ({ ...prev, name: e.target.value }))}
                     placeholder="Enter your name"
-                    className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base"
+                    className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent text-base"
                   />
                 </div>
                 <div>
@@ -983,7 +983,7 @@ export default function AIInterviewPro() {
                     value={userProfile.field}
                     onChange={(e) => setUserProfile(prev => ({ ...prev, field: e.target.value }))}
                     placeholder="e.g., Marketing, Engineering, Design, Sales"
-                    className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base"
+                    className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent text-base"
                   />
                 </div>
                 <div>
@@ -991,7 +991,7 @@ export default function AIInterviewPro() {
                   <select
                     value={userProfile.experience}
                     onChange={(e) => setUserProfile(prev => ({ ...prev, experience: e.target.value }))}
-                    className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base"
+                    className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent text-base"
                   >
                     <option value="">Select experience</option>
                     <option value="entry">Entry Level (0-2 years)</option>
@@ -1006,7 +1006,7 @@ export default function AIInterviewPro() {
                     value={userProfile.targetRole}
                     onChange={(e) => setUserProfile(prev => ({ ...prev, targetRole: e.target.value }))}
                     placeholder="e.g., Senior Marketing Manager"
-                    className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base"
+                    className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent text-base"
                   />
                 </div>
               </div>
@@ -1073,8 +1073,8 @@ export default function AIInterviewPro() {
             <div className="bg-white border-b border-gray-200 p-4 flex-shrink-0">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-blue-100 rounded-lg">
-                    <MessageSquare className="text-blue-600" size={20} />
+                  <div className="p-2 bg-accent-50 rounded-lg">
+                    <MessageSquare className="text-accent" size={20} />
                   </div>
                   <div>
                     <h2 className="text-lg font-semibold text-gray-900">Interview Session</h2>
@@ -1102,7 +1102,7 @@ export default function AIInterviewPro() {
                   className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div className={`max-w-[85%] rounded-2xl p-4 shadow-sm ${message.role === "user"
-                      ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white"
+                      ? "bg-gradient-to-r from-primary to-accent text-white"
                       : "bg-gray-100 text-gray-900"
                     }`}>
                     <p className="text-sm leading-relaxed">{message.content}</p>
@@ -1142,7 +1142,7 @@ export default function AIInterviewPro() {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Type your response..."
-                  className="flex-1 p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none text-base"
+                  className="flex-1 p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-accent resize-none text-base"
                   rows={1}
                   disabled={isTyping}
                 />
@@ -1150,7 +1150,7 @@ export default function AIInterviewPro() {
                   onClick={sendMessage}
                   disabled={!input.trim() || isTyping}
                   className={`p-3 rounded-xl font-medium transition-all flex-shrink-0 ${input.trim() && !isTyping
-                      ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 shadow-lg"
+                      ? "bg-gradient-to-r from-primary to-accent text-white hover:from-primary-700 hover:to-accent-600 shadow-lg"
                       : "bg-gray-300 text-gray-500 cursor-not-allowed"
                     }`}
                 >

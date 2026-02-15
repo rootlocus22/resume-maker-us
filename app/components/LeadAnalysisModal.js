@@ -96,13 +96,13 @@ const LeadAnalysisModal = ({ lead, isOpen, onClose }) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-xl w-full max-w-4xl max-h-[90vh] overflow-hidden">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
+        <div className="bg-gradient-to-r from-primary to-accent text-white p-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <Brain className="w-6 h-6" />
               <div>
                 <h2 className="text-xl font-bold">AI Lead Analysis</h2>
-                <p className="text-blue-100">Smart recommendations for {lead?.profile?.name}</p>
+                <p className="text-accent-100">Smart recommendations for {lead?.profile?.name}</p>
               </div>
             </div>
             <button
@@ -143,7 +143,7 @@ const LeadAnalysisModal = ({ lead, isOpen, onClose }) => {
             <div className="text-center mb-6">
               <button
                 onClick={analyzeLeadWithAI}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 flex items-center space-x-2 mx-auto"
+                className="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-lg hover:from-primary-800 hover:to-accent-600 transition-all duration-200 flex items-center space-x-2 mx-auto"
               >
                 <Brain className="w-5 h-5" />
                 <span>Analyze Lead with AI</span>
@@ -154,7 +154,7 @@ const LeadAnalysisModal = ({ lead, isOpen, onClose }) => {
           {/* Loading State */}
           {loading && (
             <div className="text-center py-8">
-              <Loader2 className="w-8 h-8 animate-spin text-blue-600 mx-auto mb-4" />
+              <Loader2 className="w-8 h-8 animate-spin text-accent mx-auto mb-4" />
               <p className="text-gray-600">AI is analyzing this lead...</p>
             </div>
           )}
@@ -188,14 +188,14 @@ const LeadAnalysisModal = ({ lead, isOpen, onClose }) => {
                   <p className="text-2xl font-bold mt-2">{analysis.recommendation} PRIORITY</p>
                 </div>
                 
-                <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <div className="p-4 bg-accent-50 rounded-lg border border-accent/20">
                   <div className="flex items-center space-x-2">
-                    <TrendingUp className="w-5 h-5 text-blue-600" />
-                    <span className="font-semibold text-blue-800">Confidence Score</span>
+                    <TrendingUp className="w-5 h-5 text-accent" />
+                    <span className="font-semibold text-primary">Confidence Score</span>
                   </div>
                   <div className="mt-2">
                     <div className="flex items-center space-x-2">
-                      <span className="text-2xl font-bold text-blue-800">{analysis.confidenceScore}/10</span>
+                      <span className="text-2xl font-bold text-primary">{analysis.confidenceScore}/10</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
                       <div 
@@ -237,7 +237,7 @@ const LeadAnalysisModal = ({ lead, isOpen, onClose }) => {
                 <h4 className="font-semibold text-gray-900 mb-3">Conversation Topics</h4>
                 <div className="flex flex-wrap gap-2">
                   {analysis.conversationTopics?.map((topic, index) => (
-                    <span key={index} className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+                    <span key={index} className="px-3 py-1 bg-accent-50 text-primary rounded-full text-sm">
                       {topic}
                     </span>
                   ))}
@@ -318,7 +318,7 @@ const LeadAnalysisModal = ({ lead, isOpen, onClose }) => {
                 {lead?.profile?.email && (
                   <a
                     href={`mailto:${lead.profile.email}`}
-                    className="flex items-center justify-center space-x-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                    className="flex items-center justify-center space-x-2 bg-accent text-white px-6 py-3 rounded-lg hover:bg-accent-600 transition-colors"
                   >
                     <Mail className="w-4 h-4" />
                     <span>Send Email</span>

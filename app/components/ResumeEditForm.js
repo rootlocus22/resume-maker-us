@@ -21,7 +21,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
             {/* Personal Info - Locked */}
             <div>
                 <h3 className="text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                    <span className="w-2 h-2 bg-accent rounded-full"></span>
                     Personal Information
                     <span className="ml-auto text-xs text-gray-500 flex items-center gap-1">
                         <Lock className="w-3 h-3" />
@@ -45,7 +45,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
                             type="text"
                             value={editedResumeData.jobTitle || ''}
                             onChange={(e) => updateField('jobTitle', e.target.value)}
-                            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-accent focus:border-transparent"
                             placeholder="Your job title"
                         />
                     </div>
@@ -85,14 +85,14 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
             {/* Summary */}
             <div>
                 <h3 className="text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                    <span className="w-2 h-2 bg-accent rounded-full"></span>
                     Professional Summary
                 </h3>
                 <textarea
                     value={editedResumeData.summary || ''}
                     onChange={(e) => updateField('summary', e.target.value)}
                     rows={4}
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-accent focus:border-transparent"
                     placeholder="Write your professional summary..."
                 />
             </div>
@@ -101,7 +101,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
             <div>
                 <div className="flex items-center justify-between mb-3">
                     <h3 className="text-sm font-semibold text-gray-900 flex items-center gap-2">
-                        <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                        <span className="w-2 h-2 bg-accent rounded-full"></span>
                         Work Experience
                     </h3>
                     <button
@@ -116,7 +116,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
                             };
                             updateField('experience', [...(editedResumeData.experience || []), newExp]);
                         }}
-                        className="text-blue-600 hover:text-blue-700 text-xs font-medium flex items-center gap-1"
+                        className="text-accent hover:text-accent-700 text-xs font-medium flex items-center gap-1"
                     >
                         <Plus className="w-3 h-3" />
                         Add
@@ -147,7 +147,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
                                         newExp[idx] = { ...exp, jobTitle: e.target.value };
                                         updateField('experience', newExp);
                                     }}
-                                    className="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-blue-500 focus:border-transparent"
+                                    className="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-accent focus:border-transparent"
                                     placeholder="Job Title"
                                 />
                                 <input
@@ -158,7 +158,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
                                         newExp[idx] = { ...exp, company: e.target.value };
                                         updateField('experience', newExp);
                                     }}
-                                    className="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-blue-500 focus:border-transparent"
+                                    className="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-accent focus:border-transparent"
                                     placeholder="Company"
                                 />
                                 <div className="grid grid-cols-2 gap-2">
@@ -170,7 +170,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
                                             newExp[idx] = { ...exp, startDate: e.target.value };
                                             updateField('experience', newExp);
                                         }}
-                                        className="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-blue-500 focus:border-transparent"
+                                        className="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-accent focus:border-transparent"
                                         placeholder="Start"
                                     />
                                     <input
@@ -181,7 +181,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
                                             newExp[idx] = { ...exp, endDate: e.target.value };
                                             updateField('experience', newExp);
                                         }}
-                                        className="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-blue-500 focus:border-transparent"
+                                        className="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-accent focus:border-transparent"
                                         placeholder="End"
                                     />
                                 </div>
@@ -193,7 +193,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
                                         updateField('experience', newExp);
                                     }}
                                     rows={2}
-                                    className="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-blue-500 focus:border-transparent"
+                                    className="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-accent focus:border-transparent"
                                     placeholder="Description"
                                 />
                             </div>
@@ -206,7 +206,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
             <div>
                 <div className="flex items-center justify-between mb-3">
                     <h3 className="text-sm font-semibold text-gray-900 flex items-center gap-2">
-                        <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                        <span className="w-2 h-2 bg-accent rounded-full"></span>
                         Education
                     </h3>
                     <button
@@ -219,7 +219,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
                             };
                             updateField('education', [...(editedResumeData.education || []), newEdu]);
                         }}
-                        className="text-blue-600 hover:text-blue-700 text-xs font-medium flex items-center gap-1"
+                        className="text-accent hover:text-accent-700 text-xs font-medium flex items-center gap-1"
                     >
                         <Plus className="w-3 h-3" />
                         Add
@@ -250,7 +250,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
                                         newEdu[idx] = { ...edu, degree: e.target.value };
                                         updateField('education', newEdu);
                                     }}
-                                    className="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-blue-500 focus:border-transparent"
+                                    className="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-accent focus:border-transparent"
                                     placeholder="Degree"
                                 />
                                 <input
@@ -261,7 +261,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
                                         newEdu[idx] = { ...edu, school: e.target.value };
                                         updateField('education', newEdu);
                                     }}
-                                    className="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-blue-500 focus:border-transparent"
+                                    className="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-accent focus:border-transparent"
                                     placeholder="School/University"
                                 />
                                 <input
@@ -272,7 +272,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
                                         newEdu[idx] = { ...edu, graduationDate: e.target.value };
                                         updateField('education', newEdu);
                                     }}
-                                    className="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-blue-500 focus:border-transparent"
+                                    className="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:ring-1 focus:ring-accent focus:border-transparent"
                                     placeholder="Graduation Year"
                                 />
                             </div>
@@ -284,7 +284,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
             {/* Skills */}
             <div>
                 <h3 className="text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                    <span className="w-2 h-2 bg-accent rounded-full"></span>
                     Skills
                 </h3>
                 <div className="space-y-2">
@@ -292,7 +292,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
                         {skillsArray.map((skill, index) => (
                             <div
                                 key={index}
-                                className="group flex items-center gap-1.5 bg-blue-50 border border-blue-200 rounded-md px-2 py-1.5 hover:bg-blue-100 transition-colors"
+                                className="group flex items-center gap-1.5 bg-accent-50 border border-accent/20 rounded-md px-2 py-1.5 hover:bg-accent-50 transition-colors"
                             >
                                 <input
                                     type="text"
@@ -324,7 +324,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
                                 const newSkills = [...skillsArray, ''];
                                 updateField('skills', newSkills);
                             }}
-                            className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-xs font-medium"
+                            className="flex items-center gap-1.5 px-3 py-1.5 bg-accent text-white rounded-md hover:bg-accent-600 transition-colors text-xs font-medium"
                         >
                             <Plus size={14} />
                             Add
@@ -342,7 +342,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
                                     e.target.value = '';
                                 }
                             }}
-                            className="flex-1 border border-gray-300 rounded-md px-2 py-1.5 text-xs focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="flex-1 border border-gray-300 rounded-md px-2 py-1.5 text-xs focus:ring-2 focus:ring-accent focus:border-transparent"
                         />
                     </div>
                 </div>
@@ -351,7 +351,7 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
             {/* Additional Info */}
             <div>
                 <h3 className="text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                    <span className="w-2 h-2 bg-accent rounded-full"></span>
                     Additional
                 </h3>
                 <div className="space-y-2">
@@ -359,14 +359,14 @@ export default function ResumeEditForm({ editedResumeData, updateField }) {
                         type="url"
                         value={editedResumeData.linkedin || ''}
                         onChange={(e) => updateField('linkedin', e.target.value)}
-                        className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-accent focus:border-transparent"
                         placeholder="LinkedIn URL"
                     />
                     <input
                         type="url"
                         value={editedResumeData.portfolio || ''}
                         onChange={(e) => updateField('portfolio', e.target.value)}
-                        className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-accent focus:border-transparent"
                         placeholder="Portfolio/Website URL"
                     />
                 </div>

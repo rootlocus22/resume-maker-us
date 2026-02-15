@@ -893,14 +893,14 @@ const PremiumPdfPreview = ({
         >
           <div className={`flex items-center justify-between ${isMobile ? 'p-3' : 'p-4 sm:p-6'}`}>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
                 <Eye size={16} className="text-white" />
               </div>
               <h2 className={`font-bold text-gray-900 ${isMobile ? 'text-base' : 'text-lg sm:text-xl'}`}>
                 Resume Preview
               </h2>
               {!effectiveIsPremium && !isMobile && (
-                <div className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-indigo-100 to-blue-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium">
+                <div className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-primary-100 to-accent-50 text-primary-700 px-3 py-1 rounded-full text-xs font-medium">
                   <Sparkles size={12} />
                   <span>Ready to Download</span>
                 </div>
@@ -925,18 +925,18 @@ const PremiumPdfPreview = ({
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.3 }}
-              className="bg-gradient-to-r from-blue-50 to-indigo-50 border-t border-blue-200"
+              className="bg-gradient-to-r from-accent-50 to-primary-50 border-t border-accent/20"
               style={{ padding: isMobile ? '12px 16px' : '12px 24px' }}
             >
               <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
                 <div className="flex items-start gap-3 w-full sm:w-auto">
-                  <AlertTriangle className="text-blue-500 mt-0.5 flex-shrink-0" size={18} />
+                  <AlertTriangle className="text-accent mt-0.5 flex-shrink-0" size={18} />
                   <div>
-                    <p className={`font-semibold text-blue-800 flex items-center gap-2 ${isMobile ? 'text-sm' : 'text-sm'}`}>
+                    <p className={`font-semibold text-primary flex items-center gap-2 ${isMobile ? 'text-sm' : 'text-sm'}`}>
                       <Zap size={14} className="text-yellow-500" />
                       Premium Feature
                     </p>
-                    <p className={`text-blue-700 mt-1 ${isMobile ? 'text-xs' : 'text-xs'}`}>
+                    <p className={`text-accent-700 mt-1 ${isMobile ? 'text-xs' : 'text-xs'}`}>
                       Download this professional resume now
                     </p>
                   </div>
@@ -948,7 +948,7 @@ const PremiumPdfPreview = ({
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => handleUpgradeClick()}
-                      className={`${isShineSource ? 'bg-orange-500 hover:bg-orange-600' : 'bg-blue-600 hover:bg-blue-700'} text-white px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2 border-b-4 ${isShineSource ? 'border-orange-700' : 'border-blue-800'} w-full sm:w-auto`}
+                      className={`${isShineSource ? 'bg-orange-500 hover:bg-orange-600' : 'bg-accent hover:bg-accent-600'} text-white px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-bold transition-all shadow-lg flex items-center justify-center gap-2 border-b-4 ${isShineSource ? 'border-orange-700' : 'border-primary'} w-full sm:w-auto`}
                     >
                       <Crown size={18} className="text-yellow-300" />
                       <div className="flex flex-col items-start leading-tight text-left">
@@ -967,7 +967,7 @@ const PremiumPdfPreview = ({
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => handleUpgradeClick("basic")}
-                      className={`bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-lg hover:from-indigo-700 hover:to-blue-700 transition-all font-semibold shadow-md whitespace-nowrap px-4 py-2 text-xs sm:text-sm w-full sm:w-auto shadow-indigo-100`}
+                      className={`bg-gradient-to-r from-primary to-accent text-white rounded-lg hover:from-primary-700 hover:to-accent-700 transition-all font-semibold shadow-md whitespace-nowrap px-4 py-2 text-xs sm:text-sm w-full sm:w-auto shadow-primary-100`}
                     >
                       <span>Get Premium {getDurationText(effectiveBasicPrice)}</span>
                     </motion.button>
@@ -1188,14 +1188,14 @@ const PremiumPdfPreview = ({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl border border-slate-200 shadow-lg"
+                className="bg-gradient-to-r from-slate-50 to-accent-50 rounded-xl border border-slate-200 shadow-lg"
                 style={{
                   padding: isMobile ? '12px' : '16px 24px',
                 }}
               >
                 <div className={`text-center ${isMobile ? 'mb-3' : 'mb-4 sm:mb-6'}`}>
                   <div
-                    className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 py-2 rounded-full text-sm font-bold mb-3 shadow-sm"
+                    className="inline-flex items-center gap-2 bg-accent-50 text-primary py-2 rounded-full text-sm font-bold mb-3 shadow-sm"
                     style={{
                       padding: isMobile ? '8px 12px' : '8px 16px',
                     }}
@@ -1213,9 +1213,9 @@ const PremiumPdfPreview = ({
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {[
-                    { icon: "🚀", title: "AI Resume Boost", desc: "Optimize content", gradient: "from-indigo-500 to-blue-500" },
-                    { icon: "🎤", title: "AI Interview Trainer", desc: "Practice questions", gradient: "from-blue-500 to-cyan-500" },
-                    { icon: "🧠", title: "AI Problem Solver", desc: "Technical help", gradient: "from-emerald-500 to-teal-500" }
+                    { icon: "🚀", title: "AI Resume Boost", desc: "Optimize content", gradient: "from-primary to-accent" },
+                    { icon: "🎤", title: "AI Interview Trainer", desc: "Practice questions", gradient: "from-accent to-cyan-500" },
+                    { icon: "🧠", title: "AI Problem Solver", desc: "Technical help", gradient: "from-accent to-accent-600" }
                   ].map((feature, index) => (
                     <motion.div
                       key={index}
@@ -1255,13 +1255,13 @@ const PremiumPdfPreview = ({
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
-                  className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200"
+                  className="bg-gradient-to-r from-accent-50 to-primary-50 rounded-xl border border-accent/20"
                   style={{
                     padding: isMobile ? '12px' : '16px 24px',
                   }}
                 >
                   <div className="flex items-center gap-2 mb-3">
-                    <Share2 size={18} className="text-blue-600" />
+                    <Share2 size={18} className="text-accent" />
                     <span className={`font-semibold text-gray-800 ${isMobile ? 'text-sm' : 'text-base'}`}>
                       Maximize Your Reach!
                     </span>
@@ -1276,7 +1276,7 @@ const PremiumPdfPreview = ({
                       window.open('/edit-profile', '_blank');
                       onClose();
                     }}
-                    className={`w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all font-medium shadow-md ${isMobile ? 'text-xs py-2' : 'text-sm py-3'
+                    className={`w-full bg-gradient-to-r from-primary to-accent text-white rounded-lg hover:from-primary-800 hover:to-accent-600 transition-all font-medium shadow-md ${isMobile ? 'text-xs py-2' : 'text-sm py-3'
                       }`}
                   >
                     Create Public Profile
@@ -1298,7 +1298,7 @@ const PremiumPdfPreview = ({
                     className="w-full flex items-center justify-between text-left"
                   >
                     <div className="flex items-center gap-2">
-                      <HelpCircle className="w-5 h-5 text-blue-600" />
+                      <HelpCircle className="w-5 h-5 text-accent" />
                       <span className={`font-semibold text-gray-900 ${isMobile ? 'text-sm' : 'text-base'}`}>
                         Download Help & FAQ
                       </span>
@@ -1343,7 +1343,7 @@ const PremiumPdfPreview = ({
                         event({ action: 'quick_feedback', category: 'PDF', label: 'yes' });
                         toast.success('Thanks!');
                       }}
-                      className="text-emerald-600 hover:text-emerald-700 transition-colors rounded-full hover:bg-emerald-50"
+                      className="text-accent hover:text-accent-700 transition-colors rounded-full hover:bg-accent-50"
                       style={{
                         padding: isMobile ? '4px' : '8px',
                       }}
@@ -1392,7 +1392,7 @@ const PremiumPdfPreview = ({
                       transition={{ delay: 0.6 + index * 0.1, duration: 0.3 }}
                       className="flex items-center gap-1"
                     >
-                      <span className="text-emerald-500 font-bold">{item.icon}</span>
+                      <span className="text-accent font-bold">{item.icon}</span>
                       <span>{item.text}</span>
                     </motion.div>
                   ))}
@@ -1440,7 +1440,7 @@ const PremiumPdfPreview = ({
                     onClick={handleDownloadPDF}
                     className={`px-6 py-3 rounded-lg transition-all text-sm font-semibold flex items-center justify-center gap-2 shadow-md ${(isBasicPlan || isOneDayPlan) && hasReachedDownloadLimit()
                       ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
-                      : 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-600 hover:to-teal-600'
+                      : 'bg-gradient-to-r from-accent to-accent-600 text-white hover:from-accent-600 hover:to-accent-700'
                       }`}
                     disabled={(isBasicPlan || isOneDayPlan) && hasReachedDownloadLimit()}
                   >
@@ -1461,7 +1461,7 @@ const PremiumPdfPreview = ({
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => handleUpgradeClick("basic")}
-                  className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white px-6 py-3 rounded-lg hover:from-indigo-700 hover:to-blue-700 transition-all text-sm font-semibold flex flex-col items-center justify-center gap-1 shadow-md order-1 sm:order-2"
+                  className="bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-lg hover:from-primary-700 hover:to-accent-700 transition-all text-sm font-semibold flex flex-col items-center justify-center gap-1 shadow-md order-1 sm:order-2"
                 >
                   <div className="flex items-center gap-2">
                     <motion.span
@@ -1500,7 +1500,7 @@ const PremiumPdfPreview = ({
                     className={`px-4 py-3 rounded-lg transition-all text-sm font-semibold flex items-center justify-center gap-2 shadow-md ${
                       isEmailing 
                         ? 'bg-gray-400 text-gray-200 cursor-not-allowed' 
-                        : 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white hover:from-blue-600 hover:to-indigo-600'
+                        : 'bg-gradient-to-r from-accent to-primary text-white hover:from-accent-600 hover:to-primary'
                     }`}
                     title="Send PDF to your email"
                   >
@@ -1611,12 +1611,12 @@ const PremiumPdfPreview = ({
                 <X size={20} />
               </button>
 
-              <div className="bg-gradient-to-r from-indigo-600 to-blue-600 p-6 text-white text-center">
+              <div className="bg-gradient-to-r from-primary to-accent p-6 text-white text-center">
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
                   <Clock className="w-6 h-6 text-white animate-pulse" />
                 </div>
                 <h3 className="text-xl font-bold mb-1">Wait! Don't Miss Out</h3>
-                <p className="text-blue-100 text-sm">Your download is ready and waiting.</p>
+                <p className="text-accent-100 text-sm">Your download is ready and waiting.</p>
               </div>
 
               <div className="p-6">
@@ -1633,7 +1633,7 @@ const PremiumPdfPreview = ({
                     <span>Secure one-time payment (No subscription)</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm text-gray-700">
-                    <Sparkles size={16} className="text-indigo-500" />
+                    <Sparkles size={16} className="text-primary" />
                     <span>Instant PDF download + Editable version</span>
                   </li>
                 </ul>
@@ -1643,7 +1643,7 @@ const PremiumPdfPreview = ({
                     setShowExitPopup(false);
                     handleOneTimePayment(true);
                   }}
-                  className="w-full bg-indigo-600 text-white font-bold py-3 rounded-xl shadow-lg hover:bg-indigo-700 hover:shadow-indigo-200 transition-all flex items-center justify-center gap-2"
+                  className="w-full bg-primary text-white font-bold py-3 rounded-xl shadow-lg hover:bg-primary-700 hover:shadow-primary-200 transition-all flex items-center justify-center gap-2"
                 >
                   <Download size={18} />
                   <span>Download Now ({isShineSource ? (currency === 'USD' ? '$2.99' : '₹19') : (pricing.currency === 'USD' ? '$2.99' : '₹99')})</span>

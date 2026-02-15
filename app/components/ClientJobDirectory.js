@@ -121,7 +121,7 @@ export default function ClientJobDirectory({ initialJobs = [] }) {
                         <div className="p-3 lg:p-4 border-b border-gray-100 bg-gray-50/50">
                             <h3 className="font-bold text-gray-900 text-sm lg:text-base flex items-center justify-between">
                                 Categories
-                                <span className="text-xs font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100">
+                                <span className="text-xs font-semibold text-accent-700 bg-accent-50 px-2 py-0.5 rounded-full border border-accent-100">
                                     {categories.length - 1}
                                 </span>
                             </h3>
@@ -139,8 +139,8 @@ export default function ClientJobDirectory({ initialJobs = [] }) {
                                         }
                                     }}
                                     className={`flex-shrink-0 lg:w-full flex items-center justify-between px-3 py-2 text-sm rounded-md transition-all duration-200 whitespace-nowrap ${activeCategory === cat.id
-                                        ? 'bg-blue-600 text-white shadow-md'
-                                        : 'text-gray-600 bg-gray-50 lg:bg-transparent hover:bg-blue-50 hover:text-blue-700'
+                                        ? 'bg-accent text-white shadow-md'
+                                        : 'text-gray-600 bg-gray-50 lg:bg-transparent hover:bg-accent-50 hover:text-accent-700'
                                         }`}
                                 >
                                     <span className="font-medium mr-2">{cat.label}</span>
@@ -157,7 +157,7 @@ export default function ClientJobDirectory({ initialJobs = [] }) {
                 <div className="flex-1 min-w-0" id="roles-grid">
                     <div className="flex items-center justify-between mb-6">
                         <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                            <Briefcase className="w-5 h-5 text-blue-600" />
+                            <Briefcase className="w-5 h-5 text-accent-600" />
                             {activeCategory === "All" ? "All Role Guides" : `${activeCategory} Jobs`}
                         </h2>
                         <span className="text-sm text-gray-500">
@@ -168,7 +168,7 @@ export default function ClientJobDirectory({ initialJobs = [] }) {
                     {filteredRoles.length === 0 ? (
                         <div className="bg-white rounded-lg p-12 text-center border border-gray-200">
                             <h3 className="text-lg font-medium text-gray-900 mb-2">No roles found</h3>
-                            <button onClick={() => { setSearchTerm(""); setActiveCategory("All"); }} className="text-blue-600 mt-2">
+                            <button onClick={() => { setSearchTerm(""); setActiveCategory("All"); }} className="text-accent-600 mt-2">
                                 Reset Filters
                             </button>
                         </div>
@@ -178,16 +178,16 @@ export default function ClientJobDirectory({ initialJobs = [] }) {
                                 <button
                                     key={role.roleName}
                                     onClick={() => setSelectedRole(role)}
-                                    className="flex flex-col h-full bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-lg hover:border-blue-300 transition-all duration-200 group overflow-hidden text-left"
+                                    className="flex flex-col h-full bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-lg hover:border-accent-300 transition-all duration-200 group overflow-hidden text-left"
                                 >
                                     <div className="p-5 flex-1 flex flex-col w-full">
                                         <div className="mb-3 flex justify-between items-start">
-                                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100 truncate max-w-[70%]">
+                                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent-50 text-accent-700 border border-accent-100 truncate max-w-[70%]">
                                                 {role.category}
                                             </span>
                                         </div>
 
-                                        <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                                        <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-accent-600 transition-colors line-clamp-2">
                                             {role.roleName}
                                         </h3>
 
@@ -196,7 +196,7 @@ export default function ClientJobDirectory({ initialJobs = [] }) {
                                                 <MapPin className="w-3.5 h-3.5" />
                                                 <span>{role.count} Locations</span>
                                             </div>
-                                            <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-blue-500" />
+                                            <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-accent" />
                                         </div>
                                     </div>
                                 </button>
@@ -208,7 +208,7 @@ export default function ClientJobDirectory({ initialJobs = [] }) {
                         <div className="mt-10 text-center">
                             <button
                                 onClick={() => setVisibleCount(prev => prev + 24)}
-                                className="px-8 py-3 bg-white border border-gray-300 shadow-sm rounded-lg text-gray-700 hover:bg-gray-50 hover:text-blue-600 font-medium transition-all"
+                                className="px-8 py-3 bg-white border border-gray-300 shadow-sm rounded-lg text-gray-700 hover:bg-gray-50 hover:text-accent-600 font-medium transition-all"
                             >
                                 Load More Roles
                             </button>
@@ -241,12 +241,12 @@ export default function ClientJobDirectory({ initialJobs = [] }) {
                                     <Link
                                         key={loc.slug}
                                         href={`/jobs?location=${encodeURIComponent(loc.slug)}`}
-                                        className="group flex items-center gap-3 p-3 rounded-lg border border-gray-100 hover:border-blue-400 hover:bg-blue-50 transition-all"
+                                        className="group flex items-center gap-3 p-3 rounded-lg border border-gray-100 hover:border-accent-400 hover:bg-accent-50 transition-all"
                                     >
-                                        <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                        <div className="w-8 h-8 rounded-full bg-accent-100 text-accent-600 flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white transition-colors">
                                             <MapPin className="w-4 h-4" />
                                         </div>
-                                        <span className="text-sm font-medium text-gray-700 group-hover:text-blue-900">
+                                        <span className="text-sm font-medium text-gray-700 group-hover:text-primary">
                                             {loc.location}
                                         </span>
                                     </Link>

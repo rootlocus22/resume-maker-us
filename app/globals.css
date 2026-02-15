@@ -5,14 +5,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* US theme – ExpertResume (Deep Navy + Professional Blue) */
+/* US theme – ExpertResume (Navy + Teal) */
 :root {
-  --color-primary: #0F172A;
-  --color-accent: #2563EB;
-  --color-success: #0D9488;
+  --color-primary: #0B1F3B;
+  --color-accent: #00C4B3;
+  --color-success: #10B981;
   --color-bg: #F8FAFC;
   --color-border: #E5E7EB;
-  --color-text-primary: #020617;
+  --color-text-primary: #0B1F3B;
   --color-text-secondary: #475569;
   --color-slate-gray: #475569;
   --color-light-gray: #F8FAFC;

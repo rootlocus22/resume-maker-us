@@ -102,10 +102,10 @@ export default function FeaturesPage() {
           }),
         }}
       />
-      <div className="min-h-screen bg-gradient-to-b from-[#F8FAFC] via-white to-[#0B1F3B]/5">
+      <div className="min-h-screen bg-gradient-to-b from-bg via-white to-primary/5">
 
         {/* Hero Section with Social Proof */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-[#0B1F3B] via-[#0B1F3B] to-[#00C4B3] text-white">
+        <div className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary to-accent text-white">
           <div className="absolute inset-0 bg-black/10"></div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
             {/* Trust Signals */}
@@ -144,7 +144,7 @@ export default function FeaturesPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/resume-builder"
-                  className="inline-flex items-center gap-2 bg-white text-[#0B1F3B] px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                  className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                 >
                   <FaPlayCircle />
                   Start Building for FREE
@@ -199,7 +199,7 @@ export default function FeaturesPage() {
 
             <div className="text-center">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-                ExpertResume <span className="text-[#00C4B3]">Solves</span> All These Problems
+                ExpertResume <span className="text-accent">Solves</span> All These Problems
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Our AI-powered platform ensures your resume passes ATS systems, impresses recruiters,
@@ -210,11 +210,11 @@ export default function FeaturesPage() {
         </div>
 
         {/* Features Section - Redesigned for Conversion */}
-        <div className="py-16 sm:py-20 bg-gradient-to-b from-[#F8FAFC] to-white">
+        <div className="py-16 sm:py-20 bg-gradient-to-b from-bg to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                Everything You Need to <span className="text-[#0B1F3B]">Win Jobs</span>
+                Everything You Need to <span className="text-primary">Win Jobs</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 From AI-powered content suggestions to ATS optimization, we've got your entire job search covered.
@@ -224,64 +224,64 @@ export default function FeaturesPage() {
             {/* Core Free Features */}
             <div className="mb-16">
               <div className="text-center mb-8">
-                <div className="inline-flex items-center gap-2 bg-[#00C4B3]/10 text-[#0F172A] px-4 py-2 rounded-full font-semibold">
-                  <FaHeart className="text-[#00C4B3]" />
+                <div className="inline-flex items-center gap-2 bg-accent/10 text-primary px-4 py-2 rounded-full font-semibold">
+                  <FaHeart className="text-accent" />
                   Free Tier Features
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="group bg-white rounded-2xl p-6 shadow-lg border border-[#E5E7EB] hover:shadow-xl hover:border-[#00C4B3]/20 transition-all duration-300 transform hover:-translate-y-1">
+                <div className="group bg-white rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl hover:border-accent/20 transition-all duration-300 transform hover:-translate-y-1">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-[#00C4B3]/10 rounded-full flex items-center justify-center group-hover:bg-[#00C4B3]/20 transition-colors">
-                      <FaCheckCircle className="text-[#00C4B3] text-xl" />
+                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                      <FaCheckCircle className="text-accent text-xl" />
                     </div>
                     <div>
                       <h3 className="font-bold text-gray-900">Free ATS Score Checker</h3>
-                      <span className="text-xs bg-[#00C4B3]/10 text-[#0F172A] px-2 py-1 rounded font-medium">Free Tier</span>
+                      <span className="text-xs bg-accent/10 text-primary px-2 py-1 rounded font-medium">Free Tier</span>
                     </div>
                   </div>
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">
                     Get instant feedback on your resume's ATS compatibility. See exactly what's blocking you from interviews.
                   </p>
-                  <div className="flex items-center text-sm text-[#0B1F3B] font-medium">
+                  <div className="flex items-center text-sm text-primary font-medium">
                     <span>Check your score now</span>
                     <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
 
-                <div className="group bg-white rounded-2xl p-6 shadow-lg border border-[#E5E7EB] hover:shadow-xl hover:border-[#00C4B3]/20 transition-all duration-300 transform hover:-translate-y-1">
+                <div className="group bg-white rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl hover:border-accent/20 transition-all duration-300 transform hover:-translate-y-1">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-[#00C4B3]/10 rounded-full flex items-center justify-center group-hover:bg-[#00C4B3]/20 transition-colors">
-                      <FaEdit className="text-[#00C4B3] text-xl" />
+                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                      <FaEdit className="text-accent text-xl" />
                     </div>
                     <div>
                       <h3 className="font-bold text-gray-900">Smart Resume Editor</h3>
-                      <span className="text-xs bg-[#00C4B3]/10 text-[#0F172A] px-2 py-1 rounded font-medium">Free Tier</span>
+                      <span className="text-xs bg-accent/10 text-primary px-2 py-1 rounded font-medium">Free Tier</span>
                     </div>
                   </div>
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">
                     Intuitive drag-and-drop editor with real-time preview. Build professional resumes in minutes, not hours.
                   </p>
-                  <div className="flex items-center text-sm text-[#0B1F3B] font-medium">
+                  <div className="flex items-center text-sm text-primary font-medium">
                     <span>Start building</span>
                     <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
 
-                <div className="group bg-white rounded-2xl p-6 shadow-lg border border-[#E5E7EB] hover:shadow-xl hover:border-[#00C4B3]/20 transition-all duration-300 transform hover:-translate-y-1">
+                <div className="group bg-white rounded-2xl p-6 shadow-lg border border-border hover:shadow-xl hover:border-accent/20 transition-all duration-300 transform hover:-translate-y-1">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-[#00C4B3]/10 rounded-full flex items-center justify-center group-hover:bg-[#00C4B3]/20 transition-colors">
-                      <FaRobot className="text-[#00C4B3] text-xl" />
+                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                      <FaRobot className="text-accent text-xl" />
                     </div>
                     <div>
                       <h3 className="font-bold text-gray-900">AI Content Boost</h3>
-                      <span className="text-xs bg-[#00C4B3]/10 text-[#0F172A] px-2 py-1 rounded font-medium">Free Tier</span>
+                      <span className="text-xs bg-accent/10 text-primary px-2 py-1 rounded font-medium">Free Tier</span>
                     </div>
                   </div>
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">
                     AI-powered suggestions for every section. Transform weak bullet points into powerful achievements.
                   </p>
-                  <div className="flex items-center text-sm text-[#0B1F3B] font-medium">
+                  <div className="flex items-center text-sm text-primary font-medium">
                     <span>Try AI boost</span>
                     <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -291,178 +291,178 @@ export default function FeaturesPage() {
 
             {/* Premium Features - High Converting */}
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3B]/10 to-[#00C4B3]/10 rounded-3xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 rounded-3xl"></div>
               <div className="relative p-8">
                 <div className="text-center mb-8">
-                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-4 py-2 rounded-full font-semibold">
+                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-white px-4 py-2 rounded-full font-semibold">
                     <FaGem className="text-yellow-300" />
                     Premium Features - 3x Higher Interview Success
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <div className="group bg-white rounded-2xl p-6 shadow-lg border-2 border-[#00C4B3]/20 hover:shadow-xl hover:border-[#00C4B3]/30 transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="group bg-white rounded-2xl p-6 shadow-lg border-2 border-accent/20 hover:shadow-xl hover:border-accent/30 transition-all duration-300 transform hover:-translate-y-1">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
                         <FaFileAlt className="text-white text-xl" />
                       </div>
                       <div>
                         <h3 className="font-bold text-gray-900">20+ Premium Templates</h3>
-                        <span className="text-xs bg-[#00C4B3]/10 text-[#0F172A] px-2 py-1 rounded font-medium">Premium</span>
+                        <span className="text-xs bg-accent/10 text-primary px-2 py-1 rounded font-medium">Premium</span>
                       </div>
                     </div>
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       <strong>Eye-catching designs</strong> that make recruiters notice you in 6 seconds. Job-specific templates for IT, Finance, Healthcare & more.
                     </p>
-                    <div className="bg-[#0B1F3B]/5 p-3 rounded-lg mb-4">
-                      <div className="text-xs text-[#0F172A] font-medium">✨ Success Rate: <span className="text-lg font-bold">94% get interviews</span></div>
+                    <div className="bg-primary/5 p-3 rounded-lg mb-4">
+                      <div className="text-xs text-primary font-medium">✨ Success Rate: <span className="text-lg font-bold">94% get interviews</span></div>
                     </div>
                   </div>
 
-                  <div className="group bg-white rounded-2xl p-6 shadow-lg border-2 border-[#00C4B3]/20 hover:shadow-xl hover:border-[#00C4B3]/30 transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="group bg-white rounded-2xl p-6 shadow-lg border-2 border-accent/20 hover:shadow-xl hover:border-accent/30 transition-all duration-300 transform hover:-translate-y-1">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
                         <FaRobot className="text-white text-xl" />
                       </div>
                       <div>
                         <h3 className="font-bold text-gray-900">AI Interview Trainer</h3>
-                        <span className="text-xs bg-[#00C4B3]/10 text-[#0F172A] px-2 py-1 rounded font-medium">Premium</span>
+                        <span className="text-xs bg-accent/10 text-primary px-2 py-1 rounded font-medium">Premium</span>
                       </div>
                     </div>
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       Practice with <strong>AI-powered</strong> virtual coach. Get role-specific questions and real-time feedback.
                     </p>
-                    <div className="bg-[#0B1F3B]/5 p-3 rounded-lg mb-4">
-                      <div className="text-xs text-[#0F172A] font-medium">🎯 Confidence Boost: <span className="text-lg font-bold">85% ace interviews</span></div>
+                    <div className="bg-primary/5 p-3 rounded-lg mb-4">
+                      <div className="text-xs text-primary font-medium">🎯 Confidence Boost: <span className="text-lg font-bold">85% ace interviews</span></div>
                     </div>
                   </div>
 
-                  <div className="group bg-white rounded-2xl p-6 shadow-lg border-2 border-[#00C4B3]/20 hover:shadow-xl hover:border-[#00C4B3]/30 transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="group bg-white rounded-2xl p-6 shadow-lg border-2 border-accent/20 hover:shadow-xl hover:border-accent/30 transition-all duration-300 transform hover:-translate-y-1">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
                         <FaDollarSign className="text-white text-xl" />
                       </div>
                       <div>
                         <h3 className="font-bold text-gray-900">AI Salary Analyzer</h3>
-                        <span className="text-xs bg-[#00C4B3]/10 text-[#0F172A] px-2 py-1 rounded font-medium">Premium</span>
+                        <span className="text-xs bg-accent/10 text-primary px-2 py-1 rounded font-medium">Premium</span>
                       </div>
                     </div>
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       Know your market value instantly. <strong>Negotiate with confidence</strong> using AI-powered salary insights.
                     </p>
-                    <div className="bg-[#0B1F3B]/5 p-3 rounded-lg mb-4">
-                      <div className="text-xs text-[#0F172A] font-medium">💰 Avg Salary Increase: <span className="text-lg font-bold">23% higher</span></div>
+                    <div className="bg-primary/5 p-3 rounded-lg mb-4">
+                      <div className="text-xs text-primary font-medium">💰 Avg Salary Increase: <span className="text-lg font-bold">23% higher</span></div>
                     </div>
                   </div>
 
-                  <div className="group bg-white rounded-2xl p-6 shadow-lg border-2 border-[#00C4B3]/20 hover:shadow-xl hover:border-[#00C4B3]/30 transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="group bg-white rounded-2xl p-6 shadow-lg border-2 border-accent/20 hover:shadow-xl hover:border-accent/30 transition-all duration-300 transform hover:-translate-y-1">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
                         <FaRocket className="text-white text-xl" />
                       </div>
                       <div>
                         <h3 className="font-bold text-gray-900">AI Career Coach</h3>
-                        <span className="text-xs bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-2 py-1 rounded font-medium">Premium</span>
+                        <span className="text-xs bg-gradient-to-r from-primary to-accent text-white px-2 py-1 rounded font-medium">Premium</span>
                       </div>
                     </div>
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       Get a personalized <strong>6-month career roadmap</strong> with skills, certifications, and interview prep tailored to your resume.
                     </p>
-                    <div className="bg-[#0B1F3B]/5 p-3 rounded-lg mb-4">
-                      <div className="text-xs text-[#0F172A] font-medium">🚀 Career Growth: <span className="text-lg font-bold">Accelerate 3x faster</span></div>
+                    <div className="bg-primary/5 p-3 rounded-lg mb-4">
+                      <div className="text-xs text-primary font-medium">🚀 Career Growth: <span className="text-lg font-bold">Accelerate 3x faster</span></div>
                     </div>
                   </div>
 
-                  <div className="group bg-white rounded-2xl p-6 shadow-lg border-2 border-[#00C4B3]/20 hover:shadow-xl hover:border-[#00C4B3]/30 transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="group bg-white rounded-2xl p-6 shadow-lg border-2 border-accent/20 hover:shadow-xl hover:border-accent/30 transition-all duration-300 transform hover:-translate-y-1">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
                         <FaDownload className="text-white text-xl" />
                       </div>
                       <div>
                         <h3 className="font-bold text-gray-900">Watermark-Free PDFs</h3>
-                        <span className="text-xs bg-[#00C4B3]/10 text-[#0F172A] px-2 py-1 rounded font-medium">Premium</span>
+                        <span className="text-xs bg-accent/10 text-primary px-2 py-1 rounded font-medium">Premium</span>
                       </div>
                     </div>
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       Download <strong>professional PDFs</strong> without watermarks. Make the perfect first impression.
                     </p>
-                    <div className="bg-[#0B1F3B]/5 p-3 rounded-lg mb-4">
-                      <div className="text-xs text-[#0F172A] font-medium">📄 Quality: <span className="text-lg font-bold">Print-ready</span></div>
+                    <div className="bg-primary/5 p-3 rounded-lg mb-4">
+                      <div className="text-xs text-primary font-medium">📄 Quality: <span className="text-lg font-bold">Print-ready</span></div>
                     </div>
                   </div>
 
-                  <div className="group bg-white rounded-2xl p-6 shadow-lg border-2 border-[#00C4B3]/20 hover:shadow-xl hover:border-[#00C4B3]/30 transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="group bg-white rounded-2xl p-6 shadow-lg border-2 border-accent/20 hover:shadow-xl hover:border-accent/30 transition-all duration-300 transform hover:-translate-y-1">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
                         <FaFileAlt className="text-white text-xl" />
                       </div>
                       <div>
                         <h3 className="font-bold text-gray-900">JD Based Resume Builder</h3>
-                        <span className="text-xs bg-[#00C4B3]/10 text-[#0F172A] px-2 py-1 rounded font-medium">Premium</span>
+                        <span className="text-xs bg-accent/10 text-primary px-2 py-1 rounded font-medium">Premium</span>
                       </div>
                     </div>
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       <strong>Job-specific optimization</strong> that tailors your resume to match the exact job description, keywords, and requirements for maximum ATS compatibility.
                     </p>
-                    <div className="bg-[#0B1F3B]/5 p-3 rounded-lg mb-4">
-                      <div className="text-xs text-[#0F172A] font-medium">🎯 Perfect Match: <span className="text-lg font-bold">95% keyword alignment</span></div>
+                    <div className="bg-primary/5 p-3 rounded-lg mb-4">
+                      <div className="text-xs text-primary font-medium">🎯 Perfect Match: <span className="text-lg font-bold">95% keyword alignment</span></div>
                     </div>
                   </div>
 
-                  <div className="group bg-white rounded-2xl p-6 shadow-lg border-2 border-[#00C4B3]/20 hover:shadow-xl hover:border-[#00C4B3]/30 transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="group bg-white rounded-2xl p-6 shadow-lg border-2 border-accent/20 hover:shadow-xl hover:border-accent/30 transition-all duration-300 transform hover:-translate-y-1">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
                         <FaFileAlt className="text-white text-xl" />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-2 flex-wrap">
                           <h3 className="font-bold text-gray-900">One-Pager Resume</h3>
-                          <span className="text-xs bg-[#00C4B3]/10 text-[#0F172A] px-2 py-1 rounded font-medium">Premium</span>
-                          <span className="text-xs bg-[#0B1F3B]/5 text-[#0F172A] px-2 py-1 rounded font-medium">🖥️ Desktop Only</span>
+                          <span className="text-xs bg-accent/10 text-primary px-2 py-1 rounded font-medium">Premium</span>
+                          <span className="text-xs bg-primary/5 text-primary px-2 py-1 rounded font-medium">🖥️ Desktop Only</span>
                         </div>
                       </div>
                     </div>
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                      <strong>AI-powered compression</strong> that fits your entire resume on one page while maintaining ATS compatibility and professional formatting. <span className="text-[#0B1F3B] font-semibold">Best experienced on desktop for full editing capabilities.</span>
+                      <strong>AI-powered compression</strong> that fits your entire resume on one page while maintaining ATS compatibility and professional formatting. <span className="text-primary font-semibold">Best experienced on desktop for full editing capabilities.</span>
                     </p>
-                    <div className="bg-[#0B1F3B]/5 p-3 rounded-lg mb-4">
-                      <div className="text-xs text-[#0F172A] font-medium">🎯 Perfect Fit: <span className="text-lg font-bold">100% content preserved</span></div>
+                    <div className="bg-primary/5 p-3 rounded-lg mb-4">
+                      <div className="text-xs text-primary font-medium">🎯 Perfect Fit: <span className="text-lg font-bold">100% content preserved</span></div>
                     </div>
                   </div>
 
-                  <div className="group bg-white rounded-2xl p-6 shadow-lg border-2 border-[#00C4B3]/20 hover:shadow-xl hover:border-[#00C4B3]/30 transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="group bg-white rounded-2xl p-6 shadow-lg border-2 border-accent/20 hover:shadow-xl hover:border-accent/30 transition-all duration-300 transform hover:-translate-y-1">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
                         <FaFileAlt className="text-white text-xl" />
                       </div>
                       <div>
                         <h3 className="font-bold text-gray-900">AI-Powered Cover Letter Builder</h3>
-                        <span className="text-xs bg-[#00C4B3]/10 text-[#0F172A] px-2 py-1 rounded font-medium">Premium</span>
+                        <span className="text-xs bg-accent/10 text-primary px-2 py-1 rounded font-medium">Premium</span>
                       </div>
                     </div>
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       <strong>Intelligent content generation</strong> that creates compelling cover letters using AI. Generate personalized introductions, body content, and closings that match your resume and job requirements.
                     </p>
-                    <div className="bg-[#0B1F3B]/5 p-3 rounded-lg mb-4">
-                      <div className="text-xs text-[#0F172A] font-medium">✍️ Content Quality: <span className="text-lg font-bold">AI-generated excellence</span></div>
+                    <div className="bg-primary/5 p-3 rounded-lg mb-4">
+                      <div className="text-xs text-primary font-medium">✍️ Content Quality: <span className="text-lg font-bold">AI-generated excellence</span></div>
                     </div>
                   </div>
 
-                  <div className="group bg-white rounded-2xl p-6 shadow-lg border-2 border-[#00C4B3]/20 hover:shadow-xl hover:border-[#00C4B3]/30 transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="group bg-white rounded-2xl p-6 shadow-lg border-2 border-accent/20 hover:shadow-xl hover:border-accent/30 transition-all duration-300 transform hover:-translate-y-1">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
                         <FaFileAlt className="text-white text-xl" />
                       </div>
                       <div>
                         <h3 className="font-bold text-gray-900">JD-Based Cover Letter Builder</h3>
-                        <span className="text-xs bg-[#00C4B3]/10 text-[#0F172A] px-2 py-1 rounded font-medium">Premium</span>
+                        <span className="text-xs bg-accent/10 text-primary px-2 py-1 rounded font-medium">Premium</span>
                       </div>
                     </div>
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       <strong>One-click perfection</strong> that analyzes job descriptions and automatically generates tailored cover letters. Perfect alignment with job requirements for maximum impact.
                     </p>
-                    <div className="bg-[#0B1F3B]/5 p-3 rounded-lg mb-4">
-                      <div className="text-xs text-[#0F172A] font-medium">🎯 Job Match: <span className="text-lg font-bold">Perfect alignment</span></div>
+                    <div className="bg-primary/5 p-3 rounded-lg mb-4">
+                      <div className="text-xs text-primary font-medium">🎯 Job Match: <span className="text-lg font-bold">Perfect alignment</span></div>
                     </div>
                   </div>
                 </div>
@@ -470,7 +470,7 @@ export default function FeaturesPage() {
                 <div className="text-center mt-8">
                   <Link
                     href="/pricing"
-                    className="inline-flex items-center gap-2 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-8 py-4 rounded-full font-bold text-lg hover:opacity-95 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-white px-8 py-4 rounded-full font-bold text-lg hover:opacity-95 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
                     <FaTrophy />
                     Unlock Premium Features
@@ -504,7 +504,7 @@ export default function FeaturesPage() {
                   "Got 3 interview calls in just 2 weeks after using ExpertResume's premium templates. The ATS score went from 65 to 94!"
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-[#0B1F3B] rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
                     <span className="font-bold">RC</span>
                   </div>
                   <div>
@@ -524,7 +524,7 @@ export default function FeaturesPage() {
                   "The AI interview trainer helped me crack my dream job at Google. Worth every penny of the premium subscription!"
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-[#0B1F3B] rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
                     <span className="font-bold">SM</span>
                   </div>
                   <div>
@@ -544,7 +544,7 @@ export default function FeaturesPage() {
                   "Salary analyzer showed I was underpaid by 40%. Used the insights to negotiate a 35% raise at my current company!"
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-[#0B1F3B] rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
                     <span className="font-bold">AT</span>
                   </div>
                   <div>
@@ -590,9 +590,9 @@ export default function FeaturesPage() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-gradient-to-r from-[#0B1F3B]/5 to-[#0B1F3B]/5 rounded-2xl p-8 border border-[#00C4B3]/20">
+              <div className="bg-gradient-to-r from-primary/5 to-primary/5 rounded-2xl p-8 border border-accent/20">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-[#0B1F3B] rounded-full flex items-center justify-center">
+                  <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
                     <FaQuestionCircle className="text-white text-sm" />
                   </div>
                   <div>
@@ -609,9 +609,9 @@ export default function FeaturesPage() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-[#E5E7EB]">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-border">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-[#0B1F3B] rounded-full flex items-center justify-center">
+                  <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
                     <FaCheckCircle className="text-white text-sm" />
                   </div>
                   <div>
@@ -630,9 +630,9 @@ export default function FeaturesPage() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-[#E5E7EB]">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-border">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-[#0B1F3B] rounded-full flex items-center justify-center">
+                  <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
                     <FaRobot className="text-white text-sm" />
                   </div>
                   <div>
@@ -645,13 +645,13 @@ export default function FeaturesPage() {
                       <br />• Receive instant feedback on your answers
                       <br />• Learn from thousands of successful interview patterns
                       <br />
-                      <span className="text-[#0B1F3B] font-semibold">85% of our premium users report feeling more confident in interviews!</span>
+                      <span className="text-primary font-semibold">85% of our premium users report feeling more confident in interviews!</span>
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-[#E5E7EB]">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-border">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-yellow-600 rounded-full flex items-center justify-center">
                     <FaDollarSign className="text-white text-sm" />
@@ -665,13 +665,13 @@ export default function FeaturesPage() {
                       <br />• Company size and industry standards
                       <br />• Real salary data from 100,000+ professionals
                       <br />
-                      <span className="text-[#0B1F3B] font-semibold">Users report an average 23% salary increase</span> after using our insights for negotiations.
+                      <span className="text-primary font-semibold">Users report an average 23% salary increase</span> after using our insights for negotiations.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-[#E5E7EB]">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-border">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
                     <FaShieldAlt className="text-white text-sm" />
@@ -691,9 +691,9 @@ export default function FeaturesPage() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-[#E5E7EB]">
+              <div className="bg-white rounded-2xl p-8 shadow-lg border border-border">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-[#0B1F3B] rounded-full flex items-center justify-center">
+                  <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
                     <FaChartLine className="text-white text-sm" />
                   </div>
                   <div>
@@ -704,8 +704,8 @@ export default function FeaturesPage() {
                       <br />• <strong>Sarah M. (Product Manager):</strong> "Landed my dream job at Google using the interview trainer"
                       <br />• <strong>Alex T. (Data Scientist):</strong> "Negotiated 35% salary increase using salary analyzer insights"
                     </p>
-                    <div className="bg-[#0B1F3B]/5 p-4 rounded-lg">
-                      <div className="text-[#0F172A] font-semibold text-sm">
+                    <div className="bg-primary/5 p-4 rounded-lg">
+                      <div className="text-primary font-semibold text-sm">
                         📊 Our Track Record: 100,000++ users • 94% interview success • 4.9★ rating • 3x more callbacks
                       </div>
                     </div>
@@ -720,7 +720,7 @@ export default function FeaturesPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/resume-builder"
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-6 py-3 rounded-full font-semibold hover:opacity-95 transition-all duration-300"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-full font-semibold hover:opacity-95 transition-all duration-300"
                 >
                   <FaPlayCircle />
                   Try ExpertResume Free
@@ -738,13 +738,13 @@ export default function FeaturesPage() {
         </div>
 
         {/* Final CTA - High Converting */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#0B1F3B] to-[#0B1F3B] text-white">
+        <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-primary to-primary text-white">
           <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3B]/20 to-[#00C4B3]/20"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20"></div>
             <div className="absolute top-0 left-0 w-full h-full opacity-10">
               <div className="absolute top-10 left-10 w-20 h-20 bg-white rounded-full animate-pulse"></div>
               <div className="absolute top-40 right-20 w-16 h-16 bg-yellow-400 rounded-full animate-pulse delay-1000"></div>
-              <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-[#00C4B3] rounded-full animate-pulse delay-2000"></div>
+              <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-accent rounded-full animate-pulse delay-2000"></div>
             </div>
           </div>
 
@@ -757,7 +757,7 @@ export default function FeaturesPage() {
 
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
               Your Dream Job is Just One
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-[#00C4B3]"> Click Away</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-accent"> Click Away</span>
             </h2>
 
             <p className="text-xl sm:text-2xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto">
@@ -809,15 +809,15 @@ export default function FeaturesPage() {
             {/* Trust Signals */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-gray-400">
               <div className="flex items-center gap-2">
-                <FaShieldAlt className="text-[#00C4B3]" />
+                <FaShieldAlt className="text-accent" />
                 Secure payment processing
               </div>
               <div className="flex items-center gap-2">
-                <FaBolt className="text-[#00C4B3]" />
+                <FaBolt className="text-accent" />
                 Instant access after payment
               </div>
               <div className="flex items-center gap-2">
-                <FaHeart className="text-[#00C4B3]" />
+                <FaHeart className="text-accent" />
                 Free version forever
               </div>
             </div>
@@ -834,7 +834,7 @@ export default function FeaturesPage() {
         </div>
 
         {/* Trust Badge Footer */}
-        <div className="bg-[#F8FAFC] py-8">
+        <div className="bg-bg py-8">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row items-center justify-between text-center md:text-left">
               <div className="mb-4 md:mb-0">
@@ -855,7 +855,7 @@ export default function FeaturesPage() {
         <div className="fixed bottom-6 right-6 z-50">
           <Link
             href="/resume-builder"
-            className="group flex items-center gap-3 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-6 py-4 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 animate-pulse hover:animate-none"
+            className="group flex items-center gap-3 bg-gradient-to-r from-primary to-accent text-white px-6 py-4 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 animate-pulse hover:animate-none"
           >
             <FaPlayCircle className="text-xl group-hover:rotate-12 transition-transform" />
             <span className="hidden sm:inline">Start Building FREE</span>

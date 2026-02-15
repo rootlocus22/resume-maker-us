@@ -13,7 +13,7 @@
                     <h2 className="text-lg font-bold text-gray-900">Order Summary</h2>
                     <button
                         onClick={() => setStep(1)}
-                        className="text-sm text-[#0B1F3B] font-semibold hover:text-[#0B1F3B]"
+                        className="text-sm text-primary font-semibold hover:text-primary"
                     >
                         Edit
                     </button>
@@ -23,9 +23,9 @@
                     {/* Base Plan Item */}
                     <div className="flex justify-between items-center">
                         <div className="flex items-center gap-3">
-                            <div className={`p-2 rounded-lg ${isStandaloneAddon ? 'bg-[#00C4B3]/10' : 'bg-green-100'}`}>
+                            <div className={`p-2 rounded-lg ${isStandaloneAddon ? 'bg-accent/10' : 'bg-green-100'}`}>
                                 {isStandaloneAddon && AddonIcon ? (
-                                    <AddonIcon className="text-[#0B1F3B] w-5 h-5" />
+                                    <AddonIcon className="text-primary w-5 h-5" />
                                 ) : (
                                     <Crown className="text-green-600 w-5 h-5" />
                                 )}
@@ -129,7 +129,7 @@
 
                         <div className="flex justify-between items-end pt-2 border-t border-gray-100 mt-2">
                             <span className="font-bold text-gray-900">Total to Pay</span>
-                            <span className="text-2xl font-black text-[#0B1F3B]">
+                            <span className="text-2xl font-black text-primary">
                                 {formatPrice(finalTotal, effectiveCurrency)}
                             </span>
                         </div>
@@ -140,7 +140,7 @@
             {/* Payment Method Selection Placeholder - Can be expanded */}
             <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                    <CreditCard className="text-[#0B1F3B]" size={24} />
+                    <CreditCard className="text-primary" size={24} />
                     <div>
                         <p className="font-bold text-gray-900 text-sm">Secure Payment Gateway</p>
                         <p className="text-xs text-gray-500">Encrypted & Safe. Cards, Apple Pay, Google Pay.</p>

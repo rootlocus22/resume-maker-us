@@ -15,7 +15,7 @@ export default function SEORelated({ title, related }) {
                         <Link
                             key={index}
                             href={`/resume-builder-${slug}`}
-                            className="px-5 py-2.5 bg-white rounded-full border border-gray-200 text-gray-600 hover:border-blue-500 hover:text-blue-600 hover:shadow-md transition-all text-sm font-medium"
+                            className="px-5 py-2.5 bg-white rounded-full border border-gray-200 text-gray-600 hover:border-accent hover:text-accent hover:shadow-md transition-all text-sm font-medium"
                         >
                             {slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
                         </Link>

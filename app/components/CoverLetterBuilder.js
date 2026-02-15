@@ -651,9 +651,9 @@ export default function CoverLetterBuilder({
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#F8FAFC] via-white to-[#F8FAFC] flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-bg via-white to-bg flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-[#00C4B3]" />
+          <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-accent" />
           <p className="text-gray-600 font-medium">Loading...</p>
         </div>
       </div>
@@ -661,7 +661,7 @@ export default function CoverLetterBuilder({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F8FAFC] via-white to-[#F8FAFC]">
+    <div className="min-h-screen bg-gradient-to-br from-bg via-white to-bg">
 
       {/* Custom Scrollbar Styles and Animations */}
       <style jsx global>{`
@@ -699,7 +699,7 @@ export default function CoverLetterBuilder({
       {isGeneratingPdf && (
         <div className="fixed inset-0 bg-gray-900/80 backdrop-blur-sm flex items-center justify-center z-50">
           <div className="flex flex-col items-center gap-4 bg-white p-8 rounded-2xl shadow-2xl">
-            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-[#00C4B3]" />
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-accent" />
             <p className="text-gray-800 text-lg font-medium">Generating your cover letter PDF...</p>
           </div>
         </div>
@@ -710,7 +710,7 @@ export default function CoverLetterBuilder({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Link href="/dashboard" className="text-[#00C4B3] hover:text-[#00C4B3]/80 transition-colors">
+              <Link href="/dashboard" className="text-accent hover:text-accent/80 transition-colors">
                 <ArrowLeft className="w-5 h-5" />
               </Link>
               <div>
@@ -728,7 +728,7 @@ export default function CoverLetterBuilder({
               </Link>
               <button
                 onClick={() => setIsSaveModalOpen(true)}
-                className="flex items-center gap-1.5 text-gray-600 hover:text-[#00C4B3] px-3 py-1.5 rounded-lg hover:bg-[#0B1F3B]/5 transition-all text-sm"
+                className="flex items-center gap-1.5 text-gray-600 hover:text-accent px-3 py-1.5 rounded-lg hover:bg-primary/5 transition-all text-sm"
               >
                 <Save size={16} />
                 <span className="hidden sm:inline">Save</span>
@@ -747,22 +747,22 @@ export default function CoverLetterBuilder({
                 <div className="flex flex-col items-center flex-1">
                   <div
                     className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-sm font-semibold transition-all ${currentStep === step.number
-                      ? "bg-[#0B1F3B] text-white shadow-md"
+                      ? "bg-primary text-white shadow-md"
                       : currentStep > step.number
-                        ? "bg-green-500 text-white"
+                        ? "bg-accent text-white"
                         : "bg-gray-200 text-gray-500"
                       }`}
                   >
                     {currentStep > step.number ? <Check className="w-4 h-4" /> : step.number}
                   </div>
-                  <span className={`text-xs font-medium mt-1.5 text-center hidden sm:block ${currentStep === step.number ? "text-[#0B1F3B]" : "text-gray-500"
+                  <span className={`text-xs font-medium mt-1.5 text-center hidden sm:block ${currentStep === step.number ? "text-primary" : "text-gray-500"
                     }`}>
                     {step.title}
                   </span>
                 </div>
                 {index < steps.length - 1 && (
                   <div
-                    className={`h-0.5 flex-1 mx-2 rounded transition-all ${currentStep > step.number ? "bg-green-500" : "bg-gray-200"
+                    className={`h-0.5 flex-1 mx-2 rounded transition-all ${currentStep > step.number ? "bg-accent" : "bg-gray-200"
                       }`}
                   />
                 )}
@@ -795,7 +795,7 @@ export default function CoverLetterBuilder({
                         type="text"
                         value={coverLetterData.name || ""}
                         onChange={(e) => updateField("name", e.target.value)}
-                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
+                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-all bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
                         placeholder="John Doe"
                       />
                     </div>
@@ -808,7 +808,7 @@ export default function CoverLetterBuilder({
                         type="email"
                         value={coverLetterData.email || ""}
                         onChange={(e) => updateField("email", e.target.value)}
-                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
+                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-all bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
                         placeholder="john.doe@example.com"
                       />
                     </div>
@@ -819,7 +819,7 @@ export default function CoverLetterBuilder({
                         type="tel"
                         value={coverLetterData.phone || ""}
                         onChange={(e) => updateField("phone", e.target.value)}
-                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
+                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-all bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
                         placeholder="+1 (555) 000-0000"
                       />
                     </div>
@@ -830,7 +830,7 @@ export default function CoverLetterBuilder({
                         type="text"
                         value={coverLetterData.location || ""}
                         onChange={(e) => updateField("location", e.target.value)}
-                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
+                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-all bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
                         placeholder="New York, NY"
                       />
                     </div>
@@ -855,7 +855,7 @@ export default function CoverLetterBuilder({
                         type="text"
                         value={coverLetterData.jobTitle || ""}
                         onChange={(e) => updateField("jobTitle", e.target.value)}
-                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
+                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-all bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
                         placeholder="Software Engineer"
                       />
                     </div>
@@ -868,7 +868,7 @@ export default function CoverLetterBuilder({
                         type="text"
                         value={coverLetterData.company || ""}
                         onChange={(e) => updateField("company", e.target.value)}
-                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
+                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-all bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
                         placeholder="Google"
                       />
                     </div>
@@ -879,16 +879,16 @@ export default function CoverLetterBuilder({
                         type="text"
                         value={coverLetterData.recipient || ""}
                         onChange={(e) => updateField("recipient", e.target.value)}
-                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
+                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-all bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
                         placeholder="Dear Hiring Manager"
                       />
                     </div>
 
                     {/* AI Generate Option */}
                     {user && ['oneDay', 'basic', 'monthly', 'sixMonth', 'quarterly', 'yearly', 'premium'].includes(userPlan) && (
-                      <div className="mt-6 p-4 bg-gradient-to-r from-[#0B1F3B]/5 to-[#00C4B3]/5 rounded-xl border border-[#00C4B3]/20">
+                      <div className="mt-6 p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl border border-accent/20">
                         <div className="flex items-start gap-3 mb-3">
-                          <Sparkles className="w-5 h-5 text-[#00C4B3] flex-shrink-0 mt-1" />
+                          <Sparkles className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
                           <div>
                             <h3 className="font-semibold text-gray-900 mb-1">AI-Powered Content</h3>
                             <p className="text-sm text-gray-600">
@@ -899,7 +899,7 @@ export default function CoverLetterBuilder({
                         <button
                           onClick={generateAIContent}
                           disabled={isGeneratingAI || !coverLetterData.jobTitle || !coverLetterData.company}
-                          className="w-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-6 py-3 rounded-lg hover:opacity-95 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 font-medium shadow-md"
+                          className="w-full bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-lg hover:opacity-95 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 font-medium shadow-md"
                         >
                           {isGeneratingAI ? (
                             <>
@@ -933,7 +933,7 @@ export default function CoverLetterBuilder({
                       <button
                         onClick={handleAIGenerateClick}
                         disabled={isGeneratingAI}
-                        className="px-4 py-2 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white rounded-lg hover:opacity-95 disabled:opacity-50 transition-all flex items-center justify-center gap-2 text-sm font-bold shadow-md"
+                        className="px-4 py-2 bg-gradient-to-r from-primary to-accent text-white rounded-lg hover:opacity-95 disabled:opacity-50 transition-all flex items-center justify-center gap-2 text-sm font-bold shadow-md"
                         style={{ minWidth: '160px' }}
                       >
                         {isGeneratingAI ? (
@@ -957,7 +957,7 @@ export default function CoverLetterBuilder({
                       <textarea
                         value={coverLetterData.intro || ""}
                         onChange={(e) => updateField("intro", e.target.value)}
-                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all resize-none bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
+                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-all resize-none bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
                         rows="3"
                         placeholder="I am writing to express my strong interest in the [Position] role at [Company]. With my background in..."
                       />
@@ -969,7 +969,7 @@ export default function CoverLetterBuilder({
                       <textarea
                         value={coverLetterData.body || ""}
                         onChange={(e) => updateField("body", e.target.value)}
-                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all resize-none bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
+                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-all resize-none bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
                         rows="4"
                         placeholder="In my current role at [Company], I successfully... My experience includes... I am particularly drawn to this opportunity because..."
                       />
@@ -981,7 +981,7 @@ export default function CoverLetterBuilder({
                       <textarea
                         value={coverLetterData.closing || ""}
                         onChange={(e) => updateField("closing", e.target.value)}
-                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all resize-none bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
+                        className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-all resize-none bg-gray-50 focus:bg-white hover:border-gray-300 text-gray-900 placeholder-gray-400 text-sm"
                         rows="2"
                         placeholder="Thank you for considering my application. I look forward to the opportunity to discuss how my skills and experience align with your needs..."
                       />
@@ -990,9 +990,9 @@ export default function CoverLetterBuilder({
                   </div>
 
                   {/* Content Tips */}
-                  <div className="bg-[#0B1F3B]/5 border border-[#00C4B3]/20 rounded-lg p-3">
+                  <div className="bg-primary/5 border border-accent/20 rounded-lg p-3">
                     <h4 className="font-semibold text-gray-900 text-xs mb-1.5 flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-[#00C4B3]" />
+                      <Sparkles className="w-3.5 h-3.5 text-accent" />
                       Quick Tips
                     </h4>
                     <ul className="text-xs text-gray-600 space-y-0.5">
@@ -1025,16 +1025,16 @@ export default function CoverLetterBuilder({
                           onClick={() => setTemplate(key)}
                           disabled={isPremiumTemplate}
                           className={`relative p-3 rounded-lg border-2 transition-all text-left group ${isSelected
-                            ? "border-[#00C4B3] bg-[#00C4B3]/5 shadow-md"
+                            ? "border-accent bg-accent/5 shadow-md"
                             : isPremiumTemplate
                               ? "border-gray-200 bg-gray-50 opacity-60 cursor-not-allowed"
-                              : "border-gray-200 hover:border-[#00C4B3]/30 hover:bg-[#00C4B3]/5"
+                              : "border-gray-200 hover:border-accent/30 hover:bg-accent/5"
                             }`}
                         >
                           <div className="flex items-start gap-2">
                             <div className={`w-8 h-8 rounded-md flex items-center justify-center font-bold text-sm flex-shrink-0 transition-all ${isSelected
-                              ? "bg-[#0B1F3B] text-white"
-                              : "bg-gray-100 text-gray-600 group-hover:bg-[#00C4B3]/10"
+                              ? "bg-primary text-white"
+                              : "bg-gray-100 text-gray-600 group-hover:bg-accent/10"
                               }`}>
                               {key.charAt(0).toUpperCase()}
                             </div>
@@ -1049,7 +1049,7 @@ export default function CoverLetterBuilder({
                                   </p>
                                 </div>
                                 {isSelected && (
-                                  <Check className="w-4 h-4 text-[#00C4B3] flex-shrink-0" />
+                                  <Check className="w-4 h-4 text-accent flex-shrink-0" />
                                 )}
                               </div>
 
@@ -1067,9 +1067,9 @@ export default function CoverLetterBuilder({
                   </div>
 
                   {/* Template Features Info */}
-                  <div className="bg-[#0B1F3B]/5 rounded-lg p-3 border border-[#E5E7EB]">
+                  <div className="bg-primary/5 rounded-lg p-3 border border-border">
                     <div className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-[#00C4B3] flex-shrink-0 mt-0.5" />
+                      <Check className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                       <div>
                         <h4 className="font-semibold text-gray-900 text-xs mb-1">All templates include:</h4>
                         <ul className="text-xs text-gray-600 space-y-0.5">
@@ -1082,7 +1082,7 @@ export default function CoverLetterBuilder({
                         <div className="mt-4 flex justify-end">
                           <button
                             onClick={handleAIGenerateClick}
-                            className="px-6 py-2 bg-[#00C4B3]/10 text-[#0B1F3B] rounded-lg hover:bg-[#00C4B3]/20 transition-all flex items-center gap-2 text-sm font-semibold"
+                            className="px-6 py-2 bg-accent/10 text-primary rounded-lg hover:bg-accent/20 transition-all flex items-center gap-2 text-sm font-semibold"
                           >
                             <Sparkles className="w-4 h-4" />
                             Regenerate Content
@@ -1108,7 +1108,7 @@ export default function CoverLetterBuilder({
                 {currentStep < 4 ? (
                   <button
                     onClick={handleNext}
-                    className="flex items-center gap-2 px-6 py-2.5 rounded-lg bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white font-semibold hover:opacity-95 transition-all shadow-md hover:shadow-lg text-sm"
+                    className="flex items-center gap-2 px-6 py-2.5 rounded-lg bg-gradient-to-r from-primary to-accent text-white font-semibold hover:opacity-95 transition-all shadow-md hover:shadow-lg text-sm"
                   >
                     Next Step
                     <ArrowRight className="w-4 h-4" />
@@ -1117,7 +1117,7 @@ export default function CoverLetterBuilder({
                   <button
                     onClick={handleGeneratePDF}
                     disabled={isGeneratingPdf}
-                    className="flex items-center gap-2 px-6 py-2.5 rounded-lg bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white font-semibold hover:opacity-95 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-md hover:shadow-lg text-sm"
+                    className="flex items-center gap-2 px-6 py-2.5 rounded-lg bg-gradient-to-r from-primary to-accent text-white font-semibold hover:opacity-95 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-md hover:shadow-lg text-sm"
                   >
                     <Eye className="w-4 h-4" />
                     Generate PDF
@@ -1137,7 +1137,7 @@ export default function CoverLetterBuilder({
                   <p className="text-xs text-gray-500">See your cover letter in real-time</p>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+                  <div className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse"></div>
                   <span className="text-xs text-gray-500 font-medium">Auto-saving</span>
                 </div>
               </div>
@@ -1175,7 +1175,7 @@ export default function CoverLetterBuilder({
               {/* Header */}
               <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 bg-white sticky top-0 z-10">
                 <div className="flex items-center gap-2">
-                  <Eye className="w-5 h-5 text-[#00C4B3]" />
+                  <Eye className="w-5 h-5 text-accent" />
                   <h3 className="text-base font-semibold text-gray-900">Live Preview</h3>
                 </div>
                 <button
@@ -1243,7 +1243,7 @@ export default function CoverLetterBuilder({
                 </button>
                 <button
                   onClick={handleDownloadPDF}
-                  className="flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white hover:opacity-95 transition-all shadow-md"
+                  className="flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-primary to-accent text-white hover:opacity-95 transition-all shadow-md"
                 >
                   <Download className="w-4 h-4" />
                   Download PDF
@@ -1266,7 +1266,7 @@ export default function CoverLetterBuilder({
                 value={coverLetterName}
                 onChange={(e) => setCoverLetterName(e.target.value)}
                 placeholder="e.g., Software Engineer at Google"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3] transition-all mb-6"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition-all mb-6"
               />
               <div className="flex items-center gap-3">
                 <button
@@ -1277,7 +1277,7 @@ export default function CoverLetterBuilder({
                 </button>
                 <button
                   onClick={handleSaveCoverLetter}
-                  className="flex-1 px-6 py-3 rounded-lg bg-[#0B1F3B] text-white hover:bg-[#0B1F3B]/90 transition-all shadow-md"
+                  className="flex-1 px-6 py-3 rounded-lg bg-primary text-white hover:bg-primary/90 transition-all shadow-md"
                 >
                   Save
                 </button>
@@ -1297,7 +1297,7 @@ export default function CoverLetterBuilder({
             {steps.map((step) => (
               <div
                 key={step.number}
-                className={`h-1 flex-1 rounded-full transition-all ${currentStep >= step.number ? 'bg-[#00C4B3]' : 'bg-gray-200'
+                className={`h-1 flex-1 rounded-full transition-all ${currentStep >= step.number ? 'bg-accent' : 'bg-gray-200'
                   }`}
               />
             ))}
@@ -1318,7 +1318,7 @@ export default function CoverLetterBuilder({
             {/* Preview Button */}
             <button
               onClick={() => setShowPreviewOnMobile(!showPreviewOnMobile)}
-              className="flex-1 flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl font-semibold transition-all text-sm shadow-sm bg-[#0B1F3B]/5 border border-[#00C4B3]/20 text-[#0B1F3B] hover:bg-[#00C4B3]/10 active:bg-[#00C4B3]/20"
+              className="flex-1 flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl font-semibold transition-all text-sm shadow-sm bg-primary/5 border border-accent/20 text-primary hover:bg-accent/10 active:bg-accent/20"
             >
               <Eye className="w-4 h-4" />
               <span className="text-xs font-semibold">Preview</span>
@@ -1328,7 +1328,7 @@ export default function CoverLetterBuilder({
             {currentStep < 4 ? (
               <button
                 onClick={handleNext}
-                className="flex items-center justify-center gap-1 px-4 py-3 rounded-xl bg-[#0B1F3B] text-white font-semibold hover:bg-[#0B1F3B]/90 active:bg-[#0B1F3B] transition-all text-sm shadow-md"
+                className="flex items-center justify-center gap-1 px-4 py-3 rounded-xl bg-primary text-white font-semibold hover:bg-primary/90 active:bg-primary transition-all text-sm shadow-md"
                 style={{ minWidth: '80px' }}
               >
                 <span className="text-xs">Next</span>
@@ -1338,7 +1338,7 @@ export default function CoverLetterBuilder({
               <button
                 onClick={handleGeneratePDF}
                 disabled={isGeneratingPdf}
-                className="flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white font-semibold hover:opacity-95 active:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-all text-sm shadow-md"
+                className="flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-semibold hover:opacity-95 active:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-all text-sm shadow-md"
                 style={{ minWidth: '100px' }}
               >
                 <Download className="w-4 h-4" />

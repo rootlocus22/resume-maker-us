@@ -184,17 +184,17 @@ const QuotaLimitModal = ({
             {quotaSummary && (
               <div className="mb-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">Your Current Plan</h3>
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div className="bg-accent-50 border border-accent/20 rounded-lg p-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h4 className="font-semibold text-blue-900">{quotaSummary.plan.name}</h4>
-                      <p className="text-sm text-blue-700">{quotaSummary.plan.description}</p>
+                      <h4 className="font-semibold text-primary">{quotaSummary.plan.name}</h4>
+                      <p className="text-sm text-accent-700">{quotaSummary.plan.description}</p>
                     </div>
                     <div className="text-right">
-                      <div className="text-2xl font-bold text-blue-900">
+                      <div className="text-2xl font-bold text-primary">
                         {formatPrice(quotaSummary.plan.price)}
                       </div>
-                      <div className="text-sm text-blue-600">per month</div>
+                      <div className="text-sm text-accent">per month</div>
                     </div>
                   </div>
                 </div>
@@ -210,7 +210,7 @@ const QuotaLimitModal = ({
                     key={plan.id}
                     whileHover={{ scale: 1.02 }}
                     className={`border-2 rounded-lg p-4 cursor-pointer transition-all ${plan.id === "business_pro"
-                        ? "border-blue-500 bg-blue-50"
+                        ? "border-accent bg-accent-50"
                         : "border-gray-200 hover:border-gray-300"
                       }`}
                     onClick={() => {
@@ -220,7 +220,7 @@ const QuotaLimitModal = ({
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+                        <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
                           <Crown size={16} className="text-white" />
                         </div>
                         <div>
@@ -262,7 +262,7 @@ const QuotaLimitModal = ({
               </button>
               <button
                 onClick={handleUpgrade}
-                className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all flex items-center justify-center gap-2"
+                className="flex-1 px-6 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-lg hover:from-primary-800 hover:to-accent-600 transition-all flex items-center justify-center gap-2"
               >
                 <Zap size={16} />
                 Upgrade Now

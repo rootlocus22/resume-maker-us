@@ -13,7 +13,7 @@ export default function ProgressOverlay({ isVisible, type }) {
   const progressMessages = {
     upload: {
       icon: FileUp,
-      color: "from-emerald-500 to-teal-500",
+      color: "from-accent-500 to-accent",
       accentColor: "emerald",
       title: "Analyzing Your Resume",
       messages: [
@@ -27,7 +27,7 @@ export default function ProgressOverlay({ isVisible, type }) {
     },
     ai: {
       icon: Bot,
-      color: "from-blue-500 to-blue-500",
+      color: "from-primary to-accent",
       accentColor: "purple",
       title: "AI Enhancement in Progress",
       messages: [
@@ -41,7 +41,7 @@ export default function ProgressOverlay({ isVisible, type }) {
     },
     download: {
       icon: Download,
-      color: "from-blue-500 to-indigo-500",
+      color: "from-primary to-primary-800",
       accentColor: "blue",
       title: "Creating Your PDF",
       messages: [
@@ -69,7 +69,7 @@ export default function ProgressOverlay({ isVisible, type }) {
     },
     screenshot: {
       icon: Camera,
-      color: "from-blue-500 to-rose-500",
+      color: "from-primary to-rose-500",
       accentColor: "pink",
       title: "Capturing Your Score",
       messages: [
@@ -83,7 +83,7 @@ export default function ProgressOverlay({ isVisible, type }) {
     },
     save: {
       icon: Save,
-      color: "from-blue-500 to-emerald-500",
+      color: "from-primary to-accent",
       accentColor: "green",
       title: "Securing Your Work",
       messages: [
@@ -97,7 +97,7 @@ export default function ProgressOverlay({ isVisible, type }) {
     },
     onepager: {
       icon: FileText,
-      color: "from-green-500 to-emerald-500",
+      color: "from-accent to-accent-500",
       accentColor: "emerald",
       title: "Creating One-Pager Resume",
       messages: [
@@ -111,7 +111,7 @@ export default function ProgressOverlay({ isVisible, type }) {
     },
     salary: {
       icon: DollarSign,
-      color: "from-blue-600 to-purple-600",
+      color: "from-primary to-accent",
       accentColor: "blue",
       title: "AI Salary Analysis",
       messages: [
@@ -125,7 +125,7 @@ export default function ProgressOverlay({ isVisible, type }) {
     },
     interview: {
       icon: Target,
-      color: "from-purple-600 to-blue-600",
+      color: "from-primary-800 to-primary",
       accentColor: "purple",
       title: "AI Interview Training",
       messages: [
@@ -292,7 +292,7 @@ export default function ProgressOverlay({ isVisible, type }) {
                 <motion.span
                   animate={{ opacity: [1, 0] }}
                   transition={{ duration: 0.8, repeat: Infinity }}
-                  className="ml-1 text-indigo-500 font-bold"
+                  className="ml-1 text-primary font-bold"
                 >
                   |
                 </motion.span>

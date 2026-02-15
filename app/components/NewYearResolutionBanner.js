@@ -3,9 +3,9 @@ import { Sparkles, ArrowRight } from "lucide-react";
 
 export default function NewYearResolutionBanner() {
     return (
-        <div className="relative overflow-hidden mb-6 rounded-xl shadow-lg border border-indigo-100/50">
+        <div className="relative overflow-hidden mb-6 rounded-xl shadow-lg border border-primary-100/50">
             {/* Gentle Gradient Background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-indigo-700"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-primary"></div>
 
             {/* Subtle Decorative Elements - Static */}
             <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -28,7 +28,7 @@ export default function NewYearResolutionBanner() {
                         Excel Your Career <span className="text-yellow-300">in 2026!</span>
                     </h2>
 
-                    <p className="text-sm text-indigo-100 max-w-lg font-medium">
+                    <p className="text-sm text-primary-100 max-w-lg font-medium">
                         Bundle plans + addons and get <span className="text-white font-bold">upto 20% OFF</span>.
                     </p>
                 </div>
@@ -36,7 +36,7 @@ export default function NewYearResolutionBanner() {
                 {/* Right Side: Simple CTA */}
                 <div className="flex items-center gap-3">
                     <Link href="/checkout?billingCycle=sixMonth&step=1">
-                        <button className="group px-5 py-2 bg-white text-indigo-700 rounded-full font-bold text-sm shadow-md hover:bg-yellow-50 transition-colors flex items-center gap-2">
+                        <button className="group px-5 py-2 bg-white text-primary rounded-full font-bold text-sm shadow-md hover:bg-yellow-50 transition-colors flex items-center gap-2">
                             Claim Offer
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                         </button>

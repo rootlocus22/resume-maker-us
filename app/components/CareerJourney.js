@@ -37,10 +37,10 @@ export default function CareerJourney() {
       description: "Create an ATS-optimized resume that gets past screening systems and catches recruiters' attention",
       icon: <FileText className="w-8 h-8" />,
       link: "/resume-builder",
-      color: "from-blue-500 to-cyan-600",
-      bgColor: "from-blue-50 to-cyan-50",
-      iconBg: "bg-blue-100",
-      iconColor: "text-blue-600",
+      color: "from-accent to-cyan-600",
+      bgColor: "from-accent-50 to-cyan-50",
+      iconBg: "bg-accent-50",
+      iconColor: "text-accent",
       features: [
         "50+ Professional Templates",
         "ATS Score Optimization",
@@ -90,10 +90,10 @@ export default function CareerJourney() {
       description: "Tailor your resume to each job description using our AI-powered JD Builder - extract keywords, match requirements, and customize instantly",
       icon: <Briefcase className="w-8 h-8" />,
       link: "/job-description-resume-builder",
-      color: "from-emerald-500 to-teal-600",
-      bgColor: "from-emerald-50 to-teal-50",
-      iconBg: "bg-emerald-100",
-      iconColor: "text-emerald-600",
+      color: "from-accent to-accent-600",
+      bgColor: "from-accent-50 to-accent-50",
+      iconBg: "bg-accent-50",
+      iconColor: "text-accent",
       features: [
         "Paste Any Job Description",
         "AI Extracts 26+ Keywords",
@@ -140,11 +140,11 @@ export default function CareerJourney() {
   ];
 
   return (
-    <section className="py-20 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-indigo-50 relative overflow-hidden">
+    <section className="py-20 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-primary-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden opacity-30">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-blue-200/40 to-purple-200/40 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-indigo-200/30 to-violet-200/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-accent-200/40 to-purple-200/40 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-primary-200/30 to-violet-200/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '1.5s' }}></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -170,7 +170,7 @@ export default function CareerJourney() {
         {/* Journey Steps */}
         <div className="relative">
           {/* Connecting Line (Desktop Only) */}
-          <div className="hidden lg:block absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-200 via-purple-200 via-violet-200 to-yellow-200 opacity-30" style={{ height: 'calc(100% - 80px)', top: '40px' }}></div>
+          <div className="hidden lg:block absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-accent-200 via-purple-200 via-violet-200 to-yellow-200 opacity-30" style={{ height: 'calc(100% - 80px)', top: '40px' }}></div>
 
           <div className="space-y-8 lg:space-y-12">
             {journeySteps.map((step, index) => (
@@ -263,7 +263,7 @@ export default function CareerJourney() {
         {/* Final CTA Box */}
         <div className={`mt-20 lg:mt-24 transition-all duration-700 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-          <div className="relative bg-gradient-to-br from-blue-50 via-blue-100 to-blue-50 rounded-3xl p-8 lg:p-12 overflow-hidden">
+          <div className="relative bg-gradient-to-br from-accent-50 via-accent-50 to-accent-50 rounded-3xl p-8 lg:p-12 overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10">
               <div className="absolute inset-0" style={{
@@ -299,8 +299,8 @@ export default function CareerJourney() {
                   "JD-Based Resume Builder",
                   "ExpertResume – AI Interview"
                 ].map((feature, idx) => (
-                  <div key={idx} className="bg-blue-200/30 backdrop-blur-sm rounded-xl p-4 border border-blue-300/40">
-                    <CheckCircle className="w-5 h-5 text-blue-600 mb-2 mx-auto" />
+                  <div key={idx} className="bg-accent/20 backdrop-blur-sm rounded-xl p-4 border border-accent/30">
+                    <CheckCircle className="w-5 h-5 text-accent mb-2 mx-auto" />
                     <p className="text-sm font-semibold text-gray-800">{feature}</p>
                   </div>
                 ))}
@@ -310,7 +310,7 @@ export default function CareerJourney() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href={`/checkout?billingCycle=sixMonth`}
-                  className="inline-flex items-center gap-3 bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 group"
+                  className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 group"
                 >
                   <Rocket className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
                   Start 6-Month Journey - {formatPrice(sixMonthPrice, currency)}
@@ -319,7 +319,7 @@ export default function CareerJourney() {
 
                 <Link
                   href="/pricing"
-                  className="inline-flex items-center gap-3 bg-blue-200/50 backdrop-blur-sm border-2 border-blue-400 text-blue-800 px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-300/50 transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center gap-3 bg-accent/20 backdrop-blur-sm border-2 border-accent text-primary px-8 py-4 rounded-xl font-bold text-lg hover:bg-accent/30 transition-all duration-300 transform hover:scale-105"
                 >
                   <Calendar className="w-5 h-5" />
                   View All Plans
@@ -327,8 +327,8 @@ export default function CareerJourney() {
               </div>
 
               {/* Trust Badge */}
-              <div className="mt-8 inline-flex items-center gap-2 px-6 py-2 bg-blue-200/50 backdrop-blur-sm rounded-full border border-blue-300/50">
-                <TrendingUp className="w-4 h-4 text-blue-700" />
+              <div className="mt-8 inline-flex items-center gap-2 px-6 py-2 bg-accent/20 backdrop-blur-sm rounded-full border border-accent/30">
+                <TrendingUp className="w-4 h-4 text-accent-700" />
                 <span className="text-sm text-gray-800">94% success rate • 100,000+ professionals transformed</span>
               </div>
             </div>

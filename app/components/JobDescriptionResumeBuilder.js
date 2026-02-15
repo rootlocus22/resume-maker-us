@@ -107,11 +107,11 @@ function EditableResumePreview({
   return (
     <div className="max-w-4xl mx-auto bg-white p-4 sm:p-6 lg:p-8 shadow-xl rounded-xl border border-gray-100">
       {/* Enhanced Edit Mode Instructions - Mobile */}
-      <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-[#0B1F3B]/5 border-2 border-[#00C4B3]/20 rounded-lg">
-        <p className="text-xs sm:text-sm text-[#0F172A] font-medium mb-2">
+      <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-primary/5 border-2 border-accent/20 rounded-lg">
+        <p className="text-xs sm:text-sm text-primary font-medium mb-2">
           📝 Tap any section below to edit it
         </p>
-        <ul className="text-xs text-[#0B1F3B] space-y-1">
+        <ul className="text-xs text-primary space-y-1">
           <li>• Tap sections to edit content</li>
           <li>• Use ✖ to remove items</li>
           <li>• Use + to add new items</li>
@@ -125,8 +125,8 @@ function EditableResumePreview({
         whileHover={{ scale: 1.01, y: -1 }}
         whileTap={{ scale: 0.99 }}
         className={`mb-4 sm:mb-6 p-4 sm:p-6 rounded-xl cursor-pointer transition-all duration-300 relative touch-manipulation ${editingSection === 'personal'
-          ? 'bg-gradient-to-r from-[#0B1F3B]/5 to-[#00C4B3]/5 border-2 border-[#00C4B3] shadow-xl ring-4 ring-[#00C4B3]/10'
-          : 'hover:bg-gradient-to-r hover:from-gray-50 hover:to-[#00C4B3]/5 border-2 border-transparent hover:border-[#00C4B3]/20 hover:shadow-lg'
+          ? 'bg-gradient-to-r from-primary/5 to-accent/5 border-2 border-accent shadow-xl ring-4 ring-accent/10'
+          : 'hover:bg-gradient-to-r hover:from-gray-50 hover:to-accent/5 border-2 border-transparent hover:border-accent/20 hover:shadow-lg'
           }`}
         onClick={(e) => handleSectionClick('personal', e)}
         onKeyDown={(e) => {
@@ -144,14 +144,14 @@ function EditableResumePreview({
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="absolute -top-3 -right-3 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white text-xs px-3 py-1.5 rounded-full shadow-lg font-medium"
+            className="absolute -top-3 -right-3 bg-gradient-to-r from-primary to-accent text-white text-xs px-3 py-1.5 rounded-full shadow-lg font-medium"
           >
             ✨ Editing
           </motion.div>
         )}
         <div className="text-center">
           {editingSection === 'personal' && (
-            <div className="mb-2 text-sm text-[#0B1F3B] font-medium">
+            <div className="mb-2 text-sm text-primary font-medium">
               Editing Personal Information
             </div>
           )}
@@ -165,7 +165,7 @@ function EditableResumePreview({
                 value={data.name || ''}
                 onChange={(e) => updateTempData('name', e.target.value)}
                 onClick={(e) => e.stopPropagation()}
-                className="text-xl sm:text-2xl font-bold text-center w-full border-b-2 border-[#00C4B3] bg-transparent focus:outline-none focus:border-[#00C4B3] transition-colors duration-200 py-2 touch-manipulation"
+                className="text-xl sm:text-2xl font-bold text-center w-full border-b-2 border-accent bg-transparent focus:outline-none focus:border-accent transition-colors duration-200 py-2 touch-manipulation"
                 placeholder="Your Name"
                 aria-label="Your full name"
               />
@@ -177,7 +177,7 @@ function EditableResumePreview({
                 value={data.jobTitle || ''}
                 onChange={(e) => updateTempData('jobTitle', e.target.value)}
                 onClick={(e) => e.stopPropagation()}
-                className="text-base sm:text-lg text-gray-600 text-center w-full border-b-2 border-[#00C4B3] bg-transparent focus:outline-none focus:border-[#00C4B3] transition-colors duration-200 py-2 touch-manipulation"
+                className="text-base sm:text-lg text-gray-600 text-center w-full border-b-2 border-accent bg-transparent focus:outline-none focus:border-accent transition-colors duration-200 py-2 touch-manipulation"
                 placeholder="Job Title"
                 aria-label="Your job title"
               />
@@ -187,7 +187,7 @@ function EditableResumePreview({
                   value={data.email || ''}
                   onChange={(e) => updateTempData('email', e.target.value)}
                   onClick={(e) => e.stopPropagation()}
-                  className="border-b-2 border-[#00C4B3]/30 bg-transparent focus:outline-none focus:border-[#00C4B3] py-2 px-1 transition-colors touch-manipulation"
+                  className="border-b-2 border-accent/30 bg-transparent focus:outline-none focus:border-accent py-2 px-1 transition-colors touch-manipulation"
                   placeholder="Email"
                   aria-label="Email address"
                 />
@@ -196,7 +196,7 @@ function EditableResumePreview({
                   value={data.phone || ''}
                   onChange={(e) => updateTempData('phone', e.target.value)}
                   onClick={(e) => e.stopPropagation()}
-                  className="border-b-2 border-[#00C4B3]/30 bg-transparent focus:outline-none focus:border-[#00C4B3] py-2 px-1 transition-colors touch-manipulation"
+                  className="border-b-2 border-accent/30 bg-transparent focus:outline-none focus:border-accent py-2 px-1 transition-colors touch-manipulation"
                   placeholder="Phone"
                   aria-label="Phone number"
                 />
@@ -205,7 +205,7 @@ function EditableResumePreview({
                   value={data.address || ''}
                   onChange={(e) => updateTempData('address', e.target.value)}
                   onClick={(e) => e.stopPropagation()}
-                  className="border-b-2 border-[#00C4B3]/30 bg-transparent focus:outline-none focus:border-[#00C4B3] py-2 px-1 transition-colors touch-manipulation"
+                  className="border-b-2 border-accent/30 bg-transparent focus:outline-none focus:border-accent py-2 px-1 transition-colors touch-manipulation"
                   placeholder="Address"
                   aria-label="Address"
                 />
@@ -214,7 +214,7 @@ function EditableResumePreview({
                   value={data.linkedin || ''}
                   onChange={(e) => updateTempData('linkedin', e.target.value)}
                   onClick={(e) => e.stopPropagation()}
-                  className="border-b-2 border-[#00C4B3]/30 bg-transparent focus:outline-none focus:border-[#00C4B3] py-2 px-1 transition-colors touch-manipulation"
+                  className="border-b-2 border-accent/30 bg-transparent focus:outline-none focus:border-accent py-2 px-1 transition-colors touch-manipulation"
                   placeholder="LinkedIn"
                   aria-label="LinkedIn profile"
                 />
@@ -242,8 +242,8 @@ function EditableResumePreview({
         whileHover={{ scale: 1.01, y: -1 }}
         whileTap={{ scale: 0.99 }}
         className={`mb-4 sm:mb-6 p-4 sm:p-6 rounded-xl cursor-pointer transition-all duration-300 relative touch-manipulation ${editingSection === 'summary'
-          ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-400 shadow-xl ring-4 ring-green-100'
-          : 'hover:bg-gradient-to-r hover:from-gray-50 hover:to-green-50 border-2 border-transparent hover:border-green-200 hover:shadow-lg'
+          ? 'bg-gradient-to-r from-accent-50 to-accent-100 border-2 border-accent-400 shadow-xl ring-4 ring-accent-100'
+          : 'hover:bg-gradient-to-r hover:from-gray-50 hover:to-accent-50 border-2 border-transparent hover:border-accent-200 hover:shadow-lg'
           }`}
         onClick={(e) => handleSectionClick('summary', e)}
         onKeyDown={(e) => {
@@ -261,7 +261,7 @@ function EditableResumePreview({
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="absolute -top-3 -right-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white text-xs px-3 py-1.5 rounded-full shadow-lg font-medium"
+            className="absolute -top-3 -right-3 bg-gradient-to-r from-accent to-accent-600 text-white text-xs px-3 py-1.5 rounded-full shadow-lg font-medium"
           >
             ✨ Editing
           </motion.div>
@@ -278,7 +278,7 @@ function EditableResumePreview({
               value={data.summary || ''}
               onChange={(e) => updateTempData('summary', e.target.value)}
               onClick={(e) => e.stopPropagation()}
-              className="w-full h-32 sm:h-24 p-3 sm:p-4 border-2 border-green-400 rounded-lg focus:outline-none focus:ring-4 focus:ring-green-200 focus:border-green-600 resize-none text-sm sm:text-base bg-white transition-all touch-manipulation"
+              className="w-full h-32 sm:h-24 p-3 sm:p-4 border-2 border-accent-400 rounded-lg focus:outline-none focus:ring-4 focus:ring-accent-200 focus:border-accent-600 resize-none text-sm sm:text-base bg-white transition-all touch-manipulation"
               placeholder="Write your professional summary..."
               aria-label="Professional summary text"
             />
@@ -295,8 +295,8 @@ function EditableResumePreview({
         whileHover={{ scale: 1.01, y: -1 }}
         whileTap={{ scale: 0.99 }}
         className={`mb-4 sm:mb-6 p-4 sm:p-6 rounded-xl cursor-pointer transition-all duration-300 relative touch-manipulation ${editingSection === 'skills'
-          ? 'bg-gradient-to-r from-[#00C4B3]/5 to-[#0B1F3B]/5 border-2 border-[#00C4B3] shadow-xl ring-4 ring-[#00C4B3]/10'
-          : 'hover:bg-gradient-to-r hover:from-gray-50 hover:to-[#00C4B3]/5 border-2 border-transparent hover:border-[#00C4B3]/20 hover:shadow-lg'
+          ? 'bg-gradient-to-r from-accent/5 to-primary/5 border-2 border-accent shadow-xl ring-4 ring-accent/10'
+          : 'hover:bg-gradient-to-r hover:from-gray-50 hover:to-accent/5 border-2 border-transparent hover:border-accent/20 hover:shadow-lg'
           }`}
         onClick={(e) => handleSectionClick('skills', e)}
         onKeyDown={(e) => {
@@ -314,7 +314,7 @@ function EditableResumePreview({
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="absolute -top-3 -right-3 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white text-xs px-3 py-1.5 rounded-full shadow-lg font-medium"
+            className="absolute -top-3 -right-3 bg-gradient-to-r from-primary to-accent text-white text-xs px-3 py-1.5 rounded-full shadow-lg font-medium"
           >
             ✨ Editing
           </motion.div>
@@ -337,7 +337,7 @@ function EditableResumePreview({
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
                     whileHover={{ scale: 1.05 }}
-                    className="flex items-center gap-1 bg-gradient-to-r from-[#00C4B3]/10 to-[#0B1F3B]/10 text-[#0F172A] px-3 py-1.5 rounded-full text-sm shadow-sm hover:shadow-md transition-all duration-200"
+                    className="flex items-center gap-1 bg-gradient-to-r from-accent/10 to-primary/10 text-primary px-3 py-1.5 rounded-full text-sm shadow-sm hover:shadow-md transition-all duration-200"
                   >
                     <span className="font-medium">{skillText}</span>
                     <motion.button
@@ -362,7 +362,7 @@ function EditableResumePreview({
                 onChange={(e) => setNewSkill(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleAddSkill()}
                 onClick={(e) => e.stopPropagation()}
-                className="flex-1 border-2 border-[#00C4B3] rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 focus:outline-none focus:ring-4 focus:ring-[#00C4B3]/20 focus:border-[#00C4B3] text-sm sm:text-base transition-all touch-manipulation"
+                className="flex-1 border-2 border-accent rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 focus:outline-none focus:ring-4 focus:ring-accent/20 focus:border-accent text-sm sm:text-base transition-all touch-manipulation"
                 placeholder="Add new skill..."
                 aria-label="New skill name"
               />
@@ -371,7 +371,7 @@ function EditableResumePreview({
                   e.stopPropagation();
                   handleAddSkill();
                 }}
-                className="bg-[#0B1F3B] text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg hover:bg-[#0B1F3B]/90 active:bg-[#0B1F3B] flex items-center gap-1.5 font-semibold text-sm sm:text-base min-h-[44px] shadow-md transition-all touch-manipulation"
+                className="bg-primary text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg hover:bg-primary/90 active:bg-primary flex items-center gap-1.5 font-semibold text-sm sm:text-base min-h-[44px] shadow-md transition-all touch-manipulation"
                 aria-label="Add skill"
               >
                 <Plus size={18} />
@@ -519,7 +519,7 @@ function EditableResumePreview({
         ) : (
           <div className="space-y-4">
             {data.experience?.map((exp, index) => (
-              <div key={index} className="border-l-4 border-[#00C4B3] pl-4">
+              <div key={index} className="border-l-4 border-accent pl-4">
                 <div className="flex justify-between items-start mb-1">
                   <h3 className="font-semibold text-gray-800">{exp.jobTitle}</h3>
                   <span className="text-sm text-gray-500">{exp.startDate} - {exp.endDate}</span>
@@ -539,8 +539,8 @@ function EditableResumePreview({
         whileHover={{ scale: 1.02, y: -2 }}
         whileTap={{ scale: 0.98 }}
         className={`mb-6 p-6 rounded-xl cursor-pointer transition-all duration-300 relative ${editingSection === 'education'
-          ? 'bg-gradient-to-r from-teal-50 to-cyan-50 border-2 border-teal-300 shadow-xl shadow-teal-100'
-          : 'hover:bg-gradient-to-r hover:from-gray-50 hover:to-teal-50 border-2 border-transparent hover:border-teal-200 hover:shadow-lg'
+          ? 'bg-gradient-to-r from-accent-50 to-accent-100 border-2 border-accent-300 shadow-xl shadow-accent-100'
+          : 'hover:bg-gradient-to-r hover:from-gray-50 hover:to-accent-50 border-2 border-transparent hover:border-accent-200 hover:shadow-lg'
           }`}
         onClick={(e) => handleSectionClick('education', e)}
       >
@@ -548,7 +548,7 @@ function EditableResumePreview({
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="absolute -top-3 -right-3 bg-gradient-to-r from-teal-600 to-cyan-600 text-white text-xs px-3 py-1.5 rounded-full shadow-lg font-medium"
+            className="absolute -top-3 -right-3 bg-gradient-to-r from-accent to-accent-600 text-white text-xs px-3 py-1.5 rounded-full shadow-lg font-medium"
           >
             ✨ Editing
           </motion.div>
@@ -562,7 +562,7 @@ function EditableResumePreview({
         {editingSection === 'education' ? (
           <div className="space-y-4" onClick={(e) => e.stopPropagation()}>
             {data.education?.map((edu, index) => (
-              <div key={index} className="border-2 border-[#00C4B3]/20 rounded p-4">
+              <div key={index} className="border-2 border-accent/20 rounded p-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <input
                     type="text"
@@ -573,7 +573,7 @@ function EditableResumePreview({
                       updateTempData('education', newEdu);
                     }}
                     onClick={(e) => e.stopPropagation()}
-                    className="border border-[#00C4B3]/30 rounded px-3 py-2 focus:outline-none"
+                    className="border border-accent/30 rounded px-3 py-2 focus:outline-none"
                     placeholder="Degree"
                   />
                   <input
@@ -585,7 +585,7 @@ function EditableResumePreview({
                       updateTempData('education', newEdu);
                     }}
                     onClick={(e) => e.stopPropagation()}
-                    className="border border-[#00C4B3]/30 rounded px-3 py-2 focus:outline-none"
+                    className="border border-accent/30 rounded px-3 py-2 focus:outline-none"
                     placeholder="Institution"
                   />
                   <input
@@ -597,7 +597,7 @@ function EditableResumePreview({
                       updateTempData('education', newEdu);
                     }}
                     onClick={(e) => e.stopPropagation()}
-                    className="border border-[#00C4B3]/30 rounded px-3 py-2 focus:outline-none"
+                    className="border border-accent/30 rounded px-3 py-2 focus:outline-none"
                     placeholder="Start Date"
                   />
                   <input
@@ -609,7 +609,7 @@ function EditableResumePreview({
                       updateTempData('education', newEdu);
                     }}
                     onClick={(e) => e.stopPropagation()}
-                    className="border border-[#00C4B3]/30 rounded px-3 py-2 focus:outline-none"
+                    className="border border-accent/30 rounded px-3 py-2 focus:outline-none"
                     placeholder="End Date"
                   />
                 </div>
@@ -2334,7 +2334,7 @@ export default function JobDescriptionResumeBuilder({
           className="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full"
         >
           <div className="text-center">
-            <div className="w-20 h-20 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-6">
               <Crown className="w-10 h-10 text-white" />
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -2343,23 +2343,23 @@ export default function JobDescriptionResumeBuilder({
             <p className="text-gray-600 mb-6 text-lg">
               The JD Builder feature is only available for <strong>Pro Monthly ({formatPrice(getEffectivePricing(currency).monthly, currency)})</strong> and <strong>Pro 6-Month ({formatPrice(getEffectivePricing(currency).sixMonth, currency)})</strong> plans.
             </p>
-            <div className="bg-[#0B1F3B]/5 rounded-lg p-6 mb-6">
+            <div className="bg-primary/5 rounded-lg p-6 mb-6">
               <h3 className="font-semibold text-gray-900 mb-3">Unlock with Pro Plans:</h3>
               <ul className="space-y-2 text-left">
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="text-[#0B1F3B]" size={20} />
+                  <CheckCircle className="text-primary" size={20} />
                   <span>JD Builder - Tailor to Any Job</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="text-[#0B1F3B]" size={20} />
+                  <CheckCircle className="text-primary" size={20} />
                   <span>ExpertResume GPT</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="text-[#0B1F3B]" size={20} />
+                  <CheckCircle className="text-primary" size={20} />
                   <span>Salary Analyzer</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle className="text-[#0B1F3B]" size={20} />
+                  <CheckCircle className="text-primary" size={20} />
                   <span>Unlimited Downloads</span>
                 </li>
               </ul>
@@ -2367,13 +2367,13 @@ export default function JobDescriptionResumeBuilder({
             <div className="flex gap-4">
               <button
                 onClick={() => router.push('/checkout?billingCycle=quarterly&step=1')}
-                className="flex-1 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-6 py-3 rounded-lg font-semibold hover:from-[#0B1F3B] hover:to-[#00C4B3]/90 transition-all"
+                className="flex-1 bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-lg font-semibold hover:from-primary hover:to-accent/90 transition-all"
               >
                 Upgrade to Expert Plan
               </button>
               <button
                 onClick={() => router.push('/pricing')}
-                className="flex-1 border-2 border-[#0B1F3B] text-[#0B1F3B] px-6 py-3 rounded-lg font-semibold hover:bg-[#0B1F3B]/5 transition-all"
+                className="flex-1 border-2 border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary/5 transition-all"
               >
                 View All Plans
               </button>
@@ -2389,7 +2389,7 @@ export default function JobDescriptionResumeBuilder({
       {/* Skip to main content link for screen readers - Enhanced */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:px-6 focus:py-3 focus:bg-[#0B1F3B] focus:text-white focus:rounded-lg focus:shadow-2xl focus:outline-none focus:ring-4 focus:ring-[#00C4B3]/30 focus:font-semibold"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[9999] focus:px-6 focus:py-3 focus:bg-primary focus:text-white focus:rounded-lg focus:shadow-2xl focus:outline-none focus:ring-4 focus:ring-accent/30 focus:font-semibold"
         tabIndex="1"
       >
         Skip to main content
@@ -2429,8 +2429,8 @@ export default function JobDescriptionResumeBuilder({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="flex items-center gap-3 min-w-0">
-              <div className="p-2 bg-[#00C4B3]/10 rounded-lg flex-shrink-0">
-                <Bot size={24} className="text-[#0B1F3B]" aria-hidden="true" />
+              <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
+                <Bot size={24} className="text-primary" aria-hidden="true" />
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
@@ -2463,7 +2463,7 @@ export default function JobDescriptionResumeBuilder({
                     setShowResumeSwitcher(!showResumeSwitcher);
                   }}
                   className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all ${jdCreatedResumes.length > 0
-                    ? 'bg-[#00C4B3]/5 text-[#0B1F3B] hover:bg-[#00C4B3]/10 border border-[#00C4B3]/20'
+                    ? 'bg-accent/5 text-primary hover:bg-accent/10 border border-accent/20'
                     : 'bg-gray-50 text-gray-400 cursor-not-allowed border border-gray-200'
                     }`}
                   disabled={jdCreatedResumes.length === 0}
@@ -2477,7 +2477,7 @@ export default function JobDescriptionResumeBuilder({
                     <span className="sm:hidden">History</span>
                   </div>
                   {jdCreatedResumes.length > 0 && (
-                    <span className="bg-[#00C4B3]/20 text-[#0F172A] text-xs px-1.5 py-0.5 rounded-full">
+                    <span className="bg-accent/20 text-primary text-xs px-1.5 py-0.5 rounded-full">
                       {jdCreatedResumes.length}
                     </span>
                   )}
@@ -2516,13 +2516,13 @@ export default function JobDescriptionResumeBuilder({
                               setShowResumeSwitcher(false);
                             }}
                             className={`w-full text-left p-3 rounded-lg transition-all group relative ${currentResumeId === resume.id
-                              ? 'bg-[#00C4B3]/5 border border-[#00C4B3]/20'
+                              ? 'bg-accent/5 border border-accent/20'
                               : 'hover:bg-gray-50 border border-transparent hover:border-gray-200'
                               }`}
                           >
                             <div className="flex items-start justify-between gap-3">
                               <div className="flex-1 min-w-0">
-                                <div className={`font-medium text-sm truncate ${currentResumeId === resume.id ? 'text-[#0B1F3B]' : 'text-gray-900'}`}>
+                                <div className={`font-medium text-sm truncate ${currentResumeId === resume.id ? 'text-primary' : 'text-gray-900'}`}>
                                   {resume.resumeName}
                                 </div>
                                 <div className="text-xs text-gray-500 truncate mt-0.5 pr-4">
@@ -2535,7 +2535,7 @@ export default function JobDescriptionResumeBuilder({
                                 </div>
                               </div>
                               {currentResumeId === resume.id && (
-                                <CheckCircle size={18} className="text-[#00C4B3] flex-shrink-0 mt-1" />
+                                <CheckCircle size={18} className="text-accent flex-shrink-0 mt-1" />
                               )}
                             </div>
                           </button>
@@ -2549,7 +2549,7 @@ export default function JobDescriptionResumeBuilder({
                             // Note: Might need a confirm dialog if changes unsaved
                             window.location.href = '/job-description-resume-builder';
                           }}
-                          className="w-full flex items-center justify-center gap-2 p-2 text-sm font-medium text-[#0B1F3B] hover:bg-[#0B1F3B]/5 rounded-lg transition-colors"
+                          className="w-full flex items-center justify-center gap-2 p-2 text-sm font-medium text-primary hover:bg-primary/5 rounded-lg transition-colors"
                         >
                           <PlusCircle size={16} />
                           Create New Resume
@@ -2577,7 +2577,7 @@ export default function JobDescriptionResumeBuilder({
                 <li key={step.id} className="flex items-center flex-shrink-0">
                   <div
                     className={`flex items-center space-x-1.5 sm:space-x-2 px-2.5 sm:px-4 py-2 sm:py-3 rounded-xl transition-all duration-300 ${currentStep >= step.id
-                      ? 'bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white shadow-lg shadow-[#00C4B3]/20 scale-105'
+                      ? 'bg-gradient-to-r from-primary to-accent text-white shadow-lg shadow-accent/20 scale-105'
                       : currentStep > step.id
                         ? 'bg-green-50 text-green-700 border-2 border-green-300'
                         : 'bg-gray-50 text-gray-500 border-2 border-gray-200'
@@ -2648,12 +2648,12 @@ export default function JobDescriptionResumeBuilder({
                   <div className="mb-8 p-5 bg-gradient-to-br from-gray-50 to-white rounded-xl border border-gray-200">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-2">
-                        <Clock size={18} className="text-[#00C4B3]" />
+                        <Clock size={18} className="text-accent" />
                         <h3 className="font-semibold text-gray-800">Continue Working</h3>
                       </div>
                       <button
                         onClick={() => setShowResumeSwitcher(true)}
-                        className="text-xs font-medium text-[#00C4B3] hover:text-[#0B1F3B] hover:underline flex items-center gap-1"
+                        className="text-xs font-medium text-accent hover:text-primary hover:underline flex items-center gap-1"
                       >
                         View All <ArrowRight size={12} />
                       </button>
@@ -2664,11 +2664,11 @@ export default function JobDescriptionResumeBuilder({
                         <button
                           key={`dashboard-${resume.id}`}
                           onClick={() => switchToResume(resume.id)}
-                          className="text-left group relative p-4 bg-white rounded-lg border border-gray-200 hover:border-[#00C4B3]/30 hover:shadow-md transition-all duration-200"
+                          className="text-left group relative p-4 bg-white rounded-lg border border-gray-200 hover:border-accent/30 hover:shadow-md transition-all duration-200"
                         >
                           <div className="flex items-start justify-between">
-                            <div className="bg-[#00C4B3]/10 p-2 rounded-md group-hover:bg-[#00C4B3]/20 transition-colors">
-                              <FileText size={18} className="text-[#00C4B3]" />
+                            <div className="bg-accent/10 p-2 rounded-md group-hover:bg-accent/20 transition-colors">
+                              <FileText size={18} className="text-accent" />
                             </div>
                             <span className="text-[10px] text-gray-400 font-medium bg-gray-50 px-2 py-1 rounded-full">
                               {new Date(resume.updatedAt).toLocaleDateString()}
@@ -2676,7 +2676,7 @@ export default function JobDescriptionResumeBuilder({
                           </div>
 
                           <div className="mt-3">
-                            <h4 className="font-semibold text-sm text-gray-800 truncate group-hover:text-[#0B1F3B] transition-colors">
+                            <h4 className="font-semibold text-sm text-gray-800 truncate group-hover:text-primary transition-colors">
                               {resume.resumeName}
                             </h4>
                             <p className="text-xs text-gray-500 mt-1 line-clamp-2">
@@ -2684,7 +2684,7 @@ export default function JobDescriptionResumeBuilder({
                             </p>
                           </div>
 
-                          <div className="mt-3 pt-3 border-t border-gray-100 flex items-center text-xs text-[#00C4B3] font-medium opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
+                          <div className="mt-3 pt-3 border-t border-gray-100 flex items-center text-xs text-accent font-medium opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
                             Continue Editing <ArrowRight size={12} className="ml-1" />
                           </div>
                         </button>
@@ -2694,15 +2694,15 @@ export default function JobDescriptionResumeBuilder({
                 )}
 
                 <div className="flex items-start sm:items-center gap-2 sm:gap-3 mb-3 sm:mb-5">
-                  <div className="p-2 bg-[#00C4B3]/10 rounded-lg flex-shrink-0">
-                    <Briefcase className="text-[#0B1F3B]" size={20} aria-hidden="true" />
+                  <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
+                    <Briefcase className="text-primary" size={20} aria-hidden="true" />
                   </div>
                   <div className="flex-1">
                     <div id="step1-heading" className="flex items-center gap-2 flex-wrap">
                       <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 leading-tight">
                         {user && jdCreatedResumes.length > 0 ? "Or Create New Resume" : "Step 1: Paste Job Description"}
                       </h2>
-                      <Link href="/jobs-nearby" className="inline-flex items-center gap-1 bg-gradient-to-r from-[#00C4B3]/10 to-[#00C4B3]/10 text-[#0B1F3B] px-2 py-0.5 rounded-full text-xs font-medium hover:from-[#00C4B3]/20 hover:to-[#00C4B3]/20 transition-colors border border-[#00C4B3]/20 shadow-sm shrink-0">
+                      <Link href="/jobs-nearby" className="inline-flex items-center gap-1 bg-gradient-to-r from-accent/10 to-accent/10 text-primary px-2 py-0.5 rounded-full text-xs font-medium hover:from-accent/20 hover:to-accent/20 transition-colors border border-accent/20 shadow-sm shrink-0">
                         <Briefcase size={12} />
                         <span>Jobs Found</span>
                       </Link>
@@ -2710,7 +2710,7 @@ export default function JobDescriptionResumeBuilder({
                     <p className="text-xs sm:text-sm text-gray-500 mt-1">Required to tailor your resume</p>
                   </div>
                 </div>
-                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-5 leading-relaxed bg-[#0B1F3B]/5 p-3 sm:p-4 rounded-lg border border-[#E5E7EB]">
+                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-5 leading-relaxed bg-primary/5 p-3 sm:p-4 rounded-lg border border-border">
                   📋 Copy and paste the complete job description from any job posting. Our AI will analyze it to understand the required skills, experience, and keywords.
                   <span className="block mt-2">
                     💡 Pro Tip: Copy the full job posting including requirements and qualifications for the best results.
@@ -2726,7 +2726,7 @@ export default function JobDescriptionResumeBuilder({
                   value={jobDescription}
                   onChange={(e) => handleJobDescriptionChange(e.target.value)}
                   placeholder="Paste the complete job description here...&#10;&#10;Include:&#10;• Job title&#10;• Requirements and qualifications&#10;• Responsibilities&#10;• Skills needed&#10;• Company information"
-                  className="w-full h-56 sm:h-64 lg:h-72 p-3 sm:p-4 border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-[#00C4B3]/20 focus:border-[#00C4B3] resize-none text-sm sm:text-base transition-all hover:border-gray-400 bg-gray-50 focus:bg-white font-mono leading-relaxed touch-manipulation"
+                  className="w-full h-56 sm:h-64 lg:h-72 p-3 sm:p-4 border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-accent/20 focus:border-accent resize-none text-sm sm:text-base transition-all hover:border-gray-400 bg-gray-50 focus:bg-white font-mono leading-relaxed touch-manipulation"
                   aria-describedby="job-description-hint character-count"
                   aria-required="true"
                   aria-invalid={jobDescription.length > 0 && jobDescription.length < 50}
@@ -2843,7 +2843,7 @@ export default function JobDescriptionResumeBuilder({
                   <button
                     onClick={() => setCurrentStep(2)}
                     disabled={jobDescription.length < 50}
-                    className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white rounded-xl hover:from-[#0B1F3B] hover:to-[#00C4B3]/90 focus:outline-none focus:ring-4 focus:ring-[#00C4B3]/30 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 text-sm sm:text-base font-bold shadow-lg hover:shadow-xl disabled:shadow-none min-h-[48px] sm:min-h-[52px] active:scale-95 touch-manipulation"
+                    className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-primary to-accent text-white rounded-xl hover:from-primary hover:to-accent/90 focus:outline-none focus:ring-4 focus:ring-accent/30 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 text-sm sm:text-base font-bold shadow-lg hover:shadow-xl disabled:shadow-none min-h-[48px] sm:min-h-[52px] active:scale-95 touch-manipulation"
                     aria-label="Proceed to step 2: Upload Resume"
                     aria-disabled={jobDescription.length < 50}
                   >
@@ -2869,8 +2869,8 @@ export default function JobDescriptionResumeBuilder({
                 aria-labelledby="step2-heading"
               >
                 <div className="flex items-start sm:items-center gap-2 sm:gap-3 mb-3 sm:mb-5">
-                  <div className="p-2 bg-[#00C4B3]/10 rounded-lg flex-shrink-0">
-                    <Upload className="text-[#0B1F3B]" size={20} aria-hidden="true" />
+                  <div className="p-2 bg-accent/10 rounded-lg flex-shrink-0">
+                    <Upload className="text-primary" size={20} aria-hidden="true" />
                   </div>
                   <div className="flex-1">
                     <h2 id="step2-heading" className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 leading-tight">
@@ -2883,13 +2883,13 @@ export default function JobDescriptionResumeBuilder({
                 <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 mb-5 sm:mb-6">
                   <motion.div
                     whileHover={{ scale: 1.02 }}
-                    className="bg-gradient-to-br from-[#0B1F3B]/5 to-[#00C4B3]/10 p-4 sm:p-5 rounded-xl border-2 border-[#00C4B3]/20 shadow-sm"
+                    className="bg-gradient-to-br from-primary/5 to-accent/10 p-4 sm:p-5 rounded-xl border-2 border-accent/20 shadow-sm"
                   >
-                    <h3 className="font-bold text-[#0F172A] mb-2 text-sm sm:text-base flex items-center gap-2">
+                    <h3 className="font-bold text-primary mb-2 text-sm sm:text-base flex items-center gap-2">
                       <span className="text-lg" aria-hidden="true">✅</span>
                       <span>Have an existing resume?</span>
                     </h3>
-                    <p className="text-[#0F172A] text-xs sm:text-sm leading-relaxed">
+                    <p className="text-primary text-xs sm:text-sm leading-relaxed">
                       Upload it and we'll intelligently enhance it to perfectly match the job description while preserving your authentic experience.
                     </p>
                   </motion.div>
@@ -2908,7 +2908,7 @@ export default function JobDescriptionResumeBuilder({
                 </div>
 
                 {/* File Upload Area - Enhanced */}
-                <div className="border-3 border-dashed border-gray-300 rounded-xl p-6 sm:p-10 text-center hover:border-[#00C4B3] hover:bg-[#0B1F3B]/5/30 focus-within:border-[#00C4B3] focus-within:ring-4 focus-within:ring-[#00C4B3]/20 transition-all bg-gradient-to-br from-gray-50 to-white">
+                <div className="border-3 border-dashed border-gray-300 rounded-xl p-6 sm:p-10 text-center hover:border-accent hover:bg-primary/5/30 focus-within:border-accent focus-within:ring-4 focus-within:ring-accent/20 transition-all bg-gradient-to-br from-gray-50 to-white">
                   <input
                     type="file"
                     accept=".pdf"
@@ -2931,8 +2931,8 @@ export default function JobDescriptionResumeBuilder({
                     role="button"
                     aria-label="Click to upload resume file"
                   >
-                    <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-[#00C4B3]/10 rounded-2xl mb-4 sm:mb-5">
-                      <Upload size={32} className="sm:w-10 sm:h-10 text-[#0B1F3B]" aria-hidden="true" />
+                    <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-accent/10 rounded-2xl mb-4 sm:mb-5">
+                      <Upload size={32} className="sm:w-10 sm:h-10 text-primary" aria-hidden="true" />
                     </div>
                     <p className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-2">
                       Drop your resume here or click to upload
@@ -2940,7 +2940,7 @@ export default function JobDescriptionResumeBuilder({
                     <p id="upload-instructions" className="text-xs sm:text-sm text-gray-600 mb-3">
                       📄 Supports PDF files up to 10MB
                     </p>
-                    <div className="inline-block bg-[#0B1F3B] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-[#0B1F3B]/90 transition-colors shadow-md">
+                    <div className="inline-block bg-primary text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base hover:bg-primary/90 transition-colors shadow-md">
                       Choose File
                     </div>
                   </label>
@@ -2975,7 +2975,7 @@ export default function JobDescriptionResumeBuilder({
                           <div className="font-bold text-lg text-green-800">{parsedResumeData.yearsOfExperience || 0}</div>
                           <div className="text-xs">Years Experience</div>
                           {parsedResumeData.yearsOfExperience && (
-                            <div className="text-xs text-[#0B1F3B] font-medium mt-1">✨ AI Calculated</div>
+                            <div className="text-xs text-primary font-medium mt-1">✨ AI Calculated</div>
                           )}
                         </div>
                         <div className="text-center">
@@ -3006,12 +3006,12 @@ export default function JobDescriptionResumeBuilder({
 
                 {/* Analysis Loading State */}
                 {isAnalyzing && (
-                  <div className="mt-6 p-4 bg-[#0B1F3B]/5 border border-[#00C4B3]/20 rounded-lg">
+                  <div className="mt-6 p-4 bg-primary/5 border border-accent/20 rounded-lg">
                     <div className="flex items-center gap-2 mb-2">
-                      <RefreshCw className="text-[#0B1F3B] animate-spin" size={16} />
-                      <span className="text-[#0F172A] font-semibold text-sm">Analyzing job compatibility...</span>
+                      <RefreshCw className="text-primary animate-spin" size={16} />
+                      <span className="text-primary font-semibold text-sm">Analyzing job compatibility...</span>
                     </div>
-                    <p className="text-[#0B1F3B] text-xs">
+                    <p className="text-primary text-xs">
                       AI is analyzing your background against job requirements to provide intelligent matching insights.
                     </p>
                   </div>
@@ -3022,20 +3022,20 @@ export default function JobDescriptionResumeBuilder({
                   <div className={`mt-6 p-4 rounded-lg border ${matchAnalysis.matchPercentage >= 80
                     ? 'bg-green-50 border-green-300'
                     : matchAnalysis.matchPercentage >= 60
-                      ? 'bg-[#0B1F3B]/5 border-[#00C4B3]/30'
+                      ? 'bg-primary/5 border-accent/30'
                       : 'bg-amber-50 border-amber-300'
                     }`}>
                     <div className="flex items-center gap-2 mb-3">
                       <Target className={`${matchAnalysis.matchPercentage >= 80
                         ? 'text-green-600'
                         : matchAnalysis.matchPercentage >= 60
-                          ? 'text-[#0B1F3B]'
+                          ? 'text-primary'
                           : 'text-amber-600'
                         }`} size={20} />
                       <h3 className={`font-semibold ${matchAnalysis.matchPercentage >= 80
                         ? 'text-green-800'
                         : matchAnalysis.matchPercentage >= 60
-                          ? 'text-[#0F172A]'
+                          ? 'text-primary'
                           : 'text-amber-800'
                         }`}>
                         Job Match Analysis: {matchAnalysis.matchPercentage}%
@@ -3085,13 +3085,13 @@ export default function JobDescriptionResumeBuilder({
                     )}
 
                     {matchAnalysis.matchPercentage >= 60 && matchAnalysis.matchPercentage < 80 && (
-                      <div className="mb-4 p-3 bg-[#00C4B3]/10 border border-[#00C4B3]/20 rounded">
-                        <p className="text-[#0B1F3B] text-sm">
+                      <div className="mb-4 p-3 bg-accent/10 border border-accent/20 rounded">
+                        <p className="text-primary text-sm">
                           ✅ Good match! You meet most requirements. Consider highlighting your relevant experience
                           and addressing any skill gaps in your cover letter.
                         </p>
                         {matchAnalysis.reasoning && (
-                          <p className="text-[#0B1F3B] text-xs mt-1 italic">
+                          <p className="text-primary text-xs mt-1 italic">
                             {highlightCriticalText(matchAnalysis.reasoning, false)}
                           </p>
                         )}
@@ -3238,24 +3238,24 @@ export default function JobDescriptionResumeBuilder({
 
                 {/* Authentication Notice for Anonymous Users */}
                 {/* {showAuthContent && !user && (
-                  <div className="mt-6 p-4 bg-gradient-to-r from-[#0B1F3B]/5 to-[#00C4B3]/5 border-2 border-[#00C4B3]/30 rounded-lg">
+                  <div className="mt-6 p-4 bg-gradient-to-r from-primary/5 to-accent/5 border-2 border-accent/30 rounded-lg">
                     <div className="flex items-center gap-3 mb-3">
-                      <Lock className="text-[#0B1F3B]" size={20} />
+                      <Lock className="text-primary" size={20} />
                       <div>
-                        <h4 className="font-semibold text-[#0F172A]">Sign Up Required</h4>
-                        <p className="text-[#0B1F3B] text-sm">Create an account to access AI-powered resume enhancement</p>
+                        <h4 className="font-semibold text-primary">Sign Up Required</h4>
+                        <p className="text-primary text-sm">Create an account to access AI-powered resume enhancement</p>
                       </div>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-3">
                       <button
                         onClick={() => handleConsistentUpgradeClick('basic', 'sign-up-start-building')}
-                        className="flex-1 bg-[#0B1F3B] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#0B1F3B]/90 transition-colors"
+                        className="flex-1 bg-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
                       >
                         Sign Up & Start Building
                       </button>
                       <button
                         onClick={() => router.push('/login')}
-                        className="flex-1 border border-[#0B1F3B] text-[#0B1F3B] px-4 py-2 rounded-lg font-semibold hover:bg-[#0B1F3B]/5 transition-colors"
+                        className="flex-1 border border-primary text-primary px-4 py-2 rounded-lg font-semibold hover:bg-primary/5 transition-colors"
                       >
                         Already have an account? Login
                       </button>
@@ -3279,7 +3279,7 @@ export default function JobDescriptionResumeBuilder({
                         ) : (
                           <span className="text-gray-700">
                             {jobDescriptionEnhancements} of 1 enhancement used
-                            <span className="text-[#0B1F3B] font-medium ml-1">
+                            <span className="text-primary font-medium ml-1">
                               ({1 - jobDescriptionEnhancements} remaining)
                             </span>
                           </span>
@@ -3297,16 +3297,16 @@ export default function JobDescriptionResumeBuilder({
                 {/* Enhanced Action Buttons - Mobile Optimized */}
                 <div className="mt-6 sm:mt-8 space-y-4">
                   {/* Condensed Enhancement Info */}
-                  <div className="p-4 bg-gradient-to-br from-[#0B1F3B]/5 to-[#00C4B3]/5 border-2 border-[#00C4B3]/20 rounded-xl">
+                  <div className="p-4 bg-gradient-to-br from-primary/5 to-accent/5 border-2 border-accent/20 rounded-xl">
                     <div className="flex items-center gap-2 mb-2">
-                      <div className="p-1.5 bg-[#0B1F3B] rounded-lg">
+                      <div className="p-1.5 bg-primary rounded-lg">
                         <Sparkles className="text-white" size={16} />
                       </div>
-                      <h4 className="font-bold text-[#0F172A] text-sm sm:text-base">
+                      <h4 className="font-bold text-primary text-sm sm:text-base">
                         {parsedResumeData ? '✨ Smart AI Enhancement' : '🚀 AI Resume Creation'}
                       </h4>
                     </div>
-                    <p className="text-[#0F172A] text-xs sm:text-sm leading-relaxed">
+                    <p className="text-primary text-xs sm:text-sm leading-relaxed">
                       {parsedResumeData
                         ? 'Our AI will intelligently optimize your existing content for this specific job while maintaining your authentic voice and experience.'
                         : 'Our AI will create a professional, ATS-optimized resume template with relevant skills and keywords tailored to the job description.'
@@ -3334,7 +3334,7 @@ export default function JobDescriptionResumeBuilder({
                         handleEnhanceResume();
                       }}
                       disabled={!jobDescription || isProcessing || isAnalyzing}
-                      className="w-full sm:flex-1 px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white rounded-xl hover:from-[#0B1F3B] hover:to-[#00C4B3]/90 focus:outline-none focus:ring-4 focus:ring-[#00C4B3]/30 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2.5 text-sm sm:text-base font-bold shadow-lg hover:shadow-xl disabled:shadow-none min-h-[52px] sm:min-h-[56px] active:scale-95 disabled:active:scale-100 touch-manipulation"
+                      className="w-full sm:flex-1 px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-primary to-accent text-white rounded-xl hover:from-primary hover:to-accent/90 focus:outline-none focus:ring-4 focus:ring-accent/30 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2.5 text-sm sm:text-base font-bold shadow-lg hover:shadow-xl disabled:shadow-none min-h-[52px] sm:min-h-[56px] active:scale-95 disabled:active:scale-100 touch-manipulation"
                       aria-label={parsedResumeData ? 'Enhance my resume with AI' : 'Create tailored resume with AI'}
                       aria-busy={isAnalyzing || isProcessing}
                       aria-live="polite"
@@ -3362,12 +3362,12 @@ export default function JobDescriptionResumeBuilder({
 
               {/* Condensed Process Info */}
               {!parsedResumeData && (
-                <div className="bg-[#0B1F3B]/5 border border-[#00C4B3]/20 rounded-lg p-4 mb-6">
+                <div className="bg-primary/5 border border-accent/20 rounded-lg p-4 mb-6">
                   <div className="flex items-center gap-2 mb-2">
-                    <Sparkles className="text-[#0B1F3B]" size={16} />
-                    <h4 className="font-semibold text-[#0F172A]">Quick Process Overview</h4>
+                    <Sparkles className="text-primary" size={16} />
+                    <h4 className="font-semibold text-primary">Quick Process Overview</h4>
                   </div>
-                  <p className="text-[#0B1F3B] text-sm">
+                  <p className="text-primary text-sm">
                     AI analyzes job requirements → {parsedResumeData ? 'Enhances your resume' : 'Creates template'} → ATS optimization → Instant download
                   </p>
                 </div>
@@ -3388,7 +3388,7 @@ export default function JobDescriptionResumeBuilder({
               {/* Enhanced Resume Section - Mobile Optimized */}
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
                 {/* Mobile Quick Actions Bar - Visible only on mobile */}
-                <div className="lg:hidden bg-white rounded-xl shadow-lg p-4 sticky top-0 z-20 border-b-2 border-[#00C4B3]/20">
+                <div className="lg:hidden bg-white rounded-xl shadow-lg p-4 sticky top-0 z-20 border-b-2 border-accent/20">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
                       <Sparkles className="text-green-600" size={18} />
@@ -3414,7 +3414,7 @@ export default function JobDescriptionResumeBuilder({
                     <button
                       onClick={handleGeneratePdf}
                       disabled={isGeneratingPdf}
-                      className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-[#0B1F3B] text-white rounded-lg hover:bg-[#0B1F3B]/90 disabled:bg-gray-300 transition-colors text-sm font-semibold min-h-[44px] shadow-md"
+                      className="flex items-center justify-center gap-1.5 px-3 py-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 disabled:bg-gray-300 transition-colors text-sm font-semibold min-h-[44px] shadow-md"
                     >
                       {isGeneratingPdf ? (
                         <>
@@ -3456,7 +3456,7 @@ export default function JobDescriptionResumeBuilder({
                             ) : (
                               <span className="text-gray-700">
                                 {jobDescriptionEnhancements} of 1 used
-                                <span className="text-[#0B1F3B] font-medium ml-1">
+                                <span className="text-primary font-medium ml-1">
                                   ({1 - jobDescriptionEnhancements} remaining)
                                 </span>
                               </span>
@@ -3483,7 +3483,7 @@ export default function JobDescriptionResumeBuilder({
                         <button
                           onClick={handleGeneratePdf}
                           disabled={isGeneratingPdf}
-                          className="flex items-center justify-center gap-2 p-2.5 bg-[#0B1F3B] text-white rounded-lg hover:bg-[#0B1F3B]/90 disabled:bg-gray-300 transition-colors text-sm"
+                          className="flex items-center justify-center gap-2 p-2.5 bg-primary text-white rounded-lg hover:bg-primary/90 disabled:bg-gray-300 transition-colors text-sm"
                         >
                           {isGeneratingPdf ? (
                             <>
@@ -3519,7 +3519,7 @@ export default function JobDescriptionResumeBuilder({
                       </div>
 
                       {isEditMode && (
-                        <div className="hidden sm:block bg-[#0B1F3B]/5 border border-[#00C4B3]/20 rounded-lg p-3 text-xs text-[#0B1F3B]">
+                        <div className="hidden sm:block bg-primary/5 border border-accent/20 rounded-lg p-3 text-xs text-primary">
                           <p className="font-medium mb-1">📝 Edit Mode Tips:</p>
                           <ul className="space-y-0.5 text-xs">
                             <li>• Click any section to edit it</li>
@@ -3538,7 +3538,7 @@ export default function JobDescriptionResumeBuilder({
                         {user && jobDescription && (
                           <button
                             onClick={() => setShowJDHistory(!showJDHistory)}
-                            className="w-full flex items-center justify-between gap-2 p-2.5 border-2 border-[#00C4B3]/30 bg-[#0B1F3B]/5 text-[#0B1F3B] rounded-lg hover:bg-[#00C4B3]/10 transition-all text-sm font-medium"
+                            className="w-full flex items-center justify-between gap-2 p-2.5 border-2 border-accent/30 bg-primary/5 text-primary rounded-lg hover:bg-accent/10 transition-all text-sm font-medium"
                           >
                             <div className="flex items-center gap-2">
                               <FileCheck size={16} />
@@ -3558,7 +3558,7 @@ export default function JobDescriptionResumeBuilder({
                               openSaveDialog();
                             }}
                             disabled={isSavingToAccount}
-                            className="w-full flex items-center justify-center gap-2 p-2.5 border border-[#0B1F3B] text-[#0B1F3B] rounded-lg hover:bg-[#0B1F3B]/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                            className="w-full flex items-center justify-center gap-2 p-2.5 border border-primary text-primary rounded-lg hover:bg-primary/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
                           >
                             <Save size={16} />
                             <span>Save to Account</span>
@@ -3607,17 +3607,17 @@ export default function JobDescriptionResumeBuilder({
 
                   {/* Enhancement Summary Section - Moved to Left Panel Below Control Panel */}
                   {enhancementSummary && (
-                    <div className="bg-gradient-to-br from-[#0B1F3B]/5 to-[#00C4B3]/5 rounded-xl shadow-lg p-6 border border-[#E5E7EB]">
-                      <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-[#0F172A]">
-                        <Sparkles className="text-[#0B1F3B]" />
+                    <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl shadow-lg p-6 border border-border">
+                      <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-primary">
+                        <Sparkles className="text-primary" />
                         Enhancement Summary
                       </h3>
 
                       {/* Overall Transformation */}
                       {enhancementSummary.overallTransformation && (
-                        <div className="mb-4 p-3 bg-[#00C4B3]/10 border border-[#00C4B3]/20 rounded-lg">
-                          <p className="text-[#0F172A] text-sm font-medium mb-1">🎯 Overall Changes:</p>
-                          <p className="text-[#0B1F3B] text-xs">{enhancementSummary.overallTransformation}</p>
+                        <div className="mb-4 p-3 bg-accent/10 border border-accent/20 rounded-lg">
+                          <p className="text-primary text-sm font-medium mb-1">🎯 Overall Changes:</p>
+                          <p className="text-primary text-xs">{enhancementSummary.overallTransformation}</p>
                         </div>
                       )}
 
@@ -3658,17 +3658,17 @@ export default function JobDescriptionResumeBuilder({
                         {/* Keyword Changes */}
                         {enhancementSummary.keywordChanges && (
                           <div>
-                            <h4 className="text-sm font-semibold text-[#0F172A] mb-2">🔄 Keywords Enhanced:</h4>
+                            <h4 className="text-sm font-semibold text-primary mb-2">🔄 Keywords Enhanced:</h4>
                             <div className="space-y-1">
                               {enhancementSummary.keywordChanges.added && enhancementSummary.keywordChanges.added.length > 0 && (
                                 <div className="flex flex-wrap gap-1">
                                   {enhancementSummary.keywordChanges.added.slice(0, 3).map((keyword, index) => (
-                                    <span key={index} className="bg-[#00C4B3]/10 text-[#0B1F3B] px-2 py-1 rounded text-xs">
+                                    <span key={index} className="bg-accent/10 text-primary px-2 py-1 rounded text-xs">
                                       +{keyword}
                                     </span>
                                   ))}
                                   {enhancementSummary.keywordChanges.added.length > 3 && (
-                                    <span className="text-[#00C4B3] text-xs">+{enhancementSummary.keywordChanges.added.length - 3} more</span>
+                                    <span className="text-accent text-xs">+{enhancementSummary.keywordChanges.added.length - 3} more</span>
                                   )}
                                 </div>
                               )}
@@ -3698,10 +3698,10 @@ export default function JobDescriptionResumeBuilder({
                         {/* Rewritten Sections */}
                         {enhancementSummary.rewrittenSections && enhancementSummary.rewrittenSections.length > 0 && (
                           <div>
-                            <h4 className="text-sm font-semibold text-[#0F172A] mb-2">✏️ Sections Rewritten:</h4>
+                            <h4 className="text-sm font-semibold text-primary mb-2">✏️ Sections Rewritten:</h4>
                             <div className="flex flex-wrap gap-1">
                               {enhancementSummary.rewrittenSections.map((section, index) => (
-                                <span key={index} className="bg-[#00C4B3]/10 text-[#0B1F3B] px-2 py-1 rounded text-xs">
+                                <span key={index} className="bg-accent/10 text-primary px-2 py-1 rounded text-xs">
                                   {section}
                                 </span>
                               ))}
@@ -3726,7 +3726,7 @@ export default function JobDescriptionResumeBuilder({
                             </>
                           ) : (
                             <>
-                              <Eye size={18} className="text-[#0B1F3B]" />
+                              <Eye size={18} className="text-primary" />
                               Enhanced Resume Preview
                             </>
                           )}
@@ -3793,7 +3793,7 @@ export default function JobDescriptionResumeBuilder({
               <button
                 onClick={handleGeneratePdf}
                 disabled={isGeneratingPdf}
-                className="flex flex-col items-center gap-1 p-2 rounded-lg transition-colors text-[#0B1F3B] hover:text-[#0B1F3B] disabled:text-gray-400"
+                className="flex flex-col items-center gap-1 p-2 rounded-lg transition-colors text-primary hover:text-primary disabled:text-gray-400"
               >
                 {isGeneratingPdf ? (
                   <>
@@ -3811,7 +3811,7 @@ export default function JobDescriptionResumeBuilder({
               {/* Template */}
               <button
                 onClick={() => setShowTemplateSelector(true)}
-                className="flex flex-col items-center gap-1 p-2 rounded-lg transition-colors text-[#00C4B3] hover:text-[#0B1F3B]"
+                className="flex flex-col items-center gap-1 p-2 rounded-lg transition-colors text-accent hover:text-primary"
               >
                 <Palette size={20} />
                 <span className="text-xs font-medium">Template</span>
@@ -3820,7 +3820,7 @@ export default function JobDescriptionResumeBuilder({
               {/* Colors */}
               <button
                 onClick={() => setShowColorCustomizer(true)}
-                className="flex flex-col items-center gap-1 p-2 rounded-lg transition-colors text-[#00C4B3] hover:text-[#0B1F3B]"
+                className="flex flex-col items-center gap-1 p-2 rounded-lg transition-colors text-accent hover:text-primary"
               >
                 <Palette size={20} />
                 <span className="text-xs font-medium">Colors</span>
@@ -3834,7 +3834,7 @@ export default function JobDescriptionResumeBuilder({
                     openSaveDialog();
                   }}
                   disabled={isSavingToAccount}
-                  className="flex flex-col items-center gap-1 p-2 rounded-lg transition-colors text-[#0B1F3B] hover:text-[#0B1F3B] disabled:text-gray-400"
+                  className="flex flex-col items-center gap-1 p-2 rounded-lg transition-colors text-primary hover:text-primary disabled:text-gray-400"
                 >
                   <Save size={20} />
                   <span className="text-xs font-medium">Save</span>
@@ -3908,7 +3908,7 @@ export default function JobDescriptionResumeBuilder({
           >
             <div className="flex justify-between items-center p-4 sm:p-5 border-b border-gray-200 bg-gradient-to-r from-gray-50 to-white sticky top-0 z-10">
               <h2 id="color-customizer-title" className="text-lg sm:text-xl font-bold text-gray-800 flex items-center gap-2">
-                <Palette size={20} className="text-[#0B1F3B]" />
+                <Palette size={20} className="text-primary" />
                 Customize Colors
               </h2>
               <button
@@ -3953,7 +3953,7 @@ export default function JobDescriptionResumeBuilder({
           >
             <div className="flex justify-between items-center p-3 sm:p-4 border-b border-gray-200 bg-gradient-to-r from-gray-50 to-white sticky top-0 z-10">
               <h2 id="pdf-preview-title" className="text-base sm:text-lg font-bold text-gray-800 flex items-center gap-2">
-                <Eye size={20} className="text-[#0B1F3B]" />
+                <Eye size={20} className="text-primary" />
                 Resume Preview
               </h2>
               <button
@@ -3988,7 +3988,7 @@ export default function JobDescriptionResumeBuilder({
                 <a
                   href={pdfPreviewUrl}
                   download="enhanced-resume.pdf"
-                  className="w-full sm:w-auto bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-5 sm:px-6 py-3 sm:py-2.5 rounded-lg hover:from-[#0B1F3B] hover:to-[#00C4B3]/90 active:from-[#0B1F3B] active:to-[#0B1F3B] transition-colors flex items-center justify-center gap-2 font-bold shadow-lg min-h-[44px]"
+                  className="w-full sm:w-auto bg-gradient-to-r from-primary to-accent text-white px-5 sm:px-6 py-3 sm:py-2.5 rounded-lg hover:from-primary hover:to-accent/90 active:from-primary active:to-primary transition-colors flex items-center justify-center gap-2 font-bold shadow-lg min-h-[44px]"
                 >
                   <Download size={20} />
                   Download PDF
@@ -4061,7 +4061,7 @@ export default function JobDescriptionResumeBuilder({
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setShowHelpModal(true)}
-        className="hidden sm:block fixed bottom-4 right-4 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white p-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-40"
+        className="hidden sm:block fixed bottom-4 right-4 bg-gradient-to-r from-primary to-accent text-white p-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-40"
       >
         <HelpCircle size={20} />
       </motion.button>
@@ -4074,7 +4074,7 @@ export default function JobDescriptionResumeBuilder({
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={toggleEditMode}
-          className="hidden sm:block fixed bottom-4 left-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white p-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-40"
+          className="hidden sm:block fixed bottom-4 left-4 bg-gradient-to-r from-accent to-accent-600 text-white p-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-40"
         >
           <Check size={20} />
         </motion.button>
@@ -4098,7 +4098,7 @@ export default function JobDescriptionResumeBuilder({
               className="bg-white rounded-xl shadow-2xl max-w-5xl w-full max-h-[90vh] flex flex-col overflow-hidden"
             >
               {/* Header */}
-              <div className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white p-4 sm:p-6 flex-shrink-0">
+              <div className="bg-gradient-to-r from-primary to-accent text-white p-4 sm:p-6 flex-shrink-0">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <FileCheck size={24} />
@@ -4162,7 +4162,7 @@ export default function JobDescriptionResumeBuilder({
                 </div>
                 <button
                   onClick={() => setShowJDHistory(false)}
-                  className="px-4 py-2 bg-[#0B1F3B] text-white rounded-lg hover:bg-[#0B1F3B]/90 transition-colors font-medium"
+                  className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
                 >
                   Close
                 </button>
@@ -4188,9 +4188,9 @@ export default function JobDescriptionResumeBuilder({
             className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex justify-between items-center p-5 border-b border-gray-200 bg-gradient-to-r from-[#0B1F3B]/5 to-[#00C4B3]/5">
+            <div className="flex justify-between items-center p-5 border-b border-gray-200 bg-gradient-to-r from-primary/5 to-accent/5">
               <h2 id="save-dialog-title" className="text-xl font-bold text-gray-800 flex items-center gap-2">
-                <Save size={24} className="text-[#0B1F3B]" />
+                <Save size={24} className="text-primary" />
                 Save Resume
               </h2>
               <button
@@ -4220,7 +4220,7 @@ export default function JobDescriptionResumeBuilder({
                       saveResumeWithCustomName();
                     }
                   }}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
                   placeholder="e.g., Software Engineer at Google"
                   autoFocus
                 />
@@ -4232,8 +4232,8 @@ export default function JobDescriptionResumeBuilder({
                 )}
               </div>
 
-              <div className="bg-[#0B1F3B]/5 border border-[#00C4B3]/20 rounded-lg p-3 mb-4">
-                <p className="text-xs text-[#0F172A]">
+              <div className="bg-primary/5 border border-accent/20 rounded-lg p-3 mb-4">
+                <p className="text-xs text-primary">
                   💡 <strong>Tip:</strong> Give your resume a descriptive name to easily identify it later.
                 </p>
               </div>
@@ -4249,7 +4249,7 @@ export default function JobDescriptionResumeBuilder({
                 <button
                   onClick={saveResumeWithCustomName}
                   disabled={isSavingToAccount || !resumeNameInput.trim()}
-                  className="flex-1 px-4 py-3 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white rounded-lg hover:from-[#0B1F3B] hover:to-[#00C4B3]/90 transition-all font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="flex-1 px-4 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-lg hover:from-primary hover:to-accent/90 transition-all font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {isSavingToAccount ? (
                     <>

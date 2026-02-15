@@ -12,7 +12,7 @@ export default function LazyCategoryList({ categories }) {
 
                 return (
                     <div key={categoryName} className="mb-16">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-blue-500">
+                        <h2 className="text-3xl font-bold text-gray-900 mb-6 pb-3 border-b-2 border-accent">
                             {categoryName}
                             <span className="ml-3 text-lg font-normal text-gray-600">
                                 ({roles.length} roles)
@@ -24,13 +24,13 @@ export default function LazyCategoryList({ categories }) {
                                 <Link
                                     key={role.slug}
                                     href="/resume-builder"
-                                    className="group bg-white rounded-xl p-6 border-2 border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all duration-300"
+                                    className="group bg-white rounded-xl p-6 border-2 border-gray-200 hover:border-accent hover:shadow-lg transition-all duration-300"
                                 >
                                     <div className="flex items-start justify-between mb-3">
-                                        <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                                        <h3 className="text-lg font-bold text-gray-900 group-hover:text-accent-600 transition-colors">
                                             {role.job_title}
                                         </h3>
-                                        <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-blue-500 group-hover:translate-x-1 transition-all flex-shrink-0 ml-2" />
+                                        <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-accent group-hover:translate-x-1 transition-all flex-shrink-0 ml-2" />
                                     </div>
 
                                     <div className="space-y-3">
@@ -48,7 +48,7 @@ export default function LazyCategoryList({ categories }) {
                                             {role.hard_skills.slice(0, 4).map((skill, idx) => (
                                                 <span
                                                     key={idx}
-                                                    className="px-2 py-1 bg-blue-50 text-blue-700 text-xs font-medium rounded-md"
+                                                    className="px-2 py-1 bg-accent-50 text-accent-700 text-xs font-medium rounded-md"
                                                 >
                                                     {skill}
                                                 </span>

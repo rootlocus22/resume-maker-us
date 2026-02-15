@@ -168,24 +168,24 @@ export default function ATSScoreCheckerPage() {
       />
 
       {/* Main content */}
-      <div className="flex-1 bg-[#F8FAFC] flex flex-col items-center p-4 md:p-8 relative">
+      <div className="flex-1 bg-bg flex flex-col items-center p-4 md:p-8 relative">
         <ATSCheckerWrapper />
 
       <section className="w-full max-w-5xl mt-8 space-y-16">
 
         {/* Social proof + value */}
         <div className="text-center">
-          <div className="inline-flex items-center gap-2 bg-[#0D9488]/10 border border-[#0D9488]/30 px-4 py-1.5 rounded-full mb-4">
-            <span className="flex text-[#0D9488] text-sm">★★★★★</span>
+          <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 px-4 py-1.5 rounded-full mb-4">
+            <span className="flex text-accent text-sm">★★★★★</span>
             <span className="text-sm font-medium text-[#020617]">Rated 4.9/5 by 15,000+ US Job Seekers</span>
           </div>
-          <p className="text-lg text-[#475569] max-w-2xl mx-auto">
-            A score of <strong className="text-[#0F172A]">80+</strong> is strong for Workday, Taleo & Greenhouse. Below 60? We&apos;ll show you exactly what to fix.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            A score of <strong className="text-primary">80+</strong> is strong for Workday, Taleo & Greenhouse. Below 60? We&apos;ll show you exactly what to fix.
           </p>
         </div>
 
-        <div className="py-6 border-y border-[#E5E7EB] mb-10">
-          <p className="text-center text-sm font-semibold text-[#475569] uppercase tracking-wider mb-6">
+        <div className="py-6 border-y border-border mb-10">
+          <p className="text-center text-sm font-semibold text-gray-600 uppercase tracking-wider mb-6">
             Trusted by candidates hired at top US companies
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-70">
@@ -199,29 +199,29 @@ export default function ATSScoreCheckerPage() {
         </div>
 
         {/* How to Get a 90+ Score - US ATS */}
-        <div className="bg-white border border-[#E5E7EB] rounded-2xl p-8 mb-12">
-          <h2 className="text-3xl font-bold text-[#0F172A] mb-6">
+        <div className="bg-white border border-border rounded-2xl p-8 mb-12">
+          <h2 className="text-3xl font-bold text-primary mb-6">
             How to Get a 90+ ATS Score for US Jobs
           </h2>
-          <p className="text-lg text-[#475569] mb-6">
+          <p className="text-lg text-gray-600 mb-6">
             US ATS systems (Workday, Taleo, Greenhouse) rank resumes on keyword match, structure, and clarity. Here’s how to ace each:
           </p>
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-[#F8FAFC] p-6 rounded-xl border border-[#E5E7EB]">
-              <h3 className="font-bold text-xl text-[#0B1F3B] mb-3">1. Keyword Match</h3>
-              <p className="text-[#475569] text-sm">
+            <div className="bg-bg p-6 rounded-xl border border-border">
+              <h3 className="font-bold text-xl text-primary mb-3">1. Keyword Match</h3>
+              <p className="text-gray-600 text-sm">
                 Use exact phrases from the job description. If they say "Stakeholder Management," don’t just write "Client Relations."
               </p>
             </div>
-            <div className="bg-[#F8FAFC] p-6 rounded-xl border border-[#E5E7EB]">
-              <h3 className="font-bold text-xl text-[#0B1F3B] mb-3">2. Standard Sections</h3>
-              <p className="text-[#475569] text-sm">
+            <div className="bg-bg p-6 rounded-xl border border-border">
+              <h3 className="font-bold text-xl text-primary mb-3">2. Standard Sections</h3>
+              <p className="text-gray-600 text-sm">
                 Use clear headers: Experience, Education, Skills. Incomplete or creative section names hurt parsing.
               </p>
             </div>
-            <div className="bg-[#F8FAFC] p-6 rounded-xl border border-[#E5E7EB]">
-              <h3 className="font-bold text-xl text-[#0B1F3B] mb-3">3. Clean Format</h3>
-              <p className="text-[#475569] text-sm">
+            <div className="bg-bg p-6 rounded-xl border border-border">
+              <h3 className="font-bold text-xl text-primary mb-3">3. Clean Format</h3>
+              <p className="text-gray-600 text-sm">
                 Single column, no tables or graphics. Use Arial, Calibri, or similar. Parsers read plain, structured text best.
               </p>
             </div>
@@ -229,40 +229,40 @@ export default function ATSScoreCheckerPage() {
         </div>
 
         {/* How ExpertResume Fixes ATS Issues */}
-        <div className="bg-white border border-[#E5E7EB] text-left rounded-2xl shadow-sm overflow-hidden p-8 md:p-10">
-          <h2 className="text-3xl font-bold text-[#0F172A] mb-6">
+        <div className="bg-white border border-border text-left rounded-2xl shadow-sm overflow-hidden p-8 md:p-10">
+          <h2 className="text-3xl font-bold text-primary mb-6">
             How ExpertResume Fixes ATS Issues
           </h2>
-          <p className="text-[#475569] text-lg mb-6">
+          <p className="text-gray-600 text-lg mb-6">
             Most resumes fail ATS because of layout and naming. ExpertResume builds your resume to parse correctly:
           </p>
           <div className="grid md:grid-cols-2 gap-8 mt-6">
             <div className="flex gap-4">
-              <div className="bg-[#0B1F3B]/10 text-[#00C4B3] w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
+              <div className="bg-primary/10 text-accent w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
               <div>
                 <h3 className="font-bold text-[#020617] mb-2">Parsing-Friendly Structure</h3>
-                <p className="text-[#475569] text-sm">Single-column layout so ATS systems never jumble your text or skip sections.</p>
+                <p className="text-gray-600 text-sm">Single-column layout so ATS systems never jumble your text or skip sections.</p>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="bg-[#0B1F3B]/10 text-[#00C4B3] w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
+              <div className="bg-primary/10 text-accent w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
               <div>
                 <h3 className="font-bold text-[#020617] mb-2">Standard Section Headers</h3>
-                <p className="text-[#475569] text-sm">Headers like "Work Experience" and "Skills" so the ATS finds your data every time.</p>
+                <p className="text-gray-600 text-sm">Headers like "Work Experience" and "Skills" so the ATS finds your data every time.</p>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="bg-[#0B1F3B]/10 text-[#00C4B3] w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
+              <div className="bg-primary/10 text-accent w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
               <div>
                 <h3 className="font-bold text-[#020617] mb-2">No Graphics or Tables</h3>
-                <p className="text-[#475569] text-sm">Pure, structured text that US ATS parsers read with high accuracy.</p>
+                <p className="text-gray-600 text-sm">Pure, structured text that US ATS parsers read with high accuracy.</p>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="bg-[#0B1F3B]/10 text-[#00C4B3] w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
+              <div className="bg-primary/10 text-accent w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
               <div>
                 <h3 className="font-bold text-[#020617] mb-2">Keyword Optimization</h3>
-                <p className="text-[#475569] text-sm">AI helps you include the right keywords for the job and industry.</p>
+                <p className="text-gray-600 text-sm">AI helps you include the right keywords for the job and industry.</p>
               </div>
             </div>
           </div>
@@ -271,7 +271,7 @@ export default function ATSScoreCheckerPage() {
         {/* Common Mistakes */}
         <div className="grid md:grid-cols-2 gap-10">
           <div>
-            <h2 className="text-2xl font-bold text-[#0F172A] mb-6">Top 5 Resume Parsing Errors That Hurt Your ATS Score</h2>
+            <h2 className="text-2xl font-bold text-primary mb-6">Top 5 Resume Parsing Errors That Hurt Your ATS Score</h2>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <span className="text-red-500 font-bold text-xl">✗</span>
@@ -295,28 +295,28 @@ export default function ATSScoreCheckerPage() {
               </li>
             </ul>
           </div>
-          <div className="bg-[#0D9488]/5 p-8 rounded-xl border border-[#0D9488]/20">
-            <h2 className="text-2xl font-bold text-[#0F172A] mb-6">✅ How to Fix It (The 80+ Score Formula)</h2>
+          <div className="bg-accent/5 p-8 rounded-xl border border-accent/20">
+            <h2 className="text-2xl font-bold text-primary mb-6">✅ How to Fix It (The 80+ Score Formula)</h2>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <span className="text-[#0D9488] font-bold text-xl">✓</span>
+                <span className="text-accent font-bold text-xl">✓</span>
                 <p className="text-gray-700"><strong>Use Standard Formatting:</strong> Stick to a clean, single-column layout.</p>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-[#0D9488] font-bold text-xl">✓</span>
-                <p className="text-[#475569]"><strong>Keyword Stuffing (Smartly):</strong> Read the JD. If they ask for "Client Management", don't just write "Sales". Use the exact phrase.</p>
+                <span className="text-accent font-bold text-xl">✓</span>
+                <p className="text-gray-600"><strong>Keyword Stuffing (Smartly):</strong> Read the JD. If they ask for "Client Management", don't just write "Sales". Use the exact phrase.</p>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-[#0D9488] font-bold text-xl">✓</span>
-                <p className="text-[#475569]"><strong>Spell Out Acronyms:</strong> Write "Search Engine Optimization (SEO)" so you rank for both.</p>
+                <span className="text-accent font-bold text-xl">✓</span>
+                <p className="text-gray-600"><strong>Spell Out Acronyms:</strong> Write "Search Engine Optimization (SEO)" so you rank for both.</p>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-[#0D9488] font-bold text-xl">✓</span>
-                <p className="text-[#475569]"><strong>Standard Fonts:</strong> Use Arial, Calibri, or Roboto. Avoid fancy serif fonts that might confusing OCR.</p>
+                <span className="text-accent font-bold text-xl">✓</span>
+                <p className="text-gray-600"><strong>Standard Fonts:</strong> Use Arial, Calibri, or Roboto. Avoid fancy serif fonts that might confusing OCR.</p>
               </li>
             </ul>
             <div className="mt-8">
-              <Link href="/templates" className="block w-full text-center bg-[#0D9488] hover:bg-[#0f766e] text-white font-bold py-3 rounded-lg transition">
+              <Link href="/templates" className="block w-full text-center bg-accent hover:bg-accent-700 text-white font-bold py-3 rounded-lg transition">
                 Browse ATS-Verified Templates
               </Link>
             </div>
@@ -324,32 +324,33 @@ export default function ATSScoreCheckerPage() {
         </div>
 
         {/* Comparison Section - US ATS */}
-        <div className="bg-white border border-[#E5E7EB] rounded-2xl shadow-sm overflow-hidden">
-          <div className="bg-[#0F172A] px-8 py-6">
+        <div className="bg-white border border-border rounded-2xl shadow-sm overflow-hidden">
+          <div className="bg-primary px-8 py-6">
             <h2 className="text-2xl font-bold text-white">Workday vs. Taleo vs. LinkedIn: How US ATS Scoring Differs</h2>
           </div>
+
           <div className="p-8 md:p-10">
             <div className="grid md:grid-cols-3 gap-8">
               <div>
-                <h3 className="font-bold text-xl mb-3 text-[#2563EB]">Workday</h3>
-                <p className="text-[#475569] text-sm">
+                <h3 className="font-bold text-xl mb-3 text-primary">Workday</h3>
+                <p className="text-gray-600 text-sm">
                   Focuses on <strong>keyword match</strong> and <strong>structured data</strong>. Use standard section names and avoid tables so your skills and experience parse correctly.
                 </p>
               </div>
               <div>
-                <h3 className="font-bold text-xl mb-3 text-[#2563EB]">Taleo (Oracle)</h3>
-                <p className="text-[#475569] text-sm">
+                <h3 className="font-bold text-xl mb-3 text-primary">Taleo (Oracle)</h3>
+                <p className="text-gray-600 text-sm">
                   Prioritizes <strong>job titles</strong> and <strong>company names</strong>. Clean, chronological format with clear headers works best.
                 </p>
               </div>
               <div>
-                <h3 className="font-bold text-xl mb-3 text-[#2563EB]">LinkedIn / Indeed</h3>
-                <p className="text-[#475569] text-sm">
+                <h3 className="font-bold text-xl mb-3 text-primary">LinkedIn / Indeed</h3>
+                <p className="text-gray-600 text-sm">
                   Values <strong>keyword relevance</strong> and <strong>profile completeness</strong>. A resume that scores well here will align with what recruiters search for.
                 </p>
               </div>
             </div>
-            <div className="mt-8 p-4 bg-[#2563EB]/5 rounded-lg border border-[#2563EB]/20">
+            <div className="mt-8 p-4 bg-primary/5 rounded-lg border border-primary/20">
               <p className="text-[#020617] text-sm font-medium">
                 <strong>Pro Tip:</strong> Use a <strong>reverse-chronological format</strong> with a strong Skills section and clear Experience/Education headers to perform well across US ATS systems.
               </p>
@@ -358,95 +359,95 @@ export default function ATSScoreCheckerPage() {
         </div>
 
         {/* How to Improve Your ATS Score - US */}
-        <div className="bg-white border border-[#E5E7EB] rounded-2xl shadow-sm overflow-hidden mt-8">
-          <div className="bg-[#2563EB] px-8 py-6">
+        <div className="bg-white border border-border rounded-2xl shadow-sm overflow-hidden mt-8">
+          <div className="bg-primary px-8 py-6">
             <h2 className="text-2xl font-bold text-white">How to Improve Your ATS Score</h2>
           </div>
           <div className="p-8 md:p-10 space-y-6">
-            <p className="text-[#475569]">
+            <p className="text-gray-600">
               <em>"Why is my ATS score low even with a strong resume?"</em> Usually it’s structure and keywords. Here’s how to improve for free:
             </p>
             <div className="space-y-4">
-              <div className="flex gap-4 p-4 border border-[#E5E7EB] rounded-xl hover:bg-[#F8FAFC] transition">
-                <div className="bg-[#2563EB]/10 text-[#2563EB] w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">A</div>
-                <p className="text-[#475569] text-sm"><strong>Match Your Application:</strong> Your resume PDF should align with what you enter in job portals (e.g., LinkedIn, company career pages). Inconsistencies can hurt your ranking.</p>
+              <div className="flex gap-4 p-4 border border-border rounded-xl hover:bg-bg transition">
+                <div className="bg-primary/10 text-primary w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">A</div>
+                <p className="text-gray-600 text-sm"><strong>Match Your Application:</strong> Your resume PDF should align with what you enter in job portals (e.g., LinkedIn, company career pages). Inconsistencies can hurt your ranking.</p>
               </div>
-              <div className="flex gap-4 p-4 border border-[#E5E7EB] rounded-xl hover:bg-[#F8FAFC] transition">
-                <div className="bg-[#2563EB]/10 text-[#2563EB] w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">B</div>
-                <p className="text-[#475569] text-sm"><strong>Specific Job Titles:</strong> Use precise titles like "Senior Product Manager" instead of "Manager" so ATS and recruiters can match you to the right roles.</p>
+              <div className="flex gap-4 p-4 border border-border rounded-xl hover:bg-bg transition">
+                <div className="bg-primary/10 text-primary w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">B</div>
+                <p className="text-gray-600 text-sm"><strong>Specific Job Titles:</strong> Use precise titles like "Senior Product Manager" instead of "Manager" so ATS and recruiters can match you to the right roles.</p>
               </div>
-              <div className="flex gap-4 p-4 border border-[#E5E7EB] rounded-xl hover:bg-[#F8FAFC] transition">
-                <div className="bg-[#2563EB]/10 text-[#2563EB] w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">C</div>
-                <p className="text-[#475569] text-sm"><strong>Strong Summary:</strong> The first 2–3 lines of your resume often act as the "snippet" in search results. Use them to highlight key skills and experience.</p>
+              <div className="flex gap-4 p-4 border border-border rounded-xl hover:bg-bg transition">
+                <div className="bg-primary/10 text-primary w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sm">C</div>
+                <p className="text-gray-600 text-sm"><strong>Strong Summary:</strong> The first 2–3 lines of your resume often act as the "snippet" in search results. Use them to highlight key skills and experience.</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* FAQ Section */}
-        <div className="bg-white rounded-xl shadow-sm border border-[#E5E7EB] p-8 md:p-12">
-          <h2 className="text-3xl font-bold text-[#0F172A] mb-8 text-center">Frequently Asked Questions</h2>
+        <div className="bg-white rounded-xl shadow-sm border border-border p-8 md:p-12">
+          <h2 className="text-3xl font-bold text-primary mb-8 text-center">Frequently Asked Questions</h2>
           <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
             <div>
-              <h3 className="font-bold text-lg text-[#0F172A] mb-2">What is a good ATS score for US job applications?</h3>
-              <p className="text-[#475569]">A score of <strong>80% or above</strong> is generally strong for most US ATS systems. Scores 60-79% need keyword optimization. Below 60% usually requires formatting fixes.</p>
+              <h3 className="font-bold text-lg text-primary mb-2">What is a good ATS score for US job applications?</h3>
+              <p className="text-gray-600">A score of <strong>80% or above</strong> is generally strong for most US ATS systems. Scores 60-79% need keyword optimization. Below 60% usually requires formatting fixes.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg text-[#0F172A] mb-2">How is ATS score calculated by ExpertResume?</h3>
-              <p className="text-[#475569]">We analyze 4 factors: <strong>Parsing Rate</strong>, <strong>Keyword Matching</strong>, <strong>Section Identification</strong>, and <strong>Formatting Hygiene</strong>, similar to systems like Taleo and Workday.</p>
+              <h3 className="font-bold text-lg text-primary mb-2">How is ATS score calculated by ExpertResume?</h3>
+              <p className="text-gray-600">We analyze 4 factors: <strong>Parsing Rate</strong>, <strong>Keyword Matching</strong>, <strong>Section Identification</strong>, and <strong>Formatting Hygiene</strong>, similar to systems like Taleo and Workday.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg text-[#0F172A] mb-2">What is a good ATS score for Fortune 500 companies?</h3>
-              <p className="text-[#475569]">Aim for <strong>85%+</strong>. Large US employers use strict filters. Use single-column format and clear "Education" and "Skills" headers.</p>
+              <h3 className="font-bold text-lg text-primary mb-2">What is a good ATS score for Fortune 500 companies?</h3>
+              <p className="text-gray-600">Aim for <strong>85%+</strong>. Large US employers use strict filters. Use single-column format and clear "Education" and "Skills" headers.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg text-[#0F172A] mb-2">How do Workday and Taleo score resumes?</h3>
-              <p className="text-[#475569]">They parse resumes into structured data and rank by <strong>keyword match</strong> and <strong>profile completeness</strong>. Standard headers and no tables help.</p>
+              <h3 className="font-bold text-lg text-primary mb-2">How do Workday and Taleo score resumes?</h3>
+              <p className="text-gray-600">They parse resumes into structured data and rank by <strong>keyword match</strong> and <strong>profile completeness</strong>. Standard headers and no tables help.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg text-[#0F172A] mb-2">Why do recruiters use ATS?</h3>
-              <p className="text-[#475569]">Recruiters get hundreds of applications per job. ATS filters to the top 10-20 candidates quickly. You need to optimize for the system first to reach a human.</p>
+              <h3 className="font-bold text-lg text-primary mb-2">Why do recruiters use ATS?</h3>
+              <p className="text-gray-600">Recruiters get hundreds of applications per job. ATS filters to the top 10-20 candidates quickly. You need to optimize for the system first to reach a human.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg text-[#0F172A] mb-2">How do I check my ATS score for free?</h3>
-              <p className="text-[#475569]">Upload your resume at the top of this page. We analyze it instantly and give you a detailed report for free.</p>
+              <h3 className="font-bold text-lg text-primary mb-2">How do I check my ATS score for free?</h3>
+              <p className="text-gray-600">Upload your resume at the top of this page. We analyze it instantly and give you a detailed report for free.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg text-[#0F172A] mb-2">Is 75 a good ATS score?</h3>
-              <p className="text-[#475569]">Yes. 75+ is good, 80+ is excellent. Below 60 means your resume needs work on formatting or keywords.</p>
+              <h3 className="font-bold text-lg text-primary mb-2">Is 75 a good ATS score?</h3>
+              <p className="text-gray-600">Yes. 75+ is good, 80+ is excellent. Below 60 means your resume needs work on formatting or keywords.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg text-[#0F172A] mb-2">Can I improve my score for free?</h3>
-              <p className="text-[#475569]">Yes. Use standard fonts (Arial/Calibri), remove tables/columns, use standard headers, and add keywords from the job description.</p>
+              <h3 className="font-bold text-lg text-primary mb-2">Can I improve my score for free?</h3>
+              <p className="text-gray-600">Yes. Use standard fonts (Arial/Calibri), remove tables/columns, use standard headers, and add keywords from the job description.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg text-[#0F172A] mb-2">Which resume format is best for ATS?</h3>
-              <p className="text-[#475569]"><strong>Reverse-chronological</strong> is best — most recent job first. Avoid purely functional or skills-only formats.</p>
+              <h3 className="font-bold text-lg text-primary mb-2">Which resume format is best for ATS?</h3>
+              <p className="text-gray-600"><strong>Reverse-chronological</strong> is best — most recent job first. Avoid purely functional or skills-only formats.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg text-[#0F172A] mb-2">Best fonts for ATS?</h3>
-              <p className="text-[#475569]">Use <strong>Arial, Calibri, or Roboto</strong>. These work well with <Link href="/resume-builder" className="text-[#2563EB] hover:underline">US ATS systems</Link> and job boards.</p>
+              <h3 className="font-bold text-lg text-primary mb-2">Best fonts for ATS?</h3>
+              <p className="text-gray-600">Use <strong>Arial, Calibri, or Roboto</strong>. These work well with <Link href="/resume-builder" className="text-accent hover:underline">US ATS systems</Link> and job boards.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg text-[#0F172A] mb-2">Can Canva resumes pass ATS?</h3>
-              <p className="text-[#475569]">Often no. Canva can export text as images or complex layers that parsers miss. Use an ATS-friendly builder or a clean Word/PDF.</p>
+              <h3 className="font-bold text-lg text-primary mb-2">Can Canva resumes pass ATS?</h3>
+              <p className="text-gray-600">Often no. Canva can export text as images or complex layers that parsers miss. Use an ATS-friendly builder or a clean Word/PDF.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg text-[#0F172A] mb-2">Does this tool save my resume?</h3>
-              <p className="text-[#475569]">We prioritize privacy. We process your resume only to generate the score and insights and do not sell your data.</p>
+              <h3 className="font-bold text-lg text-primary mb-2">Does this tool save my resume?</h3>
+              <p className="text-gray-600">We prioritize privacy. We process your resume only to generate the score and insights and do not sell your data.</p>
             </div>
           </div>
         </div>
 
         {/* Final CTA */}
-        <div className="bg-[#0F172A] text-white rounded-2xl p-8 md:p-12 text-center">
+        <div className="bg-primary text-white rounded-2xl p-8 md:p-12 text-center">
           <h2 className="text-3xl font-bold mb-4">Don't Let an Algorithm Reject You</h2>
           <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
             Your next role at a top US company could be one improved resume away. Check your score now and fix what’s holding you back.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <ScrollToTopButton />
-            <Link href="/resume-builder" className="bg-[#2563EB] hover:bg-[#1d4ed8] text-white font-bold py-3 px-8 rounded-full transition duration-300">
+            <Link href="/resume-builder" className="bg-accent hover:bg-accent-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">
               Build New Resume
             </Link>
           </div>

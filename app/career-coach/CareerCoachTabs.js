@@ -41,7 +41,7 @@ export function RoadmapTab({ careerPlan, isPremium, isFree, expandedMonths, togg
             className="w-full p-6 flex items-center justify-between hover:bg-gray-50 transition-colors"
           >
             <div className="flex items-center gap-4">
-              <div className="bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl p-3">
+              <div className="bg-gradient-to-br from-primary to-accent rounded-xl p-3">
                 <Calendar className="w-6 h-6 text-white" />
               </div>
               <div className="text-left">
@@ -61,13 +61,13 @@ export function RoadmapTab({ careerPlan, isPremium, isFree, expandedMonths, togg
               {/* Goals */}
               <div className="mb-6">
                 <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                  <Target className="w-5 h-5 text-blue-600" />
+                  <Target className="w-5 h-5 text-accent" />
                   Monthly Goals
                 </h4>
                 <div className="space-y-2">
                   {month.goals.map((goal, gIndex) => (
-                    <div key={gIndex} className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
-                      <Star className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <div key={gIndex} className="flex items-start gap-3 p-3 bg-accent-50 rounded-lg">
+                      <Star className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                       <p className="text-gray-700">{goal}</p>
                     </div>
                   ))}
@@ -87,7 +87,7 @@ export function RoadmapTab({ careerPlan, isPremium, isFree, expandedMonths, togg
                         type="checkbox"
                         checked={activity.completed}
                         readOnly
-                        className="mt-1 w-5 h-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+                        className="mt-1 w-5 h-5 text-accent rounded border-gray-300 focus:ring-accent"
                       />
                       <div className="flex-1">
                         <p className="text-gray-900 font-medium">{activity.activity}</p>
@@ -134,7 +134,7 @@ export function RoadmapTab({ careerPlan, isPremium, isFree, expandedMonths, togg
                     <p className="text-xs text-gray-600">Skills</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-2xl font-bold text-blue-600">{month.metrics.certificationsCompleted}</p>
+                    <p className="text-2xl font-bold text-accent">{month.metrics.certificationsCompleted}</p>
                     <p className="text-xs text-gray-600">Certs</p>
                   </div>
                   <div className="text-center">
@@ -156,10 +156,10 @@ export function RoadmapTab({ careerPlan, isPremium, isFree, expandedMonths, togg
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl sm:rounded-2xl shadow-lg p-6 sm:p-8 text-center border-2 border-blue-200"
+          className="bg-accent-50 rounded-xl sm:rounded-2xl shadow-lg p-6 sm:p-8 text-center border-2 border-accent/20"
         >
           <div className="bg-white rounded-full w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mx-auto mb-4">
-            <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-blue-600" />
+            <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-accent" />
           </div>
           <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
             Unlock Remaining {monthlyRoadmap.length - freeMonthsCount} Months
@@ -169,7 +169,7 @@ export function RoadmapTab({ careerPlan, isPremium, isFree, expandedMonths, togg
           </p>
           <button
             onClick={() => router.push('/checkout?billingCycle=monthly')}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold text-sm sm:text-base inline-flex items-center gap-2"
+            className="bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold text-sm sm:text-base inline-flex items-center gap-2"
           >
             <Crown className="w-5 h-5" />
             Upgrade to Monthly Plan ({formattedMonthlyPrice})
@@ -261,19 +261,19 @@ export function SkillsTab({ careerPlan, isPremium, isFree }) {
         className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6"
       >
         <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-          <Code className="w-6 h-6 text-blue-600" />
+          <Code className="w-6 h-6 text-accent" />
           Skill Development Roadmap
         </h2>
         <div className="space-y-4">
           {visibleSkills.map((skill, index) => (
-            <div key={index} className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-5 border border-blue-200">
+            <div key={index} className="bg-primary-50 rounded-xl p-5 border border-primary/20">
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <h3 className="font-bold text-gray-900 text-lg mb-1">{skill.skill}</h3>
                   <div className="flex items-center gap-2 text-sm">
                     <span className="px-2 py-1 bg-gray-200 rounded-full">{skill.currentLevel}</span>
                     <ArrowRight className="w-4 h-4 text-gray-400" />
-                    <span className="px-2 py-1 bg-blue-600 text-white rounded-full font-semibold">{skill.targetLevel}</span>
+                    <span className="px-2 py-1 bg-accent text-white rounded-full font-semibold">{skill.targetLevel}</span>
                   </div>
                 </div>
                 <span className={`px-3 py-1 rounded-full text-xs font-semibold ${skill.priority === 'High' ? 'bg-red-100 text-red-700' :
@@ -290,7 +290,7 @@ export function SkillsTab({ careerPlan, isPremium, isFree }) {
                 <div className="space-y-2">
                   {skill.learningPath.map((step, sIndex) => (
                     <div key={sIndex} className="flex items-start gap-2">
-                      <div className="bg-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                      <div className="bg-accent rounded-full w-6 h-6 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
                         {sIndex + 1}
                       </div>
                       <p className="text-sm text-gray-700">{step}</p>
@@ -318,7 +318,7 @@ export function SkillsTab({ careerPlan, isPremium, isFree }) {
                 <ul className="space-y-1">
                   {skill.practiceProjects.map((project, pIndex) => (
                     <li key={pIndex} className="text-sm text-gray-700 flex items-start gap-2">
-                      <Play className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <Play className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                       {project}
                     </li>
                   ))}
@@ -345,7 +345,7 @@ export function SkillsTab({ careerPlan, isPremium, isFree }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="bg-gradient-to-br from-purple-600 to-indigo-700 rounded-xl sm:rounded-2xl shadow-2xl p-6 sm:p-8 text-white relative overflow-hidden"
+        className="bg-gradient-to-br from-primary-900 to-primary rounded-xl sm:rounded-2xl shadow-2xl p-6 sm:p-8 text-white relative overflow-hidden"
       >
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
@@ -362,7 +362,7 @@ export function SkillsTab({ careerPlan, isPremium, isFree }) {
                 <MessageSquare className="w-6 h-6 sm:w-7 sm:h-7" />
                 <h3 className="text-xl sm:text-2xl font-bold">Practice with AI Interview</h3>
               </div>
-              <p className="text-purple-100 text-sm sm:text-base mb-4">
+              <p className="text-white/70 text-sm sm:text-base mb-4">
                 Master all the topics mentioned above with ExpertResume AI AI Interview. Get real-time feedback and expert guidance!
               </p>
             </div>
@@ -373,23 +373,23 @@ export function SkillsTab({ careerPlan, isPremium, isFree }) {
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
               <Brain className="w-5 h-5 mb-1" />
               <p className="text-xs sm:text-sm font-semibold">AI-Powered</p>
-              <p className="text-xs text-purple-200">Smart questions</p>
+              <p className="text-xs text-white/50">Smart questions</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
               <Target className="w-5 h-5 mb-1" />
               <p className="text-xs sm:text-sm font-semibold">Real-time Feedback</p>
-              <p className="text-xs text-purple-200">Improve instantly</p>
+              <p className="text-xs text-white/50">Improve instantly</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
               <Trophy className="w-5 h-5 mb-1" />
               <p className="text-xs sm:text-sm font-semibold">Track Progress</p>
-              <p className="text-xs text-purple-200">See your growth</p>
+              <p className="text-xs text-white/50">See your growth</p>
             </div>
           </div>
 
           <button
             onClick={() => router.push('/ai-interview')}
-            className="bg-white text-purple-700 px-6 py-3 rounded-xl hover:bg-purple-50 transition-all duration-300 font-bold text-sm sm:text-base inline-flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105"
+            className="bg-white text-primary px-6 py-3 rounded-xl hover:bg-primary-50 transition-all duration-300 font-bold text-sm sm:text-base inline-flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105"
           >
             <Rocket className="w-5 h-5" />
             Start Practicing Now
@@ -419,7 +419,7 @@ export function CompaniesTab({ careerPlan, isPremium, isFree }) {
       </h2>
       <div className="space-y-6">
         {visibleCompanies.map((company, index) => (
-          <div key={index} className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-200">
+          <div key={index} className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border border-accent/20">
             <h3 className="text-xl font-bold text-gray-900 mb-3">{company.companyType}</h3>
 
             {/* Examples */}
@@ -427,7 +427,7 @@ export function CompaniesTab({ careerPlan, isPremium, isFree }) {
               <p className="text-sm font-semibold text-gray-600 mb-2">Top Companies</p>
               <div className="flex flex-wrap gap-2">
                 {company.examples.map((example, eIndex) => (
-                  <span key={eIndex} className="bg-white px-4 py-2 rounded-lg text-sm font-medium text-gray-900 border border-purple-200">
+                  <span key={eIndex} className="bg-white px-4 py-2 rounded-lg text-sm font-medium text-gray-900 border border-accent/20">
                     {example}
                   </span>
                 ))}
@@ -435,7 +435,7 @@ export function CompaniesTab({ careerPlan, isPremium, isFree }) {
             </div>
 
             {/* Why Good Fit */}
-            <div className="mb-4 bg-green-50 rounded-lg p-4">
+            <div className="mb-4 bg-accent-50 rounded-lg p-4">
               <p className="text-sm font-semibold text-green-700 mb-2">Why You're a Good Fit</p>
               <p className="text-sm text-gray-700">{company.whyGoodFit}</p>
             </div>
@@ -454,8 +454,8 @@ export function CompaniesTab({ careerPlan, isPremium, isFree }) {
             </div>
 
             {/* Application Strategy */}
-            <div className="bg-blue-50 rounded-lg p-4">
-              <p className="text-sm font-semibold text-blue-700 mb-2">Application Strategy</p>
+            <div className="bg-accent-50 rounded-lg p-4">
+              <p className="text-sm font-semibold text-accent-700 mb-2">Application Strategy</p>
               <p className="text-sm text-gray-700">{company.applicationStrategy}</p>
             </div>
           </div>
@@ -493,7 +493,7 @@ export function LinkedInTab({ careerPlan, isPremium, isFree }) {
         className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6"
       >
         <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-          <Link2 className="w-6 h-6 text-blue-600" />
+          <Link2 className="w-6 h-6 text-accent" />
           LinkedIn Optimization
         </h2>
 
@@ -505,8 +505,8 @@ export function LinkedInTab({ careerPlan, isPremium, isFree }) {
               <p className="text-xs text-gray-600 mb-2">Current (Inferred)</p>
               <p className="text-sm text-gray-700">{linkedInOptimization.headline.current}</p>
             </div>
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border-2 border-blue-300">
-              <p className="text-xs text-blue-700 font-semibold mb-2">Suggested ⭐</p>
+            <div className="bg-primary-50 rounded-xl p-4 border-2 border-primary/20">
+              <p className="text-xs text-accent-700 font-semibold mb-2">Suggested ⭐</p>
               <p className="text-sm font-medium text-gray-900">{linkedInOptimization.headline.suggested}</p>
             </div>
           </div>
@@ -518,8 +518,8 @@ export function LinkedInTab({ careerPlan, isPremium, isFree }) {
         {/* Summary */}
         <div className="mb-6">
           <h3 className="font-semibold text-gray-900 mb-3">Profile Summary</h3>
-          <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg sm:rounded-xl p-4 sm:p-5 border border-purple-200">
-            <p className="text-sm font-semibold text-purple-700 mb-2">Recommended Tone: {linkedInOptimization.summary.tone}</p>
+          <div className="bg-primary-50 rounded-lg sm:rounded-xl p-4 sm:p-5 border border-accent/20">
+            <p className="text-sm font-semibold text-primary mb-2">Recommended Tone: {linkedInOptimization.summary.tone}</p>
             <div className="mb-4">
               <p className="text-xs text-gray-600 mb-2">Key Points to Include</p>
               <ul className="space-y-2">
@@ -542,21 +542,21 @@ export function LinkedInTab({ careerPlan, isPremium, isFree }) {
         <div className={`mb-6 ${isFree ? 'blur-sm pointer-events-none' : ''}`}>
           <h3 className="font-semibold text-gray-900 mb-3">Skills Optimization</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-green-50 rounded-xl p-4">
+            <div className="bg-accent-50 rounded-xl p-4">
               <p className="text-sm font-semibold text-green-700 mb-2">Top Skills</p>
               <div className="flex flex-wrap gap-2">
                 {linkedInOptimization.skills.topSkillsToHighlight.map((skill, index) => (
-                  <span key={index} className="text-xs bg-green-600 text-white px-2 py-1 rounded-full">
+                  <span key={index} className="text-xs bg-accent text-white px-2 py-1 rounded-full">
                     {skill}
                   </span>
                 ))}
               </div>
             </div>
-            <div className="bg-blue-50 rounded-xl p-4">
-              <p className="text-sm font-semibold text-blue-700 mb-2">Add These</p>
+            <div className="bg-accent-50 rounded-xl p-4">
+              <p className="text-sm font-semibold text-accent-700 mb-2">Add These</p>
               <div className="flex flex-wrap gap-2">
                 {linkedInOptimization.skills.skillsToAdd.map((skill, index) => (
-                  <span key={index} className="text-xs bg-blue-600 text-white px-2 py-1 rounded-full">
+                  <span key={index} className="text-xs bg-accent text-white px-2 py-1 rounded-full">
                     + {skill}
                   </span>
                 ))}
@@ -583,7 +583,7 @@ export function LinkedInTab({ careerPlan, isPremium, isFree }) {
                 <p className="text-sm font-semibold text-gray-900 mb-2">Unlock Full LinkedIn Guide</p>
                 <button
                   onClick={() => router.push('/checkout?billingCycle=monthly')}
-                  className="mt-2 sm:mt-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-300 font-semibold text-xs sm:text-sm"
+                  className="mt-2 sm:mt-3 bg-gradient-to-r from-primary to-accent text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-300 font-semibold text-xs sm:text-sm"
                 >
                   Upgrade to {formattedMonthlyPrice} Plan
                 </button>
@@ -624,12 +624,12 @@ export function LinkedInTab({ careerPlan, isPremium, isFree }) {
             {/* Networking */}
             <div>
               <h3 className="font-semibold text-gray-900 mb-3">Networking Strategy</h3>
-              <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl p-5 border border-teal-200">
+              <div className="bg-accent-50 rounded-xl p-5 border border-accent/20">
                 <div className="mb-4">
-                  <p className="text-sm font-semibold text-teal-700 mb-2">Target Connections</p>
+                  <p className="text-sm font-semibold text-accent-700 mb-2">Target Connections</p>
                   <div className="flex flex-wrap gap-2">
                     {linkedInOptimization.networking.targetConnections.map((connection, index) => (
-                      <span key={index} className="text-xs bg-teal-600 text-white px-3 py-1 rounded-full">
+                      <span key={index} className="text-xs bg-accent text-white px-3 py-1 rounded-full">
                         <Users className="w-3 h-3 inline mr-1" />
                         {connection}
                       </span>
@@ -637,15 +637,15 @@ export function LinkedInTab({ careerPlan, isPremium, isFree }) {
                   </div>
                 </div>
                 <div className="mb-4">
-                  <p className="text-sm font-semibold text-teal-700 mb-2">Outreach Strategy</p>
+                  <p className="text-sm font-semibold text-accent-700 mb-2">Outreach Strategy</p>
                   <p className="text-sm text-gray-700">{linkedInOptimization.networking.outreachStrategy}</p>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-teal-700 mb-2">Community Involvement</p>
+                  <p className="text-sm font-semibold text-accent-700 mb-2">Community Involvement</p>
                   <ul className="space-y-2">
                     {linkedInOptimization.networking.communityInvolvement.map((activity, index) => (
                       <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
-                        <CheckCircle className="w-4 h-4 text-teal-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                         {activity}
                       </li>
                     ))}
@@ -687,12 +687,12 @@ export function InterviewsTab({ careerPlan, isPremium, isFree }) {
         className="bg-white rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-6"
       >
         <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-          <Brain className="w-6 h-6 text-blue-600" />
+          <Brain className="w-6 h-6 text-accent" />
           Technical Interview Prep
         </h2>
         <div className="space-y-4">
           {visibleTechnical.map((topic, index) => (
-            <div key={index} className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-5 border border-blue-200">
+            <div key={index} className="bg-primary-50 rounded-xl p-5 border border-primary/20">
               <div className="flex items-start justify-between mb-3">
                 <h3 className="font-bold text-gray-900 text-lg">{topic.topic}</h3>
                 <div className="flex gap-2">
@@ -727,7 +727,7 @@ export function InterviewsTab({ careerPlan, isPremium, isFree }) {
                 <ul className="space-y-1">
                   {topic.studyResources.map((resource, rIndex) => (
                     <li key={rIndex} className="text-sm text-gray-700 flex items-start gap-2">
-                      <BookOpen className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <BookOpen className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                       {resource}
                     </li>
                   ))}
@@ -774,7 +774,7 @@ export function InterviewsTab({ careerPlan, isPremium, isFree }) {
         </h2>
         <div className="space-y-4">
           {visibleBehavioral.map((topic, index) => (
-            <div key={index} className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-5 border border-purple-200">
+            <div key={index} className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-5 border border-accent/20">
               <h3 className="font-bold text-gray-900 text-lg mb-3">{topic.category}</h3>
 
               <div className="mb-3">
@@ -790,7 +790,7 @@ export function InterviewsTab({ careerPlan, isPremium, isFree }) {
               </div>
 
               <div className="bg-white rounded-lg p-4 mb-3">
-                <p className="text-xs font-semibold text-purple-700 mb-2">STAR Method Example</p>
+                <p className="text-xs font-semibold text-primary mb-2">STAR Method Example</p>
                 <div className="space-y-2">
                   <div>
                     <span className="text-xs font-semibold text-gray-600">Situation:</span>
@@ -849,13 +849,13 @@ export function InterviewsTab({ careerPlan, isPremium, isFree }) {
                 <Target className="w-6 h-6 text-green-600" />
                 System Design
               </h2>
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-5 border border-green-200">
+              <div className="bg-accent-50 rounded-xl p-5 border border-accent/20">
                 <p className="text-sm text-gray-700 mb-4">{interviewPreparation.systemDesign.relevance}</p>
                 <div className="mb-4">
                   <p className="text-sm font-semibold text-green-700 mb-2">Topics to Cover</p>
                   <div className="flex flex-wrap gap-2">
                     {interviewPreparation.systemDesign.topics.map((topic, index) => (
-                      <span key={index} className="text-xs bg-green-600 text-white px-3 py-1 rounded-full">
+                      <span key={index} className="text-xs bg-accent text-white px-3 py-1 rounded-full">
                         {topic}
                       </span>
                     ))}
@@ -929,10 +929,10 @@ export function InterviewsTab({ careerPlan, isPremium, isFree }) {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl sm:rounded-2xl shadow-lg p-6 sm:p-8 text-center border-2 border-blue-200"
+          className="bg-accent-50 rounded-xl sm:rounded-2xl shadow-lg p-6 sm:p-8 text-center border-2 border-accent/20"
         >
           <div className="bg-white rounded-full w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mx-auto mb-4">
-            <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-blue-600" />
+            <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-accent" />
           </div>
           <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
             Unlock Complete Interview Prep
@@ -942,7 +942,7 @@ export function InterviewsTab({ careerPlan, isPremium, isFree }) {
           </p>
           <button
             onClick={() => router.push('/checkout?billingCycle=monthly')}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold text-sm sm:text-base inline-flex items-center gap-2"
+            className="bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold text-sm sm:text-base inline-flex items-center gap-2"
           >
             <Crown className="w-5 h-5" />
             Upgrade to Monthly Plan ({formattedMonthlyPrice})
@@ -955,7 +955,7 @@ export function InterviewsTab({ careerPlan, isPremium, isFree }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-xl sm:rounded-2xl shadow-2xl p-6 sm:p-8 text-white relative overflow-hidden"
+        className="bg-gradient-to-br from-primary-900 to-primary rounded-xl sm:rounded-2xl shadow-2xl p-6 sm:p-8 text-white relative overflow-hidden"
       >
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
@@ -972,7 +972,7 @@ export function InterviewsTab({ careerPlan, isPremium, isFree }) {
                 <MessageSquare className="w-6 h-6 sm:w-7 sm:h-7" />
                 <h3 className="text-xl sm:text-2xl font-bold">Ready for Your Interview?</h3>
               </div>
-              <p className="text-indigo-100 text-sm sm:text-base mb-4">
+              <p className="text-white/70 text-sm sm:text-base mb-4">
                 Practice with ExpertResume AI Interview! Get personalized mock interviews covering all topics from your career plan with real-time AI feedback.
               </p>
             </div>
@@ -983,23 +983,23 @@ export function InterviewsTab({ careerPlan, isPremium, isFree }) {
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
               <Brain className="w-5 h-5 mb-1" />
               <p className="text-xs sm:text-sm font-semibold">Technical & Behavioral</p>
-              <p className="text-xs text-indigo-200">Complete coverage</p>
+              <p className="text-xs text-white/50">Complete coverage</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
               <Zap className="w-5 h-5 mb-1" />
               <p className="text-xs sm:text-sm font-semibold">Instant Feedback</p>
-              <p className="text-xs text-indigo-200">Improve in real-time</p>
+              <p className="text-xs text-white/50">Improve in real-time</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
               <GraduationCap className="w-5 h-5 mb-1" />
               <p className="text-xs sm:text-sm font-semibold">Expert Analysis</p>
-              <p className="text-xs text-indigo-200">AI-powered insights</p>
+              <p className="text-xs text-white/50">AI-powered insights</p>
             </div>
           </div>
 
           <button
             onClick={() => router.push('/interview-trainer')}
-            className="bg-white text-indigo-700 px-6 py-3 rounded-xl hover:bg-indigo-50 transition-all duration-300 font-bold text-sm sm:text-base inline-flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105"
+            className="bg-white text-primary px-6 py-3 rounded-xl hover:bg-primary-50 transition-all duration-300 font-bold text-sm sm:text-base inline-flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105"
           >
             <Rocket className="w-5 h-5" />
             Launch AI Interview

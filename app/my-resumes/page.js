@@ -86,12 +86,12 @@ const getAvatarLetter = (text) => {
 
 const getAvatarColor = (letter) => {
   const colors = [
-    "from-[#0B1F3B] to-[#132D54]",
-    "from-[#00C4B3] to-[#00A89A]",
-    "from-[#0B1F3B] to-[#00C4B3]",
+    "from-primary to-[#132D54]",
+    "from-accent to-[#00A89A]",
+    "from-primary to-accent",
     "from-[#132D54] to-[#1a3a6b]",
     "from-[#00A89A] to-[#008F80]",
-    "from-[#0B1F3B] to-[#0d2847]",
+    "from-primary to-[#0d2847]",
   ];
   const index = (letter?.charCodeAt(0) || 0) % colors.length;
   return colors[index];
@@ -228,7 +228,7 @@ function MyResumesContent() {
           className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm max-w-sm w-full text-center"
         >
           <div className="w-14 h-14 mx-auto mb-5 bg-slate-50 rounded-xl flex items-center justify-center border border-gray-100">
-            <Lock className="w-6 h-6 text-[#0B1F3B]" />
+            <Lock className="w-6 h-6 text-primary" />
           </div>
           <h2 className="text-lg font-semibold text-gray-900 mb-2">Sign in required</h2>
           <p className="text-sm text-gray-600 mb-6">
@@ -236,7 +236,7 @@ function MyResumesContent() {
           </p>
           <button
             onClick={() => router.push("/login")}
-            className="w-full bg-[#0B1F3B] text-white px-4 py-3 rounded-lg text-sm font-semibold hover:bg-[#071429] transition-all duration-200"
+            className="w-full bg-primary text-white px-4 py-3 rounded-lg text-sm font-semibold hover:bg-gray-900 transition-all duration-200"
           >
             Sign In to Continue
           </button>
@@ -263,7 +263,7 @@ function MyResumesContent() {
               </div>
               <button
                 onClick={handleCreateNewResume}
-                className="inline-flex items-center justify-center gap-2 bg-[#00C4B3] text-white px-5 py-3 rounded-lg text-sm font-semibold hover:bg-[#00A89A] transition-all duration-200 w-full sm:w-auto shadow-sm"
+                className="inline-flex items-center justify-center gap-2 bg-accent text-white px-5 py-3 rounded-lg text-sm font-semibold hover:bg-[#00A89A] transition-all duration-200 w-full sm:w-auto shadow-sm"
               >
                 <Plus className="w-4 h-4" />
                 New Resume
@@ -278,7 +278,7 @@ function MyResumesContent() {
           <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 sm:p-12">
             <div className="flex flex-col items-center justify-center py-8 sm:py-12">
               <div className="w-16 h-16 bg-slate-50 rounded-xl flex items-center justify-center mb-5 border border-gray-100">
-                <FileText className="w-7 h-7 text-[#0B1F3B]" />
+                <FileText className="w-7 h-7 text-primary" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">No resumes yet</h3>
               <p className="text-sm text-gray-600 mb-8 text-center max-w-sm">
@@ -286,7 +286,7 @@ function MyResumesContent() {
               </p>
               <button
                 onClick={handleCreateNewResume}
-                className="inline-flex items-center gap-2 bg-[#00C4B3] text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-[#00A89A] transition-all duration-200 shadow-sm"
+                className="inline-flex items-center gap-2 bg-accent text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-[#00A89A] transition-all duration-200 shadow-sm"
               >
                 <Plus className="w-4 h-4" />
                 Create Your First Resume
@@ -308,7 +308,7 @@ function MyResumesContent() {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     placeholder="Search resumes..."
-                    className="w-full h-10 pl-10 pr-9 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00C4B3]/20 focus:border-[#00C4B3]/40 transition-all"
+                    className="w-full h-10 pl-10 pr-9 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent/40 transition-all"
                   />
                   {searchTerm && (
                     <button
@@ -325,7 +325,7 @@ function MyResumesContent() {
                   <select
                     value={sortOption}
                     onChange={(e) => setSortOption(e.target.value)}
-                    className="h-10 pl-3 pr-8 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#00C4B3]/20 focus:border-[#00C4B3]/40 cursor-pointer"
+                    className="h-10 pl-3 pr-8 bg-gray-50 border border-gray-200 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent/40 cursor-pointer"
                   >
                     <option value="updated_desc">Latest updated</option>
                     <option value="updated_asc">Oldest updated</option>
@@ -338,7 +338,7 @@ function MyResumesContent() {
                       onClick={() => setViewMode("grid")}
                       className={`flex items-center justify-center w-10 h-10 transition-all duration-150 ${
                         viewMode === "grid"
-                          ? "bg-[#00C4B3] text-white"
+                          ? "bg-accent text-white"
                           : "bg-gray-50 text-gray-400 hover:text-gray-600 hover:bg-gray-100"
                       }`}
                       aria-label="Grid view"
@@ -349,7 +349,7 @@ function MyResumesContent() {
                       onClick={() => setViewMode("list")}
                       className={`flex items-center justify-center w-10 h-10 transition-all duration-150 ${
                         viewMode === "list"
-                          ? "bg-[#00C4B3] text-white"
+                          ? "bg-accent text-white"
                           : "bg-gray-50 text-gray-400 hover:text-gray-600 hover:bg-gray-100"
                       }`}
                       aria-label="List view"
@@ -429,7 +429,7 @@ function MyResumesContent() {
                           <div className="px-4 sm:px-5 py-3 bg-gray-50/70 border-t border-gray-100 flex items-center justify-between" onClick={(e) => e.stopPropagation()}>
                             <button
                               onClick={() => handleEdit(resume.id, resume.template)}
-                              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-[#00C4B3] text-white rounded-lg text-xs font-semibold hover:bg-[#00A89A] transition-colors shadow-sm"
+                              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-accent text-white rounded-lg text-xs font-semibold hover:bg-[#00A89A] transition-colors shadow-sm"
                             >
                               <Edit className="w-3 h-3" />
                               Edit
@@ -452,12 +452,12 @@ function MyResumesContent() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: filteredResumes.length * 0.04, duration: 0.3 }}
                       onClick={handleCreateNewResume}
-                      className="group bg-white rounded-xl sm:rounded-2xl border-2 border-dashed border-gray-200 hover:border-[#00C4B3]/40 hover:shadow-sm transition-all duration-200 flex flex-col items-center justify-center min-h-[180px] sm:min-h-[200px] cursor-pointer"
+                      className="group bg-white rounded-xl sm:rounded-2xl border-2 border-dashed border-gray-200 hover:border-accent/40 hover:shadow-sm transition-all duration-200 flex flex-col items-center justify-center min-h-[180px] sm:min-h-[200px] cursor-pointer"
                     >
-                      <div className="w-11 h-11 rounded-xl bg-gray-50 group-hover:bg-[#00C4B3]/10 flex items-center justify-center mb-3 transition-colors border border-gray-100 group-hover:border-[#00C4B3]/30">
-                        <Plus className="w-5 h-5 text-gray-400 group-hover:text-[#00C4B3] transition-colors" />
+                      <div className="w-11 h-11 rounded-xl bg-gray-50 group-hover:bg-accent/10 flex items-center justify-center mb-3 transition-colors border border-gray-100 group-hover:border-accent/30">
+                        <Plus className="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors" />
                       </div>
-                      <span className="text-sm font-medium text-gray-500 group-hover:text-[#0B1F3B] transition-colors">
+                      <span className="text-sm font-medium text-gray-500 group-hover:text-primary transition-colors">
                         Create New Resume
                       </span>
                     </motion.button>
@@ -497,7 +497,7 @@ function MyResumesContent() {
                           <div className="flex items-center gap-2 flex-shrink-0" onClick={(e) => e.stopPropagation()}>
                             <button
                               onClick={() => handleEdit(resume.id, resume.template)}
-                              className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#00C4B3] text-white rounded-lg text-xs font-semibold hover:bg-[#00A89A] transition-colors shadow-sm"
+                              className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-accent text-white rounded-lg text-xs font-semibold hover:bg-[#00A89A] transition-colors shadow-sm"
                             >
                               <Edit className="w-3 h-3" />
                               Edit

@@ -81,31 +81,31 @@ const JobSpecificResumeForm = ({
           <div
             className={`${
               t.visible ? 'animate-enter' : 'animate-leave'
-            } max-w-md w-full bg-gradient-to-r from-blue-50 to-indigo-50 shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-blue-200 ring-opacity-5 border border-blue-300`}
+            } max-w-md w-full bg-accent-50 shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-accent/20 ring-opacity-5 border border-accent/30`}
           >
             <div className="flex-1 w-0 p-4">
               <div className="flex items-start">
                 <div className="flex-shrink-0">
-                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-8 h-8 bg-accent-50 rounded-full flex items-center justify-center">
+                    <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                 </div>
                 <div className="ml-3 flex-1">
-                  <p className="text-sm font-medium text-blue-800">
+                  <p className="text-sm font-medium text-primary">
                     AI Content Applied
                   </p>
-                  <p className="mt-1 text-sm text-blue-700">
+                  <p className="mt-1 text-sm text-accent-700">
                     Please review and edit the suggestions to ensure they accurately reflect your experience.
                   </p>
                 </div>
               </div>
             </div>
-            <div className="flex border-l border-blue-200">
+            <div className="flex border-l border-accent/20">
               <button
                 onClick={() => toast.dismiss(t.id)}
-                className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-blue-600 hover:text-blue-500 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-accent hover:text-accent-600 hover:bg-accent-50 focus:outline-none focus:ring-2 focus:ring-accent"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -135,11 +135,11 @@ const JobSpecificResumeForm = ({
         {sections.map((section) => (
           <div key={section.key} className="bg-white rounded-lg shadow-md overflow-hidden">
             <div
-              className="flex justify-between items-center p-2 bg-gradient-to-r from-blue-600 to-indigo-600 cursor-pointer"
+              className="flex justify-between items-center p-2 bg-gradient-to-r from-primary to-accent cursor-pointer"
               onClick={() => toggleSectionCollapse(section.key)}
             >
               <h3 className="text-lg font-semibold text-white">{section.label}</h3>
-              <button className="text-white hover:text-blue-200 transition-colors" disabled={disabled}>
+              <button className="text-white hover:text-accent-50 transition-colors" disabled={disabled}>
                 {collapsedSections[section.key] ? <ChevronDown size={20} /> : <ChevronUp size={20} />}
               </button>
             </div>
@@ -158,7 +158,7 @@ const JobSpecificResumeForm = ({
                               {isDefaultPhoto(data.personal?.photo) ? "Using default photo" : "Your uploaded photo"}
                             </span>
                             {isDefaultPhoto(data.personal?.photo) && (
-                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-accent-50 text-primary">
                                 Default
                               </span>
                             )}
@@ -173,8 +173,8 @@ const JobSpecificResumeForm = ({
                               file:mr-4 file:py-2 file:px-4
                               file:rounded-md file:border-0
                               file:text-sm file:font-semibold
-                              file:bg-blue-50 file:text-blue-700
-                              hover:file:bg-blue-100"
+                              file:bg-accent-50 file:text-accent-700
+                              hover:file:bg-accent-50"
                             disabled={disabled}
                           />
                           
@@ -233,7 +233,7 @@ const JobSpecificResumeForm = ({
                           onChange={(e) =>
                             onUpdate(section.key, { ...data[section.key], [field]: e.target.value })
                           }
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
                           placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
                           disabled={disabled}
                         />
@@ -248,19 +248,19 @@ const JobSpecificResumeForm = ({
                       <textarea
                         value={data[section.key] || ""}
                         onChange={(e) => onUpdate(section.key, e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 h-32 resize-none"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent h-32 resize-none"
                         placeholder={`Write your ${section.label.toLowerCase()} here...`}
                         disabled={disabled}
                       />
                       <button
                         onClick={() => generateAISuggestion(section.key, data.personal?.jobTitle || "Job Candidate")}
-                        className="absolute bottom-2 right-2 p-1.5 bg-blue-100 rounded-md text-blue-700 hover:bg-blue-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="absolute bottom-2 right-2 p-1.5 bg-accent-50 rounded-md text-accent-700 hover:bg-accent-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         title="AI Suggest"
                         disabled={isLoadingAI || disabled}
                       >
                         {isLoadingAI ? (
                           <svg
-                            className="animate-spin h-4 w-4 text-blue-600"
+                            className="animate-spin h-4 w-4 text-accent"
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
@@ -312,7 +312,7 @@ const JobSpecificResumeForm = ({
                                 updatedArray[idx] = e.target.value;
                                 onUpdate(section.key, updatedArray);
                               }}
-                              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
                               placeholder={section.label.slice(0, -1)}
                               disabled={disabled}
                             />
@@ -327,7 +327,7 @@ const JobSpecificResumeForm = ({
                                     <textarea
                                       value={item[field] || ""}
                                       onChange={(e) => handleArrayUpdate(section.key, idx, field, e.target.value)}
-                                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 h-24 resize-none"
+                                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent h-24 resize-none"
                                       placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
                                       disabled={disabled}
                                     />
@@ -339,13 +339,13 @@ const JobSpecificResumeForm = ({
                                           idx
                                         )
                                       }
-                                      className="absolute bottom-2 right-2 p-1.5 bg-blue-100 rounded-md text-blue-700 hover:bg-blue-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                      className="absolute bottom-2 right-2 p-1.5 bg-accent-50 rounded-md text-accent-700 hover:bg-accent-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                                       title="AI Suggest"
                                       disabled={isLoadingAI || disabled}
                                     >
                                       {isLoadingAI ? (
                                         <svg
-                                          className="animate-spin h-4 w-4 text-blue-600"
+                                          className="animate-spin h-4 w-4 text-accent"
                                           xmlns="http://www.w3.org/2000/svg"
                                           fill="none"
                                           viewBox="0 0 24 24"
@@ -374,7 +374,7 @@ const JobSpecificResumeForm = ({
                                     type="text"
                                     value={item[field] || ""}
                                     onChange={(e) => handleArrayUpdate(section.key, idx, field, e.target.value)}
-                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
                                     placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
                                     disabled={disabled}
                                   />
@@ -387,7 +387,7 @@ const JobSpecificResumeForm = ({
                     ))}
                     <button
                       onClick={() => addArrayItem(section.key)}
-                      className="flex items-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-sm font-medium"
+                      className="flex items-center gap-2 px-4 py-3 bg-accent text-white rounded-md hover:bg-accent-600 transition-colors text-sm font-medium"
                       disabled={disabled}
                     >
                       <Plus size={16} /> Add {section.label.slice(0, -1)}
@@ -400,11 +400,11 @@ const JobSpecificResumeForm = ({
         ))}
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <div
-            className="flex justify-between items-center p-2 bg-gradient-to-r from-blue-600 to-indigo-600 cursor-pointer"
+            className="flex justify-between items-center p-2 bg-gradient-to-r from-primary to-accent cursor-pointer"
             onClick={() => toggleSectionCollapse("custom")}
           >
             <h3 className="text-lg font-semibold text-white">Custom Fields</h3>
-            <button className="text-white hover:text-blue-200 transition-colors" disabled={disabled}>
+            <button className="text-white hover:text-accent-50 transition-colors" disabled={disabled}>
               {collapsedSections["custom"] ? <ChevronDown size={20} /> : <ChevronUp size={20} />}
             </button>
           </div>
@@ -419,7 +419,7 @@ const JobSpecificResumeForm = ({
                         type="text"
                         value={field.name || ""}
                         onChange={(e) => updateCustomField(index, "name", e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
                         placeholder="Field Name"
                         disabled={disabled}
                       />
@@ -429,19 +429,19 @@ const JobSpecificResumeForm = ({
                       <textarea
                         value={field.value || ""}
                         onChange={(e) => updateCustomField(index, "value", e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 h-24 resize-none"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent h-24 resize-none"
                         placeholder="Field Value"
                         disabled={disabled}
                       />
                       <button
                         onClick={() => generateAISuggestion("custom", field.name || "Custom Field", index)}
-                        className="absolute bottom-2 right-2 p-1.5 bg-blue-100 rounded-md text-blue-700 hover:bg-blue-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="absolute bottom-2 right-2 p-1.5 bg-accent-50 rounded-md text-accent-700 hover:bg-accent-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         title="AI Suggest"
                         disabled={isLoadingAI || disabled}
                       >
                         {isLoadingAI ? (
                           <svg
-                            className="animate-spin h-4 w-4 text-blue-600"
+                            className="animate-spin h-4 w-4 text-accent"
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
@@ -477,7 +477,7 @@ const JobSpecificResumeForm = ({
               ))}
               <button
                 onClick={addCustomField}
-                className="flex items-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-sm font-medium"
+                className="flex items-center gap-2 px-4 py-3 bg-accent text-white rounded-md hover:bg-accent-600 transition-colors text-sm font-medium"
                 disabled={disabled}
               >
                 <Plus size={16} /> Add Custom Field
@@ -492,7 +492,7 @@ const JobSpecificResumeForm = ({
           <div className="bg-white p-6 rounded-lg shadow-xl max-w-sm w-full">
             <div className="flex items-center justify-center gap-3">
               <svg
-                className="animate-spin h-6 w-6 text-blue-600"
+                className="animate-spin h-6 w-6 text-accent"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"

@@ -218,7 +218,7 @@ const TrialBanner = ({ isOpen, onClick, onClose, currency }) => {
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white p-3 rounded-full shadow-lg flex items-center justify-center"
+          className="bg-gradient-to-r from-primary to-accent text-white p-3 rounded-full shadow-lg flex items-center justify-center"
           onClick={() => setIsCollapsed(false)}
         >
           <Zap size={24} />
@@ -235,23 +235,23 @@ const TrialBanner = ({ isOpen, onClick, onClose, currency }) => {
           {/* Header with Badge */}
           <div className="mb-4">
             <div className="flex items-center gap-2 mb-3">
-              <div className="bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] p-2 rounded-lg">
+              <div className="bg-primary p-2 rounded-lg">
                 <Crown size={20} className="text-white" />
               </div>
-              <span className="bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white text-xs font-bold px-3 py-1 rounded-full">
+              <span className="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">
                 ⭐ MOST POPULAR
               </span>
             </div>
             <h3 className="text-xl font-bold text-gray-900 leading-tight">
               {isAndroidDevice ? (
                 <>
-                  Start with Basic for <span className="text-[#0B1F3B]">{formatPrice(basicPrice, currency)} (7 days)</span>
+                  Start with Basic for <span className="text-primary">{formatPrice(basicPrice, currency)} (7 days)</span>
                   <br />
-                  <span className="text-lg">or go Premium for <span className="text-[#0B1F3B]">{formatPrice(monthlyPrice, currency)} (30 days)</span></span>
+                  <span className="text-lg">or go Premium for <span className="text-primary">{formatPrice(monthlyPrice, currency)} (30 days)</span></span>
                 </>
               ) : (
                 <>
-                  Go Premium for <span className="text-[#0B1F3B]">{formatPrice(monthlyPrice, currency)} (30 days)</span>
+                  Go Premium for <span className="text-primary">{formatPrice(monthlyPrice, currency)} (30 days)</span>
                   <br />
                   <span className="text-lg">or upgrade to yearly for better value</span>
                 </>
@@ -266,7 +266,7 @@ const TrialBanner = ({ isOpen, onClick, onClose, currency }) => {
           <div className="mb-6 space-y-3">
             <div className="flex items-center gap-3">
               <div className="w-5 h-5 bg-slate-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg className="w-3 h-3 text-[#0B1F3B]" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
               </div>
@@ -274,7 +274,7 @@ const TrialBanner = ({ isOpen, onClick, onClose, currency }) => {
             </div>
             <div className="flex items-center gap-3">
               <div className="w-5 h-5 bg-slate-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg className="w-3 h-3 text-[#0B1F3B]" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
               </div>
@@ -282,7 +282,7 @@ const TrialBanner = ({ isOpen, onClick, onClose, currency }) => {
             </div>
             <div className="flex items-center gap-3">
               <div className="w-5 h-5 bg-slate-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg className="w-3 h-3 text-[#0B1F3B]" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
               </div>
@@ -293,7 +293,7 @@ const TrialBanner = ({ isOpen, onClick, onClose, currency }) => {
           {/* CTA Button */}
           <button
             onClick={() => onClick(isAndroidDevice ? "basic" : "monthly")}
-            className="w-full bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white py-3 px-4 rounded-xl font-semibold text-sm hover:from-[#071429] hover:to-[#071429] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+            className="w-full bg-accent hover:bg-accent-600 text-white py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
           >
             <div className="flex items-center justify-center gap-2">
               <Zap size={16} />
@@ -328,7 +328,7 @@ const PublicProfileBanner = ({ isOpen, onClose, user, atsScore }) => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
-      className="fixed bottom-4 left-4 md:bottom-8 md:left-8 bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white p-4 md:p-6 rounded-xl shadow-2xl max-w-sm w-full z-40"
+      className="fixed bottom-4 left-4 md:bottom-8 md:left-8 bg-primary text-white p-4 md:p-6 rounded-xl shadow-2xl max-w-sm w-full z-40"
     >
       <div className="flex items-start justify-between mb-2">
         <div className="flex items-center gap-2">
@@ -351,7 +351,7 @@ const PublicProfileBanner = ({ isOpen, onClose, user, atsScore }) => {
             window.open('/edit-profile', '_blank');
             onClose();
           }}
-          className="bg-white text-[#0B1F3B] px-3 py-1.5 md:px-4 md:py-2 rounded-md text-sm font-semibold hover:bg-gray-100 transition-all shadow-md"
+          className="bg-white text-primary px-3 py-1.5 md:px-4 md:py-2 rounded-md text-sm font-semibold hover:bg-gray-100 transition-all shadow-md"
         >
           Create Profile
         </button>
@@ -2347,22 +2347,22 @@ export default function ResumeBuilder() {
         (t) => (
           <div
             className={`${t.visible ? 'animate-enter' : 'animate-leave'
-              } max-w-md w-full bg-gradient-to-r from-slate-50 to-slate-100 shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-slate-200 ring-opacity-5 border border-[#00C4B3]/40`}
+              } max-w-md w-full bg-gradient-to-r from-slate-50 to-slate-100 shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-slate-200 ring-opacity-5 border border-accent/40`}
           >
             <div className="flex-1 w-0 p-4">
               <div className="flex items-start">
                 <div className="flex-shrink-0">
                   <div className="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4 text-[#0B1F3B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                 </div>
                 <div className="ml-3 flex-1">
-                  <p className="text-sm font-medium text-[#0B1F3B]">
+                  <p className="text-sm font-medium text-primary">
                     AI Content Applied
                   </p>
-                  <p className="mt-1 text-sm text-[#0B1F3B]">
+                  <p className="mt-1 text-sm text-primary">
                     Please review and edit the suggestions to ensure they accurately reflect your experience.
                   </p>
                 </div>
@@ -2371,7 +2371,7 @@ export default function ResumeBuilder() {
             <div className="flex border-l border-slate-200">
               <button
                 onClick={() => toast.dismiss(t.id)}
-                className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-[#0B1F3B] hover:text-teal-600 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[#0B1F3B]"
+                className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-primary hover:text-accent hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-accent"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -3558,7 +3558,7 @@ export default function ResumeBuilder() {
 
           <div className="text-center">
             <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Building size={32} className="text-[#0B1F3B]" />
+              <Building size={32} className="text-primary" />
             </div>
 
             <h3 className="text-xl font-bold text-gray-900 mb-2">
@@ -3571,11 +3571,11 @@ export default function ResumeBuilder() {
 
             <div className="grid grid-cols-2 gap-4 mb-6 text-sm">
               <div className="bg-slate-50 p-3 rounded-lg">
-                <div className="text-[#0B1F3B] font-semibold">Client Management</div>
+                <div className="text-primary font-semibold">Client Management</div>
                 <div className="text-gray-600">Unlimited clients</div>
               </div>
               <div className="bg-slate-50 p-3 rounded-lg">
-                <div className="text-[#0B1F3B] font-semibold">Accounting</div>
+                <div className="text-primary font-semibold">Accounting</div>
                 <div className="text-gray-600">Track revenue & expenses</div>
               </div>
             </div>
@@ -3585,7 +3585,7 @@ export default function ResumeBuilder() {
                 href="/enterprise"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 bg-[#0B1F3B] text-white py-2 px-4 rounded-lg font-semibold hover:bg-[#071429] transition-all text-center"
+                className="flex-1 bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-gray-900 transition-all text-center"
                 onClick={onClose}
               >
                 Learn More
@@ -3636,7 +3636,7 @@ export default function ResumeBuilder() {
       {isLoadingResumeData && (
         <div className="fixed inset-0 bg-white/90 backdrop-blur-sm flex items-center justify-center z-50">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-4 border-[#0B1F3B] border-t-transparent mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-4 border-primary border-t-transparent mx-auto mb-4"></div>
             <h3 className="text-lg font-semibold text-gray-800 mb-2">Loading Resume</h3>
             <p className="text-gray-600 text-sm">Please wait while we load your resume data...</p>
           </div>
@@ -3645,8 +3645,8 @@ export default function ResumeBuilder() {
       {isUploadingPdf && (
         <div className="fixed inset-0 bg-gray-900/90 flex items-center justify-center z-50">
           <div className="flex flex-col items-center gap-3 md:gap-5 bg-white p-4 md:p-6 rounded-xl shadow-2xl animate-pulse">
-            <div className="animate-spin rounded-full h-10 w-10 md:h-14 md:w-14 border-t-4 border-[#00C4B3]" />
-            <p className="text-[#0B1F3B] text-sm md:text-lg font-semibold text-center max-w-xs">
+            <div className="animate-spin rounded-full h-10 w-10 md:h-14 md:w-14 border-t-4 border-accent" />
+            <p className="text-primary text-sm md:text-lg font-semibold text-center max-w-xs">
               Importing your resume magic...
             </p>
           </div>
@@ -3735,7 +3735,7 @@ export default function ResumeBuilder() {
 
               <button
                 onClick={() => setIsTemplateModalOpen(true)}
-                className="flex items-center gap-1 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-2.5 py-1.5 rounded-lg shadow-md hover:shadow-lg hover:from-[#071429] hover:to-[#008C81] transition-all duration-200 text-xs font-medium"
+                className="flex items-center gap-1 bg-gradient-to-r from-primary to-accent text-white px-2.5 py-1.5 rounded-lg shadow-md hover:shadow-lg hover:from-gray-900 hover:to-accent-700 transition-all duration-200 text-xs font-medium"
                 data-tour="template-button"
               >
                 <LayoutDashboard size={14} />
@@ -3744,7 +3744,7 @@ export default function ResumeBuilder() {
 
               <button
                 onClick={() => routeToImport()}
-                className="flex items-center gap-1 bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-2.5 py-1.5 rounded-lg shadow-md hover:shadow-lg hover:from-emerald-600 hover:to-teal-600 transition-all duration-200 text-xs font-medium"
+                className="flex items-center gap-1 bg-accent hover:bg-accent-600 text-white px-2.5 py-1.5 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 text-xs font-medium"
                 data-tour="import-button"
               >
                 <FileUp size={14} />
@@ -3754,8 +3754,8 @@ export default function ResumeBuilder() {
               <button
                 onClick={() => setIsAiBuildMode(!isAiBuildMode)}
                 className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg shadow-md transition-all duration-200 text-xs font-medium ${isAiBuildMode
-                  ? "bg-[#0B1F3B] text-white"
-                  : "bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white hover:from-[#071429] hover:to-[#008C81]"
+                  ? "bg-primary text-white"
+                  : "bg-gradient-to-r from-primary to-accent text-white hover:from-gray-900 hover:to-accent-700"
                   }`}
               >
                 <Bot size={14} />
@@ -3765,7 +3765,7 @@ export default function ResumeBuilder() {
 
               <button
                 onClick={handleApplyAISuggestions}
-                className={`flex items-center gap-1 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-2.5 py-1.5 rounded-lg shadow-md transition-all duration-200 text-xs font-medium ${isApplyingAI ? "opacity-50 cursor-not-allowed" : "hover:shadow-lg hover:from-[#071429] hover:to-[#071429]"
+                className={`flex items-center gap-1 bg-gradient-to-r from-primary to-accent text-white px-2.5 py-1.5 rounded-lg shadow-md transition-all duration-200 text-xs font-medium ${isApplyingAI ? "opacity-50 cursor-not-allowed" : "hover:shadow-lg hover:from-gray-900 hover:to-gray-900"
                   }`}
                 disabled={isApplyingAI}
                 data-tour="ai-button"
@@ -3790,7 +3790,7 @@ export default function ResumeBuilder() {
                     Paste your resume text below (from LinkedIn, Word, or PDF) to automatically fill your resume.
                   </p>
                   <textarea
-                    className="w-full h-64 p-3 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0B1F3B] focus:border-transparent mb-3"
+                    className="w-full h-64 p-3 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent mb-3"
                     placeholder="Paste resume content here..."
                     value={aiInputText}
                     onChange={(e) => setAiInputText(e.target.value)}
@@ -3798,7 +3798,7 @@ export default function ResumeBuilder() {
                   <button
                     onClick={handleAiTextParse}
                     disabled={isParsingText || !aiInputText.trim()}
-                    className="w-full py-2 bg-[#0B1F3B] text-white rounded-lg font-medium hover:bg-[#071429] disabled:opacity-50 flex items-center justify-center gap-2"
+                    className="w-full py-2 bg-accent text-white rounded-lg font-medium hover:bg-accent-600 disabled:opacity-50 flex items-center justify-center gap-2"
                   >
                     {isParsingText ? (
                       <>
@@ -3838,7 +3838,7 @@ export default function ResumeBuilder() {
             <div className="flex-1 flex justify-around items-center">
               <Link
                 href="/my-resumes"
-                className="flex flex-col items-center text-gray-600 hover:text-[#0B1F3B] transition-all duration-200 p-1"
+                className="flex flex-col items-center text-gray-600 hover:text-primary transition-all duration-200 p-1"
               >
                 <LayoutDashboard size={16} />
                 <span className="text-[10px] font-medium mt-0.5">Resumes</span>
@@ -3846,7 +3846,7 @@ export default function ResumeBuilder() {
 
               <button
                 onClick={() => setShowMobilePreview(true)}
-                className="flex flex-col items-center text-teal-600 hover:text-teal-700 transition-all duration-200 p-1"
+                className="flex flex-col items-center text-accent hover:text-accent-700 transition-all duration-200 p-1"
                 data-tour="preview-button"
               >
                 <Eye size={16} />
@@ -3855,7 +3855,7 @@ export default function ResumeBuilder() {
 
               <button
                 onClick={handleSaveResume}
-                className="flex flex-col items-center text-[#0B1F3B] hover:text-[#0B1F3B] transition-all duration-200 p-1"
+                className="flex flex-col items-center text-primary hover:text-primary transition-all duration-200 p-1"
                 data-tour="save-button"
               >
                 <Save size={16} />
@@ -3867,12 +3867,12 @@ export default function ResumeBuilder() {
                 disabled={isGeneratingPdf}
                 className={`flex flex-col items-center transition-all duration-200 p-1 ${isGeneratingPdf
                   ? 'text-gray-400 cursor-not-allowed'
-                  : 'text-[#0B1F3B] hover:text-[#0B1F3B]'
+                  : 'text-primary hover:text-primary'
                   }`}
                 data-tour="pdf-button"
               >
                 {isGeneratingPdf ? (
-                  <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-[#0B1F3B]"></div>
+                  <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-primary"></div>
                 ) : (
                   <Download size={16} />
                 )}
@@ -3891,12 +3891,12 @@ export default function ResumeBuilder() {
                     disabled={isExporting}
                     className={`flex flex-col items-center transition-all duration-200 p-1 ${isExporting
                       ? 'text-gray-400 cursor-not-allowed'
-                      : 'text-green-600 hover:text-green-700'
+                      : 'text-accent-600 hover:text-accent-700'
                       }`}
                     title="Export to Hosted Preview"
                   >
                     {isExporting ? (
-                      <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-green-600"></div>
+                      <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-accent-600"></div>
                     ) : (
                       <Upload size={16} />
                     )}
@@ -3910,7 +3910,7 @@ export default function ResumeBuilder() {
               <div className="relative">
                 <button
                   onClick={handleSwitchToOnePager}
-                  className="flex flex-col items-center text-[#0B1F3B] hover:text-[#00C4B3] transition-all duration-200 p-1"
+                  className="flex flex-col items-center text-primary hover:text-accent transition-all duration-200 p-1"
                   title="One-Pager Resume"
                 >
                   <Zap size={16} />
@@ -3937,7 +3937,7 @@ export default function ResumeBuilder() {
               transition={{ type: "spring", damping: 25, stiffness: 500 }}
               className="bg-white rounded-t-2xl w-full max-h-[80vh] overflow-hidden"
             >
-              <div className="p-4 border-b border-gray-200 bg-gradient-to-r from-slate-50 to-slate-50">
+              <div className="p-4 border-b border-gray-200 bg-gray-50">
                 <div className="flex justify-between items-center">
                   <h2 className="text-lg font-bold text-gray-800">Customize Colors</h2>
                   <button
@@ -3994,7 +3994,7 @@ export default function ResumeBuilder() {
                     {/* Template Selection */}
                     <button
                       onClick={() => setIsTemplateModalOpen(true)}
-                      className="flex items-center gap-1 bg-slate-100 text-[#0B1F3B] hover:bg-slate-200 px-3 py-1 rounded-lg text-xs font-medium transition-all duration-200"
+                      className="flex items-center gap-1 bg-slate-100 text-primary hover:bg-slate-200 px-3 py-1 rounded-lg text-xs font-medium transition-all duration-200"
                     >
                       <LayoutDashboard size={12} />
                       Templates
@@ -4015,7 +4015,7 @@ export default function ResumeBuilder() {
                     <button
                       onClick={() => setAutoSlideshow(!autoSlideshow)}
                       className={`flex items-center gap-1 px-3 py-1 rounded-lg text-xs font-medium transition-all duration-200 ${autoSlideshow
-                        ? "bg-slate-100 text-[#0B1F3B] hover:bg-slate-200"
+                        ? "bg-slate-100 text-primary hover:bg-slate-200"
                         : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                         }`}
                     >
@@ -4027,7 +4027,7 @@ export default function ResumeBuilder() {
                     <div className="relative">
                       <button
                         onClick={handleSwitchToOnePager}
-                        className="flex items-center gap-1 bg-[#00C4B3]/10 text-[#0B1F3B] hover:bg-[#00C4B3]/20 px-3 py-1 rounded-lg text-xs font-medium transition-all duration-200"
+                        className="flex items-center gap-1 bg-accent/10 text-primary hover:bg-accent/20 px-3 py-1 rounded-lg text-xs font-medium transition-all duration-200"
                       >
                         <Zap size={12} />
                         1-Page
@@ -4071,7 +4071,7 @@ export default function ResumeBuilder() {
                       disabled={isGeneratingPdf}
                       className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold text-sm transition-all duration-200 ${isGeneratingPdf
                         ? 'bg-gray-400 text-white cursor-not-allowed'
-                        : 'bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] hover:from-[#071429] hover:to-[#008C81] text-white shadow-md hover:shadow-lg'
+                        : 'bg-gradient-to-r from-primary to-accent hover:from-gray-900 hover:to-accent-700 text-white shadow-md hover:shadow-lg'
                         }`}
                     >
                       {isGeneratingPdf ? (
@@ -4198,7 +4198,7 @@ export default function ResumeBuilder() {
                 <button
                   onClick={() => setIsAiBuildMode(!isAiBuildMode)}
                   className={`flex items-center gap-2 px-3 py-2 rounded-md border transition-all duration-200 text-sm font-medium h-9 ${isAiBuildMode
-                    ? "bg-[#0B1F3B] text-white border-[#0B1F3B] hover:bg-[#071429]"
+                    ? "bg-primary text-white border-primary hover:bg-gray-900"
                     : "bg-white text-gray-700 border-gray-200 hover:bg-gray-50"
                     }`}
                 >
@@ -4209,7 +4209,7 @@ export default function ResumeBuilder() {
                 <div className="relative">
                   <button
                     onClick={handleApplyAISuggestions}
-                    className={`flex items-center gap-2 bg-[#0B1F3B] hover:bg-[#071429] text-white px-3 py-2 rounded-md transition-all duration-200 text-sm font-medium h-9 ${isApplyingAI ? "opacity-50 cursor-not-allowed" : ""
+                    className={`flex items-center gap-2 bg-accent hover:bg-accent-600 text-white px-3 py-2 rounded-md transition-all duration-200 text-sm font-medium h-9 ${isApplyingAI ? "opacity-50 cursor-not-allowed" : ""
                       }`}
                     disabled={isApplyingAI}
                     data-tour="ai-button"
@@ -4256,7 +4256,7 @@ export default function ResumeBuilder() {
                               setPaymentFormOpen(true);
                               setHasInteractedWithCheckout(true);
                             }}
-                            className="flex items-center gap-1 bg-white border border-[#00C4B3]/30 text-[#0B1F3B] hover:bg-[#00C4B3]/5 px-3 py-1.5 rounded-md text-xs font-medium transition-all duration-200"
+                            className="flex items-center gap-1 bg-white border border-accent/30 text-primary hover:bg-accent/5 px-3 py-1.5 rounded-md text-xs font-medium transition-all duration-200"
                             title={isPremium ? "Open Drag and Drop Editor" : "Drag & Drop Editor - Premium Feature"}
                           >
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
@@ -4290,7 +4290,7 @@ export default function ResumeBuilder() {
                 <div className="relative">
                   <button
                     onClick={handleGeneratePDF}
-                    className="flex items-center gap-2 bg-[#0B1F3B] hover:bg-[#071429] text-white px-4 py-2 rounded-md shadow-sm hover:shadow-md transition-all duration-200 text-sm font-medium h-9"
+                    className="flex items-center gap-2 bg-accent hover:bg-accent-600 text-white px-4 py-2 rounded-md shadow-sm hover:shadow-md transition-all duration-200 text-sm font-medium h-9"
                     data-tour="pdf-button"
                   >
                     <Eye size={16} />
@@ -4306,7 +4306,7 @@ export default function ResumeBuilder() {
                     disabled={isExporting}
                     className={`flex items-center gap-2 px-4 py-2 rounded-md shadow-sm hover:shadow-md transition-all duration-200 text-sm font-medium h-9 ${isExporting
                       ? 'bg-gray-400 text-white cursor-not-allowed'
-                      : 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white'
+                      : 'bg-accent hover:bg-accent-600 text-white'
                       }`}
                     title="Export to Hosted Preview"
                   >
@@ -4372,7 +4372,7 @@ export default function ResumeBuilder() {
                     {isAiBuildMode ? (
                       <div className="max-w-3xl mx-auto py-8 px-4">
                         <div className="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden">
-                          <div className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] p-6 text-white">
+                          <div className="bg-gradient-to-r from-primary to-accent p-6 text-white">
                             <h2 className="text-2xl font-bold flex items-center gap-3">
                               <Bot size={28} />
                               AI Resume Builder
@@ -4390,7 +4390,7 @@ export default function ResumeBuilder() {
                               </label>
                               <div className="relative">
                                 <textarea
-                                  className="w-full h-96 p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0B1F3B] focus:border-transparent text-base resize-none"
+                                  className="w-full h-96 p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-accent focus:border-transparent text-base resize-none"
                                   placeholder="Copy and paste text from your LinkedIn profile, Word document, or PDF here..."
                                   value={aiInputText}
                                   onChange={(e) => setAiInputText(e.target.value)}
@@ -4419,7 +4419,7 @@ export default function ResumeBuilder() {
                               <button
                                 onClick={handleAiTextParse}
                                 disabled={isParsingText || !aiInputText.trim()}
-                                className="px-8 py-2.5 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white rounded-lg font-medium hover:shadow-lg hover:from-[#071429] hover:to-[#008C81] disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 transition-all duration-200 transform active:scale-95"
+                                className="px-8 py-2.5 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-medium hover:shadow-lg hover:from-gray-900 hover:to-accent-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 transition-all duration-200 transform active:scale-95"
                               >
                                 {isParsingText ? (
                                   <>
@@ -4439,17 +4439,17 @@ export default function ResumeBuilder() {
 
                         {/* Features / Tips */}
                         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-                          <div className="bg-[#00C4B3]/5 p-4 rounded-lg border border-[#00C4B3]/20">
-                            <h3 className="font-semibold text-[#0B1F3B] mb-1">Smart Parsing</h3>
+                          <div className="bg-accent/5 p-4 rounded-lg border border-accent/20">
+                            <h3 className="font-semibold text-primary mb-1">Smart Parsing</h3>
                             <p className="text-sm text-[#475569]">Intelligently identifies sections like Experience, Education, and Skills.</p>
                           </div>
                           <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                            <h3 className="font-semibold text-[#0B1F3B] mb-1">Auto-Formatting</h3>
-                            <p className="text-sm text-[#0B1F3B]">Instantly applies professional layouts and typography to your raw text.</p>
+                            <h3 className="font-semibold text-primary mb-1">Auto-Formatting</h3>
+                            <p className="text-sm text-primary">Instantly applies professional layouts and typography to your raw text.</p>
                           </div>
                           <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                            <h3 className="font-semibold text-[#0B1F3B] mb-1">Instant Preview</h3>
-                            <p className="text-sm text-[#0B1F3B]">See your new resume come to life in real-time as soon as you generate.</p>
+                            <h3 className="font-semibold text-primary mb-1">Instant Preview</h3>
+                            <p className="text-sm text-primary">See your new resume come to life in real-time as soon as you generate.</p>
                           </div>
                         </div>
                       </div>
@@ -4790,14 +4790,14 @@ export default function ResumeBuilder() {
                   value={feedbackComment}
                   onChange={(e) => setFeedbackComment(e.target.value)}
                   placeholder="Tell us what you think..."
-                  className="w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-teal-400 focus:outline-none text-xs md:text-sm resize-none h-20 md:h-24"
+                  className="w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-accent focus:outline-none text-xs md:text-sm resize-none h-20 md:h-24"
                   maxLength={500}
                 />
               </div>
               <div className="flex gap-2 md:gap-4">
                 <button
                   type="submit"
-                  className="flex-1 bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white px-2 md:px-4 py-1 md:py-2 rounded-full font-semibold hover:from-[#071429] hover:to-[#071429] transition-all duration-300 shadow-md hover:shadow-lg text-xs md:text-sm"
+                  className="flex-1 bg-accent hover:bg-accent-600 text-white px-2 md:px-4 py-1 md:py-2 rounded-full font-semibold transition-all duration-300 shadow-md hover:shadow-lg text-xs md:text-sm"
                 >
                   Submit
                 </button>
@@ -4830,7 +4830,7 @@ export default function ResumeBuilder() {
             <div className="flex gap-2 md:gap-4">
               <button
                 onClick={saveResumeWithName}
-                className="flex-1 bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white px-2 md:px-4 py-1 md:py-2 rounded-md hover:from-[#071429] hover:to-[#071429] transition-all text-xs md:text-sm"
+                className="flex-1 bg-accent hover:bg-accent-600 text-white px-2 md:px-4 py-1 md:py-2 rounded-md transition-all text-xs md:text-sm"
               >
                 Save
               </button>
@@ -4915,7 +4915,7 @@ export default function ResumeBuilder() {
             <div className="p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center">
-                  <FileText className="w-5 h-5 text-[#0B1F3B]" />
+                  <FileText className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">Choose Resume Builder</h3>
@@ -4926,11 +4926,11 @@ export default function ResumeBuilder() {
               <div className="space-y-3 mb-6">
                 <button
                   onClick={handleOpenInOnePagerBuilder}
-                  className="w-full p-4 border border-gray-200 rounded-lg hover:border-teal-300 hover:bg-slate-50 transition-colors text-left"
+                  className="w-full p-4 border border-gray-200 rounded-lg hover:border-accent hover:bg-slate-50 transition-colors text-left"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-[#00C4B3]/10 rounded-full flex items-center justify-center">
-                      <FileText className="w-4 h-4 text-[#0B1F3B]" />
+                    <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
+                      <FileText className="w-4 h-4 text-primary" />
                     </div>
                     <div>
                       <div className="font-medium text-gray-900">One-Pager Builder</div>
@@ -4941,11 +4941,11 @@ export default function ResumeBuilder() {
 
                 <button
                   onClick={handleOpenInResumeBuilder}
-                  className="w-full p-4 border border-gray-200 rounded-lg hover:border-teal-300 hover:bg-slate-50 transition-colors text-left"
+                  className="w-full p-4 border border-gray-200 rounded-lg hover:border-accent hover:bg-slate-50 transition-colors text-left"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center">
-                      <FileText className="w-4 h-4 text-[#0B1F3B]" />
+                      <FileText className="w-4 h-4 text-primary" />
                     </div>
                     <div>
                       <div className="font-medium text-gray-900">Resume Builder</div>
@@ -4981,7 +4981,7 @@ export default function ResumeBuilder() {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
             <div className="flex items-center justify-center w-12 h-12 bg-slate-100 rounded-full mx-auto mb-4">
-              <Upload className="w-6 h-6 text-[#0B1F3B]" />
+              <Upload className="w-6 h-6 text-primary" />
             </div>
             <h3 className="text-lg font-semibold text-gray-900 text-center mb-2">
               Set Payment Amount
@@ -5001,7 +5001,7 @@ export default function ResumeBuilder() {
                   value={exportPaymentAmount}
                   onChange={(e) => setExportPaymentAmount(e.target.value)}
                   placeholder="Enter amount"
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#00C4B3] focus:border-[#00C4B3]"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
                 />
               </div>
               {exportPaymentError && (
@@ -5029,7 +5029,7 @@ export default function ResumeBuilder() {
               </button>
               <button
                 onClick={handleConfirmExport}
-                className="flex-1 bg-[#0B1F3B] text-white px-4 py-2 rounded-lg hover:bg-[#071429] transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                className="flex-1 bg-primary text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
                 disabled={isExporting}
               >
                 {isExporting ? 'Exporting...' : 'Export Resume'}
@@ -5066,7 +5066,7 @@ export default function ResumeBuilder() {
                     navigator.clipboard.writeText(exportedUrl);
                     toast.success('URL copied to clipboard!');
                   }}
-                  className="text-[#0B1F3B] hover:text-[#0B1F3B] text-sm"
+                  className="text-primary hover:text-primary text-sm"
                 >
                   Copy
                 </button>
@@ -5076,7 +5076,7 @@ export default function ResumeBuilder() {
               <div className="bg-slate-50 border border-slate-200 rounded-lg p-3 mb-4 text-center">
                 <p className="text-sm text-gray-700">
                   Charge Amount:{' '}
-                  <span className="font-semibold text-[#0B1F3B]">
+                  <span className="font-semibold text-primary">
                     {formatCurrencyValue(exportedPaymentAmount, exportedPaymentCurrency || 'INR')}
                   </span>
                 </p>
@@ -5093,7 +5093,7 @@ export default function ResumeBuilder() {
                 href={exportedUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 bg-[#0B1F3B] text-white px-4 py-2 rounded-lg hover:bg-[#071429] transition-colors text-center"
+                className="flex-1 bg-primary text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors text-center"
               >
                 View Hosted Resume
               </a>

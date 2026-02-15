@@ -322,7 +322,7 @@ export default function InterviewCheatsheet({
           animate={{ opacity: 1, y: 0 }}
           className="bg-white rounded-xl shadow-lg p-8 max-w-md w-full text-center"
         >
-          <Lock className="w-16 h-16 text-[#0B1F3B] mx-auto mb-4" />
+          <Lock className="w-16 h-16 text-primary mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Sign In Required
           </h2>
@@ -331,7 +331,7 @@ export default function InterviewCheatsheet({
           </p>
           <button
             onClick={() => router.push("/login")}
-            className="bg-[#0B1F3B] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#0B1F3B]/90 transition-colors"
+            className="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
           >
             Sign In
           </button>
@@ -349,7 +349,7 @@ export default function InterviewCheatsheet({
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-xl shadow-lg p-6 sm:p-8 mb-6 text-white"
+          className="bg-gradient-to-r from-primary to-accent rounded-xl shadow-lg p-6 sm:p-8 mb-6 text-white"
         >
           <div className="flex items-start justify-between">
             <div className="flex-1">
@@ -378,7 +378,7 @@ export default function InterviewCheatsheet({
             {user && !hasAccess && (
               <button
                 onClick={() => router.push("/interview-cheatsheet-pricing")}
-                className="bg-white text-[#0B1F3B] px-4 py-2 rounded-lg font-semibold hover:bg-white/90 transition-colors text-sm whitespace-nowrap ml-4"
+                className="bg-white text-primary px-4 py-2 rounded-lg font-semibold hover:bg-white/90 transition-colors text-sm whitespace-nowrap ml-4"
               >
                 Buy Credits
               </button>
@@ -396,7 +396,7 @@ export default function InterviewCheatsheet({
           >
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <FileText className="w-6 h-6 text-[#00C4B3]" />
+                <FileText className="w-6 h-6 text-accent" />
                 <h2 className="text-xl font-bold text-gray-900">
                   Job Description
                 </h2>
@@ -418,7 +418,7 @@ export default function InterviewCheatsheet({
                 <select
                   value={selectedJDId}
                   onChange={(e) => handleSelectSavedJD(e.target.value)}
-                  className="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-[#00C4B3] focus:ring-2 focus:ring-[#00C4B3]/20 transition-all bg-white"
+                  className="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white"
                   disabled={isGenerating || isLoadingJDs}
                 >
                   <option value="">-- Or paste a new job description below --</option>
@@ -440,7 +440,7 @@ export default function InterviewCheatsheet({
                 setSelectedJDId(""); // Clear selection when typing
               }}
               placeholder="Paste the complete job description here...&#10;&#10;Include: Job title, responsibilities, requirements, qualifications, skills needed, etc."
-              className="w-full h-64 p-4 border-2 border-gray-200 rounded-lg focus:border-[#00C4B3] focus:ring-2 focus:ring-[#00C4B3]/20 transition-all resize-none"
+              className="w-full h-64 p-4 border-2 border-gray-200 rounded-lg focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all resize-none"
               disabled={isGenerating}
             />
 
@@ -448,7 +448,7 @@ export default function InterviewCheatsheet({
               <button
                 onClick={handleGenerateCheatsheet}
                 disabled={isGenerating || !jobDescription.trim() || (user && !hasAccess)}
-                className="flex-1 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-6 py-4 rounded-lg font-bold text-lg hover:opacity-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg"
+                className="flex-1 bg-gradient-to-r from-primary to-accent text-white px-6 py-4 rounded-lg font-bold text-lg hover:opacity-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg"
               >
                 {isGenerating ? (
                   <>
@@ -514,7 +514,7 @@ export default function InterviewCheatsheet({
                 </button>
                 <button
                   onClick={handleDownloadPDF}
-                  className="flex-1 sm:flex-none bg-[#0B1F3B] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#0B1F3B]/90 transition-colors flex items-center justify-center gap-2"
+                  className="flex-1 sm:flex-none bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
                 >
                   <Download className="w-4 h-4" />
                   Download PDF
@@ -538,7 +538,7 @@ export default function InterviewCheatsheet({
                   >
                     <div className="flex-1">
                       <div className="flex items-start gap-3">
-                        <span className="flex-shrink-0 w-8 h-8 bg-[#00C4B3]/10 text-[#0B1F3B] rounded-full flex items-center justify-center font-bold text-sm">
+                        <span className="flex-shrink-0 w-8 h-8 bg-accent/10 text-primary rounded-full flex items-center justify-center font-bold text-sm">
                           {index + 1}
                         </span>
                         <div className="flex-1 min-w-0">
@@ -546,7 +546,7 @@ export default function InterviewCheatsheet({
                             {qa.question}
                           </h3>
                           {qa.category && (
-                            <span className="inline-block mt-2 text-xs font-medium text-[#0B1F3B] bg-[#00C4B3]/5 px-2 py-1 rounded">
+                            <span className="inline-block mt-2 text-xs font-medium text-primary bg-accent/5 px-2 py-1 rounded">
                               {qa.category}
                             </span>
                           )}
@@ -572,12 +572,12 @@ export default function InterviewCheatsheet({
                         <div className="p-4 sm:p-6 bg-gray-50">
                           <div className="flex items-center justify-between mb-3">
                             <h4 className="font-semibold text-gray-900 text-sm flex items-center gap-2">
-                              <MessageCircle className="w-4 h-4 text-[#00C4B3]" />
+                              <MessageCircle className="w-4 h-4 text-accent" />
                               Your Answer:
                             </h4>
                             <button
                               onClick={() => copyAnswer(qa.answer, index)}
-                              className="text-xs text-[#00C4B3] hover:text-[#00C4B3]/80 font-medium flex items-center gap-1"
+                              className="text-xs text-accent hover:text-accent/80 font-medium flex items-center gap-1"
                             >
                               {copiedIndex === index ? (
                                 <>
@@ -597,15 +597,15 @@ export default function InterviewCheatsheet({
                           </p>
 
                           {qa.tips && qa.tips.length > 0 && (
-                            <div className="mt-4 bg-[#0B1F3B]/5 border border-[#E5E7EB] rounded-lg p-4">
-                              <h5 className="font-semibold text-[#0F172A] text-sm mb-2 flex items-center gap-2">
+                            <div className="mt-4 bg-primary/5 border border-border rounded-lg p-4">
+                              <h5 className="font-semibold text-primary text-sm mb-2 flex items-center gap-2">
                                 <Target className="w-4 h-4" />
                                 Pro Tips:
                               </h5>
                               <ul className="space-y-1 text-xs sm:text-sm text-[#475569]">
                                 {qa.tips.map((tip, tipIndex) => (
                                   <li key={tipIndex} className="flex items-start gap-2">
-                                    <span className="text-[#00C4B3] flex-shrink-0">•</span>
+                                    <span className="text-accent flex-shrink-0">•</span>
                                     <span>{tip}</span>
                                   </li>
                                 ))}

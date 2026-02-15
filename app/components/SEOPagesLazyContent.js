@@ -32,7 +32,7 @@ export default function SEOPagesLazyContent({ pageData }) {
 
             {/* Final Call to Action - Keep inline as it is simple */}
             <section className="py-24 bg-gray-900 text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-900/20 to-transparent"></div>
+                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/20 to-transparent"></div>
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                     <h2 className="text-4xl sm:text-5xl font-bold mb-8 leading-tight">
                         Ready to Land Your Dream {title} Job?
@@ -44,7 +44,7 @@ export default function SEOPagesLazyContent({ pageData }) {
                     <div className="flex flex-col sm:flex-row justify-center gap-6">
                         <Link
                             href="/resume-builder"
-                            className="bg-blue-600 text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-blue-500 transition-all duration-300 shadow-xl hover:shadow-blue-500/25 flex items-center justify-center gap-3 transform hover:-translate-y-1"
+                            className="bg-accent text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-accent-600 transition-all duration-300 shadow-xl hover:shadow-accent/25 flex items-center justify-center gap-3 transform hover:-translate-y-1"
                         >
                             <Rocket size={24} />
                             <span>Build My Resume for Free</span>

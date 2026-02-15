@@ -33,9 +33,9 @@ const SKILLS_STYLES = [
 ];
 
 const SUCCESS_STATS = [
-  { icon: Users, stat: "20,000+", label: "Downloads", color: "text-emerald-500" },
-  { icon: TrendingUp, stat: "4.9★", label: "User Rating", color: "text-blue-500" },
-  { icon: Award, stat: "15+", label: "Templates", color: "text-blue-500" },
+  { icon: Users, stat: "20,000+", label: "Downloads", color: "text-accent" },
+  { icon: TrendingUp, stat: "4.9★", label: "User Rating", color: "text-accent" },
+  { icon: Award, stat: "15+", label: "Templates", color: "text-accent" },
   { icon: Trophy, stat: "ATS", label: "Optimized", color: "text-orange-500" }
 ];
 
@@ -852,8 +852,8 @@ export default function ResumeSlideshowModal({
                 <div className="flex items-center gap-1 bg-gray-100 rounded-full px-2 py-1">
                   {slide.phase === "templates" || slide.phase === "ats-templates" ? (
                     <>
-                      <Target size={12} className={slide.phase === "ats-templates" ? "text-green-600" : "text-blue-600"} />
-                      <span className={`text-xs font-medium ${slide.phase === "ats-templates" ? "text-green-700" : "text-blue-700"}`}>
+                      <Target size={12} className={slide.phase === "ats-templates" ? "text-green-600" : "text-accent"} />
+                      <span className={`text-xs font-medium ${slide.phase === "ats-templates" ? "text-green-700" : "text-accent-700"}`}>
                         {current + 1}/{slides.length}
                       </span>
                     </>
@@ -879,7 +879,7 @@ export default function ResumeSlideshowModal({
             {/* Navigation Arrows - Properly positioned for mobile */}
             <button
               onClick={goToPrevious}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-50 bg-white/90 hover:bg-white text-blue-600 border border-gray-200 shadow-lg rounded-full w-10 h-10 flex items-center justify-center transition-all active:scale-95"
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-50 bg-white/90 hover:bg-white text-accent border border-gray-200 shadow-lg rounded-full w-10 h-10 flex items-center justify-center transition-all active:scale-95"
               style={{ backdropFilter: 'blur(8px)' }}
             >
               <ArrowLeft size={18} />
@@ -887,7 +887,7 @@ export default function ResumeSlideshowModal({
 
             <button
               onClick={goToNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-50 bg-white/90 hover:bg-white text-blue-600 border border-gray-200 shadow-lg rounded-full w-10 h-10 flex items-center justify-center transition-all active:scale-95"
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-50 bg-white/90 hover:bg-white text-accent border border-gray-200 shadow-lg rounded-full w-10 h-10 flex items-center justify-center transition-all active:scale-95"
               style={{ backdropFilter: 'blur(8px)' }}
             >
               <ArrowRight size={18} />
@@ -948,7 +948,7 @@ export default function ResumeSlideshowModal({
                       </p>
                       <button
                         onClick={handleUpgrade}
-                        className="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold text-sm sm:text-base hover:from-blue-700 hover:to-blue-600 transition-all shadow-xl hover:shadow-2xl flex items-center gap-2 mx-auto"
+                        className="bg-gradient-to-r from-primary to-accent text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold text-sm sm:text-base hover:from-primary-800 hover:to-accent-600 transition-all shadow-xl hover:shadow-2xl flex items-center gap-2 mx-auto"
                       >
                         <Crown size={16} className="sm:w-5 sm:h-5" />
                         Upgrade Now
@@ -988,8 +988,8 @@ export default function ResumeSlideshowModal({
                       animate={{ opacity: 1, y: 0 }}
                       className="text-center text-white w-full"
                     >
-                      <div className="bg-emerald-500/20 backdrop-blur-sm rounded-full p-2 mb-3 mx-auto w-fit">
-                        <CheckCircle size={20} className="text-emerald-300" />
+                      <div className="bg-accent/20 backdrop-blur-sm rounded-full p-2 mb-3 mx-auto w-fit">
+                        <CheckCircle size={20} className="text-accent-300" />
                       </div>
                       <h3 className="text-base font-bold mb-2">
                         {isPremium ? "Premium Unlocked" : "Basic Plan Active"}
@@ -1004,7 +1004,7 @@ export default function ResumeSlideshowModal({
                         disabled={isDownloading || ((isBasicPlan || isOneDayPlan) && hasReachedDownloadLimit())}
                         className={`px-4 py-2 rounded-full font-semibold text-sm transition-all shadow-lg flex items-center gap-2 mx-auto ${isDownloading || ((isBasicPlan || isOneDayPlan) && hasReachedDownloadLimit())
                           ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
-                          : 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-600 hover:to-teal-600'
+                          : 'bg-gradient-to-r from-accent to-accent-600 text-white hover:from-accent-600 hover:to-accent-700'
                           }`}
                       >
                         {isDownloading ? (
@@ -1032,7 +1032,7 @@ export default function ResumeSlideshowModal({
             <div className="text-center mb-3">
               <h3 className="font-bold text-gray-900 text-sm">{slide.label}</h3>
               <div className="flex items-center justify-center gap-2 mt-1">
-                <span className="inline-flex items-center gap-1 text-xs font-medium text-blue-700 bg-blue-100 px-2 py-1 rounded-full">
+                <span className="inline-flex items-center gap-1 text-xs font-medium text-accent-700 bg-accent-50 px-2 py-1 rounded-full">
                   <LayoutGrid size={10} />
                   {slide.category}
                 </span>
@@ -1074,7 +1074,7 @@ export default function ResumeSlideshowModal({
               <div className="flex flex-col gap-3 w-full">
                 <button
                   onClick={handleUpgrade}
-                  className="w-full bg-blue-600 text-white py-3 px-4 rounded-xl font-bold text-sm hover:bg-blue-700 transition-all shadow-lg flex items-center justify-center gap-2 border-b-4 border-blue-800"
+                  className="w-full bg-accent text-white py-3 px-4 rounded-xl font-bold text-sm hover:bg-accent-600 transition-all shadow-lg flex items-center justify-center gap-2 border-b-4 border-primary"
                 >
                   <Crown size={18} className="text-yellow-300" />
                   Upgrade to Premium
@@ -1100,7 +1100,7 @@ export default function ResumeSlideshowModal({
                 disabled={isDownloading || ((isBasicPlan || isOneDayPlan) && hasReachedDownloadLimit())}
                 className={`w-full py-3 px-4 rounded-xl font-bold text-sm transition-all shadow-lg flex items-center justify-center gap-2 ${isDownloading || ((isBasicPlan || isOneDayPlan) && hasReachedDownloadLimit())
                   ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
-                  : 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-600 hover:to-teal-600'
+                  : 'bg-gradient-to-r from-accent to-accent-600 text-white hover:from-accent-600 hover:to-accent-700'
                   }`}
               >
                 {isDownloading ? (
@@ -1134,7 +1134,7 @@ export default function ResumeSlideshowModal({
               <motion.div
                 animate={{ rotate: [0, 5, -5, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 text-white px-4 py-2 rounded-full shadow-lg mb-4"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-white px-4 py-2 rounded-full shadow-lg mb-4"
               >
                 <Crown size={20} />
                 <span className="font-bold">Premium Gallery</span>
@@ -1165,7 +1165,7 @@ export default function ResumeSlideshowModal({
             </div>
 
             {/* Testimonial Carousel */}
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-200">
+            <div className="bg-gradient-to-r from-accent-50 to-primary-50 rounded-xl p-4 border border-accent/20">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={showTestimonial}
@@ -1261,8 +1261,8 @@ export default function ResumeSlideshowModal({
                   <div className="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1">
                     {slide.phase === "templates" ? (
                       <>
-                        <LayoutGrid size={14} className="text-blue-600" />
-                        <span className="text-xs font-medium text-blue-700">
+                        <LayoutGrid size={14} className="text-accent" />
+                        <span className="text-xs font-medium text-accent-700">
                           Layout {current + 1}/21
                         </span>
                       </>
@@ -1295,7 +1295,7 @@ export default function ResumeSlideshowModal({
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <motion.div
-                    className="bg-gradient-to-r from-blue-500 to-blue-500 h-2 rounded-full"
+                    className="bg-gradient-to-r from-accent to-accent h-2 rounded-full"
                     initial={{ width: 0 }}
                     animate={{ width: `${((current + 1) / slides.length) * 100}%` }}
                     transition={{ duration: 0.3 }}
@@ -1310,14 +1310,14 @@ export default function ResumeSlideshowModal({
               {/* Navigation Arrows */}
               <button
                 onClick={goToPrevious}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-50 bg-white hover:bg-blue-50 text-blue-600 border border-gray-200 shadow-lg rounded-full w-12 h-12 flex items-center justify-center transition-all group"
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-50 bg-white hover:bg-accent-50 text-accent border border-gray-200 shadow-lg rounded-full w-12 h-12 flex items-center justify-center transition-all group"
               >
                 <ArrowLeft size={20} className="group-hover:scale-110 transition-transform" />
               </button>
 
               <button
                 onClick={goToNext}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-50 bg-white hover:bg-blue-50 text-blue-600 border border-gray-200 shadow-lg rounded-full w-12 h-12 flex items-center justify-center transition-all group"
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-50 bg-white hover:bg-accent-50 text-accent border border-gray-200 shadow-lg rounded-full w-12 h-12 flex items-center justify-center transition-all group"
               >
                 <ArrowRight size={20} className="group-hover:scale-110 transition-transform" />
               </button>
@@ -1396,7 +1396,7 @@ export default function ResumeSlideshowModal({
                         </p>
                         <button
                           onClick={handleUpgrade}
-                          className="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-700 hover:to-blue-600 transition-all shadow-lg flex items-center gap-2 mx-auto"
+                          className="bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-full font-semibold hover:from-primary-800 hover:to-accent-600 transition-all shadow-lg flex items-center gap-2 mx-auto"
                         >
                           <Crown size={16} />
                           Upgrade to Premium
@@ -1436,8 +1436,8 @@ export default function ResumeSlideshowModal({
                         animate={{ opacity: 1, y: 0 }}
                         className="text-center text-white"
                       >
-                        <div className="bg-emerald-500/20 backdrop-blur-sm rounded-full p-3 mb-4 mx-auto w-fit">
-                          <CheckCircle size={24} className="text-emerald-300" />
+                        <div className="bg-accent/20 backdrop-blur-sm rounded-full p-3 mb-4 mx-auto w-fit">
+                          <CheckCircle size={24} className="text-accent-300" />
                         </div>
                         <h3 className="text-lg font-bold mb-2">
                           {isPremium ? "Premium Unlocked" : "Basic Plan Active"}
@@ -1452,7 +1452,7 @@ export default function ResumeSlideshowModal({
                           disabled={isDownloading || ((isBasicPlan || isOneDayPlan) && hasReachedDownloadLimit())}
                           className={`px-6 py-3 rounded-full font-semibold transition-all shadow-lg flex items-center gap-2 mx-auto ${isDownloading || ((isBasicPlan || isOneDayPlan) && hasReachedDownloadLimit())
                             ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
-                            : 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-600 hover:to-teal-600'
+                            : 'bg-gradient-to-r from-accent to-accent-600 text-white hover:from-accent-600 hover:to-accent-700'
                             }`}
                         >
                           {isDownloading ? (
@@ -1480,7 +1480,7 @@ export default function ResumeSlideshowModal({
                 <div className="flex-1">
                   <h3 className="font-bold text-gray-900 text-lg">{slide.label}</h3>
                   <div className="flex items-center gap-2 mt-1 flex-wrap">
-                    <span className="inline-flex items-center gap-1 text-xs font-medium text-blue-700 bg-blue-100 px-2 py-1 rounded-full">
+                    <span className="inline-flex items-center gap-1 text-xs font-medium text-accent-700 bg-accent-50 px-2 py-1 rounded-full">
                       <LayoutGrid size={12} />
                       {slide.category}
                     </span>
@@ -1490,7 +1490,7 @@ export default function ResumeSlideshowModal({
                         {slide.colorName}
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-1 text-xs font-medium text-blue-700 bg-blue-100 px-2 py-1 rounded-full">
+                      <span className="inline-flex items-center gap-1 text-xs font-medium text-accent-700 bg-accent-50 px-2 py-1 rounded-full">
                         <Eye size={12} />
                         Layout Preview
                       </span>
@@ -1500,15 +1500,15 @@ export default function ResumeSlideshowModal({
                   {!isPremium && (
                     <div className="mt-2 flex items-center gap-4 text-xs text-gray-600">
                       <span className="flex items-center gap-1">
-                        <CheckCircle size={12} className="text-emerald-500" />
+                        <CheckCircle size={12} className="text-accent" />
                         ATS Optimized
                       </span>
                       <span className="flex items-center gap-1">
-                        <CheckCircle size={12} className="text-emerald-500" />
+                        <CheckCircle size={12} className="text-accent" />
                         Interview Ready
                       </span>
                       <span className="flex items-center gap-1">
-                        <CheckCircle size={12} className="text-emerald-500" />
+                        <CheckCircle size={12} className="text-accent" />
                         1-Click Download
                       </span>
                     </div>
@@ -1526,7 +1526,7 @@ export default function ResumeSlideshowModal({
                             setHasInteracted(true);
                             handleUpgrade();
                           }}
-                          className={`${isShineSource ? 'bg-orange-500 hover:bg-orange-600 shadow-orange-100' : 'bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 shadow-blue-100'} text-white px-4 py-2 sm:px-8 sm:py-3 rounded-xl font-bold transition-all shadow-xl flex items-center gap-2 border-b-4 ${isShineSource ? 'border-orange-700' : 'border-blue-800'}`}
+                          className={`${isShineSource ? 'bg-orange-500 hover:bg-orange-600 shadow-orange-100' : 'bg-gradient-to-r from-primary to-accent hover:from-primary-800 hover:to-accent-600 shadow-accent-100'} text-white px-4 py-2 sm:px-8 sm:py-3 rounded-xl font-bold transition-all shadow-xl flex items-center gap-2 border-b-4 ${isShineSource ? 'border-orange-700' : 'border-primary'}`}
                         >
                           <Crown size={18} className={`${isShineSource ? 'text-yellow-200' : 'text-yellow-300'} animate-pulse`} />
                           <div className="flex flex-col items-start leading-tight">
@@ -1547,7 +1547,7 @@ export default function ResumeSlideshowModal({
                           initial={{ opacity: 0, x: 20 }}
                           animate={{ opacity: 1, x: 0 }}
                           onClick={() => window.open("/pricing", "_blank")}
-                          className="text-blue-600 hover:text-blue-700 font-medium text-sm underline"
+                          className="text-accent hover:text-accent-700 font-medium text-sm underline"
                         >
                           View Pricing
                         </motion.button>
@@ -1588,7 +1588,7 @@ export default function ResumeSlideshowModal({
                             disabled={isDownloading || ((isBasicPlan || isOneDayPlan) && hasReachedDownloadLimit())}
                             className={`px-6 py-3 rounded-xl font-semibold transition-all shadow-lg flex items-center gap-2 ${isDownloading || ((isBasicPlan || isOneDayPlan) && hasReachedDownloadLimit())
                               ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
-                              : 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-600 hover:to-teal-600'
+                              : 'bg-gradient-to-r from-accent to-accent-600 text-white hover:from-accent-600 hover:to-accent-700'
                               }`}
                           >
                             {isDownloading ? (
@@ -1646,12 +1646,12 @@ export default function ResumeSlideshowModal({
                 <X size={20} />
               </button>
 
-              <div className="bg-gradient-to-r from-indigo-600 to-blue-600 p-6 text-white text-center">
+              <div className="bg-gradient-to-r from-primary to-accent p-6 text-white text-center">
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
                   <Clock className="w-6 h-6 text-white animate-pulse" />
                 </div>
                 <h3 className="text-xl font-bold mb-1">Wait! Don't Miss Out</h3>
-                <p className="text-blue-100 text-sm">Your download is ready and waiting.</p>
+                <p className="text-accent-100 text-sm">Your download is ready and waiting.</p>
               </div>
 
               <div className="p-6">
@@ -1668,7 +1668,7 @@ export default function ResumeSlideshowModal({
                     <span>Secure one-time payment (No subscription)</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm text-gray-700">
-                    <Sparkles size={16} className="text-indigo-500" />
+                    <Sparkles size={16} className="text-primary" />
                     <span>Instant PDF download + Editable version</span>
                   </li>
                 </ul>
@@ -1678,7 +1678,7 @@ export default function ResumeSlideshowModal({
                     setShowExitPopup(false);
                     handleOneTimePayment(true);
                   }}
-                  className="w-full bg-indigo-600 text-white font-bold py-3 rounded-xl shadow-lg hover:bg-indigo-700 hover:shadow-indigo-200 transition-all flex items-center justify-center gap-2"
+                  className="w-full bg-primary text-white font-bold py-3 rounded-xl shadow-lg hover:bg-primary-700 hover:shadow-primary-200 transition-all flex items-center justify-center gap-2"
                 >
                   <Download size={18} />
                   <span>Download Now {isShineSource ? (currency === 'USD' ? '($2.99)' : '(₹19)') : (currency === 'USD' ? '($2.99)' : <>(₹99)</>)}</span>
@@ -1746,7 +1746,7 @@ export default function ResumeSlideshowModal({
                       setShowDefaultResumeWarning(false);
                       handleUpgrade();
                     }}
-                    className="w-full py-2 text-indigo-600 text-sm font-bold hover:text-indigo-700 underline"
+                    className="w-full py-2 text-primary text-sm font-bold hover:text-primary-700 underline"
                   >
                     Upgrade to Download Premium Templates
                   </button>

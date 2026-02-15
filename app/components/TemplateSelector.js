@@ -24,12 +24,12 @@ const CATEGORY_META = {
   },
   "ATS-Optimized": {
     icon: "🤖",
-    activeBg: "bg-gradient-to-r from-green-600 to-emerald-600",
+    activeBg: "bg-gradient-to-r from-accent-600 to-accent",
     description: "Optimized for Applicant Tracking Systems"
   },
   "Standard": {
     icon: "📄",
-    activeBg: "bg-gradient-to-r from-blue-600 to-indigo-600",
+    activeBg: "bg-gradient-to-r from-primary to-accent",
     description: "Professional layouts for every industry"
   },
   "Job-Specific": {
@@ -220,13 +220,13 @@ export default function TemplateSelector({
 
     if (TEMPLATE_PAYWALL && selectedTemplate.premium && !isPremium) {
       toast.custom((t) => (
-        <div className={`${t.visible ? "animate-enter" : "animate-leave"} bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-2`}>
+        <div className={`${t.visible ? "animate-enter" : "animate-leave"} bg-gradient-to-r from-primary to-accent text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-2`}>
           <Sparkles size={18} />
           <div>
             <p className="font-medium">Premium Template</p>
             <p className="text-sm opacity-90">Upgrade to unlock!</p>
           </div>
-          <button onClick={() => { toast.dismiss(t.id); router.push("/pricing"); }} className="ml-4 px-3 py-1 bg-white text-blue-600 rounded-md text-sm font-medium">Upgrade</button>
+          <button onClick={() => { toast.dismiss(t.id); router.push("/pricing"); }} className="ml-4 px-3 py-1 bg-white text-accent rounded-md text-sm font-medium">Upgrade</button>
         </div>
       ));
       event({ action: "attempt_premium_template", category: "TemplateSelector", label: `Attempted ${selectedTemplate.name}` });
@@ -350,7 +350,7 @@ export default function TemplateSelector({
         {isLoading && (
           <div className="absolute inset-0 bg-white/60 backdrop-blur-sm flex items-center justify-center z-50">
             <div className="flex flex-col items-center gap-2">
-              <div className="animate-spin rounded-full h-8 w-8 border-2 border-blue-600 border-t-transparent" />
+              <div className="animate-spin rounded-full h-8 w-8 border-2 border-accent border-t-transparent" />
               <span className="text-sm text-gray-500 font-medium">Applying...</span>
             </div>
           </div>
@@ -372,14 +372,14 @@ export default function TemplateSelector({
                   key={key}
                   className={`group relative rounded-lg sm:rounded-xl border transition-all duration-150 overflow-hidden ${
                     isSelected
-                      ? "border-blue-500 ring-2 ring-blue-500/20"
-                      : "border-gray-200 active:border-blue-300 sm:hover:border-gray-300 sm:hover:shadow-lg"
+                      ? "border-accent ring-2 ring-accent/20"
+                      : "border-gray-200 active:border-accent/30 sm:hover:border-gray-300 sm:hover:shadow-lg"
                   } ${disabled || (config.premium && !isPremium) ? "opacity-70" : ""}`}
                   onClick={() => !disabled && !(config.premium && !isPremium) && handleSelect(key)}
                 >
                   {/* Selected badge */}
                   {isSelected && (
-                    <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 z-10 bg-blue-600 text-white p-0.5 sm:p-1 rounded-full shadow-md">
+                    <div className="absolute top-1.5 right-1.5 sm:top-2 sm:right-2 z-10 bg-accent text-white p-0.5 sm:p-1 rounded-full shadow-md">
                       <Check size={10} className="sm:hidden" strokeWidth={3} />
                       <Check size={12} className="hidden sm:block" strokeWidth={3} />
                     </div>
@@ -448,7 +448,7 @@ export default function TemplateSelector({
                           config.premium && !isPremium
                             ? "bg-gray-100 text-gray-400"
                             : isSelected
-                            ? "bg-blue-600 text-white"
+                            ? "bg-accent text-white"
                             : "bg-gray-900 text-white active:bg-gray-700 sm:hover:bg-gray-800"
                         } ${isLoading && isSelected ? "animate-pulse" : ""}`}
                       >

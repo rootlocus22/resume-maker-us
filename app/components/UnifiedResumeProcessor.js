@@ -156,7 +156,7 @@ const UnifiedResumeProcessor = ({
       newInsights.push({
         text: "AI is identifying your top skills and experiences",
         icon: Brain,
-        color: "text-blue-500"
+        color: "text-primary"
       });
     }
     
@@ -190,9 +190,9 @@ const UnifiedResumeProcessor = ({
 
   const getStepColor = (color) => {
     const colors = {
-      blue: 'from-blue-500 to-blue-600',
-      green: 'from-green-500 to-green-600',
-      purple: 'from-purple-500 to-purple-600'
+      blue: 'from-primary to-primary-600',
+      green: 'from-accent to-accent-600',
+      purple: 'from-primary-700 to-accent'
     };
     return colors[color] || colors.blue;
   };
@@ -204,7 +204,7 @@ const UnifiedResumeProcessor = ({
       case 'error':
         return <XCircle className="w-5 h-5 sm:w-6 sm:h-6 text-red-500" />;
       case 'processing':
-        return <RefreshCw className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500 animate-spin" />;
+        return <RefreshCw className="w-5 h-5 sm:w-6 sm:h-6 text-accent animate-spin" />;
       default:
         return <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" />;
     }
@@ -418,7 +418,7 @@ const UnifiedResumeProcessor = ({
           className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-[90vh] sm:h-[85vh] md:h-[80vh] lg:h-[75vh] overflow-hidden flex flex-col"
         >
           {/* Header */}
-          <div className={`bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white flex-shrink-0 ${isCompactMode ? 'p-2' : 'p-4 sm:p-6'}`}>
+          <div className={`bg-gradient-to-r from-primary via-primary-700 to-accent text-white flex-shrink-0 ${isCompactMode ? 'p-2' : 'p-4 sm:p-6'}`}>
             {isCompactMode ? (
               // Compact header for small screens
               <div className="flex items-center justify-between">
@@ -428,7 +428,7 @@ const UnifiedResumeProcessor = ({
                   </div>
                 <div>
                   <h2 className="text-sm font-bold">AI Processing</h2>
-                  <p className="text-blue-100 text-xs">{Math.round(progressPercentage)}% Complete • Est. 90s</p>
+                  <p className="text-accent-100 text-xs">{Math.round(progressPercentage)}% Complete • Est. 90s</p>
                 </div>
                 </div>
                 <div className="text-right">
@@ -445,7 +445,7 @@ const UnifiedResumeProcessor = ({
                     </div>
                     <div>
                       <h2 className="text-lg sm:text-xl lg:text-2xl font-bold">ExpertResume AI Processing</h2>
-                      <p className="text-blue-100 text-xs sm:text-sm">Transforming your resume with AI</p>
+                      <p className="text-accent-100 text-xs sm:text-sm">Transforming your resume with AI</p>
                     </div>
                   </div>
                   
@@ -509,7 +509,7 @@ const UnifiedResumeProcessor = ({
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.2 }}
                       className={`relative bg-white rounded-xl sm:rounded-2xl shadow-lg border-2 transition-all duration-500 ${
-                        isActive ? 'border-blue-300 shadow-xl scale-[1.02]' :
+                        isActive ? 'border-accent-300 shadow-xl scale-[1.02]' :
                         isCompleted ? 'border-green-300 shadow-lg' :
                         hasError ? 'border-red-300 shadow-lg' :
                         'border-gray-200'
@@ -588,12 +588,12 @@ const UnifiedResumeProcessor = ({
           >
             {isCompactMode ? (
               // Ultra compact footer for small screens
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded p-1 border border-blue-200">
+              <div className="bg-gradient-to-r from-accent-50 to-primary-50 rounded p-1 border border-accent-200">
                 <div className="flex items-center justify-center gap-1 mb-0.5">
                   <Crown className="w-2 h-2 text-yellow-500" />
                   <span className="text-[8px] font-medium text-gray-700">Premium AI</span>
                   <div className="w-px h-1 bg-gray-300"></div>
-                  <Award className="w-2 h-2 text-blue-500" />
+                  <Award className="w-2 h-2 text-accent-600" />
                   <span className="text-[8px] font-medium text-gray-700">Industry Leading</span>
                 </div>
                 <p className="text-[8px] text-gray-600 leading-tight">
@@ -602,7 +602,7 @@ const UnifiedResumeProcessor = ({
               </div>
             ) : (
               // Full footer for larger screens
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-md p-1 border border-blue-200">
+              <div className="bg-gradient-to-r from-accent-50 to-primary-50 rounded-md p-1 border border-accent-200">
                 <div className="flex items-center justify-center gap-1.5 mb-0.5 flex-wrap">
                   <div className="flex items-center gap-0.5">
                     <Crown className="w-2 h-2 text-yellow-500" />
@@ -610,7 +610,7 @@ const UnifiedResumeProcessor = ({
                   </div>
                   <div className="w-px h-1 bg-gray-300"></div>
                   <div className="flex items-center gap-0.5">
-                    <Award className="w-2 h-2 text-blue-500" />
+                    <Award className="w-2 h-2 text-accent-600" />
                     <span className="text-[9px] font-medium text-gray-700">Industry Leading</span>
                   </div>
                   <div className="w-px h-1 bg-gray-300"></div>

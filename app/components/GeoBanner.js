@@ -42,7 +42,7 @@ const GeoBanner = () => {
         <div className="bg-slate-900 text-white py-2.5 px-4 relative z-[100] border-b border-slate-800">
             <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm sm:text-base">
                 <div className="flex items-center gap-2 font-medium">
-                    <Globe className="w-4 h-4 text-blue-400" />
+                    <Globe className="w-4 h-4 text-accent-400" />
                     <span>
                         {isUS
                             ? "Looking for US Standard Resume Examples?"
@@ -52,7 +52,7 @@ const GeoBanner = () => {
 
                 <Link
                     href={isUS ? "/us/resume-examples" : "/uk/cv-examples"}
-                    className="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-bold transition-colors group"
+                    className="inline-flex items-center gap-1.5 bg-accent hover:bg-accent-600 text-white px-4 py-1 rounded-full text-sm font-bold transition-colors group"
                 >
                     {isUS ? "Visit US Edition" : "Switch to UK CVs"}
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

@@ -10,14 +10,47 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        primary: "#0F172A",
-        accent: "#2563EB",
-        success: "#0D9488",
+
+        // ========================================
+        // US Theme – ExpertResume (Navy + Teal)
+        // Primary: Deep Navy for trust & authority
+        // Accent: Teal for action & success
+        // ========================================
+        primary: {
+          DEFAULT: "#0B1F3B",
+          50: "#F0F4F8",
+          100: "#D9E2EC",
+          200: "#BCCCDC",
+          300: "#9FB3C8",
+          400: "#829AB1",
+          500: "#627D98",
+          600: "#486581",
+          700: "#334E68",
+          800: "#1F3650",
+          900: "#0B1F3B",
+        },
+        accent: {
+          DEFAULT: "#00C4B3",
+          50: "#E6FAF8",
+          100: "#B3F0EB",
+          200: "#80E6DE",
+          300: "#4DDCD1",
+          400: "#1AD2C4",
+          500: "#00C4B3",
+          600: "#00A89A",
+          700: "#008C80",
+          800: "#007067",
+          900: "#00544D",
+        },
+        success: "#10B981",
+        warning: "#F59E0B",
+        error: "#DC2626",
         bg: "#F8FAFC",
         border: "#E5E7EB",
-        textPrimary: "#020617",
+        textPrimary: "#0B1F3B",
         textSecondary: "#475569",
-        // Override Tailwind defaults so ALL blue/gray/slate classes use US theme app-wide
+
+        // Keep standard Tailwind overrides consistent
         blue: {
           50: "#eff6ff",
           100: "#dbeafe",
@@ -29,18 +62,6 @@ export default {
           700: "#1d4ed8",
           800: "#1e40af",
           900: "#1e3a8a",
-        },
-        indigo: {
-          50: "#eef2ff",
-          100: "#e0e7ff",
-          200: "#c7d2fe",
-          300: "#a5b4fc",
-          400: "#818cf8",
-          500: "#6366f1",
-          600: "#2563EB",
-          700: "#1d4ed8",
-          800: "#3730a3",
-          900: "#312e81",
         },
         gray: {
           50: "#F8FAFC",

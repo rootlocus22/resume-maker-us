@@ -140,12 +140,12 @@ function CheckoutSuccessContent() {
   }, [status, sessionData, router]);
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-bg flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-lg p-8 text-center">
         {status === "verifying" && (
           <>
-            <Loader2 className="w-16 h-16 text-[#00C4B3] mx-auto mb-4 animate-spin" />
-            <h1 className="text-2xl font-bold text-[#0B1F3B] mb-2">
+            <Loader2 className="w-16 h-16 text-accent mx-auto mb-4 animate-spin" />
+            <h1 className="text-2xl font-bold text-primary mb-2">
               Verifying Your Payment
             </h1>
             <p className="text-[#475569]">
@@ -159,7 +159,7 @@ function CheckoutSuccessContent() {
             <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <CheckCircle className="w-12 h-12 text-green-500" />
             </div>
-            <h1 className="text-2xl font-bold text-[#0B1F3B] mb-2">
+            <h1 className="text-2xl font-bold text-primary mb-2">
               Payment Successful!
             </h1>
             <p className="text-[#475569] mb-4">
@@ -175,10 +175,10 @@ function CheckoutSuccessContent() {
                 : "ExpertResume Premium"}
               ! Your account has been upgraded.
             </p>
-            <div className="bg-[#0B1F3B]/5 rounded-xl p-4 mb-6">
+            <div className="bg-primary/5 rounded-xl p-4 mb-6">
               <p className="text-sm text-[#475569]">
                 Amount Paid:{" "}
-                <span className="font-semibold text-[#0B1F3B]">
+                <span className="font-semibold text-primary">
                   ${((sessionData.amount || 0) / 100).toFixed(2)}
                 </span>
               </p>
@@ -196,7 +196,7 @@ function CheckoutSuccessContent() {
                 });
                 router.push(`/welcome-premium?${params.toString()}`);
               }}
-              className="mt-4 px-6 py-3 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white rounded-xl font-medium hover:opacity-90 transition-opacity"
+              className="mt-4 px-6 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-xl font-medium hover:opacity-90 transition-opacity"
             >
               Continue Now
             </button>
@@ -208,7 +208,7 @@ function CheckoutSuccessContent() {
             <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <AlertCircle className="w-12 h-12 text-red-500" />
             </div>
-            <h1 className="text-2xl font-bold text-[#0B1F3B] mb-2">
+            <h1 className="text-2xl font-bold text-primary mb-2">
               Verification Issue
             </h1>
             <p className="text-[#475569] mb-6">
@@ -217,7 +217,7 @@ function CheckoutSuccessContent() {
             </p>
             <button
               onClick={() => router.push("/checkout")}
-              className="px-6 py-3 bg-[#0B1F3B] text-white rounded-xl font-medium hover:opacity-90 transition-opacity"
+              className="px-6 py-3 bg-primary text-white rounded-xl font-medium hover:opacity-90 transition-opacity"
             >
               Back to Checkout
             </button>

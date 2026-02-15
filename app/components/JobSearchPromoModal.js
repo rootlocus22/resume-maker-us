@@ -44,9 +44,9 @@ export default function JobSearchPromoModal({ isOpen, onClose, fromSource = "upl
                         </button>
 
                         {/* 1. Header Section */}
-                        <div className="pt-8 pb-4 px-8 text-center bg-gradient-to-b from-blue-50 to-white">
+                        <div className="pt-8 pb-4 px-8 text-center bg-gradient-to-b from-accent-50 to-white">
                             <h2 className="text-2xl font-bold text-gray-900 mb-1">{title}</h2>
-                            <p className="text-blue-600 font-medium">{subtitle}</p>
+                            <p className="text-accent font-medium">{subtitle}</p>
                         </div>
 
                         {/* 2. Visual Cycle Diagram */}
@@ -70,12 +70,12 @@ export default function JobSearchPromoModal({ isOpen, onClose, fromSource = "upl
                                     {/* Step 2: Search (Active/Next) */}
                                     <div className="flex flex-col items-center gap-2 relative">
                                         <div className="absolute -top-8 animate-bounce">
-                                            <span className="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md">You're Here</span>
+                                            <span className="bg-accent text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md">You're Here</span>
                                         </div>
-                                        <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center border-4 border-blue-100 shadow-md ring-2 ring-blue-600 ring-offset-2">
+                                        <div className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center border-4 border-accent-100 shadow-md ring-2 ring-accent ring-offset-2">
                                             <Search size={22} />
                                         </div>
-                                        <span className="text-xs font-bold text-blue-700 uppercase tracking-wide">Job Search</span>
+                                        <span className="text-xs font-bold text-accent-700 uppercase tracking-wide">Job Search</span>
                                     </div>
 
                                     {/* Arrow */}
@@ -109,7 +109,7 @@ export default function JobSearchPromoModal({ isOpen, onClose, fromSource = "upl
 
                             <div className="grid grid-cols-2 gap-3">
                                 <div className="flex items-start gap-2 p-2 bg-gray-50 rounded-lg">
-                                    <Search className="w-4 h-4 text-blue-600 mt-0.5" />
+                                    <Search className="w-4 h-4 text-accent mt-0.5" />
                                     <div>
                                         <span className="block text-xs font-bold text-gray-800">Smart Search</span>
                                         <span className="block text-[10px] text-gray-500">Auto-fill query from resume</span>
@@ -153,7 +153,7 @@ export default function JobSearchPromoModal({ isOpen, onClose, fromSource = "upl
                             </button>
                             <button
                                 onClick={handleCtaClick}
-                                className="flex-1 py-3 px-4 bg-blue-600 text-white font-bold rounded-xl shadow-lg shadow-blue-200 hover:shadow-blue-300 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 group"
+                                className="flex-1 py-3 px-4 bg-accent text-white font-bold rounded-xl shadow-lg shadow-accent/20 hover:shadow-accent/30 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2 group"
                             >
                                 <span>Find {jobTitle || "Matches"} Jobs Now</span>
                                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

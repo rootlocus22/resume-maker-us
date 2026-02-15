@@ -26,8 +26,8 @@ const JobListCard = memo(function JobListCard({ job, isSelected, onSelect, onSav
             <button
                 id={`job-card-${job.job_id}`}
                 onClick={() => onSelect(job.job_id)}
-                className={`w-full text-left px-3 py-3 border-l-[3px] transition-all hover:bg-[#00C4B3]/5 ${isSelected
-                    ? 'bg-[#00C4B3]/5 border-[#00C4B3]'
+                className={`w-full text-left px-3 py-3 border-l-[3px] transition-all hover:bg-accent/5 ${isSelected
+                    ? 'bg-accent/5 border-accent'
                     : 'bg-white border-transparent'
                     }`}
             >
@@ -50,7 +50,7 @@ const JobListCard = memo(function JobListCard({ job, isSelected, onSelect, onSav
                     {/* Job Info - Compact */}
                     <div className="flex-1 min-w-0 pr-6">
                         {/* Job Title */}
-                        <h3 className={`text-[13px] font-bold leading-tight mb-0.5 line-clamp-2 ${isSelected ? 'text-[#0B1F3B]' : 'text-gray-900'
+                        <h3 className={`text-[13px] font-bold leading-tight mb-0.5 line-clamp-2 ${isSelected ? 'text-primary' : 'text-gray-900'
                             }`}>
                             {job.job_title}
                         </h3>
@@ -87,7 +87,7 @@ const JobListCard = memo(function JobListCard({ job, isSelected, onSelect, onSav
                                     <span>•</span>
                                 </>
                             )}
-                            <span className="flex items-center gap-0.5 text-[#0B1F3B]/70 font-medium">
+                            <span className="flex items-center gap-0.5 text-primary/70 font-medium">
                                 <Users className="w-3 h-3" />
                                 {applicants} applicants
                             </span>
@@ -102,7 +102,7 @@ const JobListCard = memo(function JobListCard({ job, isSelected, onSelect, onSav
                 disabled={isSaved}
                 className={`absolute top-3 right-3 p-1.5 rounded-full transition-all border ${isSaved
                     ? 'bg-green-50 border-green-200 text-green-600'
-                    : 'bg-white border-gray-200 text-gray-400 opacity-0 group-hover:opacity-100 hover:text-[#00C4B3] hover:border-[#00C4B3]/30 shadow-sm'
+                    : 'bg-white border-gray-200 text-gray-400 opacity-0 group-hover:opacity-100 hover:text-accent hover:border-accent/30 shadow-sm'
                     }`}
                 title={isSaved ? "Saved to My Jobs" : "Quick Save"}
             >

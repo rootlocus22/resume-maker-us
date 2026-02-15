@@ -198,10 +198,10 @@ const ExitIntentDiscountPopup = ({
         >
           
           {/* Urgent Header */}
-          <div className="relative bg-gradient-to-r from-red-600 via-blue-600 to-blue-700 text-white overflow-hidden">
+          <div className="relative bg-gradient-to-r from-red-600 via-primary to-primary-600 text-white overflow-hidden">
             {/* Animated background */}
             <div className="absolute inset-0">
-              <div className={`absolute inset-0 bg-gradient-to-r from-yellow-400/30 via-red-400/30 to-blue-400/30 ${showPulse ? 'animate-pulse' : ''}`}></div>
+              <div className={`absolute inset-0 bg-gradient-to-r from-yellow-400/30 via-red-400/30 to-primary/30 ${showPulse ? 'animate-pulse' : ''}`}></div>
               <div className="absolute inset-0 opacity-20">
                 <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/10 animate-pulse"></div>
               </div>
@@ -260,8 +260,8 @@ const ExitIntentDiscountPopup = ({
                     onClick={() => setSelectedPlan(key)}
                     className={`relative p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
                       isSelected 
-                        ? 'border-blue-500 bg-blue-50 shadow-lg scale-105' 
-                        : 'border-gray-200 bg-white hover:border-blue-300 hover:shadow-md'
+                        ? 'border-accent bg-accent-50 shadow-lg scale-105' 
+                        : 'border-gray-200 bg-white hover:border-accent-300 hover:shadow-md'
                     }`}
                   >
                     {plan.popular && (
@@ -276,7 +276,7 @@ const ExitIntentDiscountPopup = ({
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
-                            isSelected ? 'border-blue-500 bg-blue-500' : 'border-gray-300'
+                            isSelected ? 'border-accent bg-accent' : 'border-gray-300'
                           }`}>
                             {isSelected && <div className="w-2 h-2 bg-white rounded-full"></div>}
                           </div>
@@ -294,8 +294,8 @@ const ExitIntentDiscountPopup = ({
                       
                       <div className="text-right">
                         <div className="text-xs text-gray-500 line-through">₹{plan.originalPrice}</div>
-                        <div className="text-lg font-black text-blue-600">₹{discountedPrice}</div>
-                        <div className="text-xs text-blue-600 font-semibold">Save ₹{savings}!</div>
+                        <div className="text-lg font-black text-primary">₹{discountedPrice}</div>
+                        <div className="text-xs text-primary font-semibold">Save ₹{savings}!</div>
                       </div>
                     </div>
                   </div>
@@ -304,16 +304,16 @@ const ExitIntentDiscountPopup = ({
             </div>
             
             {/* Selected Plan Summary */}
-            <div className="mt-6 bg-gradient-to-r from-blue-50 to-emerald-50 border border-blue-200 rounded-xl p-4">
+            <div className="mt-6 bg-gradient-to-r from-primary-50 to-accent-50 border border-primary-200 rounded-xl p-4">
               <div className="text-center">
-                <div className="text-sm text-blue-700 mb-2">🎉 Your Special Deal:</div>
-                <div className="text-2xl font-black text-blue-800 mb-1">
+                <div className="text-sm text-primary-700 mb-2">🎉 Your Special Deal:</div>
+                <div className="text-2xl font-black text-primary-800 mb-1">
                   ₹{getDiscountedPrice(selectedPlan)} 
-                  <span className="text-sm font-normal text-blue-600 ml-2">
+                  <span className="text-sm font-normal text-primary ml-2">
                     (was ₹{plans[selectedPlan].originalPrice})
                   </span>
                 </div>
-                <div className="text-sm text-blue-700">
+                <div className="text-sm text-primary-700">
                   💰 You save ₹{getSavings(selectedPlan)} • {plans[selectedPlan].duration} days access
                 </div>
               </div>
@@ -331,7 +331,7 @@ const ExitIntentDiscountPopup = ({
                   "24/7 Email & Chat Support"
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center gap-3 bg-gray-50 rounded-lg px-3 py-2">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                    <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
                     <span className="text-gray-800">{feature}</span>
                   </div>
                 ))}
@@ -344,8 +344,8 @@ const ExitIntentDiscountPopup = ({
             {/* Main CTA Button */}
             <button
               onClick={handleAccept}
-              className={`w-full bg-gradient-to-r from-blue-500 to-emerald-600 text-white py-4 rounded-xl font-black text-lg hover:from-blue-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-3 shadow-xl ${
-                showPulse ? 'shadow-blue-500/50 animate-pulse' : 'shadow-blue-500/30'
+              className={`w-full bg-gradient-to-r from-primary to-accent text-white py-4 rounded-xl font-black text-lg hover:from-primary-600 hover:to-accent-600 transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-3 shadow-xl ${
+                showPulse ? 'shadow-primary/50 animate-pulse' : 'shadow-primary/30'
               }`}
             >
               <Gift className="w-6 h-6" />
@@ -356,7 +356,7 @@ const ExitIntentDiscountPopup = ({
             {/* Trust indicators */}
             <div className="flex items-center justify-center gap-4 mt-4 text-xs text-gray-600">
               <div className="flex items-center gap-1">
-                <Shield className="w-3 h-3 text-blue-500" />
+                <Shield className="w-3 h-3 text-primary" />
                 <span>Secure</span>
               </div>
               <div className="flex items-center gap-1">
@@ -364,7 +364,7 @@ const ExitIntentDiscountPopup = ({
                 <span>Instant</span>
               </div>
               <div className="flex items-center gap-1">
-                <Star className="w-3 h-3 text-blue-500" />
+                <Star className="w-3 h-3 text-primary" />
                 <span>15k+ Users</span>
               </div>
             </div>

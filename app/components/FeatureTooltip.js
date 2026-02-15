@@ -114,7 +114,7 @@ export default function FeatureTooltip({
           onClick={toggleTooltip}
           onMouseEnter={() => setIsOpen(true)}
           onMouseLeave={() => setIsOpen(false)}
-          className="text-blue-600 hover:text-blue-700 transition-colors inline-flex items-center justify-center focus:outline-none"
+          className="text-accent hover:text-accent-700 transition-colors inline-flex items-center justify-center focus:outline-none"
           aria-label="More information"
         >
           <Info size={iconSize} className="stroke-2" />

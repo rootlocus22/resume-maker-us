@@ -60,7 +60,7 @@ export default function PrivacyPolicyPage() {
       <div className="min-h-screen py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white shadow-lg rounded-xl p-8">
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-center bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] bg-clip-text text-transparent mb-4 sm:mb-6">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-center bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent mb-4 sm:mb-6">
               Privacy Policy
             </h1>
             <p className="text-center text-gray-500 text-sm mb-6">
@@ -237,7 +237,7 @@ export default function PrivacyPolicyPage() {
                 future sales of your personal information.
               </p>
               <p>
-                <a href="/ccpa-opt-out" className="text-[#0B1F3B] hover:text-[#071429] underline">
+                <a href="/ccpa-opt-out" className="text-primary hover:text-gray-900 underline">
                   Click here to opt-out of the sale of your personal information
                 </a>
               </p>
@@ -249,8 +249,8 @@ export default function PrivacyPolicyPage() {
                 To exercise your CCPA rights, you can:
               </p>
               <ul className="list-disc list-inside">
-                <li>Submit a request through our <a href="/privacy-dashboard" className="text-[#0B1F3B] hover:text-[#071429] underline">Privacy Dashboard</a></li>
-                <li>Email us at: <a href="mailto:privacy@expertresume.us" className="text-[#0B1F3B] hover:text-[#071429] underline">privacy@expertresume.us</a></li>
+                <li>Submit a request through our <a href="/privacy-dashboard" className="text-primary hover:text-gray-900 underline">Privacy Dashboard</a></li>
+                <li>Email us at: <a href="mailto:privacy@expertresume.us" className="text-primary hover:text-gray-900 underline">privacy@expertresume.us</a></li>
                 <li>Contact us via email for fastest response</li>
               </ul>
 
@@ -323,7 +323,7 @@ export default function PrivacyPolicyPage() {
             <div className="text-center mt-10">
               <Link
                 href="/"
-                className="inline-block bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white px-6 py-3 rounded-full font-semibold text-lg hover:from-[#071429] hover:to-[#071429] transition-all duration-300 shadow-md hover:shadow-lg"
+                className="inline-block bg-gradient-to-r from-primary to-primary text-white px-6 py-3 rounded-full font-semibold text-lg hover:from-gray-900 hover:to-gray-900 transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 Back to Home
               </Link>

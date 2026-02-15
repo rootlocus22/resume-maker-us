@@ -216,9 +216,9 @@ export default function ExitIntentWhatsApp() {
               className="w-[95%] sm:w-[90%] md:w-[500px] max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
           >
-            <div className="bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 rounded-2xl shadow-2xl border-2 border-green-300 overflow-hidden">
+            <div className="bg-gradient-to-br from-green-50 via-accent-50 to-accent-50 rounded-2xl shadow-2xl border-2 border-accent/30 overflow-hidden">
               {/* Animated header with gradient */}
-              <div className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 p-3 sm:p-4 md:p-6 relative overflow-hidden">
+              <div className="bg-gradient-to-r from-green-600 via-accent-600 to-accent p-3 sm:p-4 md:p-6 relative overflow-hidden">
                 {/* Animated background pattern */}
                 <div className="absolute inset-0 opacity-20">
                   <div className="absolute top-0 left-0 w-40 h-40 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
@@ -277,7 +277,7 @@ export default function ExitIntentWhatsApp() {
                     transition={{ delay: 0.1 }}
                     className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm bg-white rounded-lg p-2 sm:p-3 shadow-sm border border-green-100"
                   >
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-accent to-accent-500 rounded-full flex items-center justify-center flex-shrink-0">
                       <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                     </div>
                     <span className="text-gray-700 font-medium">Get instant replies on WhatsApp</span>
@@ -287,9 +287,9 @@ export default function ExitIntentWhatsApp() {
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.2 }}
-                    className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm bg-white rounded-lg p-2 sm:p-3 shadow-sm border border-blue-100"
+                    className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm bg-white rounded-lg p-2 sm:p-3 shadow-sm border border-accent/10"
                   >
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center flex-shrink-0">
                       <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                     </div>
                     <span className="text-gray-700 font-medium">Available 24/7 to answer questions</span>
@@ -313,7 +313,7 @@ export default function ExitIntentWhatsApp() {
                   onClick={handleWhatsAppClick}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 hover:from-green-700 hover:via-emerald-700 hover:to-teal-700 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl flex items-center justify-center gap-2 sm:gap-3 group relative overflow-hidden text-sm sm:text-base"
+                  className="w-full bg-gradient-to-r from-green-600 via-accent-600 to-accent hover:from-green-700 hover:via-accent-700 hover:to-accent-700 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl flex items-center justify-center gap-2 sm:gap-3 group relative overflow-hidden text-sm sm:text-base"
                 >
                   {/* Animated background shine */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
@@ -367,7 +367,7 @@ export default function ExitIntentWhatsApp() {
                     <span className="whitespace-nowrap">Trusted by 10,000+ users</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full"></div>
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-accent rounded-full"></div>
                     <span className="whitespace-nowrap">Response time: &lt;5 min</span>
                   </div>
                 </div>

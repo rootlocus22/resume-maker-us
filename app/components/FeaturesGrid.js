@@ -24,7 +24,7 @@ const features = [
       "/images/features/ATS2.png",
       "/images/features/ATS3.png"
     ],
-    color: "from-[#0B1F3B] to-[#00C4B3]",
+    color: "from-primary to-accent",
     stats: "3 Steps • 91% Score",
     link: "/ats-score-checker"
   },
@@ -37,7 +37,7 @@ const features = [
       "/images/features/JD Builder 2.png",
       "/images/features/JD Builder 3.png"
     ],
-    color: "from-green-500 to-emerald-600",
+    color: "from-accent to-accent-600",
     stats: "3 Steps • 26+ Keywords",
     link: "/job-description-resume-builder"
   },
@@ -88,13 +88,13 @@ export default function FeaturesGrid() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-50 to-slate-100 px-4 py-2 rounded-full mb-6">
-            <Sparkles className="w-4 h-4 text-[#0B1F3B]" />
-            <span className="text-sm font-semibold text-[#0B1F3B]">SEE IT IN ACTION</span>
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm font-semibold text-primary">SEE IT IN ACTION</span>
           </div>
           
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Powerful Features,{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Beautiful Results
             </span>
           </h2>
@@ -116,7 +116,7 @@ export default function FeaturesGrid() {
                 href={feature.link}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className="group relative bg-white rounded-2xl overflow-hidden border-2 border-gray-100 hover:border-teal-300 transition-all duration-500 hover:shadow-2xl"
+                className="group relative bg-white rounded-2xl overflow-hidden border-2 border-gray-100 hover:border-accent-300 transition-all duration-500 hover:shadow-2xl"
               >
                 {/* Background Gradient on Hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
@@ -186,7 +186,7 @@ export default function FeaturesGrid() {
                 {/* Content Section */}
                 <div className="p-6 space-y-3">
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#0B1F3B] transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300">
                     {feature.title}
                   </h3>
 
@@ -196,7 +196,7 @@ export default function FeaturesGrid() {
                   </p>
 
                   {/* CTA */}
-                  <div className="flex items-center gap-2 text-[#0B1F3B] font-semibold text-sm pt-2">
+                  <div className="flex items-center gap-2 text-primary font-semibold text-sm pt-2">
                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                       Try it now
                     </span>
@@ -216,7 +216,7 @@ export default function FeaturesGrid() {
           <div className="inline-flex flex-col sm:flex-row items-center gap-4">
             <Link
               href="/resume-builder"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-[#071429] hover:to-[#008C81] transition-all duration-300 transform hover:scale-105 shadow-xl"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-accent text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-gray-900 hover:to-accent-600 transition-all duration-300 transform hover:scale-105 shadow-xl"
             >
               <Zap className="w-5 h-5" />
               Start Building Your Resume

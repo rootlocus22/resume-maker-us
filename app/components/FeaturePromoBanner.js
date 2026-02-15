@@ -12,8 +12,8 @@ const features = [
         benefit: 'Get 3x more interview calls by matching job requirements perfectly',
         icon: FileText,
         href: '/job-description-resume-builder',
-        gradient: 'from-blue-500 to-indigo-600',
-        bgGradient: 'from-blue-50 to-indigo-50'
+        gradient: 'from-primary to-accent',
+        bgGradient: 'from-primary-50 to-accent-50'
     },
     {
         id: 'expertresume-gpt',
@@ -32,8 +32,8 @@ const features = [
         benefit: 'Master interviews and increase your offer conversion rate',
         icon: Briefcase,
         href: '/interview-prep-kit',
-        gradient: 'from-green-500 to-emerald-600',
-        bgGradient: 'from-green-50 to-emerald-50'
+        gradient: 'from-accent to-accent-600',
+        bgGradient: 'from-accent-50 to-accent-100'
     },
     {
         id: 'job-search',
@@ -52,8 +52,8 @@ const features = [
         benefit: 'Plan your career growth with AI-powered strategic advice',
         icon: TrendingUp,
         href: '/career-coach',
-        gradient: 'from-indigo-500 to-blue-600',
-        bgGradient: 'from-indigo-50 to-blue-50'
+        gradient: 'from-primary to-accent',
+        bgGradient: 'from-primary-50 to-accent-50'
     },
     {
         id: 'ats-checker',
@@ -117,8 +117,8 @@ export default function FeaturePromoBanner() {
                         {/* Icon and Content */}
                         <div className="flex items-start gap-4 flex-1">
                             {/* Icon */}
-                            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center">
-                                <Icon className="w-6 h-6 text-blue-600" />
+                            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-accent-50 border border-accent-100 flex items-center justify-center">
+                                <Icon className="w-6 h-6 text-accent-600" />
                             </div>
 
                             {/* Text Content */}
@@ -143,7 +143,7 @@ export default function FeaturePromoBanner() {
                     {/* Progress Indicator */}
                     <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-100">
                         <div
-                            className="h-full bg-blue-500/60 transition-all ease-linear"
+                            className="h-full bg-accent/60 transition-all ease-linear"
                             style={{
                                 animation: isTransitioning ? 'none' : 'progress 5s linear',
                                 width: isTransitioning ? '100%' : '0%'
@@ -160,14 +160,14 @@ export default function FeaturePromoBanner() {
                     className="pointer-events-auto w-8 h-8 bg-white/90 hover:bg-white rounded-full shadow-md hover:shadow-lg flex items-center justify-center transition-all duration-200 group"
                     aria-label="Previous feature"
                 >
-                    <ChevronLeft className="w-5 h-5 text-gray-700 group-hover:text-blue-600 transition-colors" />
+                    <ChevronLeft className="w-5 h-5 text-gray-700 group-hover:text-accent-600 transition-colors" />
                 </button>
                 <button
                     onClick={handleNext}
                     className="pointer-events-auto w-8 h-8 bg-white/90 hover:bg-white rounded-full shadow-md hover:shadow-lg flex items-center justify-center transition-all duration-200 group"
                     aria-label="Next feature"
                 >
-                    <ChevronRight className="w-5 h-5 text-gray-700 group-hover:text-blue-600 transition-colors" />
+                    <ChevronRight className="w-5 h-5 text-gray-700 group-hover:text-accent-600 transition-colors" />
                 </button>
             </div>
 
@@ -184,7 +184,7 @@ export default function FeaturePromoBanner() {
                             }, 300);
                         }}
                         className={`transition-all duration-300 rounded-full ${index === currentIndex
-                            ? 'w-6 h-1.5 bg-blue-600'
+                            ? 'w-6 h-1.5 bg-accent'
                             : 'w-1.5 h-1.5 bg-gray-300 hover:bg-gray-400'
                             }`}
                         aria-label={`Go to feature ${index + 1}`}

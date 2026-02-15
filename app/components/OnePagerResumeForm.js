@@ -217,7 +217,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
               onClick={() => setActiveSection(section.id)}
               className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
                 activeSection === section.id
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-accent text-white'
                   : 'bg-white text-gray-700 hover:bg-gray-100'
               }`}
             >
@@ -243,7 +243,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                 value={data.personal?.name || ''}
                 onChange={(e) => handlePersonalChange('name', e.target.value)}
                 maxLength={CHAR_LIMITS.name}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                 placeholder="John Doe"
               />
               <CharCounter current={data.personal?.name?.length || 0} max={CHAR_LIMITS.name} />
@@ -258,7 +258,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                 value={data.personal?.jobTitle || ''}
                 onChange={(e) => handlePersonalChange('jobTitle', e.target.value)}
                 maxLength={CHAR_LIMITS.jobTitle}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                 placeholder="Senior Software Engineer"
               />
               <CharCounter current={data.personal?.jobTitle?.length || 0} max={CHAR_LIMITS.jobTitle} />
@@ -274,7 +274,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                   value={data.personal?.email || ''}
                   onChange={(e) => handlePersonalChange('email', e.target.value)}
                   maxLength={CHAR_LIMITS.email}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                   placeholder="john@example.com"
                 />
                 <CharCounter current={data.personal?.email?.length || 0} max={CHAR_LIMITS.email} />
@@ -289,7 +289,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                   value={data.personal?.phone || ''}
                   onChange={(e) => handlePersonalChange('phone', e.target.value)}
                   maxLength={CHAR_LIMITS.phone}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                   placeholder="+1234567890"
                 />
                 <CharCounter current={data.personal?.phone?.length || 0} max={CHAR_LIMITS.phone} />
@@ -305,7 +305,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                 value={data.personal?.location || ''}
                 onChange={(e) => handlePersonalChange('location', e.target.value)}
                 maxLength={CHAR_LIMITS.location}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                 placeholder="San Francisco, CA"
               />
               <CharCounter current={data.personal?.location?.length || 0} max={CHAR_LIMITS.location} />
@@ -321,7 +321,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                   value={data.personal?.linkedin || ''}
                   onChange={(e) => handlePersonalChange('linkedin', e.target.value)}
                   maxLength={CHAR_LIMITS.linkedin}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                   placeholder="linkedin.com/in/johndoe"
                 />
                 <CharCounter current={data.personal?.linkedin?.length || 0} max={CHAR_LIMITS.linkedin} />
@@ -336,7 +336,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                   value={data.personal?.portfolio || ''}
                   onChange={(e) => handlePersonalChange('portfolio', e.target.value)}
                   maxLength={CHAR_LIMITS.portfolio}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                   placeholder="johndoe.com"
                 />
                 <CharCounter current={data.personal?.portfolio?.length || 0} max={CHAR_LIMITS.portfolio} />
@@ -359,7 +359,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                 onChange={(e) => handleSummaryChange(e.target.value)}
                 maxLength={CHAR_LIMITS.summary}
                 rows={6}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                 placeholder="Example: Results-driven Software Engineer with 5+ years of experience building scalable web applications. Proven track record of reducing costs by 30% and improving system performance by 40%."
               />
               <CharCounter current={data.summary?.length || 0} max={CHAR_LIMITS.summary} />
@@ -375,7 +375,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
               <button
                 onClick={addExperience}
                 disabled={(data.experience || []).length >= 4}
-                className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                className="flex items-center px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
               >
                 <Plus size={16} className="mr-2" />
                 Add Experience
@@ -408,7 +408,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                       value={exp.title || ''}
                       onChange={(e) => handleExperienceChange(index, 'title', e.target.value)}
                       maxLength={CHAR_LIMITS.experienceTitle}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                       placeholder="Senior Software Engineer"
                     />
                     <CharCounter current={exp.title?.length || 0} max={CHAR_LIMITS.experienceTitle} />
@@ -423,7 +423,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                       value={exp.company || ''}
                       onChange={(e) => handleExperienceChange(index, 'company', e.target.value)}
                       maxLength={CHAR_LIMITS.experienceCompany}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                       placeholder="Tech Company Inc."
                     />
                     <CharCounter current={exp.company?.length || 0} max={CHAR_LIMITS.experienceCompany} />
@@ -439,7 +439,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                       type="text"
                       value={exp.location || ''}
                       onChange={(e) => handleExperienceChange(index, 'location', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                       placeholder="New York, NY"
                     />
                   </div>
@@ -452,7 +452,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                       type="text"
                       value={exp.startDate || ''}
                       onChange={(e) => handleExperienceChange(index, 'startDate', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                       placeholder="01/2020"
                     />
                   </div>
@@ -465,7 +465,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                       type="text"
                       value={exp.endDate || ''}
                       onChange={(e) => handleExperienceChange(index, 'endDate', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                       placeholder="Present"
                     />
                   </div>
@@ -480,7 +480,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                     onChange={(e) => handleExperienceChange(index, 'description', e.target.value)}
                     maxLength={CHAR_LIMITS.experienceDescription}
                     rows={3}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                     placeholder="• Led team of 5 developers, increased productivity by 40%&#10;• Built scalable API serving 1M+ requests/day&#10;• Reduced infrastructure costs by $50K/year"
                   />
                   <CharCounter current={exp.description?.length || 0} max={CHAR_LIMITS.experienceDescription} />
@@ -504,7 +504,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
               <button
                 onClick={addEducation}
                 disabled={(data.education || []).length >= 2}
-                className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                className="flex items-center px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
               >
                 <Plus size={16} className="mr-2" />
                 Add Education
@@ -536,7 +536,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                     value={edu.degree || ''}
                     onChange={(e) => handleEducationChange(index, 'degree', e.target.value)}
                     maxLength={CHAR_LIMITS.educationDegree}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                     placeholder="Bachelor of Science in Computer Science"
                   />
                   <CharCounter current={edu.degree?.length || 0} max={CHAR_LIMITS.educationDegree} />
@@ -551,7 +551,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                     value={edu.institution || ''}
                     onChange={(e) => handleEducationChange(index, 'institution', e.target.value)}
                     maxLength={CHAR_LIMITS.educationInstitution}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                     placeholder="Stanford University"
                   />
                   <CharCounter current={edu.institution?.length || 0} max={CHAR_LIMITS.educationInstitution} />
@@ -566,7 +566,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                       type="text"
                       value={edu.location || ''}
                       onChange={(e) => handleEducationChange(index, 'location', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                       placeholder="Stanford, CA"
                     />
                   </div>
@@ -579,7 +579,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                       type="text"
                       value={edu.graduationDate || ''}
                       onChange={(e) => handleEducationChange(index, 'graduationDate', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                       placeholder="05/2020"
                     />
                   </div>
@@ -592,7 +592,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                       type="text"
                       value={edu.gpa || ''}
                       onChange={(e) => handleEducationChange(index, 'gpa', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                       placeholder="3.8/4.0"
                     />
                   </div>
@@ -607,7 +607,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                     onChange={(e) => handleEducationChange(index, 'description', e.target.value)}
                     maxLength={CHAR_LIMITS.educationDescription}
                     rows={2}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                     placeholder="Dean's List, Relevant coursework: AI, Machine Learning"
                   />
                   <CharCounter current={edu.description?.length || 0} max={CHAR_LIMITS.educationDescription} />
@@ -636,7 +636,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                 value={(data.skills || []).join(', ')}
                 onChange={(e) => handleSkillsChange(e.target.value)}
                 rows={4}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                 placeholder="JavaScript, React, Node.js, Python, AWS, Docker, Git, Agile, Team Leadership, Problem Solving"
               />
               <CharCounter current={(data.skills || []).join(', ').length} max={CHAR_LIMITS.skills} />
@@ -655,7 +655,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
               <button
                 onClick={addProject}
                 disabled={(data.projects || []).length >= 3}
-                className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                className="flex items-center px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
               >
                 <Plus size={16} className="mr-2" />
                 Add Project
@@ -688,7 +688,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                       value={project.name || ''}
                       onChange={(e) => handleProjectChange(index, 'name', e.target.value)}
                       maxLength={CHAR_LIMITS.projectName}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                       placeholder="E-commerce Platform"
                     />
                     <CharCounter current={project.name?.length || 0} max={CHAR_LIMITS.projectName} />
@@ -702,7 +702,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                       type="text"
                       value={project.technologies || ''}
                       onChange={(e) => handleProjectChange(index, 'technologies', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                       placeholder="React, Node.js, MongoDB"
                     />
                   </div>
@@ -717,7 +717,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                     onChange={(e) => handleProjectChange(index, 'description', e.target.value)}
                     maxLength={CHAR_LIMITS.projectDescription}
                     rows={3}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                     placeholder="Built full-stack e-commerce platform handling 10K+ daily users. Implemented payment gateway, inventory management, and real-time analytics."
                   />
                   <CharCounter current={project.description?.length || 0} max={CHAR_LIMITS.projectDescription} />
@@ -731,7 +731,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                     type="url"
                     value={project.link || ''}
                     onChange={(e) => handleProjectChange(index, 'link', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                     placeholder="https://github.com/username/project"
                   />
                 </div>
@@ -754,7 +754,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
               <button
                 onClick={addCertification}
                 disabled={(data.certifications || []).length >= 3}
-                className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                className="flex items-center px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
               >
                 <Plus size={16} className="mr-2" />
                 Add Certification
@@ -787,7 +787,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                       value={cert.name || ''}
                       onChange={(e) => handleCertificationChange(index, 'name', e.target.value)}
                       maxLength={CHAR_LIMITS.certificationName}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                       placeholder="AWS Certified Solutions Architect"
                     />
                     <CharCounter current={cert.name?.length || 0} max={CHAR_LIMITS.certificationName} />
@@ -802,7 +802,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                       value={cert.organization || ''}
                       onChange={(e) => handleCertificationChange(index, 'organization', e.target.value)}
                       maxLength={CHAR_LIMITS.certificationOrganization}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                       placeholder="Amazon Web Services"
                     />
                     <CharCounter current={cert.organization?.length || 0} max={CHAR_LIMITS.certificationOrganization} />
@@ -818,7 +818,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                       type="text"
                       value={cert.date || ''}
                       onChange={(e) => handleCertificationChange(index, 'date', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                       placeholder="06/2023"
                     />
                   </div>
@@ -831,7 +831,7 @@ export default function OnePagerResumeForm({ data, onChange }) {
                       type="url"
                       value={cert.link || ''}
                       onChange={(e) => handleCertificationChange(index, 'link', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                       placeholder="https://credentials.com/verify/123"
                     />
                   </div>

@@ -86,7 +86,7 @@ export default function AddonInfoTooltip({ title, description, benefits = [], fo
                     ref={buttonRef}
                     type="button"
                     onClick={toggleTooltip}
-                    className="text-blue-600 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 transition-all p-1 rounded-full shadow-sm focus:outline-none flex items-center justify-center border border-blue-100"
+                    className="text-accent bg-accent-50 hover:bg-accent-100 hover:text-accent-700 transition-all p-1 rounded-full shadow-sm focus:outline-none flex items-center justify-center border border-accent/10"
                 >
                     <Info size={14} className="stroke-2" />
                 </button>

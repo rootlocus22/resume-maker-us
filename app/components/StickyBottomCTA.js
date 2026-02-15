@@ -33,7 +33,7 @@ export default function StickyBottomCTA() {
                 </div>
                 <Link
                     href="/resume-builder"
-                    className="flex-1 bg-gradient-to-r from-[#00C4B3] to-emerald-500 text-white py-3 px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg"
+                    className="flex-1 bg-gradient-to-r from-accent to-accent-500 text-white py-3 px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg"
                 >
                     <Rocket size={16} />
                     Start Now

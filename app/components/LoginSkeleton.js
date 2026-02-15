@@ -3,7 +3,7 @@ export default function LoginSkeleton() {
     return (
         <div className="min-h-screen flex">
             {/* Left Side Skeleton (Desktop) */}
-            <div className="hidden lg:flex lg:w-1/2 bg-blue-600 p-12 flex-col justify-between relative overflow-hidden">
+            <div className="hidden lg:flex lg:w-1/2 bg-accent p-12 flex-col justify-between relative overflow-hidden">
                 <div className="space-y-6 animate-pulse">
                     <div className="w-12 h-12 bg-white/20 rounded-xl"></div>
                     <div className="space-y-4 pt-12">
@@ -44,7 +44,7 @@ export default function LoginSkeleton() {
                             <div className="h-4 bg-gray-200 rounded w-1/4"></div>
                             <div className="h-12 bg-gray-100 rounded-2xl"></div>
                         </div>
-                        <div className="h-12 bg-blue-100 rounded-2xl mt-8"></div>
+                        <div className="h-12 bg-accent-50 rounded-2xl mt-8"></div>
                     </div>
                 </div>
             </div>

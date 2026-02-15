@@ -162,7 +162,7 @@ export default function FeedbackWidget({
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(true)}
-            className="bg-blue-600 text-white p-3 md:p-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors flex items-center justify-center"
+            className="bg-accent text-white p-3 md:p-4 rounded-full shadow-lg hover:bg-accent-600 transition-colors flex items-center justify-center"
             aria-label="Open feedback"
           >
             <MessageSquare size={20} className="md:w-6 md:h-6" />
@@ -215,7 +215,7 @@ export default function FeedbackWidget({
                 <p className="text-sm text-gray-500 mt-2">We appreciate your input.</p>
                 <Link
                   href="/feature-requests"
-                  className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                  className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent-600 transition-colors text-sm font-medium"
                 >
                   <Lightbulb size={16} />
                   Suggest a Feature
@@ -243,7 +243,7 @@ export default function FeedbackWidget({
                           onClick={() => setFeedbackType(type.value)}
                           className={`p-2 rounded-lg border-2 transition-all text-sm font-medium flex items-center justify-center gap-1 ${
                             feedbackType === type.value
-                              ? 'border-blue-600 bg-blue-50 text-blue-700'
+                              ? 'border-accent bg-accent-50 text-accent-700'
                               : 'border-gray-200 text-gray-700 hover:border-gray-300'
                           }`}
                         >
@@ -290,7 +290,7 @@ export default function FeedbackWidget({
                     value={comment}
                     onChange={(e) => setComment(e.target.value)}
                     placeholder="Share your thoughts, suggestions, or report issues..."
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent resize-none"
                     rows={4}
                   />
                 </div>
@@ -299,7 +299,7 @@ export default function FeedbackWidget({
                 <button
                   type="submit"
                   disabled={isSubmitting || (rating === 0 && !comment.trim())}
-                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-accent text-white py-2 px-4 rounded-lg font-medium hover:bg-accent-600 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
                     <>

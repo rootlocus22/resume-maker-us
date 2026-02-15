@@ -126,7 +126,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
         <div className="sticky top-0 bg-white z-20 flex items-center justify-between border-b px-3 sm:px-4 md:px-6 py-3 sm:py-4">
           <div className="min-w-0 flex-1">
             <h2 id="modal-title" className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 flex items-center gap-2">
-              <Settings className="text-indigo-600 flex-shrink-0" size={18} />
+              <Settings className="text-primary flex-shrink-0" size={18} />
               <span className="truncate">Resume Preferences</span>
             </h2>
             <p id="modal-description" className="text-xs sm:text-sm text-gray-500 mt-1 truncate">
@@ -135,7 +135,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
           </div>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-500 transition-colors p-1.5 sm:p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 ml-2 flex-shrink-0"
+            className="text-gray-400 hover:text-gray-500 transition-colors p-1.5 sm:p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 ml-2 flex-shrink-0"
             aria-label="Close preferences modal"
           >
             <X size={20} className="sm:w-6 sm:h-6" />
@@ -149,7 +149,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`px-4 lg:px-6 py-3 text-sm lg:text-base font-medium relative transition-colors ${activeTab === tab.id
-                  ? 'text-indigo-600'
+                  ? 'text-primary'
                   : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
                 }`}
               aria-selected={activeTab === tab.id}
@@ -160,7 +160,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
                 {tab.label}
               </span>
               {activeTab === tab.id && (
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-600 rounded-t-full" />
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent rounded-t-full" />
               )}
             </button>
           ))}
@@ -172,7 +172,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
             <select
               value={activeTab}
               onChange={(e) => setActiveTab(e.target.value)}
-              className="block w-full pl-3 pr-10 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+              className="block w-full pl-3 pr-10 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent bg-white"
               aria-label="Select preference category"
             >
               {tabs.map(tab => (
@@ -193,7 +193,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
             <div className="space-y-4 sm:space-y-6">
               <section className="bg-gray-50/50 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 border border-gray-200">
                 <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
-                  <Calendar size={16} className="sm:w-4 sm:h-4 md:w-5 md:h-5 text-indigo-500 flex-shrink-0" />
+                  <Calendar size={16} className="sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
                   Date Formatting
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
@@ -205,7 +205,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
                       <select
                         value={localPrefs.dateFormat?.monthDisplay || 'short'}
                         onChange={e => updatePreference('dateFormat', 'monthDisplay', e.target.value)}
-                        className="appearance-none block w-full pl-3 pr-10 py-2.5 sm:py-3 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+                        className="appearance-none block w-full pl-3 pr-10 py-2.5 sm:py-3 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white"
                         aria-describedby="month-display-help"
                       >
                         <option value="short">Short (Jan)</option>
@@ -228,7 +228,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
                       <select
                         value={localPrefs.dateFormat?.format || 'MMM yyyy'}
                         onChange={e => updatePreference('dateFormat', 'format', e.target.value)}
-                        className="appearance-none block w-full pl-3 pr-10 py-2.5 sm:py-3 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+                        className="appearance-none block w-full pl-3 pr-10 py-2.5 sm:py-3 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white"
                         aria-describedby="date-format-help"
                       >
                         <option value="MMM yyyy">Jan 2026</option>
@@ -258,7 +258,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
 
               <section className="bg-gray-50/50 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 border border-gray-200">
                 <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
-                  <List size={16} className="sm:w-4 sm:h-4 md:w-5 md:h-5 text-indigo-500 flex-shrink-0" />
+                  <List size={16} className="sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
                   Content Display
                 </h3>
                 <div className="space-y-3 sm:space-y-4">
@@ -269,7 +269,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
                         type="checkbox"
                         checked={localPrefs.education?.showGPA || false}
                         onChange={e => updatePreference('education', 'showGPA', e.target.checked)}
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-2"
+                        className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-accent focus:ring-offset-2"
                         aria-describedby="show-gpa-help"
                       />
                     </div>
@@ -290,7 +290,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
                         type="checkbox"
                         checked={localPrefs.education?.showPercentage || false}
                         onChange={e => updatePreference('education', 'showPercentage', e.target.checked)}
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-2"
+                        className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-accent focus:ring-offset-2"
                         aria-describedby="show-percentage-help"
                       />
                     </div>
@@ -312,7 +312,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
             <div className="space-y-4 sm:space-y-6">
               <section className="bg-gray-50/50 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 border border-gray-200">
                 <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
-                  <GraduationCap size={16} className="sm:w-4 sm:h-4 md:w-5 md:h-5 text-indigo-500 flex-shrink-0" />
+                  <GraduationCap size={16} className="sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
                   Education Details
                 </h3>
                 <div className="space-y-3 sm:space-y-4">
@@ -326,7 +326,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
                           ...localPrefs.education?.showStartDate,
                           highSchool: e.target.checked
                         })}
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-2"
+                        className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-accent focus:ring-offset-2"
                         aria-describedby="high-school-dates-help"
                       />
                     </div>
@@ -348,7 +348,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
             <div className="space-y-4 sm:space-y-6">
               <section className="bg-gray-50/50 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 border border-gray-200">
                 <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
-                  <Type size={16} className="sm:w-4 sm:h-4 md:w-5 md:h-5 text-indigo-500 flex-shrink-0" />
+                  <Type size={16} className="sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
                   Typography
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
@@ -363,9 +363,9 @@ export default function ResumePreferences({ config, onChange, onClose }) {
                       onClick={() => updatePreference('typography', 'fontPair', fp)}
                       style={{ fontFamily: fp.fontFamily }}
                       className={`p-2.5 sm:p-3 rounded-lg border-2 text-sm transition-all flex flex-col items-start min-h-[80px] sm:min-h-[90px] ${localPrefs.typography?.fontPair?.id === fp.id
-                          ? 'bg-indigo-50 text-indigo-700 border-indigo-300 ring-2 ring-indigo-200'
+                          ? 'bg-primary-50 text-primary border-primary-300 ring-2 ring-primary-200'
                           : 'bg-white text-gray-800 border-gray-200 hover:bg-gray-50 hover:border-gray-300'
-                        } focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2`}
+                        } focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2`}
                       aria-pressed={localPrefs.typography?.fontPair?.id === fp.id}
                       aria-describedby={`font-${fp.id}-desc`}
                     >
@@ -378,7 +378,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
 
               <section className="bg-gray-50/50 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 border border-gray-200">
                 <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
-                  <Award size={16} className="sm:w-4 sm:h-4 md:w-5 md:h-5 text-indigo-500 flex-shrink-0" />
+                  <Award size={16} className="sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
                   Skills Display
                 </h3>
                 <div className="space-y-3 sm:space-y-4">
@@ -389,7 +389,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
                         type="checkbox"
                         checked={localPrefs.skills?.showProficiency || false}
                         onChange={e => updatePreference('skills', 'showProficiency', e.target.checked)}
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-2"
+                        className="h-4 w-4 rounded border-gray-300 text-primary focus:ring-accent focus:ring-offset-2"
                         aria-describedby="show-proficiency-help"
                       />
                     </div>
@@ -413,7 +413,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
                           <select
                             value={localPrefs.skills?.proficiencyScale || '1-5'}
                             onChange={e => updatePreference('skills', 'proficiencyScale', e.target.value)}
-                            className="block w-full pl-3 pr-10 py-2.5 sm:py-3 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+                            className="block w-full pl-3 pr-10 py-2.5 sm:py-3 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white"
                             aria-describedby="proficiency-scale-help"
                           >
                             <option value="1-5">1-5 Scale</option>
@@ -439,7 +439,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
                       <select
                         value={localPrefs.skills?.displayStyle || 'tags'}
                         onChange={e => updatePreference('skills', 'displayStyle', e.target.value)}
-                        className="block w-full pl-3 pr-10 py-2.5 sm:py-3 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white"
+                        className="block w-full pl-3 pr-10 py-2.5 sm:py-3 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent bg-white"
                         aria-describedby="display-style-help"
                       >
                         <option value="list">List</option>
@@ -465,7 +465,7 @@ export default function ResumePreferences({ config, onChange, onClose }) {
         <div className="sticky bottom-0 bg-white z-10 border-t px-3 sm:px-4 md:px-6 py-3 sm:py-4 flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3">
           <button
             onClick={handleReset}
-            className="w-full sm:w-auto px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 font-medium transition-colors flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 min-h-[44px]"
+            className="w-full sm:w-auto px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 font-medium transition-colors flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent min-h-[44px]"
             aria-label="Reset all preferences to default values"
           >
             <RotateCcw size={16} className="sm:w-4 sm:h-4" />
@@ -474,15 +474,15 @@ export default function ResumePreferences({ config, onChange, onClose }) {
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto">
             <button
               onClick={onClose}
-              className="w-full sm:w-auto px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 min-h-[44px] text-sm sm:text-base"
+              className="w-full sm:w-auto px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent min-h-[44px] text-sm sm:text-base"
             >
               Cancel
             </button>
             <button
               onClick={handleSave}
-              className={`w-full sm:w-auto px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg flex items-center justify-center gap-2 min-h-[44px] text-sm sm:text-base font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${isSaved
-                  ? 'bg-blue-600 hover:bg-blue-700'
-                  : 'bg-indigo-600 hover:bg-indigo-700'
+              className={`w-full sm:w-auto px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg flex items-center justify-center gap-2 min-h-[44px] text-sm sm:text-base font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent ${isSaved
+                  ? 'bg-accent hover:bg-accent-600'
+                  : 'bg-accent hover:bg-accent-600'
                 } text-white`}
               disabled={isSaved}
               aria-label={isSaved ? "Preferences saved successfully" : "Save all preference changes"}

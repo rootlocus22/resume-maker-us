@@ -101,8 +101,8 @@ export default function SimpleAuthModal({ isOpen, onClose, onSuccess, title = "S
                 {/* Header */}
                 <div className="flex justify-between items-center p-4 border-b border-gray-100">
                     <h3 className="font-bold text-gray-800 flex items-center gap-2">
-                        <div className="bg-blue-100 p-1.5 rounded-lg">
-                            <LogIn className="w-4 h-4 text-blue-600" />
+                        <div className="bg-accent-50 p-1.5 rounded-lg">
+                            <LogIn className="w-4 h-4 text-accent" />
                         </div>
                         {title}
                     </h3>
@@ -137,7 +137,7 @@ export default function SimpleAuthModal({ isOpen, onClose, onSuccess, title = "S
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Email address"
-                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm"
+                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent-50 outline-none transition-all text-sm"
                                 required
                             />
                         </div>
@@ -147,7 +147,7 @@ export default function SimpleAuthModal({ isOpen, onClose, onSuccess, title = "S
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 placeholder="Password"
-                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all text-sm"
+                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent-50 outline-none transition-all text-sm"
                                 required
                                 minLength={6}
                             />
@@ -176,7 +176,7 @@ export default function SimpleAuthModal({ isOpen, onClose, onSuccess, title = "S
                         </span>
                         <button
                             onClick={() => setIsLogin(!isLogin)}
-                            className="text-blue-600 font-bold hover:underline"
+                            className="text-accent font-bold hover:underline"
                         >
                             {isLogin ? "Sign up" : "Log in"}
                         </button>

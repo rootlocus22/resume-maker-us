@@ -42,10 +42,10 @@ export default function NewPricing() {
       cta: "Get Started",
       href: "/checkout?billingCycle=basic",
       popular: true,
-      color: "from-blue-500 to-indigo-600",
-      bgColor: "bg-gradient-to-br from-blue-50 to-indigo-50",
-      borderColor: "border-blue-200",
-      textColor: "text-blue-800"
+      color: "from-primary to-primary-600",
+      bgColor: "bg-gradient-to-br from-primary-50 to-primary-100",
+      borderColor: "border-primary-200",
+      textColor: "text-primary-800"
     },
     {
       name: "Pro Monthly",
@@ -117,10 +117,10 @@ export default function NewPricing() {
       cta: "Go Pro",
       href: "/checkout?billingCycle=sixMonth",
       popular: false,
-      color: "from-indigo-500 to-purple-600",
-      bgColor: "bg-gradient-to-br from-indigo-50 to-purple-50",
-      borderColor: "border-indigo-200",
-      textColor: "text-indigo-800"
+      color: "from-primary to-primary-600",
+      bgColor: "bg-gradient-to-br from-primary-50 to-primary-100",
+      borderColor: "border-primary-200",
+      textColor: "text-primary-800"
     }
   ];
 
@@ -128,7 +128,7 @@ export default function NewPricing() {
     <section className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-20 w-40 h-40 bg-yellow-500/5 rounded-full blur-3xl"></div>
       </div>
 
@@ -167,10 +167,10 @@ export default function NewPricing() {
             {plans.map((plan, index) => (
               <div
                 key={index}
-                className={`relative rounded-2xl p-6 transition-all duration-300 hover:scale-105 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500 ${plan.name === "Pro Quarterly" // Highlight Quarterly Plan
-                  ? `bg-gradient-to-br from-blue-900 to-indigo-900 text-white border-2 border-yellow-400 shadow-2xl scale-105 z-10`
+                className={`relative rounded-2xl p-6 transition-all duration-300 hover:scale-105 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-accent ${plan.name === "Pro Quarterly" // Highlight Quarterly Plan
+                  ? `bg-gradient-to-br from-primary-900 to-primary-800 text-white border-2 border-yellow-400 shadow-2xl scale-105 z-10`
                   : plan.popular
-                    ? `bg-gradient-to-br from-blue-50 to-indigo-50 text-gray-900 border-2 border-blue-200 shadow-xl`
+                    ? `bg-gradient-to-br from-primary-50 to-primary-100 text-gray-900 border-2 border-primary-200 shadow-xl`
                     : `bg-white text-gray-900 border-2 border-gray-200 hover:border-gray-300 shadow-lg hover:shadow-xl`
                   }`}
                 role="article"
@@ -181,7 +181,7 @@ export default function NewPricing() {
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-full text-center">
                     <div className={`inline-block px-4 py-1 rounded-full text-xs font-bold shadow-lg ${plan.name === "Pro Quarterly"
                       ? "bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 ring-4 ring-white"
-                      : "bg-blue-100 text-blue-800"
+                      : "bg-primary-100 text-primary-800"
                       }`}>
                       {plan.name === "Pro Quarterly" ? "🔥 BEST VALUE" : "MOST POPULAR"}
                     </div>
@@ -201,7 +201,7 @@ export default function NewPricing() {
                     <span className={`text-3xl font-bold ${plan.name === "Pro Quarterly" ? "text-white" : "text-gray-900"}`}>
                       {plan.price}
                     </span>
-                    <span className={`text-lg mb-1 ${plan.name === "Pro Quarterly" ? "text-blue-200" : "text-gray-500"}`}>
+                    <span className={`text-lg mb-1 ${plan.name === "Pro Quarterly" ? "text-primary-200" : "text-gray-500"}`}>
                       {plan.period}
                     </span>
                   </div>
@@ -214,7 +214,7 @@ export default function NewPricing() {
                   )}
 
                   <p
-                    className={`text-sm ${plan.name === "Pro Quarterly" ? 'text-blue-100' : 'text-gray-600'}`}
+                    className={`text-sm ${plan.name === "Pro Quarterly" ? 'text-primary-100' : 'text-gray-600'}`}
                     id={`plan-description-${index}`}
                   >
                     {plan.description}
@@ -240,7 +240,7 @@ export default function NewPricing() {
                       >
                         <Check className={`w-3 h-3 ${plan.name === "Pro Quarterly" ? 'text-gray-900' : 'text-white'}`} />
                       </div>
-                      <span className={`text-xs leading-relaxed ${plan.name === "Pro Quarterly" ? 'text-blue-50' : 'text-gray-700'}`}>
+                      <span className={`text-xs leading-relaxed ${plan.name === "Pro Quarterly" ? 'text-primary-50' : 'text-gray-700'}`}>
                         {feature}
                       </span>
                     </div>
@@ -250,10 +250,10 @@ export default function NewPricing() {
                 {/* CTA Button */}
                 <Link
                   href={plan.href}
-                  className={`block w-full text-center py-3 rounded-xl font-bold text-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${plan.name === "Pro Quarterly"
+                  className={`block w-full text-center py-3 rounded-xl font-bold text-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent ${plan.name === "Pro Quarterly"
                     ? 'bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 hover:from-yellow-500 hover:to-orange-600 shadow-lg transform hover:scale-105'
                     : plan.popular
-                      ? 'bg-blue-600 text-white hover:bg-blue-700'
+                      ? 'bg-accent text-white hover:bg-accent-600'
                       : 'bg-gray-900 text-white hover:bg-gray-800'
                     }`}
                   role="button"

@@ -50,28 +50,28 @@ export default function CoverLetterPreview({ data, template, customColors, resum
   };
 
   const renderModernHeader = () => (
-    <div className="border-b-2 border-blue-900 pb-6 mb-8">
+    <div className="border-b-2 border-primary pb-6 mb-8">
       <div className="flex items-start justify-between">
         <div className="flex-1">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 tracking-tight">
             {getFieldValue("name")}
           </h1>
-          <p className="text-base sm:text-lg text-blue-900 font-semibold mb-4">
+          <p className="text-base sm:text-lg text-primary font-semibold mb-4">
             {getFieldValue("jobTitle")}
           </p>
         </div>
       </div>
       <div className="flex flex-wrap gap-3 sm:gap-4 lg:gap-6 text-xs sm:text-sm text-gray-600 mt-4">
         <span className="flex items-center gap-2">
-          <Mail size={14} className="text-blue-900 flex-shrink-0" />
+          <Mail size={14} className="text-primary flex-shrink-0" />
           <span className="break-all">{getFieldValue("email")}</span>
         </span>
         <span className="flex items-center gap-2">
-          <Phone size={14} className="text-blue-900 flex-shrink-0" />
+          <Phone size={14} className="text-primary flex-shrink-0" />
           {getFieldValue("phone")}
         </span>
         <span className="flex items-center gap-2">
-          <MapPin size={14} className="text-blue-900 flex-shrink-0" />
+          <MapPin size={14} className="text-primary flex-shrink-0" />
           {getFieldValue("location")}
         </span>
       </div>
@@ -307,7 +307,7 @@ export default function CoverLetterPreview({ data, template, customColors, resum
 
         {/* Footer decoration based on template */}
         {(layout.headerStyle === "modern" || layout.headerStyle === "startup") && (
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-900"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary"></div>
         )}
 
         {layout.headerStyle === "executive" && (

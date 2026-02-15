@@ -20,8 +20,8 @@ const ResumeProcessingStepper = ({
       title: 'Parsing Resume',
       description: 'Extracting your professional information',
       icon: FileText,
-      color: 'from-blue-500 to-blue-600',
-      accentColor: 'blue'
+      color: 'from-primary to-primary-600',
+      accentColor: 'primary'
     },
     {
       id: 'ats-check',
@@ -94,7 +94,7 @@ const ResumeProcessingStepper = ({
           {/* Animated Progress Line */}
           <div className="absolute top-5 left-0 right-0 h-1 bg-gray-200 rounded-full -z-10">
             <motion.div
-              className="h-full bg-gradient-to-r from-blue-500 via-orange-500 to-purple-500 rounded-full"
+              className="h-full bg-gradient-to-r from-primary via-orange-500 to-purple-500 rounded-full"
               initial={{ width: 0 }}
               animate={{ 
                 width: currentStepIndex === 0 ? '0%' : 
@@ -234,7 +234,7 @@ const ResumeProcessingStepper = ({
               {onRetry && retryCount < 3 && (
                 <button
                   onClick={onRetry}
-                  className="flex items-center gap-1 bg-blue-600 text-white px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors mx-auto"
+                  className="flex items-center gap-1 bg-accent text-white px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-accent-600 transition-colors mx-auto"
                 >
                   <RotateCcw size={12} />
                   Try Again

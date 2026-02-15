@@ -32,7 +32,7 @@ export default function VideoComponent({
   return (
     <div className="group relative bg-white rounded-2xl overflow-hidden border-2 border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-500 max-w-sm mx-auto">
       {/* Enhanced Stats Badge - Mobile Optimized */}
-      <div className="absolute top-3 left-3 z-20 bg-gradient-to-r from-blue-500 to-emerald-500 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg animate-pulse">
+      <div className="absolute top-3 left-3 z-20 bg-gradient-to-r from-primary to-accent text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg animate-pulse">
         <div className="flex items-center gap-1">
           <Users size={12} />
           <span className="hidden sm:inline">100,000++ Success Stories</span>
@@ -50,7 +50,7 @@ export default function VideoComponent({
       </div>
 
       {/* Video container with responsive aspect ratio (9:16 for YouTube Shorts) */}
-      <div className="relative pt-[177.78%] bg-gradient-to-br from-blue-900 to-blue-900 max-w-sm mx-auto">
+      <div className="relative pt-[177.78%] bg-gradient-to-br from-primary to-primary max-w-sm mx-auto">
         {!hasError && embedUrl && isPlaying ? (
           <iframe
             className="absolute inset-0 w-full h-full rounded-t-2xl"
@@ -63,17 +63,17 @@ export default function VideoComponent({
           />
         ) : !hasError && embedUrl ? (
           // Placeholder when video is not playing yet
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 to-blue-900"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary"></div>
         ) : (
           // Error state - show attractive placeholder for vertical video
-          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-900 to-blue-900">
+          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary to-primary">
             <div className="text-center p-6">
               <div className="mb-4">
                 <AlertCircle size={40} className="text-yellow-400 mx-auto mb-3" />
                 <h3 className="text-lg font-bold text-white mb-2">
                   📱 Video Loading...
                 </h3>
-                <p className="text-blue-100 text-sm mb-4">
+                <p className="text-accent-100 text-sm mb-4">
                   Having trouble loading our  introduction? 
                   Watch it directly on YouTube!
                 </p>
@@ -85,7 +85,7 @@ export default function VideoComponent({
                     <div className="text-white/80">Build Time</div>
                   </div>
                   <div className="bg-white/10 p-2 rounded-lg backdrop-blur-sm">
-                    <div className="text-blue-400 font-bold">98% ATS</div>
+                    <div className="text-accent-400 font-bold">98% ATS</div>
                     <div className="text-white/80">Success Rate</div>
                   </div>
                 </div>
@@ -117,7 +117,7 @@ export default function VideoComponent({
           <div className="absolute inset-0 bg-black/40 backdrop-blur-sm flex flex-col items-center justify-center p-4">
             {/* Main Play Button */}
             <button
-              className="relative mb-4 transition-all duration-300 group-hover:scale-110 focus:outline-none focus:ring-4 focus:ring-blue-500/50"
+              className="relative mb-4 transition-all duration-300 group-hover:scale-110 focus:outline-none focus:ring-4 focus:ring-accent/50"
               aria-label="Play  introduction video"
               onClick={handlePlay}
               disabled={isLoading}
@@ -186,7 +186,7 @@ export default function VideoComponent({
             <div key={i} className="text-center bg-white p-2 rounded-lg border border-gray-100 shadow-sm">
               <div className="text-sm mb-1">{stat.icon}</div>
               <div className="text-xs text-gray-500 mb-1">{stat.label}</div>
-              <div className="text-xs font-bold text-blue-600">{stat.value}</div>
+              <div className="text-xs font-bold text-accent">{stat.value}</div>
             </div>
           ))}
         </div>

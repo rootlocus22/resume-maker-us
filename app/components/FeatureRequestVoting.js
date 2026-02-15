@@ -155,8 +155,8 @@ export default function FeatureRequestVoting({ isOpen, onClose }) {
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-200">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-blue-100 rounded-lg">
-                <Lightbulb className="w-6 h-6 text-blue-600" />
+              <div className="p-2 bg-accent-100 rounded-lg">
+                <Lightbulb className="w-6 h-6 text-accent-600" />
               </div>
               <div>
                 <h2 className="text-xl font-bold text-gray-900">Feature Requests</h2>
@@ -175,7 +175,7 @@ export default function FeatureRequestVoting({ isOpen, onClose }) {
           <div className="flex-1 overflow-y-auto p-6">
             {loading ? (
               <div className="flex items-center justify-center py-12">
-                <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+                <Loader2 className="w-8 h-8 animate-spin text-accent-600" />
               </div>
             ) : (
               <>
@@ -183,7 +183,7 @@ export default function FeatureRequestVoting({ isOpen, onClose }) {
                 {!showSubmitForm && (
                   <button
                     onClick={() => setShowSubmitForm(true)}
-                    className="w-full mb-6 p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all flex items-center justify-center gap-2 text-gray-700 font-medium"
+                    className="w-full mb-6 p-4 border-2 border-dashed border-gray-300 rounded-lg hover:border-accent hover:bg-accent-50 transition-all flex items-center justify-center gap-2 text-gray-700 font-medium"
                   >
                     <Plus size={20} />
                     Suggest a New Feature
@@ -195,7 +195,7 @@ export default function FeatureRequestVoting({ isOpen, onClose }) {
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200"
+                    className="mb-6 p-4 bg-accent-50 rounded-lg border border-accent-200"
                   >
                     <form onSubmit={handleSubmitRequest} className="space-y-4">
                       <div>
@@ -209,7 +209,7 @@ export default function FeatureRequestVoting({ isOpen, onClose }) {
                             setNewRequest({ ...newRequest, title: e.target.value })
                           }
                           placeholder="e.g., Add dark mode"
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
                           required
                         />
                       </div>
@@ -224,7 +224,7 @@ export default function FeatureRequestVoting({ isOpen, onClose }) {
                           }
                           placeholder="Describe the feature and how it would help..."
                           rows={3}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none"
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent resize-none"
                           required
                         />
                       </div>
@@ -242,7 +242,7 @@ export default function FeatureRequestVoting({ isOpen, onClose }) {
                         <button
                           type="submit"
                           disabled={isSubmitting}
-                          className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+                          className="flex-1 bg-accent text-white py-2 px-4 rounded-lg font-medium hover:bg-accent-600 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
                         >
                           {isSubmitting ? 'Submitting...' : 'Submit Request'}
                         </button>
@@ -266,7 +266,7 @@ export default function FeatureRequestVoting({ isOpen, onClose }) {
                       return (
                         <div
                           key={request.id}
-                          className="p-4 border border-gray-200 rounded-lg hover:border-blue-300 transition-colors"
+                          className="p-4 border border-gray-200 rounded-lg hover:border-accent-300 transition-colors"
                         >
                           <div className="flex items-start justify-between gap-4">
                             <div className="flex-1">
@@ -286,7 +286,7 @@ export default function FeatureRequestVoting({ isOpen, onClose }) {
                                     request.status === 'implemented'
                                       ? 'bg-green-100 text-green-700'
                                       : request.status === 'in_progress'
-                                      ? 'bg-blue-100 text-blue-700'
+                                      ? 'bg-accent-100 text-accent-700'
                                       : 'bg-gray-100 text-gray-700'
                                   }`}
                                 >
@@ -299,7 +299,7 @@ export default function FeatureRequestVoting({ isOpen, onClose }) {
                               disabled={isVoting || !user}
                               className={`flex flex-col items-center gap-1 p-3 rounded-lg transition-all ${
                                 hasVoted
-                                  ? 'bg-blue-100 text-blue-600'
+                                  ? 'bg-accent-100 text-accent-600'
                                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                               } disabled:opacity-50 disabled:cursor-not-allowed`}
                             >

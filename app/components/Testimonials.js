@@ -62,7 +62,7 @@ export default function Testimonial() {
 
   if (loading) {
     return (
-      <div className="bg-gradient-to-r from-blue-600 to-blue-600 py-8">
+      <div className="bg-gradient-to-r from-primary to-accent py-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center">
             <div className="animate-spin rounded-full h-8 w-8 border-4 border-white border-t-transparent" />
@@ -91,7 +91,7 @@ export default function Testimonial() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-blue-600 to-blue-600 py-8">
+    <div className="bg-gradient-to-r from-primary to-accent py-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-white text-center mb-6">What Our Users Say</h2>
         <div className="relative overflow-hidden">
@@ -130,7 +130,7 @@ export default function Testimonial() {
                         e.target.nextSibling.style.display = 'flex';
                       }}
                     />
-                    <div className="w-full h-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-lg">
+                    <div className="w-full h-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-lg">
                       {(feedback[currentIndex].name || "U")[0].toUpperCase()}
                     </div>
                   </div>

@@ -18,7 +18,7 @@ export default function SEOSkills({ title, skills }) {
                     {skills && skills.length > 0 ? skills.map((skill, index) => (
                         <div key={index} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-100">
                             <div className="flex items-center gap-3 mb-2">
-                                <div className="p-2 bg-blue-50 rounded-lg text-blue-600">
+                                <div className="p-2 bg-accent-50 rounded-lg text-accent">
                                     <Zap size={20} />
                                 </div>
                                 <h3 className="font-bold text-gray-900">{skill.name}</h3>
@@ -29,7 +29,7 @@ export default function SEOSkills({ title, skills }) {
                         <>
                             <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md border border-gray-100">
                                 <div className="flex items-center gap-3 mb-2">
-                                    <div className="p-2 bg-blue-50 rounded-lg text-blue-600">
+                                    <div className="p-2 bg-accent-50 rounded-lg text-accent">
                                         <Zap size={20} />
                                     </div>
                                     <h3 className="font-bold text-gray-900">Technical Proficiency</h3>

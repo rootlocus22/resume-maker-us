@@ -19,7 +19,7 @@ export default function FormConfigPanel({ config, onConfigChange }) {
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={`flex-1 py-2 px-4 text-sm font-medium ${activeTab === tab.id
-                ? 'text-blue-600 border-b-2 border-blue-600'
+                ? 'text-accent border-b-2 border-accent'
                 : 'text-gray-500 hover:text-gray-700'
               }`}
           >
@@ -76,7 +76,7 @@ export default function FormConfigPanel({ config, onConfigChange }) {
                   ...config.education.showStartDate,
                   highSchool: e.target.checked
                 })}
-                className="h-4 w-4 text-blue-600 rounded border-gray-300"
+                className="h-4 w-4 text-accent rounded border-gray-300"
               />
               <label htmlFor="showHighSchoolDates" className="ml-2 text-sm text-gray-700">
                 Show dates for high school education
@@ -92,7 +92,7 @@ export default function FormConfigPanel({ config, onConfigChange }) {
                   ...config.education.showFieldOfStudy,
                   highSchool: e.target.checked
                 })}
-                className="h-4 w-4 text-blue-600 rounded border-gray-300"
+                className="h-4 w-4 text-accent rounded border-gray-300"
               />
               <label htmlFor="showHighSchoolField" className="ml-2 text-sm text-gray-700">
                 Show field of study for high school
@@ -124,7 +124,7 @@ export default function FormConfigPanel({ config, onConfigChange }) {
                 id="showProficiency"
                 checked={config.skills.showProficiency}
                 onChange={(e) => onConfigChange('skills', 'showProficiency', e.target.checked)}
-                className="h-4 w-4 text-blue-600 rounded border-gray-300"
+                className="h-4 w-4 text-accent rounded border-gray-300"
               />
               <label htmlFor="showProficiency" className="ml-2 text-sm text-gray-700">
                 Show proficiency levels
@@ -169,7 +169,7 @@ export default function FormConfigPanel({ config, onConfigChange }) {
                 id="groupByCategory"
                 checked={config.skills.groupByCategory}
                 onChange={(e) => onConfigChange('skills', 'groupByCategory', e.target.checked)}
-                className="h-4 w-4 text-blue-600 rounded border-gray-300"
+                className="h-4 w-4 text-accent rounded border-gray-300"
               />
               <label htmlFor="groupByCategory" className="ml-2 text-sm text-gray-700">
                 Group skills by category
@@ -186,7 +186,7 @@ export default function FormConfigPanel({ config, onConfigChange }) {
                 id="reorderSections"
                 checked={config.sections.reorderEnabled}
                 onChange={(e) => onConfigChange('sections', 'reorderEnabled', e.target.checked)}
-                className="h-4 w-4 text-blue-600 rounded border-gray-300"
+                className="h-4 w-4 text-accent rounded border-gray-300"
               />
               <label htmlFor="reorderSections" className="ml-2 text-sm text-gray-700">
                 Enable section reordering
@@ -199,7 +199,7 @@ export default function FormConfigPanel({ config, onConfigChange }) {
                 id="collapsibleSections"
                 checked={config.sections.collapsible}
                 onChange={(e) => onConfigChange('sections', 'collapsible', e.target.checked)}
-                className="h-4 w-4 text-blue-600 rounded border-gray-300"
+                className="h-4 w-4 text-accent rounded border-gray-300"
               />
               <label htmlFor="collapsibleSections" className="ml-2 text-sm text-gray-700">
                 Make sections collapsible

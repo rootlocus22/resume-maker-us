@@ -127,7 +127,7 @@ const AgentManagement = () => {
           </div>
           <button
             onClick={() => setIsAddingAgent(true)}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            className="flex items-center gap-2 px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent-600"
           >
             <Plus className="w-4 h-4" />
             Add Agent
@@ -138,7 +138,7 @@ const AgentManagement = () => {
       <div className="p-6">
         {/* Add Agent Form */}
         {isAddingAgent && (
-          <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+          <div className="mb-6 p-4 bg-accent-50 rounded-lg border border-accent-200">
             <h3 className="font-medium text-gray-900 mb-3">Add New Agent</h3>
             <div className="flex gap-3">
               <input
@@ -146,7 +146,7 @@ const AgentManagement = () => {
                 placeholder="Agent name (e.g., Sarah, James, Emily)"
                 value={newAgentName}
                 onChange={(e) => setNewAgentName(e.target.value)}
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                 onKeyPress={(e) => e.key === 'Enter' && addAgent()}
               />
               <button
@@ -183,8 +183,8 @@ const AgentManagement = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
                     <div className="flex-shrink-0">
-                      <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
-                        <User className="w-5 h-5 text-blue-600" />
+                      <div className="h-10 w-10 rounded-full bg-accent-100 flex items-center justify-center">
+                        <User className="w-5 h-5 text-accent-600" />
                       </div>
                     </div>
                     <div>
@@ -230,7 +230,7 @@ const AgentManagement = () => {
                     
                     <button
                       onClick={() => copyUrl(agent.id)}
-                      className="p-2 text-blue-600 hover:text-blue-800 hover:bg-blue-100 rounded"
+                      className="p-2 text-accent-600 hover:text-accent-800 hover:bg-accent-100 rounded"
                       title="Copy dashboard URL"
                     >
                       {copiedUrl === agent.id ? (
@@ -274,7 +274,7 @@ const AgentManagement = () => {
                       className={`ml-3 px-3 py-1 text-xs rounded transition-colors ${
                         copiedUrl === agent.id
                           ? 'bg-green-100 text-green-800'
-                          : 'bg-blue-100 text-blue-800 hover:bg-blue-200'
+                          : 'bg-accent-100 text-primary hover:bg-accent-200'
                       }`}
                     >
                       {copiedUrl === agent.id ? 'Copied!' : 'Copy URL'}

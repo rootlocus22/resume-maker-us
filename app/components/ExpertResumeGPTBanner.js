@@ -41,7 +41,7 @@ export default function ExpertResumeGPTBanner({ variant = "floating" }) {
           isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0 pointer-events-none"
         }`}
       >
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl shadow-2xl p-6 relative">
+        <div className="bg-gradient-to-r from-primary to-accent text-white rounded-2xl shadow-2xl p-6 relative">
           <button
             onClick={handleDismiss}
             className="absolute top-3 right-3 p-1 hover:bg-white/20 rounded-full transition-colors"
@@ -57,12 +57,12 @@ export default function ExpertResumeGPTBanner({ variant = "floating" }) {
               <h3 className="font-bold text-lg mb-1">
                 ✨ New: ExpertResume GPT
               </h3>
-              <p className="text-sm text-blue-100 mb-4">
+              <p className="text-sm text-accent-100 mb-4">
                 Your AI assistant for interviews, coding, career advice & more!
               </p>
               <Link
                 href="/expertresume-gpt"
-                className="inline-flex items-center px-4 py-2 bg-white text-blue-600 rounded-full font-semibold text-sm hover:bg-gray-100 transition-all"
+                className="inline-flex items-center px-4 py-2 bg-white text-accent rounded-full font-semibold text-sm hover:bg-gray-100 transition-all"
               >
                 Learn More
                 <ArrowRight className="ml-2 w-4 h-4" />
@@ -77,7 +77,7 @@ export default function ExpertResumeGPTBanner({ variant = "floating" }) {
   // Inline banner (for pages)
   if (variant === "inline") {
     return (
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl shadow-xl p-6 sm:p-8 mb-8 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-primary to-accent text-white rounded-2xl shadow-xl p-6 sm:p-8 mb-8 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32"></div>
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full -ml-24 -mb-24"></div>
         
@@ -87,13 +87,13 @@ export default function ExpertResumeGPTBanner({ variant = "floating" }) {
           </div>
           
           <div className="flex-1 text-center sm:text-left">
-            <div className="inline-block bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-xs font-bold mb-2">
+            <div className="inline-block bg-accent-50 text-primary px-3 py-1 rounded-full text-xs font-bold mb-2">
               NEW FEATURE
             </div>
             <h3 className="text-2xl font-bold mb-2">
               Meet ExpertResume GPT - Your AI Career Partner
             </h3>
-            <p className="text-blue-100">
+            <p className="text-accent-100">
               Get instant help with interviews, coding, system design, career advice, and more. Available 24/7 for all premium members.
             </p>
           </div>
@@ -101,7 +101,7 @@ export default function ExpertResumeGPTBanner({ variant = "floating" }) {
           <div className="flex-shrink-0">
             <Link
               href="/expertresume-gpt"
-              className="inline-flex items-center px-6 py-3 bg-white text-blue-600 rounded-full font-bold hover:bg-gray-100 transition-all shadow-lg"
+              className="inline-flex items-center px-6 py-3 bg-white text-accent rounded-full font-bold hover:bg-gray-100 transition-all shadow-lg"
             >
               Explore GPT
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -115,7 +115,7 @@ export default function ExpertResumeGPTBanner({ variant = "floating" }) {
   // Top banner (full-width)
   if (variant === "top") {
     return (
-      <div className={`bg-gradient-to-r from-blue-600 to-purple-600 text-white transition-all duration-500 ${
+      <div className={`bg-gradient-to-r from-primary to-accent text-white transition-all duration-500 ${
         isVisible ? "max-h-20 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
       }`}>
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
@@ -128,7 +128,7 @@ export default function ExpertResumeGPTBanner({ variant = "floating" }) {
           <div className="flex items-center gap-3">
             <Link
               href="/expertresume-gpt"
-              className="inline-flex items-center px-4 py-2 bg-white text-blue-600 rounded-full font-semibold text-sm hover:bg-gray-100 transition-all whitespace-nowrap"
+              className="inline-flex items-center px-4 py-2 bg-white text-accent rounded-full font-semibold text-sm hover:bg-gray-100 transition-all whitespace-nowrap"
             >
               Try Now
               <ArrowRight className="ml-1 w-4 h-4" />

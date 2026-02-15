@@ -158,7 +158,7 @@ function DashboardContent() {
             <div className="relative">
               <div className="flex items-center justify-between mb-3 sm:mb-4">
                 <div className="p-2 sm:p-3 bg-slate-50 rounded-xl">
-                  <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-[#0B1F3B]" />
+                  <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
                 <span className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900">{resumeCount}</span>
               </div>
@@ -247,7 +247,7 @@ function DashboardContent() {
             ].map((item, index) => {
               const Icon = item.icon;
               const iconClasses = {
-                blue: "text-[#0B1F3B]",
+                blue: "text-primary",
                 purple: "text-teal-600",
                 green: "text-green-600",
                 indigo: "text-teal-600",
@@ -314,7 +314,7 @@ function DashboardContent() {
 
                   <div className="flex gap-2 sm:gap-3 mt-4">
                     <Link href="/my-resumes" className="flex-1">
-                      <button className="w-full bg-[#0B1F3B] text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-semibold hover:bg-[#071429] transition-all duration-200 flex items-center justify-center gap-2 text-xs sm:text-sm">
+                      <button className="w-full bg-primary text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-semibold hover:bg-gray-900 transition-all duration-200 flex items-center justify-center gap-2 text-xs sm:text-sm">
                         View All
                         <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                       </button>
@@ -335,7 +335,7 @@ function DashboardContent() {
                     <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">No resumes yet</p>
                   </div>
                   <Link href="/resume-builder">
-                    <button className="bg-[#0B1F3B] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-[#071429] transition-all duration-200 flex items-center justify-center gap-2 mx-auto text-sm">
+                    <button className="bg-primary text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-gray-900 transition-all duration-200 flex items-center justify-center gap-2 mx-auto text-sm">
                       <Plus className="w-3 h-3 sm:w-4 sm:h-4" />
                       Create First Resume
                     </button>
@@ -361,7 +361,7 @@ function DashboardContent() {
               <div className="space-y-3 sm:space-y-4 flex-1">
                 <div className="flex items-center gap-2 sm:gap-3">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 bg-slate-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Target className="w-4 h-4 sm:w-5 sm:h-5 text-[#0B1F3B]" />
+                    <Target className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-xs sm:text-sm font-semibold text-gray-900">Smart Matching</p>
@@ -391,7 +391,7 @@ function DashboardContent() {
               </div>
 
               <Link href="/jobs-nearby" className="mt-4">
-                <button className="w-full bg-[#0B1F3B] text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-semibold hover:bg-[#071429] transition-all duration-200 flex items-center justify-center gap-2 text-xs sm:text-sm">
+                <button className="w-full bg-primary text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-semibold hover:bg-gray-900 transition-all duration-200 flex items-center justify-center gap-2 text-xs sm:text-sm">
                   Find Jobs Now
                   <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                 </button>
@@ -438,12 +438,12 @@ function DashboardContent() {
                           <p className="text-[10px] sm:text-xs text-gray-500">For later review</p>
                         </div>
                       </div>
-                      <span className="text-xl sm:text-2xl font-bold text-[#0B1F3B]">{savedJobsCount}</span>
+                      <span className="text-xl sm:text-2xl font-bold text-primary">{savedJobsCount}</span>
                     </div>
                   </div>
 
                   <Link href="/my-jobs" className="mt-4">
-                    <button className="w-full bg-[#0B1F3B] text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-semibold hover:bg-[#071429] transition-all duration-200 flex items-center justify-center gap-2 text-xs sm:text-sm">
+                    <button className="w-full bg-primary text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-semibold hover:bg-gray-900 transition-all duration-200 flex items-center justify-center gap-2 text-xs sm:text-sm">
                       View All Jobs
                       <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                     </button>
@@ -461,7 +461,7 @@ function DashboardContent() {
                     </p>
                   </div>
                   <Link href="/my-jobs">
-                    <button className="bg-[#0B1F3B] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-[#071429] transition-all duration-200 flex items-center justify-center gap-2 mx-auto text-sm">
+                    <button className="bg-primary text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-gray-900 transition-all duration-200 flex items-center justify-center gap-2 mx-auto text-sm">
                       Track Jobs
                       <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                     </button>
@@ -509,7 +509,7 @@ function DashboardContent() {
 
                 <div className="flex items-center gap-2 sm:gap-3">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 bg-slate-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Trophy className="w-4 h-4 sm:w-5 sm:h-5 text-[#0B1F3B]" />
+                    <Trophy className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-xs sm:text-sm font-semibold text-gray-900">Readiness Report</p>
@@ -519,7 +519,7 @@ function DashboardContent() {
               </div>
 
               <Link href="/ai-interview" className="mt-4">
-                <button className="w-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-semibold hover:from-[#071429] hover:to-[#008C81] transition-all duration-200 flex items-center justify-center gap-2 text-xs sm:text-sm shadow-sm group-hover:shadow-md">
+                <button className="w-full bg-gradient-to-r from-primary to-accent text-white px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-semibold hover:from-gray-900 hover:to-accent-700 transition-all duration-200 flex items-center justify-center gap-2 text-xs sm:text-sm shadow-sm group-hover:shadow-md">
                   Practice Now
                   <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
                 </button>

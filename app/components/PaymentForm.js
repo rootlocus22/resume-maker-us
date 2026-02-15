@@ -203,7 +203,7 @@ const PaymentForm = ({ isOpen, onClose, userId, billingCycle: propBillingCycle }
     <div className="fixed inset-0 bg-gray-900/80 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-xl shadow-2xl max-w-md w-full max-h-[90vh] flex flex-col">
         {/* Header */}
-        <div className="bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] p-4 text-center">
+        <div className="bg-gradient-to-r from-primary to-primary p-4 text-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-10 w-10 mx-auto text-white"
@@ -242,9 +242,9 @@ const PaymentForm = ({ isOpen, onClose, userId, billingCycle: propBillingCycle }
 
         {/* Scrollable Content */}
         <div className="overflow-y-auto flex-1 p-4 space-y-6">
-          <div className="bg-slate-100 border-l-4 border-[#0B1F3B] p-2 rounded-r-lg flex items-center gap-2">
-            <span className="text-[#0B1F3B] text-sm">🎉</span>
-            <p className="text-xs text-[#0B1F3B]">
+          <div className="bg-slate-100 border-l-4 border-primary p-2 rounded-r-lg flex items-center gap-2">
+            <span className="text-primary text-sm">🎉</span>
+            <p className="text-xs text-primary">
               {couponApplied ? (
                 <span>
                   <strong>Coupon Applied:</strong> PREMIUM20 - 20% off applied!
@@ -252,7 +252,7 @@ const PaymentForm = ({ isOpen, onClose, userId, billingCycle: propBillingCycle }
               ) : (
                 <span>
                   <strong>Have a Coupon?</strong>{" "}
-                  <button onClick={handleApplyCoupon} className="text-[#0B1F3B] underline hover:text-[#071429]">
+                  <button onClick={handleApplyCoupon} className="text-primary underline hover:text-gray-900">
                     Apply PREMIUM20 for 20% off
                   </button>
                 </span>
@@ -264,7 +264,7 @@ const PaymentForm = ({ isOpen, onClose, userId, billingCycle: propBillingCycle }
             <button
               onClick={() => handleBillingToggle("monthly")}
               className={`py-2 px-1 rounded-lg text-xs font-medium transition-all ${billingCycle === "monthly"
-                ? "bg-[#0B1F3B] text-white shadow-md"
+                ? "bg-primary text-white shadow-md"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
             >
@@ -277,7 +277,7 @@ const PaymentForm = ({ isOpen, onClose, userId, billingCycle: propBillingCycle }
             <button
               onClick={() => handleBillingToggle("quarterly")}
               className={`py-2 px-1 rounded-lg text-xs font-medium transition-all ${billingCycle === "quarterly"
-                ? "bg-[#0B1F3B] text-white shadow-md"
+                ? "bg-primary text-white shadow-md"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
             >
@@ -290,7 +290,7 @@ const PaymentForm = ({ isOpen, onClose, userId, billingCycle: propBillingCycle }
             <button
               onClick={() => handleBillingToggle("yearly")}
               className={`py-2 px-1 rounded-lg text-xs font-medium transition-all ${billingCycle === "yearly"
-                ? "bg-[#0B1F3B] text-white shadow-md"
+                ? "bg-primary text-white shadow-md"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
             >
@@ -307,27 +307,27 @@ const PaymentForm = ({ isOpen, onClose, userId, billingCycle: propBillingCycle }
               placeholder="Full Name"
               value={paymentDetails.name}
               onChange={(e) => setPaymentDetails((prev) => ({ ...prev, name: e.target.value }))}
-              className="w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0B1F3B] focus:outline-none placeholder-gray-400 text-sm"
+              className="w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-accent focus:outline-none placeholder-gray-400 text-sm"
             />
             <input
               type="email"
               placeholder="Email Address"
               value={paymentDetails.email}
               onChange={(e) => setPaymentDetails((prev) => ({ ...prev, email: e.target.value }))}
-              className="w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0B1F3B] focus:outline-none placeholder-gray-400 text-sm"
+              className="w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-accent focus:outline-none placeholder-gray-400 text-sm"
             />
             <input
               type="tel"
               placeholder="Phone (optional, e.g., +1 555-123-4567)"
               value={paymentDetails.phone}
               onChange={(e) => setPaymentDetails((prev) => ({ ...prev, phone: e.target.value }))}
-              className="w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0B1F3B] focus:outline-none placeholder-gray-400 text-sm"
+              className="w-full p-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-accent focus:outline-none placeholder-gray-400 text-sm"
             />
           </div>
 
           <div className="bg-slate-50 p-3 rounded-lg">
-            <p className="text-xs text-[#0B1F3B] font-semibold">What You'll Unlock:</p>
-            <ul className="mt-2 space-y-2 text-xs text-[#0B1F3B]">
+            <p className="text-xs text-primary font-semibold">What You'll Unlock:</p>
+            <ul className="mt-2 space-y-2 text-xs text-primary">
               {[
                 "Unlimited PDF Downloads",
                 "15+ Premium Templates",
@@ -340,7 +340,7 @@ const PaymentForm = ({ isOpen, onClose, userId, billingCycle: propBillingCycle }
                 <li key={idx} className="flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-3 w-3 text-[#0B1F3B] flex-shrink-0"
+                    className="h-3 w-3 text-primary flex-shrink-0"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -360,7 +360,7 @@ const PaymentForm = ({ isOpen, onClose, userId, billingCycle: propBillingCycle }
             <p className="text-xs text-gray-500 flex items-center justify-center gap-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 text-[#0B1F3B]"
+                className="h-4 w-4 text-primary"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -379,7 +379,7 @@ const PaymentForm = ({ isOpen, onClose, userId, billingCycle: propBillingCycle }
         <div className="p-4 border-t border-gray-200 bg-white sticky bottom-0">
           <button
             onClick={handlePaymentSubmit}
-            className="w-full bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white py-3 rounded-lg hover:from-[#071429] hover:to-[#071429] transition-all font-semibold disabled:opacity-50"
+            className="w-full bg-gradient-to-r from-primary to-primary text-white py-3 rounded-lg hover:from-gray-900 hover:to-gray-900 transition-all font-semibold disabled:opacity-50"
             disabled={isLoading}
           >
             {isLoading

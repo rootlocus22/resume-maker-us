@@ -83,7 +83,7 @@ export default function TeamMemberRoute({ children, fallbackPath = "/dashboard/p
 
   if (isCheckingAuth || loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-accent-50 flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -92,7 +92,7 @@ export default function TeamMemberRoute({ children, fallbackPath = "/dashboard/p
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-blue-600 to-blue-600 rounded-full flex items-center justify-center shadow-lg"
+            className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center shadow-lg"
           >
             <Crown size={32} className="text-white" />
           </motion.div>
@@ -115,8 +115,8 @@ export default function TeamMemberRoute({ children, fallbackPath = "/dashboard/p
           animate={{ opacity: 1, scale: 1 }}
           className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center"
         >
-          <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <Shield className="w-8 h-8 text-blue-600" />
+          <div className="w-16 h-16 bg-accent-50 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Shield className="w-8 h-8 text-accent" />
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Access Restricted</h1>
           <p className="text-gray-600 mb-6">
@@ -126,7 +126,7 @@ export default function TeamMemberRoute({ children, fallbackPath = "/dashboard/p
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => router.push(fallbackPath)}
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold flex items-center justify-center mx-auto"
+            className="bg-accent text-white px-6 py-3 rounded-lg hover:bg-accent-600 transition-colors font-semibold flex items-center justify-center mx-auto"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Go to Dashboard

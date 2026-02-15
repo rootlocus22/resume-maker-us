@@ -61,11 +61,11 @@ export default function Header() {
       } else if (plan === 'monthly') {
         badges.push({
           text: 'Pro Member',
-          icon: <Star size={14} className="text-emerald-500" />,
-          gradient: 'from-emerald-400 to-teal-500',
-          bgGradient: 'from-emerald-50 to-teal-100',
-          textColor: 'text-emerald-700',
-          borderColor: 'border-emerald-200',
+          icon: <Star size={14} className="text-accent" />,
+          gradient: 'from-accent-400 to-accent-500',
+          bgGradient: 'from-accent-50 to-accent-100',
+          textColor: 'text-accent-700',
+          borderColor: 'border-accent-200',
           shadow: 'shadow-lg',
           pulse: true,
           level: 'pro'
@@ -184,7 +184,7 @@ export default function Header() {
           icon: Brain,
           description: "20 questions with winning answers",
           badgeText: "New",
-          badgeColor: "bg-gradient-to-r from-purple-500 to-indigo-500"
+          badgeColor: "bg-gradient-to-r from-purple-500 to-primary"
         },
         {
           href: "/resume-examples",
@@ -192,7 +192,7 @@ export default function Header() {
           icon: BookOpen,
           description: "100+ job-specific resume examples",
           badgeText: "100+",
-          badgeColor: "bg-gradient-to-r from-blue-500 to-indigo-500"
+          badgeColor: "bg-gradient-to-r from-primary to-primary-600"
         },
         {
           href: "/cover-letter-builder",
@@ -218,7 +218,7 @@ export default function Header() {
           icon: Target,
           description: "AI-powered job matching",
           badgeText: "New",
-          badgeColor: "bg-emerald-500",
+          badgeColor: "bg-accent",
           requiresAuth: true,
           onClick: (e) => {
             if (!user) {
@@ -606,7 +606,7 @@ export default function Header() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`h-full flex items-center px-3 text-[#0B1F3B] hover:text-teal-600 font-medium text-sm transition-colors duration-200 ${pathname === item.href ? "text-teal-600 border-b-2 border-teal-500" : ""
+                    className={`h-full flex items-center px-3 text-primary hover:text-accent-600 font-medium text-sm transition-colors duration-200 ${pathname === item.href ? "text-accent-600 border-b-2 border-accent-500" : ""
                       }`}
                     onClick={item.onClick || (() => event({ action: `nav_${item.label.toLowerCase().replace(/ /g, "_")}`, category: "Navigation", label: "Header" }))}
                   >
@@ -643,7 +643,7 @@ export default function Header() {
                       onMouseLeave={scheduleMenuClose}
                     >
                       <button
-                        className={`h-full flex items-center px-3 text-[#0B1F3B] hover:text-teal-600 font-medium text-sm transition-colors duration-200 ${openMegaMenu === key ? "text-teal-600" : ""
+                        className={`h-full flex items-center px-3 text-primary hover:text-accent-600 font-medium text-sm transition-colors duration-200 ${openMegaMenu === key ? "text-accent-600" : ""
                           }`}
                       >
                         <group.icon size={16} className="mr-1.5" />
@@ -730,7 +730,7 @@ export default function Header() {
                   onMouseLeave={scheduleMenuClose}
                 >
                   <button
-                    className={`h-full flex items-center px-3 text-[#0B1F3B] hover:text-teal-600 font-medium text-sm transition-colors duration-200 ${openMegaMenu === 'resources' ? "text-teal-600" : ""
+                    className={`h-full flex items-center px-3 text-primary hover:text-accent-600 font-medium text-sm transition-colors duration-200 ${openMegaMenu === 'resources' ? "text-accent-600" : ""
                       }`}
                   >
                     <BookOpen size={16} className="mr-1.5" />
@@ -777,7 +777,7 @@ export default function Header() {
                   onMouseLeave={scheduleMenuClose}
                 >
                   <button
-                    className={`h-full flex items-center px-3 text-[#0B1F3B] hover:text-teal-600 font-medium text-sm transition-colors duration-200 ${openMegaMenu === 'other' ? "text-teal-600" : ""
+                    className={`h-full flex items-center px-3 text-primary hover:text-accent-600 font-medium text-sm transition-colors duration-200 ${openMegaMenu === 'other' ? "text-accent-600" : ""
                       }`}
                   >
                     <Settings size={16} className="mr-1.5" />
@@ -1117,7 +1117,7 @@ export default function Header() {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Mobile Menu Header */}
-            <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-5 py-5 flex-shrink-0">
+            <div className="bg-gradient-to-r from-primary to-primary-600 px-5 py-5 flex-shrink-0">
               {user ? (
                 /* Logged In - User Card at Top */
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
@@ -1364,7 +1364,7 @@ export default function Header() {
                     </Link>
                     <Link
                       href="/signup"
-                      className="flex items-center justify-center gap-2 px-4 py-3 text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 rounded-xl transition-all duration-200 font-semibold shadow-md"
+                      className="flex items-center justify-center gap-2 px-4 py-3 text-white bg-gradient-to-r from-primary to-primary-600 hover:from-primary-600 hover:to-primary-700 rounded-xl transition-all duration-200 font-semibold shadow-md"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <Sparkles size={18} />

@@ -55,10 +55,10 @@ export default function ResumeIssues() {
       description: "Recruiters spend only 6-10 seconds on each resume. Generic designs fail to capture attention in this critical window and get passed over.",
       stat: "6-10s",
       statLabel: "Average Review Time",
-      color: "from-blue-500 to-indigo-600",
-      lightColor: "from-blue-50 to-indigo-50",
-      iconBg: "bg-blue-100",
-      iconColor: "text-blue-600",
+      color: "from-primary to-primary-700",
+      lightColor: "from-primary-50 to-primary-100",
+      iconBg: "bg-primary-100",
+      iconColor: "text-primary",
       solution: "Eye-catching professional designs that stand out instantly"
     },
     {
@@ -76,11 +76,11 @@ export default function ResumeIssues() {
   ];
 
   return (
-    <section className="py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+    <section className="py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-primary-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden opacity-40">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-slate-200/30 to-blue-200/30 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-blue-200/20 to-purple-200/20 rounded-full blur-3xl animate-float" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-slate-200/30 to-primary-200/30 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-primary-200/20 to-accent-200/20 rounded-full blur-3xl animate-float" style={{animationDelay: '1s'}}></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,14 +89,14 @@ export default function ResumeIssues() {
         <div className={`text-center mb-16 lg:mb-20 transition-all duration-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-50 to-blue-50 border border-slate-200 px-4 py-2 rounded-full text-sm font-semibold text-slate-600 mb-4">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-50 to-primary-50 border border-slate-200 px-4 py-2 rounded-full text-sm font-semibold text-slate-600 mb-4">
             <AlertCircle className="w-4 h-4" />
             THE HIDDEN RESUME KILLERS
           </div>
           
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4">
             Why Many Resumes{" "}
-            <span className="bg-gradient-to-r from-slate-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-slate-600 via-primary to-accent bg-clip-text text-transparent">
               Don't Get Noticed
             </span>
           </h2>
@@ -184,12 +184,12 @@ export default function ResumeIssues() {
                     </div>
 
                     {/* Solution Card */}
-                    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-5">
+                    <div className="bg-gradient-to-br from-accent-50 to-accent-100 border-2 border-accent-200 rounded-xl p-5">
                       <div className="flex items-center gap-2 mb-3">
-                        <CheckCircle2 className="w-5 h-5 text-blue-600" />
-                        <span className="text-blue-800 font-bold text-sm">Our Solution</span>
+                        <CheckCircle2 className="w-5 h-5 text-accent-600" />
+                        <span className="text-accent-800 font-bold text-sm">Our Solution</span>
                       </div>
-                      <p className="text-blue-700 font-medium text-sm leading-snug">{issue.solution}</p>
+                      <p className="text-accent-700 font-medium text-sm leading-snug">{issue.solution}</p>
                     </div>
                   </div>
                 </div>
@@ -258,23 +258,23 @@ export default function ResumeIssues() {
         <div className={`transition-all duration-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="relative bg-gradient-to-br from-blue-50 via-white to-indigo-50 rounded-3xl overflow-hidden border border-blue-100 shadow-xl">
+          <div className="relative bg-gradient-to-br from-primary-50 via-white to-accent-50 rounded-3xl overflow-hidden border border-primary-100 shadow-xl">
             {/* Subtle Background Elements */}
             <div className="absolute inset-0 overflow-hidden opacity-30">
-              <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-r from-blue-200 to-indigo-200 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-200 to-blue-200 rounded-full blur-3xl"></div>
+              <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-r from-primary-200 to-accent-200 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-r from-accent-200 to-primary-200 rounded-full blur-3xl"></div>
             </div>
 
             <div className="relative px-6 py-12 lg:px-12 lg:py-16">
               {/* Header */}
               <div className="text-center mb-12 max-w-3xl mx-auto">
-                <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 px-4 py-2 rounded-full text-sm font-semibold text-blue-700 mb-4">
+                <div className="inline-flex items-center gap-2 bg-accent-50 border border-accent-200 px-4 py-2 rounded-full text-sm font-semibold text-accent-700 mb-4">
                   <Sparkles className="w-4 h-4" />
                   Your Solution is Here
                 </div>
                 
                 <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-                  How <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">ExpertResume</span> Helps You Win
+                  How <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">ExpertResume</span> Helps You Win
                 </h3>
                 
                 <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
@@ -290,20 +290,20 @@ export default function ResumeIssues() {
                     title: "Pass Every ATS Filter",
                     description: "Stop getting auto-rejected. Our AI checks your resume against real ATS systems and fixes issues instantly.",
                     benefit: "75% of resumes fail ATS - yours won't",
-                    color: "from-blue-500 to-cyan-600",
-                    lightColor: "from-blue-50 to-cyan-50",
-                    iconBg: "bg-blue-100",
-                    iconColor: "text-blue-600"
+                    color: "from-primary to-accent",
+                    lightColor: "from-accent-50 to-accent-100",
+                    iconBg: "bg-accent-100",
+                    iconColor: "text-accent-600"
                   },
                   {
                     icon: <Zap className="w-6 h-6" />,
                     title: "Catch Recruiters' Eyes",
                     description: "Get a professional design that stands out in those critical 6-10 seconds when recruiters review your resume.",
                     benefit: "50+ proven templates that get results",
-                    color: "from-indigo-500 to-purple-600",
-                    lightColor: "from-indigo-50 to-purple-50",
-                    iconBg: "bg-indigo-100",
-                    iconColor: "text-indigo-600"
+                    color: "from-primary-600 to-primary-800",
+                    lightColor: "from-primary-50 to-primary-100",
+                    iconBg: "bg-primary-100",
+                    iconColor: "text-primary"
                   },
                   {
                     icon: <Target className="w-6 h-6" />,
@@ -317,7 +317,7 @@ export default function ResumeIssues() {
                   }
                 ].map((solution, idx) => (
                   <div key={idx} className="group">
-                    <div className="relative bg-white rounded-2xl p-6 lg:p-8 border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300">
+                    <div className="relative bg-white rounded-2xl p-6 lg:p-8 border border-gray-200 hover:border-accent-300 hover:shadow-xl transition-all duration-300">
                       {/* Icon */}
                       <div className={`${solution.iconBg} ${solution.iconColor} p-3 rounded-xl shadow-sm mb-4 inline-flex`}>
                         {solution.icon}
@@ -334,8 +334,8 @@ export default function ResumeIssues() {
                       </p>
                       
                       {/* Benefit Badge */}
-                      <div className={`bg-gradient-to-r ${solution.lightColor} border border-blue-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-700 flex items-start gap-2`}>
-                        <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <div className={`bg-gradient-to-r ${solution.lightColor} border border-accent-200 rounded-xl px-4 py-2.5 text-sm font-medium text-gray-700 flex items-start gap-2`}>
+                        <CheckCircle2 className="w-4 h-4 text-accent-600 flex-shrink-0 mt-0.5" />
                         <span className="leading-snug">{solution.benefit}</span>
                       </div>
                     </div>
@@ -344,7 +344,7 @@ export default function ResumeIssues() {
               </div>
 
               {/* Success Proof - Redesigned */}
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 lg:p-10 mb-10 max-w-5xl mx-auto border border-blue-200 shadow-lg">
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 lg:p-10 mb-10 max-w-5xl mx-auto border border-accent-200 shadow-lg">
                 <div className="text-center mb-6">
                   <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Trusted by Job Seekers Worldwide</h4>
                   <p className="text-gray-600">Real results from real people</p>
@@ -352,22 +352,22 @@ export default function ResumeIssues() {
                 <div className="grid grid-cols-3 gap-6 lg:gap-8 text-center">
                   <div className="group">
                     <div className="flex items-center justify-center gap-1 mb-2">
-                      <Users className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform duration-300" />
-                      <div className="text-3xl sm:text-4xl font-bold text-blue-600 group-hover:scale-110 transition-transform duration-300">100k+</div>
+                      <Users className="w-5 h-5 text-accent-600 group-hover:scale-110 transition-transform duration-300" />
+                      <div className="text-3xl sm:text-4xl font-bold text-accent-600 group-hover:scale-110 transition-transform duration-300">100k+</div>
                     </div>
                     <div className="text-gray-700 font-medium text-sm">Resumes Created</div>
                   </div>
                   <div className="group">
                     <div className="flex items-center justify-center gap-1 mb-2">
-                      <Award className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform duration-300" />
-                      <div className="text-3xl sm:text-4xl font-bold text-blue-600 group-hover:scale-110 transition-transform duration-300">50+</div>
+                      <Award className="w-5 h-5 text-accent-600 group-hover:scale-110 transition-transform duration-300" />
+                      <div className="text-3xl sm:text-4xl font-bold text-accent-600 group-hover:scale-110 transition-transform duration-300">50+</div>
                     </div>
                     <div className="text-gray-700 font-medium text-sm">Templates</div>
                   </div>
                   <div className="group">
                     <div className="flex items-center justify-center gap-1 mb-2">
-                      <Star className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform duration-300" />
-                      <div className="text-3xl sm:text-4xl font-bold text-blue-600 group-hover:scale-110 transition-transform duration-300">4.9★</div>
+                      <Star className="w-5 h-5 text-accent-600 group-hover:scale-110 transition-transform duration-300" />
+                      <div className="text-3xl sm:text-4xl font-bold text-accent-600 group-hover:scale-110 transition-transform duration-300">4.9★</div>
                     </div>
                     <div className="text-gray-700 font-medium text-sm">User Rating</div>
                   </div>
@@ -385,7 +385,7 @@ export default function ResumeIssues() {
                 
                 <Link
                   href="/resume-builder"
-                  className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mb-6 group"
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-accent text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-primary-700 hover:to-accent-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mb-6 group"
                 >
                   Start Building For Free
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

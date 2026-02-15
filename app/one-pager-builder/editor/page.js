@@ -779,9 +779,9 @@ function OnePagerEditorContent() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC]">
+      <div className="min-h-screen flex items-center justify-center bg-bg">
         <div className="text-center">
-          <Loader2 className="w-12 h-12 animate-spin text-[#00C4B3] mx-auto mb-4" />
+          <Loader2 className="w-12 h-12 animate-spin text-accent mx-auto mb-4" />
           <p className="text-gray-600">Loading your one-pager builder...</p>
         </div>
       </div>
@@ -818,7 +818,7 @@ function OnePagerEditorContent() {
           <button
             onClick={handlePreview}
             disabled={isGeneratingPreview}
-            className="group flex items-center h-10 px-4 bg-gradient-to-r from-[#00C4B3]/5 to-[#0B1F3B]/5 text-[#0B1F3B] rounded-lg border border-[#00C4B3]/20 hover:border-[#00C4B3]/30 hover:shadow-md hover:shadow-[#00C4B3]/10 transition-all duration-200 text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+            className="group flex items-center h-10 px-4 bg-gradient-to-r from-accent/5 to-primary/5 text-primary rounded-lg border border-accent/20 hover:border-accent/30 hover:shadow-md hover:shadow-accent/10 transition-all duration-200 text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isGeneratingPreview ? (
               <>
@@ -827,7 +827,7 @@ function OnePagerEditorContent() {
               </>
             ) : (
               <>
-                <Eye size={16} className="mr-2 text-[#00C4B3] group-hover:text-[#00C4B3]/80 transition-colors" />
+                <Eye size={16} className="mr-2 text-accent group-hover:text-accent/80 transition-colors" />
                 <span>Preview PDF</span>
               </>
             )}
@@ -836,9 +836,9 @@ function OnePagerEditorContent() {
           <button
             onClick={handleSaveClick}
             disabled={saving}
-            className="group flex items-center h-10 px-4 bg-gradient-to-r from-[#0B1F3B]/5 to-[#00C4B3]/5 text-[#0B1F3B] rounded-lg border border-[#00C4B3]/20 hover:border-[#00C4B3]/30 hover:shadow-md hover:shadow-[#00C4B3]/10 transition-all duration-200 text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+            className="group flex items-center h-10 px-4 bg-gradient-to-r from-primary/5 to-accent/5 text-primary rounded-lg border border-accent/20 hover:border-accent/30 hover:shadow-md hover:shadow-accent/10 transition-all duration-200 text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <svg className="w-4 h-4 mr-2 text-[#0B1F3B] group-hover:text-[#00C4B3] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 mr-2 text-primary group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             <span>{saving ? 'Saving...' : 'Save'}</span>
@@ -849,7 +849,7 @@ function OnePagerEditorContent() {
             <button
               onClick={handleInitiateExport}
               disabled={isExporting}
-              className="group flex items-center h-10 px-4 bg-gradient-to-r from-green-50 to-emerald-50 text-green-700 rounded-lg border border-green-200 hover:border-green-300 hover:shadow-md hover:shadow-green-100 transition-all duration-200 text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group flex items-center h-10 px-4 bg-gradient-to-r from-accent-50 to-accent-50 text-accent-700 rounded-lg border border-accent/20 hover:border-accent/30 hover:shadow-md hover:shadow-accent/10 transition-all duration-200 text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
               title="Export to Hosted Preview"
             >
               {isExporting ? (
@@ -859,7 +859,7 @@ function OnePagerEditorContent() {
                 </>
               ) : (
                 <>
-                  <svg className="w-4 h-4 mr-2 text-green-600 group-hover:text-green-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 mr-2 text-accent group-hover:text-accent-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                   </svg>
                   <span>Export</span>
@@ -894,7 +894,7 @@ function OnePagerEditorContent() {
             className={`group flex items-center h-10 px-5 rounded-lg font-semibold transition-all duration-200 text-sm shadow-sm disabled:opacity-50 disabled:cursor-not-allowed ${(() => {
               const isPremiumPlan = userPlan === 'premium';
               return (isPremiumPlan || canDownload)
-                ? 'bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] hover:opacity-90 text-white hover:shadow-lg hover:shadow-[#00C4B3]/20'
+                ? 'bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white hover:shadow-lg hover:shadow-accent/20'
                 : 'bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white hover:shadow-lg hover:shadow-amber-200 cursor-pointer';
             })()
               }`}
@@ -983,7 +983,7 @@ function OnePagerEditorContent() {
                   }
                 }}
                 placeholder="e.g., John Doe - One Pager"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                 autoFocus
               />
               <p className="text-xs text-gray-500 mt-2">
@@ -1001,7 +1001,7 @@ function OnePagerEditorContent() {
               <button
                 onClick={handleSaveConfirm}
                 disabled={!resumeName.trim()}
-                className="px-6 py-2 bg-[#0B1F3B] text-white rounded-lg hover:bg-[#0B1F3B]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Save Resume
               </button>
@@ -1014,8 +1014,8 @@ function OnePagerEditorContent() {
       {showExportAmountModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
-            <div className="flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mx-auto mb-4">
-              <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center justify-center w-12 h-12 bg-accent-50 rounded-full mx-auto mb-4">
+              <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
               </svg>
             </div>
@@ -1037,7 +1037,7 @@ function OnePagerEditorContent() {
                   value={exportPaymentAmount}
                   onChange={(e) => setExportPaymentAmount(e.target.value)}
                   placeholder="Enter amount"
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
                 />
               </div>
               {exportPaymentError && (
@@ -1065,7 +1065,7 @@ function OnePagerEditorContent() {
               </button>
               <button
                 onClick={handleConfirmExport}
-                className="flex-1 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                className="flex-1 bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent-600 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
                 disabled={isExporting}
               >
                 {isExporting ? 'Exporting...' : 'Export One-Pager'}
@@ -1079,8 +1079,8 @@ function OnePagerEditorContent() {
       {showExportModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
-            <div className="flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mx-auto mb-4">
-              <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center justify-center w-12 h-12 bg-accent-50 rounded-full mx-auto mb-4">
+              <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
@@ -1104,7 +1104,7 @@ function OnePagerEditorContent() {
                     navigator.clipboard.writeText(exportedUrl);
                     toast.success('URL copied to clipboard!');
                   }}
-                  className="text-green-600 hover:text-green-800 text-sm font-medium"
+                  className="text-accent hover:text-accent-700 text-sm font-medium"
                 >
                   Copy
                 </button>
@@ -1121,7 +1121,7 @@ function OnePagerEditorContent() {
                 href={exportedUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-center"
+                className="flex-1 bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent-600 transition-colors text-center"
               >
                 View Hosted One-Pager
               </a>
@@ -1155,8 +1155,8 @@ function OnePagerEditorContent() {
                 <div
                   key={template.id}
                   className={`group relative rounded-xl overflow-hidden transition-all hover:shadow-2xl ${selectedTemplate === template.id
-                    ? 'ring-4 ring-[#00C4B3] shadow-xl'
-                    : 'hover:ring-2 hover:ring-[#00C4B3]/30'
+                    ? 'ring-4 ring-accent shadow-xl'
+                    : 'hover:ring-2 hover:ring-accent/30'
                     }`}
                 >
                   {/* Template Preview Image */}
@@ -1179,7 +1179,7 @@ function OnePagerEditorContent() {
                     />
 
                     {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-[#00C4B3] bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 pointer-events-none" />
+                    <div className="absolute inset-0 bg-accent bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 pointer-events-none" />
 
                     {/* Zoom Icon Button */}
                     <button
@@ -1197,7 +1197,7 @@ function OnePagerEditorContent() {
 
                     {/* Selected Badge */}
                     {selectedTemplate === template.id && (
-                      <div className="absolute top-3 right-3 bg-[#0B1F3B] text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-1 z-10">
+                      <div className="absolute top-3 right-3 bg-primary text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-lg flex items-center gap-1 z-10">
                         <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
@@ -1207,7 +1207,7 @@ function OnePagerEditorContent() {
                   </div>
 
                   {/* Template Info */}
-                  <div className={`p-4 ${selectedTemplate === template.id ? 'bg-[#00C4B3]/5' : 'bg-gray-50'
+                  <div className={`p-4 ${selectedTemplate === template.id ? 'bg-accent/5' : 'bg-gray-50'
                     }`}>
                     <h3 className="font-bold text-gray-900 mb-1 text-sm">{template.name}</h3>
                     <p className="text-xs text-gray-600">{template.description}</p>
@@ -1269,7 +1269,7 @@ function OnePagerEditorContent() {
                 setShowTemplates(false);
                 toast.success(`✓ ${zoomedTemplate.name} selected!`);
               }}
-              className="mt-4 w-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white py-4 rounded-xl font-semibold hover:opacity-90 transition-all shadow-lg"
+              className="mt-4 w-full bg-gradient-to-r from-primary to-accent text-white py-4 rounded-xl font-semibold hover:opacity-90 transition-all shadow-lg"
             >
               Select This Template
             </button>
@@ -1282,7 +1282,7 @@ function OnePagerEditorContent() {
         <button
           onClick={() => setActiveTab('form')}
           className={`flex-1 py-3 px-4 text-sm font-medium transition-colors ${activeTab === 'form'
-            ? 'text-[#0B1F3B] border-b-2 border-[#00C4B3] bg-[#00C4B3]/5'
+            ? 'text-primary border-b-2 border-accent bg-accent/5'
             : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'
             }`}
         >
@@ -1294,7 +1294,7 @@ function OnePagerEditorContent() {
         <button
           onClick={() => setActiveTab('preview')}
           className={`flex-1 py-3 px-4 text-sm font-medium transition-colors ${activeTab === 'preview'
-            ? 'text-[#0B1F3B] border-b-2 border-[#00C4B3] bg-[#00C4B3]/5'
+            ? 'text-primary border-b-2 border-accent bg-accent/5'
             : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'
             }`}
         >
@@ -1377,7 +1377,7 @@ function OnePagerEditorContent() {
             <button
               onClick={handlePreview}
               disabled={isGeneratingPreview}
-              className="h-12 flex flex-col items-center justify-center text-[11px] font-medium text-[#0B1F3B] hover:bg-[#00C4B3]/5 disabled:opacity-50"
+              className="h-12 flex flex-col items-center justify-center text-[11px] font-medium text-primary hover:bg-accent/5 disabled:opacity-50"
             >
               {isGeneratingPreview ? (
                 <Loader2 size={16} className="mb-0.5 animate-spin" />
@@ -1391,7 +1391,7 @@ function OnePagerEditorContent() {
             <button
               onClick={handleSaveClick}
               disabled={saving}
-              className="h-12 flex flex-col items-center justify-center text-[11px] font-medium text-[#0B1F3B] hover:bg-[#00C4B3]/5 disabled:opacity-50"
+              className="h-12 flex flex-col items-center justify-center text-[11px] font-medium text-primary hover:bg-accent/5 disabled:opacity-50"
             >
               {saving ? (
                 <Loader2 size={16} className="mb-0.5 animate-spin" />
@@ -1415,7 +1415,7 @@ function OnePagerEditorContent() {
               className={`h-12 flex flex-col items-center justify-center text-[11px] font-semibold rounded-r-2xl ${(() => {
                 const isPremiumPlan = userPlan === 'premium';
                 return (isPremiumPlan || canDownload)
-                  ? 'text-[#0B1F3B] hover:bg-[#00C4B3]/5'
+                  ? 'text-primary hover:bg-accent/5'
                   : 'text-amber-700 hover:bg-amber-50';
               })()}`}
             >
@@ -1444,7 +1444,7 @@ function LoadingFallback() {
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="flex items-center justify-center flex-1">
         <div className="text-center">
-          <Loader2 size={48} className="animate-spin text-[#00C4B3] mx-auto mb-4" />
+          <Loader2 size={48} className="animate-spin text-accent mx-auto mb-4" />
           <p className="text-gray-600 font-medium">Loading one-pager editor...</p>
         </div>
       </div>

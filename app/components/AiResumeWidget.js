@@ -242,7 +242,7 @@ export default function AiResumeWidget() {
             {/* Header Widget Area */}
             {/* ... (existing header code) ... */}
 
-            <div className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] p-6 md:p-8 text-white text-center">
+            <div className="bg-gradient-to-r from-primary to-accent p-6 md:p-8 text-white text-center">
                 <h2 className="text-2xl md:text-3xl font-bold mb-2 flex items-center justify-center gap-3">
                     <Bot size={32} />
                     Free AI Resume Builder
@@ -256,12 +256,12 @@ export default function AiResumeWidget() {
                 {step === 1 ? (
                     <div className="max-w-3xl mx-auto">
                         <div className="mb-6 relative">
-                            <div className="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold text-[#0B1F3B] shadow-sm border border-[#E5E7EB] flex items-center gap-1">
+                            <div className="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-semibold text-primary shadow-sm border border-border flex items-center gap-1">
                                 <FileText size={12} />
                                 Paste Resume Content
                             </div>
                             <textarea
-                                className="w-full h-80 p-6 pt-12 text-base border border-gray-300 rounded-xl focus:ring-4 focus:ring-[#00C4B3]/20 focus:border-[#00C4B3] transition-all resize-none shadow-sm"
+                                className="w-full h-80 p-6 pt-12 text-base border border-gray-300 rounded-xl focus:ring-4 focus:ring-accent/20 focus:border-accent transition-all resize-none shadow-sm"
                                 placeholder="Paste your resume text here...
 Example:
 John Doe
@@ -279,7 +279,7 @@ Experience: 3 years at Tech Co..."
                             <button
                                 onClick={handleParse}
                                 disabled={isParsing || !inputText.trim()}
-                                className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white rounded-xl font-bold text-lg hover:shadow-lg hover:scale-105 transition-all duration-200 disabled:opacity-70 disabled:hover:scale-100 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-primary to-accent text-white rounded-xl font-bold text-lg hover:shadow-lg hover:scale-105 transition-all duration-200 disabled:opacity-70 disabled:hover:scale-100 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                             >
                                 {isParsing ? (
                                     <>
@@ -327,7 +327,7 @@ Experience: 3 years at Tech Co..."
                                     <button
                                         onClick={handleDownloadPDF}
                                         disabled={isGeneratingPdf}
-                                        className="w-full py-3.5 bg-emerald-600 text-white rounded-lg font-bold hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2 shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed whitespace-nowrap"
+                                        className="w-full py-3.5 bg-accent-600 text-white rounded-lg font-bold hover:bg-accent-700 transition-colors flex items-center justify-center gap-2 shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed whitespace-nowrap"
                                     >
                                         {isGeneratingPdf ? (
                                             <Loader2 size={18} className="animate-spin" />
@@ -346,19 +346,19 @@ Experience: 3 years at Tech Co..."
                                 </div>
                             </div>
 
-                            <div className="bg-[#0B1F3B]/5 p-5 rounded-xl border border-[#00C4B3]/20">
-                                <h4 className="font-semibold text-[#0B1F3B] mb-2">What happens next?</h4>
+                            <div className="bg-primary/5 p-5 rounded-xl border border-accent/20">
+                                <h4 className="font-semibold text-primary mb-2">What happens next?</h4>
                                 <ul className="space-y-2 text-sm text-[#475569]">
                                     <li className="flex items-start gap-2">
-                                        <span className="bg-[#00C4B3]/20 text-[#0B1F3B] rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold mt-0.5">1</span>
+                                        <span className="bg-accent/20 text-primary rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold mt-0.5">1</span>
                                         You&apos;ll be redirected to the full editor
                                     </li>
                                     <li className="flex items-start gap-2">
-                                        <span className="bg-[#00C4B3]/20 text-[#0B1F3B] rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold mt-0.5">2</span>
+                                        <span className="bg-accent/20 text-primary rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold mt-0.5">2</span>
                                         Your data will be pre-loaded accurately
                                     </li>
                                     <li className="flex items-start gap-2">
-                                        <span className="bg-[#00C4B3]/20 text-[#0B1F3B] rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold mt-0.5">3</span>
+                                        <span className="bg-accent/20 text-primary rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold mt-0.5">3</span>
                                         You can customize colors, fonts &amp; templates
                                     </li>
                                 </ul>
@@ -395,7 +395,7 @@ Experience: 3 years at Tech Co..."
                             {/* Full Screen Button (Mobile Only) */}
                             <button
                                 onClick={() => setIsFullScreen(true)}
-                                className="absolute top-4 right-4 z-20 bg-white p-2.5 rounded-full shadow-lg border border-gray-200 text-gray-700 hover:text-[#00C4B3] lg:hidden transition-transform active:scale-95"
+                                className="absolute top-4 right-4 z-20 bg-white p-2.5 rounded-full shadow-lg border border-gray-200 text-gray-700 hover:text-accent lg:hidden transition-transform active:scale-95"
                                 title="Full Screen View"
                             >
                                 <Maximize2 size={20} />
@@ -483,7 +483,7 @@ Experience: 3 years at Tech Co..."
                         <button
                             onClick={handleDownloadPDF}
                             disabled={isGeneratingPdf}
-                            className="w-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 text-lg"
+                            className="w-full bg-gradient-to-r from-primary to-accent text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl active:scale-[0.99] transition-all flex items-center justify-center gap-2 text-lg"
                         >
                             {isGeneratingPdf ? <Loader2 size={20} className="animate-spin" /> : <Download size={20} />}
                             {user ? "Download Final PDF" : "Download PDF Now"}

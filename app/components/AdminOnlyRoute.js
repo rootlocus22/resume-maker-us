@@ -73,7 +73,7 @@ const AdminOnlyRoute = ({ children, fallback = null }) => {
   // Show loading state while checking auth or admin status
   if (isCheckingAuth || loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-accent-50 flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -82,7 +82,7 @@ const AdminOnlyRoute = ({ children, fallback = null }) => {
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-blue-600 to-blue-600 rounded-full flex items-center justify-center shadow-lg"
+            className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center shadow-lg"
           >
             <Crown size={32} className="text-white" />
           </motion.div>
@@ -100,7 +100,7 @@ const AdminOnlyRoute = ({ children, fallback = null }) => {
   // If not authenticated, show redirect loading
   if (shouldRedirect) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-accent-50 flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -111,7 +111,7 @@ const AdminOnlyRoute = ({ children, fallback = null }) => {
             initial={{ rotate: 0 }}
             animate={{ rotate: 360 }}
             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-blue-600 to-blue-600 rounded-full flex items-center justify-center"
+            className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center"
           >
             <Loader2 size={24} className="text-white" />
           </motion.div>
@@ -125,7 +125,7 @@ const AdminOnlyRoute = ({ children, fallback = null }) => {
   // If not admin, show access denied
   if (!isAdmin) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-accent-50 flex items-center justify-center p-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -144,11 +144,11 @@ const AdminOnlyRoute = ({ children, fallback = null }) => {
           </div>
 
           <div className="space-y-4">
-            <div className="flex items-center gap-3 p-4 bg-blue-50 rounded-lg">
-              <Crown className="w-5 h-5 text-blue-600" />
+            <div className="flex items-center gap-3 p-4 bg-accent-50 rounded-lg">
+              <Crown className="w-5 h-5 text-accent" />
               <div className="text-left">
-                <p className="font-medium text-blue-900">Admin Only</p>
-                <p className="text-sm text-blue-700">This feature requires admin privileges</p>
+                <p className="font-medium text-primary">Admin Only</p>
+                <p className="text-sm text-accent-700">This feature requires admin privileges</p>
               </div>
             </div>
 
@@ -166,7 +166,7 @@ const AdminOnlyRoute = ({ children, fallback = null }) => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => router.push("/dashboard/professional")}
-              className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+              className="w-full bg-accent text-white px-6 py-3 rounded-lg font-medium hover:bg-accent-600 transition-colors flex items-center justify-center gap-2"
             >
               <ArrowLeft className="w-4 h-4" />
               Go to Dashboard

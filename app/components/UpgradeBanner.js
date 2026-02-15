@@ -74,7 +74,7 @@ export default function UpgradeBanner({
           initial={{ opacity: 0, y: -100 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -100 }}
-          className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-600 via-blue-600 to-orange-500 text-white shadow-xl"
+          className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-primary via-primary to-orange-500 text-white shadow-xl"
         >
           <div className="max-w-7xl mx-auto px-4 py-3">
             <div className="flex items-center justify-between">
@@ -119,7 +119,7 @@ export default function UpgradeBanner({
 
                 <Link
                   href={`/checkout?billingCycle=basic&currency=${currency}&step=1`}
-                  className="bg-white text-blue-700 px-6 py-2 rounded-full font-bold hover:bg-gray-100 transition-all duration-200 flex items-center gap-2 shadow-lg"
+                  className="bg-white text-accent-700 px-6 py-2 rounded-full font-bold hover:bg-gray-100 transition-all duration-200 flex items-center gap-2 shadow-lg"
                 >
                   Upgrade Now
                   <ArrowRight size={16} />

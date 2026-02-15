@@ -10,9 +10,9 @@ export default function UploadResumeSkeleton() {
                     <div className="h-10 bg-gray-200 rounded w-3/4 mb-4 mx-auto md:mx-0"></div>
                     <div className="h-4 bg-gray-100 rounded w-full mb-8 mx-auto md:mx-0"></div>
 
-                    <div className="bg-blue-50/50 border-2 border-dashed border-blue-200 rounded-2xl p-10 flex flex-col items-center justify-center text-center space-y-4">
-                        <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                            <UploadCloud className="text-blue-400" size={32} />
+                    <div className="bg-accent-50/50 border-2 border-dashed border-accent/20 rounded-2xl p-10 flex flex-col items-center justify-center text-center space-y-4">
+                        <div className="w-16 h-16 bg-accent-50 rounded-full flex items-center justify-center">
+                            <UploadCloud className="text-accent-400" size={32} />
                         </div>
                         <div className="h-6 bg-gray-200 rounded w-1/2"></div>
                         <div className="h-4 bg-gray-100 rounded w-2/3"></div>

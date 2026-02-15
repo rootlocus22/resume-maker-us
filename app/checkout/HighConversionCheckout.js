@@ -62,21 +62,21 @@ const successStories = [
 // Feature benefits with emotional impact
 const featureBenefits = [
   {
-    icon: <Target className="w-6 h-6 text-[#0B1F3B]" />,
+    icon: <Target className="w-6 h-6 text-primary" />,
     title: "ATS Score Optimization",
     benefit: "Get past the robots, reach human recruiters",
     impact: "3x more interview calls",
     description: "Real-time ATS score shows exactly what recruiters' systems see"
   },
   {
-    icon: <Bot className="w-6 h-6 text-[#0B1F3B]" />,
+    icon: <Bot className="w-6 h-6 text-primary" />,
     title: "AI-Powered Suggestions",
     benefit: "Professional writer in your pocket",
     impact: "Save 10+ hours of writing",
     description: "AI analyzes your experience and suggests powerful improvements"
   },
   {
-    icon: <Briefcase className="w-6 h-6 text-[#0B1F3B]" />,
+    icon: <Briefcase className="w-6 h-6 text-primary" />,
     title: "Job-Specific Templates",
     benefit: "Stand out in your industry",
     impact: "50% higher response rates",
@@ -199,7 +199,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-50">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0B1F3B] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
           <p className="text-gray-600">Loading your personalized checkout...</p>
         </div>
       </div>
@@ -304,25 +304,25 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
               onClick={(e) => e.stopPropagation()}
             >
               <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] rounded-full mx-auto mb-4 flex items-center justify-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-primary to-primary rounded-full mx-auto mb-4 flex items-center justify-center">
                   <Crown className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-2">
                   {successStories[selectedStory].name}
                 </h3>
-                <p className="text-[#0B1F3B] font-medium mb-3">
+                <p className="text-primary font-medium mb-3">
                   {successStories[selectedStory].role}
                 </p>
                 <p className="text-gray-600 mb-4">
                   "{successStories[selectedStory].story}"
                 </p>
                 <div className="bg-slate-50 p-3 rounded-lg border border-slate-200 mb-4">
-                  <p className="text-[#0B1F3B] font-semibold">
+                  <p className="text-primary font-semibold">
                     🚀 {successStories[selectedStory].increase}
                   </p>
                 </div>
                 <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
-                  <BadgeCheck className="w-4 h-4 text-[#0B1F3B]" />
+                  <BadgeCheck className="w-4 h-4 text-primary" />
                   <span>Verified Success Story</span>
                 </div>
               </div>
@@ -339,13 +339,13 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <div className="inline-flex items-center bg-slate-100 text-[#0B1F3B] px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center bg-slate-100 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Trophy className="mr-2 w-4 h-4" />
               <span className="animate-pulse">{urgencyFactors[currentUrgencyIndex]}</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6">
-              <span className="bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">
                 Transform Your Career
               </span>
               <br />
@@ -354,7 +354,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
 
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               Join 15,000+ professionals who landed their dream jobs using our AI-powered resume builder.
-              <span className="font-semibold text-[#0B1F3B]"> Get 3x more interviews.</span>
+              <span className="font-semibold text-primary"> Get 3x more interviews.</span>
             </p>
 
             {/* Social Proof Ticker */}
@@ -365,7 +365,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                 animate={{ opacity: 1, x: 0 }}
                 className="flex items-center gap-4"
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-primary to-primary rounded-full flex items-center justify-center">
                   <span className="text-white font-bold text-lg">
                     {successStories[selectedStory].name.charAt(0)}
                   </span>
@@ -378,7 +378,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                     - {successStories[selectedStory].name}, {successStories[selectedStory].role}
                   </p>
                 </div>
-                <div className="text-[#0B1F3B] font-bold text-sm">
+                <div className="text-primary font-bold text-sm">
                   {successStories[selectedStory].increase}
                 </div>
               </motion.div>
@@ -386,7 +386,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
 
             <button
               onClick={() => setShowSuccessStories(true)}
-              className="text-[#0B1F3B] hover:text-[#071429] font-medium text-sm flex items-center gap-1 mx-auto"
+              className="text-primary hover:text-gray-900 font-medium text-sm flex items-center gap-1 mx-auto"
             >
               <PlayCircle className="w-4 h-4" />
               See more success stories
@@ -404,7 +404,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
               {/* What You're Getting */}
               <div className="bg-white rounded-2xl shadow-xl p-6">
                 <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-                  <Rocket className="w-6 h-6 text-[#0B1F3B]" />
+                  <Rocket className="w-6 h-6 text-primary" />
                   What You're Getting Today
                 </h2>
 
@@ -424,13 +424,13 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                         <h3 className="font-semibold text-gray-800 mb-1">
                           {feature.title}
                         </h3>
-                        <p className="text-[#0B1F3B] font-medium text-sm mb-1">
+                        <p className="text-primary font-medium text-sm mb-1">
                           {feature.benefit}
                         </p>
                         <p className="text-gray-600 text-sm mb-2">
                           {feature.description}
                         </p>
-                        <div className="inline-flex items-center bg-slate-100 text-[#0B1F3B] px-2 py-1 rounded-full text-xs font-medium">
+                        <div className="inline-flex items-center bg-slate-100 text-primary px-2 py-1 rounded-full text-xs font-medium">
                           <TrendingUp className="w-3 h-3 mr-1" />
                           {feature.impact}
                         </div>
@@ -443,21 +443,21 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
               {/* Trust Signals */}
               <div className="bg-white rounded-2xl shadow-xl p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-[#0B1F3B]" />
+                  <Shield className="w-5 h-5 text-primary" />
                   Why 15,000+ Professionals Trust Us
                 </h3>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="text-center p-4 bg-slate-50 rounded-xl">
-                    <div className="text-2xl font-bold text-[#0B1F3B]">98%</div>
+                    <div className="text-2xl font-bold text-primary">98%</div>
                     <div className="text-sm text-gray-600">Success Rate</div>
                   </div>
                   <div className="text-center p-4 bg-slate-50 rounded-xl">
-                    <div className="text-2xl font-bold text-[#0B1F3B]">3x</div>
+                    <div className="text-2xl font-bold text-primary">3x</div>
                     <div className="text-sm text-gray-600">More Interviews</div>
                   </div>
                   <div className="text-center p-4 bg-slate-50 rounded-xl">
-                    <div className="text-2xl font-bold text-[#0B1F3B]">24h</div>
+                    <div className="text-2xl font-bold text-primary">24h</div>
                     <div className="text-sm text-gray-600">Support Response</div>
                   </div>
                   <div className="text-center p-4 bg-yellow-50 rounded-xl">
@@ -468,7 +468,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
 
                 <div className="mt-4 p-4 bg-gradient-to-r from-slate-50 to-slate-50 rounded-xl border border-slate-200">
                   <div className="flex items-center gap-2 mb-2">
-                    <CreditCard className="w-5 h-5 text-[#0B1F3B]" />
+                    <CreditCard className="w-5 h-5 text-primary" />
                     <span className="font-semibold text-gray-800">One-time payment only</span>
                   </div>
                   <p className="text-sm text-gray-600">
@@ -497,12 +497,12 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                     whileHover={{ scale: 1.02 }}
                     onClick={() => setBillingCycle("sixMonth")}
                     className={`relative p-6 rounded-xl border-2 cursor-pointer transition-all ${billingCycle === "sixMonth"
-                      ? "border-[#0B1F3B] bg-slate-50 shadow-lg"
+                      ? "border-primary bg-slate-50 shadow-lg"
                       : "border-gray-200 hover:border-slate-300"
                       }`}
                   >
                     <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                      <div className="bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white px-4 py-1 rounded-full text-xs font-bold">
+                      <div className="bg-gradient-to-r from-primary to-primary text-white px-4 py-1 rounded-full text-xs font-bold">
                         BEST VALUE - SAVE 30%
                       </div>
                     </div>
@@ -516,32 +516,32 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                         <div className="text-sm text-gray-500 line-through">
                           {formatPrice(prices.sixMonth[currency], currency)}
                         </div>
-                        <div className="text-2xl font-bold text-[#0B1F3B]">
+                        <div className="text-2xl font-bold text-primary">
                           {formatPrice(discountedPrices.sixMonth[currency], currency)}
                         </div>
                         <div className="text-sm text-gray-600">(180 days)</div>
                       </div>
                     </div>
 
-                    <div className="bg-slate-100 text-[#0B1F3B] px-3 py-1 rounded-full text-sm font-medium mb-4 inline-block">
+                    <div className="bg-slate-100 text-primary px-3 py-1 rounded-full text-sm font-medium mb-4 inline-block">
                       💰 Save {formatPrice(calculateSavings(prices.sixMonth[currency], discountedPrices.sixMonth[currency]), currency)} today!
                     </div>
 
                     <ul className="space-y-2 text-sm">
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
+                        <CheckCircle className="w-4 h-4 text-primary" />
                         <span>Unlimited Downloads</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
+                        <CheckCircle className="w-4 h-4 text-primary" />
                         <span>JD Builder</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
+                        <CheckCircle className="w-4 h-4 text-primary" />
                         <span>AI Interview</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
+                        <CheckCircle className="w-4 h-4 text-primary" />
                         <span>Salary Analyzer</span>
                       </li>
                     </ul>
@@ -552,7 +552,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                     whileHover={{ scale: 1.02 }}
                     onClick={() => setBillingCycle("monthly")}
                     className={`p-6 rounded-xl border-2 cursor-pointer transition-all ${billingCycle === "monthly"
-                      ? "border-[#0B1F3B] bg-slate-50 shadow-lg"
+                      ? "border-primary bg-slate-50 shadow-lg"
                       : "border-gray-200 hover:border-slate-300"
                       }`}
                   >
@@ -565,32 +565,32 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                         <div className="text-sm text-gray-500 line-through">
                           {formatPrice(prices.monthly[currency], currency)}
                         </div>
-                        <div className="text-2xl font-bold text-[#0B1F3B]">
+                        <div className="text-2xl font-bold text-primary">
                           {formatPrice(discountedPrices.monthly[currency], currency)}
                         </div>
                         <div className="text-sm text-gray-600">(30 days)</div>
                       </div>
                     </div>
 
-                    <div className="bg-slate-100 text-[#0B1F3B] px-3 py-1 rounded-full text-sm font-medium mb-4 inline-block">
+                    <div className="bg-slate-100 text-primary px-3 py-1 rounded-full text-sm font-medium mb-4 inline-block">
                       🚀 Start job hunting immediately
                     </div>
 
                     <ul className="space-y-2 text-sm">
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
+                        <CheckCircle className="w-4 h-4 text-primary" />
                         <span>Unlimited Downloads</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
+                        <CheckCircle className="w-4 h-4 text-primary" />
                         <span>JD Builder</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
+                        <CheckCircle className="w-4 h-4 text-primary" />
                         <span>AI Interview</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
+                        <CheckCircle className="w-4 h-4 text-primary" />
                         <span>Salary Analyzer</span>
                       </li>
                     </ul>
@@ -601,7 +601,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                     whileHover={{ scale: 1.02 }}
                     onClick={() => setBillingCycle("basic")}
                     className={`p-6 rounded-xl border-2 cursor-pointer transition-all ${billingCycle === "basic"
-                      ? "border-[#0B1F3B] bg-slate-50 shadow-lg"
+                      ? "border-primary bg-slate-50 shadow-lg"
                       : "border-gray-200 hover:border-slate-300"
                       }`}
                   >
@@ -616,7 +616,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                             {formatPrice(getOriginalPrice("basic", currency), currency)}
                           </div>
                         )}
-                        <div className="text-2xl font-bold text-[#0B1F3B]">
+                        <div className="text-2xl font-bold text-primary">
                           {isDiscountEnabled() && getDiscountPercentage("basic") > 0
                             ? formatPrice(getDiscountedPrice("basic", currency), currency)
                             : formatPrice(prices.basic[currency], currency)
@@ -626,25 +626,25 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                       </div>
                     </div>
 
-                    <div className="bg-slate-100 text-[#0B1F3B] px-3 py-1 rounded-full text-sm font-medium mb-4 inline-block">
+                    <div className="bg-slate-100 text-primary px-3 py-1 rounded-full text-sm font-medium mb-4 inline-block">
                       📝 Perfect to get started
                     </div>
 
                     <ul className="space-y-2 text-sm">
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
+                        <CheckCircle className="w-4 h-4 text-primary" />
                         <span>5 Downloads</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
+                        <CheckCircle className="w-4 h-4 text-primary" />
                         <span>50+ Templates</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
+                        <CheckCircle className="w-4 h-4 text-primary" />
                         <span>AI Enhancement</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
+                        <CheckCircle className="w-4 h-4 text-primary" />
                         <span>ATS Optimizer</span>
                       </li>
                     </ul>
@@ -656,7 +656,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                       whileHover={{ scale: 1.02 }}
                       onClick={() => setBillingCycle("oneDay")}
                       className={`p-6 rounded-xl border-2 cursor-pointer transition-all ${billingCycle === "oneDay"
-                        ? "border-[#0B1F3B] bg-slate-50 shadow-lg"
+                        ? "border-primary bg-slate-50 shadow-lg"
                         : "border-gray-200 hover:border-slate-300"
                         }`}
                     >
@@ -671,7 +671,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                               {formatPrice(getOriginalPrice("oneDay", currency), currency)}
                             </div>
                           )}
-                          <div className="text-2xl font-bold text-[#0B1F3B]">
+                          <div className="text-2xl font-bold text-primary">
                             {isDiscountEnabled() && getDiscountPercentage("oneDay") > 0
                               ? formatPrice(getDiscountedPrice("oneDay", currency), currency)
                               : formatPrice(prices.oneDay[currency], currency)
@@ -687,19 +687,19 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
 
                       <ul className="space-y-2 text-sm">
                         <li className="flex items-center gap-2">
-                          <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
+                          <CheckCircle className="w-4 h-4 text-primary" />
                           <span>{PLAN_CONFIG.oneDay.downloads} Downloads</span>
                         </li>
                         <li className="flex items-center gap-2">
-                          <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
+                          <CheckCircle className="w-4 h-4 text-primary" />
                           <span>50+ Templates</span>
                         </li>
                         <li className="flex items-center gap-2">
-                          <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
+                          <CheckCircle className="w-4 h-4 text-primary" />
                           <span>AI Enhancement</span>
                         </li>
                         <li className="flex items-center gap-2">
-                          <CheckCircle className="w-4 h-4 text-[#0B1F3B]" />
+                          <CheckCircle className="w-4 h-4 text-primary" />
                           <span>ATS Optimizer</span>
                         </li>
                       </ul>
@@ -711,7 +711,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
               {/* Payment Form */}
               <div className="bg-white rounded-2xl shadow-xl p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-                  <Lock className="w-5 h-5 text-[#0B1F3B]" />
+                  <Lock className="w-5 h-5 text-primary" />
                   Secure Checkout
                 </h3>
 
@@ -724,7 +724,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                       type="text"
                       value={paymentDetails.name}
                       onChange={(e) => setPaymentDetails(prev => ({ ...prev, name: e.target.value }))}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0B1F3B] focus:border-transparent"
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                       placeholder="Enter your full name"
                       required
                     />
@@ -738,7 +738,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                       type="email"
                       value={paymentDetails.email}
                       onChange={(e) => setPaymentDetails(prev => ({ ...prev, email: e.target.value }))}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0B1F3B] focus:border-transparent"
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                       placeholder="Enter your email"
                       required
                     />
@@ -752,7 +752,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                       type="tel"
                       value={paymentDetails.phone}
                       onChange={(e) => setPaymentDetails(prev => ({ ...prev, phone: e.target.value }))}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0B1F3B] focus:border-transparent"
+                      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                       placeholder="Enter your phone number"
                     />
                   </div>
@@ -778,7 +778,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                             {formatPrice(prices[billingCycle][currency], currency)}
                           </span>
                         </div>
-                        <div className="flex justify-between text-sm text-[#0B1F3B]">
+                        <div className="flex justify-between text-sm text-primary">
                           <span>Flash Sale Discount (30%):</span>
                           <span>-{formatPrice(calculateSavings(prices[billingCycle][currency], discountedPrices[billingCycle][currency]), currency)}</span>
                         </div>
@@ -787,7 +787,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                     <div className="border-t pt-2 mt-2">
                       <div className="flex justify-between font-bold text-lg">
                         <span>Total:</span>
-                        <span className="text-[#0B1F3B]">
+                        <span className="text-primary">
                           {formatPrice(
                             (billingCycle === "oneDay" || billingCycle === "basic")
                               ? prices[billingCycle][currency]
@@ -800,11 +800,11 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                   </div>
 
                   <div className="mt-4 p-3 bg-slate-50 rounded-lg border border-slate-200">
-                    <div className="flex items-center gap-2 text-sm text-[#0B1F3B]">
+                    <div className="flex items-center gap-2 text-sm text-primary">
                       <Bell className="w-4 h-4" />
                       <span className="font-medium">No Auto-Renewal!</span>
                     </div>
-                    <p className="text-xs text-[#0B1F3B] mt-1">
+                    <p className="text-xs text-primary mt-1">
                       We'll remind you before billing.
                     </p>
                   </div>
@@ -816,7 +816,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                   whileTap={{ scale: 0.98 }}
                   onClick={handlePaymentSubmit}
                   disabled={isLoading}
-                  className="w-full mt-6 bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:from-[#071429] hover:to-[#071429] transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full mt-6 bg-gradient-to-r from-primary to-primary text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:from-gray-900 hover:to-gray-900 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isLoading ? (
                     <span className="flex items-center justify-center gap-2">
@@ -866,7 +866,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="text-center">
                   <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <MessageCircle className="w-6 h-6 text-[#0B1F3B]" />
+                    <MessageCircle className="w-6 h-6 text-primary" />
                   </div>
                   <h4 className="font-semibold text-gray-800 mb-2">Live Chat</h4>
                   <p className="text-sm text-gray-600 mb-3">Get instant answers to your questions</p>
@@ -874,7 +874,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                     href="https://wa.me/918431256903"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#0B1F3B] hover:text-[#071429] font-medium text-sm"
+                    className="text-primary hover:text-gray-900 font-medium text-sm"
                   >
                     Start Chat →
                   </a>
@@ -882,13 +882,13 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
 
                 <div className="text-center">
                   <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Mail className="w-6 h-6 text-[#0B1F3B]" />
+                    <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <h4 className="font-semibold text-gray-800 mb-2">Email Support</h4>
                   <p className="text-sm text-gray-600 mb-3">24-hour response time</p>
                   <a
                     href="mailto:support@expertresume.us"
-                    className="text-[#0B1F3B] hover:text-[#071429] font-medium text-sm"
+                    className="text-primary hover:text-gray-900 font-medium text-sm"
                   >
                     Send Email →
                   </a>
@@ -896,7 +896,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
 
                 <div className="text-center">
                   <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <PlayCircle className="w-6 h-6 text-[#0B1F3B]" />
+                    <PlayCircle className="w-6 h-6 text-primary" />
                   </div>
                   <h4 className="font-semibold text-gray-800 mb-2">Video Tutorial</h4>
                   <p className="text-sm text-gray-600 mb-3">See how it works in action</p>
@@ -904,7 +904,7 @@ export default function HighConversionCheckout({ initialBillingCycle = "oneDay" 
                     href="https://expertresume.us/demo-video.mp4"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#0B1F3B] hover:text-[#071429] font-medium text-sm"
+                    className="text-primary hover:text-gray-900 font-medium text-sm"
                   >
                     Watch Demo →
                   </a>

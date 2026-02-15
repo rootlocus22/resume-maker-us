@@ -328,7 +328,7 @@ const COMMON_HINTS = {
 // Smart hint suggestions based on user behavior
 const SMART_SUGGESTIONS = {
   noStudents: {
-    icon: <Users className="h-5 w-5 text-blue-500" />,
+    icon: <Users className="h-5 w-5 text-accent" />,
     title: "Get Started with Students",
     description: "Add your first students to unlock the full potential of the platform",
     action: "Add Students",
@@ -349,7 +349,7 @@ const SMART_SUGGESTIONS = {
     href: "/dashboard/students?filter=incomplete"
   },
   noReports: {
-    icon: <BarChart3 className="h-5 w-5 text-blue-500" />,
+    icon: <BarChart3 className="h-5 w-5 text-accent" />,
     title: "Generate Your First Report",
     description: "Create insights to share with stakeholders",
     action: "Create Report",

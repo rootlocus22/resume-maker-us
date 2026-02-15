@@ -260,7 +260,7 @@ export default function ProfessionalDashboard() {
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] rounded-full flex items-center justify-center"
+            className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-primary to-primary rounded-full flex items-center justify-center"
           >
             <Crown size={24} className="text-white" />
           </motion.div>
@@ -285,7 +285,7 @@ export default function ProfessionalDashboard() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-12"
           >
-            <div className="w-20 h-20 bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 bg-gradient-to-r from-primary to-primary rounded-full flex items-center justify-center mx-auto mb-6">
               <Crown size={40} className="text-white" />
             </div>
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -295,7 +295,7 @@ export default function ProfessionalDashboard() {
               You're about to transform your resume writing business. Let's get you started with creating your first professional resume and begin earning!
             </p>
 
-            <div className="inline-flex items-center bg-slate-100 text-[#0B1F3B] px-4 py-2 rounded-full text-sm font-semibold mb-8">
+            <div className="inline-flex items-center bg-slate-100 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-8">
               <Sparkles size={16} className="mr-2" />
               Ready to start your journey to success
             </div>
@@ -311,7 +311,7 @@ export default function ProfessionalDashboard() {
                 className="bg-white rounded-2xl p-8 shadow-xl text-center hover:shadow-2xl transition-all duration-300"
               >
                 <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <FileText size={32} className="text-[#0B1F3B]" />
+                  <FileText size={32} className="text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Create Your First Resume</h3>
                 <p className="text-gray-600 mb-6">Start with our professional resume builder and create stunning resumes that get results.</p>
@@ -319,7 +319,7 @@ export default function ProfessionalDashboard() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={navigateToCreateResume}
-                  className="bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white px-6 py-3 rounded-lg font-semibold hover:from-[#071429] hover:to-[#071429] transition-all duration-200 inline-flex items-center gap-2"
+                  className="bg-gradient-to-r from-primary to-primary text-white px-6 py-3 rounded-lg font-semibold hover:from-gray-900 hover:to-gray-900 transition-all duration-200 inline-flex items-center gap-2"
                 >
                   <Plus size={16} />
                   Start Building
@@ -343,7 +343,7 @@ export default function ProfessionalDashboard() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => router.push('/enterprise/job-description-resume-builder')}
-                  className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-6 py-3 rounded-lg font-semibold hover:from-[#071429] hover:to-[#008C81] transition-all duration-200 inline-flex items-center gap-2"
+                  className="bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-lg font-semibold hover:from-gray-900 hover:to-accent-700 transition-all duration-200 inline-flex items-center gap-2"
                 >
                   <Target size={16} />
                   Try JD Builder
@@ -359,7 +359,7 @@ export default function ProfessionalDashboard() {
                 className="bg-white rounded-2xl p-8 shadow-xl text-center hover:shadow-2xl transition-all duration-300"
               >
                 <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Rocket size={32} className="text-[#0B1F3B]" />
+                  <Rocket size={32} className="text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Upload & Enhance</h3>
                 <p className="text-gray-600 mb-6">Have an existing resume? Upload it and enhance it with our AI-powered tools.</p>
@@ -367,7 +367,7 @@ export default function ProfessionalDashboard() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={navigateToUploadResume}
-                  className="bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white px-6 py-3 rounded-lg font-semibold hover:from-[#071429] hover:to-[#071429] transition-all duration-200 inline-flex items-center gap-2"
+                  className="bg-gradient-to-r from-primary to-primary text-white px-6 py-3 rounded-lg font-semibold hover:from-gray-900 hover:to-gray-900 transition-all duration-200 inline-flex items-center gap-2"
                 >
                   <Rocket size={16} />
                   Upload Resume
@@ -476,7 +476,7 @@ export default function ProfessionalDashboard() {
             <select
               value={selectedTimeframe}
               onChange={(e) => setSelectedTimeframe(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0B1F3B] bg-white"
+              className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary bg-white"
             >
               <option value="week">This Week</option>
               <option value="month">This Month</option>
@@ -488,7 +488,7 @@ export default function ProfessionalDashboard() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowClientModal(true)}
-              className="bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white px-6 py-3 rounded-lg font-semibold hover:from-[#071429] hover:to-[#071429] transition-all flex items-center gap-2"
+              className="bg-gradient-to-r from-primary to-primary text-white px-6 py-3 rounded-lg font-semibold hover:from-gray-900 hover:to-gray-900 transition-all flex items-center gap-2"
             >
               <Plus size={16} />
               Add Client
@@ -508,7 +508,7 @@ export default function ProfessionalDashboard() {
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Resumes</p>
                 <p className="text-3xl font-bold text-gray-900">{stats.totalResumes}</p>
-                <p className="text-sm text-[#0B1F3B] mt-1">
+                <p className="text-sm text-primary mt-1">
                   {stats.thisWeekResumes > 0
                     ? `📈 +${stats.thisWeekResumes} this week`
                     : "🚀 Create your first resume"
@@ -516,7 +516,7 @@ export default function ProfessionalDashboard() {
                 </p>
               </div>
               <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center">
-                <FileText size={24} className="text-[#0B1F3B]" />
+                <FileText size={24} className="text-primary" />
               </div>
             </div>
           </motion.div>
@@ -531,7 +531,7 @@ export default function ProfessionalDashboard() {
               <div>
                 <p className="text-sm font-medium text-gray-600">Active Clients</p>
                 <p className="text-3xl font-bold text-gray-900">{stats.totalClients}</p>
-                <p className="text-sm text-[#0B1F3B] mt-1">
+                <p className="text-sm text-primary mt-1">
                   {stats.totalClients > 0
                     ? "👥 Growing your business"
                     : "🎯 Add your first client"
@@ -539,7 +539,7 @@ export default function ProfessionalDashboard() {
                 </p>
               </div>
               <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center">
-                <Users size={24} className="text-[#0B1F3B]" />
+                <Users size={24} className="text-primary" />
               </div>
             </div>
           </motion.div>
@@ -554,7 +554,7 @@ export default function ProfessionalDashboard() {
               <div>
                 <p className="text-sm font-medium text-gray-600">Completion Rate</p>
                 <p className="text-3xl font-bold text-gray-900">{stats.completionRate}%</p>
-                <p className="text-sm text-[#0B1F3B] mt-1">
+                <p className="text-sm text-primary mt-1">
                   {stats.completionRate >= 80
                     ? "⭐ Excellent quality"
                     : stats.completionRate > 0
@@ -564,7 +564,7 @@ export default function ProfessionalDashboard() {
                 </p>
               </div>
               <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center">
-                <TrendingUp size={24} className="text-[#0B1F3B]" />
+                <TrendingUp size={24} className="text-primary" />
               </div>
             </div>
           </motion.div>
@@ -603,7 +603,7 @@ export default function ProfessionalDashboard() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-xl p-6 text-white shadow-lg hover:shadow-xl transition-all cursor-pointer"
+              className="bg-gradient-to-r from-primary to-accent rounded-xl p-6 text-white shadow-lg hover:shadow-xl transition-all cursor-pointer"
               onClick={navigateToUploadResume}
             >
               <div className="flex items-center justify-between mb-4">
@@ -625,7 +625,7 @@ export default function ProfessionalDashboard() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-xl p-6 text-white shadow-lg hover:shadow-xl transition-all cursor-pointer"
+              className="bg-gradient-to-r from-primary to-accent rounded-xl p-6 text-white shadow-lg hover:shadow-xl transition-all cursor-pointer"
               onClick={navigateToCreateResume}
             >
               <div className="flex items-center justify-between mb-4">
@@ -647,7 +647,7 @@ export default function ProfessionalDashboard() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-xl p-6 text-white shadow-lg hover:shadow-xl transition-all cursor-pointer"
+              className="bg-gradient-to-r from-primary to-accent rounded-xl p-6 text-white shadow-lg hover:shadow-xl transition-all cursor-pointer"
               onClick={() => router.push('/enterprise/job-description-resume-builder')}
             >
               <div className="flex items-center justify-between mb-4">
@@ -689,7 +689,7 @@ export default function ProfessionalDashboard() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-xl p-6 text-white shadow-lg hover:shadow-xl transition-all cursor-pointer"
+              className="bg-gradient-to-r from-primary to-accent rounded-xl p-6 text-white shadow-lg hover:shadow-xl transition-all cursor-pointer"
               onClick={() => router.push('/enterprise/ats-checker')}
             >
               <div className="flex items-center justify-between mb-4">
@@ -714,7 +714,7 @@ export default function ProfessionalDashboard() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-xl p-6 text-white shadow-lg hover:shadow-xl transition-all cursor-pointer"
+              className="bg-gradient-to-r from-primary to-accent rounded-xl p-6 text-white shadow-lg hover:shadow-xl transition-all cursor-pointer"
               onClick={() => router.push('/enterprise/clients')}
             >
               <div className="flex items-center justify-between mb-4">
@@ -762,7 +762,7 @@ export default function ProfessionalDashboard() {
             animate={{ opacity: 1, y: 0 }}
             className="bg-gradient-to-br from-slate-50 to-slate-50 rounded-2xl p-8 border border-slate-200 text-center mb-8"
           >
-            <div className="w-20 h-20 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-6">
               <Sparkles size={40} className="text-white" />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Create Your First Resume? 🚀</h3>
@@ -775,7 +775,7 @@ export default function ProfessionalDashboard() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={navigateToCreateResume}
-                className="bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white px-8 py-4 rounded-xl font-semibold hover:from-[#071429] hover:to-[#071429] transition-all duration-200 inline-flex items-center gap-2"
+                className="bg-gradient-to-r from-primary to-primary text-white px-8 py-4 rounded-xl font-semibold hover:from-gray-900 hover:to-gray-900 transition-all duration-200 inline-flex items-center gap-2"
               >
                 <Plus size={20} />
                 Create First Resume
@@ -793,7 +793,7 @@ export default function ProfessionalDashboard() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={navigateToUploadResume}
-                className="bg-white border-2 border-teal-300 text-[#0B1F3B] px-8 py-4 rounded-xl font-semibold hover:bg-slate-50 transition-all duration-200 inline-flex items-center gap-2"
+                className="bg-white border-2 border-teal-300 text-primary px-8 py-4 rounded-xl font-semibold hover:bg-slate-50 transition-all duration-200 inline-flex items-center gap-2"
               >
                 <FileText size={20} />
                 Upload & Enhance
@@ -828,7 +828,7 @@ export default function ProfessionalDashboard() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => router.push(`/enterprise/resume-builder?resumeId=${resume.id}&template=${resume.template}`)}
-                        className="bg-slate-100 text-[#0B1F3B] px-3 py-1 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors"
+                        className="bg-slate-100 text-primary px-3 py-1 rounded-lg text-sm font-medium hover:bg-slate-200 transition-colors"
                       >
                         Edit
                       </motion.button>
@@ -839,7 +839,7 @@ export default function ProfessionalDashboard() {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={navigateToMyResumes}
-                      className="w-full text-center text-[#0B1F3B] hover:text-[#071429] font-medium py-2 text-sm"
+                      className="w-full text-center text-primary hover:text-gray-900 font-medium py-2 text-sm"
                     >
                       View All {resumes.length} Resumes →
                     </motion.button>
@@ -863,7 +863,7 @@ export default function ProfessionalDashboard() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={navigateToCreateResume}
-                    className="w-full text-left px-4 py-3 bg-slate-50 text-[#0B1F3B] rounded-lg hover:bg-slate-100 transition-colors flex items-center gap-3"
+                    className="w-full text-left px-4 py-3 bg-slate-50 text-primary rounded-lg hover:bg-slate-100 transition-colors flex items-center gap-3"
                   >
                     <Plus size={18} />
                     <span className="font-medium">Create New Resume</span>
@@ -873,7 +873,7 @@ export default function ProfessionalDashboard() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => router.push('/enterprise/job-description-resume-builder')}
-                    className="w-full text-left px-4 py-3 bg-slate-50 text-[#0B1F3B] rounded-lg hover:bg-slate-100 transition-colors flex items-center gap-3"
+                    className="w-full text-left px-4 py-3 bg-slate-50 text-primary rounded-lg hover:bg-slate-100 transition-colors flex items-center gap-3"
                   >
                     <Target size={18} />
                     <span className="font-medium">JD Resume Builder</span>
@@ -883,7 +883,7 @@ export default function ProfessionalDashboard() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setShowClientModal(true)}
-                    className="w-full text-left px-4 py-3 bg-slate-50 text-[#0B1F3B] rounded-lg hover:bg-slate-100 transition-colors flex items-center gap-3"
+                    className="w-full text-left px-4 py-3 bg-slate-50 text-primary rounded-lg hover:bg-slate-100 transition-colors flex items-center gap-3"
                   >
                     <Users size={18} />
                     <span className="font-medium">Add New Client</span>
@@ -893,7 +893,7 @@ export default function ProfessionalDashboard() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => router.push('/enterprise/templates')}
-                    className="w-full text-left px-4 py-3 bg-slate-50 text-[#0B1F3B] rounded-lg hover:bg-slate-100 transition-colors flex items-center gap-3"
+                    className="w-full text-left px-4 py-3 bg-slate-50 text-primary rounded-lg hover:bg-slate-100 transition-colors flex items-center gap-3"
                   >
                     <Award size={18} />
                     <span className="font-medium">Browse Templates</span>
@@ -914,7 +914,7 @@ export default function ProfessionalDashboard() {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => router.push('/enterprise/clients')}
-                      className="w-full text-left px-4 py-3 bg-slate-50 text-[#0B1F3B] rounded-lg hover:bg-slate-100 transition-colors flex items-center gap-3"
+                      className="w-full text-left px-4 py-3 bg-slate-50 text-primary rounded-lg hover:bg-slate-100 transition-colors flex items-center gap-3"
                     >
                       <Users size={18} />
                       <span className="font-medium">Client Management</span>
@@ -955,17 +955,17 @@ export default function ProfessionalDashboard() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#0B1F3B] mb-2">{stats.totalResumes}</div>
+                <div className="text-3xl font-bold text-primary mb-2">{stats.totalResumes}</div>
                 <div className="text-gray-700 font-medium">Professional Resumes Created</div>
                 <div className="text-sm text-gray-500">Helping clients succeed</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#0B1F3B] mb-2">{stats.completionRate}%</div>
+                <div className="text-3xl font-bold text-primary mb-2">{stats.completionRate}%</div>
                 <div className="text-gray-700 font-medium">Quality Score</div>
                 <div className="text-sm text-gray-500">Completion rate</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-[#0B1F3B] mb-2">{stats.thisWeekResumes}</div>
+                <div className="text-3xl font-bold text-primary mb-2">{stats.thisWeekResumes}</div>
                 <div className="text-gray-700 font-medium">This Week</div>
                 <div className="text-sm text-gray-500">New resumes created</div>
               </div>

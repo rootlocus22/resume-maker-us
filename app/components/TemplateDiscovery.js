@@ -488,19 +488,19 @@ export default function TemplateDiscovery({ templates, onClose }) {
           <div className="p-5 sm:p-6 pt-2">
             {/* Success Header */}
             <div className="text-center mb-5">
-              <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full mb-3 shadow-lg">
+              <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary to-accent rounded-full mb-3 shadow-lg">
                 <CheckCircle className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
               </div>
-              <h2 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2 px-2">
+              <h2 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2 px-2">
                 Your Perfect Templates!
               </h2>
               <p className="text-sm text-gray-600 max-w-2xl mx-auto px-4">
-                Based on your profile, we've found the <span className="font-semibold text-blue-600">top {recommendations.length} templates</span> that perfectly match your needs. Each one is optimized for your success!
+                Based on your profile, we've found the <span className="font-semibold text-accent-600">top {recommendations.length} templates</span> that perfectly match your needs. Each one is optimized for your success!
               </p>
             </div>
 
             {/* Your Profile Summary */}
-            <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-3 sm:p-4 mb-4">
+            <div className="bg-gradient-to-r from-accent-50 to-accent-100 rounded-xl p-3 sm:p-4 mb-4">
               <h3 className="font-bold text-sm sm:text-base mb-2 text-gray-900">📋 Your Profile Summary</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3">
                 {Object.entries(answers).map(([key, value]) => {
@@ -523,11 +523,11 @@ export default function TemplateDiscovery({ templates, onClose }) {
                 <div
                   key={template.id}
                   className={`relative bg-white border-2 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group ${
-                    index === 0 ? 'border-blue-500 ring-2 ring-blue-100' : 'border-gray-200 hover:border-blue-300'
+                    index === 0 ? 'border-accent ring-2 ring-accent-100' : 'border-gray-200 hover:border-accent-300'
                   }`}
                 >
                   {index === 0 && (
-                    <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-center py-1.5 text-xs font-bold z-10">
+                    <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-primary to-accent text-white text-center py-1.5 text-xs font-bold z-10">
                       🏆 BEST • {template.matchPercentage}%
                     </div>
                   )}
@@ -568,7 +568,7 @@ export default function TemplateDiscovery({ templates, onClose }) {
                     {/* Template Info */}
                     <div className="px-2 pb-2">
                       <div className="mb-1.5">
-                        <span className="inline-block px-1.5 py-0.5 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                        <span className="inline-block px-1.5 py-0.5 bg-accent-50 text-accent-700 rounded-full text-xs font-medium">
                           {template.category}
                         </span>
                       </div>
@@ -591,7 +591,7 @@ export default function TemplateDiscovery({ templates, onClose }) {
                       <Link href={getBuilderUrl(template.id)}>
                         <button className={`w-full px-2 py-1.5 rounded-lg font-semibold text-xs transition-all duration-300 flex items-center justify-center gap-1 ${
                           index === 0
-                            ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:shadow-md'
+                            ? 'bg-gradient-to-r from-primary to-accent text-white hover:shadow-md'
                             : 'bg-gray-900 text-white hover:bg-gray-800'
                         }`}>
                           {index === 0 ? 'Use' : 'Select'}
@@ -605,11 +605,11 @@ export default function TemplateDiscovery({ templates, onClose }) {
             </div>
 
             {/* Why These Templates Section */}
-            <div className="bg-blue-50 rounded-xl p-3 sm:p-4 mb-4">
+            <div className="bg-accent-50 rounded-xl p-3 sm:p-4 mb-4">
               <h3 className="font-bold text-sm sm:text-base mb-2 text-gray-900">💡 Why These Templates?</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 text-xs sm:text-sm text-gray-700">
                 <div className="flex items-start gap-2">
-                  <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-7 h-7 bg-accent rounded-lg flex items-center justify-center flex-shrink-0">
                     <Target className="w-3.5 h-3.5 text-white" />
                   </div>
                   <div>
@@ -618,7 +618,7 @@ export default function TemplateDiscovery({ templates, onClose }) {
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
-                  <div className="w-7 h-7 bg-cyan-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-7 h-7 bg-accent-600 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Briefcase className="w-3.5 h-3.5 text-white" />
                   </div>
                   <div>
@@ -627,7 +627,7 @@ export default function TemplateDiscovery({ templates, onClose }) {
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
-                  <div className="w-7 h-7 bg-blue-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-7 h-7 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
                     <Shield className="w-3.5 h-3.5 text-white" />
                   </div>
                   <div>
@@ -641,7 +641,7 @@ export default function TemplateDiscovery({ templates, onClose }) {
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
-                  <div className="w-7 h-7 bg-cyan-700 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-7 h-7 bg-accent-700 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Zap className="w-3.5 h-3.5 text-white" />
                   </div>
                   <div>
@@ -699,7 +699,7 @@ export default function TemplateDiscovery({ templates, onClose }) {
         {/* Progress Bar */}
         <div className="h-2 bg-gray-200 rounded-t-2xl overflow-hidden -mt-2">
           <div
-            className="h-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 transition-all duration-500 relative"
+            className="h-full bg-gradient-to-r from-primary via-primary-600 to-accent transition-all duration-500 relative"
             style={{ width: `${progress}%` }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer"></div>
@@ -710,14 +710,14 @@ export default function TemplateDiscovery({ templates, onClose }) {
           {/* Header */}
           <div className="mb-5">
             <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
-              <Sparkles className="w-5 h-5 text-blue-600 animate-pulse" />
+              <Sparkles className="w-5 h-5 text-accent-600 animate-pulse" />
               <span className="font-medium">Question {currentStep + 1} of {questions.length}</span>
               <div className="flex gap-1 ml-auto">
                 {questions.map((_, idx) => (
                   <div
                     key={idx}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      idx <= currentStep ? 'bg-blue-600 w-3' : 'bg-gray-300'
+                      idx <= currentStep ? 'bg-accent w-3' : 'bg-gray-300'
                     }`}
                   />
                 ))}
@@ -726,7 +726,7 @@ export default function TemplateDiscovery({ templates, onClose }) {
             
             <div className="flex items-start gap-3 mb-4">
               {currentQuestion && (
-                <div className="w-11 h-11 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
                   <currentQuestion.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
               )}
@@ -744,7 +744,7 @@ export default function TemplateDiscovery({ templates, onClose }) {
             {currentQuestion?.education && (
               <button
                 onClick={() => setShowEducation(!showEducation)}
-                className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium"
+                className="flex items-center gap-2 text-accent-600 hover:text-accent-700 transition-colors text-sm font-medium"
               >
                 <Sparkles className="w-4 h-4" />
                 {showEducation ? 'Hide tip' : 'Why does this matter?'}
@@ -752,10 +752,10 @@ export default function TemplateDiscovery({ templates, onClose }) {
             )}
             
             {showEducation && (
-              <div className="mt-2 bg-blue-50 border-l-3 border-blue-600 p-3 rounded-r-lg animate-slideDown">
+              <div className="mt-2 bg-accent-50 border-l-3 border-accent p-3 rounded-r-lg animate-slideDown">
                 <div className="flex gap-2">
-                  <Sparkles className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                  <p className="text-xs text-blue-900">
+                  <Sparkles className="w-4 h-4 text-accent-600 flex-shrink-0 mt-0.5" />
+                  <p className="text-xs text-primary">
                     <span className="font-semibold">Pro Tip: </span>
                     {currentQuestion.education}
                   </p>
@@ -774,8 +774,8 @@ export default function TemplateDiscovery({ templates, onClose }) {
                   onClick={() => handleAnswer(currentQuestion.id, option.value)}
                   className={`w-full p-3 sm:p-3.5 rounded-xl border-2 text-left transition-all duration-300 group ${
                     isSelected
-                      ? 'border-blue-500 bg-gradient-to-r from-blue-50 to-cyan-50 shadow-md'
-                      : 'border-gray-200 hover:border-blue-300 hover:bg-gray-50'
+                      ? 'border-accent bg-gradient-to-r from-accent-50 to-accent-100 shadow-md'
+                      : 'border-gray-200 hover:border-accent-300 hover:bg-gray-50'
                   }`}
                 >
                   <div className="flex items-start gap-2.5">
@@ -785,14 +785,14 @@ export default function TemplateDiscovery({ templates, onClose }) {
                     <div className="flex-1 min-w-0">
                       <div className="font-bold text-sm sm:text-base text-gray-900 mb-0.5 flex items-center gap-2">
                         {option.label}
-                        {isSelected && <CheckCircle className="w-4 h-4 text-blue-600 flex-shrink-0" />}
+                        {isSelected && <CheckCircle className="w-4 h-4 text-accent-600 flex-shrink-0" />}
                       </div>
                       <p className="text-xs text-gray-600">
                         {option.description}
                       </p>
                       {isSelected && (
-                        <div className="mt-2 pt-2 border-t border-blue-200">
-                          <div className="flex items-start gap-1.5 text-xs text-blue-700">
+                        <div className="mt-2 pt-2 border-t border-accent-200">
+                          <div className="flex items-start gap-1.5 text-xs text-accent-700">
                             <Zap className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" />
                             <span className="font-medium">{option.templateHint}</span>
                           </div>
@@ -822,7 +822,7 @@ export default function TemplateDiscovery({ templates, onClose }) {
               disabled={!canGoNext}
               className={`flex-1 px-4 py-2.5 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base ${
                 canGoNext
-                  ? 'bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 text-white hover:shadow-lg'
+                  ? 'bg-gradient-to-r from-primary via-primary to-accent text-white hover:shadow-lg'
                   : 'bg-gray-300 text-gray-500 cursor-not-allowed'
               }`}
             >

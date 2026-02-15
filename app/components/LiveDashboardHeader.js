@@ -31,7 +31,7 @@ const LiveDashboardHeader = ({
           <div className="flex items-center">
             <div className="flex items-center space-x-3">
               {/* Logo Icon */}
-              <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg shadow-lg">
+              <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg shadow-lg">
                 {userType === "founder" ? (
                   <Crown className="w-6 h-6 text-white" />
                 ) : (
@@ -42,10 +42,10 @@ const LiveDashboardHeader = ({
               {/* Brand Text */}
               <div className="hidden sm:block">
                 <div className="flex items-center space-x-2">
-                  <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                     ExpertResume
                   </h1>
-                  <span className="px-2 py-1 text-xs font-semibold bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-full">
+                  <span className="px-2 py-1 text-xs font-semibold bg-gradient-to-r from-accent-400 to-accent text-white rounded-full">
                     LIVE
                   </span>
                 </div>
@@ -98,7 +98,7 @@ const LiveDashboardHeader = ({
               </div>
               
               {/* Avatar */}
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
                 <span className="text-white text-sm font-semibold">
                   {userName.charAt(0).toUpperCase()}
                 </span>
@@ -122,10 +122,10 @@ const LiveDashboardHeader = ({
               {/* Mobile Brand Info */}
               <div className="px-3 py-2">
                 <div className="flex items-center space-x-2">
-                  <h1 className="text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  <h1 className="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                     ExpertResume
                   </h1>
-                  <span className="px-2 py-1 text-xs font-semibold bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-full">
+                  <span className="px-2 py-1 text-xs font-semibold bg-gradient-to-r from-accent-400 to-accent text-white rounded-full">
                     LIVE
                   </span>
                 </div>

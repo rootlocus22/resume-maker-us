@@ -35,7 +35,7 @@ export default function Modal({ children, onClose, isLoading }) {
           {isLoading ? (
             // Loading Spinner (Updated to match ExpertResume theme)
             <div className="flex items-center justify-center p-8">
-              <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-[#0B1F3B]" />
+              <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-primary" />
             </div>
           ) : (
             <>

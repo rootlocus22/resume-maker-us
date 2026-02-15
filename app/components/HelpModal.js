@@ -58,27 +58,27 @@ const helpSections = [
 
 const features = [
 	{
-		icon: <Target className="w-6 h-6 text-[#0B1F3B]" />,
+		icon: <Target className="w-6 h-6 text-primary" />,
 		title: "ATS Score Checker",
 		description: "Real-time ATS optimization score that updates as you edit your resume."
 	},
 	{
-		icon: <LayoutDashboard className="w-6 h-6 text-teal-600" />,
+		icon: <LayoutDashboard className="w-6 h-6 text-accent" />,
 		title: "Professional Templates",
 		description: "Choose from 20+ ATS-optimized templates designed by professionals."
 	},
 	{
-		icon: <FileUp className="w-6 h-6 text-emerald-600" />,
+		icon: <FileUp className="w-6 h-6 text-accent-600" />,
 		title: "Smart Import",
 		description: "Upload your existing resume and our AI will extract all information automatically."
 	},
 	{
-		icon: <Bot className="w-6 h-6 text-[#0B1F3B]" />,
+		icon: <Bot className="w-6 h-6 text-primary" />,
 		title: "AI Enhancement",
 		description: "Let AI analyze and improve your resume content for better impact."
 	},
 	{
-		icon: <Eye className="w-6 h-6 text-[#0B1F3B]" />,
+		icon: <Eye className="w-6 h-6 text-primary" />,
 		title: "Live Preview",
 		description: "See your changes instantly with real-time preview as you type."
 	},
@@ -88,12 +88,12 @@ const features = [
 		description: "Personalize your resume with custom colors and styling options."
 	},
 	{
-		icon: <FileText className="w-6 h-6 text-[#0B1F3B]" />,
+		icon: <FileText className="w-6 h-6 text-primary" />,
 		title: "Version Management",
 		description: "Create multiple resume versions and switch between them easily."
 	},
 	{
-		icon: <Save className="w-6 h-6 text-[#0B1F3B]" />,
+		icon: <Save className="w-6 h-6 text-primary" />,
 		title: "Cloud Save & PDF",
 		description: "Save to cloud and download professional PDFs instantly."
 	}
@@ -182,7 +182,7 @@ export default function HelpModal({ isOpen, onClose }) {
 							className="relative bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden"
 						>
 							{/* Header */}
-							<div className="bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] px-6 py-4 text-white">
+							<div className="bg-gradient-to-r from-primary to-primary px-6 py-4 text-white">
 								<div className="flex items-center justify-between">
 									<div className="flex items-center gap-3">
 										<div className="p-2 bg-white/20 rounded-lg">
@@ -226,7 +226,7 @@ export default function HelpModal({ isOpen, onClose }) {
 								{activeSection === "tour" && (
 									<div className="text-center">
 										<div className="w-20 h-20 bg-gradient-to-r from-slate-100 to-slate-100 rounded-full flex items-center justify-center mx-auto mb-6">
-											<Sparkles className="w-10 h-10 text-[#0B1F3B]" />
+											<Sparkles className="w-10 h-10 text-primary" />
 										</div>
 										<h3 className="text-2xl font-bold text-gray-800 mb-4">
 											Ready to Explore? 🚀
@@ -237,15 +237,15 @@ export default function HelpModal({ isOpen, onClose }) {
 										
 										<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
 											<div className="bg-slate-50 p-4 rounded-xl">
-												<Target className="w-8 h-8 text-[#0B1F3B] mx-auto mb-2" />
+												<Target className="w-8 h-8 text-primary mx-auto mb-2" />
 												<p className="text-sm font-medium text-gray-800">ATS Score</p>
 											</div>
 											<div className="bg-slate-50 p-4 rounded-xl">
-												<Bot className="w-8 h-8 text-[#0B1F3B] mx-auto mb-2" />
+												<Bot className="w-8 h-8 text-primary mx-auto mb-2" />
 												<p className="text-sm font-medium text-gray-800">AI Boost</p>
 											</div>
 											<div className="bg-slate-50 p-4 rounded-xl">
-												<Eye className="w-8 h-8 text-[#0B1F3B] mx-auto mb-2" />
+												<Eye className="w-8 h-8 text-primary mx-auto mb-2" />
 												<p className="text-sm font-medium text-gray-800">Live Preview</p>
 											</div>
 											<div className="bg-orange-50 p-4 rounded-xl">
@@ -256,7 +256,7 @@ export default function HelpModal({ isOpen, onClose }) {
 
 										<button
 											onClick={handleStartTour}
-											className="bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white py-3 px-8 rounded-xl font-semibold hover:from-[#071429] hover:to-[#071429] transition-all duration-200 flex items-center justify-center gap-2 mx-auto"
+											className="bg-gradient-to-r from-primary to-primary text-white py-3 px-8 rounded-xl font-semibold hover:from-gray-900 hover:to-gray-900 transition-all duration-200 flex items-center justify-center gap-2 mx-auto"
 										>
 											<Play className="w-5 h-5" />
 											Start Interactive Tour
@@ -307,7 +307,7 @@ export default function HelpModal({ isOpen, onClose }) {
 										<div className="grid md:grid-cols-2 gap-6">
 											<div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
 												<div className="flex items-center gap-3 mb-4">
-													<Mail className="w-6 h-6 text-[#0B1F3B]" />
+													<Mail className="w-6 h-6 text-primary" />
 													<h4 className="font-semibold text-gray-800">Email Support</h4>
 												</div>
 												<p className="text-gray-600 text-sm mb-4">
@@ -315,7 +315,7 @@ export default function HelpModal({ isOpen, onClose }) {
 												</p>
 												<a
 													href="mailto:support@expertresume.us"
-													className="inline-flex items-center gap-2 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-4 py-2 rounded-lg font-medium hover:from-[#071429] hover:to-[#008C81] transition-all duration-200 shadow-lg hover:shadow-xl"
+													className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-white px-4 py-2 rounded-lg font-medium hover:from-gray-900 hover:to-accent-700 transition-all duration-200 shadow-lg hover:shadow-xl"
 												>
 													<Mail size={16} />
 													support@expertresume.us
@@ -324,7 +324,7 @@ export default function HelpModal({ isOpen, onClose }) {
 
 											<div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
 												<div className="flex items-center gap-3 mb-4">
-													<MessageCircle className="w-6 h-6 text-[#0B1F3B]" />
+													<MessageCircle className="w-6 h-6 text-primary" />
 													<h4 className="font-semibold text-gray-800">Live Chat</h4>
 												</div>
 												<p className="text-gray-600 text-sm mb-4">
@@ -334,7 +334,7 @@ export default function HelpModal({ isOpen, onClose }) {
 													href="https://wa.me/918431256903"
 													target="_blank"
 													rel="noopener noreferrer"
-													className="inline-flex items-center gap-2 text-[#0B1F3B] hover:text-[#071429] font-medium text-sm"
+													className="inline-flex items-center gap-2 text-primary hover:text-gray-900 font-medium text-sm"
 												>
 													Start Chat
 													<ExternalLink className="w-4 h-4" />
@@ -343,7 +343,7 @@ export default function HelpModal({ isOpen, onClose }) {
 
 											<div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
 												<div className="flex items-center gap-3 mb-4">
-													<Video className="w-6 h-6 text-[#0B1F3B]" />
+													<Video className="w-6 h-6 text-primary" />
 													<h4 className="font-semibold text-gray-800">Video Tutorials</h4>
 												</div>
 												<p className="text-gray-600 text-sm mb-4">
@@ -353,7 +353,7 @@ export default function HelpModal({ isOpen, onClose }) {
 													href="https://www.vendaxsystemlabs.com/wp-content/uploads/2025/04/Free-Resume-Builder-_-ATS-Friendly-Resume-Maker-CV-Generator-1.mp4"
 													target="_blank"
 													rel="noopener noreferrer"
-													className="inline-flex items-center gap-2 text-[#0B1F3B] hover:text-[#071429] font-medium text-sm"
+													className="inline-flex items-center gap-2 text-primary hover:text-gray-900 font-medium text-sm"
 												>
 													Watch Videos
 													<ExternalLink className="w-4 h-4" />
@@ -384,7 +384,7 @@ export default function HelpModal({ isOpen, onClose }) {
 									<div className="flex items-center gap-4">
 										<a
 											href="mailto:support@expertresume.us"
-											className="text-[#0B1F3B] hover:text-[#071429] font-medium"
+											className="text-primary hover:text-gray-900 font-medium"
 										>
 											Contact Support
 										</a>

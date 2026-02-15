@@ -100,7 +100,7 @@ export default function GlobalDirectory({ roles, countryCode }) {
                         <div className="p-4 border-b border-gray-100 bg-gray-50/50 rounded-t-lg">
                             <h3 className="font-bold text-gray-900 flex items-center justify-between">
                                 Categories
-                                <span className="text-xs font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100">
+                                <span className="text-xs font-semibold text-accent-700 bg-accent-50 px-2 py-0.5 rounded-full border border-accent-100">
                                     {allRoles.length}
                                 </span>
                             </h3>
@@ -115,13 +115,13 @@ export default function GlobalDirectory({ roles, countryCode }) {
                                             setVisibleCount(24);
                                         }}
                                         className={`w-full flex items-center justify-between px-3 py-2.5 text-sm rounded-md transition-all duration-200 ${activeCategory === cat.id
-                                            ? 'bg-blue-600 text-white shadow-md'
-                                            : 'text-gray-600 hover:bg-blue-50 hover:text-blue-700'
+                                            ? 'bg-accent text-white shadow-md'
+                                            : 'text-gray-600 hover:bg-accent-50 hover:text-accent-700'
                                             }`}
                                     >
                                         <span className="font-medium">{cat.label}</span>
                                         {activeCategory !== cat.id && (
-                                            <span className="text-xs text-gray-400 group-hover:text-blue-500">{cat.count}</span>
+                                            <span className="text-xs text-gray-400 group-hover:text-accent">{cat.count}</span>
                                         )}
                                     </button>
                                 ))}
@@ -134,7 +134,7 @@ export default function GlobalDirectory({ roles, countryCode }) {
                 <div className="flex-1 min-w-0" id="roles-grid">
                     <div className="flex items-center justify-between mb-6">
                         <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                            <Briefcase className="w-5 h-5 text-blue-600" />
+                            <Briefcase className="w-5 h-5 text-accent-600" />
                             {activeCategory === "All" ? "All Resume Formats" : `${categories.find(c => c.id === activeCategory)?.label} Formats`}
                         </h2>
                         <span className="text-sm text-gray-500">
@@ -150,7 +150,7 @@ export default function GlobalDirectory({ roles, countryCode }) {
                                     setSearchTerm("");
                                     setActiveCategory("All");
                                 }}
-                                className="mt-4 text-blue-600 font-medium hover:underline"
+                                className="mt-4 text-accent-600 font-medium hover:underline"
                             >
                                 Clear all filters
                             </button>
@@ -172,7 +172,7 @@ export default function GlobalDirectory({ roles, countryCode }) {
                         <div className="mt-10 text-center">
                             <button
                                 onClick={() => setVisibleCount(prev => prev + 24)}
-                                className="px-8 py-3 bg-white border border-gray-300 shadow-sm rounded-lg text-gray-700 hover:bg-gray-50 hover:text-blue-600 font-medium transition-all"
+                                className="px-8 py-3 bg-white border border-gray-300 shadow-sm rounded-lg text-gray-700 hover:bg-gray-50 hover:text-accent-600 font-medium transition-all"
                             >
                                 Load More Formats
                             </button>
@@ -203,7 +203,7 @@ function RoleCard({ role, countryCode, category }) {
     return (
         <Link
             href={href}
-            className="flex flex-col h-full bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-lg hover:border-blue-300 transition-all duration-200 group overflow-hidden"
+            className="flex flex-col h-full bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-lg hover:border-accent-300 transition-all duration-200 group overflow-hidden"
         >
             {/* Template Preview Image */}
             <div className="relative h-48 w-full bg-gray-100 border-b border-gray-100 overflow-hidden">
@@ -222,7 +222,7 @@ function RoleCard({ role, countryCode, category }) {
             </div>
 
             <div className="p-5 flex-1 flex flex-col">
-                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
+                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-accent-600 transition-colors line-clamp-2">
                     {role.job_title}
                 </h3>
 

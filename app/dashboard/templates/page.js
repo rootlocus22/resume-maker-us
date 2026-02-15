@@ -115,7 +115,7 @@ export default function TemplatesPage() {
             </div>
             <button
               onClick={handleCreateTemplate}
-              className="flex items-center px-4 py-2 bg-[#0B1F3B] text-white rounded-lg hover:bg-[#071429] transition-colors"
+              className="flex items-center px-4 py-2 bg-primary text-white rounded-lg hover:bg-gray-900 transition-colors"
             >
               <Plus className="h-5 w-5 mr-2" />
               Create Template
@@ -139,13 +139,13 @@ export default function TemplatesPage() {
                   placeholder="Search templates..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0B1F3B] focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                 />
               </div>
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0B1F3B]"
+                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary"
               >
                 {categories.map(category => (
                   <option key={category.value} value={category.value}>
@@ -157,13 +157,13 @@ export default function TemplatesPage() {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setViewMode('grid')}
-                className={`p-2 rounded-lg ${viewMode === 'grid' ? 'bg-slate-100 text-[#0B1F3B]' : 'text-gray-400 hover:text-gray-600'}`}
+                className={`p-2 rounded-lg ${viewMode === 'grid' ? 'bg-slate-100 text-primary' : 'text-gray-400 hover:text-gray-600'}`}
               >
                 <Grid className="h-5 w-5" />
               </button>
               <button
                 onClick={() => setViewMode('list')}
-                className={`p-2 rounded-lg ${viewMode === 'list' ? 'bg-slate-100 text-[#0B1F3B]' : 'text-gray-400 hover:text-gray-600'}`}
+                className={`p-2 rounded-lg ${viewMode === 'list' ? 'bg-slate-100 text-primary' : 'text-gray-400 hover:text-gray-600'}`}
               >
                 <List className="h-5 w-5" />
               </button>
@@ -187,7 +187,7 @@ export default function TemplatesPage() {
                       <FileText className="h-16 w-16 text-gray-400" />
                     </div>
                     {template.isCustom && (
-                      <div className="absolute top-2 right-2 px-2 py-1 bg-slate-100 text-[#0B1F3B] text-xs rounded-full">
+                      <div className="absolute top-2 right-2 px-2 py-1 bg-slate-100 text-primary text-xs rounded-full">
                         Custom
                       </div>
                     )}
@@ -213,7 +213,7 @@ export default function TemplatesPage() {
                     {/* Tags */}
                     <div className="flex flex-wrap gap-1 mb-4">
                       {template.tags.slice(0, 2).map((tag, index) => (
-                        <span key={index} className="px-2 py-1 bg-slate-100 text-[#0B1F3B] text-xs rounded-full">
+                        <span key={index} className="px-2 py-1 bg-slate-100 text-primary text-xs rounded-full">
                           {tag}
                         </span>
                       ))}
@@ -228,7 +228,7 @@ export default function TemplatesPage() {
                     <div className="flex gap-2">
                       <button
                         onClick={() => handlePreviewTemplate(template.id)}
-                        className="flex-1 flex items-center justify-center px-3 py-2 bg-[#0B1F3B] text-white rounded-lg hover:bg-[#071429] transition-colors text-sm"
+                        className="flex-1 flex items-center justify-center px-3 py-2 bg-primary text-white rounded-lg hover:bg-gray-900 transition-colors text-sm"
                       >
                         <Eye className="h-4 w-4 mr-1" />
                         Preview
@@ -273,7 +273,7 @@ export default function TemplatesPage() {
                       <div className="flex items-center space-x-2">
                         <button
                           onClick={() => handlePreviewTemplate(template.id)}
-                          className="px-4 py-2 bg-[#0B1F3B] text-white rounded-lg hover:bg-[#071429] transition-colors"
+                          className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-gray-900 transition-colors"
                         >
                           Preview
                         </button>
@@ -311,7 +311,7 @@ export default function TemplatesPage() {
             <p className="text-gray-600 mb-6">Try adjusting your search criteria or create a new template.</p>
             <button
               onClick={handleCreateTemplate}
-              className="px-6 py-3 bg-[#0B1F3B] text-white rounded-lg hover:bg-[#071429] transition-colors"
+              className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-gray-900 transition-colors"
             >
               Create Your First Template
             </button>

@@ -325,7 +325,7 @@ export default function OptimizedResumePreview({
     <div className={`absolute inset-0 bg-gradient-to-t from-white/99 via-white/90 to-transparent backdrop-blur-md flex items-end justify-center p-3 sm:p-6 ${className}`}>
                 <div className="bg-white/98 backdrop-blur-lg rounded-xl p-4 sm:p-6 shadow-2xl border border-gray-300 max-w-sm text-center w-full mx-2 sm:mx-0">
             <div className="mb-3 sm:mb-4">
-              <div className="mx-auto w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#0B1F3B] to-[#00C4B3] rounded-full flex items-center justify-center mb-2 sm:mb-3">
+              <div className="mx-auto w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mb-2 sm:mb-3">
                 <Lock className="text-white sm:w-5 sm:h-5" size={16} />
               </div>
               <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1 sm:mb-2">
@@ -337,7 +337,7 @@ export default function OptimizedResumePreview({
             </div>
             <button
               onClick={() => onUpgrade('basic', 'ats-preview-blur')}
-              className="w-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold hover:from-[#071429] hover:to-[#008C81] transition-all duration-200 flex items-center justify-center gap-2"
+              className="w-full bg-gradient-to-r from-primary to-accent text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold hover:from-gray-900 hover:to-accent-700 transition-all duration-200 flex items-center justify-center gap-2"
             >
               <Crown size={16} className="sm:w-5 sm:h-5" />
               <span className="text-sm sm:text-base">Upgrade to Premium</span>
@@ -593,8 +593,8 @@ export default function OptimizedResumePreview({
           <h3 className="text-base sm:text-lg font-semibold text-gray-900">ATS Score Improvement</h3>
           {isOptimizing ? (
             <div className="flex items-center gap-2">
-              <div className="animate-spin rounded-full h-4 w-4 sm:h-5 sm:w-5 border-b-2 border-[#0B1F3B]"></div>
-              <span className="text-xs sm:text-sm text-[#0B1F3B]">Optimizing...</span>
+              <div className="animate-spin rounded-full h-4 w-4 sm:h-5 sm:w-5 border-b-2 border-primary"></div>
+              <span className="text-xs sm:text-sm text-primary">Optimizing...</span>
             </div>
           ) : (
             <div className="flex items-center gap-3 sm:gap-4">
@@ -622,9 +622,9 @@ export default function OptimizedResumePreview({
         
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 text-center">
           <div className="bg-white rounded-lg p-2 sm:p-3">
-            <Target className="text-teal-500 mx-auto mb-2 w-4 h-4 sm:w-5 sm:h-5" />
+            <Target className="text-accent mx-auto mb-2 w-4 h-4 sm:w-5 sm:h-5" />
             <div className="text-xs sm:text-sm font-medium text-gray-900">Keywords Added</div>
-            <div className="text-sm sm:text-lg font-bold text-[#0B1F3B]">
+            <div className="text-sm sm:text-lg font-bold text-primary">
               {(() => {
                 const keywordImprovement = improvements.find(i => i.type === 'keywords');
                 if (keywordImprovement) {
@@ -737,7 +737,7 @@ export default function OptimizedResumePreview({
             <button
               className={`px-3 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium border-b-2 transition-colors ${
                 activeTab === 'optimized'
-                  ? 'text-[#0B1F3B] border-[#0B1F3B]'
+                  ? 'text-primary border-primary'
                   : 'text-gray-500 border-transparent hover:text-gray-700'
               }`}
               onClick={() => setActiveTab('optimized')}
@@ -777,7 +777,7 @@ export default function OptimizedResumePreview({
               <div className="mt-3 flex justify-center">
                 <button
                   onClick={handleEditResume}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all bg-green-600 hover:bg-green-700 text-white shadow-md hover:shadow-lg"
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all bg-accent hover:bg-accent-600 text-white shadow-md hover:shadow-lg"
                 >
                   <Edit2 size={16} />
                   <span className="text-sm">
@@ -791,8 +791,8 @@ export default function OptimizedResumePreview({
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 {isOptimizing ? (
                   <>
-                    <div className="animate-spin rounded-full h-3 w-3 sm:h-4 sm:w-4 border-b-2 border-[#0B1F3B]"></div>
-                    <span className="text-xs sm:text-sm text-[#0B1F3B]">
+                    <div className="animate-spin rounded-full h-3 w-3 sm:h-4 sm:w-4 border-b-2 border-primary"></div>
+                    <span className="text-xs sm:text-sm text-primary">
                       AI is optimizing your resume for ATS compatibility...
                     </span>
                   </>
@@ -822,7 +822,7 @@ export default function OptimizedResumePreview({
               {isOptimizing ? (
                 <div className="flex items-center justify-center py-8 sm:py-12">
                   <div className="text-center">
-                    <div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-b-2 border-[#0B1F3B] mx-auto mb-3 sm:mb-4"></div>
+                    <div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-b-2 border-primary mx-auto mb-3 sm:mb-4"></div>
                     <p className="text-sm sm:text-base text-gray-600">AI is optimizing your resume...</p>
                     <p className="text-xs sm:text-sm text-gray-500 mt-2">This may take 30-60 seconds</p>
                   </div>
@@ -883,7 +883,7 @@ export default function OptimizedResumePreview({
                   <div className="mt-3 flex justify-center">
                     <button
                       onClick={handleEditResume}
-                      className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all bg-green-600 hover:bg-green-700 text-white shadow-md hover:shadow-lg"
+                      className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all bg-accent hover:bg-accent-600 text-white shadow-md hover:shadow-lg"
                     >
                       <Edit2 size={16} />
                       <span className="text-sm">
@@ -911,7 +911,7 @@ export default function OptimizedResumePreview({
           {/* JD Based Resume Button */}
           <button
             onClick={() => router.push('/job-description-resume-builder')}
-            className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-200 flex flex-col items-center justify-center gap-2 min-h-[80px] sm:min-h-[100px]"
+            className="bg-accent hover:bg-accent-600 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-200 flex flex-col items-center justify-center gap-2 min-h-[80px] sm:min-h-[100px]"
           >
             <Target size={20} className="sm:w-6 sm:h-6" />
             <div className="text-center">
@@ -925,7 +925,7 @@ export default function OptimizedResumePreview({
           {/* Upload Resume Button */}
           <button
             onClick={() => router.push('/upload-resume')}
-            className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-4 sm:px-6 py-3 sm:py-4 rounded-lg font-semibold hover:from-[#071429] hover:to-[#008C81] transition-all duration-200 flex flex-col items-center justify-center gap-2 min-h-[80px] sm:min-h-[100px]"
+            className="bg-gradient-to-r from-primary to-accent text-white px-4 sm:px-6 py-3 sm:py-4 rounded-lg font-semibold hover:from-gray-900 hover:to-accent-700 transition-all duration-200 flex flex-col items-center justify-center gap-2 min-h-[80px] sm:min-h-[100px]"
           >
             <Upload size={20} className="sm:w-6 sm:h-6" />
             <div className="text-center">

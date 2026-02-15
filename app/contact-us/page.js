@@ -44,10 +44,10 @@ title: "Contact Us - ExpertResume | AI Resume Builder for US Jobs",
 export default function ContactPage() {
   return (
     <>
-      <div className="min-h-screen py-12 sm:py-16 lg:py-20 bg-[#F8FAFC]">
+      <div className="min-h-screen py-12 sm:py-16 lg:py-20 bg-bg">
         <div className="max-w-3xl mx-auto px-6 sm:px-8">
           {/* Header */}
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-center text-[#0F172A] mb-8">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-center text-primary mb-8">
             Contact Us
           </h1>
           <p className="text-lg text-center text-gray-700 mb-12">
@@ -55,13 +55,13 @@ export default function ContactPage() {
           </p>
 
           {/* Contact Information */}
-          <div className="bg-white p-8 rounded-xl shadow-sm border border-[#E5E7EB]">
+          <div className="bg-white p-8 rounded-xl shadow-sm border border-border">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">
               Reach Out to Us
             </h2>
             <div className="space-y-6">
               {/* Email */}
-              <div className="flex items-center gap-4 p-4 bg-[#F8FAFC] rounded-lg border border-[#E5E7EB]">
+              <div className="flex items-center gap-4 p-4 bg-bg rounded-lg border border-border">
                 <div className="w-12 h-12 bg-[#2563EB]/10 rounded-full flex items-center justify-center">
                   <Mail className="w-6 h-6 text-[#2563EB]" />
                 </div>
@@ -77,7 +77,7 @@ export default function ContactPage() {
               </div>
 
               {/* Corporate Address */}
-              <div className="flex items-center gap-4 p-4 bg-[#F8FAFC] rounded-lg border border-[#E5E7EB]">
+              <div className="flex items-center gap-4 p-4 bg-bg rounded-lg border border-border">
                 <div className="w-12 h-12 bg-[#0D9488]/10 rounded-full flex items-center justify-center">
                   <Phone className="w-6 h-6 text-[#0D9488]" />
                 </div>
@@ -94,7 +94,7 @@ export default function ContactPage() {
           <div className="text-center mt-12">
             <Link
               href="/faqs"
-              className="inline-block bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white px-6 sm:px-8 py-3 rounded-full font-semibold text-sm sm:text-base hover:from-[#071429] hover:to-[#071429] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="inline-block bg-gradient-to-r from-primary to-primary text-white px-6 sm:px-8 py-3 rounded-full font-semibold text-sm sm:text-base hover:from-gray-900 hover:to-gray-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               View FAQs
             </Link>
@@ -104,7 +104,7 @@ export default function ContactPage() {
           <div className="text-center mt-6">
             <Link
               href="/resume-builder"
-              className="text-[#0B1F3B] hover:underline text-lg font-semibold"
+              className="text-primary hover:underline text-lg font-semibold"
             >
               ← Back to Resume Builder
             </Link>

@@ -154,7 +154,7 @@ export default function OnePagerButton({ data }) {
         onClick={handleOnePagerClick}
         className={`
           relative flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-md font-semibold text-xs transition-all duration-200
-          bg-white border border-blue-200 text-blue-700 hover:bg-blue-50 hover:shadow-sm
+          bg-white border border-accent/20 text-accent-700 hover:bg-accent-50 hover:shadow-sm
         `}
         title="Create one-page resume"
       >

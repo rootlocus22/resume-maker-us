@@ -62,7 +62,7 @@ export default function SocialProofNotification({ enabled = true }) {
                     transition={{ type: "spring", stiffness: 300, damping: 25 }}
                     className="fixed bottom-4 left-4 z-50 max-w-xs bg-white rounded-lg shadow-2xl border border-gray-200 p-3 flex items-start gap-3"
                 >
-                    <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center">
+                    <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-accent-400 to-accent-500 rounded-full flex items-center justify-center">
                         <CheckCircle className="w-4 h-4 text-white" />
                     </div>
                     <div className="flex-1 min-w-0">
@@ -70,7 +70,7 @@ export default function SocialProofNotification({ enabled = true }) {
                             {notification.name} from {notification.city}
                         </p>
                         <p className="text-xs text-gray-600">
-                            Just upgraded to <span className="font-semibold text-indigo-600">{notification.plan}</span>
+                            Just upgraded to <span className="font-semibold text-accent">{notification.plan}</span>
                         </p>
                         <p className="text-xs text-gray-400 mt-0.5">
                             {notification.minutesAgo} minute{notification.minutesAgo > 1 ? "s" : ""} ago

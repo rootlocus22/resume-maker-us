@@ -362,7 +362,7 @@ export default function ResumeVersionSwitcher({ onVersionChange, currentResumeDa
 
   const getATSScoreColor = (score) => {
     if (!score) return "text-gray-400";
-    if (score >= 80) return "text-blue-500";
+    if (score >= 80) return "text-accent-600";
     if (score >= 60) return "text-yellow-500";
     return "text-red-500";
   };
@@ -403,7 +403,7 @@ export default function ResumeVersionSwitcher({ onVersionChange, currentResumeDa
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-1.5 bg-white border border-gray-300 rounded-lg px-2.5 py-1.5 text-xs font-medium text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 shadow-sm min-w-0 flex-shrink-0 h-9 w-[100px]"
       >
-        <FileText size={14} className="text-blue-600 flex-shrink-0" />
+        <FileText size={14} className="text-accent-600 flex-shrink-0" />
         <span className="flex-1 truncate text-center">
           {activeDisplayName}
         </span>
@@ -426,7 +426,7 @@ export default function ResumeVersionSwitcher({ onVersionChange, currentResumeDa
               className="fixed left-2 right-2 top-16 bg-white border border-gray-200 rounded-xl shadow-2xl z-[9999] max-h-[80vh] overflow-hidden md:absolute md:top-full md:mt-2 md:left-0 md:right-auto md:w-72 md:max-w-[288px]"
             >
               {/* Header - Compact */}
-              <div className="p-3 border-b border-gray-100 bg-gradient-to-r from-blue-50 to-blue-50">
+              <div className="p-3 border-b border-gray-100 bg-gradient-to-r from-accent-50 to-accent-50">
                 <div className="flex items-center justify-between">
                   <h3 className="font-semibold text-gray-800 text-sm">My Resumes</h3>
                   <div className="flex gap-1">
@@ -435,7 +435,7 @@ export default function ResumeVersionSwitcher({ onVersionChange, currentResumeDa
                         e.stopPropagation();
                         handleStartFresh();
                       }}
-                      className="flex items-center gap-1 text-blue-600 hover:text-blue-700 text-xs font-medium px-2 py-1 rounded hover:bg-blue-50"
+                      className="flex items-center gap-1 text-accent-600 hover:text-accent-700 text-xs font-medium px-2 py-1 rounded hover:bg-accent-50"
                     >
                       <Plus size={12} />
                       <span className="hidden sm:inline">New Resume</span>
@@ -457,7 +457,7 @@ export default function ResumeVersionSwitcher({ onVersionChange, currentResumeDa
               <div className="max-h-[60vh] md:max-h-80 overflow-y-auto">
                 {loading ? (
                   <div className="p-4 text-center text-gray-500">
-                    <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-blue-600 mx-auto"></div>
+                    <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-accent mx-auto"></div>
                     <p className="mt-2 text-xs">Loading...</p>
                   </div>
                 ) : allItems.length === 0 ? (
@@ -470,7 +470,7 @@ export default function ResumeVersionSwitcher({ onVersionChange, currentResumeDa
                     <div
                       key={`${item.type}-${item.id}`}
                       className={`p-3 border-b border-gray-50 hover:bg-gray-50 cursor-pointer transition-colors duration-150 group ${
-                        item.type === 'local' && item.id === activeVersionId ? 'bg-blue-50 border-blue-100' : ''
+                        item.type === 'local' && item.id === activeVersionId ? 'bg-accent-50 border-accent-100' : ''
                       }`}
                       onClick={() => handleVersionSwitch(item)}
                     >
@@ -483,7 +483,7 @@ export default function ResumeVersionSwitcher({ onVersionChange, currentResumeDa
                                 type="text"
                                 value={editingName}
                                 onChange={(e) => setEditingName(e.target.value)}
-                                className="flex-1 px-2 py-1 border border-gray-300 rounded text-xs focus:ring-2 focus:ring-blue-500"
+                                className="flex-1 px-2 py-1 border border-gray-300 rounded text-xs focus:ring-2 focus:ring-accent"
                                 autoFocus
                                 onClick={(e) => e.stopPropagation()}
                                 onKeyDown={(e) => {
@@ -496,24 +496,24 @@ export default function ResumeVersionSwitcher({ onVersionChange, currentResumeDa
                                 <div className="flex items-center gap-1">
                                   {item.type === 'local' ? (
                                     <div className="flex items-center gap-0.5">
-                                      <HardDrive size={11} className="text-blue-600" title="Local Version" />
+                                      <HardDrive size={11} className="text-accent-600" title="Local Version" />
                                       {item.metadata?.firestoreId && (
-                                        <Cloud size={9} className="text-blue-400" title="Synced from Saved Resume" />
+                                        <Cloud size={9} className="text-accent-400" title="Synced from Saved Resume" />
                                       )}
                                     </div>
                                   ) : (
-                                    <Cloud size={11} className="text-blue-600" title="Saved Resume" />
+                                    <Cloud size={11} className="text-accent-600" title="Saved Resume" />
                                   )}
                                   <span 
                                     className={`font-medium text-xs block truncate max-w-[160px] ${
-                                      item.type === 'local' && item.id === activeVersionId ? 'text-blue-700' : 'text-gray-800'
+                                      item.type === 'local' && item.id === activeVersionId ? 'text-accent-700' : 'text-gray-800'
                                     }`}
                                     title={item.displayName}
                                   >
                                     {item.displayName}
                                   </span>
                                   {item.type === 'local' && item.id === activeVersionId && (
-                                    <Star size={11} className="text-blue-600 fill-current" />
+                                    <Star size={11} className="text-accent-600 fill-current" />
                                   )}
                                 </div>
                               </>
@@ -569,7 +569,7 @@ export default function ResumeVersionSwitcher({ onVersionChange, currentResumeDa
                                 e.stopPropagation();
                                 handleRenameVersion(item.id, editingName);
                               }}
-                              className="p-1 text-blue-600 hover:bg-blue-100 rounded"
+                              className="p-1 text-accent-600 hover:bg-accent-100 rounded"
                             >
                               <Check size={12} />
                             </button>
@@ -589,14 +589,14 @@ export default function ResumeVersionSwitcher({ onVersionChange, currentResumeDa
                               <>
                                 <button
                                   onClick={(e) => startEditing(item.id, item.name, e)}
-                                  className="p-1 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded"
+                                  className="p-1 text-gray-400 hover:text-accent-600 hover:bg-accent-50 rounded"
                                   title="Rename"
                                 >
                                   <Edit3 size={12} />
                                 </button>
                                 <button
                                   onClick={(e) => handleDuplicateVersion(item.id, e)}
-                                  className="p-1 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded"
+                                  className="p-1 text-gray-400 hover:text-accent-600 hover:bg-accent-50 rounded"
                                   title="Duplicate"
                                 >
                                   <Copy size={12} />

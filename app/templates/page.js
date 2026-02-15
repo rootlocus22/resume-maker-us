@@ -54,12 +54,12 @@ const getCategoryIcon = (category) => {
 const getCategoryColor = (category) => {
   const colors = {
     "Classic": "from-slate-600 to-slate-800",
-    "Professional": "from-[#0B1F3B] to-[#00C4B3]",
-    "Modern": "from-[#0B1F3B] to-[#00C4B3]",
+    "Professional": "from-primary to-accent",
+    "Modern": "from-primary to-accent",
     "Creative": "from-pink-600 to-pink-800",
     "Executive": "from-gray-700 to-gray-900",
     "Minimal": "from-cyan-600 to-cyan-800",
-    "Tech": "from-[#0B1F3B] to-[#00C4B3]",
+    "Tech": "from-primary to-accent",
     "Job-Specific": "from-orange-600 to-orange-800",
     "Portfolio": "from-violet-600 to-violet-800",
     "Timeline": "from-teal-600 to-teal-800",
@@ -222,12 +222,12 @@ export default function TemplatesPage() {
 
   if (isLoading) {
     return (
-      <div className="templates-page min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#0B1F3B]/5">
+      <div className="templates-page min-h-screen bg-gradient-to-br from-slate-50 via-white to-primary/5">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           {/* Loading Hero */}
           <div className="text-center mb-12 sm:mb-16">
             <div className="animate-pulse">
-              <div className="h-5 sm:h-6 bg-gradient-to-r from-[#00C4B3]/20 to-[#00C4B3]/20 rounded-full w-24 sm:w-32 mx-auto mb-4 sm:mb-6"></div>
+              <div className="h-5 sm:h-6 bg-gradient-to-r from-accent/20 to-accent/20 rounded-full w-24 sm:w-32 mx-auto mb-4 sm:mb-6"></div>
               <div className="h-12 sm:h-16 bg-gradient-to-r from-gray-200 to-gray-300 rounded-xl sm:rounded-2xl w-3/4 mx-auto mb-4 sm:mb-6"></div>
               <div className="h-5 sm:h-6 bg-gray-200 rounded-xl w-1/2 mx-auto"></div>
             </div>
@@ -237,7 +237,7 @@ export default function TemplatesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
             {[...Array(10)].map((_, i) => (
               <div key={i} className="group animate-pulse">
-                <div className="relative bg-white rounded-2xl sm:rounded-3xl shadow-sm border border-[#E5E7EB] overflow-hidden hover:shadow-2xl transition-all duration-500">
+                <div className="relative bg-white rounded-2xl sm:rounded-3xl shadow-sm border border-border overflow-hidden hover:shadow-2xl transition-all duration-500">
                   <div className="aspect-[4/5] bg-gradient-to-br from-gray-100 to-gray-200"></div>
                   <div className="p-4 sm:p-6">
                     <div className="h-4 sm:h-5 bg-gray-200 rounded-lg w-3/4 mb-2 sm:mb-3"></div>
@@ -255,7 +255,7 @@ export default function TemplatesPage() {
 
   if (error) {
     return (
-      <div className="templates-page min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#0B1F3B]/5 flex items-center justify-center px-4">
+      <div className="templates-page min-h-screen bg-gradient-to-br from-slate-50 via-white to-primary/5 flex items-center justify-center px-4">
         <div className="max-w-md w-full bg-white rounded-2xl sm:rounded-3xl shadow-xl border border-red-100 p-6 sm:p-8 text-center">
           <div className="w-14 sm:w-16 h-14 sm:h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
             <span className="text-xl sm:text-2xl">⚠️</span>
@@ -264,7 +264,7 @@ export default function TemplatesPage() {
           <p className="text-sm sm:text-base text-gray-600 mb-5 sm:mb-6">{error}</p>
           <button
             onClick={() => window.location.reload()}
-            className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl hover:opacity-95 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 w-full sm:w-auto"
+            className="bg-gradient-to-r from-primary to-accent text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl hover:opacity-95 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 w-full sm:w-auto"
           >
             Try Again
           </button>
@@ -274,9 +274,9 @@ export default function TemplatesPage() {
   }
 
   return (
-    <div className="templates-page min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#0B1F3B]/5">
+    <div className="templates-page min-h-screen bg-gradient-to-br from-slate-50 via-white to-primary/5">
       {/* Premium Header Banner */}
-      <div className="bg-gradient-to-r from-[#0B1F3B] to-[#0F172A] text-white py-3 px-4 text-center text-sm font-medium">
+      <div className="bg-gradient-to-r from-primary to-primary text-white py-3 px-4 text-center text-sm font-medium">
         <div className="max-w-8xl mx-auto flex items-center justify-center gap-2">
           <Crown className="w-4 h-4 text-yellow-400" />
           <span>Join 100,000+ professionals who landed their dream jobs with our templates</span>
@@ -289,45 +289,45 @@ export default function TemplatesPage() {
         {/* Premium Hero Section */}
         <div className="text-center py-8 sm:py-12 lg:py-16 relative">
           {/* Background Elements */}
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/3 w-full max-w-4xl h-32 sm:h-48 lg:h-64 bg-gradient-to-r from-[#0B1F3B]/10 to-[#0B1F3B]/10 blur-3xl rounded-full z-0"></div>
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/3 w-full max-w-4xl h-32 sm:h-48 lg:h-64 bg-gradient-to-r from-primary/10 to-primary/10 blur-3xl rounded-full z-0"></div>
 
-          <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-md border border-[#00C4B3]/20 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-4 sm:mb-6 shadow-lg relative z-10">
-            <Sparkles className="text-[#0B1F3B] w-4 h-4 sm:w-5 sm:h-5" />
-            <span className="text-[#0B1F3B] font-semibold text-xs sm:text-sm">World-Class Templates</span>
-            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#0B1F3B] rounded-full animate-pulse"></div>
+          <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-md border border-accent/20 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-4 sm:mb-6 shadow-lg relative z-10">
+            <Sparkles className="text-primary w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="text-primary font-semibold text-xs sm:text-sm">World-Class Templates</span>
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full animate-pulse"></div>
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-4 sm:mb-6 relative z-10">
-            <span className="bg-gradient-to-r from-slate-900 via-[#0B1F3B] to-[#0F172A] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-slate-900 via-primary to-primary bg-clip-text text-transparent">
               Your Dream Career
             </span>
             <br />
-            <span className="bg-gradient-to-r from-[#0B1F3B] via-[#00C4B3] to-[#00C4B3] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-accent to-accent bg-clip-text text-transparent">
               Starts Here
             </span>
           </h1>
 
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6 sm:mb-8 relative z-10 px-4">
             {templates.length}+ professionally designed, ATS-optimized templates trusted by professionals worldwide.
-            <span className="font-semibold text-[#0B1F3B]"> Create stunning resumes in minutes.</span>
+            <span className="font-semibold text-primary"> Create stunning resumes in minutes.</span>
           </p>
 
           {/* Premium Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 max-w-4xl mx-auto mb-6 sm:mb-8 relative z-10 px-4">
             <div className="text-center bg-white/80 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-gray-200/50 shadow-sm">
-              <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#0B1F3B] mb-1">{templates.length}+</div>
+              <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary mb-1">{templates.length}+</div>
               <div className="text-gray-600 font-medium text-xs sm:text-sm lg:text-base">Premium Templates</div>
             </div>
             <div className="text-center bg-white/80 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-gray-200/50 shadow-sm">
-              <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#0B1F3B] mb-1">50K+</div>
+              <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary mb-1">50K+</div>
               <div className="text-gray-600 font-medium text-xs sm:text-sm lg:text-base">Resumes Created</div>
             </div>
             <div className="text-center bg-white/80 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-gray-200/50 shadow-sm">
-              <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#0B1F3B] mb-1">95%</div>
+              <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary mb-1">95%</div>
               <div className="text-gray-600 font-medium text-xs sm:text-sm lg:text-base">Success Rate</div>
             </div>
             <div className="text-center bg-white/80 backdrop-blur-sm p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-gray-200/50 shadow-sm">
-              <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#0B1F3B] mb-1">24/7</div>
+              <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary mb-1">24/7</div>
               <div className="text-gray-600 font-medium text-xs sm:text-sm lg:text-base">Expert Support</div>
             </div>
           </div>
@@ -348,7 +348,7 @@ export default function TemplatesPage() {
                     onChange={handleSearchChange}
                     onFocus={() => searchTerm.length >= 2 && setShowSuggestions(true)}
                     onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
-                    className="block w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border border-gray-200 rounded-xl sm:rounded-2xl text-sm sm:text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent transition-all duration-200"
+                    className="block w-full pl-10 sm:pl-12 pr-3 sm:pr-4 py-3 sm:py-4 border border-gray-200 rounded-xl sm:rounded-2xl text-sm sm:text-base placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200"
                   />
                   {searchTerm && (
                     <button
@@ -369,7 +369,7 @@ export default function TemplatesPage() {
                         <button
                           key={index}
                           onClick={() => handleSuggestionClick(suggestion)}
-                          className="w-full text-left px-4 py-3 hover:bg-[#0B1F3B]/5 transition-colors flex items-center gap-2 border-b border-[#E5E7EB] last:border-b-0"
+                          className="w-full text-left px-4 py-3 hover:bg-primary/5 transition-colors flex items-center gap-2 border-b border-border last:border-b-0"
                         >
                           <Search className="h-4 w-4 text-gray-400" />
                           <span className="text-sm text-gray-700">{suggestion}</span>
@@ -384,7 +384,7 @@ export default function TemplatesPage() {
                   <select
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
-                    className="appearance-none bg-white border border-gray-200 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 pr-8 sm:pr-10 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent transition-all duration-200 cursor-pointer"
+                    className="appearance-none bg-white border border-gray-200 rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 pr-8 sm:pr-10 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200 cursor-pointer"
                   >
                     {categories.map((category) => (
                       <option key={category} value={category}>
@@ -413,7 +413,7 @@ export default function TemplatesPage() {
                           setSearchTerm("");
                           setSelectedCategory("All");
                         }}
-                        className="text-[#0B1F3B] hover:text-[#0B1F3B] font-medium transition-colors duration-200"
+                        className="text-primary hover:text-primary font-medium transition-colors duration-200"
                       >
                         Clear filters
                       </button>
@@ -426,7 +426,7 @@ export default function TemplatesPage() {
               {!searchTerm && selectedCategory === "All" && popularTerms.length > 0 && (
                 <div className="mt-4 pt-4 border-t border-gray-200">
                   <div className="flex items-center gap-2 mb-3">
-                    <TrendingUp className="h-4 w-4 text-[#0B1F3B]" />
+                    <TrendingUp className="h-4 w-4 text-primary" />
                     <span className="text-sm text-gray-600 font-medium">Popular searches:</span>
                   </div>
                   <div className="flex flex-wrap gap-2">
@@ -434,7 +434,7 @@ export default function TemplatesPage() {
                       <button
                         key={term}
                         onClick={() => setSearchTerm(term)}
-                        className="px-3 py-1.5 bg-gradient-to-r from-[#0B1F3B]/5 to-cyan-50 hover:from-[#00C4B3]/10 hover:to-[#00C4B3]/20 text-[#0B1F3B] rounded-full text-xs font-medium transition-all duration-200 border border-[#00C4B3]/20 hover:border-[#00C4B3]/30"
+                        className="px-3 py-1.5 bg-gradient-to-r from-primary/5 to-cyan-50 hover:from-accent/10 hover:to-accent/20 text-primary rounded-full text-xs font-medium transition-all duration-200 border border-accent/20 hover:border-accent/30"
                       >
                         {term}
                       </button>
@@ -447,22 +447,22 @@ export default function TemplatesPage() {
 
           {/* Template Discovery - Featured */}
           <div className="max-w-4xl mx-auto mb-8 px-4">
-            <div className="bg-gradient-to-r from-[#0B1F3B] via-[#0B1F3B] to-cyan-600 rounded-3xl p-1 shadow-2xl">
+            <div className="bg-gradient-to-r from-primary via-primary to-cyan-600 rounded-3xl p-1 shadow-2xl">
               <div className="bg-white rounded-[22px] p-6 sm:p-8">
                 <div className="text-center">
-                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#0B1F3B]/5 to-cyan-50 px-4 py-2 rounded-full mb-4">
-                    <Sparkles className="w-4 h-4 text-[#0B1F3B] animate-pulse" />
-                    <span className="text-[#0B1F3B] font-semibold text-sm">NEW: Smart Template Finder</span>
+                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/5 to-cyan-50 px-4 py-2 rounded-full mb-4">
+                    <Sparkles className="w-4 h-4 text-primary animate-pulse" />
+                    <span className="text-primary font-semibold text-sm">NEW: Smart Template Finder</span>
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
                     Not sure which template to choose?
                   </h3>
                   <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                    Answer <span className="font-semibold text-[#0B1F3B]">5 quick questions</span> and we'll recommend the perfect templates for your experience level, industry, and goals. Takes just 60 seconds!
+                    Answer <span className="font-semibold text-primary">5 quick questions</span> and we'll recommend the perfect templates for your experience level, industry, and goals. Takes just 60 seconds!
                   </p>
                   <button
                     onClick={() => setShowDiscovery(true)}
-                    className="bg-gradient-to-r from-[#0B1F3B] via-[#0B1F3B] to-cyan-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 mx-auto group"
+                    className="bg-gradient-to-r from-primary via-primary to-cyan-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 mx-auto group"
                   >
                     <Sparkles className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
                     Find My Perfect Template
@@ -477,14 +477,14 @@ export default function TemplatesPage() {
           {/* Quick Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center relative z-10 px-4">
             <Link href="#templates">
-              <button className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto">
+              <button className="bg-gradient-to-r from-primary to-accent text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto">
                 <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span className="text-sm sm:text-base">Browse All Templates</span>
               </button>
             </Link>
             <Link href="/resume-builder">
               <button className="bg-white text-gray-900 border-2 border-gray-200 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold shadow-sm hover:shadow-md transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto">
-                <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-[#0B1F3B]" />
+                <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                 <span className="text-sm sm:text-base">Start Building</span>
               </button>
             </Link>
@@ -574,7 +574,7 @@ export default function TemplatesPage() {
             </div>
           ) : (
             <div className="text-center py-16 sm:py-24">
-              <div className="bg-white rounded-2xl sm:rounded-3xl shadow-xl border border-[#E5E7EB] p-8 sm:p-12 max-w-lg mx-auto">
+              <div className="bg-white rounded-2xl sm:rounded-3xl shadow-xl border border-border p-8 sm:p-12 max-w-lg mx-auto">
                 <div className="w-16 sm:w-20 h-16 sm:h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8">
                   <Search size={24} className="text-gray-400 sm:w-8 sm:h-8" />
                 </div>
@@ -587,7 +587,7 @@ export default function TemplatesPage() {
                     setSearchTerm("");
                     setSelectedCategory("All");
                   }}
-                  className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl hover:opacity-95 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
+                  className="bg-gradient-to-r from-primary to-accent text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl hover:opacity-95 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
                 >
                   Clear all filters
                 </button>
@@ -597,23 +597,23 @@ export default function TemplatesPage() {
         </div>
 
         {/* Premium Features Section */}
-        <div className="bg-gradient-to-br from-slate-50 to-[#0B1F3B]/5 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 mb-12 sm:mb-16 border border-gray-200/50">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-8 sm:mb-12 bg-gradient-to-r from-slate-800 to-[#00C4B3] bg-clip-text text-transparent">
+        <div className="bg-gradient-to-br from-slate-50 to-primary/5 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 mb-12 sm:mb-16 border border-gray-200/50">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-8 sm:mb-12 bg-gradient-to-r from-slate-800 to-accent bg-clip-text text-transparent">
             Why Professionals Choose Our Templates
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all">
-              <div className="w-10 sm:w-12 h-10 sm:h-12 bg-[#00C4B3]/10 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4">
-                <Target className="w-5 h-5 sm:w-6 sm:h-6 text-[#0B1F3B]" />
+              <div className="w-10 sm:w-12 h-10 sm:h-12 bg-accent/10 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4">
+                <Target className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">ATS Optimized</h3>
               <p className="text-sm sm:text-base text-gray-600">Designed to pass through Applicant Tracking Systems with ease</p>
             </div>
 
             <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all">
-              <div className="w-10 sm:w-12 h-10 sm:h-12 bg-[#0B1F3B]/5 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4">
-                <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-[#0B1F3B]" />
+              <div className="w-10 sm:w-12 h-10 sm:h-12 bg-primary/5 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4">
+                <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">Professional Design</h3>
               <p className="text-sm sm:text-base text-gray-600">Created by award-winning designers with hiring expertise</p>
@@ -638,11 +638,11 @@ export default function TemplatesPage() {
         </div>
 
         {/* World-Class CTA Section */}
-        <div className="relative bg-gradient-to-br from-slate-900 via-[#0B1F3B] to-[#0F172A] rounded-2xl sm:rounded-3xl lg:rounded-[3rem] p-6 sm:p-8 lg:p-12 xl:p-16 text-center text-white shadow-2xl mb-12 sm:mb-16 overflow-hidden">
+        <div className="relative bg-gradient-to-br from-slate-900 via-primary to-primary rounded-2xl sm:rounded-3xl lg:rounded-[3rem] p-6 sm:p-8 lg:p-12 xl:p-16 text-center text-white shadow-2xl mb-12 sm:mb-16 overflow-hidden">
           {/* Background Effects */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3B]/20 to-[#0B1F3B]/20"></div>
-          <div className="absolute top-0 left-1/4 w-48 sm:w-64 lg:w-96 h-48 sm:h-64 lg:h-96 bg-[#0B1F3B]/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-48 sm:w-64 lg:w-96 h-48 sm:h-64 lg:h-96 bg-[#0B1F3B]/10 rounded-full blur-3xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/20"></div>
+          <div className="absolute top-0 left-1/4 w-48 sm:w-64 lg:w-96 h-48 sm:h-64 lg:h-96 bg-primary/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-48 sm:w-64 lg:w-96 h-48 sm:h-64 lg:h-96 bg-primary/10 rounded-full blur-3xl"></div>
 
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8">
@@ -688,12 +688,12 @@ export default function TemplatesPage() {
               </div>
               <div className="hidden sm:block w-px h-8 bg-white/20"></div>
               <div className="text-center">
-                <div className="text-xl sm:text-2xl font-bold text-[#00C4B3]">ATS</div>
+                <div className="text-xl sm:text-2xl font-bold text-accent">ATS</div>
                 <div className="text-xs sm:text-sm text-white/60">Optimized</div>
               </div>
               <div className="hidden sm:block w-px h-8 bg-white/20"></div>
               <div className="text-center">
-                <div className="text-xl sm:text-2xl font-bold text-[#00C4B3]">24/7</div>
+                <div className="text-xl sm:text-2xl font-bold text-accent">24/7</div>
                 <div className="text-xs sm:text-sm text-white/60">Support</div>
               </div>
             </div>
@@ -765,8 +765,8 @@ export default function TemplatesPage() {
 
                   <div>
                     <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Best For</h4>
-                    <div className="bg-[#0B1F3B]/5 rounded-xl sm:rounded-2xl p-3 sm:p-4">
-                      <p className="text-[#0F172A] text-sm sm:text-base">
+                    <div className="bg-primary/5 rounded-xl sm:rounded-2xl p-3 sm:p-4">
+                      <p className="text-primary text-sm sm:text-base">
                         {previewModal.category === "Executive" && "Senior managers, directors, and C-level executives"}
                         {previewModal.category === "Professional" && "Established professionals with 5+ years of experience"}
                         {previewModal.category === "Creative" && "Designers, artists, and creative professionals"}
@@ -783,7 +783,7 @@ export default function TemplatesPage() {
                 <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <Link href={getBuilderUrl(previewModal.id, previewModal)} className="flex-1">
                     <button
-                      className="w-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold hover:opacity-95 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 text-sm sm:text-base"
+                      className="w-full bg-gradient-to-r from-primary to-accent text-white py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold hover:opacity-95 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 text-sm sm:text-base"
                       onClick={() => handleTemplateClick(previewModal.id)}
                     >
                       <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -816,7 +816,7 @@ export default function TemplatesPage() {
 function TemplateCard({ template, hoveredTemplate, onHover, onClick, getBuilderUrl, setPreviewModal, isMobile, showCategoryBadge = false }) {
   return (
     <div
-      className="group relative bg-white rounded-2xl sm:rounded-3xl shadow-lg border border-[#E5E7EB] overflow-hidden hover:shadow-2xl hover:border-gray-200 transition-all duration-500 transform hover:scale-[1.02] cursor-pointer template-card"
+      className="group relative bg-white rounded-2xl sm:rounded-3xl shadow-lg border border-border overflow-hidden hover:shadow-2xl hover:border-gray-200 transition-all duration-500 transform hover:scale-[1.02] cursor-pointer template-card"
       data-category={template.category}
       onMouseEnter={() => !isMobile && onHover(template.id)}
       onMouseLeave={() => !isMobile && onHover(null)}
@@ -876,7 +876,7 @@ function TemplateCard({ template, hoveredTemplate, onHover, onClick, getBuilderU
 
               <Link href={getBuilderUrl(template.id, template)} className="block">
                 <button
-                  className="w-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white py-2 sm:py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-all shadow-lg"
+                  className="w-full bg-gradient-to-r from-primary to-accent text-white py-2 sm:py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-all shadow-lg"
                   onClick={(e) => {
                     e.stopPropagation();
                     onClick(template.id);
@@ -896,12 +896,12 @@ function TemplateCard({ template, hoveredTemplate, onHover, onClick, getBuilderU
       <div className="p-4 sm:p-6">
         <div className="mb-3 sm:mb-4">
           <Link href={`/resume-templates/${template.id}`} className="block">
-            <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-[#0B1F3B] transition-colors mb-2 line-clamp-2 leading-tight">
+            <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-primary transition-colors mb-2 line-clamp-2 leading-tight">
               {template.name}
             </h3>
           </Link>
           <p className="text-xs sm:text-sm text-gray-500 flex items-center gap-2">
-            <CheckCircle size={12} className="text-[#00C4B3] flex-shrink-0" />
+            <CheckCircle size={12} className="text-accent flex-shrink-0" />
             <span className="hidden sm:inline">ATS Optimized • Professional</span>
             <span className="sm:hidden">ATS Optimized</span>
           </p>
@@ -936,7 +936,7 @@ function TemplateCard({ template, hoveredTemplate, onHover, onClick, getBuilderU
 
             <Link href={getBuilderUrl(template.id, template)} className="block" rel="nofollow">
               <button
-                className="w-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white py-2.5 sm:py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-all shadow-lg"
+                className="w-full bg-gradient-to-r from-primary to-accent text-white py-2.5 sm:py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-all shadow-lg"
                 onClick={(e) => {
                   e.stopPropagation();
                   onClick(template.id);
@@ -954,13 +954,13 @@ function TemplateCard({ template, hoveredTemplate, onHover, onClick, getBuilderU
         {!isMobile && (
           <div className="flex items-center gap-3">
             <Link href={`/resume-templates/${template.id}`}>
-              <button className="text-sm font-semibold text-gray-600 hover:text-[#0B1F3B] transition-colors">
+              <button className="text-sm font-semibold text-gray-600 hover:text-primary transition-colors">
                 Details
               </button>
             </Link>
             <Link href={getBuilderUrl(template.id, template)} rel="nofollow">
               <button
-                className="text-sm font-semibold text-[#0B1F3B] hover:text-[#0B1F3B] flex items-center gap-2 hover:gap-3 transition-all group/button"
+                className="text-sm font-semibold text-primary hover:text-primary flex items-center gap-2 hover:gap-3 transition-all group/button"
                 onClick={(e) => {
                   e.stopPropagation();
                   onClick(template.id);

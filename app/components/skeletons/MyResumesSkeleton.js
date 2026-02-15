@@ -12,7 +12,7 @@ export default function MyResumesSkeleton() {
                 <div className="h-7 sm:h-8 w-40 bg-gray-200 rounded-lg animate-pulse" />
                 <div className="h-4 w-48 bg-gray-100 rounded mt-2 animate-pulse" />
               </div>
-              <div className="h-12 w-full sm:w-36 bg-[#00C4B3]/20 rounded-lg animate-pulse" />
+              <div className="h-12 w-full sm:w-36 bg-accent/20 rounded-lg animate-pulse" />
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@ export default function MyResumesSkeleton() {
                 </div>
               </div>
               <div className="px-4 sm:px-5 py-3 bg-gray-50/70 border-t border-gray-100 flex items-center justify-between">
-                <div className="h-7 w-16 bg-[#00C4B3]/20 rounded-lg animate-pulse" />
+                <div className="h-7 w-16 bg-accent/20 rounded-lg animate-pulse" />
                 <div className="h-8 w-8 bg-gray-100 rounded-lg animate-pulse" />
               </div>
             </div>

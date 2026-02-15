@@ -699,16 +699,16 @@ export default function JobSpecificResumeBuilder() {
               <div className="flex items-start">
                 <div className="flex-shrink-0">
                   <div className="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4 text-[#0B1F3B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                 </div>
                 <div className="ml-3 flex-1">
-                  <p className="text-sm font-medium text-[#0B1F3B]">
+                  <p className="text-sm font-medium text-primary">
                     AI Content Applied
                   </p>
-                  <p className="mt-1 text-sm text-[#0B1F3B]">
+                  <p className="mt-1 text-sm text-primary">
                     Please review and edit the suggestions to ensure they accurately reflect your experience.
                   </p>
                 </div>
@@ -717,7 +717,7 @@ export default function JobSpecificResumeBuilder() {
             <div className="flex border-l border-slate-200">
               <button
                 onClick={() => toast.dismiss(t.id)}
-                className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-[#0B1F3B] hover:text-teal-600 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-[#0B1F3B]"
+                className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-primary hover:text-accent-600 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-accent"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -938,8 +938,8 @@ export default function JobSpecificResumeBuilder() {
       {isUploadingPdf && (
         <div className="fixed inset-0 bg-gray-900/90 flex items-center justify-center z-50">
           <div className="flex flex-col items-center gap-3 md:gap-5 bg-white p-4 md:p-6 rounded-xl shadow-2xl animate-pulse">
-            <div className="animate-spin rounded-full h-10 w-10 md:h-14 md:w-14 border-t-4 border-[#0B1F3B]" />
-            <p className="text-[#0B1F3B] text-sm md:text-lg font-semibold text-center max-w-xs">
+            <div className="animate-spin rounded-full h-10 w-10 md:h-14 md:w-14 border-t-4 border-primary" />
+            <p className="text-primary text-sm md:text-lg font-semibold text-center max-w-xs">
               Importing your resume magic...
             </p>
           </div>
@@ -956,7 +956,7 @@ export default function JobSpecificResumeBuilder() {
             transition={{ duration: 0.5 }}
             className="fixed inset-0 flex items-center justify-center z-50 p-4"
           >
-            <div className="bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white p-4 md:p-6 rounded-xl shadow-2xl max-w-sm w-full relative">
+            <div className="bg-gradient-to-r from-primary to-primary text-white p-4 md:p-6 rounded-xl shadow-2xl max-w-sm w-full relative">
               <div className="flex flex-col items-center gap-2">
                 <button
                   onClick={() => setShowRewardAnimation(false)}
@@ -986,7 +986,7 @@ export default function JobSpecificResumeBuilder() {
           <div className="relative flex-shrink-0">
             <button
               onClick={() => setIsTemplateModalOpen(true)}
-              className="flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-2 py-1 sm:px-3 sm:py-2 rounded-lg shadow-md hover:from-[#071429] hover:to-[#008C81] transition-all duration-300 text-xs sm:text-sm font-medium whitespace-nowrap"
+              className="flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-primary to-accent text-white px-2 py-1 sm:px-3 sm:py-2 rounded-lg shadow-md hover:from-gray-900 hover:to-accent-600 transition-all duration-300 text-xs sm:text-sm font-medium whitespace-nowrap"
             >
               <LayoutDashboard size={16} className="sm:size-18" /> Template
             </button>
@@ -996,7 +996,7 @@ export default function JobSpecificResumeBuilder() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="absolute top-10 sm:top-12 left-1/2 transform -translate-x-1/2 bg-slate-100 text-[#0B1F3B] px-2 py-1 rounded-lg shadow-lg flex items-center gap-2 z-50"
+                className="absolute top-10 sm:top-12 left-1/2 transform -translate-x-1/2 bg-slate-100 text-primary px-2 py-1 rounded-lg shadow-lg flex items-center gap-2 z-50"
               >
                 <Pointer size={16} className="sm:size-18 animate-bounce rotate-180" />
                 <span className="text-xs sm:text-sm font-medium whitespace-nowrap">Pick a style!</span>
@@ -1005,23 +1005,23 @@ export default function JobSpecificResumeBuilder() {
           </div>
           <label
             onClick={() => router.push("/upload-resume")}
-            className="flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-blue-600 to-teal-600 text-white px-2 py-1 sm:px-3 sm:py-2 rounded-lg shadow-md hover:from-[#071429] hover:to-[#008C81] transition-all duration-300 text-xs sm:text-sm font-medium cursor-pointer flex-shrink-0 whitespace-nowrap"
+            className="flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-primary to-accent text-white px-2 py-1 sm:px-3 sm:py-2 rounded-lg shadow-md hover:from-gray-900 hover:to-accent-600 transition-all duration-300 text-xs sm:text-sm font-medium cursor-pointer flex-shrink-0 whitespace-nowrap"
           >
             <FileUp size={16} className="sm:size-18" /> Import
           </label>
           <button
             onClick={() => setIncludeCoverLetter(!includeCoverLetter)}
             className={`flex items-center gap-1 sm:gap-2 bg-gradient-to-r ${
-              includeCoverLetter ? "from-gray-500 to-gray-600" : "from-[#0B1F3B] to-[#0B1F3B]"
-            } text-white px-2 py-1 sm:px-3 sm:py-2 rounded-lg shadow-md hover:from-[#071429] hover:to-[#071429] transition-all duration-300 text-xs sm:text-sm font-medium flex-shrink-0 whitespace-nowrap`}
+              includeCoverLetter ? "from-gray-500 to-gray-600" : "from-primary to-primary"
+            } text-white px-2 py-1 sm:px-3 sm:py-2 rounded-lg shadow-md hover:from-gray-900 hover:to-gray-900 transition-all duration-300 text-xs sm:text-sm font-medium flex-shrink-0 whitespace-nowrap`}
           >
             <FileText size={16} className="sm:size-18" /> {includeCoverLetter ? "Remove Cover" : "Cover"}
           </button>
           <div className="relative flex-shrink-0">
             <button
               onClick={handleApplyAISuggestions}
-              className={`flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-2 py-1 sm:px-3 sm:py-2 rounded-lg shadow-md transition-all duration-300 text-xs sm:text-sm font-medium whitespace-nowrap ${
-                isApplyingAI ? "opacity-50 cursor-not-allowed" : "hover:from-[#071429] hover:to-[#008C81]"
+              className={`flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-primary to-accent text-white px-2 py-1 sm:px-3 sm:py-2 rounded-lg shadow-md transition-all duration-300 text-xs sm:text-sm font-medium whitespace-nowrap ${
+                isApplyingAI ? "opacity-50 cursor-not-allowed" : "hover:from-gray-900 hover:to-accent-600"
               }`}
               disabled={isApplyingAI}
             >
@@ -1033,7 +1033,7 @@ export default function JobSpecificResumeBuilder() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="absolute top-10 sm:top-12 left-1/2 transform -translate-x-1/2 bg-slate-100 text-[#0B1F3B] px-2 py-1 rounded-lg shadow-lg flex items-center gap-2 z-50"
+                className="absolute top-10 sm:top-12 left-1/2 transform -translate-x-1/2 bg-slate-100 text-primary px-2 py-1 rounded-lg shadow-lg flex items-center gap-2 z-50"
               >
                 <Pointer size={16} className="sm:size-18 animate-bounce rotate-180" />
                 <span className="text-xs sm:text-sm font-medium whitespace-nowrap">Boost with AI!</span>
@@ -1046,7 +1046,7 @@ export default function JobSpecificResumeBuilder() {
             onClick={() => setActiveTab("form")}
             className={`flex-1 py-2 text-sm font-semibold rounded-t-lg ${
               activeTab === "form"
-                ? "bg-[#0B1F3B] text-white shadow-inner"
+                ? "bg-primary text-white shadow-inner"
                 : "bg-gray-100 text-gray-600 hover:bg-gray-200"
             } transition-all duration-200`}
           >
@@ -1057,7 +1057,7 @@ export default function JobSpecificResumeBuilder() {
               onClick={() => setActiveTab("coverLetter")}
               className={`flex-1 py-2 text-sm font-semibold rounded-t-lg ${
                 activeTab === "coverLetter"
-                  ? "bg-[#0B1F3B] text-white shadow-inner"
+                  ? "bg-primary text-white shadow-inner"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               } transition-all duration-200`}
             >
@@ -1068,7 +1068,7 @@ export default function JobSpecificResumeBuilder() {
             onClick={() => setActiveTab("preview")}
             className={`flex-1 py-2 text-sm font-semibold rounded-t-lg ${
               activeTab === "preview"
-                ? "bg-[#0B1F3B] text-white shadow-inner"
+                ? "bg-primary text-white shadow-inner"
                 : "bg-gray-100 text-gray-600 hover:bg-gray-200"
             } transition-all duration-200`}
           >
@@ -1103,7 +1103,7 @@ export default function JobSpecificResumeBuilder() {
                     type="text"
                     value={coverLetterData.name}
                     onChange={(e) => updateCoverLetterWithPlaceholders({ ...coverLetterData, name: e.target.value })}
-                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                     placeholder="Mapped from resume"
                     disabled={ENABLE_PAYMENTS && !isPremium}
                   />
@@ -1114,7 +1114,7 @@ export default function JobSpecificResumeBuilder() {
                     type="email"
                     value={coverLetterData.email}
                     onChange={(e) => updateCoverLetterWithPlaceholders({ ...coverLetterData, email: e.target.value })}
-                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                     placeholder="Mapped from resume"
                     disabled={ENABLE_PAYMENTS && !isPremium}
                   />
@@ -1125,7 +1125,7 @@ export default function JobSpecificResumeBuilder() {
                     type="tel"
                     value={coverLetterData.phone}
                     onChange={(e) => updateCoverLetterWithPlaceholders({ ...coverLetterData, phone: e.target.value })}
-                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                     placeholder="Mapped from resume"
                     disabled={ENABLE_PAYMENTS && !isPremium}
                   />
@@ -1135,7 +1135,7 @@ export default function JobSpecificResumeBuilder() {
                   <select
                     value={coverLetterTemplate}
                     onChange={(e) => handleCoverLetterTemplateChange(e.target.value)}
-                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                     disabled={ENABLE_PAYMENTS && !isPremium}
                   >
                     {Object.keys(coverLetterTemplates).map((key) => (
@@ -1153,7 +1153,7 @@ export default function JobSpecificResumeBuilder() {
                     onChange={(e) =>
                       updateCoverLetterWithPlaceholders({ ...coverLetterData, recipient: e.target.value })
                     }
-                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                     placeholder="e.g., Dear Hiring Manager"
                     disabled={ENABLE_PAYMENTS && !isPremium}
                   />
@@ -1166,7 +1166,7 @@ export default function JobSpecificResumeBuilder() {
                     onChange={(e) =>
                       updateCoverLetterWithPlaceholders({ ...coverLetterData, jobTitle: e.target.value })
                     }
-                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                     placeholder="e.g., Software Engineer"
                     disabled={ENABLE_PAYMENTS && !isPremium}
                   />
@@ -1179,7 +1179,7 @@ export default function JobSpecificResumeBuilder() {
                     onChange={(e) =>
                       updateCoverLetterWithPlaceholders({ ...coverLetterData, company: e.target.value })
                     }
-                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                     placeholder="e.g., Acme Inc"
                     disabled={ENABLE_PAYMENTS && !isPremium}
                   />
@@ -1189,7 +1189,7 @@ export default function JobSpecificResumeBuilder() {
                   <textarea
                     value={coverLetterData.intro}
                     onChange={(e) => updateCoverLetterWithPlaceholders({ ...coverLetterData, intro: e.target.value })}
-                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                     rows="2"
                     disabled={ENABLE_PAYMENTS && !isPremium}
                   />
@@ -1199,7 +1199,7 @@ export default function JobSpecificResumeBuilder() {
                   <textarea
                     value={coverLetterData.body}
                     onChange={(e) => updateCoverLetterWithPlaceholders({ ...coverLetterData, body: e.target.value })}
-                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                     rows="3"
                     disabled={ENABLE_PAYMENTS && !isPremium}
                   />
@@ -1211,7 +1211,7 @@ export default function JobSpecificResumeBuilder() {
                     onChange={(e) =>
                       updateCoverLetterWithPlaceholders({ ...coverLetterData, closing: e.target.value })
                     }
-                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                    className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                     rows="2"
                     disabled={ENABLE_PAYMENTS && !isPremium}
                   />
@@ -1226,7 +1226,7 @@ export default function JobSpecificResumeBuilder() {
                   onClick={() => setPreviewMode("resume")}
                   className={`px-3 py-1.5 rounded-md text-sm font-medium ${
                     previewMode === "resume"
-                      ? "bg-[#0B1F3B] text-white shadow-inner"
+                      ? "bg-primary text-white shadow-inner"
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                   } transition-all duration-200`}
                 >
@@ -1238,7 +1238,7 @@ export default function JobSpecificResumeBuilder() {
                       onClick={() => setPreviewMode("coverLetter")}
                       className={`px-3 py-1.5 rounded-md text-sm font-medium ${
                         previewMode === "coverLetter"
-                          ? "bg-[#0B1F3B] text-white shadow-inner"
+                          ? "bg-primary text-white shadow-inner"
                           : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                       } transition-all duration-200`}
                     >
@@ -1248,7 +1248,7 @@ export default function JobSpecificResumeBuilder() {
                       onClick={() => setPreviewMode("both")}
                       className={`px-3 py-1.5 rounded-md text-sm font-medium ${
                         previewMode === "both"
-                          ? "bg-[#0B1F3B] text-white shadow-inner"
+                          ? "bg-primary text-white shadow-inner"
                           : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                       } transition-all duration-200`}
                     >
@@ -1307,7 +1307,7 @@ export default function JobSpecificResumeBuilder() {
         <div className="fixed bottom-0 left-0 right-0 bg-white flex justify-around items-center py-2 px-1 z-20 border-t border-gray-200 max-w-md mx-auto rounded-t-xl shadow-lg">
           <button
             onClick={handleSaveResume}
-            className="flex flex-col items-center text-gray-700 hover:text-[#0B1F3B] transition-all duration-200 p-1"
+            className="flex flex-col items-center text-gray-700 hover:text-primary transition-all duration-200 p-1"
           >
             <Save size={16} />
             <span className="text-[10px] font-medium mt-0.5">Save</span>
@@ -1315,7 +1315,7 @@ export default function JobSpecificResumeBuilder() {
           <div className="relative">
             <button
               onClick={handleGeneratePDF}
-              className="flex flex-col items-center text-gray-700 hover:text-[#0B1F3B] transition-all duration-200 p-1"
+              className="flex flex-col items-center text-gray-700 hover:text-primary transition-all duration-200 p-1"
             >
               <Eye size={16} />
               <span className="text-[10px] font-medium mt-0.5">PDF</span>
@@ -1326,7 +1326,7 @@ export default function JobSpecificResumeBuilder() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-slate-100 text-[#0B1F3B] px-2 py-1 rounded-lg shadow-lg flex items-center gap-2 z-50"
+                className="absolute bottom-16 left-1/2 transform -translate-x-1/2 bg-slate-100 text-primary px-2 py-1 rounded-lg shadow-lg flex items-center gap-2 z-50"
               >
                 <Pointer size={18} className="[transform:rotate(180deg)]" />
                 <span className="text-sm font-medium whitespace-nowrap">Click "PDF" to Download!</span>
@@ -1335,7 +1335,7 @@ export default function JobSpecificResumeBuilder() {
           </div>
           <button
             onClick={() => setActiveTab(activeTab === "form" ? "preview" : "form")}
-            className="flex flex-col items-center text-gray-700 hover:text-[#0B1F3B] transition-all duration-200 p-1"
+            className="flex flex-col items-center text-gray-700 hover:text-primary transition-all duration-200 p-1"
           >
             <Edit size={16} />
             <span className="text-[10px] font-medium mt-0.5">{activeTab === "form" ? "Preview" : "Edit"}</span>
@@ -1345,14 +1345,14 @@ export default function JobSpecificResumeBuilder() {
               setActiveTab("preview"); // Switch to preview when opening color panel
               setIsColorPanelOpen(true);
             }}
-            className="flex flex-col items-center text-gray-700 hover:text-[#0B1F3B] transition-all duration-200 p-1"
+            className="flex flex-col items-center text-gray-700 hover:text-primary transition-all duration-200 p-1"
           >
             <Palette size={16} />
             <span className="text-[10px] font-medium mt-0.5">Colors</span>
           </button>
           <Link
             href="/my-resumes"
-            className="flex flex-col items-center text-gray-700 hover:text-[#0B1F3B] transition-all duration-200 p-1"
+            className="flex flex-col items-center text-gray-700 hover:text-primary transition-all duration-200 p-1"
           >
             <LayoutDashboard size={16} />
             <span className="text-[10px] font-medium mt-0.5">Resumes</span>
@@ -1384,7 +1384,7 @@ export default function JobSpecificResumeBuilder() {
               <div className="relative">
                 <button
                   onClick={() => setIsTemplateModalOpen(true)}
-                  className="flex items-center gap-1 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-3 py-1.5 rounded-md shadow-md hover:from-[#071429] hover:to-[#008C81] transition-all duration-300 text-sm font-semibold"
+                  className="flex items-center gap-1 bg-gradient-to-r from-primary to-accent text-white px-3 py-1.5 rounded-md shadow-md hover:from-gray-900 hover:to-accent-600 transition-all duration-300 text-sm font-semibold"
                 >
                   <LayoutDashboard size={16} /> Template
                 </button>
@@ -1394,7 +1394,7 @@ export default function JobSpecificResumeBuilder() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 20 }}
                     transition={{ duration: 0.5 }}
-                    className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-slate-100 text-[#0B1F3B] px-2 py-1 rounded-lg shadow-lg flex items-center gap-2 z-50"
+                    className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-slate-100 text-primary px-2 py-1 rounded-lg shadow-lg flex items-center gap-2 z-50"
                   >
                     <Pointer size={18} className="animate-bounce" />
                     <span className="text-sm font-medium whitespace-nowrap">Pick a style!</span>
@@ -1403,15 +1403,15 @@ export default function JobSpecificResumeBuilder() {
               </div>
               <label
                 onClick={() => router.push("/upload-resume")}
-                className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-teal-600 text-white px-3 py-1.5 rounded-lg shadow-md hover:from-[#071429] hover:to-[#008C81] transition-all duration-300 text-sm font-medium cursor-pointer"
+                className="flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-white px-3 py-1.5 rounded-lg shadow-md hover:from-gray-900 hover:to-accent-600 transition-all duration-300 text-sm font-medium cursor-pointer"
               >
                 <FileUp size={18} /> Import
               </label>
               <button
                 onClick={() => setIncludeCoverLetter(!includeCoverLetter)}
                 className={`flex items-center gap-1 bg-gradient-to-r ${
-                  includeCoverLetter ? "from-gray-500 to-gray-600" : "from-[#0B1F3B] to-[#0B1F3B]"
-                } text-white px-3 py-1.5 rounded-md shadow-md hover:from-[#071429] hover:to-[#071429] transition-all duration-300 text-sm font-semibold`}
+                  includeCoverLetter ? "from-gray-500 to-gray-600" : "from-primary to-primary"
+                } text-white px-3 py-1.5 rounded-md shadow-md hover:from-gray-900 hover:to-gray-900 transition-all duration-300 text-sm font-semibold`}
               >
                 <FileText size={16} /> {includeCoverLetter ? "Remove Cover" : "Cover"}
               </button>
@@ -1419,14 +1419,14 @@ export default function JobSpecificResumeBuilder() {
             <div className="flex space-x-3">
               <button
                 onClick={handleSaveResume}
-                className="flex items-center gap-1 text-gray-700 hover:text-[#0B1F3B] px-2 py-1.5 rounded-md transition-all duration-300 text-sm font-semibold"
+                className="flex items-center gap-1 text-gray-700 hover:text-primary px-2 py-1.5 rounded-md transition-all duration-300 text-sm font-semibold"
               >
                 <Save size={16} /> Save
               </button>
               <div className="relative">
                 <button
                   onClick={handleGeneratePDF}
-                  className="flex items-center gap-1 bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white px-3 py-1.5 rounded-md shadow-md hover:from-[#071429] hover:to-[#071429] transition-all duration-300 text-sm font-semibold"
+                  className="flex items-center gap-1 bg-gradient-to-r from-primary to-primary text-white px-3 py-1.5 rounded-md shadow-md hover:from-gray-900 hover:to-gray-900 transition-all duration-300 text-sm font-semibold"
                 >
                   <Eye size={16} /> Preview PDF
                 </button>
@@ -1436,7 +1436,7 @@ export default function JobSpecificResumeBuilder() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 20 }}
                     transition={{ duration: 0.5 }}
-                    className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-slate-100 text-[#0B1F3B] px-2 py-1 rounded-lg shadow-lg flex items-center gap-2 z-50"
+                    className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-slate-100 text-primary px-2 py-1 rounded-lg shadow-lg flex items-center gap-2 z-50"
                   >
                     <Pointer size={18} className="animate-bounce" />
                     <span className="text-sm font-medium whitespace-nowrap">Click "PDF" to preview!</span>
@@ -1446,14 +1446,14 @@ export default function JobSpecificResumeBuilder() {
               {user && !isPremium && (
                 <button
                   onClick={handleUpgradeClick}
-                  className="flex items-center gap-1 bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white px-3 py-1.5 rounded-md shadow-md hover:from-[#071429] hover:to-[#071429] transition-all duration-300 text-sm font-semibold"
+                  className="flex items-center gap-1 bg-gradient-to-r from-primary to-primary text-white px-3 py-1.5 rounded-md shadow-md hover:from-gray-900 hover:to-gray-900 transition-all duration-300 text-sm font-semibold"
                 >
                   Upgrade
                 </button>
               )}
               <button
                 onClick={() => setIsHelpModalOpen(true)}
-                className="flex items-center gap-1 text-gray-700 hover:text-[#0B1F3B] px-2 py-1.5 rounded-md transition-all duration-300 text-sm font-semibold"
+                className="flex items-center gap-1 text-gray-700 hover:text-primary px-2 py-1.5 rounded-md transition-all duration-300 text-sm font-semibold"
               >
                 <HelpCircle size={16} />
               </button>
@@ -1464,7 +1464,7 @@ export default function JobSpecificResumeBuilder() {
               <button
                 onClick={() => setActiveTab("form")}
                 className={`pb-1 text-sm font-semibold ${
-                  activeTab === "form" ? "border-b-2 border-[#0B1F3B] text-[#0B1F3B]" : "text-gray-600 hover:text-gray-800"
+                  activeTab === "form" ? "border-b-2 border-primary text-primary" : "text-gray-600 hover:text-gray-800"
                 } transition-all duration-200`}
               >
                 Edit Resume
@@ -1474,7 +1474,7 @@ export default function JobSpecificResumeBuilder() {
                   onClick={() => setActiveTab("coverLetter")}
                   className={`pb-1 text-sm font-semibold ${
                     activeTab === "coverLetter"
-                      ? "border-b-2 border-[#0B1F3B] text-[#0B1F3B]"
+                      ? "border-b-2 border-primary text-primary"
                       : "text-gray-600 hover:text-gray-800"
                   } transition-all duration-200`}
                 >
@@ -1488,7 +1488,7 @@ export default function JobSpecificResumeBuilder() {
                   onClick={() => setPreviewMode("resume")}
                   className={`px-2 py-1 rounded-md text-sm font-medium ${
                     previewMode === "resume"
-                      ? "bg-[#0B1F3B] text-white shadow-inner"
+                      ? "bg-primary text-white shadow-inner"
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                   } transition-all duration-200`}
                 >
@@ -1500,7 +1500,7 @@ export default function JobSpecificResumeBuilder() {
                       onClick={() => setPreviewMode("coverLetter")}
                       className={`px-2 py-1 rounded-md text-sm font-medium ${
                         previewMode === "coverLetter"
-                          ? "bg-[#0B1F3B] text-white shadow-inner"
+                          ? "bg-primary text-white shadow-inner"
                           : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                       } transition-all duration-200`}
                     >
@@ -1510,7 +1510,7 @@ export default function JobSpecificResumeBuilder() {
                       onClick={() => setPreviewMode("both")}
                       className={`px-2 py-1 rounded-md text-sm font-medium ${
                         previewMode === "both"
-                          ? "bg-[#0B1F3B] text-white shadow-inner"
+                          ? "bg-primary text-white shadow-inner"
                           : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                       } transition-all duration-200`}
                     >
@@ -1549,7 +1549,7 @@ export default function JobSpecificResumeBuilder() {
                       <select
                         value={coverLetterTemplate}
                         onChange={(e) => handleCoverLetterTemplateChange(e.target.value)}
-                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                         disabled={ENABLE_PAYMENTS && !isPremium}
                       >
                         {Object.keys(coverLetterTemplates).map((key) => (
@@ -1567,7 +1567,7 @@ export default function JobSpecificResumeBuilder() {
                         onChange={(e) =>
                           updateCoverLetterWithPlaceholders({ ...coverLetterData, name: e.target.value })
                         }
-                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                         placeholder="Mapped from resume"
                         disabled={ENABLE_PAYMENTS && !isPremium}
                       />
@@ -1580,7 +1580,7 @@ export default function JobSpecificResumeBuilder() {
                         onChange={(e) =>
                           updateCoverLetterWithPlaceholders({ ...coverLetterData, email: e.target.value })
                         }
-                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                         placeholder="Mapped from resume"
                         disabled={ENABLE_PAYMENTS && !isPremium}
                       />
@@ -1593,7 +1593,7 @@ export default function JobSpecificResumeBuilder() {
                         onChange={(e) =>
                           updateCoverLetterWithPlaceholders({ ...coverLetterData, phone: e.target.value })
                         }
-                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                         placeholder="Mapped from resume"
                         disabled={ENABLE_PAYMENTS && !isPremium}
                       />
@@ -1606,7 +1606,7 @@ export default function JobSpecificResumeBuilder() {
                         onChange={(e) =>
                           updateCoverLetterWithPlaceholders({ ...coverLetterData, recipient: e.target.value })
                         }
-                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                         placeholder="e.g., Dear Hiring Manager"
                         disabled={ENABLE_PAYMENTS && !isPremium}
                       />
@@ -1619,7 +1619,7 @@ export default function JobSpecificResumeBuilder() {
                         onChange={(e) =>
                           updateCoverLetterWithPlaceholders({ ...coverLetterData, jobTitle: e.target.value })
                         }
-                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                         placeholder="e.g., Software Engineer"
                         disabled={ENABLE_PAYMENTS && !isPremium}
                       />
@@ -1632,7 +1632,7 @@ export default function JobSpecificResumeBuilder() {
                         onChange={(e) =>
                           updateCoverLetterWithPlaceholders({ ...coverLetterData, company: e.target.value })
                         }
-                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                         placeholder="e.g., Acme Inc"
                         disabled={ENABLE_PAYMENTS && !isPremium}
                       />
@@ -1644,7 +1644,7 @@ export default function JobSpecificResumeBuilder() {
                         onChange={(e) =>
                           updateCoverLetterWithPlaceholders({ ...coverLetterData, intro: e.target.value })
                         }
-                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                         rows="3"
                         disabled={ENABLE_PAYMENTS && !isPremium}
                       />
@@ -1656,7 +1656,7 @@ export default function JobSpecificResumeBuilder() {
                         onChange={(e) =>
                           updateCoverLetterWithPlaceholders({ ...coverLetterData, body: e.target.value })
                         }
-                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                         rows="4"
                         disabled={ENABLE_PAYMENTS && !isPremium}
                       />
@@ -1668,7 +1668,7 @@ export default function JobSpecificResumeBuilder() {
                         onChange={(e) =>
                           updateCoverLetterWithPlaceholders({ ...coverLetterData, closing: e.target.value })
                         }
-                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-teal-400"
+                        className="w-full p-2 border border-gray-300 rounded-md text-sm shadow-sm focus:ring-2 focus:ring-accent"
                         rows="2"
                         disabled={ENABLE_PAYMENTS && !isPremium}
                       />
@@ -1741,7 +1741,7 @@ export default function JobSpecificResumeBuilder() {
                   <p className="mb-4">Upgrade to premium to download your resume and access all features.</p>
                   <button
                     onClick={handleOpenCheckoutModal}
-                    className="bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white px-6 py-2 rounded-xl text-sm font-semibold hover:from-[#071429] hover:to-[#071429] transition-all flex items-center gap-2"
+                    className="bg-gradient-to-r from-primary to-primary text-white px-6 py-2 rounded-xl text-sm font-semibold hover:from-gray-900 hover:to-gray-900 transition-all flex items-center gap-2"
                   >
                     Get Premium Access
                   </button>
@@ -1760,7 +1760,7 @@ export default function JobSpecificResumeBuilder() {
             <p className="mb-4">Upgrade to premium to download your resume and access all features.</p>
             <button
               onClick={handleOpenCheckoutModal}
-              className="bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white px-6 py-2 rounded-xl text-sm font-semibold hover:from-[#071429] hover:to-[#071429] transition-all flex items-center gap-2"
+              className="bg-gradient-to-r from-primary to-primary text-white px-6 py-2 rounded-xl text-sm font-semibold hover:from-gray-900 hover:to-gray-900 transition-all flex items-center gap-2"
             >
               Get Premium Access
             </button>
@@ -1847,7 +1847,7 @@ export default function JobSpecificResumeBuilder() {
                         setShowCheckoutModal(true);
                         setCheckoutBillingCycle(isMobileIOS() ? "monthly" : "monthly");
                       }}
-                      className="bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white px-8 py-3 rounded-xl text-base font-semibold hover:from-[#071429] hover:to-[#071429] transition-all shadow-lg hover:shadow-xl"
+                      className="bg-gradient-to-r from-primary to-primary text-white px-8 py-3 rounded-xl text-base font-semibold hover:from-gray-900 hover:to-gray-900 transition-all shadow-lg hover:shadow-xl"
                     >
                       Get Premium Access Now
                     </button>
@@ -1866,7 +1866,7 @@ export default function JobSpecificResumeBuilder() {
                 <a
                   href={pdfPreviewUrl}
                   download="resume.pdf"
-                  className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:from-blue-600 hover:to-teal-600 transition-all flex items-center gap-2"
+                  className="bg-gradient-to-r from-primary to-accent text-white px-4 py-2 rounded-xl text-sm font-semibold hover:from-primary-800 hover:to-accent-600 transition-all flex items-center gap-2"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1890,7 +1890,7 @@ export default function JobSpecificResumeBuilder() {
                     setShowCheckoutModal(true);
                     setCheckoutBillingCycle(isMobileIOS() ? "monthly" : "monthly");
                   }}
-                  className="bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white px-6 py-2 rounded-xl text-sm font-semibold hover:from-[#071429] hover:to-[#071429] transition-all flex items-center gap-2"
+                  className="bg-gradient-to-r from-primary to-primary text-white px-6 py-2 rounded-xl text-sm font-semibold hover:from-gray-900 hover:to-gray-900 transition-all flex items-center gap-2"
                 >
                   <Crown size={16} />
                   Get Premium Access
@@ -1907,7 +1907,7 @@ export default function JobSpecificResumeBuilder() {
             <div className="p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center">
-                  <FileText className="w-5 h-5 text-[#0B1F3B]" />
+                  <FileText className="w-5 h-5 text-primary" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">Choose Resume Builder</h3>
@@ -1937,7 +1937,7 @@ export default function JobSpecificResumeBuilder() {
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center">
-                      <FileText className="w-4 h-4 text-[#0B1F3B]" />
+                      <FileText className="w-4 h-4 text-primary" />
                     </div>
                     <div>
                       <div className="font-medium text-gray-900">Job-Specific Builder</div>
@@ -1998,7 +1998,7 @@ export default function JobSpecificResumeBuilder() {
               <div className="text-center">
                 <div className="mb-4 sm:mb-6 flex justify-center">
                   <div className="p-2 sm:p-3 bg-slate-100 rounded-full">
-                    <Crown size={24} className="sm:w-8 sm:h-8 text-[#0B1F3B]" />
+                    <Crown size={24} className="sm:w-8 sm:h-8 text-primary" />
                   </div>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">
@@ -2009,19 +2009,19 @@ export default function JobSpecificResumeBuilder() {
                 </p>
                 <div className="text-left space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                   <div className="flex items-center gap-2">
-                    <Check size={14} className="sm:w-4 sm:h-4 text-teal-500 flex-shrink-0" />
+                    <Check size={14} className="sm:w-4 sm:h-4 text-accent flex-shrink-0" />
                     <span className="text-xs sm:text-sm">Unlimited Job-Specific Resumes</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Check size={14} className="sm:w-4 sm:h-4 text-teal-500 flex-shrink-0" />
+                    <Check size={14} className="sm:w-4 sm:h-4 text-accent flex-shrink-0" />
                     <span className="text-xs sm:text-sm">All Premium Templates</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Check size={14} className="sm:w-4 sm:h-4 text-teal-500 flex-shrink-0" />
+                    <Check size={14} className="sm:w-4 sm:h-4 text-accent flex-shrink-0" />
                     <span className="text-xs sm:text-sm">Cover Letter Builder</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Check size={14} className="sm:w-4 sm:h-4 text-teal-500 flex-shrink-0" />
+                    <Check size={14} className="sm:w-4 sm:h-4 text-accent flex-shrink-0" />
                     <span className="text-xs sm:text-sm">AI Resume Enhancement</span>
                   </div>
                 </div>
@@ -2036,7 +2036,7 @@ export default function JobSpecificResumeBuilder() {
                     setShowUpgradeModal(false);
                     router.push('/checkout?billingCycle=basic');
                   }}
-                  className="w-full bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg font-bold hover:from-[#071429] hover:to-[#071429] transition-all shadow-lg flex items-center justify-center gap-2 text-sm sm:text-base"
+                  className="w-full bg-gradient-to-r from-primary to-primary text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg font-bold hover:from-gray-900 hover:to-gray-900 transition-all shadow-lg flex items-center justify-center gap-2 text-sm sm:text-base"
                 >
                   <Crown size={16} className="sm:w-5 sm:h-5" />
                   <span className="truncate">Upgrade to Basic - ₹199 (7 days)</span>

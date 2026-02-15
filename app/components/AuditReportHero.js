@@ -41,7 +41,7 @@ export default function AuditReportHero({ role }) {
             {/* Background Decor */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-0">
                 <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-red-50 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/4 opacity-60"></div>
-                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-50 rounded-full blur-3xl transform -translate-x-1/4 translate-y-1/4 opacity-60"></div>
+                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent-50 rounded-full blur-3xl transform -translate-x-1/4 translate-y-1/4 opacity-60"></div>
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -55,7 +55,7 @@ export default function AuditReportHero({ role }) {
                         </div>
 
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">
-                            Targeting <span className="text-blue-600">{role.job_title}?</span>
+                            Targeting <span className="text-accent-600">{role.job_title}?</span>
                         </h1>
 
                         <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
@@ -146,22 +146,22 @@ export default function AuditReportHero({ role }) {
                                 </div>
 
                                 {/* The Solution (Product) */}
-                                <div className="bg-blue-50 rounded-xl p-6 border border-blue-100 text-center relative overflow-hidden">
+                                <div className="bg-accent-50 rounded-xl p-6 border border-accent-100 text-center relative overflow-hidden">
                                     <div className="absolute top-0 right-0 bg-yellow-400 text-yellow-900 text-[10px] font-bold px-3 py-1 rounded-bl-lg">
                                         HIGH INTENT
                                     </div>
 
-                                    <h3 className="font-bold text-lg text-blue-900 mb-2">{role.job_title} Interview-Cracker</h3>
-                                    <p className="text-sm text-blue-600 mb-6">Includes {role.hard_skills?.length || 10}+ ATS keywords & pre-written bullets.</p>
+                                    <h3 className="font-bold text-lg text-primary mb-2">{role.job_title} Interview-Cracker</h3>
+                                    <p className="text-sm text-accent-600 mb-6">Includes {role.hard_skills?.length || 10}+ ATS keywords & pre-written bullets.</p>
 
-                                    <Link href="/resume-builder?template=ats_modern_executive" className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-blue-200 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2">
+                                    <Link href="/resume-builder?template=ats_modern_executive" className="block w-full bg-accent hover:bg-accent-600 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-accent-200 transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2">
                                         <span>Unlock Template & Fix Gaps</span>
-                                        <span className="bg-blue-800 text-blue-100 px-2 py-0.5 rounded text-sm">
+                                        <span className="bg-accent-800 text-accent-100 px-2 py-0.5 rounded text-sm">
                                             {displayPrice(pricing.oneDay)}
                                         </span>
                                     </Link>
 
-                                    <p className="text-xs text-blue-400 mt-3 flex items-center justify-center gap-1">
+                                    <p className="text-xs text-accent-400 mt-3 flex items-center justify-center gap-1">
                                         <Lock className="w-3 h-3" />
                                         <span>100% Money Back Guarantee</span>
                                     </p>

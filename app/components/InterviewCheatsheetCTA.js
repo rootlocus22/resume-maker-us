@@ -67,7 +67,7 @@ export default function InterviewCheatsheetCTA({
     return (
       <button
         onClick={handleClick}
-        className={`flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white rounded-lg font-semibold hover:opacity-95 transition-all shadow-md hover:shadow-lg ${className}`}
+        className={`flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-semibold hover:opacity-95 transition-all shadow-md hover:shadow-lg ${className}`}
       >
         <Brain className="w-4 h-4" />
         <span className="text-sm">Interview Prep</span>
@@ -79,7 +79,7 @@ export default function InterviewCheatsheetCTA({
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className={`bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg shadow-md p-4 text-white ${className}`}
+      className={`bg-gradient-to-r from-primary-800 to-primary rounded-lg shadow-md p-4 text-white ${className}`}
     >
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-3 flex-1">

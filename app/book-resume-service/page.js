@@ -155,7 +155,7 @@ export default function BookResumeServicePage() {
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4 leading-tight">
             Professional resume writing
-            <span className="block text-[#00C4B3] mt-1">by career experts</span>
+            <span className="block text-accent mt-1">by career experts</span>
           </h1>
 
           <p className="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto mb-6 leading-relaxed">
@@ -238,7 +238,7 @@ export default function BookResumeServicePage() {
                 key={pkg.name}
                 className={`relative bg-white rounded-2xl p-6 flex flex-col h-full ${
                   pkg.popular
-                    ? 'border-2 border-[#00C4B3] shadow-lg shadow-teal-100/50'
+                    ? 'border-2 border-accent shadow-lg shadow-teal-100/50'
                     : pkg.premium
                       ? 'border-2 border-gray-900 shadow-lg'
                       : 'border border-gray-200'
@@ -246,7 +246,7 @@ export default function BookResumeServicePage() {
               >
                 {pkg.popular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="bg-[#00C4B3] text-white text-xs font-bold px-3 py-1 rounded-full">MOST POPULAR</span>
+                    <span className="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">MOST POPULAR</span>
                   </div>
                 )}
                 {pkg.premium && (
@@ -271,7 +271,7 @@ export default function BookResumeServicePage() {
                 <ul className="space-y-2.5 mb-6 flex-grow">
                   {pkg.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-2.5 text-sm text-gray-600">
-                      <CheckCircle2 className="w-4 h-4 text-[#00C4B3] mt-0.5 shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-accent mt-0.5 shrink-0" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -294,7 +294,7 @@ export default function BookResumeServicePage() {
                   onClick={() => handleEmailClick(pkg.name)}
                   className={`w-full py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all ${
                     pkg.popular
-                      ? 'bg-[#00C4B3] text-white hover:bg-[#00b3a3] shadow-md shadow-teal-200/40'
+                      ? 'bg-accent text-white hover:bg-[#00b3a3] shadow-md shadow-teal-200/40'
                       : pkg.premium
                         ? 'bg-gray-900 text-white hover:bg-gray-800'
                         : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-gray-400'
@@ -326,7 +326,7 @@ export default function BookResumeServicePage() {
               { step: "3", title: "Final delivery", desc: "After revisions, you receive your polished resume in PDF, DOCX, and TXT formats ready to apply." }
             ].map((item) => (
               <div key={item.step} className="text-center">
-                <div className="w-12 h-12 bg-[#00C4B3] text-white rounded-xl flex items-center justify-center font-bold text-lg mx-auto mb-4">
+                <div className="w-12 h-12 bg-accent text-white rounded-xl flex items-center justify-center font-bold text-lg mx-auto mb-4">
                   {item.step}
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
@@ -380,7 +380,7 @@ export default function BookResumeServicePage() {
               { icon: <Users className="w-5 h-5" />, title: "US market focused", desc: "Optimized for the US job market, US resume standards, and US employer expectations." },
             ].map((item, i) => (
               <div key={i} className="p-5 rounded-xl border border-gray-100 bg-white">
-                <div className="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center text-[#00C4B3] mb-3">
+                <div className="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center text-accent mb-3">
                   {item.icon}
                 </div>
                 <h4 className="text-sm font-semibold text-gray-900 mb-1">{item.title}</h4>
@@ -403,7 +403,7 @@ export default function BookResumeServicePage() {
                   <th className="text-left px-5 py-4 text-sm font-semibold text-gray-900">Feature</th>
                   <th className="text-center px-4 py-4 text-sm font-semibold text-gray-400">Freelancer</th>
                   <th className="text-center px-4 py-4 text-sm font-semibold text-gray-400">Agency</th>
-                  <th className="text-center px-4 py-4 text-sm font-semibold text-[#00C4B3]">ExpertResume</th>
+                  <th className="text-center px-4 py-4 text-sm font-semibold text-accent">ExpertResume</th>
                 </tr>
               </thead>
               <tbody>
@@ -425,7 +425,7 @@ export default function BookResumeServicePage() {
                       {typeof row.agency === 'boolean' ? (row.agency ? <CheckCircle2 className="w-4 h-4 text-gray-400 mx-auto" /> : <span className="text-gray-300">--</span>) : <span className="text-xs">{row.agency}</span>}
                     </td>
                     <td className="px-4 py-3 text-center">
-                      {typeof row.us === 'boolean' ? (row.us ? <CheckCircle2 className="w-4 h-4 text-[#00C4B3] mx-auto" /> : <span className="text-gray-300">--</span>) : <span className="text-xs font-bold text-[#00C4B3]">{row.us}</span>}
+                      {typeof row.us === 'boolean' ? (row.us ? <CheckCircle2 className="w-4 h-4 text-accent mx-auto" /> : <span className="text-gray-300">--</span>) : <span className="text-xs font-bold text-accent">{row.us}</span>}
                     </td>
                   </tr>
                 ))}
@@ -472,7 +472,7 @@ export default function BookResumeServicePage() {
             </p>
             <button
               onClick={() => handleEmailClick()}
-              className="bg-[#00C4B3] text-white px-8 py-3.5 rounded-xl font-semibold text-sm hover:bg-[#00b3a3] transition-colors shadow-lg shadow-teal-900/20 inline-flex items-center gap-2"
+              className="bg-accent text-white px-8 py-3.5 rounded-xl font-semibold text-sm hover:bg-[#00b3a3] transition-colors shadow-lg shadow-teal-900/20 inline-flex items-center gap-2"
             >
               <Mail className="w-4 h-4" /> Get Started Today
             </button>
@@ -495,7 +495,7 @@ export default function BookResumeServicePage() {
               { href: "/pricing", title: "Pricing", desc: "View all plans" },
             ].map((link) => (
               <Link key={link.href} href={link.href} className="p-3 bg-gray-50 rounded-lg border border-gray-100 hover:border-gray-300 transition-colors group">
-                <span className="block text-sm font-medium text-gray-900 group-hover:text-[#00C4B3]">{link.title}</span>
+                <span className="block text-sm font-medium text-gray-900 group-hover:text-accent">{link.title}</span>
                 <span className="text-xs text-gray-500">{link.desc}</span>
               </Link>
             ))}

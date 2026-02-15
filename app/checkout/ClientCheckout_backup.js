@@ -600,14 +600,14 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
               >
                 <X size={20} />
               </button>
-              <Sparkles size={32} className="text-[#0B1F3B] mx-auto mb-4" />
+              <Sparkles size={32} className="text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-2">Don't Miss Out!</h3>
               <p className="text-sm text-gray-600 mb-4">
                 {billingCycle === "trial" ? (
                   "Discounts available on Premium plans! Upgrade to Monthly or Yearly for exclusive offers."
                 ) : DISCOUNT_FEATURE_ENABLED ? (
                   <>
-                    Get <span className="font-semibold text-[#0B1F3B]">30% OFF</span> your Career Pro plan with code{" "}
+                    Get <span className="font-semibold text-primary">30% OFF</span> your Career Pro plan with code{" "}
                     <span className="font-bold">SAVE30</span>. Offer expires in {formatTime(popupCountdown)}!
                   </>
                 ) : null}
@@ -629,7 +629,7 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
                     sessionStorage.removeItem("pendingNavigation");
                     event({ action: "coupon_applied_SAVE30", category: "Checkout", label: popupTrigger });
                   }}
-                  className="w-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white py-2 rounded-lg font-semibold hover:opacity-95 transition-all text-sm sm:text-base"
+                  className="w-full bg-gradient-to-r from-primary to-accent text-white py-2 rounded-lg font-semibold hover:opacity-95 transition-all text-sm sm:text-base"
                 >
                   {billingCycle === "trial" ? "Explore Premium Plans" : "Apply 30% Off Now"}
                 </motion.button>
@@ -655,7 +655,7 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
               {[...Array(50)].map((_, i) => (
                 <motion.div
                   key={i}
-                  className="w-2 h-2 bg-[#0B1F3B] rounded-full absolute"
+                  className="w-2 h-2 bg-primary rounded-full absolute"
                   initial={{ y: 0, x: Math.random() * (typeof window !== "undefined" ? window.innerWidth : 1000), opacity: 1 }}
                   animate={{
                     y: typeof window !== "undefined" ? window.innerHeight : 1000,
@@ -678,7 +678,7 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
         <div className="mb-6 bg-white rounded-lg shadow-sm p-1">
           <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
             <motion.div
-              className="h-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3]"
+              className="h-full bg-gradient-to-r from-primary to-accent"
               initial={{ width: "0%" }}
               animate={{ width: `${(step / 3) * 100}%` }}
               transition={{ duration: 0.5 }}
@@ -687,7 +687,7 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
         </div>
 
         <div className="bg-white rounded-xl shadow-xl overflow-hidden">
-          <div className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] p-6 sm:p-8 text-white">
+          <div className="bg-gradient-to-r from-primary to-accent p-6 sm:p-8 text-white">
             <div className="flex justify-between items-start">
               <div>
                 <motion.h1
@@ -712,22 +712,22 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
             </div>
           </div>
 
-          <div className="sm:hidden px-6 py-3 bg-[#0B1F3B]/5 border-b border-[#00C4B3]/20">
-            <div className="flex justify-between items-center text-sm text-[#0F172A] font-medium">
+          <div className="sm:hidden px-6 py-3 bg-primary/5 border-b border-accent/20">
+            <div className="flex justify-between items-center text-sm text-primary font-medium">
               <span
-                className={step >= 1 ? "text-[#0B1F3B] cursor-pointer" : "text-[#0B1F3B]/30"}
+                className={step >= 1 ? "text-primary cursor-pointer" : "text-primary/30"}
                 onClick={() => handleTabClick(1, "Plan")}
               >
                 Plan
               </span>
               <span
-                className={step >= 2 ? "text-[#0B1F3B] cursor-pointer" : "text-[#0B1F3B]/30"}
+                className={step >= 2 ? "text-primary cursor-pointer" : "text-primary/30"}
                 onClick={() => handleTabClick(2, "Details")}
               >
                 Details
               </span>
               <span
-                className={step >= 3 ? "text-[#0B1F3B] cursor-pointer" : "text-[#0B1F3B]/30"}
+                className={step >= 3 ? "text-primary cursor-pointer" : "text-primary/30"}
                 onClick={() => handleTabClick(3, "Payment")}
               >
                 Payment
@@ -764,12 +764,12 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
                         }}
                         className={`plan-card relative p-4 rounded-xl border-2 ${plan.className} ${
                           billingCycle === plan.billingCycle
-                            ? "border-4 border-[#00C4B3] bg-[#00C4B3]/10 shadow-md"
-                            : "border-gray-200 hover:border-[#00C4B3]/30"
+                            ? "border-4 border-accent bg-accent/10 shadow-md"
+                            : "border-gray-200 hover:border-accent/30"
                         } cursor-pointer transition-all`}
                       >
                         {billingCycle === plan.billingCycle && (
-                          <div className="absolute top-0 right-0 bg-[#0B1F3B] text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                          <div className="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
                             {plan.name === "Annual Plan" ? "RECOMMENDED" : "TRY NOW"}
                           </div>
                         )}
@@ -781,36 +781,36 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
                             </p>
                           </div>
                           {plan.name === "Annual Plan" && (
-                            <div className="bg-[#00C4B3]/10 text-[#0F172A] px-2 py-1 rounded text-xs font-bold">
+                            <div className="bg-accent/10 text-primary px-2 py-1 rounded text-xs font-bold">
                               BEST VALUE
                             </div>
                           )}
                         </div>
                         <div className="my-3">
-                          <span className="text-2xl font-bold text-[#0B1F3B]">{formatPrice(prices[plan.billingCycle][currency], currency)}</span>
+                          <span className="text-2xl font-bold text-primary">{formatPrice(prices[plan.billingCycle][currency], currency)}</span>
                           <span className="text-gray-500 text-xs ml-1">
                             {plan.name === "Annual Plan" ? " (1 year)" : plan.name === "7-Day Trial" ? " (7 days)" : " (30 days)"}
                           </span>
                           {currency === "INR" && <p className="text-gray-500 text-xs mt-1">incl. GST</p>}
                           {currency === "USD" && billingCycle !== "trial" && (
-                            <p className="text-[#0B1F3B] text-xs mt-1">Up to 30% off at checkout</p>
+                            <p className="text-primary text-xs mt-1">Up to 30% off at checkout</p>
                           )}
                         </div>
                         <ul className="space-y-2 text-xs text-gray-700">
                           <li className="flex items-start gap-2">
-                            <CheckCircle className="text-[#0B1F3B] mt-0.5 flex-shrink-0" size={14} />
+                            <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={14} />
                             <span>Job-Specific Templates</span>
                           </li>
                           <li className="flex items-start gap-2">
-                            <CheckCircle className="text-[#0B1F3B] mt-0.5 flex-shrink-0" size={14} />
+                            <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={14} />
                             <span>Watermark-Free PDF Exports</span>
                           </li>
                           <li className="flex items-start gap-2">
-                            <CheckCircle className="text-[#0B1F3B] mt-0.5 flex-shrink-0" size={14} />
+                            <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={14} />
                             <span>{plan.name === "Annual Plan" ? "AI Interview Trainer (Extended)" : "AI Interview Trainer"}</span>
                           </li>
                           <li className="flex items-start gap-2">
-                            <CheckCircle className="text-[#0B1F3B] mt-0.5 flex-shrink-0" size={14} />
+                            <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={14} />
                             <span>Salary Analyzer</span>
                           </li>
                         </ul>
@@ -818,12 +818,12 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
                     ))}
                   </div>
 
-                  <div className="bg-[#0B1F3B]/5 p-3 rounded-lg border border-[#00C4B3]/20">
+                  <div className="bg-primary/5 p-3 rounded-lg border border-accent/20">
                     <div className="flex items-start gap-3">
-                      <BadgeCheck className="text-[#0B1F3B] mt-0.5 flex-shrink-0" size={16} />
+                      <BadgeCheck className="text-primary mt-0.5 flex-shrink-0" size={16} />
                       <div>
-                        <h4 className="font-semibold text-[#0F172A] text-sm">Annual members see better results</h4>
-                        <p className="text-xs text-[#0B1F3B]">
+                        <h4 className="font-semibold text-primary text-sm">Annual members see better results</h4>
+                        <p className="text-xs text-primary">
                           Annual users get 3x more interviews and higher salaries.
                         </p>
                       </div>
@@ -837,7 +837,7 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
                       setStep(2);
                       event({ action: "proceed_to_details", category: "Checkout", label: "Step 1" });
                     }}
-                    className="w-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white py-3 rounded-lg font-bold shadow-md hover:opacity-95 transition-all animate-pulse md:animate-none md:static fixed bottom-4 left-4 right-4 z-10"
+                    className="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-lg font-bold shadow-md hover:opacity-95 transition-all animate-pulse md:animate-none md:static fixed bottom-4 left-4 right-4 z-10"
                   >
                     Continue to Billing
                   </motion.button>
@@ -866,7 +866,7 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
                         placeholder="Enter your full name"
                         value={paymentDetails.name}
                         onChange={(e) => setPaymentDetails((prev) => ({ ...prev, name: e.target.value }))}
-                        className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                        className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                       />
                     </div>
 
@@ -880,7 +880,7 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
                         placeholder="Enter your email"
                         value={paymentDetails.email}
                         onChange={(e) => setPaymentDetails((prev) => ({ ...prev, email: e.target.value }))}
-                        className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                        className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                       />
                     </div>
 
@@ -894,13 +894,13 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
                         placeholder="Enter your phone number"
                         value={paymentDetails.phone}
                         onChange={(e) => setPaymentDetails((prev) => ({ ...prev, phone: e.target.value }))}
-                        className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                        className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                       />
                     </div>
 
                     {billingCycle !== "trial" && DISCOUNT_FEATURE_ENABLED && (
-                      <div className="bg-gradient-to-r from-[#0B1F3B]/5 to-[#0B1F3B]/5 p-3 rounded-lg border border-[#00C4B3]/20">
-                        <h3 className="text-xs font-semibold text-[#0F172A] mb-2 flex items-center gap-2">
+                      <div className="bg-gradient-to-r from-primary/5 to-primary/5 p-3 rounded-lg border border-accent/20">
+                        <h3 className="text-xs font-semibold text-primary mb-2 flex items-center gap-2">
                           <Sparkles size={14} /> Have a coupon code?
                         </h3>
                         <div className="flex flex-col sm:flex-row gap-2">
@@ -909,11 +909,11 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
                             placeholder="Enter coupon code (e.g., SAVE15)"
                             value={couponCode}
                             onChange={(e) => setCouponCode(e.target.value)}
-                            className="flex-grow p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00C4B3] focus:border-transparent"
+                            className="flex-grow p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           />
                           <button
                             onClick={() => validateCoupon(false)}
-                            className="bg-[#0B1F3B] text-white px-4 py-2 rounded-lg font-medium hover:bg-[#0B1F3B]/90 transition-colors whitespace-nowrap text-xs"
+                            className="bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors whitespace-nowrap text-xs"
                           >
                             Apply Coupon
                           </button>
@@ -929,7 +929,7 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
                                   setCouponCode(option.code);
                                   event({ action: "select_coupon", category: "Checkout", label: option.code });
                                 }}
-                                className="text-xs bg-white border border-[#00C4B3]/20 text-[#0B1F3B] px-2 py-1 rounded-full hover:bg-[#0B1F3B]/5 transition-colors"
+                                className="text-xs bg-white border border-accent/20 text-primary px-2 py-1 rounded-full hover:bg-primary/5 transition-colors"
                               >
                                 {option.label}
                               </button>
@@ -956,7 +956,7 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
                         setStep(3);
                         event({ action: "proceed_to_payment", category: "Checkout", label: "Step 2" });
                       }}
-                      className="flex-1 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white py-3 rounded-lg font-bold shadow-md hover:opacity-95 transition-all animate-pulse md:animate-none md:static fixed bottom-4 left-4 right-4 z-10"
+                      className="flex-1 bg-gradient-to-r from-primary to-accent text-white py-3 rounded-lg font-bold shadow-md hover:opacity-95 transition-all animate-pulse md:animate-none md:static fixed bottom-4 left-4 right-4 z-10"
                     >
                       Review Order
                     </motion.button>
@@ -995,7 +995,7 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
                         </div>
                       )}
                       {selectedDiscount > 0 && billingCycle !== "trial" && (
-                        <div className="flex justify-between text-[#0B1F3B] text-xs">
+                        <div className="flex justify-between text-primary text-xs">
                           <span>Discount ({selectedDiscount * 100}%):</span>
                           <span>-{formatPrice(prices[billingCycle][currency] * selectedDiscount, currency)}</span>
                         </div>
@@ -1003,7 +1003,7 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
                       <div className="border-t border-gray-200 pt-2 mt-2">
                         <div className="flex justify-between font-bold text-base">
                           <span>Total:</span>
-                          <span className="text-[#0B1F3B]">
+                          <span className="text-primary">
                             {formatPrice(
                               billingCycle === "trial" ? prices[billingCycle][currency] : selectedDiscount
                                 ? Math.round((prices[billingCycle][currency] / 100) * (1 - selectedDiscount)) * 100
@@ -1014,35 +1014,35 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
                         </div>
                       </div>
                     </div>
-                    <div className="mt-3 bg-[#0B1F3B]/5 p-2 rounded-lg border border-[#00C4B3]/20">
+                    <div className="mt-3 bg-primary/5 p-2 rounded-lg border border-accent/20">
                       <div className="flex items-start gap-2">
-                        <Bell className="text-[#0B1F3B] mt-0.5 flex-shrink-0" size={14} />
-                        <p className="text-xs text-[#0B1F3B]">
+                        <Bell className="text-primary mt-0.5 flex-shrink-0" size={14} />
+                        <p className="text-xs text-primary">
                           <strong>No Auto-Deduction!</strong> You'll receive a payment reminder before your next billing date.
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-[#0B1F3B]/5 p-4 rounded-xl border border-[#00C4B3]/20">
-                    <h3 className="text-base font-semibold text-[#0F172A] mb-2 flex items-center gap-2">
+                  <div className="bg-primary/5 p-4 rounded-xl border border-accent/20">
+                    <h3 className="text-base font-semibold text-primary mb-2 flex items-center gap-2">
                       <BadgeCheck size={18} /> What You're Getting
                     </h3>
                     <ul className="space-y-2 text-xs text-gray-700">
                       <li className="flex items-start gap-2">
-                        <CheckCircle className="text-[#0B1F3B] mt-0.5 flex-shrink-0" size={14} />
+                        <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={14} />
                         <span>Job-Specific Templates</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <CheckCircle className="text-[#0B1F3B] mt-0.5 flex-shrink-0" size={14} />
+                        <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={14} />
                         <span>Watermark-Free PDF Exports</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <CheckCircle className="text-[#0B1F3B] mt-0.5 flex-shrink-0" size={14} />
+                        <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={14} />
                         <span>AI Interview Trainer with personalized feedback</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <CheckCircle className="text-[#0B1F3B] mt-0.5 flex-shrink-0" size={14} />
+                        <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={14} />
                         <span>Salary Analyzer</span>
                       </li>
                     </ul>
@@ -1063,7 +1063,7 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
                       whileTap={{ scale: 0.98 }}
                       onClick={handlePaymentSubmit}
                       disabled={isLoading}
-                      className="flex-1 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white py-3 rounded-lg font-bold shadow-md hover:opacity-95 transition-all animate-pulse md:animate-none md:static fixed bottom-4 left-4 right-4 z-10 disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="flex-1 bg-gradient-to-r from-primary to-accent text-white py-3 rounded-lg font-bold shadow-md hover:opacity-95 transition-all animate-pulse md:animate-none md:static fixed bottom-4 left-4 right-4 z-10 disabled:opacity-70 disabled:cursor-not-allowed"
                     >
                       {isLoading ? (
                         <span className="flex items-center justify-center gap-2">
@@ -1097,19 +1097,19 @@ export default function ClientCheckout({ initialBillingCycle = "monthly" }) {
 
         <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-            <div className="text-[#0B1F3B] flex justify-center mb-1">
+            <div className="text-primary flex justify-center mb-1">
               <Shield size={20} />
             </div>
             <p className="text-xs font-medium text-gray-700">Secure Payment</p>
           </div>
           <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-            <div className="text-[#0B1F3B] flex justify-center mb-1">
+            <div className="text-primary flex justify-center mb-1">
               <BadgeCheck size={20} />
             </div>
                             <p className="text-xs font-medium text-gray-700">AI Powered</p>
           </div>
           <div className="bg-white p-3 rounded-lg shadow-sm text-center">
-            <div className="text-[#0B1F3B] flex justify-center mb-1">
+            <div className="text-primary flex justify-center mb-1">
               <Users size={20} />
             </div>
             <p className="text-xs font-medium text-gray-700">15,000+ Members</p>

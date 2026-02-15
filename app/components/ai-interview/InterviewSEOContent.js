@@ -66,7 +66,7 @@ export default function InterviewSEOContent({ content }) {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                             <Link
                                 href="/ai-interview/setup"
-                                className="w-full sm:w-auto px-10 py-5 bg-blue-600 text-white rounded-full font-bold text-lg hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/30 flex items-center justify-center gap-2 group"
+                                className="w-full sm:w-auto px-10 py-5 bg-accent text-white rounded-full font-bold text-lg hover:bg-accent-600 transition-all shadow-xl shadow-accent/30 flex items-center justify-center gap-2 group"
                             >
                                 <Play className="w-5 h-5 fill-current" />
                                 Practice Now (Free)
@@ -80,7 +80,7 @@ export default function InterviewSEOContent({ content }) {
                 </div>
                 {/* Background Decor */}
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-30 pointer-events-none">
-                    <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] bg-blue-100 rounded-full blur-3xl"></div>
+                    <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] bg-accent-100 rounded-full blur-3xl"></div>
                     <div className="absolute top-[40%] -left-[10%] w-[40%] h-[40%] bg-purple-100 rounded-full blur-3xl"></div>
                 </div>
             </section>
@@ -118,7 +118,7 @@ export default function InterviewSEOContent({ content }) {
 
                         {/* Contextual Image Card */}
                         <div className="relative">
-                            <div className="absolute inset-0 bg-blue-600 rounded-2xl rotate-3 opacity-20 blur-lg"></div>
+                            <div className="absolute inset-0 bg-accent rounded-2xl rotate-3 opacity-20 blur-lg"></div>
                             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-700/50">
                                 <img
                                     src={context?.image || "/images/resume-writing-ai.jpg"}
@@ -147,7 +147,7 @@ export default function InterviewSEOContent({ content }) {
 
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <div className="text-center mb-16">
-                            <span className="text-blue-600 font-mono text-xs font-bold tracking-widest uppercase mb-2 block">
+                            <span className="text-accent-600 font-mono text-xs font-bold tracking-widest uppercase mb-2 block">
                                 &lt;The Playbook /&gt;
                             </span>
                             <h2 className="text-3xl font-bold text-slate-900">{strategyGuide.title}</h2>
@@ -156,8 +156,8 @@ export default function InterviewSEOContent({ content }) {
                         <div className="grid md:grid-cols-3 gap-8">
                             {strategyGuide.content.map((item, idx) => (
                                 <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow group">
-                                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                        <span className="font-mono text-blue-600 font-bold text-xl">{String(idx + 1).padStart(2, '0')}</span>
+                                    <div className="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                        <span className="font-mono text-accent-600 font-bold text-xl">{String(idx + 1).padStart(2, '0')}</span>
                                     </div>
                                     <h3 className="font-bold text-lg text-slate-900 mb-3">{item.heading}</h3>
                                     <p className="text-slate-600 leading-relaxed text-sm">
@@ -174,7 +174,7 @@ export default function InterviewSEOContent({ content }) {
             <section className="py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <span className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-2 block">The AI Interview Pro Advantage</span>
+                        <span className="text-accent-600 font-bold tracking-widest uppercase text-sm mb-2 block">The AI Interview Pro Advantage</span>
                         <h2 className="text-4xl font-bold text-slate-900 mb-4">{solutionTitle}</h2>
                         <p className="text-xl text-slate-600 max-w-3xl mx-auto">
                             <RichText text={solutionDescription} />
@@ -205,17 +205,17 @@ export default function InterviewSEOContent({ content }) {
             </section>
 
             {/* 5. Final CTA */}
-            <section className="py-20 bg-blue-900 text-white text-center">
+            <section className="py-20 bg-primary text-white text-center">
                 <div className="max-w-3xl mx-auto px-6">
                     <h2 className="text-4xl font-bold mb-6">Ready to stop guessing?</h2>
-                    <p className="text-xl text-blue-200 mb-8">Join thousands of candidates who walked into their interviews knowing exactly what to say.</p>
+                    <p className="text-xl text-primary-200 mb-8">Join thousands of candidates who walked into their interviews knowing exactly what to say.</p>
                     <Link
                         href="/ai-interview/setup"
-                        className="inline-block px-12 py-5 bg-white text-blue-900 rounded-full font-bold text-xl hover:bg-blue-50 transition-all shadow-xl hover:scale-105"
+                        className="inline-block px-12 py-5 bg-white text-primary rounded-full font-bold text-xl hover:bg-accent-50 transition-all shadow-xl hover:scale-105"
                     >
                         Start Free Session
                     </Link>
-                    <p className="mt-6 text-sm text-blue-300 opacity-80">
+                    <p className="mt-6 text-sm text-primary-300 opacity-80">
                         {pricing ? `${pricing.display}/${pricing.period} for full access` : 'No credit card required • Instant analysis'}
                     </p>
                 </div>

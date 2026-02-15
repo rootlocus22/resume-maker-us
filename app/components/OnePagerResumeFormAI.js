@@ -149,7 +149,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
     <button
       onClick={onClick}
       disabled={disabled || aiLoading[field]}
-      className="flex items-center gap-1 px-2 py-1 text-xs bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded hover:from-purple-600 hover:to-blue-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+      className="flex items-center gap-1 px-2 py-1 text-xs bg-gradient-to-r from-primary-800 to-primary text-white rounded hover:from-primary to-primary-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
     >
       {aiLoading[field] ? (
         <>
@@ -472,7 +472,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
         onClick={() => toggleSection(section.id)}
       >
         <div className="flex items-center gap-3 flex-1">
-          <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${isCompleted ? 'bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-md' : 'bg-gray-200 text-gray-600'
+          <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${isCompleted ? 'bg-gradient-to-br from-primary to-accent text-white shadow-md' : 'bg-gray-200 text-gray-600'
             }`}>
             {isCompleted ? <CheckCircle size={20} /> : <span className="text-lg">{section.icon}</span>}
           </div>
@@ -481,7 +481,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
             <div className="flex items-center gap-2 mt-1">
               <div className="flex-1 bg-gray-200 rounded-full h-1.5 max-w-[200px]">
                 <div
-                  className={`h-1.5 rounded-full transition-all ${isCompleted ? 'bg-gradient-to-r from-blue-500 to-blue-600' : 'bg-blue-400'
+                  className={`h-1.5 rounded-full transition-all ${isCompleted ? 'bg-gradient-to-r from-primary to-accent' : 'bg-accent-400'
                     }`}
                   style={{ width: `${completion}%` }}
                 />
@@ -540,7 +540,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                         type="text"
                         value={data.personal?.name || ''}
                         onChange={(e) => handlePersonalChange('name', e.target.value)}
-                        className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                         placeholder="John Doe"
                       />
                     </div>
@@ -563,7 +563,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                         type="text"
                         value={data.personal?.jobTitle || ''}
                         onChange={(e) => handlePersonalChange('jobTitle', e.target.value)}
-                        className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                         placeholder="Senior Software Engineer"
                       />
                       <AISuggestions
@@ -582,7 +582,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                           type="email"
                           value={data.personal?.email || ''}
                           onChange={(e) => handlePersonalChange('email', e.target.value)}
-                          className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           placeholder="john@example.com"
                         />
                       </div>
@@ -595,7 +595,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                           type="tel"
                           value={data.personal?.phone || ''}
                           onChange={(e) => handlePersonalChange('phone', e.target.value)}
-                          className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           placeholder="+1234567890"
                         />
                       </div>
@@ -609,7 +609,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                         type="text"
                         value={data.personal?.location || ''}
                         onChange={(e) => handlePersonalChange('location', e.target.value)}
-                        className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                         placeholder="San Francisco, CA"
                       />
                     </div>
@@ -623,7 +623,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                           type="url"
                           value={data.personal?.linkedin || ''}
                           onChange={(e) => handlePersonalChange('linkedin', e.target.value)}
-                          className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           placeholder="linkedin.com/in/johndoe"
                         />
                       </div>
@@ -636,7 +636,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                           type="url"
                           value={data.personal?.portfolio || ''}
                           onChange={(e) => handlePersonalChange('portfolio', e.target.value)}
-                          className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                           placeholder="johndoe.com"
                         />
                       </div>
@@ -704,7 +704,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                           title: 'Professional Summary',
                           disableBullets: false
                         })}
-                        className="absolute top-2 right-2 p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                        className="absolute top-2 right-2 p-2 text-gray-400 hover:text-accent hover:bg-accent-50 rounded-lg transition-colors"
                         title="Edit with Advanced Editor (AI Rephrase + AI Bullets)"
                       >
                         <Maximize2 size={16} />
@@ -740,7 +740,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                       <button
                         onClick={addExperience}
                         disabled={(data.experience || []).length >= 4}
-                        className="flex items-center px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="flex items-center px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm bg-accent text-white rounded-lg hover:bg-accent-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
                       >
                         <Plus size={16} className="mr-2" />
                         Add Experience
@@ -776,7 +776,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                               type="text"
                               value={exp.title || ''}
                               onChange={(e) => handleExperienceChange(index, 'title', e.target.value)}
-                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                               placeholder="Senior Software Engineer"
                             />
                           </div>
@@ -789,7 +789,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                               type="text"
                               value={exp.company || ''}
                               onChange={(e) => handleExperienceChange(index, 'company', e.target.value)}
-                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                               placeholder="Tech Company Inc."
                             />
                           </div>
@@ -804,7 +804,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                               type="text"
                               value={exp.location || ''}
                               onChange={(e) => handleExperienceChange(index, 'location', e.target.value)}
-                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                               placeholder="New York, NY"
                             />
                           </div>
@@ -817,7 +817,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                               type="text"
                               value={exp.startDate || ''}
                               onChange={(e) => handleExperienceChange(index, 'startDate', e.target.value)}
-                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                               placeholder="01/2020"
                             />
                           </div>
@@ -830,7 +830,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                               type="text"
                               value={exp.endDate || ''}
                               onChange={(e) => handleExperienceChange(index, 'endDate', e.target.value)}
-                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                               placeholder="Present"
                             />
                           </div>
@@ -872,7 +872,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                                 title: `${exp.title || 'Experience'} Description`,
                                 disableBullets: false
                               })}
-                              className="absolute top-2 right-2 p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                              className="absolute top-2 right-2 p-2 text-gray-400 hover:text-accent hover:bg-accent-50 rounded-lg transition-colors"
                               title="Edit with Advanced Editor (AI Rephrase + AI Bullets)"
                             >
                               <Maximize2 size={14} />
@@ -917,7 +917,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                       <button
                         onClick={addEducation}
                         disabled={(data.education || []).length >= 2}
-                        className="flex items-center px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="flex items-center px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm bg-accent text-white rounded-lg hover:bg-accent-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
                       >
                         <Plus size={16} className="mr-2" />
                         Add Education
@@ -948,7 +948,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                             type="text"
                             value={edu.degree || ''}
                             onChange={(e) => handleEducationChange(index, 'degree', e.target.value)}
-                            className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                             placeholder="Bachelor of Science in Computer Science"
                           />
                         </div>
@@ -961,7 +961,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                             type="text"
                             value={edu.institution || ''}
                             onChange={(e) => handleEducationChange(index, 'institution', e.target.value)}
-                            className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                             placeholder="Stanford University"
                           />
                         </div>
@@ -975,7 +975,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                               type="text"
                               value={edu.location || ''}
                               onChange={(e) => handleEducationChange(index, 'location', e.target.value)}
-                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                               placeholder="Stanford, CA"
                             />
                           </div>
@@ -988,7 +988,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                               type="text"
                               value={edu.graduationDate || ''}
                               onChange={(e) => handleEducationChange(index, 'graduationDate', e.target.value)}
-                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                               placeholder="05/2020"
                             />
                           </div>
@@ -1001,7 +1001,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                               type="text"
                               value={edu.gpa || ''}
                               onChange={(e) => handleEducationChange(index, 'gpa', e.target.value)}
-                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                               placeholder="3.8/4.0"
                             />
                           </div>
@@ -1015,7 +1015,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                             value={edu.description || ''}
                             onChange={(e) => handleEducationChange(index, 'description', e.target.value)}
                             rows={2}
-                            className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                             placeholder="Dean's List, Relevant coursework: AI, Machine Learning"
                           />
                         </div>
@@ -1072,7 +1072,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                         value={(data.skills || []).join(', ')}
                         onChange={(e) => handleSkillsChange(e.target.value)}
                         rows={4}
-                        className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                         placeholder="JavaScript, React, Node.js, Python, AWS, Docker, Git, Agile, Team Leadership, Problem Solving"
                       />
                       <p className="text-xs text-gray-500 mt-2">
@@ -1114,7 +1114,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                       <button
                         onClick={addProject}
                         disabled={(data.projects || []).length >= 3}
-                        className="flex items-center px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="flex items-center px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm bg-accent text-white rounded-lg hover:bg-accent-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
                       >
                         <Plus size={16} className="mr-2" />
                         Add Project
@@ -1146,7 +1146,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                               type="text"
                               value={project.name || ''}
                               onChange={(e) => handleProjectChange(index, 'name', e.target.value)}
-                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                               placeholder="E-commerce Platform"
                             />
                           </div>
@@ -1159,7 +1159,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                               type="text"
                               value={project.technologies || ''}
                               onChange={(e) => handleProjectChange(index, 'technologies', e.target.value)}
-                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                               placeholder="React, Node.js, MongoDB"
                             />
                           </div>
@@ -1184,7 +1184,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                             value={project.description || ''}
                             onChange={(e) => handleProjectChange(index, 'description', e.target.value)}
                             rows={3}
-                            className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                             placeholder="Built full-stack e-commerce platform handling 10K+ daily users. Implemented payment gateway, inventory management, and real-time analytics."
                           />
                           <AISuggestions
@@ -1204,7 +1204,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                             type="url"
                             value={project.link || ''}
                             onChange={(e) => handleProjectChange(index, 'link', e.target.value)}
-                            className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                             placeholder="https://github.com/username/project"
                           />
                         </div>
@@ -1246,7 +1246,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                       <button
                         onClick={addCertification}
                         disabled={(data.certifications || []).length >= 3}
-                        className="flex items-center px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="flex items-center px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm bg-accent text-white rounded-lg hover:bg-accent-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
                       >
                         <Plus size={16} className="mr-2" />
                         Add Certification
@@ -1278,7 +1278,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                               type="text"
                               value={cert.name || ''}
                               onChange={(e) => handleCertificationChange(index, 'name', e.target.value)}
-                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                               placeholder="AWS Certified Solutions Architect"
                             />
                           </div>
@@ -1291,7 +1291,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                               type="text"
                               value={cert.organization || ''}
                               onChange={(e) => handleCertificationChange(index, 'organization', e.target.value)}
-                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                               placeholder="Amazon Web Services"
                             />
                           </div>
@@ -1306,7 +1306,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                               type="text"
                               value={cert.date || ''}
                               onChange={(e) => handleCertificationChange(index, 'date', e.target.value)}
-                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                               placeholder="06/2023"
                             />
                           </div>
@@ -1319,7 +1319,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                               type="url"
                               value={cert.link || ''}
                               onChange={(e) => handleCertificationChange(index, 'link', e.target.value)}
-                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                               placeholder="https://credentials.com/verify/123"
                             />
                           </div>
@@ -1362,7 +1362,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                       <button
                         onClick={addLanguage}
                         disabled={(data.languages || []).length >= 5}
-                        className="flex items-center px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="flex items-center px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm bg-accent text-white rounded-lg hover:bg-accent-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
                       >
                         <Plus size={16} className="mr-2" />
                         Add Language
@@ -1394,7 +1394,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                               type="text"
                               value={lang.language || ''}
                               onChange={(e) => handleLanguageChange(index, 'language', e.target.value)}
-                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                               placeholder="English, Spanish, Mandarin, etc."
                             />
                           </div>
@@ -1406,7 +1406,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                             <select
                               value={lang.proficiency || 'Professional'}
                               onChange={(e) => handleLanguageChange(index, 'proficiency', e.target.value)}
-                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                             >
                               <option value="Native">Native / Bilingual</option>
                               <option value="Professional">Professional Working</option>
@@ -1453,7 +1453,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                       <button
                         onClick={addAward}
                         disabled={(data.awards || []).length >= 3}
-                        className="flex items-center px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                        className="flex items-center px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm bg-accent text-white rounded-lg hover:bg-accent-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
                       >
                         <Plus size={16} className="mr-2" />
                         Add Award
@@ -1485,7 +1485,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                               type="text"
                               value={award.title || ''}
                               onChange={(e) => handleAwardChange(index, 'title', e.target.value)}
-                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                               placeholder="e.g., Employee of the Year, Dean's List"
                             />
                           </div>
@@ -1499,7 +1499,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                                 type="text"
                                 value={award.issuer || ''}
                                 onChange={(e) => handleAwardChange(index, 'issuer', e.target.value)}
-                                className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                                 placeholder="Company, Institution, Organization"
                               />
                             </div>
@@ -1512,7 +1512,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                                 type="text"
                                 value={award.date || ''}
                                 onChange={(e) => handleAwardChange(index, 'date', e.target.value)}
-                                className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent"
                                 placeholder="MM/YYYY or Year"
                               />
                             </div>
@@ -1526,7 +1526,7 @@ export default function OnePagerResumeFormAI({ data, onChange, userId = null, re
                               value={award.description || ''}
                               onChange={(e) => handleAwardChange(index, 'description', e.target.value)}
                               rows={2}
-                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                              className="w-full px-3 py-2 text-xs sm:text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent resize-none"
                               placeholder="Brief context or significance of this award..."
                             />
                           </div>

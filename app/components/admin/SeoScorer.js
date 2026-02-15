@@ -119,7 +119,7 @@ export default function SeoScorer({ data, collection }) {
                     </h4>
                     <div className="flex flex-wrap gap-2">
                         {keywords.map((k, i) => (
-                            <span key={i} className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded border border-blue-100">
+                            <span key={i} className="text-xs bg-accent-50 text-accent-700 px-2 py-1 rounded border border-accent/10">
                                 {k}
                             </span>
                         ))}

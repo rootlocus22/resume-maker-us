@@ -72,7 +72,7 @@ export default function CCPABanner() {
             {/* Icon & Message */}
             <div className="flex items-start gap-2 sm:gap-3 flex-1 min-w-0">
               <div className="flex-shrink-0 mt-0.5">
-                <Cookie className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
+                <Cookie className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-0.5 sm:mb-1">
@@ -82,7 +82,7 @@ export default function CCPABanner() {
                   We use cookies for analytics and personalization. You can opt-out of data sales.{" "}
                   <a 
                     href="/ccpa-opt-out" 
-                    className="text-blue-600 hover:text-blue-700 font-medium underline"
+                    className="text-accent hover:text-accent-700 font-medium underline"
                     onClick={() => setShowBanner(false)}
                   >
                     Learn more
@@ -102,7 +102,7 @@ export default function CCPABanner() {
               </button>
               <button
                 onClick={handleAccept}
-                className="flex-1 sm:flex-initial px-2.5 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors duration-200 whitespace-nowrap"
+                className="flex-1 sm:flex-initial px-2.5 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-sm font-medium text-white bg-accent hover:bg-accent-600 rounded-lg transition-colors duration-200 whitespace-nowrap"
               >
                 Accept
               </button>

@@ -13,20 +13,20 @@ import { Sparkles, CheckCircle, FileText, Download, X, Lightbulb, Quote, Target 
 
 export default function FreeAiResumeBuilderPage() {
     return (
-        <div className="min-h-screen bg-[#F8FAFC] font-sans flex flex-col">
+        <div className="min-h-screen bg-bg font-sans flex flex-col">
             {/* Hero Section — navy + teal, same as home */}
-            <section className="relative bg-gradient-to-br from-[#050F20] via-[#0B1F3B] to-[#071429] text-white pb-32 overflow-hidden">
+            <section className="relative bg-gradient-to-br from-gray-900 via-primary to-gray-900 text-white pb-32 overflow-hidden">
                 <div className="absolute inset-0 overflow-hidden opacity-20">
-                    <div className="absolute top-10 left-10 w-24 h-24 bg-[#00C4B3]/20 rounded-full blur-3xl" />
-                    <div className="absolute bottom-10 right-10 w-32 h-32 bg-[#00C4B3]/15 rounded-full blur-3xl" />
+                    <div className="absolute top-10 left-10 w-24 h-24 bg-accent/20 rounded-full blur-3xl" />
+                    <div className="absolute bottom-10 right-10 w-32 h-32 bg-accent/15 rounded-full blur-3xl" />
                 </div>
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white font-medium text-sm mb-6 backdrop-blur-sm">
-                        <Target size={16} className="text-[#00C4B3]" />
+                        <Target size={16} className="text-accent" />
                         <span>AI-Powered &middot; Built for US Jobs</span>
                     </div>
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
-                        Turn Text into a <span className="text-[#00C4B3]">Professional Resume</span>
+                        Turn Text into a <span className="text-accent">Professional Resume</span>
                     </h1>
                     <p className="text-xl text-gray-200 max-w-2xl mx-auto mb-2 font-light">
                         Paste your old resume, LinkedIn profile, or rough notes.
@@ -36,9 +36,9 @@ export default function FreeAiResumeBuilderPage() {
                     </p>
                     <p className="text-sm text-gray-400">
                         Already have a resume?{" "}
-                        <Link href="/upload-resume" className="text-[#00C4B3] hover:text-[#00C4B3]/80 underline underline-offset-2">Upload &amp; optimize it</Link>
+                        <Link href="/upload-resume" className="text-accent hover:text-accent/80 underline underline-offset-2">Upload &amp; optimize it</Link>
                         {" "}or{" "}
-                        <Link href="/ats-score-checker" className="text-[#00C4B3] hover:text-[#00C4B3]/80 underline underline-offset-2">check your ATS score</Link>.
+                        <Link href="/ats-score-checker" className="text-accent hover:text-accent/80 underline underline-offset-2">check your ATS score</Link>.
                     </p>
                 </div>
             </section>
@@ -49,9 +49,9 @@ export default function FreeAiResumeBuilderPage() {
             </div>
 
             {/* Comparison Section: AI vs Manual */}
-            <div className="py-16 bg-white border-t border-[#E5E7EB]">
+            <div className="py-16 bg-white border-t border-border">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center text-[#0F172A] mb-12">Why Choose AI Over Manual Formatting?</h2>
+                    <h2 className="text-3xl font-bold text-center text-primary mb-12">Why Choose AI Over Manual Formatting?</h2>
                     <div className="grid md:grid-cols-2 gap-8">
                         {/* Manual Way */}
                         <div className="p-6 rounded-2xl bg-red-50 border border-red-100">
@@ -67,18 +67,18 @@ export default function FreeAiResumeBuilderPage() {
                         </div>
 
                         {/* AI Way */}
-                        <div className="p-6 rounded-2xl bg-[#00C4B3]/5 border border-[#00C4B3]/20 relative overflow-hidden">
+                        <div className="p-6 rounded-2xl bg-accent/5 border border-accent/20 relative overflow-hidden">
                             <div className="absolute top-0 right-0 p-2 opacity-10">
-                                <Sparkles size={100} className="text-[#00C4B3]" />
+                                <Sparkles size={100} className="text-accent" />
                             </div>
-                            <h3 className="text-xl font-bold text-[#0B1F3B] mb-4 flex items-center gap-2">
-                                <Sparkles size={24} className="text-[#00C4B3]" /> The ExpertResume Way (AI)
+                            <h3 className="text-xl font-bold text-primary mb-4 flex items-center gap-2">
+                                <Sparkles size={24} className="text-accent" /> The ExpertResume Way (AI)
                             </h3>
-                            <ul className="space-y-3 text-[#0F172A]/80 font-medium">
-                                <li className="flex gap-2"><CheckCircle size={16} className="mt-1 text-[#00C4B3] flex-shrink-0" /> Done in seconds, not hours</li>
-                                <li className="flex gap-2"><CheckCircle size={16} className="mt-1 text-[#00C4B3] flex-shrink-0" /> Perfect formatting automatically</li>
-                                <li className="flex gap-2"><CheckCircle size={16} className="mt-1 text-[#00C4B3] flex-shrink-0" /> AI suggests professional keywords for US roles</li>
-                                <li className="flex gap-2"><CheckCircle size={16} className="mt-1 text-[#00C4B3] flex-shrink-0" /> 100% ATS-Friendly for Workday, Greenhouse & Lever</li>
+                            <ul className="space-y-3 text-primary/80 font-medium">
+                                <li className="flex gap-2"><CheckCircle size={16} className="mt-1 text-accent flex-shrink-0" /> Done in seconds, not hours</li>
+                                <li className="flex gap-2"><CheckCircle size={16} className="mt-1 text-accent flex-shrink-0" /> Perfect formatting automatically</li>
+                                <li className="flex gap-2"><CheckCircle size={16} className="mt-1 text-accent flex-shrink-0" /> AI suggests professional keywords for US roles</li>
+                                <li className="flex gap-2"><CheckCircle size={16} className="mt-1 text-accent flex-shrink-0" /> 100% ATS-Friendly for Workday, Greenhouse & Lever</li>
                             </ul>
                         </div>
                     </div>
@@ -86,11 +86,11 @@ export default function FreeAiResumeBuilderPage() {
             </div>
 
             {/* Pro Tips Section */}
-            <div className="py-16 bg-[#0B1F3B] text-white">
+            <div className="py-16 bg-primary text-white">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-start gap-4 mb-8">
-                        <div className="bg-[#00C4B3]/20 p-3 rounded-xl">
-                            <Lightbulb size={32} className="text-[#00C4B3]" />
+                        <div className="bg-accent/20 p-3 rounded-xl">
+                            <Lightbulb size={32} className="text-accent" />
                         </div>
                         <div>
                             <h2 className="text-3xl font-bold text-white mb-2">Pro Tips for Best Results</h2>
@@ -100,19 +100,19 @@ export default function FreeAiResumeBuilderPage() {
 
                     <div className="grid md:grid-cols-2 gap-6">
                         <div className="bg-white/10 p-5 rounded-xl border border-white/10 hover:bg-white/20 transition-colors">
-                            <h4 className="font-bold text-lg mb-2 text-[#00C4B3]">Use LinkedIn Data</h4>
+                            <h4 className="font-bold text-lg mb-2 text-accent">Use LinkedIn Data</h4>
                             <p className="text-sm text-white/80">Go to your LinkedIn profile, copy your entire &apos;About&apos; and &apos;Experience&apos; sections, and paste them directly. The AI loves structured data like that!</p>
                         </div>
                         <div className="bg-white/10 p-5 rounded-xl border border-white/10 hover:bg-white/20 transition-colors">
-                            <h4 className="font-bold text-lg mb-2 text-[#00C4B3]">Don&apos;t Worry About Format</h4>
+                            <h4 className="font-bold text-lg mb-2 text-accent">Don&apos;t Worry About Format</h4>
                             <p className="text-sm text-white/80">Paste messy bullet points or even paragraphs. The AI will convert them into clean, punchy bullet points automatically.</p>
                         </div>
                         <div className="bg-white/10 p-5 rounded-xl border border-white/10 hover:bg-white/20 transition-colors">
-                            <h4 className="font-bold text-lg mb-2 text-[#00C4B3]">Include Numbers</h4>
+                            <h4 className="font-bold text-lg mb-2 text-accent">Include Numbers</h4>
                             <p className="text-sm text-white/80">Mentioning metrics (e.g., &quot;Increased sales by 20%&quot;) helps the AI highlight your achievements more effectively.</p>
                         </div>
                         <div className="bg-white/10 p-5 rounded-xl border border-white/10 hover:bg-white/20 transition-colors">
-                            <h4 className="font-bold text-lg mb-2 text-[#00C4B3]">Review Before Download</h4>
+                            <h4 className="font-bold text-lg mb-2 text-accent">Review Before Download</h4>
                             <p className="text-sm text-white/80">Always use the &apos;Edit&apos; button after generation to fine-tune specific details or add a personal touch.</p>
                         </div>
                     </div>
@@ -120,9 +120,9 @@ export default function FreeAiResumeBuilderPage() {
             </div>
 
             {/* Testimonials (Trust Signals) */}
-            <div className="py-20 bg-[#F8FAFC]">
+            <div className="py-20 bg-bg">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center text-[#0F172A] mb-12">Trusted by 10,000+ US Job Seekers</h2>
+                    <h2 className="text-3xl font-bold text-center text-primary mb-12">Trusted by 10,000+ US Job Seekers</h2>
                     <div className="grid md:grid-cols-3 gap-6">
                         {[
                             {
@@ -141,11 +141,11 @@ export default function FreeAiResumeBuilderPage() {
                                 role: "Recent Graduate, Austin"
                             }
                         ].map((t, i) => (
-                            <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-[#E5E7EB]">
-                                <Quote size={24} className="text-[#00C4B3]/30 mb-4" />
+                            <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-border">
+                                <Quote size={24} className="text-accent/30 mb-4" />
                                 <p className="text-[#475569] mb-4 italic">&ldquo;{t.text}&rdquo;</p>
                                 <div>
-                                    <div className="font-bold text-[#0F172A]">{t.author}</div>
+                                    <div className="font-bold text-primary">{t.author}</div>
                                     <div className="text-xs text-[#475569]">{t.role}</div>
                                 </div>
                             </div>
@@ -155,22 +155,22 @@ export default function FreeAiResumeBuilderPage() {
             </div>
 
             {/* How It Works */}
-            <div className="py-20 bg-white border-t border-[#E5E7EB]">
+            <div className="py-20 bg-white border-t border-border">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl font-bold text-[#0F172A] mb-4">Three Simple Steps</h2>
+                        <h2 className="text-3xl font-bold text-primary mb-4">Three Simple Steps</h2>
                         <p className="text-[#475569] max-w-2xl mx-auto">From raw text to dream job in minutes.</p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
                             {
-                                icon: <FileText size={32} className="text-[#0B1F3B]" />,
+                                icon: <FileText size={32} className="text-primary" />,
                                 title: "1. Paste Content",
                                 desc: "Copy text from your current resume, LinkedIn profile, or write a rough draft."
                             },
                             {
-                                icon: <Sparkles size={32} className="text-[#00C4B3]" />,
+                                icon: <Sparkles size={32} className="text-accent" />,
                                 title: "2. AI Magic",
                                 desc: "Our AI analyzes your experience and reformats it into a professional, ATS-friendly layout."
                             },
@@ -180,11 +180,11 @@ export default function FreeAiResumeBuilderPage() {
                                 desc: "Review your new resume, make quick edits, and download the print-ready PDF."
                             }
                         ].map((item, i) => (
-                            <div key={i} className="p-8 rounded-2xl bg-[#F8FAFC] border border-[#E5E7EB] hover:shadow-lg transition-shadow">
-                                <div className="bg-white w-14 h-14 rounded-xl flex items-center justify-center shadow-sm mb-6 border border-[#E5E7EB]">
+                            <div key={i} className="p-8 rounded-2xl bg-bg border border-border hover:shadow-lg transition-shadow">
+                                <div className="bg-white w-14 h-14 rounded-xl flex items-center justify-center shadow-sm mb-6 border border-border">
                                     {item.icon}
                                 </div>
-                                <h3 className="text-xl font-bold text-[#0F172A] mb-3">{item.title}</h3>
+                                <h3 className="text-xl font-bold text-primary mb-3">{item.title}</h3>
                                 <p className="text-[#475569]">{item.desc}</p>
                             </div>
                         ))}
@@ -271,9 +271,9 @@ export default function FreeAiResumeBuilderPage() {
             />
 
             {/* SEO Content Section */}
-            <div className="bg-[#F8FAFC] py-20 border-t border-[#E5E7EB]">
+            <div className="bg-bg py-20 border-t border-border">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-lg prose-slate">
-                    <h2 className="text-center text-3xl font-bold text-[#0F172A] mb-8">Why Use Our Free AI Resume Builder?</h2>
+                    <h2 className="text-center text-3xl font-bold text-primary mb-8">Why Use Our Free AI Resume Builder?</h2>
 
                     <p>
                         In today's competitive job market, having a polished, professional resume is non-negotiable. However, formatting a resume from scratch can be tedious and frustrating. ExpertResume's <strong>Free AI Resume Builder</strong> solves this problem by leveraging advanced artificial intelligence to handle the heavy lifting for you.

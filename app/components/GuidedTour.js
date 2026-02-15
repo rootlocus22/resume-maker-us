@@ -34,7 +34,7 @@ const tourSteps = [
     content: "Let's take a quick tour to help you discover all the powerful features that will help you create an amazing resume.",
     target: null,
     position: "center",
-    icon: <Sparkles className="w-6 h-6 text-blue-600" />,
+    icon: <Sparkles className="w-6 h-6 text-accent" />,
     type: "intro"
   },
   {
@@ -43,7 +43,7 @@ const tourSteps = [
     content: "Switch between different resume versions, create new ones, or start fresh. Your work is automatically saved!",
     target: "[data-tour='version-switcher']",
     position: "bottom",
-    icon: <FileText className="w-5 h-5 text-blue-600" />,
+    icon: <FileText className="w-5 h-5 text-accent" />,
     type: "feature"
   },
   {
@@ -52,7 +52,7 @@ const tourSteps = [
     content: "Choose from professional, ATS-optimized templates. Each template is designed to help you stand out!",
     target: "[data-tour='template-button']",
     position: "bottom",
-    icon: <LayoutDashboard className="w-5 h-5 text-indigo-600" />,
+    icon: <LayoutDashboard className="w-5 h-5 text-accent" />,
     type: "feature"
   },
   {
@@ -61,7 +61,7 @@ const tourSteps = [
     content: "Upload your existing resume PDF and our AI will extract all the information automatically using advanced parsing.",
     target: "[data-tour='import-button']",
     position: "bottom",
-    icon: <FileUp className="w-5 h-5 text-emerald-600" />,
+    icon: <FileUp className="w-5 h-5 text-accent" />,
     type: "feature"
   },
   {
@@ -70,7 +70,7 @@ const tourSteps = [
     content: "Let our AI analyze and improve your resume content, making it more compelling and ATS-friendly.",
     target: "[data-tour='ai-button']",
     position: "bottom",
-    icon: <Bot className="w-5 h-5 text-blue-600" />,
+    icon: <Bot className="w-5 h-5 text-accent" />,
     type: "feature"
   },
   {
@@ -79,7 +79,7 @@ const tourSteps = [
     content: "Edit your resume with our intelligent form that provides real-time suggestions and validation. Notice the ATS score updates as you type!",
     target: "[data-tour='resume-form']",
     position: "right",
-    icon: <FileText className="w-5 h-5 text-blue-600" />,
+    icon: <FileText className="w-5 h-5 text-accent" />,
     type: "feature"
   },
   {
@@ -88,7 +88,7 @@ const tourSteps = [
     content: "See your resume's ATS score update in real-time as you edit. This widget appears at the top of the form and helps you optimize your resume for applicant tracking systems!",
     target: "[data-tour='ats-score']",
     position: "bottom",
-    icon: <Target className="w-5 h-5 text-blue-600" />,
+    icon: <Target className="w-5 h-5 text-accent" />,
     type: "feature"
   },
   {
@@ -97,7 +97,7 @@ const tourSteps = [
     content: "See your changes instantly in the live preview. What you see is exactly what you'll get in your PDF!",
     target: "[data-tour='resume-preview']",
     position: "left",
-    icon: <Eye className="w-5 h-5 text-blue-600" />,
+    icon: <Eye className="w-5 h-5 text-accent" />,
     type: "feature"
   },
   {
@@ -115,7 +115,7 @@ const tourSteps = [
     content: "Save your resume to the cloud using this button in the header. Your progress is automatically saved as you work, but you can manually save anytime!",
     target: "[data-tour='save-button']",
     position: "bottom",
-    icon: <Save className="w-5 h-5 text-blue-600" />,
+    icon: <Save className="w-5 h-5 text-accent" />,
     type: "feature"
   },
   {
@@ -124,7 +124,7 @@ const tourSteps = [
     content: "Generate a professional PDF of your resume using this prominent button in the header. Premium users get watermark-free downloads with perfect formatting!",
     target: "[data-tour='pdf-button']",
     position: "bottom",
-    icon: <Eye className="w-5 h-5 text-blue-600" />,
+    icon: <Eye className="w-5 h-5 text-accent" />,
     type: "feature"
   },
   {
@@ -142,7 +142,7 @@ const tourSteps = [
     content: "You now know all the key features. Start building your amazing resume and land your dream job! Remember, you can always access this tour again from the help button.",
     target: null,
     position: "center",
-    icon: <CheckCircle className="w-6 h-6 text-blue-600" />,
+    icon: <CheckCircle className="w-6 h-6 text-accent" />,
     type: "completion"
   }
 ];
@@ -737,7 +737,7 @@ export default function GuidedTour({ isOpen, onClose, onComplete, onTabChange })
               className={`bg-white rounded-2xl shadow-2xl overflow-hidden mx-auto ${isMobile ? 'w-full max-w-sm' : 'w-full max-w-md'}`}
             >
             {/* Header */}
-            <div className="bg-gradient-to-r from-blue-600 to-blue-600 px-6 py-4 text-white">
+            <div className="bg-gradient-to-r from-primary to-accent px-6 py-4 text-white">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-white/20 rounded-lg">
@@ -763,8 +763,8 @@ export default function GuidedTour({ isOpen, onClose, onComplete, onTabChange })
 
             {/* Content */}
             <div className="p-6 text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-100 to-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Lightbulb className="w-8 h-8 text-blue-600" />
+              <div className="w-16 h-16 bg-accent-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Lightbulb className="w-8 h-8 text-accent" />
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-2">
                 Discover Amazing Features!
@@ -774,16 +774,16 @@ export default function GuidedTour({ isOpen, onClose, onComplete, onTabChange })
               </p>
               
               <div className="grid grid-cols-2 gap-3 mb-6 text-sm">
-                <div className="bg-blue-50 p-3 rounded-lg">
-                  <Target className="w-5 h-5 text-blue-600 mx-auto mb-1" />
+                <div className="bg-accent-50 p-3 rounded-lg">
+                  <Target className="w-5 h-5 text-accent mx-auto mb-1" />
                   <p className="font-medium text-gray-800">ATS Optimization</p>
                 </div>
-                <div className="bg-blue-50 p-3 rounded-lg">
-                  <Bot className="w-5 h-5 text-blue-600 mx-auto mb-1" />
+                <div className="bg-accent-50 p-3 rounded-lg">
+                  <Bot className="w-5 h-5 text-accent mx-auto mb-1" />
                   <p className="font-medium text-gray-800">AI Enhancement</p>
                 </div>
-                <div className="bg-blue-50 p-3 rounded-lg">
-                  <FileText className="w-5 h-5 text-blue-600 mx-auto mb-1" />
+                <div className="bg-accent-50 p-3 rounded-lg">
+                  <FileText className="w-5 h-5 text-accent mx-auto mb-1" />
                   <p className="font-medium text-gray-800">Live Preview</p>
                 </div>
                 <div className="bg-orange-50 p-3 rounded-lg">
@@ -794,7 +794,7 @@ export default function GuidedTour({ isOpen, onClose, onComplete, onTabChange })
 
               <button
                 onClick={handleStart}
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-700 transition-all duration-200 flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-primary to-accent text-white py-3 px-6 rounded-xl font-semibold hover:from-primary-800 hover:to-accent-600 transition-all duration-200 flex items-center justify-center gap-2"
               >
                 <Play className="w-5 h-5" />
                 Start Interactive Tour
@@ -834,7 +834,7 @@ export default function GuidedTour({ isOpen, onClose, onComplete, onTabChange })
             >
               <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200" style={{ width: isMobile ? '100%' : '320px' }}>
                 {/* Header */}
-                <div className="bg-gradient-to-r from-blue-600 to-blue-600 px-4 py-3 text-white">
+                <div className="bg-gradient-to-r from-primary to-accent px-4 py-3 text-white">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <div className="flex-shrink-0">
@@ -879,9 +879,9 @@ export default function GuidedTour({ isOpen, onClose, onComplete, onTabChange })
                   {/* Step Type Indicator - More compact on mobile */}
                   <div className={`flex items-center gap-2 ${isMobile ? 'mb-3' : 'mb-4'}`}>
                     <div className={`px-2 py-1 rounded-full text-xs font-medium ${
-                      currentStepData.type === 'feature' ? 'bg-blue-100 text-blue-700' :
-                      currentStepData.type === 'intro' ? 'bg-blue-100 text-blue-700' :
-                      currentStepData.type === 'completion' ? 'bg-blue-100 text-blue-700' :
+                      currentStepData.type === 'feature' ? 'bg-accent-50 text-accent-700' :
+                      currentStepData.type === 'intro' ? 'bg-accent-50 text-accent-700' :
+                      currentStepData.type === 'completion' ? 'bg-accent-50 text-accent-700' :
                       'bg-gray-100 text-gray-700'
                     }`}>
                       {currentStepData.type === 'feature' ? '🎯 Feature' :
@@ -956,7 +956,7 @@ export default function GuidedTour({ isOpen, onClose, onComplete, onTabChange })
                       {currentStep === tourSteps.length - 1 ? (
                         <button
                           onClick={handleComplete}
-                          className={`bg-gradient-to-r from-blue-600 to-emerald-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-emerald-700 transition-all duration-200 flex items-center gap-1 ${isMobile ? 'py-1.5 px-3 text-xs' : 'py-2 px-4 text-sm'}`}
+                          className={`bg-gradient-to-r from-primary to-accent text-white rounded-lg font-semibold hover:from-primary-800 hover:to-accent-600 transition-all duration-200 flex items-center gap-1 ${isMobile ? 'py-1.5 px-3 text-xs' : 'py-2 px-4 text-sm'}`}
                         >
                           <CheckCircle className={`${isMobile ? 'w-3.5 h-3.5' : 'w-4 h-4'}`} />
                           Finish
@@ -964,7 +964,7 @@ export default function GuidedTour({ isOpen, onClose, onComplete, onTabChange })
                       ) : (
                         <button
                           onClick={handleNext}
-                          className={`bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-blue-700 transition-all duration-200 flex items-center gap-1 ${isMobile ? 'py-1.5 px-3 text-xs' : 'py-2 px-4 text-sm'}`}
+                          className={`bg-gradient-to-r from-primary to-accent text-white rounded-lg font-semibold hover:from-primary-800 hover:to-accent-600 transition-all duration-200 flex items-center gap-1 ${isMobile ? 'py-1.5 px-3 text-xs' : 'py-2 px-4 text-sm'}`}
                         >
                           Next
                           <ArrowRight className={`${isMobile ? 'w-3.5 h-3.5' : 'w-4 h-4'}`} />
@@ -981,7 +981,7 @@ export default function GuidedTour({ isOpen, onClose, onComplete, onTabChange })
 
       {/* Sparkling Completion Animation */}
       {currentStep === tourSteps.length && (
-        <div className="fixed inset-0 z-[10002] flex items-center justify-center p-4 bg-gradient-to-br from-blue-900/90 to-blue-900/90 backdrop-blur-sm">
+        <div className="fixed inset-0 z-[10002] flex items-center justify-center p-4 bg-gradient-to-br from-primary/90 to-primary-900/90 backdrop-blur-sm">
           <motion.div
             initial={{ opacity: 0, scale: 0.5, y: 50 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -1070,7 +1070,7 @@ export default function GuidedTour({ isOpen, onClose, onComplete, onTabChange })
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.9, duration: 0.6 }}
-                className="bg-gradient-to-r from-blue-50 to-blue-50 rounded-2xl p-6 mb-6"
+                className="bg-accent-50 rounded-2xl p-6 mb-6"
               >
                 <h3 className="text-xl font-bold text-gray-800 mb-3">
                   Ready to Create Your First Resume?
@@ -1081,11 +1081,11 @@ export default function GuidedTour({ isOpen, onClose, onComplete, onTabChange })
                 
                 <div className="grid grid-cols-2 gap-3 text-sm">
                   <div className="bg-white p-3 rounded-lg shadow-sm">
-                    <Target className="w-5 h-5 text-blue-600 mx-auto mb-1" />
+                    <Target className="w-5 h-5 text-accent mx-auto mb-1" />
                     <p className="font-medium text-gray-800">ATS Optimized</p>
                   </div>
                   <div className="bg-white p-3 rounded-lg shadow-sm">
-                    <Bot className="w-5 h-5 text-blue-600 mx-auto mb-1" />
+                    <Bot className="w-5 h-5 text-accent mx-auto mb-1" />
                     <p className="font-medium text-gray-800">AI Enhanced</p>
                   </div>
                 </div>
@@ -1099,7 +1099,7 @@ export default function GuidedTour({ isOpen, onClose, onComplete, onTabChange })
                   onComplete?.();
                   onClose();
                 }}
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-600 text-white py-4 px-8 rounded-xl font-bold text-lg hover:from-blue-700 hover:to-blue-700 transition-all duration-200 flex items-center justify-center gap-3 shadow-lg"
+                className="w-full bg-gradient-to-r from-primary to-accent text-white py-4 px-8 rounded-xl font-bold text-lg hover:from-primary-800 hover:to-accent-600 transition-all duration-200 flex items-center justify-center gap-3 shadow-lg"
               >
                 <Sparkles className="w-6 h-6" />
                 Start Building Your Resume

@@ -48,7 +48,7 @@ export default function PricingPage({ searchParams }) {
 function LoadingSpinner() {
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center">
-      <div className="animate-spin rounded-full h-10 w-10 border-4 border-[#00C4B3] border-t-transparent"></div>
+      <div className="animate-spin rounded-full h-10 w-10 border-4 border-accent border-t-transparent"></div>
       <p className="mt-4 text-gray-500 text-sm font-medium">Loading pricing...</p>
     </div>
   );

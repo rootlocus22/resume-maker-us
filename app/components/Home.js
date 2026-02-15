@@ -191,7 +191,7 @@ export default function Home() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0B1F3B] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
           <p className="text-gray-600">Redirecting to your resumes...</p>
         </div>
       </div>
@@ -202,11 +202,11 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50 text-gray-900 overflow-hidden">
       {/* Enhanced Trust Signals & Social Proof - Match Hero Theme */}
       <Suspense fallback={<div className="w-full h-48 bg-gray-100 animate-pulse rounded-xl" />}>
-        <section className="py-16 bg-gradient-to-br from-[#050F20] via-[#0B1F3B] to-[#071429] text-white relative overflow-hidden">
+        <section className="py-16 bg-gradient-to-br from-gray-900 via-primary to-gray-900 text-white relative overflow-hidden">
           {/* Background Elements */}
           <div className="absolute inset-0 overflow-hidden opacity-20">
-            <div className="absolute top-10 left-10 w-32 h-32 bg-[#0B1F3B]/20 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#0B1F3B]/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute top-10 left-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-10 right-10 w-40 h-40 bg-primary/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
             <div className="absolute top-1/4 right-1/4 opacity-10">
               <img
                 src="/images/Linkedin post.jpeg"
@@ -219,7 +219,7 @@ export default function Home() {
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Trust Banner */}
             <div className="text-center mb-12">
-              <div className="inline-flex items-center bg-[#0B1F3B]/20 backdrop-blur-sm border border-[#0B1F3B]/30 px-6 py-3 rounded-full text-sm font-bold mb-6">
+              <div className="inline-flex items-center bg-primary/20 backdrop-blur-sm border border-primary/30 px-6 py-3 rounded-full text-sm font-bold mb-6">
                 <Trophy className="mr-2" size={18} />
                 <span>Trusted by professionals worldwide</span>
               </div>
@@ -249,7 +249,7 @@ export default function Home() {
             {/* Key Features */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-2xl border border-white/20 text-center transform hover:scale-105 transition-all duration-300 hover:bg-white/20">
-                <div className="text-2xl sm:text-2xl font-bold text-teal-400 mb-2">AI-Powered</div>
+                <div className="text-2xl sm:text-2xl font-bold text-accent-400 mb-2">AI-Powered</div>
                 <div className="text-white font-semibold text-sm sm:text-base">Resume Builder</div>
                 <div className="text-xs sm:text-sm text-gray-300 mt-1">Smart optimization</div>
               </div>
@@ -259,7 +259,7 @@ export default function Home() {
                 <div className="text-xs sm:text-sm text-gray-300 mt-1">Recruiter approved</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-2xl border border-white/20 text-center transform hover:scale-105 transition-all duration-300 hover:bg-white/20">
-                <div className="text-2xl sm:text-2xl font-bold text-teal-400 mb-2">Professional</div>
+                <div className="text-2xl sm:text-2xl font-bold text-accent-400 mb-2">Professional</div>
                 <div className="text-white font-semibold text-sm sm:text-base">Quality</div>
                 <div className="text-xs sm:text-sm text-gray-300 mt-1">HR expert designed</div>
               </div>
@@ -274,7 +274,7 @@ export default function Home() {
             {isUSDomain && (
               <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8">
                 <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 sm:px-6 py-3 sm:py-4 rounded-xl border border-white/20">
-                  <BadgeCheck className="text-teal-400 flex-shrink-0" size={24} />
+                  <BadgeCheck className="text-accent-400 flex-shrink-0" size={24} />
                   <div>
                     <div className="font-bold text-white text-sm sm:text-base">Verified Business</div>
                     <div className="text-xs text-gray-300">Trusted by Fortune 500</div>
@@ -295,18 +295,18 @@ export default function Home() {
 
       {/* Enhanced Problem Statement - Matching Hero Theme */}
       <Suspense fallback={<div className="w-full h-64 bg-gray-100 animate-pulse rounded-xl" />}>
-        <section className="py-20 bg-gradient-to-br from-[#0B1F3B] via-[#071429] to-[#050F20] text-white relative overflow-hidden">
+        <section className="py-20 bg-gradient-to-br from-primary via-gray-900 to-gray-900 text-white relative overflow-hidden">
           {/* Background Elements */}
           <div className="absolute inset-0 overflow-hidden opacity-20">
-            <div className="absolute top-20 left-20 w-32 h-32 bg-[#0B1F3B]/30 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-20 right-20 w-40 h-40 bg-[#0B1F3B]/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+            <div className="absolute top-20 left-20 w-32 h-32 bg-primary/30 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-20 right-20 w-40 h-40 bg-primary/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }}></div>
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Problem Hook */}
             <div className="text-center mb-12 sm:mb-16">
-              <div className="inline-flex items-center bg-[#0B1F3B]/20 backdrop-blur-sm border border-teal-400/40 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-bold mb-4 sm:mb-6">
-                <AlertCircle className="mr-2 text-teal-400" size={16} />
+              <div className="inline-flex items-center bg-primary/20 backdrop-blur-sm border border-accent/40 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-bold mb-4 sm:mb-6">
+                <AlertCircle className="mr-2 text-accent-400" size={16} />
                 <span className="text-slate-100">Common Resume Challenges</span>
               </div>
               <h2 className="text-2xl sm:text-2xl lg:text-5xl font-bold mb-4 sm:mb-6">
@@ -326,7 +326,7 @@ export default function Home() {
                   Many resumes are filtered out by Applicant Tracking Systems due to formatting issues,
                   missing keywords, or incompatible file formats.
                 </p>
-                <div className="bg-[#0B1F3B]/20 backdrop-blur-sm p-3 sm:p-4 rounded-lg border border-teal-400/30">
+                <div className="bg-primary/20 backdrop-blur-sm p-3 sm:p-4 rounded-lg border border-accent/30">
                   <p className="text-xs sm:text-sm text-slate-200 font-medium">
                     💡 Our templates are designed to pass ATS filters
                   </p>
@@ -340,7 +340,7 @@ export default function Home() {
                   Many resumes use generic templates that don't stand out. Recruiters typically spend
                   <span className="font-bold text-orange-400"> 6-10 seconds</span> reviewing each resume.
                 </p>
-                <div className="bg-[#0B1F3B]/20 backdrop-blur-sm p-3 sm:p-4 rounded-lg border border-teal-400/30">
+                <div className="bg-primary/20 backdrop-blur-sm p-3 sm:p-4 rounded-lg border border-accent/30">
                   <p className="text-xs sm:text-sm text-slate-200 font-medium">
                     ⏰ Professional design helps make a strong first impression
                   </p>
@@ -354,7 +354,7 @@ export default function Home() {
                   Creating a professional resume can be time-consuming. Many job seekers struggle with
                   formatting, content optimization, and ensuring ATS compatibility.
                 </p>
-                <div className="bg-[#0B1F3B]/20 backdrop-blur-sm p-3 sm:p-4 rounded-lg border border-teal-400/30">
+                <div className="bg-primary/20 backdrop-blur-sm p-3 sm:p-4 rounded-lg border border-accent/30">
                   <p className="text-xs sm:text-sm text-slate-200 font-medium">
                     💰 Our tools help you create professional resumes faster
                   </p>
@@ -364,8 +364,8 @@ export default function Home() {
 
             {/* Solution Promise */}
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0B1F3B]/10 to-[#00C4B3]/10 rounded-3xl blur-xl"></div>
-              <div className="relative bg-gradient-to-r from-[#0B1F3B] to-[#071429] text-white p-12 rounded-3xl border border-teal-400/30 backdrop-blur-sm">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 rounded-3xl blur-xl"></div>
+              <div className="relative bg-gradient-to-r from-primary to-gray-900 text-white p-12 rounded-3xl border border-accent/30 backdrop-blur-sm">
                 <div className="text-center mb-8">
                   <h3 className="text-2xl font-bold mb-4">
                     <span className="text-yellow-300">ExpertResume</span> Solves All These Problems
@@ -378,7 +378,7 @@ export default function Home() {
                 <div className="grid md:grid-cols-3 gap-8">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Target className="text-[#0B1F3B]" size={24} />
+                      <Target className="text-primary" size={24} />
                     </div>
                     <div>
                       <div className="font-bold text-lg mb-2">Beat the ATS</div>
@@ -390,7 +390,7 @@ export default function Home() {
 
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Sparkles className="text-[#0B1F3B]" size={24} />
+                      <Sparkles className="text-primary" size={24} />
                     </div>
                     <div>
                       <div className="font-bold text-lg mb-2">Stand Out Instantly</div>
@@ -402,7 +402,7 @@ export default function Home() {
 
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                      <TrendingUp className="text-[#0B1F3B]" size={24} />
+                      <TrendingUp className="text-primary" size={24} />
                     </div>
                     <div>
                       <div className="font-bold text-lg mb-2">Faster Results</div>
@@ -416,7 +416,7 @@ export default function Home() {
                 <div className="text-center mt-6 sm:mt-8">
                   <Link
                     href="/resume-builder"
-                    className="inline-flex items-center gap-2 sm:gap-3 bg-[#0B1F3B] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-lg sm:text-xl hover:bg-[#071429] transition-all duration-300 transform hover:scale-105 shadow-lg"
+                    className="inline-flex items-center gap-2 sm:gap-3 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-lg sm:text-xl hover:bg-gray-900 transition-all duration-300 transform hover:scale-105 shadow-lg"
                     onClick={() => handleClick("problem_solution_cta")}
                   >
                     <Rocket size={20} className="sm:w-6 sm:h-6" />
@@ -437,12 +437,12 @@ export default function Home() {
         <section className="py-16 sm:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
-              <div className="inline-flex items-center bg-slate-100 text-[#0B1F3B] px-4 sm:px-6 py-2 sm:py-3 rounded-full mb-4 sm:mb-6 text-xs sm:text-sm font-bold">
+              <div className="inline-flex items-center bg-slate-100 text-primary px-4 sm:px-6 py-2 sm:py-3 rounded-full mb-4 sm:mb-6 text-xs sm:text-sm font-bold">
                 <Timer className="mr-2" size={16} />
                 <span>⚡ Transform Your Career in 3 Simple Steps</span>
               </div>
               <h2 className="text-2xl sm:text-2xl lg:text-5xl font-bold mb-4 sm:mb-6 text-gray-900">
-                Create Your <span className="bg-gradient-to-r from-[#0B1F3B] to-teal-600 bg-clip-text text-transparent">Professional Resume</span> in Minutes
+                Create Your <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Professional Resume</span> in Minutes
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
                 Our simple 3-step process helps you build a professional, ATS-friendly resume
@@ -455,21 +455,21 @@ export default function Home() {
                 {/* Connection Line */}
                 <div className="hidden md:block absolute top-16 -right-4 w-8 h-0.5 bg-gradient-to-r from-gray-300 to-gray-400 z-10"></div>
 
-                <div className="relative bg-gradient-to-br from-slate-50 to-white p-4 sm:p-6 lg:p-8 rounded-3xl border-2 border-slate-200 hover:border-teal-400 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-2">
+                <div className="relative bg-gradient-to-br from-slate-50 to-white p-4 sm:p-6 lg:p-8 rounded-3xl border-2 border-slate-200 hover:border-accent transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-2">
                   {/* Step Number */}
-                  <div className="absolute -top-4 sm:-top-6 left-4 sm:left-8 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-sm sm:text-xl shadow-lg">
+                  <div className="absolute -top-4 sm:-top-6 left-4 sm:left-8 bg-gradient-to-r from-primary to-accent text-white w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-sm sm:text-xl shadow-lg">
                     1
                   </div>
 
                   {/* Content */}
                   <div className="text-center mb-6 sm:mb-8 pt-3 sm:pt-4">
                     <div className="mb-4 sm:mb-6 flex justify-center">
-                      <UploadCloud size={32} className="text-teal-500 sm:w-10 sm:h-10" />
+                      <UploadCloud size={32} className="text-accent sm:w-10 sm:h-10" />
                     </div>
                     <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">Upload or Start Fresh</h3>
 
                     {/* Time Badge */}
-                    <div className="inline-flex items-center bg-slate-100 text-[#0B1F3B] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+                    <div className="inline-flex items-center bg-slate-100 text-primary px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
                       <Clock size={12} className="mr-1 sm:mr-2 sm:w-4 sm:h-4" />
                       ⏱️ 30 seconds
                     </div>
@@ -478,7 +478,7 @@ export default function Home() {
 
                     {/* Benefits */}
                     <div className="bg-slate-50 border border-slate-200 p-3 sm:p-4 rounded-xl mb-4 sm:mb-6">
-                      <div className="text-[#0B1F3B] font-bold text-xs sm:text-sm mb-1 sm:mb-2">
+                      <div className="text-primary font-bold text-xs sm:text-sm mb-1 sm:mb-2">
                         ✨ No signup required!
                       </div>
                       <div className="text-gray-600 text-xs sm:text-sm">
@@ -490,7 +490,7 @@ export default function Home() {
                   {/* CTA Button */}
                   <Link
                     href="/resume-builder"
-                    className="block w-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-base text-center hover:from-[#071429] hover:to-[#008C81] transition-all duration-300 transform hover:scale-105 shadow-lg group-hover:shadow-xl"
+                    className="block w-full bg-gradient-to-r from-primary to-accent text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-base text-center hover:from-gray-900 hover:to-accent-700 transition-all duration-300 transform hover:scale-105 shadow-lg group-hover:shadow-xl"
                     onClick={() => handleClick(`how_it_works_cta_0`)}
                   >
                     Start Building FREE
@@ -503,21 +503,21 @@ export default function Home() {
                 {/* Connection Line */}
                 <div className="hidden md:block absolute top-16 -right-4 w-8 h-0.5 bg-gradient-to-r from-gray-300 to-gray-400 z-10"></div>
 
-                <div className="relative bg-gradient-to-br from-slate-50 to-white p-4 sm:p-6 lg:p-8 rounded-3xl border-2 border-slate-200 hover:border-teal-400 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-2">
+                <div className="relative bg-gradient-to-br from-slate-50 to-white p-4 sm:p-6 lg:p-8 rounded-3xl border-2 border-slate-200 hover:border-accent transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-2">
                   {/* Step Number */}
-                  <div className="absolute -top-4 sm:-top-6 left-4 sm:left-8 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-sm sm:text-xl shadow-lg">
+                  <div className="absolute -top-4 sm:-top-6 left-4 sm:left-8 bg-gradient-to-r from-primary to-accent text-white w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-sm sm:text-xl shadow-lg">
                     2
                   </div>
 
                   {/* Content */}
                   <div className="text-center mb-6 sm:mb-8 pt-3 sm:pt-4">
                     <div className="mb-4 sm:mb-6 flex justify-center">
-                      <Sparkles size={32} className="text-teal-500 sm:w-10 sm:h-10" />
+                      <Sparkles size={32} className="text-accent sm:w-10 sm:h-10" />
                     </div>
                     <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">AI Magic Happens</h3>
 
                     {/* Time Badge */}
-                    <div className="inline-flex items-center bg-slate-100 text-[#0B1F3B] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+                    <div className="inline-flex items-center bg-slate-100 text-primary px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
                       <Clock size={12} className="mr-1 sm:mr-2 sm:w-4 sm:h-4" />
                       ⏱️ 60 seconds
                     </div>
@@ -526,7 +526,7 @@ export default function Home() {
 
                     {/* Benefits */}
                     <div className="bg-slate-50 border border-slate-200 p-3 sm:p-4 rounded-xl mb-4 sm:mb-6">
-                      <div className="text-[#0B1F3B] font-bold text-xs sm:text-sm mb-1 sm:mb-2">
+                      <div className="text-primary font-bold text-xs sm:text-sm mb-1 sm:mb-2">
                         ✨ Instant optimization
                       </div>
                       <div className="text-gray-600 text-xs sm:text-sm">
@@ -538,7 +538,7 @@ export default function Home() {
                   {/* CTA Button */}
                   <Link
                     href="/upload-resume"
-                    className="block w-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-base text-center hover:from-[#071429] hover:to-[#008C81] transition-all duration-300 transform hover:scale-105 shadow-lg group-hover:shadow-xl"
+                    className="block w-full bg-gradient-to-r from-primary to-accent text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-base text-center hover:from-gray-900 hover:to-accent-700 transition-all duration-300 transform hover:scale-105 shadow-lg group-hover:shadow-xl"
                     onClick={() => handleClick(`how_it_works_cta_1`)}
                   >
                     See AI in Action
@@ -548,21 +548,21 @@ export default function Home() {
 
               {/* Step 3 - Green */}
               <div className="relative group">
-                <div className="relative bg-gradient-to-br from-slate-50 to-white p-4 sm:p-6 lg:p-8 rounded-3xl border-2 border-slate-200 hover:border-teal-400 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-2">
+                <div className="relative bg-gradient-to-br from-slate-50 to-white p-4 sm:p-6 lg:p-8 rounded-3xl border-2 border-slate-200 hover:border-accent transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-2">
                   {/* Step Number */}
-                  <div className="absolute -top-4 sm:-top-6 left-4 sm:left-8 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-sm sm:text-xl shadow-lg">
+                  <div className="absolute -top-4 sm:-top-6 left-4 sm:left-8 bg-gradient-to-r from-primary to-accent text-white w-8 h-8 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-sm sm:text-xl shadow-lg">
                     3
                   </div>
 
                   {/* Content */}
                   <div className="text-center mb-6 sm:mb-8 pt-3 sm:pt-4">
                     <div className="mb-4 sm:mb-6 flex justify-center">
-                      <Trophy size={32} className="text-teal-500 sm:w-10 sm:h-10" />
+                      <Trophy size={32} className="text-accent sm:w-10 sm:h-10" />
                     </div>
                     <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 text-gray-900">Land Interviews</h3>
 
                     {/* Time Badge */}
-                    <div className="inline-flex items-center bg-slate-100 text-[#0B1F3B] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
+                    <div className="inline-flex items-center bg-slate-100 text-primary px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4">
                       <Clock size={12} className="mr-1 sm:mr-2 sm:w-4 sm:h-4" />
                       ⏱️ 2 weeks avg
                     </div>
@@ -571,7 +571,7 @@ export default function Home() {
 
                     {/* Benefits */}
                     <div className="bg-slate-50 border border-slate-200 p-3 sm:p-4 rounded-xl mb-4 sm:mb-6">
-                      <div className="text-[#0B1F3B] font-bold text-xs sm:text-sm mb-1 sm:mb-2">
+                      <div className="text-primary font-bold text-xs sm:text-sm mb-1 sm:mb-2">
                         ✨ 94% success rate
                       </div>
                       <div className="text-gray-600 text-xs sm:text-sm">
@@ -583,7 +583,7 @@ export default function Home() {
                   {/* CTA Button */}
                   <Link
                     href="/pricing"
-                    className="block w-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-base text-center hover:from-[#071429] hover:to-[#008C81] transition-all duration-300 transform hover:scale-105 shadow-lg group-hover:shadow-xl"
+                    className="block w-full bg-gradient-to-r from-primary to-accent text-white px-4 sm:px-6 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-base text-center hover:from-gray-900 hover:to-accent-700 transition-all duration-300 transform hover:scale-105 shadow-lg group-hover:shadow-xl"
                     onClick={() => handleClick(`how_it_works_cta_2`)}
                   >
                     Get Premium Power
@@ -593,7 +593,7 @@ export default function Home() {
             </div>
 
             {/* Success Promise */}
-            <div className="text-center bg-gradient-to-r from-[#0B1F3B] to-[#071429] text-white p-6 sm:p-8 lg:p-12 rounded-3xl shadow-2xl">
+            <div className="text-center bg-gradient-to-r from-primary to-gray-900 text-white p-6 sm:p-8 lg:p-12 rounded-3xl shadow-2xl">
               <h3 className="text-2xl sm:text-2xl font-bold mb-3 sm:mb-4">
                 <span className="text-yellow-300">What to Expect:</span> Better Resume Performance
               </h3>
@@ -618,7 +618,7 @@ export default function Home() {
 
               <Link
                 href="/resume-builder"
-                className="inline-flex items-center gap-2 sm:gap-3 bg-[#0B1F3B] text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-full font-bold text-lg sm:text-xl hover:bg-[#071429] transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="inline-flex items-center gap-2 sm:gap-3 bg-primary text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-full font-bold text-lg sm:text-xl hover:bg-gray-900 transition-all duration-300 transform hover:scale-105 shadow-lg"
                 onClick={() => handleClick("how_it_works_final_cta")}
               >
                 <Rocket size={20} className="sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
@@ -636,12 +636,12 @@ export default function Home() {
         <section className="py-16 sm:py-20 bg-gradient-to-b from-gray-50 to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
-              <div className="inline-flex items-center bg-slate-100 text-[#0B1F3B] px-4 sm:px-6 py-2 sm:py-3 rounded-full mb-4 sm:mb-6 text-xs sm:text-sm font-bold">
+              <div className="inline-flex items-center bg-slate-100 text-primary px-4 sm:px-6 py-2 sm:py-3 rounded-full mb-4 sm:mb-6 text-xs sm:text-sm font-bold">
                 <Crown className="mr-2" size={16} />
                 <span>🚀 AI-Powered Career Transformation Tools</span>
               </div>
               <h2 className="text-2xl sm:text-2xl lg:text-5xl font-bold mb-4 sm:mb-6 text-gray-900 px-4">
-                Everything You Need to <span className="bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] bg-clip-text text-transparent">Dominate</span> Your Job Search
+                Everything You Need to <span className="bg-gradient-to-r from-primary to-primary bg-clip-text text-transparent">Dominate</span> Your Job Search
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
                 From ATS-beating resumes to interview mastery - we've built the complete toolkit for career success
@@ -656,7 +656,7 @@ export default function Home() {
                     {
                       title: "AI-Powered Resume Optimization",
                       description: "Our advanced AI analyzes your resume against 1000+ successful job applications and optimizes every word for maximum impact.",
-                      icon: <Brain className="text-teal-500" size={28} />,
+                      icon: <Brain className="text-accent" size={28} />,
                       premium: true,
                       stats: "94% pass ATS",
                       benefit: "Beat the robots"
@@ -664,7 +664,7 @@ export default function Home() {
                     {
                       title: "Smart Resume Builder",
                       description: "Professional templates designed by HR experts. Real-time preview, drag-and-drop editing, and instant formatting.",
-                      icon: <Sparkles className="text-teal-500" size={28} />,
+                      icon: <Sparkles className="text-accent" size={28} />,
                       premium: false,
                       stats: "60 sec build",
                       benefit: "Save hours"
@@ -672,7 +672,7 @@ export default function Home() {
                     {
                       title: "ExpertResume – AI Interview",
                       description: "Mock interviews with feedback from an AI Senior Interviewer. Get readiness reports and ace your next big opportunity.",
-                      icon: <Mic className="text-teal-500" size={28} />,
+                      icon: <Mic className="text-accent" size={28} />,
                       premium: true,
                       stats: "85% success",
                       benefit: "Ace interviews"
@@ -687,7 +687,7 @@ export default function Home() {
                     },
                   ].map((feature, i) => (
                     <div key={i} className="relative group">
-                      <div className="flex items-start gap-3 sm:gap-4 lg:gap-6 p-4 sm:p-6 bg-white rounded-2xl border-2 border-gray-100 hover:border-teal-300 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                      <div className="flex items-start gap-3 sm:gap-4 lg:gap-6 p-4 sm:p-6 bg-white rounded-2xl border-2 border-gray-100 hover:border-accent-300 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                         <div className="flex-shrink-0">
                           <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl flex items-center justify-center group-hover:from-slate-50 group-hover:to-slate-50 transition-all duration-300">
                             {React.cloneElement(feature.icon, { size: 20, className: `${feature.icon.props.className} sm:w-6 sm:h-6 lg:w-7 lg:h-7` })}
@@ -697,11 +697,11 @@ export default function Home() {
                           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                             <h3 className="font-bold text-lg sm:text-xl text-gray-900 leading-tight">{feature.title}</h3>
                             {feature.premium ? (
-                              <span className="inline-flex items-center px-2 sm:px-3 py-1 text-xs font-bold text-[#0B1F3B] bg-gradient-to-r from-slate-100 to-slate-100 rounded-full self-start">
+                              <span className="inline-flex items-center px-2 sm:px-3 py-1 text-xs font-bold text-primary bg-gradient-to-r from-slate-100 to-slate-100 rounded-full self-start">
                                 <Crown size={10} className="mr-1 sm:w-3 sm:h-3" /> Premium
                               </span>
                             ) : (
-                              <span className="inline-flex items-center px-2 sm:px-3 py-1 text-xs font-bold text-[#0B1F3B] bg-slate-100 rounded-full self-start">
+                              <span className="inline-flex items-center px-2 sm:px-3 py-1 text-xs font-bold text-primary bg-slate-100 rounded-full self-start">
                                 <CheckCircle size={10} className="mr-1 sm:w-3 sm:h-3" /> Free
                               </span>
                             )}
@@ -709,10 +709,10 @@ export default function Home() {
                           <p className="text-gray-600 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">{feature.description}</p>
                           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-6">
                             <div className="flex items-center gap-1 sm:gap-2">
-                              <TrendingUp size={14} className="text-teal-500 sm:w-4 sm:h-4" />
-                              <span className="text-xs sm:text-sm font-bold text-[#0B1F3B]">{feature.stats}</span>
+                              <TrendingUp size={14} className="text-accent sm:w-4 sm:h-4" />
+                              <span className="text-xs sm:text-sm font-bold text-primary">{feature.stats}</span>
                             </div>
-                            <div className="text-xs sm:text-sm text-[#0B1F3B] font-medium">💡 {feature.benefit}</div>
+                            <div className="text-xs sm:text-sm text-primary font-medium">💡 {feature.benefit}</div>
                           </div>
                         </div>
                       </div>
@@ -724,7 +724,7 @@ export default function Home() {
                 <div className="mt-8 sm:mt-12 text-center lg:text-left">
                   <Link
                     href="/resume-builder"
-                    className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-full font-bold text-lg sm:text-xl hover:from-[#071429] hover:to-[#071429] transition-all duration-300 transform hover:scale-105 shadow-lg"
+                    className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-primary to-primary text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-full font-bold text-lg sm:text-xl hover:from-gray-900 hover:to-gray-900 transition-all duration-300 transform hover:scale-105 shadow-lg"
                     onClick={() => handleClick("value_prop_cta")}
                   >
                     <Rocket size={18} className="sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
@@ -738,14 +738,14 @@ export default function Home() {
 
               {/* Video/Demo */}
               <div className="relative mt-8 lg:mt-0">
-                <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-[#0B1F3B]/20 to-[#00C4B3]/20 rounded-3xl blur-2xl"></div>
+                <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-2xl"></div>
                 <div className="relative bg-white rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
-                  <div className="bg-gradient-to-r from-[#0B1F3B] to-[#0B1F3B] p-3 sm:p-4">
+                  <div className="bg-gradient-to-r from-primary to-primary p-3 sm:p-4">
                     <div className="flex items-center gap-2 sm:gap-3">
                       <div className="flex gap-1 sm:gap-2">
                         <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-400 rounded-full"></div>
                         <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-400 rounded-full"></div>
-                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-teal-400 rounded-full"></div>
+                        <div className="w-2 h-2 sm:w-3 sm:h-3 bg-accent-400 rounded-full"></div>
                       </div>
                       <span className="text-white font-medium text-xs sm:text-sm">ExpertResume AI Demo</span>
                     </div>
@@ -754,7 +754,7 @@ export default function Home() {
                 </div>
 
                 {/* Floating Success Badge */}
-                <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 bg-gradient-to-r from-[#0B1F3B] to-teal-500 text-white px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-bold shadow-lg animate-pulse">
+                <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 bg-gradient-to-r from-primary to-accent text-white px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-bold shadow-lg animate-pulse">
                   <Trophy className="inline w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                   <span className="hidden sm:inline">100,000++ Success Stories</span>
                   <span className="sm:hidden">52K+ Stories</span>
@@ -769,16 +769,16 @@ export default function Home() {
 
 
       {/* Final CTA - Redesigned to Match Hero Theme */}
-      <section className="py-16 sm:py-20 bg-gradient-to-br from-[#050F20] via-[#0B1F3B] to-[#071429] text-white relative overflow-hidden">
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-gray-900 via-primary to-gray-900 text-white relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden opacity-20">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-[#0B1F3B]/30 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#0B1F3B]/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-10 left-10 w-32 h-32 bg-primary/30 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
         </div>
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center bg-[#0B1F3B]/20 backdrop-blur-sm border border-[#0B1F3B]/30 px-4 sm:px-6 py-2 sm:py-3 rounded-full mb-6 sm:mb-8 text-xs sm:text-sm font-bold animate-pulse">
+          <div className="inline-flex items-center bg-primary/20 backdrop-blur-sm border border-primary/30 px-4 sm:px-6 py-2 sm:py-3 rounded-full mb-6 sm:mb-8 text-xs sm:text-sm font-bold animate-pulse">
             <Sparkles className="mr-2" size={16} />
             <span>🚀 Start Improving Your Resume Today</span>
           </div>
@@ -815,7 +815,7 @@ export default function Home() {
 
               <Link
                 href="/resume-builder"
-                className="block w-full bg-gradient-to-r from-[#0B1F3B] to-teal-600 text-white px-6 sm:px-8 py-4 sm:py-5 rounded-2xl font-bold text-lg sm:text-xl hover:from-[#071429] hover:to-teal-700 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+                className="block w-full bg-gradient-to-r from-primary to-accent text-white px-6 sm:px-8 py-4 sm:py-5 rounded-2xl font-bold text-lg sm:text-xl hover:from-gray-900 hover:to-accent-600 transition-all duration-300 transform hover:scale-105 shadow-2xl"
                 onClick={() => handleClick("final_cta_free")}
               >
                 🚀 Start for Free
@@ -867,7 +867,7 @@ export default function Home() {
             </div>
 
             {/* New Premium Features Plan */}
-            <div className="bg-gradient-to-br from-[#0B1F3B]/80 to-[#071429]/80 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-teal-400/30 hover:bg-[#071429]/90 transition-all duration-300 transform hover:scale-105">
+            <div className="bg-gradient-to-br from-primary/80 to-gray-900/80 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-accent/30 hover:bg-gray-900/90 transition-all duration-300 transform hover:scale-105">
               <div className="text-4xl sm:text-6xl mb-4 sm:mb-6">🚀</div>
               <h3 className="text-2xl sm:text-2xl font-bold mb-3 sm:mb-4">Advanced AI Tools</h3>
               <p className="text-slate-200 mb-6 sm:mb-8 text-base sm:text-lg">Professional features for career growth</p>
@@ -889,7 +889,7 @@ export default function Home() {
 
               <Link
                 href="/pricing"
-                className="block w-full bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-6 sm:px-8 py-4 sm:py-5 rounded-2xl font-bold text-lg sm:text-xl hover:from-[#071429] hover:to-[#008C81] transition-all duration-300 transform hover:scale-105 shadow-2xl"
+                className="block w-full bg-gradient-to-r from-primary to-accent text-white px-6 sm:px-8 py-4 sm:py-5 rounded-2xl font-bold text-lg sm:text-xl hover:from-gray-900 hover:to-accent-700 transition-all duration-300 transform hover:scale-105 shadow-2xl"
                 onClick={() => handleClick("final_cta_advanced")}
               >
                 🚀 Unlock Advanced Features
@@ -901,7 +901,7 @@ export default function Home() {
           {/* Trust Signals */}
           <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8 text-xs sm:text-sm mb-8 sm:mb-12 opacity-90">
             <div className="flex items-center gap-2">
-              <ShieldCheck size={14} className="text-teal-400 sm:w-4 sm:h-4" />
+              <ShieldCheck size={14} className="text-accent-400 sm:w-4 sm:h-4" />
               <span>100% Secure & Private</span>
             </div>
             <div className="flex items-center gap-2">
@@ -909,7 +909,7 @@ export default function Home() {
               <span>One-time payment · No auto-billing</span>
             </div>
             <div className="flex items-center gap-2">
-              <Users size={14} className="text-teal-400 sm:w-4 sm:h-4" />
+              <Users size={14} className="text-accent-400 sm:w-4 sm:h-4" />
               <span>Trusted by 100,000++ professionals</span>
             </div>
           </div>
@@ -919,11 +919,11 @@ export default function Home() {
             <p className="text-xl sm:text-2xl font-bold mb-3">Ready to create your professional resume?</p>
             <div className="flex items-center justify-center gap-6 sm:gap-8 text-base sm:text-lg">
               <div className="text-center">
-                <div className="text-2xl sm:text-2xl font-bold text-teal-400">Free</div>
+                <div className="text-2xl sm:text-2xl font-bold text-accent-400">Free</div>
                 <div className="text-gray-300 text-xs sm:text-sm">To get started</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl sm:text-2xl font-bold text-teal-400">ATS-Friendly</div>
+                <div className="text-2xl sm:text-2xl font-bold text-accent-400">ATS-Friendly</div>
                 <div className="text-gray-300 text-xs sm:text-sm">Templates</div>
               </div>
             </div>
@@ -958,11 +958,11 @@ export default function Home() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Software Engineer */}
-              <Link href="/resume-builder-software-engineer" className="group bg-gradient-to-br from-slate-50 to-teal-50 p-6 rounded-xl border-2 border-slate-200 hover:border-teal-500 hover:shadow-lg transition-all duration-300">
+              <Link href="/resume-builder-software-engineer" className="group bg-gradient-to-br from-slate-50 to-accent-50 p-6 rounded-xl border-2 border-slate-200 hover:border-accent hover:shadow-lg transition-all duration-300">
                 <div className="flex items-start gap-4">
                   <div className="text-4xl">💻</div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#0B1F3B] transition-colors mb-2">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">
                       Software Engineer Resume
                     </h3>
                     <p className="text-sm text-gray-600">
@@ -973,11 +973,11 @@ export default function Home() {
               </Link>
 
               {/* MBA Freshers */}
-              <Link href="/resume-builder-mba-freshers" className="group bg-gradient-to-br from-slate-50 to-slate-100 p-6 rounded-xl border-2 border-slate-200 hover:border-teal-500 hover:shadow-lg transition-all duration-300">
+              <Link href="/resume-builder-mba-freshers" className="group bg-gradient-to-br from-slate-50 to-slate-100 p-6 rounded-xl border-2 border-slate-200 hover:border-accent hover:shadow-lg transition-all duration-300">
                 <div className="flex items-start gap-4">
                   <div className="text-4xl">📈</div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#0B1F3B] transition-colors mb-2">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">
                       MBA Fresher Resume
                     </h3>
                     <p className="text-sm text-gray-600">
@@ -1003,11 +1003,11 @@ export default function Home() {
               </Link>
 
               {/* US Jobs */}
-              <Link href="/resume-builder-us-jobs" className="group bg-gradient-to-br from-slate-50 to-slate-100 p-6 rounded-xl border-2 border-slate-200 hover:border-teal-500 hover:shadow-lg transition-all duration-300">
+              <Link href="/resume-builder-us-jobs" className="group bg-gradient-to-br from-slate-50 to-slate-100 p-6 rounded-xl border-2 border-slate-200 hover:border-accent hover:shadow-lg transition-all duration-300">
                 <div className="flex items-start gap-4">
                   <div className="text-4xl">🇺🇸</div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-teal-600 transition-colors mb-2">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-accent transition-colors mb-2">
                       US Jobs Resume
                     </h3>
                     <p className="text-sm text-gray-600">
@@ -1022,7 +1022,7 @@ export default function Home() {
             <div className="text-center mt-12">
               <Link
                 href="/resume-builder"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-8 py-4 rounded-xl font-bold hover:from-[#071429] hover:to-[#008C81] transition-all shadow-lg hover:shadow-xl"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-white px-8 py-4 rounded-xl font-bold hover:from-gray-900 hover:to-accent-700 transition-all shadow-lg hover:shadow-xl"
               >
                 Build Your Industry-Specific Resume
                 <ArrowRight size={20} />
@@ -1063,7 +1063,7 @@ const StickyCTABar = () => {
     <div className="fixed bottom-16 left-4 right-4 z-40 flex justify-center">
       <Link
         href="/resume-builder"
-        className="bg-gradient-to-r from-[#0B1F3B] to-[#00C4B3] text-white px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base lg:text-lg shadow-lg hover:from-[#071429] hover:to-[#008C81] hover:shadow-xl transition-all duration-300 flex items-center gap-1 sm:gap-2"
+        className="bg-gradient-to-r from-primary to-accent text-white px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base lg:text-lg shadow-lg hover:from-gray-900 hover:to-accent-700 hover:shadow-xl transition-all duration-300 flex items-center gap-1 sm:gap-2"
         onClick={() => handleClick("sticky_cta")}
       >
         <FilePlus size={16} className="sm:w-5 sm:h-5" />

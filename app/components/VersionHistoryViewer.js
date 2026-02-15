@@ -39,7 +39,7 @@ const VersionHistoryViewer = ({
       case 'ai_rephrase':
         return <Sparkles size={14} className="text-purple-500" />;
       case 'ai_bullets':
-        return <Sparkles size={14} className="text-blue-500" />;
+        return <Sparkles size={14} className="text-accent" />;
       case 'manual_edit':
         return <Edit3 size={14} className="text-gray-500" />;
       default:
@@ -97,7 +97,7 @@ const VersionHistoryViewer = ({
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50 rounded-t-xl">
           <div className="flex items-center gap-3">
-            <Clock size={20} className="text-blue-600" />
+            <Clock size={20} className="text-accent" />
             <div>
               <h2 className="text-lg font-semibold text-gray-900">Version History</h2>
               <p className="text-sm text-gray-500">{fieldName}</p>
@@ -116,7 +116,7 @@ const VersionHistoryViewer = ({
         <div className="flex-1 overflow-y-auto p-4">
           {isLoading ? (
             <div className="flex items-center justify-center py-12">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-accent"></div>
             </div>
           ) : versions.length === 0 ? (
             <div className="text-center py-12">
@@ -132,7 +132,7 @@ const VersionHistoryViewer = ({
                   className={`
                     border rounded-lg p-4 transition-all cursor-pointer
                     ${selectedVersion?.id === version.id 
-                      ? 'border-blue-300 bg-blue-50 shadow-md' 
+                      ? 'border-accent/30 bg-accent-50 shadow-md' 
                       : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm'
                     }
                   `}
@@ -160,7 +160,7 @@ const VersionHistoryViewer = ({
                             e.stopPropagation();
                             handleRestore(version);
                           }}
-                          className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded hover:bg-blue-200 transition-colors flex items-center gap-1"
+                          className="text-xs bg-accent-50 text-accent-700 px-2 py-1 rounded hover:bg-accent-100 transition-colors flex items-center gap-1"
                           title="Restore this version"
                         >
                           <RotateCcw size={12} />
