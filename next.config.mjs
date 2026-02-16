@@ -123,6 +123,19 @@ const nextConfig = {
             destination: '/',
             permanent: true,
         }));
+        // Missing blog slugs (old links / typos) → blog hub so they don’t 404
+        const missingBlogRedirects = [
+            '/blog/resume-government-jobs-guide',
+            '/blog/resume-remote-work-guide',
+            '/blog/resume-freelance-work-guide',
+            '/blog/resume-finance-career-guide',
+            '/blog/resume-healthcare-career-guide',
+            '/blog/resume-education-career-guide',
+            '/blog/resume-cover-letter-guide',
+            '/blog/resume-writing-tips-for-career-changers',
+            '/blog/resume-interests-section-guide',
+        ].map((source) => ({ source, destination: '/blog', permanent: true }));
+
         return [
             {
                 source: '/home',
@@ -134,6 +147,7 @@ const nextConfig = {
                 destination: '/resume-builder',
                 permanent: false,
             },
+            ...missingBlogRedirects,
             ...indiaRedirects,
         ];
     },
