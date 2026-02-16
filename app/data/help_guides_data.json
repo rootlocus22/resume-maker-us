@@ -1,0 +1,285 @@
+[
+  {
+    "slug": "resume-builder",
+    "title": "How to Create a Resume with ExpertResume",
+    "product": "Resume Builder",
+    "productUrl": "/resume-builder",
+    "description": "Step-by-step guide to build an ATS-friendly resume from scratch.",
+    "icon": "FileText",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Choose a template",
+        "body": "On the Resume Builder page, browse templates by style (Classic, Modern, Minimal, etc.). Click any template to select it. You can change the template later without losing your content.",
+        "tip": "All templates are ATS-optimized. Pick one that fits your industry—e.g. Classic for corporate, Modern for tech."
+      },
+      {
+        "step": 2,
+        "title": "Fill in your details",
+        "body": "Enter your name, email, phone, and location in the contact section. Then add Experience, Education, Skills, and optional sections (Projects, Certifications, Summary). Use the AI suggestion buttons (sparkle icon) next to fields for instant, role-specific suggestions.",
+        "tip": "Start with your most recent role. Use bullet points and action verbs (Led, Built, Improved). Quantify where possible (e.g. \"Increased sign-ups by 30%\")."
+      },
+      {
+        "step": 3,
+        "title": "Use AI suggestions (optional)",
+        "body": "Click the AI icon next to Summary, Experience bullets, or Skills to get tailored suggestions. You can accept, edit, or ignore. Premium users get full-resume AI Boost for one-click optimization.",
+        "tip": "Paste your job description into the JD-based builder (/job-specific-resume-builder) to get suggestions matched to that role."
+      },
+      {
+        "step": 4,
+        "title": "Preview and adjust",
+        "body": "Use the live preview on the right (desktop) or switch to Preview tab (mobile). Check spacing, page breaks, and length. Keep it to one page if you have under 5 years of experience; two pages max for senior roles.",
+        "tip": "Avoid long paragraphs. Use 3–5 bullet points per role. Keep font size readable (10–12pt)."
+      },
+      {
+        "step": 5,
+        "title": "Download or save",
+        "body": "Click **Download PDF** for an ATS-friendly PDF. Free users get a small watermark; Premium users get watermark-free PDF and DOCX. Use **Email PDF** if download doesn’t work. Sign up or log in to save your resume and access it from any device.",
+        "tip": "Before applying, run your resume through our free ATS Score Checker to see how it parses and get improvement tips."
+      }
+    ],
+    "faqs": [
+      { "q": "Do I need to sign up to build a resume?", "a": "No. You can build and download without signing up. Create an account to save resumes and use them across devices." },
+      { "q": "Can I change the template after adding content?", "a": "Yes. Your content stays; only the layout and style change." },
+      { "q": "What file formats can I download?", "a": "PDF (all users). Premium users also get DOCX. Both are ATS-friendly." }
+    ]
+  },
+  {
+    "slug": "ats-score-checker",
+    "title": "How to Check Your Resume ATS Score",
+    "product": "ATS Score Checker",
+    "productUrl": "/ats-score-checker",
+    "description": "Use our free ATS checker to see how well your resume parses and get improvement tips.",
+    "icon": "BarChart3",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Open the ATS Score Checker",
+        "body": "Go to **ATS Score Checker** from the main menu or visit /ats-score-checker. No signup required for basic checks.",
+        "tip": "You can check the same resume multiple times after making changes."
+      },
+      {
+        "step": 2,
+        "title": "Upload your resume or paste job details",
+        "body": "Upload your resume (PDF or DOCX) or paste the job title and description. For best results, paste the job description of the role you’re applying to—our tool will compare your resume against it and suggest missing keywords.",
+        "tip": "Role-specific pages (e.g. /check-ats-score-for/software-engineer-resume) pre-fill the job type for more relevant scoring."
+      },
+      {
+        "step": 3,
+        "title": "Review your score and report",
+        "body": "You’ll get an overall ATS score (0–100) and a breakdown: keyword match, formatting, section completeness, and skills. Green = good; red/orange = needs improvement. Read the suggestions under each section.",
+        "tip": "Aim for 70%+ for a decent chance; 85%+ significantly improves callback rates."
+      },
+      {
+        "step": 4,
+        "title": "Apply the suggestions",
+        "body": "Add missing keywords from the job description (naturally in bullets, not stuffed). Fix formatting issues (e.g. single column, standard headings). Then re-upload and check again until you’re satisfied.",
+        "tip": "Use our Resume Builder or Upload & Enhance to edit your resume with ATS-friendly formatting, then re-check."
+      }
+    ],
+    "faqs": [
+      { "q": "Is the ATS checker really free?", "a": "Yes. You can run multiple checks for free. No credit card required." },
+      { "q": "Which ATS systems does this simulate?", "a": "Our logic is based on common ATS behavior (Workday, Greenhouse, Lever, Taleo, etc.). No tool can replicate every ATS exactly, but we cover the main parsing and keyword rules." },
+      { "q": "Why did my score drop after changes?", "a": "Sometimes adding too many keywords or changing structure can hurt. Follow the in-report suggestions and keep wording natural." }
+    ]
+  },
+  {
+    "slug": "ai-interview",
+    "title": "How to Practice Interviews with AI Interview",
+    "product": "AI Interview",
+    "productUrl": "/ai-interview",
+    "description": "Practice mock interviews with AI and get instant feedback.",
+    "icon": "Mic",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Go to AI Interview",
+        "body": "Click **AI Interview** in the main menu or visit /ai-interview. Choose your goal: Mock Interview, AI Practice, Role-specific (e.g. Software Engineer), or Fresher practice.",
+        "tip": "Use the directory (/ai-interview/directory) to pick a country and role for tailored questions."
+      },
+      {
+        "step": 2,
+        "title": "Select country and role",
+        "body": "Pick the country (India, US, UK, etc.) so scoring matches local expectations. Then choose your role (e.g. Software Engineer, Data Scientist, MBA Fresher). You can also choose interview type: Behavioral, Technical, or Mixed.",
+        "tip": "Role-specific sessions use questions and rubrics designed for that job family."
+      },
+      {
+        "step": 3,
+        "title": "Start the session",
+        "body": "You’ll see an AI interviewer and questions one at a time. Answer out loud or type, depending on the mode. The AI may ask follow-up questions. Take your time; there’s no strict timer for practice.",
+        "tip": "Use the STAR method (Situation, Task, Action, Result) for behavioral questions."
+      },
+      {
+        "step": 4,
+        "title": "Review feedback and score",
+        "body": "After the session, you’ll get feedback on your answers: strengths, what to improve, and an overall score. Review the report and re-run the same or a different role to improve.",
+        "tip": "Repeating the same role helps you refine answers. Try different roles to broaden preparation."
+      }
+    ],
+    "faqs": [
+      { "q": "Do I need to speak or can I type?", "a": "Depends on the session type. Some support voice, some text. Check the session setup screen." },
+      { "q": "Is AI Interview free?", "a": "There are free practice options. Premium users get more sessions and advanced feedback." },
+      { "q": "Can I use it for technical interviews?", "a": "Yes. Choose Technical or Mixed when selecting the interview type, and pick a technical role (e.g. Software Engineer) for relevant questions." }
+    ]
+  },
+  {
+    "slug": "cover-letter-builder",
+    "title": "How to Write a Cover Letter with ExpertResume",
+    "product": "Cover Letter Builder",
+    "productUrl": "/cover-letter-builder",
+    "description": "Create a tailored cover letter that matches your resume and the job.",
+    "icon": "Mail",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Open the Cover Letter Builder",
+        "body": "Go to **Cover Letter** from the menu or visit /cover-letter-builder. You can start from scratch or link to an existing resume for consistent details.",
+        "tip": "Using the same name, contact info, and key achievements as your resume keeps your application consistent."
+      },
+      {
+        "step": 2,
+        "title": "Enter job and company details",
+        "body": "Add the job title, company name, and if possible paste the job description. Our AI uses this to tailor the letter’s tone and keywords.",
+        "tip": "The more specific the job description, the better the AI suggestions."
+      },
+      {
+        "step": 3,
+        "title": "Draft and edit",
+        "body": "Generate a first draft with AI, then edit the opening, body, and closing. Keep it to 3–4 short paragraphs. Mention 1–2 concrete achievements that match the role.",
+        "tip": "Start with why you’re interested in the role/company, not your life story."
+      },
+      {
+        "step": 4,
+        "title": "Download and send",
+        "body": "Preview the letter, then download as PDF. Attach it with your resume when applying, or paste into the application form if required.",
+        "tip": "Name the file clearly: YourName_CoverLetter_CompanyName.pdf"
+      }
+    ],
+    "faqs": [
+      { "q": "How long should the cover letter be?", "a": "One page, 3–4 paragraphs. Hiring managers often skim; keep it concise." },
+      { "q": "Can I use the same cover letter for multiple jobs?", "a": "We recommend tailoring at least the company name, role, and one paragraph per application. Our builder makes this quick." }
+    ]
+  },
+  {
+    "slug": "job-specific-resume",
+    "title": "How to Tailor Your Resume to a Job Description",
+    "product": "Job-Specific Resume Builder",
+    "productUrl": "/job-specific-resume-builder",
+    "description": "Optimize your resume for a specific job using the job description.",
+    "icon": "Target",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Open the Job-Specific Resume Builder",
+        "body": "Go to **Job-Specific Resume Builder** (or /job-specific-resume-builder). Have your current resume and the job description ready.",
+        "tip": "Copy the full job description from the job posting for best results."
+      },
+      {
+        "step": 2,
+        "title": "Upload resume and paste job description",
+        "body": "Upload your resume (PDF/DOCX) or paste its content. Then paste the full job description into the JD field. Click **Analyze** or **Optimize**.",
+        "tip": "Including the exact job title from the posting helps keyword matching."
+      },
+      {
+        "step": 3,
+        "title": "Review suggestions",
+        "body": "You’ll see missing keywords, suggested bullet improvements, and section tips. Add or rephrase bullets to include relevant keywords naturally. Don’t stuff; keep sentences clear.",
+        "tip": "Focus on \"required\" and \"preferred\" skills from the JD first."
+      },
+      {
+        "step": 4,
+        "title": "Download and re-check ATS score",
+        "body": "Download the updated resume and run it through the ATS Score Checker again, with the same job description if possible, to see the improvement.",
+        "tip": "Save a master resume and create JD-specific versions for each application."
+      }
+    ],
+    "faqs": [
+      { "q": "Is this different from the normal Resume Builder?", "a": "Yes. This tool focuses on matching your resume to one job description and suggesting changes. The main Resume Builder is for creating/editing from scratch." },
+      { "q": "Can I use it for multiple jobs?", "a": "Yes. Run it separately for each job and save different versions." }
+    ]
+  },
+  {
+    "slug": "job-search",
+    "title": "How to Find Jobs with ExpertResume Job Search",
+    "product": "Job Search (Find Jobs)",
+    "productUrl": "/jobs-nearby",
+    "description": "Use AI-powered job search to find roles, filter results, save jobs, and get a resume fit score.",
+    "icon": "Target",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Open Job Search (Find Jobs)",
+        "body": "Sign in to your account. From the main menu, go to **Job Search** → **Find Jobs**, or visit /jobs-nearby. Job Search is included with Premium or the Job Search add-on.",
+        "tip": "Free users get limited searches per day; Premium users get full access and more result pages."
+      },
+      {
+        "step": 2,
+        "title": "Enter your search",
+        "body": "Type your job title or skills (e.g. Software Engineer, Data Analyst) in the search box. Choose your location (e.g. US or a city). Click **Search**. Results are aggregated from multiple job sources.",
+        "tip": "Use the quick filters: Remote, Hybrid, Easy Apply, Top Pay, Recently Posted to narrow results."
+      },
+      {
+        "step": 3,
+        "title": "Browse results and open job details",
+        "body": "Click a job in the list to open the full description in the detail pane. Read the JD, then **Save** the job if you want to track it in My Job Tracker. You can save multiple jobs and come back later.",
+        "tip": "Saved jobs appear in My Jobs so you can update status (Applied, Interview, Offer) as you progress."
+      },
+      {
+        "step": 4,
+        "title": "Get a fit score and apply",
+        "body": "Click **Match** or **Apply** on a job to go to the Job Match page. We compare your resume to the job description and show a fit score and suggestions. Use that to tailor your resume, then apply on the company’s site. Log the application in My Job Tracker.",
+        "tip": "A higher fit score means your resume aligns better with the JD; improve it using our Job-Specific Resume Builder."
+      },
+      {
+        "step": 5,
+        "title": "Turn on job alerts (optional)",
+        "body": "Enable job alerts so we save your last search and can notify you when new matching jobs appear. You can change or disable alerts anytime from the same page.",
+        "tip": "Helpful if you’re actively looking and don’t want to search manually every day."
+      }
+    ],
+    "faqs": [
+      { "q": "Do I need Premium for Job Search?", "a": "You need to be signed in. Full Job Search (more pages, full access) is included with Premium or the Job Search add-on. Free users get limited daily searches." },
+      { "q": "Where do the jobs come from?", "a": "Jobs are aggregated from multiple job boards and sources. We match them to your query and location." },
+      { "q": "What is the Job Match / fit score?", "a": "When you click Match or Apply, we analyze your resume against the job description and show how well you fit, plus suggestions to improve." }
+    ]
+  },
+  {
+    "slug": "my-job-tracker",
+    "title": "How to Track Applications with My Job Tracker",
+    "product": "My Job Tracker (My Jobs)",
+    "productUrl": "/my-jobs",
+    "description": "Track every job you apply to: status, daily goals, funnel, and follow-up reminders.",
+    "icon": "BarChart3",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Open My Job Tracker",
+        "body": "Sign in and go to **Job Search** → **My Jobs** in the menu, or visit /my-jobs. My Job Tracker is included with Premium or the Job Search add-on.",
+        "tip": "You can also reach it from the dashboard via the My Jobs card."
+      },
+      {
+        "step": 2,
+        "title": "Use the daily goal and funnel",
+        "body": "At the top you’ll see a **daily apply goal** (e.g. apply to 5 jobs today). The bar fills as you mark jobs as Applied. Below that, the **funnel** shows counts: Applied, Interview, Offer. Use it to see your pipeline at a glance.",
+        "tip": "Hitting your daily goal consistently improves your chances of getting callbacks."
+      },
+      {
+        "step": 3,
+        "title": "Add and update jobs",
+        "body": "Click **Add Job** to log a new application: company name, role, job link (optional), and status (Saved, Applied, Interview, Offer). Jobs you save from Find Jobs also appear here. When you get an interview or offer, edit the job and update its status.",
+        "tip": "Set the correct status so your funnel and follow-up suggestions stay accurate."
+      },
+      {
+        "step": 4,
+        "title": "Use the list and follow-up suggestions",
+        "body": "Your jobs are listed with status and date. We suggest when to follow up. Use the list to prepare for interviews and remember where you applied. You can delete or edit any job.",
+        "tip": "Keeping My Job Tracker updated helps you stay organized and never miss a follow-up."
+      }
+    ],
+    "faqs": [
+      { "q": "Is My Job Tracker free?", "a": "My Job Tracker is included with Premium or the Job Search add-on. Sign in and check your plan or add the add-on from the pricing/checkout flow." },
+      { "q": "Can I add jobs I applied to outside ExpertResume?", "a": "Yes. Click Add Job and enter company, role, and link. Set status to Applied (or Interview/Offer) so it counts in your funnel." },
+      { "q": "What is the daily apply goal?", "a": "A simple target (e.g. 5 applications per day) to keep your job search consistent. The bar on the dashboard shows progress for today." }
+    ]
+  }
+]

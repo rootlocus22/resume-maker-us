@@ -240,6 +240,12 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
+                    <Link href="/help" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm block flex items-center gap-1">
+                      <HelpCircle className="w-3.5 h-3.5" />
+                      Help & How-to
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/contact-us" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm block">
                       Contact
                     </Link>
@@ -541,6 +547,12 @@ export default function Footer() {
               <li>
                 <Link href="/about-us" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm block">
                   About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/help" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm block flex items-center gap-1">
+                  <HelpCircle className="w-3.5 h-3.5" />
+                  Help & How-to
                 </Link>
               </li>
               <li>

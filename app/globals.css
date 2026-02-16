@@ -1,6 +1,4 @@
-@import "slick-carousel/slick/slick.css";
-@import "slick-carousel/slick/slick-theme.css";
-
+/* slick-carousel removed — not used by any component, was blocking LCP */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -22,7 +20,7 @@
 
 /* globals.css */
 body {
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins), ui-sans-serif, system-ui, Arial, sans-serif;
   background-color: #F8FAFC;
 }
 
@@ -41,7 +39,7 @@ input, select, textarea {
 }
 
 code, pre {
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-manrope), ui-monospace, monospace;
 }
 
 /* Resume text preservation - prevent word joining and preserve hyphens */
@@ -648,35 +646,6 @@ section:not(:last-child) {
 .delay-315 { animation-delay: 200ms; }
 .delay-315 { animation-delay: 300ms; }
 
-.slick-prev:before,
-.slick-next:before {
-  display: none; /* Hide default arrow content */
-}
-
-.custom-dots {
-  bottom: -40px; /* Move dots below the carousel */
-}
-
-.custom-dots li {
-  margin: 0 6px;
-}
-
-.custom-dots li button:before {
-  font-size: 0; /* Hide default dot content */
-  width: 12px;
-  height: 12px;
-  background-color: #d1d5db; /* Gray-315 */
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
-}
-
-.custom-dots li.slick-active button:before {
-  background-color: #2563eb; /* Blue-600 */
-}
-
-.custom-dots li button:hover:before {
-  background-color: #9333ea; /* Purple-600 */
-}
 .shadow-container {
   -webkit-transform: translateZ(0); /* Force hardware acceleration in Safari */
   transform: translateZ(0);

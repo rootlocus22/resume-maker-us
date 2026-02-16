@@ -594,6 +594,7 @@ export default function Header() {
                 width={180}
                 height={48}
                 fetchPriority="high"
+                loading="eager"
                 className="h-10 w-auto max-h-[48px] object-contain object-left"
                 decoding="async"
               />
@@ -977,6 +978,7 @@ export default function Header() {
                 width={160}
                 height={44}
                 fetchPriority="high"
+                loading="eager"
                 className="h-10 w-auto max-h-[44px] object-contain"
                 decoding="async"
               />

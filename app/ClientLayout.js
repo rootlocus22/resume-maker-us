@@ -1,11 +1,12 @@
 //trigger build 2
 "use client";
+import dynamic from "next/dynamic";
 import { useAuth } from "./context/AuthContext";
 import { usePathname } from "next/navigation";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
-
 import CookieYesController from "./components/CookieYesController";
+
+const Footer = dynamic(() => import("./components/Footer"), { ssr: true, loading: () => null });
 import CCPABanner from "./components/CCPABanner";
 import { Toaster } from "react-hot-toast";
 import { Analytics } from "@vercel/analytics/react";

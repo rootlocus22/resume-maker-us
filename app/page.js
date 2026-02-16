@@ -1,6 +1,3 @@
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
-import CookieYesScript from "./components/CookieYesScript";
 import AuthGuard from "./components/AuthGuard";
 import Hero from "./components/Hero";
 import HomePageLazyContent from "./components/HomePageLazyContent";
@@ -90,16 +87,6 @@ export const metadata = {
     title: "ExpertResume",
     statusBarStyle: "black-translucent",
   },
-};
-
-// ... schemas remain the same ...
-// Preload critical fonts
-const fontPreload = {
-  rel: "preload",
-  href: "/fonts/inter-var.woff2",
-  as: "font",
-  type: "font/woff2",
-  crossOrigin: "anonymous",
 };
 
 const faqSchema = {
@@ -340,10 +327,10 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      {/* Critical LCP Component - Rendered Immediately (SSR) */}
+      {/* Critical LCP - Hero renders immediately */}
       <Hero />
 
-      {/* Lazy Loaded Components for TBT Optimization (Client-Side Only) */}
+      {/* Below-fold components use dynamic import (ssr: false) to reduce initial HTML */}
       <HomePageLazyContent />
     </>
   );

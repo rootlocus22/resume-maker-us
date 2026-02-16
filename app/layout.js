@@ -161,13 +161,16 @@ export default function RootLayout({ children }) {
         {process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && (
           <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
         )}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="theme-color" content="var(--color-primary)" />
         <link rel="preconnect" href="https://va.vercel-scripts.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
+        <link rel="dns-prefetch" href="https://firebase.googleapis.com" />
         <link rel="dns-prefetch" href="https://js.stripe.com" />
         <link rel="preload" as="image" href="/ExpertResume.png" fetchPriority="high" />
         <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
@@ -181,8 +184,8 @@ export default function RootLayout({ children }) {
       <body className={`${poppins.variable} ${manrope.variable} antialiased bg-[#F5F7FA] text-primary`}>
         {(hasGA || hasAds) && (
           <>
-            <Script src={`https://www.googletagmanager.com/gtag/js?id=${hasAds ? GOOGLE_ADS_ID : GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
-            <Script id="google-analytics" strategy="afterInteractive">
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${hasAds ? GOOGLE_ADS_ID : GA_MEASUREMENT_ID}`} strategy="lazyOnload" />
+            <Script id="google-analytics" strategy="lazyOnload">
               {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());${hasAds ? ` gtag('config', '${GOOGLE_ADS_ID}');` : ""}${hasGA ? ` gtag('config', '${GA_MEASUREMENT_ID}', { page_path: window.location.pathname });` : ""}`}
             </Script>
           </>

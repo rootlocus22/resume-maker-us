@@ -63,7 +63,7 @@ const TESTIMONIALS = [
   }
 ];
 
-// Order: Visual Appeal -> ATS -> One-Pager -> Others
+// Order: Premium Design -> Visual Appeal -> ATS -> One-Pager -> Others
 function createBaseSlides(isMobile = false) {
   const allTemplates = templates;
 
@@ -76,8 +76,9 @@ function createBaseSlides(isMobile = false) {
       return true;
     })
     .sort(([keyA, templateA], [keyB, templateB]) => {
-      // Priority: Visual Appeal > ATS > One-Pager > Others
+      // Priority: Premium Design > Visual Appeal > ATS > One-Pager > Others
       const getScore = (key, t) => {
+        if (t.category === 'Premium Design' || key.startsWith('premium_')) return 5;
         if (t.category === 'Visual Appeal' || key.startsWith('visual_')) return 4;
         if (t.category === 'ATS-Optimized' || key.startsWith('ats_')) return 3;
         return 1;
@@ -87,6 +88,9 @@ function createBaseSlides(isMobile = false) {
       const scoreB = getScore(keyB, templateB);
 
       if (scoreA !== scoreB) return scoreB - scoreA;
+
+      // Preserve insertion order for Premium Design templates
+      if (scoreA === 5) return 0;
 
       if (scoreA === 4) {
         const visualOrder = [
@@ -912,7 +916,7 @@ export default function ResumeSlideshowModal({
                   <OnePagerPreview
                     data={resumeData}
                     template={slide.template.replace('onepager_', '')}
-                    customColors={slide.colors}
+                    customColors={slide.template?.startsWith('premium_') ? {} : slide.colors}
                     language="en"
                     country="us"
                   />
@@ -920,7 +924,7 @@ export default function ResumeSlideshowModal({
                   <ResumePreview
                     data={resumeData}
                     template={slide.template}
-                    customColors={slide.colors}
+                    customColors={slide.template?.startsWith('premium_') ? {} : slide.colors}
                     language="en"
                     country="us"
                     preferences={{
@@ -1350,7 +1354,7 @@ export default function ResumeSlideshowModal({
                       <OnePagerPreview
                         data={resumeData}
                         template={slide.template.replace('onepager_', '')}
-                        customColors={slide.colors}
+                        customColors={slide.template?.startsWith('premium_') ? {} : slide.colors}
                         language="en"
                         country="us"
                       />
@@ -1358,7 +1362,7 @@ export default function ResumeSlideshowModal({
                       <ResumePreview
                         data={resumeData}
                         template={slide.template}
-                        customColors={slide.colors}
+                        customColors={slide.template?.startsWith('premium_') ? {} : slide.colors}
                         language="en"
                         country="us"
                         preferences={{

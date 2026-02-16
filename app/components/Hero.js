@@ -1,21 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Rocket, UploadCloud, ArrowRight, Star, Trophy, Zap, CheckCircle, Sparkles, Target, Play, TrendingUp, Award, Briefcase, Bot, FileText, Search, Mic, Medal } from "lucide-react";
 import { event } from "../lib/gtag";
 
 export default function Hero() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   const handleClick = (action) => {
     event({
@@ -177,7 +166,7 @@ export default function Hero() {
                 <div key={step.step} className="flex items-center">
                   <div className="group flex flex-col items-center px-2 sm:px-4 py-2 cursor-default">
                     <div className={`w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center mb-1.5 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                      <step.icon size={isMobile ? 16 : 20} className="text-white" />
+                      <step.icon size={20} className="text-white w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
                     <span className="text-[10px] sm:text-xs font-bold text-white">{step.label}</span>
                     <span className="text-[9px] sm:text-[11px] text-gray-400">{step.description}</span>
