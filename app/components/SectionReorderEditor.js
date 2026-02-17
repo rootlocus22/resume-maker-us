@@ -650,6 +650,7 @@ export default function SectionReorderEditor({
                         }}
                       >
                         <ResumePreview
+                          key={template}
                           data={data}
                           template={template}
                           customColors={customColors}

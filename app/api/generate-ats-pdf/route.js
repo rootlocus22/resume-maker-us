@@ -3,6 +3,7 @@ import puppeteer from "puppeteer";
 import { getChromiumLaunchOptions } from "../../lib/puppeteerChromium";
 import { NextResponse } from 'next/server';
 import { atsFriendlyTemplates } from '../../lib/atsFriendlyTemplates';
+import { formatDateWithPreferences } from '../../lib/resumeUtils';
 
 // Use Node.js runtime for headless Chrome
 export const runtime = 'nodejs';
@@ -113,15 +114,30 @@ export async function POST(request) {
       );
     }
 
-    const { data, template } = body;
+    const { data: rawData, template, preferences = {} } = body;
 
-    if (!data || !template) {
-      console.log('ATS PDF API - Missing data or template:', { hasData: !!data, hasTemplate: !!template });
+    if (!rawData || !template) {
+      console.log('ATS PDF API - Missing data or template:', { hasData: !!rawData, hasTemplate: !!template });
       return NextResponse.json(
         { error: 'Missing required data or template' },
         { status: 400 }
       );
     }
+
+    // ─── Apply visibility preferences to data (same as ATSResumeRenderer) ───
+    const vis = preferences?.visibility || {};
+    const data = {
+      ...rawData,
+      summary: vis.summary === false ? '' : rawData.summary,
+      experience: vis.experience === false ? [] : rawData.experience,
+      education: vis.education === false ? [] : rawData.education,
+      skills: vis.skills === false ? [] : rawData.skills,
+      certifications: vis.certifications === false ? [] : rawData.certifications,
+      languages: vis.languages === false ? [] : rawData.languages,
+      customSections: vis.customSections === false ? [] : rawData.customSections,
+      photo: vis.photo === false ? '' : rawData.photo,
+      jobTitle: vis.jobTitle === false ? '' : rawData.jobTitle,
+    };
 
     console.log('ATS PDF API - Template structure:', {
       name: template.name,
@@ -193,7 +209,7 @@ export async function POST(request) {
     let html;
     try {
       // Use resolved templateConfig instead of raw template input
-      html = generateATSTemplateHTML(data, templateConfig);
+      html = generateATSTemplateHTML(data, templateConfig, preferences);
       console.log('ATS PDF API - HTML generated successfully, length:', html.length);
 
       // Log a sample of the HTML to check for issues
@@ -352,8 +368,24 @@ export async function POST(request) {
 
 
 
-function generateATSTemplateHTML(data, template) {
-  const { layout, styles } = template;
+function generateATSTemplateHTML(data, template, preferences = {}) {
+  const { layout } = template;
+  // Deep-clone styles so we never mutate the shared cached template object
+  const styles = JSON.parse(JSON.stringify(template.styles));
+
+  // ─── Apply font preferences to styles (same as resume-maker) ───
+  const fontPref = preferences?.typography?.fontPair?.fontFamily;
+  if (fontPref) styles.fontFamily = fontPref;
+
+  const fontSizePref = preferences?.typography?.fontSize;
+  if (fontSizePref === 'small') styles.fontSize = '9pt';
+  else if (fontSizePref === 'large') styles.fontSize = '11.5pt';
+
+  const lineHeightPref = preferences?.typography?.lineHeight;
+  if (lineHeightPref === 'compact') styles.lineHeight = '1.25';
+  else if (lineHeightPref === 'relaxed') styles.lineHeight = '1.6';
+
+  const dateHelpers = createDateHelpers(preferences);
 
   // Use data.achievements directly without merging from customSections
   // This preserves the title/description structure of custom achievements sections
@@ -374,10 +406,16 @@ function generateATSTemplateHTML(data, template) {
   });
 
   // Create consistent typography style object (same as ATSResumeRenderer)
+  // Derive section title and small sizes from base fontSize for proper scaling with user prefs
+  const baseFontSize = styles.fontSize || "11pt";
+  const titleSize = baseFontSize === '9pt' ? '11pt' : baseFontSize === '11.5pt' ? '14pt' : '13pt';
+  const smallSize = baseFontSize === '9pt' ? '8pt' : baseFontSize === '11.5pt' ? '10pt' : '9pt';
   const textStyle = {
     fontFamily: styles.fontFamily || "Arial, sans-serif",
-    fontSize: styles.fontSize || "11pt",
-    lineHeight: styles.lineHeight || "1.4"
+    fontSize: baseFontSize,
+    lineHeight: styles.lineHeight || "1.4",
+    sectionTitleSize: titleSize,
+    smallSize
   };
 
   // Merge colors with defaults (same as ATSResumeRenderer)
@@ -390,11 +428,11 @@ function generateATSTemplateHTML(data, template) {
     sidebarBackground: styles?.colors?.sidebarBackground || "#f8fafc"
   };
 
-  // Generate header based on template style
-  const header = generateATSHeader(data, layout, styles, colors, textStyle);
+  // Generate header based on template style (pass preferences for photo visibility)
+  const header = generateATSHeader(data, layout, styles, colors, textStyle, preferences);
 
   // Generate sections
-  const sections = generateATSSections(data, layout, styles, colors, textStyle, false); // Pass false for single column
+  const sections = generateATSSections(data, layout, styles, colors, textStyle, false, dateHelpers, preferences);
 
   // Generate layout HTML
   let layoutHTML;
@@ -405,7 +443,7 @@ function generateATSTemplateHTML(data, template) {
       </div>
     `;
   } else {
-    // Helper function to check if a section has data (same logic as ATSResumeRenderer)
+    // Helper function to check if a section has data (same logic as ATSResumeRenderer / resume-maker)
     const hasSectionData = (section) => {
       switch (section) {
         case 'personal':
@@ -486,19 +524,20 @@ function generateATSTemplateHTML(data, template) {
     const sidebarContent = sidebarSectionsToRender.length > 0 ?
       sidebarSectionsToRender
         .filter(section => hasSectionData(section))
-        .map(section => generateATSSection(section, data, styles, colors, layout, textStyle, true)) // Pass true for sidebar
+        .map(section => generateATSSection(section, data, styles, colors, layout, textStyle, true, dateHelpers, preferences))
         .join('') : '';
     const mainContent = mainSectionsToRender
       .filter(section => hasSectionData(section))
-      .map(section => generateATSSection(section, data, styles, colors, layout, textStyle, false)) // Pass false for main content
+      .map(section => generateATSSection(section, data, styles, colors, layout, textStyle, false, dateHelpers, preferences))
       .join('');
 
     // Increase sidebar width for ATS executive template
     const sidebarWidth = template.id === 'ats_two_column_executive' ? '35%' : (layout.sidebarWidth || '30%');
     const mainWidth = `${100 - parseInt(sidebarWidth)}%`;
 
-    // Add profile picture to sidebar if showProfilePicture is true (same styling as ATSResumeRenderer)
-    const profilePictureHTML = layout.showProfilePicture ? `
+    // Add profile picture to sidebar if showProfilePicture is true AND photo visibility is not hidden
+    const showPhotoInSidebar = layout.showProfilePicture && preferences?.visibility?.photo !== false;
+    const profilePictureHTML = showPhotoInSidebar ? `
       <div style="text-align:center;margin-bottom:1.5rem;">
         ${data.photo ? `
           <img src="${data.photo}" alt="Profile" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid #d1d5db;box-shadow:0 1px 3px rgba(0,0,0,0.1);margin:0 auto 0.75rem;" />
@@ -525,11 +564,22 @@ function generateATSTemplateHTML(data, template) {
     `;
   }
 
+  // Load Google Font for custom font families (Inter, Playfair Display, etc.)
+  const fontFamily = textStyle.fontFamily || "Arial, sans-serif";
+  const primaryFontMatch = fontFamily.match(/'([^']+)'|"([^"]+)"|^([^,]+)/);
+  const primaryFont = primaryFontMatch ? (primaryFontMatch[1] || primaryFontMatch[2] || primaryFontMatch[3] || '').trim() : '';
+  const systemFonts = ['Arial', 'Helvetica', 'Helvetica Neue', 'Times New Roman', 'Georgia', 'Verdana'];
+  const needsGoogleFont = primaryFont && !systemFonts.some(f => primaryFont.toLowerCase().includes(f.toLowerCase()));
+  const googleFontLink = needsGoogleFont
+    ? `<link href="https://fonts.googleapis.com/css2?family=${encodeURIComponent(primaryFont).replace(/%20/g, '+')}:wght@400;500;600;700&display=swap" rel="stylesheet">`
+    : '';
+
   return `
     <!DOCTYPE html>
     <html>
     <head>
       <meta charset="UTF-8">
+      ${googleFontLink}
       <style>
         body { 
           margin: 0; 
@@ -601,8 +651,11 @@ function generateATSTemplateHTML(data, template) {
   `;
 }
 
-function generateATSHeader(data, layout, styles, colors, textStyle) {
+function generateATSHeader(data, layout, styles, colors, textStyle, preferences = {}) {
   const headerStyle = layout.headerStyle;
+  const vis = preferences?.visibility || {};
+  const showPhoto = vis.photo !== false;
+  // jobTitle visibility: handled via data filter (data.jobTitle = '' when vis.jobTitle is false)
 
   switch (headerStyle) {
     case 'executive-two-column':
@@ -612,12 +665,12 @@ function generateATSHeader(data, layout, styles, colors, textStyle) {
             <div style="display:table-row;">
               <!-- Left Side - Name and Title -->
               <div style="display:table-cell;width:60%;vertical-align:top;padding-right:1.5rem;">
-                <h1 style="font-size:1.9rem;font-weight:700;margin:0;margin-bottom:0.4rem;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:1.1;text-transform:uppercase;letter-spacing:0.01em;word-wrap:break-word;overflow-wrap:break-word;hyphens:auto;">${data.name || "Your Name"}</h1>
-                ${data.jobTitle ? `<p style="font-size:1rem;font-weight:600;margin:0;margin-bottom:0.5rem;color:${colors.secondary};font-family:${textStyle.fontFamily};line-height:1.2;text-transform:uppercase;letter-spacing:0.01em;word-wrap:break-word;">${data.jobTitle}</p>` : ''}
+                <h1 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin:0;margin-bottom:0.4rem;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};text-transform:uppercase;letter-spacing:0.01em;word-wrap:break-word;overflow-wrap:break-word;hyphens:auto;">${data.name || "Your Name"}</h1>
+                ${data.jobTitle ? `<p style="font-size:${textStyle.fontSize};font-weight:600;margin:0;margin-bottom:0.5rem;color:${colors.secondary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};text-transform:uppercase;letter-spacing:0.01em;word-wrap:break-word;">${data.jobTitle}</p>` : ''}
               </div>
               
               <!-- Right Side - Contact Details -->
-              <div style="display:table-cell;width:40%;vertical-align:top;text-align:right;color:${colors.accent};font-size:0.8rem;font-family:${textStyle.fontFamily};padding-top:0;">
+              <div style="display:table-cell;width:40%;vertical-align:top;text-align:right;color:${colors.accent};font-size:${textStyle.smallSize};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};padding-top:0;">
                 ${data.email ? `<div style="margin:0;margin-bottom:0.25rem;line-height:1.3;"><span style="font-weight:600;">Email:</span> ${data.email}</div>` : ''}
                 ${data.phone ? `<div style="margin:0;margin-bottom:0.25rem;line-height:1.3;"><span style="font-weight:600;">Phone:</span> ${data.phone}</div>` : ''}
                 ${data.address ? `<div style="margin:0;margin-bottom:0.25rem;line-height:1.3;"><span style="font-weight:600;">Address:</span> ${data.address}</div>` : ''}
@@ -635,9 +688,9 @@ function generateATSHeader(data, layout, styles, colors, textStyle) {
     case 'standard':
       return `
         <header style="margin-bottom:1.5rem;border-bottom:2px solid ${colors.accent};padding-bottom:1rem;text-align:center;">
-          <h1 style="font-size:2rem;font-weight:700;margin-bottom:0.5rem;color:${colors.primary};font-family:${styles.fontFamily};line-height:1.1;">${data.name || "Your Name"}</h1>
-          ${data.jobTitle ? `<p style="font-size:1.375rem;margin-bottom:0.75rem;color:${colors.secondary};font-family:${styles.fontFamily};line-height:1.1;">${data.jobTitle}</p>` : ''}
-          <div style="display:flex;flex-direction:column;align-items:center;gap:0.25rem;font-size:0.875rem;color:${colors.accent};font-family:${styles.fontFamily};">
+          <h1 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.5rem;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};">${data.name || "Your Name"}</h1>
+          ${data.jobTitle ? `<p style="font-size:${textStyle.fontSize};margin-bottom:0.75rem;color:${colors.secondary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};">${data.jobTitle}</p>` : ''}
+          <div style="display:flex;flex-direction:column;align-items:center;gap:0.25rem;font-size:${textStyle.fontSize};color:${colors.accent};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};">
             <!-- Primary contact info -->
             <div style="display:flex;justify-content:center;align-items:center;gap:1rem;">
               ${data.email ? `<span>${data.email}</span>` : ''}
@@ -661,9 +714,9 @@ function generateATSHeader(data, layout, styles, colors, textStyle) {
     case 'modern':
       return `
         <header style="margin-bottom:1.25rem;border-bottom:2px solid ${colors.accent};padding-bottom:0.875rem;text-align:center;">
-          <h1 style="font-size:2.25rem;font-weight:700;margin-bottom:0.5rem;color:${colors.primary};font-family:${styles.fontFamily};line-height:1.1;">${data.name || "Your Name"}</h1>
-          ${data.jobTitle ? `<p style="font-size:1.125rem;margin-bottom:0.75rem;color:${colors.secondary};font-family:${styles.fontFamily};line-height:1.1;">${data.jobTitle}</p>` : ''}
-          <div style="display:flex;flex-direction:column;align-items:center;gap:0.25rem;font-size:0.875rem;color:${colors.accent};font-family:${styles.fontFamily};">
+          <h1 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.5rem;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};">${data.name || "Your Name"}</h1>
+          ${data.jobTitle ? `<p style="font-size:${textStyle.fontSize};margin-bottom:0.75rem;color:${colors.secondary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};">${data.jobTitle}</p>` : ''}
+          <div style="display:flex;flex-direction:column;align-items:center;gap:0.25rem;font-size:${textStyle.fontSize};color:${colors.accent};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};">
             <!-- Primary contact info -->
             <div style="display:flex;justify-content:center;align-items:center;gap:1rem;">
               ${data.email ? `<span>${data.email}</span>` : ''}
@@ -687,9 +740,9 @@ function generateATSHeader(data, layout, styles, colors, textStyle) {
     case 'professional':
       return `
         <header style="margin-bottom:1.75rem;border-bottom:2px solid ${colors.accent};padding-bottom:1rem;text-align:center;">
-          <h1 style="font-size:2rem;font-weight:700;margin-bottom:0.5rem;color:${colors.primary};font-family:${styles.fontFamily};line-height:1.1;">${data.name || "Your Name"}</h1>
-          ${data.jobTitle ? `<p style="font-size:1.375rem;margin-bottom:0.75rem;color:${colors.secondary};font-family:${styles.fontFamily};line-height:1.1;">${data.jobTitle}</p>` : ''}
-          <div style="display:flex;flex-direction:column;align-items:center;gap:0.25rem;font-size:0.875rem;color:${colors.accent};font-family:${styles.fontFamily};">
+          <h1 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.5rem;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};">${data.name || "Your Name"}</h1>
+          ${data.jobTitle ? `<p style="font-size:${textStyle.fontSize};margin-bottom:0.75rem;color:${colors.secondary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};">${data.jobTitle}</p>` : ''}
+          <div style="display:flex;flex-direction:column;align-items:center;gap:0.25rem;font-size:${textStyle.fontSize};color:${colors.accent};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};">
             <!-- Primary contact info -->
             <div style="display:flex;justify-content:center;align-items:center;gap:1rem;">
               ${data.email ? `<span>${data.email}</span>` : ''}
@@ -713,9 +766,9 @@ function generateATSHeader(data, layout, styles, colors, textStyle) {
     case 'executive':
       return `
         <header style="margin-bottom:2rem;border-bottom:3px solid ${colors.accent};padding-bottom:1.25rem;text-align:center;">
-          <h1 style="font-size:2.5rem;font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${styles.fontFamily};line-height:1.1;text-transform:uppercase;">${data.name || "Your Name"}</h1>
-          ${data.jobTitle ? `<p style="font-size:1.5rem;margin-bottom:1rem;color:${colors.secondary};font-family:${styles.fontFamily};line-height:1.1;">${data.jobTitle}</p>` : ''}
-          <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;font-size:1rem;color:${colors.accent};font-family:${styles.fontFamily};">
+          <h1 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};text-transform:uppercase;">${data.name || "Your Name"}</h1>
+          ${data.jobTitle ? `<p style="font-size:${textStyle.fontSize};margin-bottom:1rem;color:${colors.secondary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};">${data.jobTitle}</p>` : ''}
+          <div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;font-size:${textStyle.fontSize};color:${colors.accent};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};">
             <!-- Primary contact info -->
             <div style="display:flex;justify-content:center;align-items:center;gap:1rem;">
               ${data.email ? `<span>${data.email}</span>` : ''}
@@ -743,15 +796,15 @@ function generateATSHeader(data, layout, styles, colors, textStyle) {
             <!-- Name and Contact Information -->
             <div style="flex:1;display:flex;flex-direction:column;gap:0.5rem;">
               <!-- Name -->
-              <h1 style="font-size:2rem;font-weight:700;margin:0;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:1.1;text-transform:uppercase;letter-spacing:0.02em;">${data.name || "Your Name"}</h1>
+              <h1 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin:0;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};text-transform:uppercase;letter-spacing:0.02em;">${data.name || "Your Name"}</h1>
               
               <!-- Job Title -->
-              ${data.jobTitle ? `<p style="font-size:1.1rem;font-weight:500;margin:0;color:${colors.secondary};font-family:${textStyle.fontFamily};line-height:1.2;margin-bottom:0.25rem;">${data.jobTitle}</p>` : ''}
+              ${data.jobTitle ? `<p style="font-size:${textStyle.fontSize};font-weight:500;margin:0;color:${colors.secondary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};margin-bottom:0.25rem;">${data.jobTitle}</p>` : ''}
               
               <!-- Contact Information - Two Columns Without Labels -->
               <div style="display:flex;gap:2rem;margin-top:0.5rem;">
                 <!-- Basic Contact Column -->
-                <div style="display:flex;flex-direction:column;gap:0.25rem;color:${colors.text};font-size:0.9rem;font-family:${textStyle.fontFamily};line-height:1.4;flex:1;">
+                <div style="display:flex;flex-direction:column;gap:0.25rem;color:${colors.text};font-size:${textStyle.fontSize};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};flex:1;">
                   ${data.address ? `<div>${data.address}</div>` : ''}
                   ${data.phone ? `<div>${data.phone}</div>` : ''}
                   ${data.email ? `<div>${data.email}</div>` : ''}
@@ -759,7 +812,7 @@ function generateATSHeader(data, layout, styles, colors, textStyle) {
                 
                 <!-- Web Presence Column -->
                 ${(data.portfolio || data.website || data.linkedin) ? `
-                  <div style="display:flex;flex-direction:column;gap:0.25rem;color:${colors.text};font-size:0.9rem;font-family:${textStyle.fontFamily};line-height:1.4;flex:1;">
+                  <div style="display:flex;flex-direction:column;gap:0.25rem;color:${colors.text};font-size:${textStyle.fontSize};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};flex:1;">
                     ${data.portfolio || data.website ? `<div style="word-break:break-all;">${data.portfolio || data.website}</div>` : ''}
                     ${data.linkedin ? `<div style="word-break:break-all;">${data.linkedin}</div>` : ''}
                   </div>
@@ -767,7 +820,7 @@ function generateATSHeader(data, layout, styles, colors, textStyle) {
               </div>
             </div>
             
-            <!-- Profile Picture - Moved to Right -->
+            ${showPhoto ? `<!-- Profile Picture - Moved to Right (hidden when visibility.photo is false) -->
             <div style="flex-shrink:0;">
               ${data.photo ? `
                 <img src="${data.photo}" alt="Profile" style="width:130px;height:130px;border-radius:8px;object-fit:cover;border:2px solid #e5e7eb;box-shadow:0 2px 4px rgba(0,0,0,0.1);" />
@@ -776,7 +829,7 @@ function generateATSHeader(data, layout, styles, colors, textStyle) {
                   <span style="font-size:3.5rem;color:#9ca3af;">👤</span>
                 </div>
               `}
-            </div>
+            </div>` : ''}
           </div>
         </header>
       `;
@@ -784,10 +837,9 @@ function generateATSHeader(data, layout, styles, colors, textStyle) {
     default:
       return `
         <header style="margin-bottom:1.5rem;border-bottom:2px solid ${colors.accent};padding-bottom:1rem;text-align:center;">
-          <!-- DEBUG: Default header style used, headerStyle was: ${headerStyle} -->
-          <h1 style="font-size:2rem;font-weight:700;margin-bottom:0.5rem;color:${colors.primary};font-family:${styles.fontFamily};line-height:1.1;">${data.name || "Your Name"}</h1>
-          ${data.jobTitle ? `<p style="font-size:1.375rem;margin-bottom:0.75rem;color:${colors.secondary};font-family:${styles.fontFamily};line-height:1.1;">${data.jobTitle}</p>` : ''}
-          <div style="display:flex;flex-direction:column;align-items:center;gap:0.25rem;font-size:0.875rem;color:${colors.accent};font-family:${styles.fontFamily};">
+          <h1 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.5rem;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};">${data.name || "Your Name"}</h1>
+          ${data.jobTitle ? `<p style="font-size:${textStyle.fontSize};margin-bottom:0.75rem;color:${colors.secondary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};">${data.jobTitle}</p>` : ''}
+          <div style="display:flex;flex-direction:column;align-items:center;gap:0.25rem;font-size:${textStyle.fontSize};color:${colors.accent};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};">
             <!-- Primary contact info -->
             <div style="display:flex;justify-content:center;align-items:center;gap:1rem;">
               ${data.email ? `<span>${data.email}</span>` : ''}
@@ -810,9 +862,9 @@ function generateATSHeader(data, layout, styles, colors, textStyle) {
   }
 }
 
-function generateATSSections(data, layout, styles, colors, textStyle, isSidebar = false) {
+function generateATSSections(data, layout, styles, colors, textStyle, isSidebar = false, dateHelpers = {}, preferences = {}) {
   if (layout.columns === 1) {
-    // Helper function to check if a section has data (same logic as ATSResumeRenderer)
+    // Helper function to check if a section has data (same as resume-maker)
     const hasSectionData = (section) => {
       switch (section) {
         case 'personal':
@@ -878,10 +930,10 @@ function generateATSSections(data, layout, styles, colors, textStyle, isSidebar 
       // Filter and render in the exact order from sectionsOrder (same as UI)
       return sectionsToRender
         .filter(section => hasSectionData(section))
-        .map(section => generateATSSection(section, data, styles, colors, layout, textStyle, isSidebar))
+        .map(section => generateATSSection(section, data, styles, colors, layout, textStyle, isSidebar, dateHelpers, preferences))
         .join('');
     } else {
-      return generateDefaultATSSections(data, styles, colors, layout, textStyle, isSidebar);
+      return generateDefaultATSSections(data, styles, colors, layout, textStyle, isSidebar, dateHelpers, preferences);
     }
   }
   return '';
@@ -930,6 +982,36 @@ function safeDateRange(startDate, endDate) {
   if (!end || end.trim() === '') return start || '';
   // Only add hyphen when both dates exist and are not empty
   return `${start} - ${end}`;
+}
+
+// Creates request-scoped date helpers — uses formatDateWithPreferences when preferences provided
+function createDateHelpers(preferences) {
+  function prefSafeDate(value) {
+    if (!value || value === 'null' || value === 'undefined' || value === 'ongoing') {
+      return '';
+    }
+    const dateStr = String(value).trim().toLowerCase();
+    if (dateStr === '' || dateStr === 'ongoing' || dateStr === 'undefined' || dateStr === 'null') {
+      return '';
+    }
+    if (/present/i.test(dateStr)) return 'Present';
+    if (preferences?.dateFormat) {
+      const result = formatDateWithPreferences(String(value).trim(), preferences);
+      if (result) return result;
+    }
+    return String(value).trim();
+  }
+
+  function prefSafeDateRange(startDate, endDate) {
+    const start = prefSafeDate(startDate);
+    const end = prefSafeDate(endDate);
+    if (!start && !end) return '';
+    if (!start || start.trim() === '') return end || '';
+    if (!end || end.trim() === '') return start || '';
+    return `${start} - ${end}`;
+  }
+
+  return { safeDate: prefSafeDate, safeDateRange: prefSafeDateRange };
 }
 
 // Helper function to render bullet points properly (matching ATSResumeRenderer)
@@ -981,6 +1063,7 @@ function renderBulletPoints(text, colors, textStyle, excludeTexts = []) {
         list-style-type: disc; 
         color: ${colors.text}; 
         font-family: ${textStyle.fontFamily};
+        font-size: ${textStyle.fontSize || '11pt'};
         line-height: ${textStyle.lineHeight || '1.4'};
       ">
         ${listItems}
@@ -993,6 +1076,7 @@ function renderBulletPoints(text, colors, textStyle, excludeTexts = []) {
         margin-bottom: 2px; 
         color: ${colors.text}; 
         font-family: ${textStyle.fontFamily};
+        font-size: ${textStyle.fontSize || '11pt'};
         line-height: ${textStyle.lineHeight || '1.4'};
       ">
         ${safeText(line)}
@@ -1001,14 +1085,17 @@ function renderBulletPoints(text, colors, textStyle, excludeTexts = []) {
   }
 }
 
-function generateATSSection(sectionType, data, styles, colors, layout, textStyle, isSidebar = false) {
+function generateATSSection(sectionType, data, styles, colors, layout, textStyle, isSidebar = false, dateHelpers = {}, preferences = {}) {
+  const { safeDate, safeDateRange } = dateHelpers;
   switch (sectionType) {
     case 'summary':
+      // Respect visibility: do not show section or fallback when summary is hidden/empty
+      if (!data.summary || String(data.summary).trim() === '') return '';
       return `
         <section style="margin-bottom:${layout.spacing === 'modern' ? '1.25rem' : layout.spacing === 'comfortable' ? '1.75rem' : '1.5rem'};">
-          <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Professional Summary</h2>
+          <h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Professional Summary</h2>
           <div style="padding:1rem;border-radius:0.5rem;border-left:4px solid ${colors.accent};background-color:rgba(0,0,0,0.02);">
-            <p style="margin:0;color:${colors.text};font-family:${textStyle.fontFamily};line-height:1.6;font-size:0.875rem;">${convertMarkdownBold(data.summary || "Experienced professional with proven track record...")}</p>
+            <p style="margin:0;color:${colors.text};font-family:${textStyle.fontFamily};font-size:${textStyle.fontSize};line-height:${textStyle.lineHeight};">${convertMarkdownBold(data.summary)}</p>
           </div>
         </section>
       `;
@@ -1016,7 +1103,7 @@ function generateATSSection(sectionType, data, styles, colors, layout, textStyle
     case 'experience':
       return `
         <section style="margin-bottom:${layout.spacing === 'modern' ? '1.25rem' : layout.spacing === 'comfortable' ? '1.75rem' : '1.5rem'};">
-          <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Professional Experience</h2>
+          <h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Professional Experience</h2>
           <div style="space-y:1.5rem;">
             ${data.experience?.map(exp => {
         const dateRange = safeDateRange(exp.startDate, exp.endDate);
@@ -1024,10 +1111,10 @@ function generateATSSection(sectionType, data, styles, colors, layout, textStyle
               <div class="experience-entry" style="margin-bottom:1.5rem;">
                 <div class="experience-header" style="margin-bottom:0.5rem;">
                   <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;${isSidebar ? 'flex-direction:column;gap:0.25rem;' : ''}">
-                    <h3 style="font-size:1rem;font-weight:600;margin:0;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:1.4;${isSidebar ? 'width:100%;' : ''}">${safeText(exp.jobTitle)}</h3>
-                    ${dateRange ? `<span style="font-size:0.875rem;color:${colors.accent};font-family:${textStyle.fontFamily};line-height:1.4;background-color:rgba(0,0,0,0.05);padding:0.25rem 0.75rem;border-radius:1rem;white-space:nowrap;${isSidebar ? 'align-self:flex-start;' : ''}">${dateRange}</span>` : ''}
+                    <h3 style="font-size:${textStyle.fontSize};font-weight:600;margin:0;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};${isSidebar ? 'width:100%;' : ''}">${safeText(exp.jobTitle)}</h3>
+                    ${dateRange ? `<span style="font-size:${textStyle.smallSize};color:${colors.accent};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};background-color:rgba(0,0,0,0.05);padding:0.25rem 0.75rem;border-radius:1rem;white-space:nowrap;${isSidebar ? 'align-self:flex-start;' : ''}">${dateRange}</span>` : ''}
                   </div>
-                  <p style="font-size:0.875rem;font-weight:500;margin:0;color:${colors.secondary};font-family:${textStyle.fontFamily};line-height:1.4;">${safeText(exp.company)}</p>
+                  <p style="font-size:${textStyle.fontSize};font-weight:500;margin:0;color:${colors.secondary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};">${safeText(exp.company)}</p>
                 </div>
                 <div class="experience-description" style="margin-top:0.5rem;">${renderBulletPoints(exp.description, colors, textStyle)}</div>
               </div>
@@ -1039,7 +1126,7 @@ function generateATSSection(sectionType, data, styles, colors, layout, textStyle
     case 'education':
       return `
         <section style="margin-bottom:${layout.spacing === 'modern' ? '1.25rem' : layout.spacing === 'comfortable' ? '1.75rem' : '1.5rem'};">
-          <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Education</h2>
+          <h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Education</h2>
           <div style="display:flex;flex-direction:column;gap:1rem;">
             ${data.education?.map(edu => {
         const dateRange = safeDateRange(edu.startDate, edu.endDate);
@@ -1047,14 +1134,15 @@ function generateATSSection(sectionType, data, styles, colors, layout, textStyle
               <div class="education-entry" style="margin-bottom:1rem;">
                 <div class="education-header" style="margin-bottom:0.5rem;">
                   <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;${isSidebar ? 'flex-direction:column;gap:0.25rem;' : ''}">
-                    <h3 style="font-size:1rem;font-weight:600;margin:0;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:1.4;${isSidebar ? 'width:100%;' : ''}">${safeText(edu.degree)}</h3>
-                    ${dateRange ? `<span style="font-size:0.875rem;color:${colors.accent};font-family:${textStyle.fontFamily};line-height:1.4;background-color:rgba(0,0,0,0.05);padding:0.25rem 0.75rem;border-radius:1rem;white-space:nowrap;${isSidebar ? 'align-self:flex-start;' : ''}">${dateRange}</span>` : ''}
+                    <h3 style="font-size:${textStyle.fontSize};font-weight:600;margin:0;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};${isSidebar ? 'width:100%;' : ''}">${safeText(edu.degree)}</h3>
+                    ${dateRange ? `<span style="font-size:${textStyle.smallSize};color:${colors.accent};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};background-color:rgba(0,0,0,0.05);padding:0.25rem 0.75rem;border-radius:1rem;white-space:nowrap;${isSidebar ? 'align-self:flex-start;' : ''}">${dateRange}</span>` : ''}
                   </div>
-                  <p style="margin:0 0 0.25rem 0;color:${colors.secondary};font-family:${textStyle.fontFamily};font-size:0.875rem;line-height:1.4;font-weight:500;">${safeText(edu.institution || edu.school)}</p>
-                  ${edu.field ? `<p style="font-size:0.875rem;margin:0;color:${colors.text};font-family:${textStyle.fontFamily};line-height:1.4;font-style:italic;">${safeText(edu.field)}</p>` : ''}
+                  <p style="margin:0 0 0.25rem 0;color:${colors.secondary};font-family:${textStyle.fontFamily};font-size:${textStyle.fontSize};line-height:${textStyle.lineHeight};font-weight:500;">${safeText(edu.institution || edu.school)}</p>
+                  ${edu.field ? `<p style="font-size:${textStyle.fontSize};margin:0;color:${colors.text};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};font-style:italic;">${safeText(edu.field)}</p>` : ''}
+                  ${edu.gpa && preferences?.education?.showGPA !== false ? `<p style="font-size:${textStyle.fontSize};margin:0.25rem 0 0 0;color:${colors.secondary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};font-weight:500;">GPA: ${safeText(edu.gpa)}</p>` : ''}
                 </div>
                 <div class="education-description" style="margin-top:0.5rem;">
-                  ${edu.description ? `<p style="font-size:0.875rem;margin:0;color:${colors.text};font-family:${textStyle.fontFamily};line-height:1.5;">${convertMarkdownBold(safeText(edu.description))}</p>` : ''}
+                  ${edu.description ? `<p style="font-size:${textStyle.fontSize};margin:0;color:${colors.text};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};">${convertMarkdownBold(safeText(edu.description))}</p>` : ''}
                 </div>
               </div>
             `}).join('') || '<p style="color:#666;">No education data available</p>'}
@@ -1062,17 +1150,28 @@ function generateATSSection(sectionType, data, styles, colors, layout, textStyle
         </section>
       `;
 
-    case 'skills':
+    case 'skills': {
+      // Respect visibility: do not show section when skills are hidden/empty
+      if (!data.skills || data.skills.length === 0) return '';
+      // Respect preferences.skills.showProficiency (same as ATSResumeRenderer / skillUtils)
+      const showProficiency = preferences?.skills?.showProficiency === true;
+      const renderSkillText = (skill) => {
+        const name = typeof skill === 'string' ? safeText(skill) : safeText(skill?.name || skill?.skill);
+        if (showProficiency && typeof skill === 'object' && skill && (skill.proficiency || skill.level)) {
+          return `${name} (${safeText(skill.proficiency || skill.level)})`;
+        }
+        return name;
+      };
       // Row-wise grid layout - skills fill horizontally left-to-right
       if (layout.columns === 1) {
         return `
           <section style="margin-bottom:${layout.spacing === 'modern' ? '1.25rem' : layout.spacing === 'comfortable' ? '1.75rem' : '1.5rem'};">
-            <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Skills</h2>
+            <h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Skills</h2>
             <div style="display:grid;gap:0.5rem;grid-template-columns:repeat(3,1fr);min-width:100%;overflow:hidden;">
               ${data.skills?.map(skill => `
-                <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.875rem;line-height:1.4;color:${colors.text};font-family:${textStyle.fontFamily};font-weight:400;padding:0.5rem;border-radius:0.375rem;background-color:rgba(0,0,0,0.02);">
+                <div style="display:flex;align-items:center;gap:0.75rem;font-size:${textStyle.fontSize};line-height:${textStyle.lineHeight};color:${colors.text};font-family:${textStyle.fontFamily};font-weight:400;padding:0.5rem;border-radius:0.375rem;background-color:rgba(0,0,0,0.02);">
                   <div style="width:0.5rem;height:0.5rem;border-radius:50%;background-color:${colors.accent};flex-shrink:0;"></div>
-                  <span style="flex:1;word-wrap:break-word;overflow-wrap:break-word;font-weight:500;">${typeof skill === 'string' ? safeText(skill) : safeText(skill.name || skill.skill)}</span>
+                  <span style="flex:1;word-wrap:break-word;overflow-wrap:break-word;font-weight:500;">${renderSkillText(skill)}</span>
                 </div>
               `).join('') || '<div style="color:#666;">No skills data available</div>'}
             </div>
@@ -1082,18 +1181,19 @@ function generateATSSection(sectionType, data, styles, colors, layout, textStyle
         // Default single-column skills layout (sidebar or 2-column layout)
         return `
           <section style="margin-bottom:${layout.spacing === 'modern' ? '1.25rem' : layout.spacing === 'comfortable' ? '1.75rem' : '1.5rem'};">
-            <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Skills</h2>
+            <h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Skills</h2>
             <div style="space-y:0.5rem;">
               ${data.skills?.map(skill => `
-                <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.875rem;line-height:1.4;color:${colors.text};font-family:${textStyle.fontFamily};padding:0.5rem;border-radius:0.375rem;background-color:rgba(0,0,0,0.02);">
+                <div style="display:flex;align-items:center;gap:0.75rem;font-size:${textStyle.fontSize};line-height:${textStyle.lineHeight};color:${colors.text};font-family:${textStyle.fontFamily};padding:0.5rem;border-radius:0.375rem;background-color:rgba(0,0,0,0.02);">
                   <div style="width:0.5rem;height:0.5rem;border-radius:50%;background-color:${colors.accent};flex-shrink:0;"></div>
-                  <span style="flex:1;word-wrap:break-word;overflow-wrap:break-word;font-weight:500;">${typeof skill === 'string' ? safeText(skill) : safeText(skill.name || skill.skill)}</span>
+                  <span style="flex:1;word-wrap:break-word;overflow-wrap:break-word;font-weight:500;">${renderSkillText(skill)}</span>
                 </div>
               `).join('') || '<div style="color:#666;">No skills data available</div>'}
             </div>
           </section>
         `;
       }
+    }
 
     case 'languages':
       // Only show languages section if there's actual data
@@ -1102,12 +1202,12 @@ function generateATSSection(sectionType, data, styles, colors, layout, textStyle
       }
       return `
         <section style="margin-bottom:${layout.spacing === 'modern' ? '1.25rem' : layout.spacing === 'comfortable' ? '1.75rem' : '1.5rem'};">
-          <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Languages</h2>
+          <h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Languages</h2>
           <div style="space-y:0.5rem;">
             ${data.languages.map(lang => {
         const proficiency = safeText(lang.proficiency);
         return `
-              <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.875rem;line-height:1.4;color:${colors.text};font-family:${textStyle.fontFamily};padding:0.5rem;border-radius:0.375rem;background-color:rgba(0,0,0,0.02);">
+              <div style="display:flex;align-items:center;gap:0.75rem;font-size:${textStyle.fontSize};line-height:${textStyle.lineHeight};color:${colors.text};font-family:${textStyle.fontFamily};padding:0.5rem;border-radius:0.375rem;background-color:rgba(0,0,0,0.02);">
                 <div style="width:0.5rem;height:0.5rem;border-radius:50%;background-color:${colors.accent};flex-shrink:0;"></div>
                 <span style="font-weight:500;">${safeText(lang.language)}${proficiency ? `<span style="color:#666;margin-left:0.25rem;">(${proficiency})</span>` : ''}</span>
               </div>
@@ -1126,14 +1226,14 @@ function generateATSSection(sectionType, data, styles, colors, layout, textStyle
       // Use bullet format for both single-column and two-column ATS templates
       return `
         <section style="margin-bottom:${layout.spacing === 'modern' ? '1.25rem' : layout.spacing === 'comfortable' ? '1.75rem' : '1.5rem'};">
-          <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Certifications</h2>
+          <h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Certifications</h2>
           <div style="space-y:0.75rem;">
             ${data.certifications.map(cert => `
-              <div style="display:flex;align-items:flex-start;gap:0.75rem;font-size:0.875rem;line-height:1.4;color:${colors.text};font-family:${textStyle.fontFamily};padding:0.75rem;border-radius:0.375rem;background-color:rgba(0,0,0,0.02);">
+              <div style="display:flex;align-items:flex-start;gap:0.75rem;font-size:${textStyle.fontSize};line-height:${textStyle.lineHeight};color:${colors.text};font-family:${textStyle.fontFamily};padding:0.75rem;border-radius:0.375rem;background-color:rgba(0,0,0,0.02);">
                 <div style="width:0.75rem;height:0.75rem;border-radius:50%;background-color:${colors.accent};flex-shrink:0;margin-top:0.125rem;"></div>
                 <div style="flex:1;">
                   <div style="font-weight:600;color:${colors.primary};margin-bottom:0.25rem;">${safeText(cert.name)}</div>
-                  <div style="color:${colors.text};font-size:0.8rem;">
+                  <div style="color:${colors.text};font-size:${textStyle.smallSize};">
                     ${(() => {
           const issuer = safeText(cert.issuer);
           const date = safeDate(cert.date);
@@ -1161,12 +1261,12 @@ function generateATSSection(sectionType, data, styles, colors, layout, textStyle
       }
       return `
         <section style="margin-bottom:${layout.spacing === 'modern' ? '1.25rem' : layout.spacing === 'comfortable' ? '1.75rem' : '1.5rem'};">
-          <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Projects</h2>
+          <h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Projects</h2>
           <div style="space-y:1rem;">
             ${data.projects.map(project => `
               <div style="margin-bottom:1rem;">
-                <h3 style="font-size:1rem;font-weight:600;margin:0 0 0.5rem 0;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:1.4;">${safeText(project.name)}</h3>
-                <p style="margin:0;color:${colors.text};font-family:${textStyle.fontFamily};line-height:1.4;font-size:1rem;">${convertMarkdownBold(safeText(project.description))}</p>
+                <h3 style="font-size:${textStyle.fontSize};font-weight:600;margin:0 0 0.5rem 0;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};">${safeText(project.name)}</h3>
+                <p style="margin:0;color:${colors.text};font-family:${textStyle.fontFamily};font-size:${textStyle.fontSize};line-height:${textStyle.lineHeight};">${convertMarkdownBold(safeText(project.description))}</p>
               </div>
             `).join('')}
           </div>
@@ -1180,10 +1280,10 @@ function generateATSSection(sectionType, data, styles, colors, layout, textStyle
       }
       return `
         <section style="margin-bottom:${layout.spacing === 'modern' ? '1.25rem' : layout.spacing === 'comfortable' ? '1.75rem' : '1.5rem'};">
-          <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Achievements</h2>
+          <h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Achievements</h2>
           <div style="space-y:0.5rem;">
             ${data.achievements.map(achievement => `
-              <div style="display:flex;align-items:flex-start;gap:0.75rem;font-size:0.875rem;line-height:1.4;color:${colors.text};font-family:${textStyle.fontFamily};padding:0.75rem;border-radius:0.375rem;background-color:rgba(0,0,0,0.02);">
+              <div style="display:flex;align-items:flex-start;gap:0.75rem;font-size:${textStyle.fontSize};line-height:${textStyle.lineHeight};color:${colors.text};font-family:${textStyle.fontFamily};padding:0.75rem;border-radius:0.375rem;background-color:rgba(0,0,0,0.02);">
                 <div style="width:0.75rem;height:0.75rem;border-radius:50%;background-color:${colors.accent};flex-shrink:0;margin-top:0.125rem;"></div>
                 <div style="flex:1;">${convertMarkdownBold(safeText(achievement))}</div>
               </div>
@@ -1199,12 +1299,12 @@ function generateATSSection(sectionType, data, styles, colors, layout, textStyle
       }
       return `
         <section style="margin-bottom:${layout.spacing === 'modern' ? '1.25rem' : layout.spacing === 'comfortable' ? '1.75rem' : '1.5rem'};">
-          <h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Awards & Achievements</h2>
+          <h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.75rem;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};border-bottom:1px solid ${colors.accent};padding-bottom:0.5rem;">Awards & Achievements</h2>
           <div style="space-y:0.5rem;">
             ${data.awards.map(award => `
               <div style="margin-bottom:0.75rem;">
-                <h3 style="font-size:1rem;font-weight:600;margin:0 0 0.25rem 0;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:1.4;">${safeText(award.name)}</h3>
-                <p style="margin:0;color:${colors.text};font-family:${textStyle.fontFamily};font-size:1rem;line-height:1.4;">
+                <h3 style="font-size:${textStyle.fontSize};font-weight:600;margin:0 0 0.25rem 0;color:${colors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};">${safeText(award.name)}</h3>
+                <p style="margin:0;color:${colors.text};font-family:${textStyle.fontFamily};font-size:${textStyle.fontSize};line-height:${textStyle.lineHeight};">
                   ${(() => {
           const issuer = safeText(award.issuer);
           const date = safeDate(award.date);
@@ -1258,10 +1358,11 @@ function generateATSSection(sectionType, data, styles, colors, layout, textStyle
                 margin: 0; 
                 color: ${colors.primary}; 
                 font-family: ${textStyle.fontFamily}; 
-                font-size: 11pt; 
+                font-size: ${textStyle.sectionTitleSize}; 
                 font-weight: bold; 
                 text-transform: uppercase;
                 letter-spacing: 0.5px;
+                line-height: ${textStyle.lineHeight};
               ">
                 ${sectionTitle}
               </h2>
@@ -1277,9 +1378,10 @@ function generateATSSection(sectionType, data, styles, colors, layout, textStyle
                   <h3 style="
                     margin: 0 0 2px 0; 
                     font-weight: bold; 
-                    font-size: 10pt; 
+                    font-size: ${textStyle.fontSize}; 
                     color: ${colors.primary};
                     font-family: ${textStyle.fontFamily};
+                    line-height: ${textStyle.lineHeight};
                   ">
                     ${safeText(itemTitle)}
                   </h3>
@@ -1287,37 +1389,38 @@ function generateATSSection(sectionType, data, styles, colors, layout, textStyle
                 
                 ${item.date ? `
                   <div style="
-                    font-size: 9pt; 
+                    font-size: ${textStyle.smallSize}; 
                     color: ${colors.accent}; 
                     margin-bottom: 4px; 
                     font-weight: 600;
                     font-family: ${textStyle.fontFamily};
+                    line-height: ${textStyle.lineHeight};
                   ">
                     ${safeDate(item.date)}
                   </div>
                 ` : ''}
                 
                 ${item.description ? `
-                  <div style="font-size: 10pt; margin-bottom: 4px;">
+                  <div style="font-size: ${textStyle.fontSize}; margin-bottom: 4px;">
                     ${renderBulletPoints(item.description, colors, textStyle, [sectionTitle, itemTitle])}
                   </div>
                 ` : ''}
                 
                 ${item.achievements ? `
                   <div style="margin-top: 4px;">
-                    <h4 style="font-size: 10pt; font-weight: 600; margin: 0 0 2px 0; color: ${colors.primary}; font-family: ${textStyle.fontFamily};">Key Achievements:</h4>
+                    <h4 style="font-size: ${textStyle.fontSize}; font-weight: 600; margin: 0 0 2px 0; color: ${colors.primary}; font-family: ${textStyle.fontFamily}; line-height: ${textStyle.lineHeight};">Key Achievements:</h4>
                     ${renderBulletPoints(item.achievements, colors, textStyle)}
                   </div>
                 ` : ''}
                 
                 ${item.technologies ? `
-                  <div style="margin-top: 4px; font-size: 10pt; color: ${colors.text}; font-family: ${textStyle.fontFamily};">
+                  <div style="margin-top: 4px; font-size: ${textStyle.fontSize}; color: ${colors.text}; font-family: ${textStyle.fontFamily}; line-height: ${textStyle.lineHeight};">
                     <span style="font-weight: 600; color: ${colors.primary};">Technologies Used:</span> ${safeText(item.technologies)}
                   </div>
                 ` : ''}
                 
                 ${(item.name || item.email || item.phone) && !item.description ? `
-                  <div style="margin-top: 6px; padding: 6px; background-color: #f9fafb; border-radius: 4px; font-size: 9pt;">
+                  <div style="margin-top: 6px; padding: 6px; background-color: #f9fafb; border-radius: 4px; font-size: ${textStyle.smallSize};">
                     <div style="font-weight: 600; margin-bottom: 2px; color: ${colors.primary}; font-family: ${textStyle.fontFamily};">Reference Details:</div>
                     ${item.name ? `<div>${safeText(item.name)}</div>` : ''}
                     ${item.email ? `<div>${safeText(item.email)}</div>` : ''}
@@ -1348,8 +1451,25 @@ function generateATSSection(sectionType, data, styles, colors, layout, textStyle
   }
 }
 
-function generateDefaultATSSections(data, styles, colors, layout, textStyle, isSidebar = false) {
+function generateDefaultATSSections(data, styles, colors, layout, textStyle, isSidebar = false, dateHelpers = {}, preferences = {}) {
   console.log('ATS PDF API - Generating default ATS sections');
+
+  const hasSectionData = (section) => {
+    switch (section) {
+      case 'personal': return true;
+      case 'summary': return data.summary && String(data.summary).trim() !== '';
+      case 'experience': return data.experience && data.experience.length > 0;
+      case 'education': return data.education && data.education.length > 0;
+      case 'skills': return data.skills && data.skills.length > 0;
+      case 'certifications': return data.certifications && data.certifications.length > 0;
+      case 'languages': return data.languages && data.languages.length > 0;
+      case 'projects': return data.projects && data.projects.length > 0;
+      case 'awards': return data.awards && data.awards.length > 0;
+      case 'achievements': return data.achievements && data.achievements.length > 0;
+      case 'customSections': return data.customSections && data.customSections.length > 0;
+      default: return false;
+    }
+  };
 
   const sections = [
     'summary',
@@ -1361,20 +1481,17 @@ function generateDefaultATSSections(data, styles, colors, layout, textStyle, isS
 
   // Add achievements if they exist
   if (data.achievements && data.achievements.length > 0) {
-    console.log('ATS PDF API - Adding achievements to default sections');
     sections.push('achievements');
   }
 
   // Add customSections if they exist
   if (data.customSections && data.customSections.length > 0) {
-    console.log('ATS PDF API - Adding customSections to default sections');
     sections.push('customSections');
   }
 
-  console.log('ATS PDF API - Final sections to render:', sections);
+  // Filter by visibility/data - only render sections that have data (respects visibility prefs applied to data)
+  const sectionsToRender = sections.filter(s => hasSectionData(s));
+  console.log('ATS PDF API - Final sections to render:', sectionsToRender);
 
-  return sections.map(section => {
-    console.log('ATS PDF API - Rendering section:', section);
-    return generateATSSection(section, data, styles, colors, layout, textStyle, isSidebar);
-  }).join('');
+  return sectionsToRender.map(section => generateATSSection(section, data, styles, colors, layout, textStyle, isSidebar, dateHelpers, preferences)).join('');
 }

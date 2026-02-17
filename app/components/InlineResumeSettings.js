@@ -30,6 +30,7 @@ const FONT_SIZES = [
 
 const SECTIONS = [
   { key: 'summary', label: 'Summary' },
+  { key: 'jobTitle', label: 'Job Title' },
   { key: 'experience', label: 'Experience' },
   { key: 'education', label: 'Education' },
   { key: 'skills', label: 'Skills' },

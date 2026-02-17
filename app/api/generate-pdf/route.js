@@ -395,21 +395,22 @@ const translations = {
   fr: { summary: "Profil", experience: "Historique d'Emploi", education: "Éducation", skills: "Compétences", certifications: "Certifications", languages: "Langues", project: "Projets", volunteer: "Travail Bénévole", publication: "Publications", reference: "Références", award: "Prix", hobby: "Centres d'Intérêt" },
 };
 
-// Add a helper to render description as bullets if needed
-function renderDescriptionBulletsHTML(description, isTimeline = false, excludeTexts = []) {
+// Add a helper to render description as bullets if needed (optional textStyle for preference-based typography)
+function renderDescriptionBulletsHTML(description, isTimeline = false, excludeTexts = [], textStyle = null) {
   if (!description) return '';
+
+  const fontSize = textStyle?.fontSize || '0.875rem';
+  const lineHeight = textStyle?.lineHeight || '1.5';
+  const fontFamily = textStyle?.fontFamily || '';
 
   // Handle both string and array descriptions
   let lines;
   if (Array.isArray(description)) {
-    // If it's already an array, use it directly after trimming and ensuring strings
     lines = description.map(l => String(l || '').trim()).filter(Boolean);
   } else {
-    // If it's a string, split into lines, trim, and filter empty
     lines = String(description || '').split('\n').map(l => String(l || '').trim()).filter(Boolean);
   }
 
-  // Filter out redundant first lines
   if (excludeTexts.length > 0) {
     const normalizedExclude = excludeTexts.map(t => String(t || "").toLowerCase().trim()).filter(Boolean);
     if (lines.length > 0) {
@@ -424,24 +425,19 @@ function renderDescriptionBulletsHTML(description, isTimeline = false, excludeTe
     const lineStr = String(l || '');
     return /^[-•*]/.test(lineStr);
   });
+  const liStyle = `font-size:${fontSize};line-height:${lineHeight};margin:0;margin-bottom:${isTimeline ? '0.15rem' : '0'};${fontFamily ? `font-family:${fontFamily};` : ''}`;
+  const pStyle = `margin:${isTimeline ? '0 0 0.15rem 0' : '0'};line-height:${lineHeight};font-size:${fontSize};${fontFamily ? `font-family:${fontFamily};` : ''}`;
   if (bulletLines.length >= Math.max(2, lines.length / 2)) {
-    // For timeline style, use much tighter spacing
     const ulMargin = isTimeline ? '0.15rem 0 0 1rem' : '0.25rem 0 0.5rem 1.25rem';
-    const liLineHeight = isTimeline ? '1.45' : '1.5';
-    const liFontSize = isTimeline ? '0.875rem' : '0.875rem';
     return `<ul style="margin:${ulMargin};padding:0;list-style:disc;">${lines.map(line => {
       const lineStr = String(line || '');
-      // Clean leading bullet chars if they exist in the text, then parse markdown
       const cleanLine = lineStr.replace(/^[-•*]\s*/, "");
-      return `<li style="font-size:${liFontSize};line-height:${liLineHeight};margin:0;margin-bottom:${isTimeline ? '0.15rem' : '0'};">${parseRichText(cleanLine)}</li>`;
+      return `<li style="${liStyle}">${parseRichText(cleanLine)}</li>`;
     }).join('')}</ul>`;
   }
   return lines.map(line => {
     const lineStr = String(line || '');
-    const pMargin = isTimeline ? '0 0 0.15rem 0' : '0';
-    const pFontSize = isTimeline ? '0.875rem' : '0.875rem';
-    const pLineHeight = isTimeline ? '1.45' : '1.5';
-    return `<p style="margin:${pMargin};line-height:${pLineHeight};font-size:${pFontSize};">${parseRichText(lineStr)}</p>`;
+    return `<p style="${pStyle}">${parseRichText(lineStr)}</p>`;
   }).join('');
 }
 
@@ -469,6 +465,21 @@ function extractAchievementsFromCustomSections(customSections) {
 
 function generateResumeHTML(data, template = "classic", customColors = {}, language = "en", country = "us", isPremium = false, preferences = defaultConfig) {
   // RESUME_HTML_MARKER - Used to identify resume generation function
+
+  // ─── Apply visibility preferences (same as ATS/Visual Appeal) ───
+  const vis = preferences?.visibility || {};
+  data = {
+    ...data,
+    summary: vis.summary === false ? '' : data.summary,
+    jobTitle: vis.jobTitle === false ? '' : data.jobTitle,
+    experience: vis.experience === false ? [] : data.experience,
+    education: vis.education === false ? [] : data.education,
+    skills: vis.skills === false ? [] : data.skills,
+    certifications: vis.certifications === false ? [] : data.certifications,
+    languages: vis.languages === false ? [] : data.languages,
+    customSections: vis.customSections === false ? [] : data.customSections,
+    photo: vis.photo === false ? '' : data.photo,
+  };
 
   // Extract achievements from customSections and combine with data.achievements
   // FIX: This logic was causing "Achievements" type custom sections to lose their titles.
@@ -513,7 +524,25 @@ function generateResumeHTML(data, template = "classic", customColors = {}, langu
   // Typography override from preferences
   if (styles) {
     styles.fontFamily = preferences?.typography?.fontPair?.fontFamily || styles.fontFamily || 'Arial';
+    const fontSizePref = preferences?.typography?.fontSize;
+    if (fontSizePref === 'small') styles.fontSize = '9pt';
+    else if (fontSizePref === 'large') styles.fontSize = '11.5pt';
+    const lineHeightPref = preferences?.typography?.lineHeight;
+    if (lineHeightPref === 'compact') styles.lineHeight = '1.25';
+    else if (lineHeightPref === 'relaxed') styles.lineHeight = '1.6';
   }
+
+  // textStyle for consistent typography (same as ATS/Visual Appeal PDF)
+  const baseFontSize = styles?.fontSize || '11pt';
+  const sectionTitleSize = baseFontSize === '9pt' ? '11pt' : baseFontSize === '11.5pt' ? '14pt' : '13pt';
+  const smallSize = baseFontSize === '9pt' ? '8pt' : baseFontSize === '11.5pt' ? '10pt' : '9pt';
+  const textStyle = {
+    fontFamily: styles?.fontFamily || 'Arial, sans-serif',
+    fontSize: baseFontSize,
+    lineHeight: styles?.lineHeight || '1.4',
+    sectionTitleSize,
+    smallSize,
+  };
 
   // Support both top-level customColors or customColors keyed by template
   const custom = customColors?.[template] || customColors || {};
@@ -599,9 +628,9 @@ function generateResumeHTML(data, template = "classic", customColors = {}, langu
     const renderWithIcons = layout.showIcons ? `<span style="width:1rem;height:1rem;margin-right:0.25rem;display:inline-flex;align-items:center;justify-content:center;">${renderedIcons[sectionIconMap[section]] || `<span style="display:inline-block;width:1rem;height:1rem;color:${mergedColors.accent};font-size:0.625rem;text-align:center;line-height:1rem;">?</span>`}</span>` : "";
     switch (section) {
       case "summary":
-        return `<section style="${sectionStyle}"><h2 style="font-size:1.25rem;font-weight:700;margin-bottom:${isCompact ? '0.3rem' : '0.5rem'};display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${styles.fontFamily};line-height:1.1;padding-bottom:${isCompact ? '0.3rem' : '0.5rem'};border-bottom:1px solid #f3f4f6;">${renderWithIcons}${t.summary}</h2><p style="color:${mergedColors.text};font-size:0.875rem;line-height:1.5;font-family:${styles.fontFamily};word-wrap:break-word;margin-top:0.075rem;">${parseRichText(cleanText(data.summary)) || "Your professional profile goes here."}</p></section>`;
+        return `<section style="${sectionStyle}"><h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:${isCompact ? '0.3rem' : '0.5rem'};display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};padding-bottom:${isCompact ? '0.3rem' : '0.5rem'};border-bottom:1px solid #f3f4f6;">${renderWithIcons}${t.summary}</h2><p style="color:${mergedColors.text};font-size:${textStyle.fontSize};line-height:${textStyle.lineHeight};font-family:${textStyle.fontFamily};word-wrap:break-word;margin-top:0.075rem;">${parseRichText(cleanText(data.summary)) || "Your professional profile goes here."}</p></section>`;
       case "experience":
-        return `<section style="${sectionStyle}"><h2 style="font-size:1.25rem;font-weight:700;margin-bottom:${isCompact ? '0.35rem' : '0.5rem'};display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${styles.fontFamily};line-height:1.2;padding-bottom:${isCompact ? '0.35rem' : '0.5rem'};border-bottom:1px solid #f3f4f6;break-after:avoid;page-break-after:avoid;">${renderWithIcons}${t.experience}</h2>${data.experience.map(exp => {
+        return `<section style="${sectionStyle}"><h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:${isCompact ? '0.35rem' : '0.5rem'};display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};padding-bottom:${isCompact ? '0.35rem' : '0.5rem'};border-bottom:1px solid #f3f4f6;break-after:avoid;page-break-after:avoid;">${renderWithIcons}${t.experience}</h2>${data.experience.map(exp => {
           const start = exp.startDate ? formatDate(exp.startDate) : '';
           const end = exp.endDate ? formatDate(exp.endDate) : '';
           let dateStr = '';
@@ -612,10 +641,10 @@ function generateResumeHTML(data, template = "classic", customColors = {}, langu
           } else if (end) {
             dateStr = end;
           }
-          return `<div class="experience-entry" style="margin-bottom:${isCompact ? '0.5rem' : '0.6rem'};padding-left:${layout.timelineStyle ? '0.9rem' : '0'};${layout.timelineStyle ? 'border-left:0.15rem solid ' + mergedColors.accent + ';position:relative;' : ''}"><div class="experience-header"><h3 style="font-weight:600;font-size:0.9375rem;color:${mergedColors.primary};font-family:${styles.fontFamily};margin:0 0 0.15rem 0;line-height:1.3;">${cleanText(exp.jobTitle) || "Job Title"}, ${cleanText(exp.company) || "Company Name"}</h3>${(dateStr || exp.location) ? `<p style="font-size:0.75rem;color:${mergedColors.secondary};font-family:${styles.fontFamily};margin:0 0 0.2rem 0;line-height:1.2;">${dateStr}${dateStr && exp.location ? ' | ' : ''}${exp.location ? cleanText(exp.location) : ''}</p>` : ''}</div><div class="experience-description">${renderDescriptionBulletsHTML(exp.description, isCompact)}</div></div>`;
+          return `<div class="experience-entry" style="margin-bottom:${isCompact ? '0.5rem' : '0.6rem'};padding-left:${layout.timelineStyle ? '0.9rem' : '0'};${layout.timelineStyle ? 'border-left:0.15rem solid ' + mergedColors.accent + ';position:relative;' : ''}"><div class="experience-header"><h3 style="font-weight:600;font-size:${textStyle.fontSize};color:${mergedColors.primary};font-family:${textStyle.fontFamily};margin:0 0 0.15rem 0;line-height:${textStyle.lineHeight};">${cleanText(exp.jobTitle) || "Job Title"}, ${cleanText(exp.company) || "Company Name"}</h3>${(dateStr || exp.location) ? `<p style="font-size:${textStyle.smallSize};color:${mergedColors.secondary};font-family:${textStyle.fontFamily};margin:0 0 0.2rem 0;line-height:${textStyle.lineHeight};">${dateStr}${dateStr && exp.location ? ' | ' : ''}${exp.location ? cleanText(exp.location) : ''}</p>` : ''}</div><div class="experience-description">${renderDescriptionBulletsHTML(exp.description, isCompact, [], textStyle)}</div></div>`;
         }).join("")}</section>`;
       case "education":
-        return `<section style="${sectionStyle}"><h2 style="font-size:1.25rem;font-weight:700;margin-bottom:${isCompact ? '0.35rem' : '0.5rem'};display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${styles.fontFamily};line-height:1.2;padding-bottom:${isCompact ? '0.35rem' : '0.5rem'};border-bottom:1px solid #f3f4f6;break-after:avoid;page-break-after:avoid;">${renderWithIcons}${t.education}</h2>${data.education.map(edu => {
+        return `<section style="${sectionStyle}"><h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:${isCompact ? '0.35rem' : '0.5rem'};display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};padding-bottom:${isCompact ? '0.35rem' : '0.5rem'};border-bottom:1px solid #f3f4f6;break-after:avoid;page-break-after:avoid;">${renderWithIcons}${t.education}</h2>${data.education.map(edu => {
           const showGPA = preferences?.education?.showGPA !== false && edu.gpa;
           const showPercentage = preferences?.education?.showPercentage !== false && edu.percentage;
           const gradeFormat = preferences?.education?.gradeFormat || "both";
@@ -636,7 +665,7 @@ function generateResumeHTML(data, template = "classic", customColors = {}, langu
           } else if (end) {
             dateStr = end;
           }
-          return `<div class="education-entry" style="margin-bottom:${isCompact ? '0.5rem' : '0.6rem'};padding-left:${layout.timelineStyle ? '0.9rem' : '0'};${layout.timelineStyle ? 'border-left:0.15rem solid ' + mergedColors.accent + ';position:relative;' : ''}"><div class="education-header"><h3 style="font-weight:600;font-size:0.9375rem;color:${mergedColors.primary};font-family:${styles.fontFamily};margin:0 0 0.1rem 0;line-height:1.3;">${cleanText(edu.institution) || "Institution Name"}</h3><p style="font-size:0.9375rem;color:${mergedColors.text};font-family:${styles.fontFamily};margin:0 0 0.15rem 0;line-height:1.4;">${cleanText(edu.degree) || "Degree"}${edu.field ? ` in ${cleanText(edu.field)}` : ""}</p>${(dateStr || gradeStr) ? `<p style="font-size:0.75rem;color:${mergedColors.secondary};font-family:${styles.fontFamily};margin:0;line-height:1.2;">${dateStr}${dateStr && gradeStr ? ' | ' : ''}${gradeStr || ''}</p>` : ''}</div></div>`;
+          return `<div class="education-entry" style="margin-bottom:${isCompact ? '0.5rem' : '0.6rem'};padding-left:${layout.timelineStyle ? '0.9rem' : '0'};${layout.timelineStyle ? 'border-left:0.15rem solid ' + mergedColors.accent + ';position:relative;' : ''}"><div class="education-header"><h3 style="font-weight:600;font-size:${textStyle.fontSize};color:${mergedColors.primary};font-family:${textStyle.fontFamily};margin:0 0 0.1rem 0;line-height:${textStyle.lineHeight};">${cleanText(edu.institution) || "Institution Name"}</h3><p style="font-size:${textStyle.fontSize};color:${mergedColors.text};font-family:${textStyle.fontFamily};margin:0 0 0.15rem 0;line-height:${textStyle.lineHeight};">${cleanText(edu.degree) || "Degree"}${edu.field ? ` in ${cleanText(edu.field)}` : ""}</p>${(dateStr || gradeStr) ? `<p style="font-size:${textStyle.smallSize};color:${mergedColors.secondary};font-family:${textStyle.fontFamily};margin:0;line-height:${textStyle.lineHeight};">${dateStr}${dateStr && gradeStr ? ' | ' : ''}${gradeStr || ''}</p>` : ''}</div></div>`;
         }).join("")}</section>`;
       case "skills":
         // Debug logging for skills
@@ -672,12 +701,12 @@ function generateResumeHTML(data, template = "classic", customColors = {}, langu
         console.log('🔍 Normalized skills:', normalizedSkills);
 
         const skillDisplay = preferences?.skills?.display || layout.skillsDisplay || "tags"; // list | grid | tags | bars
-        const showProf = preferences?.skills?.showProficiency && normalizedSkills.some(s => s.proficiency);
+        const showProf = preferences?.skills?.showProficiency === true && normalizedSkills.some(s => s.proficiency);
         if (skillDisplay === "tags") {
-          return `<section style="${sectionStyle}"><h2 style="font-size:1.25rem;font-weight:700;margin-bottom:${isCompact ? '0.3rem' : '0.5rem'};display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${styles.fontFamily};line-height:1.1;padding-bottom:${isCompact ? '0.3rem' : '0.5rem'};border-bottom:1px solid #f3f4f6;">${renderWithIcons}${t.skills}</h2><div style="display:flex;flex-wrap:wrap;gap:${isCompact ? '0.2rem' : '0.25rem'};">${normalizedSkills.map(skill => `<span style=\"background:#E0E7FF;color:#3730A3;font-size:0.8125rem;padding:0.25rem 0.5rem;border-radius:0.375rem;font-family:${styles.fontFamily};word-wrap:break-word;word-break:break-all;max-width:100%;overflow-wrap:break-word;\">${cleanText(skill.name)}${showProf && skill.proficiency ? ` (${cleanText(skill.proficiency)})` : ''}</span>`).join("")}</div></section>`;
+          return `<section style="${sectionStyle}"><h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:${isCompact ? '0.3rem' : '0.5rem'};display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};padding-bottom:${isCompact ? '0.3rem' : '0.5rem'};border-bottom:1px solid #f3f4f6;">${renderWithIcons}${t.skills}</h2><div style="display:flex;flex-wrap:wrap;gap:${isCompact ? '0.2rem' : '0.25rem'};">${normalizedSkills.map(skill => `<span style=\"background:#E0E7FF;color:#3730A3;font-size:${textStyle.smallSize};padding:0.25rem 0.5rem;border-radius:0.375rem;font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};word-wrap:break-word;word-break:break-all;max-width:100%;overflow-wrap:break-word;\">${cleanText(skill.name)}${showProf && skill.proficiency ? ` (${cleanText(skill.proficiency)})` : ''}</span>`).join("")}</div></section>`;
         } else if (skillDisplay === "grid") {
           const columns = preferences?.skills?.columns || 2;
-          return `<section style="${sectionStyle}"><h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${styles.fontFamily};line-height:1.1;padding-bottom:0.5rem;border-bottom:1px solid #f3f4f6;">${renderWithIcons}${t.skills}</h2><div style="display:grid;grid-template-columns:repeat(${columns},1fr);gap:0.5rem;">${normalizedSkills.map(skill => `<div style=\"background:white;padding:0.25rem;border:1px solid rgba(255,255,255,0.5);border-radius:0.375rem;font-family:${styles.fontFamily};overflow:hidden;\"><span style=\"font-size:0.9375rem;color:${mergedColors.text};line-height:1.5;word-wrap:break-word;word-break:break-all;max-width:100%;overflow-wrap:break-word;\">${cleanText(skill.name)}${showProf && skill.proficiency ? ` (${cleanText(skill.proficiency)})` : ''}</span></div>`).join("")}</div></section>`;
+          return `<section style="${sectionStyle}"><h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};padding-bottom:0.5rem;border-bottom:1px solid #f3f4f6;">${renderWithIcons}${t.skills}</h2><div style="display:grid;grid-template-columns:repeat(${columns},1fr);gap:0.5rem;">${normalizedSkills.map(skill => `<div style=\"background:white;padding:0.25rem;border:1px solid rgba(255,255,255,0.5);border-radius:0.375rem;font-family:${textStyle.fontFamily};overflow:hidden;\"><span style=\"font-size:${textStyle.fontSize};color:${mergedColors.text};line-height:${textStyle.lineHeight};word-wrap:break-word;word-break:break-all;max-width:100%;overflow-wrap:break-word;\">${cleanText(skill.name)}${showProf && skill.proficiency ? ` (${cleanText(skill.proficiency)})` : ''}</span></div>`).join("")}</div></section>`;
         } else if (skillDisplay === "bars") {
           const scale = preferences?.skills?.proficiencyScale || "1-5";
           const calcPercent = (prof) => {
@@ -688,24 +717,22 @@ function generateResumeHTML(data, template = "classic", customColors = {}, langu
               const idx = levels.findIndex(l => l.toLowerCase() === String(prof).toLowerCase());
               return idx >= 0 ? ((idx + 1) / levels.length) * 100 : 0;
             }
-            // 1-5 numeric
             return Math.min(100, (parseInt(prof, 10) || 0) * 20);
           };
-          return `<section style="${sectionStyle}"><h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${styles.fontFamily};line-height:1.1;padding-bottom:0.5rem;border-bottom:1px solid #f3f4f6;">${renderWithIcons}${t.skills}</h2><div style="display:flex;flex-direction:column;gap:0.25rem;">${normalizedSkills.map(skill => {
+          return `<section style="${sectionStyle}"><h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};padding-bottom:0.5rem;border-bottom:1px solid #f3f4f6;">${renderWithIcons}${t.skills}</h2><div style="display:flex;flex-direction:column;gap:0.25rem;">${normalizedSkills.map(skill => {
             const percent = calcPercent(skill.proficiency);
-            return `<div style=\"display:flex;flex-direction:column;gap:0.1rem;font-family:${styles.fontFamily};\"><div style=\"display:flex;justify-content:space-between;font-size:0.8125rem;color:${mergedColors.text};\"><span style=\"word-wrap:break-word;word-break:break-all;max-width:100%;overflow-wrap:break-word;\">${cleanText(skill.name)}</span>${showProf && skill.proficiency ? `<span style=\"color:${mergedColors.secondary};word-wrap:break-word;word-break:break-all;max-width:100%;overflow-wrap:break-word;\">${cleanText(skill.proficiency)}</span>` : ''}</div><div style=\"width:100%;height:0.375rem;background:#E5E7EB;border-radius:0.25rem;overflow:hidden;\"><div style=\"width:${percent}%;height:100%;background:${mergedColors.accent};border-radius:0.25rem;\"></div></div></div>`;
+            return `<div style=\"display:flex;flex-direction:column;gap:0.1rem;font-family:${textStyle.fontFamily};\"><div style=\"display:flex;justify-content:space-between;font-size:${textStyle.smallSize};color:${mergedColors.text};line-height:${textStyle.lineHeight};\"><span style=\"word-wrap:break-word;word-break:break-all;max-width:100%;overflow-wrap:break-word;\">${cleanText(skill.name)}</span>${showProf && skill.proficiency ? `<span style=\"color:${mergedColors.secondary};word-wrap:break-word;word-break:break-all;max-width:100%;overflow-wrap:break-word;\">${cleanText(skill.proficiency)}</span>` : ''}</div><div style=\"width:100%;height:0.375rem;background:#E5E7EB;border-radius:0.25rem;overflow:hidden;\"><div style=\"width:${percent}%;height:100%;background:${mergedColors.accent};border-radius:0.25rem;\"></div></div></div>`;
           }).join("")}</div></section>`;
         } else {
-          // list
-          return `<section style="${sectionStyle}"><h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${styles.fontFamily};line-height:1.1;padding-bottom:0.5rem;border-bottom:1px solid #f3f4f6;">${renderWithIcons}${t.skills}</h2><ul style="margin:0;padding-left:1.25rem;list-style:disc;">${normalizedSkills.map(skill => `<li style=\"font-size:0.9375rem;color:${mergedColors.text};font-family:${styles.fontFamily};line-height:1.5;word-wrap:break-word;word-break:break-all;max-width:100%;overflow-wrap:break-word;\">${cleanText(skill.name)}${showProf && skill.proficiency ? ` (${cleanText(skill.proficiency)})` : ''}</li>`).join("")}</ul></section>`;
+          return `<section style="${sectionStyle}"><h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};padding-bottom:0.5rem;border-bottom:1px solid #f3f4f6;">${renderWithIcons}${t.skills}</h2><ul style="margin:0;padding-left:1.25rem;list-style:disc;">${normalizedSkills.map(skill => `<li style=\"font-size:${textStyle.fontSize};color:${mergedColors.text};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};word-wrap:break-word;word-break:break-all;max-width:100%;overflow-wrap:break-word;\">${cleanText(skill.name)}${showProf && skill.proficiency ? ` (${cleanText(skill.proficiency)})` : ''}</li>`).join("")}</ul></section>`;
         }
       case "certifications":
-        return `<section style="${sectionStyle}"><h2 style="font-size:1.25rem;font-weight:700;margin-bottom:${isCompact ? '0.35rem' : '0.5rem'};display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${styles.fontFamily};line-height:1.2;padding-bottom:${isCompact ? '0.35rem' : '0.5rem'};border-bottom:1px solid #f3f4f6;break-after:avoid;page-break-after:avoid;">${renderWithIcons}${t.certifications}</h2>${data.certifications.map(cert => `<div style="margin-bottom:${isCompact ? '0.4rem' : '0.5rem'};padding-left:${layout.timelineStyle ? '0.9rem' : '0'};${layout.timelineStyle ? 'border-left:0.15rem solid ' + mergedColors.accent + ';position:relative;' : ''}"><h3 style="font-weight:600;font-size:0.9375rem;color:${mergedColors.primary};font-family:${styles.fontFamily};margin:0 0 0.1rem 0;line-height:1.3;break-after:avoid;page-break-after:avoid;">${cleanText(cert.name) || "Certification Name"}</h3>${(cert.issuer || cert.date) ? `<p style="font-size:0.75rem;color:${mergedColors.secondary};font-family:${styles.fontFamily};margin:0;line-height:1.2;">${cert.issuer ? cleanText(cert.issuer) : ''}${cert.issuer && cert.date ? ' • ' : ''}${cert.date ? formatDate(cert.date) : ''}</p>` : ''}</div>`).join("")}</section>`;
+        return `<section style="${sectionStyle}"><h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:${isCompact ? '0.35rem' : '0.5rem'};display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};padding-bottom:${isCompact ? '0.35rem' : '0.5rem'};border-bottom:1px solid #f3f4f6;break-after:avoid;page-break-after:avoid;">${renderWithIcons}${t.certifications}</h2>${data.certifications.map(cert => `<div style="margin-bottom:${isCompact ? '0.4rem' : '0.5rem'};padding-left:${layout.timelineStyle ? '0.9rem' : '0'};${layout.timelineStyle ? 'border-left:0.15rem solid ' + mergedColors.accent + ';position:relative;' : ''}"><h3 style="font-weight:600;font-size:${textStyle.fontSize};color:${mergedColors.primary};font-family:${textStyle.fontFamily};margin:0 0 0.1rem 0;line-height:${textStyle.lineHeight};break-after:avoid;page-break-after:avoid;">${cleanText(cert.name) || "Certification Name"}</h3>${(cert.issuer || cert.date) ? `<p style="font-size:${textStyle.smallSize};color:${mergedColors.secondary};font-family:${textStyle.fontFamily};margin:0;line-height:${textStyle.lineHeight};">${cert.issuer ? cleanText(cert.issuer) : ''}${cert.issuer && cert.date ? ' • ' : ''}${cert.date ? formatDate(cert.date) : ''}</p>` : ''}</div>`).join("")}</section>`;
       case "achievements":
         if (!data.achievements || !Array.isArray(data.achievements) || data.achievements.length === 0) return "";
-        return `<section style="${sectionStyle}"><h2 style="font-size:1.25rem;font-weight:700;margin-bottom:${isCompact ? '0.35rem' : '0.5rem'};display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${styles.fontFamily};line-height:1.1;padding-bottom:${isCompact ? '0.3rem' : '0.5rem'};border-bottom:1px solid #f3f4f6;">${renderWithIcons}${t.achievements || "Achievements"}</h2><ul style="margin:0;padding-left:${isCompact ? '1rem' : '1.25rem'};list-style:disc;">${data.achievements.map(achievement => `<li style="font-size:0.875rem;color:${mergedColors.text};font-family:${styles.fontFamily};line-height:1.5;margin-bottom:${isCompact ? '0.25rem' : '0.35rem'};">${parseRichText(cleanText(achievement))}</li>`).join("")}</ul></section>`;
+        return `<section style="${sectionStyle}"><h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:${isCompact ? '0.35rem' : '0.5rem'};display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};padding-bottom:${isCompact ? '0.3rem' : '0.5rem'};border-bottom:1px solid #f3f4f6;">${renderWithIcons}${t.achievements || "Achievements"}</h2><ul style="margin:0;padding-left:${isCompact ? '1rem' : '1.25rem'};list-style:disc;">${data.achievements.map(achievement => `<li style="font-size:${textStyle.fontSize};color:${mergedColors.text};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};margin-bottom:${isCompact ? '0.25rem' : '0.35rem'};">${parseRichText(cleanText(achievement))}</li>`).join("")}</ul></section>`;
       case "languages":
-        return `<section style="${sectionStyle}"><h2 style="font-size:1.25rem;font-weight:700;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${styles.fontFamily};line-height:1.1;padding-bottom:0.5rem;border-bottom:1px solid #f3f4f6;">${renderWithIcons}${t.languages}</h2><div style="display:grid;grid-template-columns:${layout.columns === 2 ? '1fr' : 'repeat(2,1fr)'};gap:0.5rem;">${data.languages.map(lang => `<div style="background:white;padding:0.25rem;border:1px solid rgba(255,255,255,0.5);border-radius:0.375rem;display:flex;justify-content:space-between;align-items:center;overflow:hidden;"><span style="font-size:0.9375rem;color:${mergedColors.text};font-family:${styles.fontFamily};word-wrap:break-word;word-break:break-all;max-width:100%;overflow-wrap:break-word;line-height:1.5;">${cleanText(lang.language) || "Language"} ${lang.proficiency ? `(${cleanText(lang.proficiency)})` : ""}</span></div>`).join("")}</div></section>`;
+        return `<section style="${sectionStyle}"><h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};padding-bottom:0.5rem;border-bottom:1px solid #f3f4f6;">${renderWithIcons}${t.languages}</h2><div style="display:grid;grid-template-columns:${layout.columns === 2 ? '1fr' : 'repeat(2,1fr)'};gap:0.5rem;">${data.languages.map(lang => `<div style="background:white;padding:0.25rem;border:1px solid rgba(255,255,255,0.5);border-radius:0.375rem;display:flex;justify-content:space-between;align-items:center;overflow:hidden;"><span style="font-size:${textStyle.fontSize};color:${mergedColors.text};font-family:${textStyle.fontFamily};word-wrap:break-word;word-break:break-all;max-width:100%;overflow-wrap:break-word;line-height:${textStyle.lineHeight};">${cleanText(lang.language) || "Language"} ${lang.proficiency ? `(${cleanText(lang.proficiency)})` : ""}</span></div>`).join("")}</div></section>`;
       case "personal":
         return ""; // Personal info is already in header, skip rendering as section
       case "customSections":
@@ -726,10 +753,10 @@ function generateResumeHTML(data, template = "classic", customColors = {}, langu
           // Generate HTML for items in this group
           const itemsHtml = items.map(cs => {
             const itemTitle = cs.name || cs.title || "";
-            return `<div style="background:white;padding:0.25rem;border:1px solid rgba(255,255,255,0.5);border-radius:0.375rem;overflow:hidden;"><h3 style="font-weight:600;font-size:0.9375rem;color:${mergedColors.primary};font-family:${styles.fontFamily};word-wrap:break-word;word-break:break-all;max-width:100%;overflow-wrap:break-word;margin-bottom:0.05rem;line-height:1.1;">${cleanText(itemTitle) || ""}</h3>${renderDescriptionBulletsHTML(cs.description, isCompact, [sectionTitle, itemTitle])}${cs.date ? `<p style="font-size:0.8125rem;color:${mergedColors.secondary};font-family:${styles.fontFamily};word-wrap:break-word;word-break:break-all;max-width:100%;overflow-wrap:break-word;margin-top:0.25rem;line-height:1.1;">${formatDate(cs.date)}</p>` : ''}</div>`;
+            return `<div style="background:white;padding:0.25rem;border:1px solid rgba(255,255,255,0.5);border-radius:0.375rem;overflow:hidden;"><h3 style="font-weight:600;font-size:${textStyle.fontSize};color:${mergedColors.primary};font-family:${textStyle.fontFamily};word-wrap:break-word;word-break:break-all;max-width:100%;overflow-wrap:break-word;margin-bottom:0.05rem;line-height:${textStyle.lineHeight};">${cleanText(itemTitle) || ""}</h3>${renderDescriptionBulletsHTML(cs.description, isCompact, [sectionTitle, itemTitle], textStyle)}${cs.date ? `<p style="font-size:${textStyle.smallSize};color:${mergedColors.secondary};font-family:${textStyle.fontFamily};word-wrap:break-word;word-break:break-all;max-width:100%;overflow-wrap:break-word;margin-top:0.25rem;line-height:${textStyle.lineHeight};">${formatDate(cs.date)}</p>` : ''}</div>`;
           }).join("");
 
-          return `<section style="${sectionStyle}"><h2 style="font-size:1.25rem;font-weight:700;margin-bottom:${isCompact ? '0.3rem' : '0.5rem'};display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${styles.fontFamily};line-height:1.1;padding-bottom:${isCompact ? '0.3rem' : '0.5rem'};border-bottom:1px solid #f3f4f6;">${customRenderWithIcons}${sectionTitle}</h2><div style="display:flex;flex-direction:column;gap:0.25rem;">${itemsHtml}</div></section>`;
+          return `<section style="${sectionStyle}"><h2 style="font-size:${textStyle.sectionTitleSize};font-weight:700;margin-bottom:${isCompact ? '0.3rem' : '0.5rem'};display:flex;align-items:center;gap:0.25rem;color:${mergedColors.primary};font-family:${textStyle.fontFamily};line-height:${textStyle.lineHeight};padding-bottom:${isCompact ? '0.3rem' : '0.5rem'};border-bottom:1px solid #f3f4f6;">${customRenderWithIcons}${sectionTitle}</h2><div style="display:flex;flex-direction:column;gap:0.25rem;">${itemsHtml}</div></section>`;
         }).join("");
       default:
         return "";
@@ -740,7 +767,7 @@ function generateResumeHTML(data, template = "classic", customColors = {}, langu
     const isCompact = layout.timelineStyle || layout.columns === 2;
     // Match preview padding: p-8 = 2rem = 32px for full-width header, p-6 = 1.5rem = 24px for compact
     const headerPadding = layout.headerStyle === "full-width" ? '2rem' : (isCompact ? '0.4rem' : '1.5rem');
-    const headerBaseStyle = `margin:0;margin-bottom:${isCompact ? '0.25rem' : '0.5rem'};padding:${headerPadding};background:linear-gradient(135deg,${mergedColors.primary} 0%,${mergedColors.accent} 100%);color:white;border-radius:${layout.headerStyle === "full-width" ? '1rem' : '0.5rem'};font-family:${styles.fontFamily};box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);border:1px solid rgba(255,255,255,0.5);`;
+    const headerBaseStyle = `margin:0;margin-bottom:${isCompact ? '0.25rem' : '0.5rem'};padding:${headerPadding};background:linear-gradient(135deg,${mergedColors.primary} 0%,${mergedColors.accent} 100%);color:white;border-radius:${layout.headerStyle === "full-width" ? '1rem' : '0.5rem'};font-family:${textStyle.fontFamily};font-size:${textStyle.fontSize};line-height:${textStyle.lineHeight};box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);border:1px solid rgba(255,255,255,0.5);`;
 
     if (layout.headerStyle === "compact") {
       return `<header style="${headerBaseStyle}text-align:center;"><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:0.05rem;font-family:${styles.fontFamily};line-height:1.1;">${cleanText(data.name) || "Your Name"}</h1>${data.jobTitle ? `<p style="font-size:0.875rem;font-weight:500;opacity:0.9;margin-bottom:0.075rem;font-family:${styles.fontFamily};line-height:1.1;">${cleanText(data.jobTitle)}</p>` : ''}<div style="font-size:0.75rem;font-family:${styles.fontFamily};white-space:normal;word-wrap:break-word;"><p style="margin:0.075rem 0;line-height:1.1;">${cleanText(data.email) || "email@example.com"}</p><p style="margin:0.075rem 0;line-height:1.1;">${data.phone || "+1 (555) 123-4567"}</p><p style="margin:0.075rem 0;line-height:1.1;">${cleanText(data.address) || "123 Street, City, Country"}</p>${data.linkedin ? `<p style="margin:0.075rem 0;line-height:1.1;"><a href="${cleanText(data.linkedin)}" style="color:white;text-decoration:underline;">${cleanText(data.linkedin)}</a></p>` : ""}${data.dateOfBirth ? `<p style="margin:0.075rem 0;line-height:1.1;">DOB: ${data.dateOfBirth}</p>` : ""}${data.gender ? `<p style="margin:0.075rem 0;line-height:1.1;">${data.gender}</p>` : ""}${data.maritalStatus ? `<p style="margin:0.075rem 0;line-height:1.1;">${data.maritalStatus}</p>` : ""}${data.portfolio ? `<p style="margin:0.075rem 0;line-height:1.1;"><a href="${cleanText(data.portfolio)}" style="color:white;text-decoration:underline;">${cleanText(data.portfolio)}</a></p>` : ""}</div></header>`;
@@ -840,7 +867,17 @@ function generateResumeHTML(data, template = "classic", customColors = {}, langu
     return `<div class="resume-container" style="width:100%;padding:0.5rem;border-radius:0.75rem;background-color:${mergedColors.background};font-family:${styles.fontFamily};box-shadow:0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);position:relative;border:1px solid rgba(255,255,255,0.5);">${header}<div>${sections}</div>${watermark}</div>`;
   };
 
-  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>html{font-size:16px;}body{width:100%;min-height:0;margin:0 auto;padding:0;background-color:${mergedColors.background};color:${mergedColors.text};font-family:${styles.fontFamily},sans-serif;box-sizing:border-box;display:flex;justify-content:center;align-items:flex-start;word-break:keep-all;hyphens:manual;overflow-wrap:normal;white-space:normal;text-rendering:optimizeLegibility;-webkit-font-feature-settings:"liga" 1, "kern" 1;font-feature-settings:"liga" 1, "kern" 1;}@media print{body{width:100%;min-height:0;margin:0 auto;padding:0;background-color:${mergedColors.background};}p{orphans:2;widows:2;word-break:keep-all;hyphens:manual;overflow-wrap:normal;}section{orphans:1;widows:1;}div{orphans:1;widows:1;}@page{margin:0.1in 0.3in;size:${country === 'us' ? 'Letter' : 'A4'};}.experience-entry,.education-entry{break-inside:auto;page-break-inside:auto;}.experience-header,.education-header{break-inside:avoid;page-break-inside:avoid;}.experience-description,.education-description{break-inside:auto;page-break-inside:auto;}li{break-inside:avoid;page-break-inside:avoid;}h1,h2,h3{break-after:avoid;page-break-after:avoid;}}h1,h2,h3{font-weight:700;margin:0;word-break:keep-all;hyphens:manual;}p{margin:0;white-space:normal;word-break:keep-all;hyphens:manual;overflow-wrap:normal;}img{max-width:100%;height:auto;}svg{display:inline-block;vertical-align:middle;}header{break-after:auto;page-break-after:auto;}section{break-inside:auto;page-break-inside:auto;break-after:auto;page-break-after:auto;}section h2{break-after:avoid;page-break-after:avoid;}section > div{break-inside:auto;page-break-inside:auto;}div[style*="grid-template-columns"]{break-inside:auto;page-break-inside:auto;}.resume-container{break-inside:auto;page-break-inside:auto;}.resume-container.two-column{break-inside:auto;page-break-inside:auto;}.grid-container{break-inside:auto;page-break-inside:auto;break-before:auto;page-break-before:auto;}.sidebar-column,.main-column{break-inside:auto;page-break-inside:auto;}ul,ol{break-inside:auto;page-break-inside:auto;}li{break-inside:avoid;page-break-inside:avoid;}div[style*="position:absolute"]{break-inside:avoid;page-break-inside:avoid;}</style></head><body>${renderLayout()}</body></html>`;
+  // Google Fonts for custom fonts (same as ATS/Visual Appeal PDF)
+  const fontFamily = textStyle.fontFamily || 'Arial, sans-serif';
+  const primaryFontMatch = fontFamily.match(/'([^']+)'|"([^"]+)"|^([^,]+)/);
+  const primaryFont = primaryFontMatch ? (primaryFontMatch[1] || primaryFontMatch[2] || primaryFontMatch[3] || '').trim() : '';
+  const systemFonts = ['Arial', 'Helvetica', 'Helvetica Neue', 'Times New Roman', 'Georgia', 'Verdana'];
+  const needsGoogleFont = primaryFont && !systemFonts.some(f => primaryFont.toLowerCase().includes(f.toLowerCase()));
+  const googleFontLink = needsGoogleFont
+    ? `<link href="https://fonts.googleapis.com/css2?family=${encodeURIComponent(primaryFont).replace(/%20/g, '+')}:wght@400;500;600;700&display=swap" rel="stylesheet">`
+    : '';
+
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8">${googleFontLink}<style>html{font-size:16px;}body{width:100%;min-height:0;margin:0 auto;padding:0;background-color:${mergedColors.background};color:${mergedColors.text};font-family:${textStyle.fontFamily};font-size:${textStyle.fontSize};line-height:${textStyle.lineHeight};box-sizing:border-box;display:flex;justify-content:center;align-items:flex-start;word-break:keep-all;hyphens:manual;overflow-wrap:normal;white-space:normal;text-rendering:optimizeLegibility;-webkit-font-feature-settings:"liga" 1, "kern" 1;font-feature-settings:"liga" 1, "kern" 1;}@media print{body{width:100%;min-height:0;margin:0 auto;padding:0;background-color:${mergedColors.background};}p{orphans:2;widows:2;word-break:keep-all;hyphens:manual;overflow-wrap:normal;}section{orphans:1;widows:1;}div{orphans:1;widows:1;}@page{margin:0.1in 0.3in;size:${country === 'us' ? 'Letter' : 'A4'};}.experience-entry,.education-entry{break-inside:auto;page-break-inside:auto;}.experience-header,.education-header{break-inside:avoid;page-break-inside:avoid;}.experience-description,.education-description{break-inside:auto;page-break-inside:auto;}li{break-inside:avoid;page-break-inside:avoid;}h1,h2,h3{break-after:avoid;page-break-after:avoid;}}h1,h2,h3{font-weight:700;margin:0;word-break:keep-all;hyphens:manual;}p{margin:0;white-space:normal;word-break:keep-all;hyphens:manual;overflow-wrap:normal;}img{max-width:100%;height:auto;}svg{display:inline-block;vertical-align:middle;}header{break-after:auto;page-break-after:auto;}section{break-inside:auto;page-break-inside:auto;break-after:auto;page-break-after:auto;}section h2{break-after:avoid;page-break-after:avoid;}section > div{break-inside:auto;page-break-inside:auto;}div[style*="grid-template-columns"]{break-inside:auto;page-break-inside:auto;}.resume-container{break-inside:auto;page-break-inside:auto;}.resume-container.two-column{break-inside:auto;page-break-inside:auto;}.grid-container{break-inside:auto;page-break-inside:auto;break-before:auto;page-break-before:auto;}.sidebar-column,.main-column{break-inside:auto;page-break-inside:auto;}ul,ol{break-inside:auto;page-break-inside:auto;}li{break-inside:avoid;page-break-inside:avoid;}div[style*="position:absolute"]{break-inside:avoid;page-break-inside:avoid;}</style></head><body>${renderLayout()}</body></html>`;
 }
 
 function generateCoverLetterHTML(coverLetterData, coverLetterTemplate = "classic", customColors = {}, resumeData, country = "us") {

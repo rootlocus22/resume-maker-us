@@ -2985,6 +2985,8 @@ export default function UploadResumeContainerClient({
                         template={templateData}
                         isCompact={false}
                         isPremium={isPremium}
+                        preferences={preferences}
+                        customColors={customColors[template] || customColors || {}}
                       />
                     ) : isATSTemplate ? (
                       <ATSResumeRenderer
@@ -2992,6 +2994,7 @@ export default function UploadResumeContainerClient({
                         template={templateData}
                         isCompact={false}
                         isPremium={isPremium}
+                        preferences={preferences}
                       />
                     ) : (
                       <Suspense fallback={<div className="flex items-center justify-center h-64"><div className="animate-spin rounded-full h-8 w-8 border-2 border-accent border-t-transparent"></div></div>}>
@@ -3143,6 +3146,7 @@ export default function UploadResumeContainerClient({
                             template={templateData}
                             isCompact={false}
                             isPremium={isPremium}
+                            preferences={preferences}
                           />
                         ) : (
                           <Suspense fallback={<div className="flex items-center justify-center h-64"><div className="animate-spin rounded-full h-8 w-8 border-2 border-accent border-t-transparent"></div></div>}>

@@ -4046,6 +4046,7 @@ export default function ResumeBuilder() {
                     <div className="relative flex justify-center items-start min-h-full p-2">
                       <div ref={previewContainerRef} className="flex justify-center">
                         <ResumePreview
+                          key={template}
                           data={resumeData}
                           template={template}
                           customColors={customColors[template] || {}}
@@ -4502,6 +4503,7 @@ export default function ResumeBuilder() {
                       </div>
                     }>
                       <ResumePreview
+                        key={template}
                         data={resumeData}
                         template={template}
                         customColors={customColors[template] || {}}

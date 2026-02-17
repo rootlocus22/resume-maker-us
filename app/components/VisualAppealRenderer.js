@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, memo } from 'react';
 import { parseRichText } from '../lib/richTextRenderer';
+import { formatDateWithPreferences } from '../lib/resumeUtils';
+import { renderSkillWithProficiency } from '../lib/skillUtils';
 
 // Helper function to render description as bullets if needed
-function renderDescriptionBullets(description, isVisualAppeal = true, excludeTexts = []) {
+function renderDescriptionBullets(description, isVisualAppeal = true, excludeTexts = [], textStyle = {}) {
   if (!description) return null;
 
   // Handle both string and array descriptions
@@ -52,21 +54,49 @@ function renderDescriptionBullets(description, isVisualAppeal = true, excludeTex
   if (lines.length === 0) return null;
 
   // For visual appeal templates, always render as bullets if there are multiple lines
+  const bulletStyle = { display: 'list-item', fontSize: textStyle.fontSize || '0.875rem', fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight };
+  const paraStyle = { whiteSpace: 'pre-line', fontSize: textStyle.fontSize || '0.875rem', fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight };
   if (lines.length > 1) {
     return (
       <ul className="list-disc ml-5 space-y-1.5" style={{ listStyleType: 'disc', paddingLeft: '1.25rem' }}>
         {lines.map((line, idx) => (
-          <li key={idx} className="text-sm leading-relaxed" style={{ display: 'list-item' }} dangerouslySetInnerHTML={{ __html: parseRichText(line.replace(/^[-•*]\s*/, "")) }} />
+          <li key={idx} className="leading-relaxed" style={bulletStyle} dangerouslySetInnerHTML={{ __html: parseRichText(line.replace(/^[-•*]\s*/, "")) }} />
         ))}
       </ul>
     );
   }
 
   // Single line - render as paragraph
-  return <p className="text-sm leading-relaxed" style={{ whiteSpace: 'pre-line' }} dangerouslySetInnerHTML={{ __html: parseRichText(lines[0]) }} />;
+  return <p className="leading-relaxed" style={paraStyle} dangerouslySetInnerHTML={{ __html: parseRichText(lines[0]) }} />;
 }
 
-const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremium = false }) => {
+const VisualAppealRenderer = memo(({ data: rawData, template, isCompact = false, isPremium = false, preferences = {}, customColors: userColors = {} }) => {
+
+  // ─── Apply visibility preferences ───
+  const vis = preferences?.visibility || {};
+  const data = {
+    ...rawData,
+    summary: vis.summary === false ? '' : rawData.summary,
+    jobTitle: vis.jobTitle === false ? '' : rawData.jobTitle,
+    experience: vis.experience === false ? [] : rawData.experience,
+    education: vis.education === false ? [] : rawData.education,
+    skills: vis.skills === false ? [] : rawData.skills,
+    certifications: vis.certifications === false ? [] : rawData.certifications,
+    languages: vis.languages === false ? [] : rawData.languages,
+    customSections: vis.customSections === false ? [] : rawData.customSections,
+    photo: vis.photo === false ? '' : rawData.photo,
+  };
+
+  // Format dates using preferences
+  const fmtDate = (date) => {
+    if (!date) return '';
+    if (/present/i.test(date)) return 'Present';
+    if (preferences?.dateFormat) {
+      const result = formatDateWithPreferences(date, preferences);
+      if (result) return result;
+    }
+    return date;
+  };
 
   // Normalize skills data to ensure they're always properly structured
   const normalizeSkills = (skills) => {
@@ -152,31 +182,46 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
     );
   }
 
-  const { layout, styles } = template;
+  const { layout } = template;
+  // Apply typography preferences to styles (same as ATSResumeRenderer)
+  const styles = { ...template.styles };
+  const fontPref = preferences?.typography?.fontPair?.fontFamily;
+  if (fontPref) styles.fontFamily = fontPref;
+  const fontSizePref = preferences?.typography?.fontSize;
+  if (fontSizePref === 'small') styles.fontSize = '9pt';
+  else if (fontSizePref === 'large') styles.fontSize = '11.5pt';
+  const lineHeightPref = preferences?.typography?.lineHeight;
+  if (lineHeightPref === 'compact') styles.lineHeight = '1.25';
+  else if (lineHeightPref === 'relaxed') styles.lineHeight = '1.6';
 
   // Show photo by default, only hide if explicitly deleted (empty string)
   const shouldShowPhoto = data.photo !== ""; // Only hide if explicitly deleted
   const photoUrl = shouldShowPhoto ? (data.photo || "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE2MCIgcj0iNDAiIGZpbGw9IiM5Q0EzQUYiLz4KPHBhdGggZD0iTTE4MCAxNDBMMjAwIDEyMEwyMjAgMTQwTDIwMCAxNjBMMTgwIDE0MFoiIGZpbGw9IndoaXRlIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNkI3MjgwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiPkFkZCBQaG90bzwvdGV4dD4KPC9zdmc+") : null;
 
-  // Create typography styles
+  // Create typography styles with preference-based scaling
+  const baseFontSize = styles.fontSize || "11pt";
+  const sectionTitleSize = baseFontSize === '9pt' ? '11pt' : baseFontSize === '11.5pt' ? '14pt' : '13pt';
+  const smallSize = baseFontSize === '9pt' ? '8pt' : baseFontSize === '11.5pt' ? '10pt' : '9pt';
   const textStyle = {
     fontFamily: styles.fontFamily || "Inter, sans-serif",
-    fontSize: styles.fontSize || "11pt",
-    lineHeight: styles.lineHeight || "1.5"
+    fontSize: baseFontSize,
+    lineHeight: styles.lineHeight || "1.5",
+    sectionTitleSize,
+    smallSize
   };
 
   // Merge colors with enhanced visual appeal
   const mergedColors = {
-    primary: styles?.colors?.primary || "#1e40af",
-    secondary: styles?.colors?.secondary || "#475569",
-    accent: styles?.colors?.accent || "#3b82f6",
-    text: styles?.colors?.text || "#1f2937",
-    background: styles?.colors?.background || "#ffffff",
-    sidebarBackground: styles?.colors?.sidebarBackground || "#f8fafc",
-    sidebarText: styles?.colors?.sidebarText || "#1f2937",
-    accentLight: styles?.colors?.accentLight || "#dbeafe",
-    gradientStart: styles?.colors?.gradientStart || "#1e40af",
-    gradientEnd: styles?.colors?.gradientEnd || "#3b82f6"
+    primary: userColors?.primary || styles?.colors?.primary || "#1e40af",
+    secondary: userColors?.secondary || styles?.colors?.secondary || "#475569",
+    accent: userColors?.accent || styles?.colors?.accent || "#3b82f6",
+    text: userColors?.text || styles?.colors?.text || "#1f2937",
+    background: userColors?.background || styles?.colors?.background || "#ffffff",
+    sidebarBackground: userColors?.sidebarBackground || styles?.colors?.sidebarBackground || "#f8fafc",
+    sidebarText: userColors?.sidebarText || styles?.colors?.sidebarText || "#1f2937",
+    accentLight: userColors?.accentLight || styles?.colors?.accentLight || "#dbeafe",
+    gradientStart: userColors?.gradientStart || styles?.colors?.gradientStart || "#1e40af",
+    gradientEnd: userColors?.gradientEnd || styles?.colors?.gradientEnd || "#3b82f6"
   };
 
   // Get visual effects
@@ -236,33 +281,38 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
                 className="font-bold mb-3 tracking-wide"
                 style={{
                   color: mergedColors.primary,
-                  fontSize: "2rem",
+                  fontSize: textStyle.sectionTitleSize,
+                  fontFamily: textStyle.fontFamily,
                   fontWeight: "800",
                   letterSpacing: "-0.02em",
-                  lineHeight: "1.1",
+                  lineHeight: textStyle.lineHeight,
                   wordBreak: "break-word",
                   overflowWrap: "break-word"
                 }}
               >
                 {data.name || "Your Name"}
               </h1>
+              {data.jobTitle && (
               <p
                 className="font-semibold mb-4 tracking-wide"
                 style={{
                   color: mergedColors.secondary,
-                  fontSize: "1.1rem",
+                  fontSize: textStyle.fontSize,
+                  fontFamily: textStyle.fontFamily,
                   fontWeight: "600",
                   letterSpacing: "-0.01em",
+                  lineHeight: textStyle.lineHeight,
                   wordBreak: "break-word",
                   overflowWrap: "break-word"
                 }}
               >
-                {data.jobTitle || ""}
+                {data.jobTitle}
               </p>
+              )}
             </div>
 
             {/* Contact Details on Right Side */}
-            <div className="flex-shrink-0 text-right" style={{ color: mergedColors.accent, fontSize: "0.9rem" }}>
+            <div className="flex-shrink-0 text-right" style={{ color: mergedColors.accent, fontSize: textStyle.smallSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>
               {data.email && (
                 <div className="mb-2 flex items-center justify-end gap-2">
                   <span className="text-sm"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg></span>
@@ -306,7 +356,7 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
         >
           <div className="relative z-10 flex items-center gap-10">
             {/* Profile Photo Overlay */}
-            {(
+            {shouldShowPhoto && (
               <div
                 className="flex-shrink-0"
                 style={{
@@ -326,25 +376,30 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
               <h1
                 className="font-bold mb-3 tracking-wide"
                 style={{
-                  fontSize: "1.85rem",
+                  fontSize: textStyle.sectionTitleSize,
+                  fontFamily: textStyle.fontFamily,
                   fontWeight: "800",
                   letterSpacing: "-0.02em",
-                  lineHeight: "1.2"
+                  lineHeight: textStyle.lineHeight
                 }}
               >
                 {data.name || "Your Name"}
               </h1>
+              {data.jobTitle && (
               <p
                 className="font-semibold mb-2 tracking-wide"
                 style={{
-                  fontSize: "1rem",
+                  fontSize: textStyle.fontSize,
+                  fontFamily: textStyle.fontFamily,
                   fontWeight: "600",
                   letterSpacing: "-0.01em",
-                  opacity: "0.95"
+                  opacity: "0.95",
+                  lineHeight: textStyle.lineHeight
                 }}
               >
-                {data.jobTitle || ""}
+                {data.jobTitle}
               </p>
+              )}
             </div>
           </div>
         </header>
@@ -374,26 +429,32 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
                 className="font-bold mb-2 tracking-wide"
                 style={{
                   color: mergedColors.primary,
-                  fontSize: "1.85rem",
+                  fontSize: textStyle.sectionTitleSize,
+                  fontFamily: textStyle.fontFamily,
                   fontWeight: "700",
-                  letterSpacing: "-0.01em"
+                  letterSpacing: "-0.01em",
+                  lineHeight: textStyle.lineHeight
                 }}
               >
                 {data.name || "Your Name"}
               </h1>
+              {data.jobTitle && (
               <p
                 className="font-semibold mb-3 tracking-wide"
                 style={{
                   color: mergedColors.secondary,
-                  fontSize: "1rem",
-                  fontWeight: "600"
+                  fontSize: textStyle.fontSize,
+                  fontFamily: textStyle.fontFamily,
+                  fontWeight: "600",
+                  lineHeight: textStyle.lineHeight
                 }}
               >
-                {data.jobTitle || ""}
+                {data.jobTitle}
               </p>
+              )}
 
               {/* Contact Info */}
-              <div className="flex gap-6 text-sm" style={{ color: mergedColors.accent }}>
+              <div className="flex gap-6 text-sm" style={{ color: mergedColors.accent, fontSize: textStyle.smallSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>
                 {data.email && <span><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg> {data.email}</span>}
                 {data.phone && <span><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg> {data.phone}</span>}
                 {data.address && <span><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" /></svg> {data.address}</span>}
@@ -413,29 +474,34 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
                 className="font-bold mb-3 tracking-wide"
                 style={{
                   color: mergedColors.primary,
-                  fontSize: "2rem",
+                  fontSize: textStyle.sectionTitleSize,
+                  fontFamily: textStyle.fontFamily,
                   fontWeight: "800",
                   letterSpacing: "-0.02em",
-                  lineHeight: "1.1"
+                  lineHeight: textStyle.lineHeight
                 }}
               >
                 {data.name || "Your Name"}
               </h1>
+              {data.jobTitle && (
               <p
                 className="font-semibold mb-4 tracking-wide"
                 style={{
                   color: mergedColors.secondary,
-                  fontSize: "1.1rem",
+                  fontSize: textStyle.fontSize,
+                  fontFamily: textStyle.fontFamily,
                   fontWeight: "600",
-                  letterSpacing: "-0.01em"
+                  letterSpacing: "-0.01em",
+                  lineHeight: textStyle.lineHeight
                 }}
               >
-                {data.jobTitle || ""}
+                {data.jobTitle}
               </p>
+              )}
             </div>
 
             {/* Contact Details on Right Side */}
-            <div className="flex-shrink-0 text-right" style={{ color: mergedColors.accent, fontSize: "0.9rem" }}>
+            <div className="flex-shrink-0 text-right" style={{ color: mergedColors.accent, fontSize: textStyle.smallSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>
               {data.email && (
                 <div className="mb-2 flex items-center justify-end gap-2">
                   <span className="text-sm"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg></span>
@@ -478,7 +544,7 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
         >
           <div className="relative z-10 flex items-center gap-8">
             {/* Profile Photo Overlay */}
-            {(
+            {shouldShowPhoto && (
               <div
                 className="flex-shrink-0"
                 style={{
@@ -498,24 +564,29 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
               <h1
                 className="font-bold mb-2 tracking-wide"
                 style={{
-                  fontSize: "3rem",
+                  fontSize: textStyle.sectionTitleSize,
+                  fontFamily: textStyle.fontFamily,
                   fontWeight: "800",
                   letterSpacing: "-0.02em",
-                  lineHeight: "1.1"
+                  lineHeight: textStyle.lineHeight
                 }}
               >
                 {data.name || "Your Name"}
               </h1>
+              {data.jobTitle && (
               <p
                 className="font-semibold mb-4 tracking-wide"
                 style={{
-                  fontSize: "1.1rem",
+                  fontSize: textStyle.fontSize,
+                  fontFamily: textStyle.fontFamily,
                   fontWeight: "600",
-                  letterSpacing: "-0.01em"
+                  letterSpacing: "-0.01em",
+                  lineHeight: textStyle.lineHeight
                 }}
               >
-                {data.jobTitle || ""}
+                {data.jobTitle}
               </p>
+              )}
             </div>
           </div>
         </header>
@@ -530,23 +601,29 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
               className="font-bold mb-3 tracking-wide"
               style={{
                 color: mergedColors.primary,
-                fontSize: "2.5rem",
+                fontSize: textStyle.sectionTitleSize,
+                fontFamily: textStyle.fontFamily,
                 fontWeight: "700",
-                letterSpacing: "0.02em"
+                letterSpacing: "0.02em",
+                lineHeight: textStyle.lineHeight
               }}
             >
               {data.name || "Your Name"}
             </h1>
+            {data.jobTitle && (
             <p
               className="font-semibold mb-4 tracking-wide"
               style={{
                 color: mergedColors.secondary,
-                fontSize: "1.25rem",
-                fontWeight: "600"
+                fontSize: textStyle.fontSize,
+                fontFamily: textStyle.fontFamily,
+                fontWeight: "600",
+                lineHeight: textStyle.lineHeight
               }}
             >
-              {data.jobTitle || ""}
+              {data.jobTitle}
             </p>
+            )}
           </div>
         </header>
       );
@@ -560,23 +637,29 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
             className="font-bold mb-3 tracking-wide"
             style={{
               color: mergedColors.primary,
-              fontSize: "2.5rem",
+              fontSize: textStyle.sectionTitleSize,
+              fontFamily: textStyle.fontFamily,
               fontWeight: "700",
-              letterSpacing: "0.02em"
+              letterSpacing: "0.02em",
+              lineHeight: textStyle.lineHeight
             }}
           >
             {data.name || "Your Name"}
           </h1>
+          {data.jobTitle && (
           <p
             className="font-semibold mb-4 tracking-wide"
             style={{
               color: mergedColors.secondary,
-              fontSize: "1.25rem",
-              fontWeight: "600"
+              fontSize: textStyle.fontSize,
+              fontFamily: textStyle.fontFamily,
+              fontWeight: "600",
+              lineHeight: textStyle.lineHeight
             }}
           >
-            {data.jobTitle || ""}
+            {data.jobTitle}
           </p>
+          )}
         </div>
       </header>
     );
@@ -592,9 +675,11 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
         className="font-bold mb-4  tracking-wide relative"
         style={{
           color: textColor,
-          fontSize: "1.25rem",
+          fontSize: textStyle.sectionTitleSize,
+          fontFamily: textStyle.fontFamily,
           fontWeight: "700",
-          letterSpacing: "0.05em"
+          letterSpacing: "0.05em",
+          lineHeight: textStyle.lineHeight
         }}
       >
         {title}
@@ -734,10 +819,11 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
               className="font-bold mb-2 tracking-wide"
               style={{
                 color: mergedColors.sidebarText,
-                fontSize: "1.1rem",
+                fontSize: textStyle.fontSize,
+                fontFamily: textStyle.fontFamily,
                 fontWeight: "700",
                 letterSpacing: "0.01em",
-                lineHeight: "1.2",
+                lineHeight: textStyle.lineHeight,
                 wordBreak: "break-word",
                 overflowWrap: "break-word",
                 hyphens: "auto"
@@ -745,19 +831,22 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
             >
               {data.name || "Your Name"}
             </h1>
+            {data.jobTitle && (
             <p
               className="font-semibold tracking-wide"
               style={{
                 color: mergedColors.sidebarText === "#ffffff" ? "#e2e8f0" : mergedColors.secondary,
-                fontSize: "0.85rem",
+                fontSize: textStyle.smallSize,
+                fontFamily: textStyle.fontFamily,
                 fontWeight: "600",
-                lineHeight: "1.3",
+                lineHeight: textStyle.lineHeight,
                 wordBreak: "break-word",
                 overflowWrap: "break-word"
               }}
             >
-              {data.jobTitle || ""}
+              {data.jobTitle}
             </p>
+            )}
           </div>
         )}
 
@@ -848,18 +937,22 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
                   return null;
                 }
 
+                const skillText = renderSkillWithProficiency(skill, preferences?.skills?.showProficiency === true);
                 return (
                   <div key={index} className="relative">
                     <div
-                      className="px-2 py-1.5 rounded-lg text-xs font-medium w-full"
+                      className="px-2 py-1.5 rounded-lg font-medium w-full"
                       style={{
                         background: mergedColors.accentLight,
                         color: mergedColors.primary,
                         wordBreak: "break-word",
-                        overflowWrap: "break-word"
+                        overflowWrap: "break-word",
+                        fontSize: textStyle.smallSize,
+                        fontFamily: textStyle.fontFamily,
+                        lineHeight: textStyle.lineHeight
                       }}
                     >
-                      {skillName}
+                      {skillText}
                     </div>
                   </div>
                 );
@@ -881,7 +974,7 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
                       overflowWrap: "break-word"
                     }}>{cert.name}</div>
                     {cert.issuer && <div className="text-[10px] opacity-80 leading-tight">{cert.issuer}</div>}
-                    {cert.date && <div className="text-[10px] opacity-70 leading-tight">{cert.date}</div>}
+                    {cert.date && <div className="text-[10px] opacity-70 leading-tight">{fmtDate(cert.date)}</div>}
                   </div>
                 </div>
               ))}
@@ -938,8 +1031,8 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
                     }}
                   >
                     <div
-                      className="text-sm leading-relaxed"
-                      style={{ whiteSpace: 'pre-line' }}
+                      className="leading-relaxed"
+                      style={{ whiteSpace: 'pre-line', fontSize: textStyle.fontSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}
                       dangerouslySetInnerHTML={{ __html: parseRichText(data.summary) }}
                     />
                   </div>
@@ -981,31 +1074,31 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
                         <div className="flex justify-between items-start mb-3">
                           <div>
                             <h3
-                              className="font-bold text-lg"
-                              style={{ color: mergedColors.primary }}
+                              className="font-bold"
+                              style={{ color: mergedColors.primary, fontSize: textStyle.sectionTitleSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}
                             >
                               {exp.jobTitle}
                             </h3>
                             <div
-                              className="font-semibold text-base"
-                              style={{ color: mergedColors.secondary }}
+                              className="font-semibold"
+                              style={{ color: mergedColors.secondary, fontSize: textStyle.fontSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}
                             >
                               {exp.company}
                             </div>
                             {exp.location && (
-                              <div className="text-sm opacity-80">{exp.location}</div>
+                              <div className="opacity-80" style={{ fontSize: textStyle.smallSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>{exp.location}</div>
                             )}
                           </div>
-                          <div className="text-right text-sm font-medium">
+                          <div className="text-right font-medium" style={{ fontSize: textStyle.smallSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>
                             {exp.startDate && exp.endDate && (
-                              <div>{exp.startDate} - {exp.endDate}</div>
+                              <div>{fmtDate(exp.startDate)} - {fmtDate(exp.endDate)}</div>
                             )}
                           </div>
                         </div>
 
                         {exp.description && (
                           <div className="mt-3">
-                            {renderDescriptionBullets(exp.description, true)}
+                            {renderDescriptionBullets(exp.description, true, [], textStyle)}
                           </div>
                         )}
                       </div>
@@ -1033,29 +1126,29 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
                         <div className="flex justify-between items-start mb-2">
                           <div>
                             <h3
-                              className="font-bold text-base"
-                              style={{ color: mergedColors.primary }}
+                              className="font-bold"
+                              style={{ color: mergedColors.primary, fontSize: textStyle.fontSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}
                             >
                               {edu.degree}
                             </h3>
                             <div
-                              className="font-semibold text-sm"
-                              style={{ color: mergedColors.secondary }}
+                              className="font-semibold"
+                              style={{ color: mergedColors.secondary, fontSize: textStyle.fontSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}
                             >
                               {edu.school}
                             </div>
                             {edu.location && (
-                              <div className="text-xs opacity-80">{edu.location}</div>
+                              <div className="opacity-80" style={{ fontSize: textStyle.smallSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>{edu.location}</div>
                             )}
                           </div>
-                          <div className="text-right text-sm font-medium">
+                          <div className="text-right font-medium" style={{ fontSize: textStyle.smallSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>
                             {edu.startDate && edu.endDate && (
-                              <div>{edu.startDate} - {edu.endDate}</div>
+                              <div>{fmtDate(edu.startDate)} - {fmtDate(edu.endDate)}</div>
                             )}
                           </div>
                         </div>
-                        {edu.gpa && (
-                          <div className="text-sm">
+                        {edu.gpa && preferences?.education?.showGPA !== false && (
+                          <div style={{ fontSize: textStyle.fontSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>
                             <span className="font-medium">GPA: </span>
                             <span>{edu.gpa}</span>
                           </div>
@@ -1081,24 +1174,23 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
                     }}
                   >
                     {normalizedData.skills?.map((skill, skillIndex) => {
-                      // Since skills are already normalized, we can safely access the name property
                       const skillName = skill?.name || '';
-
-                      // Skip rendering if skillName is empty or invalid
-                      if (!skillName || typeof skillName !== 'string') {
-                        return null;
-                      }
+                      if (!skillName || typeof skillName !== 'string') return null;
+                      const skillText = renderSkillWithProficiency(skill, preferences?.skills?.showProficiency === true);
 
                       return (
                         <div
                           key={skillIndex}
-                          className="px-3 py-2 rounded-lg text-center text-sm font-medium"
+                          className="px-3 py-2 rounded-lg text-center font-medium"
                           style={{
                             background: mergedColors.accentLight,
-                            color: mergedColors.primary
+                            color: mergedColors.primary,
+                            fontSize: textStyle.fontSize,
+                            fontFamily: textStyle.fontFamily,
+                            lineHeight: textStyle.lineHeight
                           }}
                         >
-                          {skillName}
+                          {skillText}
                         </div>
                       );
                     })}
@@ -1123,14 +1215,14 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
                         }}
                       >
                         <h3
-                          className="font-bold text-base mb-2"
-                          style={{ color: mergedColors.primary }}
+                          className="font-bold mb-2"
+                          style={{ color: mergedColors.primary, fontSize: textStyle.sectionTitleSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}
                         >
                           {project.name || project.title}
                         </h3>
                         {project.description && (
                           <div className="mb-2">
-                            {renderDescriptionBullets(project.description, true)}
+                            {renderDescriptionBullets(project.description, true, [], textStyle)}
                           </div>
                         )}
                         {project.technologies && (
@@ -1143,10 +1235,13 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
                             ).map((tech, techIndex) => (
                               <span
                                 key={techIndex}
-                                className="px-2 py-1 rounded text-xs font-medium"
+                                className="px-2 py-1 rounded font-medium"
                                 style={{
                                   background: mergedColors.accentLight,
-                                  color: mergedColors.primary
+                                  color: mergedColors.primary,
+                                  fontSize: textStyle.smallSize,
+                                  fontFamily: textStyle.fontFamily,
+                                  lineHeight: textStyle.lineHeight
                                 }}
                               >
                                 {typeof tech === 'string' ? tech.trim() : tech}
@@ -1159,7 +1254,8 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
                             href={project.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm text-accent hover:underline"
+                            className="text-accent hover:underline"
+                            style={{ fontSize: textStyle.fontSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}
                           >
                             View Project →
                           </a>
@@ -1187,7 +1283,7 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
                       {data.achievements?.map((achievement, achievementIndex) => (
                         <li key={achievementIndex} className="flex items-start">
                           <span className="text-yellow-500 mr-2 mt-1"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4V2C7 1.45 7.45 1 8 1H16C16.55 1 17 1.45 17 2V4H20C20.55 4 21 4.45 21 5S20.55 6 20 6H19V7C19 8.1 18.1 9 17 9H15V10.5C15 11.33 15.67 12 16.5 12S18 11.33 18 10.5V9H20C20.55 9 21 9.45 21 10S20.55 11 20 11H18V12C18 13.1 17.1 14 16 14H8C6.9 14 6 13.1 6 12V11H4C3.45 11 3 10.55 3 10S3.45 9 4 9H6V10.5C6 11.33 6.67 12 7.5 12S9 11.33 9 10.5V9H7C5.9 9 5 8.1 5 7V6H4C3.45 6 3 5.55 3 5S3.45 4 4 4H7Z" /></svg></span>
-                          <span className="text-sm">{achievement}</span>
+                          <span style={{ fontSize: textStyle.fontSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>{achievement}</span>
                         </li>
                       ))}
                     </ul>
@@ -1210,9 +1306,9 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
                   >
                     <div className="grid grid-cols-2 gap-4">
                       {data.languages?.map((lang, langIndex) => (
-                        <div key={langIndex} className="flex justify-between items-center">
+                        <div key={langIndex} className="flex justify-between items-center" style={{ fontSize: textStyle.fontSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>
                           <span className="font-medium">{lang.language}</span>
-                          <span className="text-sm opacity-80">{lang.proficiency}</span>
+                          <span className="opacity-80" style={{ fontSize: textStyle.smallSize }}>{lang.proficiency}</span>
                         </div>
                       ))}
                     </div>
@@ -1255,35 +1351,34 @@ const VisualAppealRenderer = memo(({ data, template, isCompact = false, isPremiu
                                 }}
                               >
                                 {itemTitle && (
-                                  <h3 className="font-bold text-base mb-2" style={{ color: mergedColors.primary }}>
+                                  <h3 className="font-bold mb-2" style={{ color: mergedColors.primary, fontSize: textStyle.sectionTitleSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>
                                     {itemTitle}
                                   </h3>
                                 )}
 
                                 {item.description && (
-                                  <div className="mb-2 text-sm leading-relaxed" style={{ color: mergedColors.text }}>
-                                    {/* Pass both group title and item title for deduplication */}
-                                    {renderDescriptionBullets(item.description, true, [sectionTitle, itemTitle])}
+                                  <div className="mb-2 leading-relaxed" style={{ color: mergedColors.text, fontSize: textStyle.fontSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>
+                                    {renderDescriptionBullets(item.description, true, [sectionTitle, itemTitle], textStyle)}
                                   </div>
                                 )}
 
                                 {item.date && (
-                                  <p className="text-xs opacity-70 mt-1">{item.date}</p>
+                                  <p className="opacity-70 mt-1" style={{ fontSize: textStyle.smallSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>{fmtDate(item.date)}</p>
                                 )}
                                 {item.company && (
-                                  <p className="text-sm font-semibold mt-1" style={{ color: mergedColors.secondary }}>{item.company}</p>
+                                  <p className="font-semibold mt-1" style={{ color: mergedColors.secondary, fontSize: textStyle.fontSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>{item.company}</p>
                                 )}
                                 {item.position && (
-                                  <p className="text-sm mt-0.5">{item.position}</p>
+                                  <p className="mt-0.5" style={{ fontSize: textStyle.fontSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>{item.position}</p>
                                 )}
                                 {item.location && (
-                                  <p className="text-xs opacity-70 mt-0.5">{item.location}</p>
+                                  <p className="opacity-70 mt-0.5" style={{ fontSize: textStyle.smallSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>{item.location}</p>
                                 )}
                                 {item.name && type === 'reference' && (
                                   <div className="mt-2 p-3 bg-slate-50 rounded-lg border-l-4" style={{ borderColor: mergedColors.accent }}>
-                                    <p className="text-sm font-semibold">{item.name}</p>
-                                    {item.email && <p className="text-xs text-slate-600 mt-1">{item.email}</p>}
-                                    {item.phone && <p className="text-xs text-slate-600 mt-0.5">{item.phone}</p>}
+                                    <p className="font-semibold" style={{ fontSize: textStyle.fontSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>{item.name}</p>
+                                    {item.email && <p className="text-slate-600 mt-1" style={{ fontSize: textStyle.smallSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>{item.email}</p>}
+                                    {item.phone && <p className="text-slate-600 mt-0.5" style={{ fontSize: textStyle.smallSize, fontFamily: textStyle.fontFamily, lineHeight: textStyle.lineHeight }}>{item.phone}</p>}
                                   </div>
                                 )}
                               </div>

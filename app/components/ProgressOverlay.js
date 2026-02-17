@@ -10,11 +10,13 @@ export default function ProgressOverlay({ isVisible, type }) {
   const [progress, setProgress] = useState(0);
   const [showStars, setShowStars] = useState(false);
 
+  // Single greenery theme for all events – ensures text/icons are always visible (no white-on-white)
+  const themeGradient = "from-emerald-500 to-teal-500";
+
   const progressMessages = {
     upload: {
       icon: FileUp,
-      color: "from-accent-500 to-accent",
-      accentColor: "emerald",
+      color: themeGradient,
       title: "Analyzing Your Resume",
       messages: [
         "🔍 Scanning your professional journey...",
@@ -27,8 +29,7 @@ export default function ProgressOverlay({ isVisible, type }) {
     },
     ai: {
       icon: Bot,
-      color: "from-primary to-accent",
-      accentColor: "purple",
+      color: themeGradient,
       title: "AI Enhancement in Progress",
       messages: [
         "🧠 AI analyzing your career potential...",
@@ -41,8 +42,7 @@ export default function ProgressOverlay({ isVisible, type }) {
     },
     download: {
       icon: Download,
-      color: "from-primary to-primary-800",
-      accentColor: "blue",
+      color: themeGradient,
       title: "Creating Your PDF",
       messages: [
         "📄 Assembling your professional masterpiece...",
@@ -55,8 +55,7 @@ export default function ProgressOverlay({ isVisible, type }) {
     },
     atscheck: {
       icon: Target,
-      color: "from-orange-500 to-red-500",
-      accentColor: "orange",
+      color: themeGradient,
       title: "ATS Score Analysis",
       messages: [
         "🎯 Scanning for ATS compatibility...",
@@ -69,8 +68,7 @@ export default function ProgressOverlay({ isVisible, type }) {
     },
     screenshot: {
       icon: Camera,
-      color: "from-primary to-rose-500",
-      accentColor: "pink",
+      color: themeGradient,
       title: "Capturing Your Score",
       messages: [
         "📸 Capturing your achievement...",
@@ -83,8 +81,7 @@ export default function ProgressOverlay({ isVisible, type }) {
     },
     save: {
       icon: Save,
-      color: "from-primary to-accent",
-      accentColor: "green",
+      color: themeGradient,
       title: "Securing Your Work",
       messages: [
         "💾 Safely storing your resume...",
@@ -97,8 +94,7 @@ export default function ProgressOverlay({ isVisible, type }) {
     },
     onepager: {
       icon: FileText,
-      color: "from-accent to-accent-500",
-      accentColor: "emerald",
+      color: themeGradient,
       title: "Creating One-Pager Resume",
       messages: [
         "📄 Condensing your experience into one page...",
@@ -111,8 +107,7 @@ export default function ProgressOverlay({ isVisible, type }) {
     },
     salary: {
       icon: DollarSign,
-      color: "from-primary to-accent",
-      accentColor: "blue",
+      color: themeGradient,
       title: "AI Salary Analysis",
       messages: [
         "💰 Analyzing market compensation data...",
@@ -125,8 +120,7 @@ export default function ProgressOverlay({ isVisible, type }) {
     },
     interview: {
       icon: Target,
-      color: "from-primary-800 to-primary",
-      accentColor: "purple",
+      color: themeGradient,
       title: "AI Interview Training",
       messages: [
         "🎯 Preparing personalized interview questions...",
@@ -207,19 +201,20 @@ export default function ProgressOverlay({ isVisible, type }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-gradient-to-br from-gray-900/95 via-slate-900/95 to-gray-900/95 backdrop-blur-sm flex items-center justify-center z-[9999] p-4"
+      className="fixed inset-0 bg-black/50 backdrop-blur-[3px] flex items-center justify-center z-[9999] p-4"
     >
       <motion.div
         initial={{ scale: 0.8, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.8, y: 20 }}
         transition={{ type: "spring", duration: 0.6 }}
-        className="relative bg-white rounded-3xl p-8 w-full max-w-md shadow-2xl overflow-hidden"
+        className="relative bg-white/95 rounded-3xl p-8 w-full max-w-md shadow-2xl overflow-hidden border border-emerald-200/80 bg-gradient-to-br from-white to-emerald-50/30"
       >
-        {/* Animated background gradient */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${currentConfig.color} opacity-5 animate-pulse`} />
+        {/* Animated background gradient - soft greenery (fixed so text never disappears) */}
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/40 via-teal-50/30 to-emerald-100/40 pointer-events-none" />
+        <div className={`absolute inset-0 bg-gradient-to-br ${themeGradient} opacity-[0.07] animate-pulse pointer-events-none`} />
 
-        {/* Floating stars animation */}
+        {/* Floating stars animation - fixed emerald so always visible */}
         <AnimatePresence>
           {showStars && (
             <div className="absolute inset-0 pointer-events-none">
@@ -233,7 +228,7 @@ export default function ProgressOverlay({ isVisible, type }) {
                     y: [Math.random() * 400, Math.random() * 200]
                   }}
                   transition={{ duration: 2, delay: i * 0.1 }}
-                  className={`absolute text-${currentConfig.accentColor}-400`}
+                  className="absolute text-emerald-500"
                 >
                   <Star size={16} fill="currentColor" />
                 </motion.div>
@@ -252,18 +247,10 @@ export default function ProgressOverlay({ isVisible, type }) {
               style={{ width: 'fit-content' }}
             >
               <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${currentConfig.color} flex items-center justify-center shadow-lg`}>
-                <IconComponent size={28} className="text-white" />
+                <IconComponent size={28} className="text-white" aria-hidden />
               </div>
               <motion.div
-                className="absolute inset-0 rounded-full border-2 border-transparent"
-                style={{
-                  borderTopColor: `rgb(${currentConfig.accentColor === 'emerald' ? '34, 197, 94' :
-                    currentConfig.accentColor === 'purple' ? '168, 85, 247' :
-                      currentConfig.accentColor === 'blue' ? '59, 130, 246' :
-                        currentConfig.accentColor === 'orange' ? '249, 115, 22' :
-                          currentConfig.accentColor === 'pink' ? '236, 72, 153' :
-                            '34, 197, 94'})`,
-                }}
+                className="absolute inset-0 rounded-full border-2 border-emerald-400/80 border-t-transparent border-r-transparent border-b-transparent"
                 animate={{ rotate: -360 }}
                 transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
               />
@@ -273,7 +260,7 @@ export default function ProgressOverlay({ isVisible, type }) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-xl font-bold text-white mb-2"
+              className="text-xl font-bold text-emerald-900 mb-2"
             >
               {currentConfig.title}
             </motion.h2>
@@ -286,13 +273,13 @@ export default function ProgressOverlay({ isVisible, type }) {
                 key={messageCycle}
                 initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-base font-medium text-white text-center leading-relaxed"
+                className="text-base font-medium text-gray-800 text-center leading-relaxed"
               >
                 {displayText}
                 <motion.span
                   animate={{ opacity: [1, 0] }}
                   transition={{ duration: 0.8, repeat: Infinity }}
-                  className="ml-1 text-primary font-bold"
+                  className="ml-1 text-emerald-600 font-bold"
                 >
                   |
                 </motion.span>
@@ -303,8 +290,8 @@ export default function ProgressOverlay({ isVisible, type }) {
           {/* Enhanced Progress Bar */}
           <div className="mb-6">
             <div className="flex justify-between items-center mb-2">
-              <span className="text-sm font-medium text-white">Progress</span>
-              <span className="text-sm font-bold text-white">{Math.round(progress)}%</span>
+              <span className="text-sm font-medium text-gray-700">Progress</span>
+              <span className="text-sm font-bold text-emerald-700">{Math.round(progress)}%</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden shadow-inner">
               <motion.div
@@ -322,38 +309,30 @@ export default function ProgressOverlay({ isVisible, type }) {
             </div>
           </div>
 
-          {/* Motivation Section */}
+          {/* Motivation Section - fixed greenery, always visible text */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className={`text-center p-4 bg-gradient-to-r ${currentConfig.color} bg-opacity-10 rounded-xl border border-opacity-20`}
-            style={{
-              borderColor: `rgb(${currentConfig.accentColor === 'emerald' ? '34, 197, 94' :
-                currentConfig.accentColor === 'purple' ? '168, 85, 247' :
-                  currentConfig.accentColor === 'blue' ? '59, 130, 246' :
-                    currentConfig.accentColor === 'orange' ? '249, 115, 22' :
-                      currentConfig.accentColor === 'pink' ? '236, 72, 153' :
-                        '34, 197, 94'})`
-            }}
+            className="text-center p-4 bg-emerald-50/90 rounded-xl border border-emerald-200/80"
           >
             <div className="flex items-center justify-center gap-2 mb-2">
-              <Sparkles size={16} className={`text-${currentConfig.accentColor}-500`} />
-              <span className="text-sm font-semibold text-white">Did You Know?</span>
-              <Sparkles size={16} className={`text-${currentConfig.accentColor}-500`} />
+              <Sparkles size={16} className="text-emerald-500" aria-hidden />
+              <span className="text-sm font-semibold text-emerald-800">Did You Know?</span>
+              <Sparkles size={16} className="text-emerald-500" aria-hidden />
             </div>
-            <p className="text-sm text-white font-medium">
+            <p className="text-sm text-emerald-900/90 font-medium">
               {currentConfig.motivation}
             </p>
           </motion.div>
 
-          {/* Floating Elements */}
+          {/* Floating Elements - fixed emerald so always visible */}
           <div className="absolute top-4 right-4">
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <Wand2 size={20} className={`text-${currentConfig.accentColor}-400 opacity-60`} />
+              <Wand2 size={20} className="text-emerald-500 opacity-80" aria-hidden />
             </motion.div>
           </div>
 
@@ -362,7 +341,7 @@ export default function ProgressOverlay({ isVisible, type }) {
               animate={{ rotate: [0, 15, -15, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              <Trophy size={18} className={`text-${currentConfig.accentColor}-400 opacity-60`} />
+              <Trophy size={18} className="text-emerald-500 opacity-80" aria-hidden />
             </motion.div>
           </div>
         </div>

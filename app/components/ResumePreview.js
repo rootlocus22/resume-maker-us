@@ -736,7 +736,7 @@ const ResumePreview = memo(function ResumePreview({
 
       return config;
     },
-    [templateKey, template, preferences]
+    [templateKey, template, preferences, customSectionOrder, customSidebarSections, customMainSections, isReorderEditor]
   );
   const defaultConfig = {
     layout: {

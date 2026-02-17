@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 import { getChromiumLaunchOptions } from "../../lib/puppeteerChromium";
 import { visualAppealTemplates } from "../../lib/visualAppealTemplates";
 import { parseRichTextForPDF } from "../../lib/richTextRenderer";
+import { formatDateWithPreferences } from "../../lib/resumeUtils";
 
 // Use Node.js runtime for headless Chrome
 export const runtime = 'nodejs';
@@ -122,22 +123,89 @@ function normalizeCustomSections(customSections) {
 
 // Generate Visual Appeal Resume HTML
 function generateVisualAppealResumeHTML(data, template, customColors = {}, language = "en", country = "us", preferences = {}) {
+  // ─── Apply visibility preferences (same as VisualAppealRenderer) ───
+  const vis = preferences?.visibility || {};
+  const visFilteredData = {
+    ...data,
+    summary: vis.summary === false ? '' : data.summary,
+    jobTitle: vis.jobTitle === false ? '' : data.jobTitle,
+    experience: vis.experience === false ? [] : data.experience,
+    education: vis.education === false ? [] : data.education,
+    skills: vis.skills === false ? [] : data.skills,
+    certifications: vis.certifications === false ? [] : data.certifications,
+    languages: vis.languages === false ? [] : data.languages,
+    customSections: vis.customSections === false ? [] : data.customSections,
+    photo: vis.photo === false ? '' : data.photo,
+  };
+
   // Normalize custom sections - preserve original order
-  const normalizedCustomSections = normalizeCustomSections(data.customSections);
+  const normalizedCustomSections = normalizeCustomSections(visFilteredData.customSections);
 
   // Normalize the data
-  // Don't extract achievements from customSections - let them render in their original position
-  // The achievements section will use data.achievements if it exists
   const normalizedData = {
-    ...data,
-    customSections: normalizedCustomSections, // Keep all sections including achievements to preserve order
-    experience: normalizeExperienceData(data.experience)
-    // Use data.achievements as-is, don't extract from customSections to avoid duplication
+    ...visFilteredData,
+    customSections: normalizedCustomSections,
+    experience: normalizeExperienceData(visFilteredData.experience),
   };
 
   // Get template configuration
   const layout = template.layout || {};
-  const styles = template.styles || {};
+  const styles = JSON.parse(JSON.stringify(template.styles || {}));
+
+  // ─── Apply typography preferences (same as VisualAppealRenderer) ───
+  const fontPref = preferences?.typography?.fontPair?.fontFamily;
+  if (fontPref) styles.fontFamily = fontPref;
+  const fontSizePref = preferences?.typography?.fontSize;
+  if (fontSizePref === 'small') styles.fontSize = '9pt';
+  else if (fontSizePref === 'large') styles.fontSize = '11.5pt';
+  const lineHeightPref = preferences?.typography?.lineHeight;
+  if (lineHeightPref === 'compact') styles.lineHeight = '1.25';
+  else if (lineHeightPref === 'relaxed') styles.lineHeight = '1.6';
+
+  // ─── textStyle (consistent with VisualAppealRenderer and ATS PDF) ───
+  const baseFontSize = styles.fontSize || "11pt";
+  const titleSize = baseFontSize === '9pt' ? '11pt' : baseFontSize === '11.5pt' ? '14pt' : '13pt';
+  const smallSize = baseFontSize === '9pt' ? '8pt' : baseFontSize === '11.5pt' ? '10pt' : '9pt';
+  const textStyle = {
+    fontFamily: styles.fontFamily || "'Inter', 'Helvetica Neue', sans-serif",
+    fontSize: baseFontSize,
+    lineHeight: styles.lineHeight || "1.5",
+    sectionTitleSize: titleSize,
+    smallSize
+  };
+
+  // Helper to safely render skill with optional proficiency
+  const renderSkillText = (skill) => {
+    const name = typeof skill === 'string' ? skill.trim() : (skill?.name || skill?.skill || '').trim();
+    if (!name) return '';
+    const showProficiency = preferences?.skills?.showProficiency === true;
+    if (showProficiency && typeof skill === 'object' && skill && (skill.proficiency || skill.level)) {
+      const prof = skill.proficiency || skill.level;
+      return `${name} (${prof})`;
+    }
+    return name;
+  };
+
+  const safeText = (t) => (t == null ? '' : String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'));
+
+  // ─── Date format helper (same as VisualAppealRenderer) ───
+  const fmtDate = (date) => {
+    if (!date) return '';
+    if (/present/i.test(String(date))) return 'Present';
+    if (preferences?.dateFormat) {
+      const result = formatDateWithPreferences(date, preferences);
+      if (result) return result;
+    }
+    return String(date).trim();
+  };
+  const fmtDateRange = (startDate, endDate) => {
+    const start = fmtDate(startDate);
+    const end = fmtDate(endDate);
+    if (!start && !end) return '';
+    if (!start || start.trim() === '') return end || '';
+    if (!end || end.trim() === '') return start || '';
+    return `${start} - ${end}`;
+  };
   const visualFeatures = template.visualFeatures || {};
 
   // Merge colors with template defaults
@@ -158,9 +226,19 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
   // Get visual effects
   const visualEffects = styles?.visualEffects || {};
 
-  // Show photo by default, only hide if explicitly deleted (empty string)
-  const shouldShowPhoto = data.photo !== ""; // Only hide if explicitly deleted
-  const photoUrl = shouldShowPhoto ? (data.photo || "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE2MCIgcj0iNDAiIGZpbGw9IiM5Q0EzQUYiLz4KPHBhdGggZD0iTTE4MCAxNDBMMjAwIDEyMEwyMjAgMTQwTDIwMCAxNjBMMTgwIDE0MFoiIGZpbGw9IndoaXRlIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNkI3MjgwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiPkFkZCBQaG90bzwvdGV4dD4KPC9zdmc+") : null;
+  // Show photo by default, only hide if explicitly deleted or visibility hidden
+  const shouldShowPhoto = normalizedData.photo !== ""; // Only hide if explicitly deleted or vis.photo=false
+  const photoUrl = shouldShowPhoto ? (normalizedData.photo || "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE2MCIgcj0iNDAiIGZpbGw9IiM5Q0EzQUYiLz4KPHBhdGggZD0iTTE4MCAxNDBMMjAwIDEyMEwyMjAgMTQwTDIwMCAxNjBMMTgwIDE0MFoiIGZpbGw9IndoaXRlIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNkI3MjgwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiPkFkZCBQaG90bzwvdGV4dD4KPC9zdmc+") : null;
+
+  // Google Fonts for custom fonts (same as ATS PDF)
+  const fontFamily = textStyle.fontFamily || "'Inter', sans-serif";
+  const primaryFontMatch = fontFamily.match(/'([^']+)'|"([^"]+)"|^([^,]+)/);
+  const primaryFont = primaryFontMatch ? (primaryFontMatch[1] || primaryFontMatch[2] || primaryFontMatch[3] || '').trim() : '';
+  const systemFonts = ['Arial', 'Helvetica', 'Helvetica Neue', 'Times New Roman', 'Georgia', 'Verdana', 'Inter'];
+  const needsGoogleFont = primaryFont && !systemFonts.some(f => primaryFont.toLowerCase().includes(f.toLowerCase()));
+  const googleFontLink = needsGoogleFont
+    ? `<link href="https://fonts.googleapis.com/css2?family=${encodeURIComponent(primaryFont).replace(/%20/g, '+')}:wght@400;500;600;700&display=swap" rel="stylesheet">`
+    : '';
 
   // Generate CSS
   const generateCSS = () => {
@@ -172,9 +250,9 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
       }
 
       body {
-        font-family: ${styles.fontFamily || "'Inter', 'Helvetica Neue', sans-serif"};
-        font-size: ${styles.fontSize || "11pt"};
-        line-height: ${styles.lineHeight || "1.5"};
+        font-family: ${textStyle.fontFamily};
+        font-size: ${textStyle.fontSize};
+        line-height: ${textStyle.lineHeight};
         color: ${mergedColors.text};
         background: ${mergedColors.background};
         -webkit-print-color-adjust: exact;
@@ -290,18 +368,21 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
       }
 
       .header-title {
-        font-size: 2.5rem;
+        font-size: ${textStyle.sectionTitleSize};
+        font-family: ${textStyle.fontFamily};
         font-weight: 800;
         letter-spacing: -0.02em;
-        line-height: 1.2;
+        line-height: ${textStyle.lineHeight};
         margin-bottom: 0.75rem;
       }
 
       .header-subtitle {
-        font-size: 1.25rem;
+        font-size: ${textStyle.fontSize};
+        font-family: ${textStyle.fontFamily};
         font-weight: 600;
         letter-spacing: -0.01em;
         opacity: 0.95;
+        line-height: ${textStyle.lineHeight};
       }
 
       .header-single-column {
@@ -330,25 +411,31 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
       }
 
       .header-text-single .header-title {
-        font-size: 2.5rem;
+        font-size: ${textStyle.sectionTitleSize};
+        font-family: ${textStyle.fontFamily};
         font-weight: 700;
         color: ${mergedColors.primary};
         margin: 0 0 0.5rem 0;
         letter-spacing: -0.02em;
+        line-height: ${textStyle.lineHeight};
       }
 
       .header-text-single .header-subtitle {
-        font-size: 1.25rem;
+        font-size: ${textStyle.fontSize};
+        font-family: ${textStyle.fontFamily};
         font-weight: 600;
         color: ${mergedColors.secondary};
         margin: 0 0 1rem 0;
+        line-height: ${textStyle.lineHeight};
       }
 
       .header-contact {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
-        font-size: 0.875rem;
+        font-size: ${textStyle.smallSize};
+        font-family: ${textStyle.fontFamily};
+        line-height: ${textStyle.lineHeight};
         color: ${mergedColors.text};
       }
 
@@ -385,7 +472,9 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
         margin-top: 1.25rem;
         position: relative;
         color: ${mergedColors.primary};
-        font-size: 1.15rem;
+        font-size: ${textStyle.sectionTitleSize};
+        font-family: ${textStyle.fontFamily};
+        line-height: ${textStyle.lineHeight};
         letter-spacing: 0.05em;
       }
 
@@ -416,7 +505,9 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
       }
 
       .contact-item .text {
-        font-size: 0.875rem;
+        font-size: ${textStyle.smallSize};
+        font-family: ${textStyle.fontFamily};
+        line-height: ${textStyle.lineHeight};
         color: ${mergedColors.sidebarText};
       }
 
@@ -433,8 +524,10 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
       .skill-tag {
         padding: 0.35rem 0.6rem;
         border-radius: 0.35rem;
-        font-size: 0.8rem;
+        font-size: ${textStyle.smallSize};
+        font-family: ${textStyle.fontFamily};
         font-weight: 500;
+        line-height: ${textStyle.lineHeight};
         background: ${mergedColors.accentLight};
         color: ${mergedColors.primary};
         display: inline-block;
@@ -491,8 +584,9 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
       }
 
       .summary-text {
-        font-size: 0.875rem;
-        line-height: 1.6;
+        font-size: ${textStyle.fontSize};
+        font-family: ${textStyle.fontFamily};
+        line-height: ${textStyle.lineHeight};
         color: ${mergedColors.text};
       }
 
@@ -513,27 +607,35 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
 
       .job-title {
         font-weight: 700;
-        font-size: 1.125rem;
+        font-size: ${textStyle.sectionTitleSize};
+        font-family: ${textStyle.fontFamily};
+        line-height: ${textStyle.lineHeight};
         color: ${mergedColors.primary};
         margin-bottom: 0.25rem;
       }
 
       .company {
         font-weight: 600;
-        font-size: 1rem;
+        font-size: ${textStyle.fontSize};
+        font-family: ${textStyle.fontFamily};
+        line-height: ${textStyle.lineHeight};
         color: ${mergedColors.secondary};
         margin-bottom: 0.25rem;
       }
 
       .location {
-        font-size: 0.875rem;
+        font-size: ${textStyle.smallSize};
+        font-family: ${textStyle.fontFamily};
+        line-height: ${textStyle.lineHeight};
         opacity: 0.8;
         color: ${mergedColors.text};
       }
 
       .job-date {
-        font-size: 0.875rem;
+        font-size: ${textStyle.smallSize};
+        font-family: ${textStyle.fontFamily};
         font-weight: 500;
+        line-height: ${textStyle.lineHeight};
         color: ${mergedColors.text};
         text-align: right;
       }
@@ -545,8 +647,9 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
 
       .job-description li {
         margin-bottom: 0.5rem;
-        font-size: 0.875rem;
-        line-height: 1.5;
+        font-size: ${textStyle.fontSize};
+        font-family: ${textStyle.fontFamily};
+        line-height: ${textStyle.lineHeight};
         color: ${mergedColors.text};
         list-style-type: disc;
         display: list-item;
@@ -590,20 +693,26 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
 
       .education-degree {
         font-weight: 700;
-        font-size: 1rem;
+        font-size: ${textStyle.fontSize};
+        font-family: ${textStyle.fontFamily};
+        line-height: ${textStyle.lineHeight};
         color: ${mergedColors.primary};
         margin-bottom: 0.25rem;
       }
 
       .education-school {
         font-weight: 600;
-        font-size: 0.875rem;
+        font-size: ${textStyle.fontSize};
+        font-family: ${textStyle.fontFamily};
+        line-height: ${textStyle.lineHeight};
         color: ${mergedColors.secondary};
         margin-bottom: 0.25rem;
       }
 
       .education-details {
-        font-size: 0.75rem;
+        font-size: ${textStyle.smallSize};
+        font-family: ${textStyle.fontFamily};
+        line-height: ${textStyle.lineHeight};
         opacity: 0.8;
         color: ${mergedColors.text};
       }
@@ -801,16 +910,16 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
         
         ${layout.columns === 2 && layout.headerStyle !== "colored-banner-with-photo" ? `
           <div class="sidebar-section text-center" style="margin-bottom: 1.5rem;">
-            <h1 class="sidebar-name" style="font-size: 1.5rem; font-weight: 700; color: ${mergedColors.sidebarText}; margin-bottom: 0.5rem; letter-spacing: 0.02em;">
+            <h1 class="sidebar-name" style="font-size: ${textStyle.sectionTitleSize}; font-family: ${textStyle.fontFamily}; font-weight: 700; color: ${mergedColors.sidebarText}; margin-bottom: 0.5rem; letter-spacing: 0.02em; line-height: ${textStyle.lineHeight};">
               ${data.name || "Your Name"}
             </h1>
-            ${data.jobTitle ? `<p class="sidebar-title" style="font-size: 1rem; font-weight: 600; color: ${mergedColors.sidebarText === "#ffffff" ? "#e2e8f0" : mergedColors.secondary};">
-              ${data.jobTitle}
+            ${normalizedData.jobTitle ? `<p class="sidebar-title" style="font-size: ${textStyle.fontSize}; font-family: ${textStyle.fontFamily}; font-weight: 600; color: ${mergedColors.sidebarText === "#ffffff" ? "#e2e8f0" : mergedColors.secondary}; line-height: ${textStyle.lineHeight};">
+              ${safeText(normalizedData.jobTitle)}
             </p>` : ''}
           </div>
         ` : ''}
         
-        ${layout.sidebarSections.includes('personal') && (data.email || data.phone || data.address || data.dateOfBirth || data.gender || data.maritalStatus || data.linkedin || data.portfolio) ? `
+        ${layout.sidebarSections.includes('personal') && (normalizedData.email || normalizedData.phone || normalizedData.address || normalizedData.dateOfBirth || normalizedData.gender || normalizedData.maritalStatus || normalizedData.linkedin || normalizedData.portfolio) ? `
           <div class="sidebar-section">
             <h2 class="section-header">CONTACT</h2>
             <div>
@@ -826,38 +935,38 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
           </div>
         ` : ''}
         
-        ${layout.sidebarSections.includes('skills') && data.skills?.length > 0 ? `
+        ${layout.sidebarSections.includes('skills') && normalizedData.skills?.length > 0 ? `
           <div class="sidebar-section">
             <h2 class="section-header">SKILLS</h2>
             <div class="skills-container">
-              ${data.skills?.map(skill => {
-      const skillName = typeof skill === 'string' ? skill : skill.name || skill;
-      return `<div class="skill-item relative"><div class="skill-tag">${skillName || ''}</div></div>`;
+              ${normalizedData.skills?.map(skill => {
+      const skillText = renderSkillText(skill);
+      return skillText ? `<div class="skill-item relative"><div class="skill-tag">${safeText(skillText)}</div></div>` : '';
     }).join('')}
             </div>
           </div>
         ` : ''}
         
-        ${layout.sidebarSections.includes('certifications') && data.certifications?.length > 0 ? `
+        ${layout.sidebarSections.includes('certifications') && normalizedData.certifications?.length > 0 ? `
           <div class="sidebar-section">
             <h2 class="section-header">CERTIFICATIONS</h2>
             <div>
-              ${data.certifications?.map(cert => `
+              ${normalizedData.certifications?.map(cert => `
                 <div class="certification-item">
                   <div class="name">${cert.name || ''}</div>
                   ${cert.issuer ? `<div class="issuer">${cert.issuer || ''}</div>` : ''}
-                  ${cert.date ? `<div class="date">${cert.date || ''}</div>` : ''}
+                  ${cert.date ? `<div class="date">${fmtDate(cert.date)}</div>` : ''}
                 </div>
               `).join('')}
             </div>
           </div>
         ` : ''}
         
-        ${layout.sidebarSections.includes('languages') && data.languages?.length > 0 ? `
+        ${layout.sidebarSections.includes('languages') && normalizedData.languages?.length > 0 ? `
           <div class="sidebar-section">
             <h2 class="section-header">LANGUAGES</h2>
             <div>
-              ${data.languages?.map(lang => `
+              ${normalizedData.languages?.map(lang => `
                 <div class="language-item">
                   <span class="language">${lang.language || ''}</span>
                   ${lang.proficiency ? `<span class="proficiency">${lang.proficiency}</span>` : ''}
@@ -879,10 +988,10 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
         ${mainSections.map(section => {
       switch (section) {
         case 'summary':
-          return data.summary ? `
+          return normalizedData.summary ? `
                 <h2 class="section-header">PROFESSIONAL SUMMARY</h2>
                 <div class="summary-card">
-                  <div class="summary-text" style="white-space: pre-line;">${parseRichTextForPDF(data.summary || '')}</div>
+                  <div class="summary-text" style="white-space: pre-line;">${parseRichTextForPDF(normalizedData.summary || '')}</div>
                 </div>
               ` : '';
 
@@ -897,14 +1006,7 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
                         <div class="company">${exp.company || ''}</div>
                         ${exp.location ? `<div class="location">${exp.location || ''}</div>` : ''}
                       </div>
-                      <div class="job-date">${(() => {
-              const start = exp.startDate ? exp.startDate.trim() : '';
-              const end = exp.endDate ? exp.endDate.trim() : '';
-              if (!start && !end) return '';
-              if (!start) return end;
-              if (!end) return start;
-              return `${start} - ${end}`;
-            })()}</div>
+                      <div class="job-date">${fmtDateRange(exp.startDate, exp.endDate)}</div>
                     </div>
                     ${exp.description ? `
                       <ul class="job-description">
@@ -924,24 +1026,15 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
               ` : '';
 
         case 'education':
-          return data.education?.length > 0 ? `
+          return normalizedData.education?.length > 0 ? `
                 <h2 class="section-header">EDUCATION</h2>
-                ${data.education?.map(edu => `
+                ${normalizedData.education?.map(edu => `
                   <div class="education-item">
                     <div class="education-degree">${edu.degree || ''}</div>
                     <div class="education-school">${edu.school || edu.institution || ''}</div>
                     <div class="education-details">${(() => {
-              const start = edu.startDate ? edu.startDate.trim() : '';
-              const end = edu.endDate ? edu.endDate.trim() : '';
-              let datePart = '';
-              if (start && end) {
-                datePart = `${start} - ${end}`;
-              } else if (start) {
-                datePart = start;
-              } else if (end) {
-                datePart = end;
-              }
-              const gpaPart = edu.gpa ? `GPA: ${edu.gpa}` : '';
+              const datePart = fmtDateRange(edu.startDate, edu.endDate);
+              const gpaPart = edu.gpa && preferences?.education?.showGPA !== false ? `GPA: ${edu.gpa}` : '';
               return datePart && gpaPart ? `${datePart} | ${gpaPart}` : datePart || gpaPart || '';
             })()}</div>
                   </div>
@@ -949,9 +1042,9 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
               ` : '';
 
         case 'projects':
-          return data.projects?.length > 0 ? `
+          return normalizedData.projects?.length > 0 ? `
                 <h2 class="section-header">PROJECTS</h2>
-                ${data.projects?.map(project => `
+                ${normalizedData.projects?.map(project => `
                   <div class="project-item">
                     <div class="project-title">${project.name || project.title || ''}</div>
                     ${project.description ? `
@@ -992,11 +1085,11 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
         case 'achievements':
           // Only render achievements section if data.achievements exists (not from customSections)
           // Achievements in customSections will be rendered in their original position
-          return data.achievements?.length > 0 ? `
+          return normalizedData.achievements?.length > 0 ? `
                 <h2 class="section-header">ACHIEVEMENTS</h2>
                 <div class="achievements-list">
                   <ul>
-                    ${data.achievements?.map(achievement => `
+                    ${normalizedData.achievements?.map(achievement => `
                       <li class="achievement-item">
                         <span class="achievement-text">${achievement || ''}</span>
                       </li>
@@ -1006,11 +1099,11 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
               ` : '';
 
         case 'languages':
-          return data.languages?.length > 0 ? `
+          return normalizedData.languages?.length > 0 ? `
                 <div class="main-section">
                   <h2 class="section-header">LANGUAGES</h2>
                   <div class="languages-grid">
-                    ${data.languages?.map(lang => `
+                    ${normalizedData.languages?.map(lang => `
                       <div class="language-item-main">
                         <span class="language-name">${lang.language}</span>
                         ${lang.proficiency ? `<span class="language-proficiency">${lang.proficiency}</span>` : ''}
@@ -1066,7 +1159,7 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
                   })()}
                         </ul>
                       ` : ''}
-                      ${customSection.date ? `<div class="custom-section-date">${customSection.date}</div>` : ''}
+                      ${customSection.date ? `<div class="custom-section-date">${fmtDate(customSection.date)}</div>` : ''}
                       ${customSection.company ? `<div class="custom-section-company">${customSection.company}</div>` : ''}
                       ${customSection.position ? `<div class="custom-section-position">${customSection.position}</div>` : ''}
                       ${customSection.location ? `<div class="custom-section-location">${customSection.location}</div>` : ''}
@@ -1112,7 +1205,7 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
             ${shouldShowPhoto ? `<img src="${photoUrl}" alt="Profile" class="profile-photo">` : ''}
             <div class="header-text">
               <h1 class="header-title">${data.name || "Your Name"}</h1>
-              ${data.jobTitle ? `<p class="header-subtitle">${data.jobTitle}</p>` : ''}
+              ${normalizedData.jobTitle ? `<p class="header-subtitle">${safeText(normalizedData.jobTitle)}</p>` : ''}
             </div>
           </div>
         </div>
@@ -1124,7 +1217,7 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
             ${shouldShowPhoto ? `<img src="${photoUrl}" alt="Profile" class="profile-photo-single">` : ''}
             <div class="header-text-single">
               <h1 class="header-title">${data.name || "Your Name"}</h1>
-              ${data.jobTitle ? `<p class="header-subtitle">${data.jobTitle}</p>` : ''}
+              ${normalizedData.jobTitle ? `<p class="header-subtitle">${safeText(normalizedData.jobTitle)}</p>` : ''}
               <div class="header-contact">
                 ${data.email ? `<span>${data.email || ''}</span>` : ''}
                 ${data.email && data.phone ? '<span>•</span>' : ''}
@@ -1142,7 +1235,7 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
       return `
         <div class="header">
           <h1 class="header-title">${data.name || "Your Name"}</h1>
-          ${data.jobTitle ? `<p class="header-subtitle">${data.jobTitle}</p>` : ''}
+          ${normalizedData.jobTitle ? `<p class="header-subtitle">${safeText(normalizedData.jobTitle)}</p>` : ''}
         </div>
       `;
     }
@@ -1195,6 +1288,7 @@ function generateVisualAppealResumeHTML(data, template, customColors = {}, langu
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Visual Appeal Resume</title>
+      ${googleFontLink}
       <style>${generateCSS()}</style>
     </head>
     <body>

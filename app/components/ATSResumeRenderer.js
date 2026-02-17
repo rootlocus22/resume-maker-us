@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, memo } from 'react';
 import { parseRichText } from '../lib/richTextRenderer';
 import { renderSkillName, renderSkillWithProficiency } from "../lib/skillUtils";
+import { formatDateWithPreferences } from '../lib/resumeUtils';
 
 // Add a helper to render description as bullets if needed
 function renderDescriptionBullets(description, forceATS = true, excludeTexts = []) {
@@ -47,8 +48,7 @@ function renderDescriptionBullets(description, forceATS = true, excludeTexts = [
   return <div>{lines.map((line, idx) => <p key={idx} dangerouslySetInnerHTML={{ __html: parseRichText(line) }} />)}</div>;
 }
 
-const ATSResumeRenderer = memo(({ data, template, isCompact = false, isPremium = false }) => {
-
+const ATSResumeRenderer = memo(({ data: rawData, template, isCompact = false, isPremium = false, preferences = {} }) => {
 
   // Check if template is a string (template name) and needs to be looked up
   if (typeof template === 'string') {
@@ -90,7 +90,48 @@ const ATSResumeRenderer = memo(({ data, template, isCompact = false, isPremium =
     // });
   }
 
-  const { layout, styles } = template;
+  const { layout } = template;
+  const styles = { ...template.styles };
+
+  // ─── Apply preferences ───
+  const vis = preferences?.visibility || {};
+
+  // Filter data by visibility preferences
+  const data = {
+    ...rawData,
+    summary: vis.summary === false ? '' : rawData.summary,
+    jobTitle: vis.jobTitle === false ? '' : rawData.jobTitle,
+    experience: vis.experience === false ? [] : rawData.experience,
+    education: vis.education === false ? [] : rawData.education,
+    skills: vis.skills === false ? [] : rawData.skills,
+    certifications: vis.certifications === false ? [] : rawData.certifications,
+    languages: vis.languages === false ? [] : rawData.languages,
+    customSections: vis.customSections === false ? [] : rawData.customSections,
+    photo: vis.photo === false ? '' : rawData.photo,
+  };
+
+  // Apply typography preferences
+  const fontPref = preferences?.typography?.fontPair?.fontFamily;
+  if (fontPref) styles.fontFamily = fontPref;
+
+  const fontSizePref = preferences?.typography?.fontSize;
+  if (fontSizePref === 'small') styles.fontSize = '9pt';
+  else if (fontSizePref === 'large') styles.fontSize = '11.5pt';
+
+  const lineHeightPref = preferences?.typography?.lineHeight;
+  if (lineHeightPref === 'compact') styles.lineHeight = '1.25';
+  else if (lineHeightPref === 'relaxed') styles.lineHeight = '1.6';
+
+  // Format dates using preferences
+  const fmtDate = (date) => {
+    if (!date) return '';
+    if (/present/i.test(date)) return 'Present';
+    if (preferences?.dateFormat) {
+      const result = formatDateWithPreferences(date, preferences);
+      if (result) return result;
+    }
+    return date;
+  };
 
   // Normalize experience data to ensure jobTitle is always present
   const normalizeExperienceData = (experienceData) => {
@@ -743,10 +784,10 @@ const ATSResumeRenderer = memo(({ data, template, isCompact = false, isPremium =
     );
   };
 
-  // Helper to format date range conditionally
+  // Helper to format date range conditionally (uses preferences)
   const formatDateRange = (startDate, endDate) => {
-    const start = startDate ? String(startDate).trim() : '';
-    const end = endDate ? String(endDate).trim() : '';
+    const start = startDate ? fmtDate(startDate) : '';
+    const end = endDate ? fmtDate(endDate) : '';
 
     if (start && end) return `${start} - ${end}`;
     if (start) return start;
@@ -1032,7 +1073,7 @@ const ATSResumeRenderer = memo(({ data, template, isCompact = false, isPremium =
                   {/* Date (if present) */}
                   {section.date && (
                     <p className="text-sm mb-2" style={{ color: mergedColors.accent, fontFamily: styles.fontFamily, fontWeight: "600" }}>
-                      {section.date}
+                      {fmtDate(section.date)}
                     </p>
                   )}
 
@@ -1255,7 +1296,7 @@ const ATSResumeRenderer = memo(({ data, template, isCompact = false, isPremium =
                   }}
                 >
 
-                  {cert.issuer || ''}{cert.issuer && cert.date && cert.date.trim() !== '' && cert.date.toLowerCase() !== 'ongoing' && cert.date.toLowerCase() !== 'undefined' && <span style={{ color: mergedColors.accent, fontWeight: "600" }}> • </span>}{cert.date && cert.date.trim() !== '' && cert.date.toLowerCase() !== 'ongoing' && cert.date.toLowerCase() !== 'undefined' ? cert.date : ''}
+                  {cert.issuer || ''}{cert.issuer && cert.date && cert.date.trim() !== '' && cert.date.toLowerCase() !== 'ongoing' && cert.date.toLowerCase() !== 'undefined' && <span style={{ color: mergedColors.accent, fontWeight: "600" }}> • </span>}{cert.date && cert.date.trim() !== '' && cert.date.toLowerCase() !== 'ongoing' && cert.date.toLowerCase() !== 'undefined' ? fmtDate(cert.date) : ''}
                 </p>
               </div>
             </div>
@@ -1335,7 +1376,7 @@ const ATSResumeRenderer = memo(({ data, template, isCompact = false, isPremium =
                 color: mergedColors.text
               }}
             >
-              {typeof award === 'string' ? award : `${award.title || award.name || 'Award'} - ${award.issuer || 'Issuer'} (${award.date || 'Date'})`}
+              {typeof award === 'string' ? award : `${award.title || award.name || 'Award'} - ${award.issuer || 'Issuer'} (${award.date ? fmtDate(award.date) : 'Date'})`}
             </span>
           </div>
         ))}
