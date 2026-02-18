@@ -124,14 +124,17 @@ export default function Footer() {
                       Cover Letter
                     </Link>
                   </li>
-                  {isInternational && (
-                    <li>
-                      <Link href="/ats-score-checker" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm block font-bold">
-                        Free CV Audit
-                      </Link>
-                    </li>
-                  )}
-                  </ul>
+                  <li>
+                    <Link href="/resume-guide" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm block font-semibold">
+                      Resume Guide Hub
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/ai-interview/directory" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm block">
+                      AI Interview Directory
+                    </Link>
+                  </li>
+                </ul>
               </div>
 
               {/* Column 2: Resumes by Role */}
@@ -213,8 +216,13 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/cover-letter-builder" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm block">
-                      Cover Letter AI
+                    <Link href="/resume-guide" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm block">
+                      Expert Resume Guides
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/ai-interview/directory" className="text-gray-300 hover:text-white transition-colors text-xs sm:text-sm block">
+                      Interview Playbooks
                     </Link>
                   </li>
                 </ul>
@@ -441,7 +449,7 @@ export default function Footer() {
                   Cover Letter
                 </Link>
               </li>
-              </ul>
+            </ul>
           </div>
 
           {/* Column 2: Resume */}

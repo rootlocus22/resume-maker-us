@@ -43,6 +43,37 @@ export default function ResumeBuilderPage() {
         </div>
 
         <UploadResumeWrapper />
+
+        {/* SEO Depth for Indexation */}
+        <section className="mt-16 w-full max-w-4xl text-left border-t border-gray-100 pt-16">
+          <h2 className="text-2xl font-extrabold text-primary mb-6">Master the US Job Market with an ATS-Optimized Resume</h2>
+          <div className="grid md:grid-cols-2 gap-8 text-gray-600 leading-relaxed">
+            <div>
+              <h3 className="text-lg font-bold text-slate-800 mb-3">What is an ATS and why does it matter?</h3>
+              <p className="text-sm">
+                Most US companies use an **Applicant Tracking System (ATS)** like Workday, Greenhouse, or Lever to screen resumes.
+                If your resume isn't formatted correctly or lacks keywords, it might never reach a human recruiter.
+                Our tool ensures your resume is parseable and optimized for these systems.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-slate-800 mb-3">How to enhance your existing resume</h3>
+              <p className="text-sm">
+                Just upload your PDF or Word document. Our AI analyzes your job title and identifies missing high-impact keywords.
+                We help you restructure your bullet points using the **Action Verb + Result** formula, which is the gold standard for American hiring.
+              </p>
+            </div>
+          </div>
+          <div className="mt-12 bg-accent/5 p-8 rounded-2xl border border-accent/10">
+            <h3 className="text-lg font-bold text-accent-700 mb-4">Key Features of our AI Enhancer</h3>
+            <ul className="grid sm:grid-cols-2 gap-3 text-sm font-medium text-slate-700">
+              <li className="flex items-center gap-2">✅ Instant ATS Compatibility Check</li>
+              <li className="flex items-center gap-2">✅ Intelligent Keyword Injection</li>
+              <li className="flex items-center gap-2">✅ Professional Template Migration</li>
+              <li className="flex items-center gap-2">✅ Multi-page Support (US/Global formats)</li>
+            </ul>
+          </div>
+        </section>
       </div>
     </div>
   );

@@ -93,12 +93,25 @@ export default async function InterviewDirectory() {
                                                 >
                                                     {role.title}
                                                 </Link>
-                                                <div className="flex gap-2 text-xs text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                    <Link href={`/ai-interview/us/${role.slug}/interview-questions`} className="hover:text-slate-600">US</Link>
-                                                    <span className="text-slate-300">•</span>
-                                                    <Link href={`/ai-interview/uk/${role.slug}/interview-questions`} className="hover:text-slate-600">UK</Link>
-                                                    <span className="text-slate-300">•</span>
-                                                    <Link href={`/ai-interview/ca/${role.slug}/interview-questions`} className="hover:text-slate-600">CA</Link>
+                                                <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-400 opacity-80 group-hover:opacity-100 transition-opacity">
+                                                    <div className="flex gap-1.5">
+                                                        <span className="text-slate-500 font-bold uppercase text-[9px]">USA:</span>
+                                                        <Link href={`/ai-interview/us/${role.slug}/interview-questions`} className="hover:text-blue-600">Questions</Link>
+                                                        <Link href={`/ai-interview/us/${role.slug}/mock-interview`} className="hover:text-blue-600">Mock</Link>
+                                                        <Link href={`/ai-interview/us/${role.slug}/interview-feedback`} className="hover:text-blue-600">Feedback</Link>
+                                                    </div>
+                                                    <div className="flex gap-1.5">
+                                                        <span className="text-slate-500 font-bold uppercase text-[9px]">UK:</span>
+                                                        <Link href={`/ai-interview/uk/${role.slug}/interview-questions`} className="hover:text-blue-600">Questions</Link>
+                                                    </div>
+                                                    <div className="flex gap-1.5">
+                                                        <span className="text-slate-500 font-bold uppercase text-[9px]">CA:</span>
+                                                        <Link href={`/ai-interview/ca/${role.slug}/interview-questions`} className="hover:text-blue-600">Questions</Link>
+                                                    </div>
+                                                    <div className="flex gap-1.5">
+                                                        <span className="text-slate-500 font-bold uppercase text-[9px]">AU:</span>
+                                                        <Link href={`/ai-interview/au/${role.slug}/interview-questions`} className="hover:text-blue-600">Questions</Link>
+                                                    </div>
                                                 </div>
                                             </div>
                                         ))}
