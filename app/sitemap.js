@@ -5,9 +5,10 @@ import { getAllArticleSlugs } from "./lib/blogArticles";
 import { COUNTRIES, INTENTS } from "./lib/ai-interview/data";
 import { getExpandedRoles } from "./lib/ai-interview/roleExpander";
 import { adminDb } from "./lib/firebase-admin";
+import statesData from "./data/us_states.json";
 
 export default async function sitemap() {
-  const siteUrl = "https://expertresume.us/";
+  const siteUrl = "https://www.expertresume.us/";
 
   const staticRoutes = [
     // Core Pages
@@ -99,6 +100,25 @@ export default async function sitemap() {
     changefreq: "weekly",
   }));
 
+  // ======================================================
+  // Geo-Targeted Blue-Collar pSEO Pages (Role + State)
+  // ======================================================
+  const blueCollarSlugs = ["forklift-operator", "truck-driver-cdl", "warehouse-worker", "delivery-driver"];
+  const geoTargetedUrls = [];
+
+  for (const slug of blueCollarSlugs) {
+    const example = resumeExamples.find(e => e.slug === slug);
+    if (!example) continue;
+    for (const state of statesData) {
+      geoTargetedUrls.push({
+        url: `${siteUrl}resume-examples/${example.category}/${slug}/${state.slug}`,
+        lastModified: new Date().toISOString(),
+        priority: 0.8,
+        changefreq: "weekly",
+      });
+    }
+  }
+
   // Cover Letter Examples Hub Page
   const coverLetterHubUrl = {
     url: `${siteUrl}cover-letter-examples`,
@@ -188,5 +208,6 @@ export default async function sitemap() {
     ...blogArticleUrls,
     ...aiInterviewUrls,
     ...resumeGuideUrls,
+    ...geoTargetedUrls,
   ];
 }

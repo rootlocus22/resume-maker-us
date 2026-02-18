@@ -9,11 +9,7 @@ import { BASE_URL } from "./appConfig";
  * @returns {Promise<string>} Full canonical URL (e.g. https://www.expertresume.us/resume-guide/my-slug)
  */
 export async function getCanonicalUrl(path) {
-  try {
-    const h = await headers();
-    const host = h.get("host");
-    const proto = h.get("x-forwarded-proto") || "https";
-    if (host) return `${proto}://${host}${path}`;
-  } catch (_) {}
+  // Always use the hardcoded BASE_URL to avoid "Duplicate without user-selected canonical"
+  // This ensures Google only indexes ONE version (the one defined in appConfig.js).
   return `${BASE_URL}${path}`;
 }

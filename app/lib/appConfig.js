@@ -2,7 +2,7 @@
  * US App (ExpertResume) config – single source for brand, URLs, and analytics.
  * Use env vars for analytics/ads so you can change without code edits.
  */
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://expertresume.us";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://www.expertresume.us";
 const BRAND_NAME = "ExpertResume";
 const BRAND_TAGLINE = "AI Job Application System – Get past ATS. Get more interviews.";
 
