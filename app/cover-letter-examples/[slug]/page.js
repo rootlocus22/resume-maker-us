@@ -39,7 +39,14 @@ export async function generateMetadata({ params }) {
   return {
     title: example.metaTitle,
     description: example.metaDescription,
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      languages: {
+        'en-US': `https://www.expertresume.us/cover-letter-examples/${example.slug}`,
+        'en-IN': `https://resumegyani.in/cover-letter-examples/${example.slug}`,
+        'x-default': `https://www.expertresume.us/cover-letter-examples/${example.slug}`,
+      }
+    },
     openGraph: {
       title: example.metaTitle,
       description: example.metaDescription,

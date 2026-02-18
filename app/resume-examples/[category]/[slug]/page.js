@@ -12,16 +12,28 @@ export async function generateStaticParams() {
   }));
 }
 
+import { sanitizeGlobalSlug } from "../../../lib/slugUtils";
+
 export async function generateMetadata({ params }) {
   const { category, slug } = await params;
   const example = getExampleBySlug(slug);
   if (!example) return { title: "Resume Example Not Found" };
 
   const canonical = await getCanonicalUrl(`/resume-examples/${category}/${example.slug}`);
+  const sanitizedSlug = sanitizeGlobalSlug(example.slug);
+
   return {
     title: example.metaTitle,
     description: example.metaDescription,
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      languages: {
+        'en-US': `https://www.expertresume.us/resume-examples/${category}/${example.slug}`,
+        'en-IN': `https://resumegyani.in/resume-format-for/${sanitizedSlug}`,
+        'en-GB': `https://resumegyani.in/uk/cv-examples/${sanitizedSlug}`,
+        'x-default': `https://www.expertresume.us/resume-examples/${category}/${example.slug}`,
+      }
+    },
     openGraph: {
       title: example.metaTitle,
       description: example.metaDescription,
@@ -154,7 +166,7 @@ export default async function ResumeExamplePage({ params }) {
                   {example.title} Resume Example
                 </h2>
                 <p className="text-gray-600 mb-6">
-                  Here&apos;s a professional {example.title.toLowerCase()} resume example that you can use as a reference. 
+                  Here&apos;s a professional {example.title.toLowerCase()} resume example that you can use as a reference.
                   This example highlights the key sections and content that hiring managers look for.
                 </p>
 
@@ -236,7 +248,7 @@ export default async function ResumeExamplePage({ params }) {
                   {example.title} Resume Summary Examples
                 </h2>
                 <p className="text-gray-600 mb-4">
-                  Your resume summary is the first thing hiring managers read. Here&apos;s a strong example for a 
+                  Your resume summary is the first thing hiring managers read. Here&apos;s a strong example for a
                   {example.title.toLowerCase()} with {example.summary.yearsExperience} years of experience:
                 </p>
                 <div className="bg-accent-50 border border-accent-200 rounded-xl p-5 mb-4">
@@ -250,12 +262,12 @@ export default async function ResumeExamplePage({ params }) {
                     <AlertCircle size={16} /> Avoid This
                   </div>
                   <p className="text-gray-700 italic">
-                    &ldquo;Hardworking {example.title.toLowerCase()} looking for a challenging position where I can utilize my skills 
+                    &ldquo;Hardworking {example.title.toLowerCase()} looking for a challenging position where I can utilize my skills
                     and experience. I am a team player with excellent communication skills.&rdquo;
                   </p>
                 </div>
                 <p className="text-sm text-gray-500 mt-3">
-                  <strong>Why the first example works:</strong> It includes specific years of experience, quantified achievements, 
+                  <strong>Why the first example works:</strong> It includes specific years of experience, quantified achievements,
                   technical skills, and certifications — all things ATS systems and hiring managers look for.
                 </p>
               </div>
@@ -267,7 +279,7 @@ export default async function ResumeExamplePage({ params }) {
                   Work Experience Bullet Points
                 </h2>
                 <p className="text-gray-600 mb-4">
-                  Here are powerful, metrics-driven bullet points for a {example.title.toLowerCase()} resume. 
+                  Here are powerful, metrics-driven bullet points for a {example.title.toLowerCase()} resume.
                   Notice how each one starts with an action verb and includes specific numbers:
                 </p>
                 <ul className="space-y-3">
@@ -280,7 +292,7 @@ export default async function ResumeExamplePage({ params }) {
                 </ul>
                 <div className="mt-4 bg-accent-50 border border-accent-200 rounded-xl p-4">
                   <p className="text-sm text-primary-400">
-                    <strong>Pro Tip:</strong> Use the formula: <strong>Action Verb + Task + Quantified Result</strong>. 
+                    <strong>Pro Tip:</strong> Use the formula: <strong>Action Verb + Task + Quantified Result</strong>.
                     For example: &ldquo;Managed&rdquo; + &ldquo;team of 12 engineers&rdquo; + &ldquo;delivering project 20% under budget.&rdquo;
                   </p>
                 </div>
@@ -312,7 +324,7 @@ export default async function ResumeExamplePage({ params }) {
                   ATS Keywords for {example.title} Resume
                 </h2>
                 <p className="text-gray-600 mb-4">
-                  These are the most important keywords that Applicant Tracking Systems scan for in {example.title.toLowerCase()} resumes. 
+                  These are the most important keywords that Applicant Tracking Systems scan for in {example.title.toLowerCase()} resumes.
                   Include them naturally throughout your resume:
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -324,7 +336,7 @@ export default async function ResumeExamplePage({ params }) {
                 </div>
                 <div className="mt-4 bg-amber-50 border border-amber-200 rounded-xl p-4">
                   <p className="text-sm text-amber-800">
-                    <strong>Important:</strong> Don&apos;t stuff keywords. Use them naturally in your summary, experience, 
+                    <strong>Important:</strong> Don&apos;t stuff keywords. Use them naturally in your summary, experience,
                     and skills sections. ATS systems can detect keyword stuffing and may flag your resume.
                   </p>
                 </div>
@@ -539,7 +551,7 @@ export default async function ResumeExamplePage({ params }) {
             Build Your {example.title} Resume Now
           </h2>
           <p className="text-primary-100 mb-6">
-            Use this example as a starting point. Our AI resume builder will help you customize it for your 
+            Use this example as a starting point. Our AI resume builder will help you customize it for your
             target job in minutes.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">

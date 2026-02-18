@@ -34,6 +34,8 @@ export async function generateStaticParams() {
   }
 }
 
+import { sanitizeGlobalSlug } from "../../lib/slugUtils";
+
 // --- generateMetadata: Dynamic SEO metadata ---
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -45,12 +47,19 @@ export async function generateMetadata({ params }) {
 
   // Self-referencing canonical from request host so Google indexes (fixes "Duplicate without user-selected canonical")
   const canonical = await getCanonicalUrl(`/resume-guide/${slug}`);
+  const sanitizedSlug = sanitizeGlobalSlug(slug);
 
   return {
     title: role.seo_title || `${role.job_title} Resume Guide | ${BRAND_NAME}`,
     description: role.meta_description,
     alternates: {
       canonical,
+      languages: {
+        'en-US': `https://www.expertresume.us/resume-guide/${slug}`,
+        'en-IN': `https://resumegyani.in/resume-format-for/${sanitizedSlug}`,
+        'en-GB': `https://resumegyani.in/uk/cv-examples/${sanitizedSlug}`,
+        'x-default': `https://www.expertresume.us/resume-guide/${slug}`,
+      }
     },
     openGraph: {
       title: role.seo_title,
@@ -328,11 +337,10 @@ export default async function ResumeGuidePage({ params }) {
                     <div className="flex items-start justify-between gap-4 mb-3">
                       <h3 className="text-lg font-semibold text-primary">{q.question}</h3>
                       {q.difficulty && (
-                        <span className={`shrink-0 px-2.5 py-1 rounded-full text-xs font-medium ${
-                          q.difficulty === "Hard" ? "bg-red-100 text-red-700" :
-                          q.difficulty === "Medium" ? "bg-yellow-100 text-yellow-700" :
-                          "bg-green-100 text-green-700"
-                        }`}>
+                        <span className={`shrink-0 px-2.5 py-1 rounded-full text-xs font-medium ${q.difficulty === "Hard" ? "bg-red-100 text-red-700" :
+                            q.difficulty === "Medium" ? "bg-yellow-100 text-yellow-700" :
+                              "bg-green-100 text-green-700"
+                          }`}>
                           {q.difficulty}
                         </span>
                       )}

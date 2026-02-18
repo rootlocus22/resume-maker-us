@@ -29,6 +29,11 @@ export const metadata = {
     "Discover the best hard and soft skills to include on your resume in 2026. Browse skills by industry with ATS optimization tips, examples, and expert advice.",
   alternates: {
     canonical: `${BASE_URL}/resume-skills`,
+    languages: {
+      'en-US': `${BASE_URL}/resume-skills`,
+      'en-IN': `https://resumegyani.in/resume-skills`,
+      'x-default': `${BASE_URL}/resume-skills`,
+    },
   },
   openGraph: {
     title: `200+ Best Skills to Put on a Resume (2026 Guide) | ${BRAND_NAME}`,

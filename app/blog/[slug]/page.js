@@ -39,7 +39,14 @@ export async function generateMetadata({ params }) {
   return {
     title: `${article.metaTitle} | ${BRAND_NAME}`,
     description: article.metaDescription,
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      languages: {
+        'en-US': `https://www.expertresume.us/blog/${article.slug}`,
+        'en-IN': `https://resumegyani.in/blog/${article.slug}`,
+        'x-default': `https://www.expertresume.us/blog/${article.slug}`,
+      }
+    },
     openGraph: {
       title: article.metaTitle,
       description: article.metaDescription,
@@ -179,17 +186,17 @@ export default async function BlogArticlePage({ params }) {
   const faqSchema =
     article.faq && article.faq.length > 0
       ? {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: article.faq.map((f) => ({
-            "@type": "Question",
-            name: f.q,
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: f.a,
-            },
-          })),
-        }
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: article.faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: f.a,
+          },
+        })),
+      }
       : null;
 
   // Schema: Breadcrumb
@@ -266,9 +273,8 @@ export default async function BlogArticlePage({ params }) {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <span
-              className={`px-3 py-1 text-xs font-semibold rounded-full ${
-                categoryColorMap[article.category] || "bg-gray-100 text-gray-700"
-              }`}
+              className={`px-3 py-1 text-xs font-semibold rounded-full ${categoryColorMap[article.category] || "bg-gray-100 text-gray-700"
+                }`}
             >
               {categoryData?.name || article.category}
             </span>
@@ -421,10 +427,9 @@ export default async function BlogArticlePage({ params }) {
                       className="group bg-white rounded-xl border border-gray-100 p-5 hover:shadow-lg transition-all"
                     >
                       <span
-                        className={`inline-block px-2.5 py-0.5 text-xs font-medium rounded-full mb-2 ${
-                          categoryColorMap[related.category] ||
+                        className={`inline-block px-2.5 py-0.5 text-xs font-medium rounded-full mb-2 ${categoryColorMap[related.category] ||
                           "bg-gray-100 text-gray-700"
-                        }`}
+                          }`}
                       >
                         {blogCategories[related.category]?.name}
                       </span>

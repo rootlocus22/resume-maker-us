@@ -12,7 +12,14 @@ export async function generateMetadata() {
     title: `Resume Guide by Job Title - ATS-Optimized Templates & Tips | ${BRAND_NAME}`,
     description:
       "Browse 2,000+ professional resume guides organized by job title, industry, and experience level. Each guide includes ATS keywords, interview questions, salary data, and expert tips for the US job market.",
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      languages: {
+        'en-US': `${BASE_URL}/resume-guide`,
+        'en-IN': `https://resumegyani.in/resume-format-for`,
+        'x-default': `${BASE_URL}/resume-guide`,
+      }
+    },
     openGraph: {
       title: "Resume Guide by Job Title | ExpertResume",
       description: "2,000+ ATS-optimized resume guides for every US job role.",

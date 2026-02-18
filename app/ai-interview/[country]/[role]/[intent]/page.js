@@ -44,7 +44,16 @@ export async function generateMetadata({ params }) {
     return {
         title: data.metadata.title,
         description: data.metadata.description,
-        alternates: { canonical },
+        alternates: {
+            canonical,
+            languages: {
+                'en-US': `https://www.expertresume.us/ai-interview/us/${role}/${intent}`,
+                'en-GB': `https://www.expertresume.us/ai-interview/uk/${role}/${intent}`,
+                'en-CA': `https://www.expertresume.us/ai-interview/ca/${role}/${intent}`,
+                'en-AU': `https://www.expertresume.us/ai-interview/au/${role}/${intent}`,
+                'x-default': `https://www.expertresume.us/ai-interview/us/${role}/${intent}`,
+            }
+        },
         openGraph: {
             title: data.metadata.title,
             description: data.metadata.description,
