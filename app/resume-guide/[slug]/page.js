@@ -56,8 +56,8 @@ export async function generateMetadata({ params }) {
       canonical,
       languages: {
         'en-US': `https://www.expertresume.us/resume-guide/${slug}`,
-        'en-IN': `https://resumegyani.in/resume-format-for/${sanitizedSlug}`,
-        'en-GB': `https://resumegyani.in/uk/cv-examples/${sanitizedSlug}`,
+        'en-IN': `https://www.expertresume.us/resume-format-for/${sanitizedSlug}`,
+        'en-GB': `https://www.expertresume.us/uk/cv-examples/${sanitizedSlug}`,
         'x-default': `https://www.expertresume.us/resume-guide/${slug}`,
       }
     },

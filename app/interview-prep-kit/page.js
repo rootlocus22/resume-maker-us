@@ -12,7 +12,7 @@ export async function generateMetadata() {
       canonical,
       languages: {
         'en-US': `${BASE_URL}/interview-prep-kit`,
-        'en-IN': `https://resumegyani.in/interview-prep-kit`,
+        'en-IN': `https://www.expertresume.us/interview-prep-kit`,
         'x-default': `${BASE_URL}/interview-prep-kit`,
       }
     },

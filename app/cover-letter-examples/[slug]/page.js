@@ -43,7 +43,7 @@ export async function generateMetadata({ params }) {
       canonical,
       languages: {
         'en-US': `https://www.expertresume.us/cover-letter-examples/${example.slug}`,
-        'en-IN': `https://resumegyani.in/cover-letter-examples/${example.slug}`,
+        'en-IN': `https://www.expertresume.us/cover-letter-examples/${example.slug}`,
         'x-default': `https://www.expertresume.us/cover-letter-examples/${example.slug}`,
       }
     },

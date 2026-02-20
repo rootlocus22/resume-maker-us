@@ -43,7 +43,7 @@ export async function generateMetadata({ params }) {
       canonical,
       languages: {
         'en-US': `https://www.expertresume.us/blog/${article.slug}`,
-        'en-IN': `https://resumegyani.in/blog/${article.slug}`,
+        'en-IN': `https://www.expertresume.us/blog/${article.slug}`,
         'x-default': `https://www.expertresume.us/blog/${article.slug}`,
       }
     },

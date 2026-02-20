@@ -31,7 +31,7 @@ export const metadata = {
     canonical: `${BASE_URL}/resume-skills`,
     languages: {
       'en-US': `${BASE_URL}/resume-skills`,
-      'en-IN': `https://resumegyani.in/resume-skills`,
+      'en-IN': `https://www.expertresume.us/resume-skills`,
       'x-default': `${BASE_URL}/resume-skills`,
     },
   },

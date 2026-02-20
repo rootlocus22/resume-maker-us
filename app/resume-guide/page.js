@@ -16,7 +16,7 @@ export async function generateMetadata() {
       canonical,
       languages: {
         'en-US': `${BASE_URL}/resume-guide`,
-        'en-IN': `https://resumegyani.in/resume-format-for`,
+        'en-IN': `https://www.expertresume.us/resume-format-for`,
         'x-default': `${BASE_URL}/resume-guide`,
       }
     },
